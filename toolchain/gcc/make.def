@@ -1,0 +1,61 @@
+###################################################################
+# 	public crossplatform Makefile defines 
+##################################################################
+
+
+
+TARGET_PRODUCT		= minigcc
+
+PLATFORM=pclinux
+#PLATFORM=sigma865x
+#PLATFORM=sigma863x
+#PLATFORM=sigma862x
+
+ifndef PLATFORM
+$(error Undefined PLATFORM environment variable.please export PLATFORM=pclinux  or export PLATFORM=sigma865x)
+endif
+
+TOOLCHAIN			= 2.95.3
+#TOOLCHAIN			= 3.4.0
+#TOOLCHAIN			= 3.4.1
+SRC_PATH=/android/gcc/gcc-6.4.0/gcc
+
+
+ifeq ($(PLATFORM), pclinux)
+EXPORTDIR			= /opt/broch/sdk/pclinux
+#EGUI_INC_PATH		= $(EXPORTDIR)/include
+#EGUI_LIB_PATH		= $(EXPORTDIR)/lib
+
+#TOOLCHAIN_PATH		= /usr
+#TOOLCHAIN_INC_PATH	= $(TOOLCHAIN_PATH)/include
+#TOOLCHAIN_LIB_PATH 	= $(TOOLCHAIN_PATH)/lib
+
+#CROSS           	= /opt/broch/toolchain/ia32-gcc4/bin/
+CROSS               =
+G_CFLAGS        	= -m32 -g -O2
+G_LDFLAGS       	= -m32 -lpthread -lc -lm 
+ALLDEFINES      	= -DPLATFORM_PCLINUX
+endif
+
+
+#global variables as following 
+PWD  = $(shell pwd )
+CC 				= $(CROSS)gcc  
+GCC 			= $(CROSS)gcc  
+CXX 			= $(CROSS)g++
+AR 				= $(CROSS)ar rc
+RANLIB			= $(CROSS)ranlib
+STRIP			= $(CROSS)strip
+CP				= /bin/cp -afv
+RM				= /bin/rm -rf
+
+#ALLWARNING		= -Wundef -Wall -Wchar-subscripts -Wsign-compare 
+#-Wuninitialized 
+#ALLWARNING		+= -Werror
+
+
+G_INC			+= -I$(TOOLCHAIN_INC_PATH)  
+G_CFLAGS		+= $(ALLDEFINES)
+
+CXXFLAGS		= $(G_CFLAGS) $(ALLWARNING) -fpermissive 
+CCFLAGS			= $(G_CFLAGS) $(ALLWARNING) -Wmissing-declarations -Wnested-externs -Wmissing-prototypes

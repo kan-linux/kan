@@ -1,0 +1,45 @@
+#SRC_PATH=/android/gcc/gcc-6.4.0/gcc
+#GCC=gcc
+#CC=g++
+#AR=ar
+#RANLIB=ranlib
+include ../make.def
+
+CFLAGS= $(CCFLAGS) -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -I. -Ic -I/android/gcc/gcc-6.4.0/gcc -I/android/gcc/gcc-6.4.0/gcc/c -I/android/gcc/gcc-6.4.0/gcc/../include -I/android/gcc/gcc-6.4.0/gcc/../libcpp/include -I../gmp -I/android/gcc/gcc-6.4.0/gmp -I../mpfr/src -I/android/gcc/gcc-6.4.0/mpfr/src -I/android/gcc/gcc-6.4.0/mpc/src  -I/android/gcc/gcc-6.4.0/gcc/../libdecnumber -I/android/gcc/gcc-6.4.0/gcc/../libdecnumber/bid -I../libdecnumber -I/android/gcc/gcc-6.4.0/gcc/../libbacktrace 
+
+SRCS=c/c-lang.c c-family/stub-objc.c attribs.c c/c-errors.c c/c-decl.c c/c-typeck.c c/c-convert.c c/c-aux-info.c c/c-objc-common.c c/c-parser.c c/c-array-notation.c c/c-fold.c c-family/c-common.c c-family/c-cppbuiltin.c c-family/c-dump.c c-family/c-format.c c-family/c-gimplify.c c-family/c-indentation.c c-family/c-lex.c c-family/c-omp.c c-family/c-opts.c c-family/c-pch.c c-family/c-ppoutput.c  c-family/c-pragma.c c-family/c-pretty-print.c c-family/c-semantics.c c-family/c-ada-spec.c c-family/c-cilkplus.c c-family/array-notation-common.c c-family/cilk.c c-family/c-ubsan.c config/i386/i386-c.c config/glibc-c.c 
+
+
+OBJ_DIR=./
+#OBJS = $(addprefix $(OBJ_DIR),$(subst .c,.o,$(SRCS)))
+#OBJS = $(subst .c,.o,$(SRCS))
+#OBJS := $(SRCS: %.c=%.o)
+#OBJS = $(subst .c,.o,$(SRCS))
+OBJS=c-lang.o stub-objc.o attribs.o c-errors.o c-decl.o c-typeck.o c-convert.o c-aux-info.o c-objc-common.o c-parser.o c-array-notation.o c-fold.o c-common.o c-cppbuiltin.o c-dump.o c-format.o c-gimplify.o c-indentation.o c-lex.o c-omp.o c-opts.o c-pch.o c-ppoutput.o  c-pragma.o c-pretty-print.o c-semantics.o c-ada-spec.o c-cilkplus.o array-notation-common.o cilk.o c-ubsan.o i386-c.o glibc-c.o 
+
+vpath %.c c
+vpath %.c c-family
+vpath %.c config 
+vpath %.c config/i386
+
+all: step1 step2
+	
+
+
+
+clean:
+	rm -f $(OBJS)
+	rm -f ./build/$(OBJS)
+	#rm -f $(TARGETS)
+
+	
+
+step1:
+	mkdir -p build
+	echo $(OBJS)
+step2:$(OBJS)
+	echo "nothing"
+
+%.o: %.c
+	if [ ! -f ./build/$@ ]; then g++ -c $(CFLAGS) $< -o ./build/$@; fi
+

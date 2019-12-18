@@ -1,0 +1,124 @@
+#SRC_PATH=/android/gcc/gcc-6.4.0/gcc
+#GCC=gcc
+#CC=g++
+#AR=ar
+#RANLIB=ranlib
+include ../make.def
+
+CFLAGS= $(CCFLAGS) -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -DGENERATOR_FILE -fno-PIE -I. -Ibuild -I/android/gcc/gcc-6.4.0/gcc -I/android/gcc/gcc-6.4.0/gcc/build -I/android/gcc/gcc-6.4.0/gcc/../include  -I/android/gcc/gcc-6.4.0/gcc/../libcpp/include  
+
+
+SRCS=genchecksum.c genmatch.c genattrtab.c genautomata.c genemit.c genextract.c genoutput.c genpeep.o genrecog.o inchash.o genenums.o
+#OBJS = $(subst .c,.o,$(SRCS))
+#OBJS := $(SRCS: %.c=%.o)
+OBJS = $(subst .c,.o,$(SRCS))
+
+vpath %.c c
+vpath %.c c-family
+vpath %.c config 
+vpath %.c config/i386
+
+all: step1 step2
+	
+
+
+
+clean:
+	rm -f $(OBJS)
+	rm -f ./build/$(OBJS)
+	#rm -f $(TARGETS)
+
+	
+
+step1:
+	mkdir -p build
+	echo $(OBJS)
+step2:$(OBJS) genchecksum genmatch genattrtab genautomata genemit genextract genoutput genpeep genrecog genenums
+	echo "nothing"
+
+%.o: %.c
+	if [ ! -f ./build/$@ ]; then g++ -c $(CFLAGS) $< -o ./build/$@; fi
+
+
+genchecksum:
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genchecksum build/genchecksum.o ..//libiberty/libiberty.a
+	echo "g++    -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -static-libstdc++ -static-libgcc " > checksum-options.tmp && /android/gcc/gcc-6.4.0/gcc/../move-if-change checksum-options.tmp checksum-options
+
+
+genmatch:
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genmatch build/genmatch.o ..//libcpp/libcpp.a build/errors.o build/vec.o build/hash-table.o ..//libiberty/libiberty.a
+	build/genmatch --gimple /android/gcc/gcc-6.4.0/gcc/match.pd \
+	    > tmp-gimple-match.c
+	build/genmatch --generic /android/gcc/gcc-6.4.0/gcc/match.pd \
+	    > tmp-generic-match.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-gimple-match.c \
+	    					gimple-match.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-generic-match.c \
+	    					generic-match.c
+	echo timestamp > s-match
+
+
+
+genattrtab:
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genattrtab build/genattrtab.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/read-md.o build/errors.o ..//libiberty/libiberty.a
+
+
+genautomata:
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genautomata build/genautomata.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/read-md.o build/errors.o ..//libiberty/libiberty.a -lm
+	build/genautomata /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md \
+	  insn-conditions.md > tmp-automata.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-automata.c insn-automata.c
+	echo timestamp > s-automata
+
+
+
+genemit:
+	g++  $(CFLAGS)  -static-libstdc++ -static-libgcc   -o build/genemit build/genemit.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/read-md.o build/errors.o ..//libiberty/libiberty.a
+	build/genemit /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md \
+	  insn-conditions.md > tmp-emit.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-emit.c insn-emit.c
+	echo timestamp > s-emit
+
+
+genextract:
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genextract build/genextract.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/read-md.o build/errors.o ..//libiberty/libiberty.a
+	build/genextract /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md insn-conditions.md > tmp-extract.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-extract.c insn-extract.c
+	echo timestamp > s-extract
+	build/genmodes > tmp-modes.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-modes.c insn-modes.c
+	echo timestamp > s-modes
+
+
+genoutput:
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genoutput build/genoutput.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/read-md.o build/errors.o ..//libiberty/libiberty.a
+	build/genoutput /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md \
+	  insn-conditions.md > tmp-output.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-output.c insn-output.c
+	echo timestamp > s-output
+
+
+
+genpeep:
+	g++  $(CFLAGS)  -static-libstdc++ -static-libgcc   -o build/genpeep build/genpeep.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/read-md.o build/errors.o ..//libiberty/libiberty.a
+	build/genpeep /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md insn-conditions.md > tmp-peep.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-peep.c insn-peep.c
+	echo timestamp > s-peep
+	build/genpreds /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md > tmp-preds.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-preds.c insn-preds.c
+	echo timestamp > s-preds
+
+
+genrecog:
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genrecog build/genrecog.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/read-md.o build/errors.o build/inchash.o ..//libiberty/libiberty.a
+	build/genrecog /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md insn-conditions.md > tmp-recog.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-recog.c insn-recog.c
+	echo timestamp > s-recog
+
+
+genenums:
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genenums build/genenums.o build/read-md.o build/errors.o ..//libiberty/libiberty.a
+	build/genenums /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md > tmp-enums.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-enums.c insn-enums.c
+	echo timestamp > s-enums
+

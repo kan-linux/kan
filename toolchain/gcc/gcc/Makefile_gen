@@ -1,0 +1,244 @@
+#SRC_PATH=/android/gcc/gcc-6.4.0/gcc
+#GCC=gcc
+#CC=g++
+#AR=ar
+#RANLIB=ranlib
+include ../make.def
+
+CFLAGS=$(CCFLAGS) -fPIC -fPIE -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -DGENERATOR_FILE -fno-PIE -I. -Ibuild -I$(SRC_PATH) -I$(SRC_PATH)/build -I$(SRC_PATH)/../include  -I$(SRC_PATH)/../libcpp/include  
+
+OBJS= genmddeps.o read-md.o errors.o genmodes.o gengtype.o gengtype-lex.o gengtype-parse.o gengtype-state.o genconstants.o genpreds.o gengenrtl.o rtl.o read-rtl.o ggc-none.o vec.o min-insn-modes.o gensupport.o print-rtl.o hash-table.o  genflags.o genconditions.o gencondmd.o genattr.o genattr-common.o gencodes.o genconfig.o gentarget-def.o gencheck.o gcov-iov.o genhooks.o genopinit.o gencfn-macros.o
+
+TARGETS = gentype genmddeps genmodes version.o gentype genconstants gengenrtl genpreds genflags genconditions gencondmd genattr genattr-common gencodes genconfig gentarget-def gencheck gcov-iov genhooks  genopinit gencfn-macros
+
+all: step1 step2
+	
+
+
+
+clean:
+	rm -f $(OBJS)
+	rm -f $(TARGETS)
+
+	
+
+step1:
+	mkdir -p build
+	rm -f build/print-rtl.o
+
+step2: $(OBJS) version.o gentype genmddeps genmodes genconstants gengenrtl genpreds genflags genconditions gencondmd genattr genattr-common gencodes genconfig gentarget-def gencheck gcov-iov genhooks  genopinit gencfn-macros
+#step2: genmddeps genmodes 
+
+#step2: $(TARGETS)
+
+gentype: build/gengtype.o build/errors.o build/gengtype-lex.o build/gengtype-parse.o build/gengtype-state.o build/version.o
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/gengtype build/gengtype.o build/errors.o build/gengtype-lex.o build/gengtype-parse.o build/gengtype-state.o build/version.o ..//libiberty/libiberty.a
+
+genmddeps: build/genmddeps.o build/read-md.o build/errors.o
+	g++ $(CFLAGS)  -static-libstdc++ -static-libgcc   -o build/genmddeps build/genmddeps.o build/read-md.o build/errors.o ..//libiberty/libiberty.a
+	build/genmddeps /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md > tmp-mddeps
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-mddeps mddeps.mk
+	echo timestamp > s-mddeps
+	export LC_ALL=C 
+	mawk -f /android/gcc/gcc-6.4.0/gcc/opt-gather.awk /android/gcc/gcc-6.4.0/gcc/ada/gcc-interface/lang.opt /android/gcc/gcc-6.4.0/gcc/fortran/lang.opt /android/gcc/gcc-6.4.0/gcc/go/lang.opt /android/gcc/gcc-6.4.0/gcc/java/lang.opt /android/gcc/gcc-6.4.0/gcc/lto/lang.opt /android/gcc/gcc-6.4.0/gcc/c-family/c.opt /android/gcc/gcc-6.4.0/gcc/common.opt /android/gcc/gcc-6.4.0/gcc/config/fused-madd.opt /android/gcc/gcc-6.4.0/gcc/config/i386/i386.opt /android/gcc/gcc-6.4.0/gcc/config/gnu-user.opt /android/gcc/gcc-6.4.0/gcc/config/linux.opt /android/gcc/gcc-6.4.0/gcc/config/linux-android.opt > tmp-optionlist
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-optionlist optionlist
+	echo timestamp > s-options
+	mawk -f /android/gcc/gcc-6.4.0/gcc/opt-functions.awk -f /android/gcc/gcc-6.4.0/gcc/opt-read.awk \
+	       -f /android/gcc/gcc-6.4.0/gcc/opth-gen.awk \
+	       < optionlist > tmp-options.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-options.h options.h
+	echo timestamp > s-options-h
+	#/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-gi.list gtyp-input.list
+	echo timestamp > s-gtyp-input
+	build/gengtype -S /android/gcc/gcc-6.4.0/gcc -I gtyp-input.list -w tmp-gtype.state
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-gtype.state gtype.state
+	build/gengtype  \
+                    -r gtype.state
+	echo timestamp > s-gtype
+
+
+
+genmodes:build/genmodes.o build/errors.o
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genmodes build/genmodes.o build/errors.o ..//libiberty/libiberty.a
+	build/genmodes -h > tmp-modes.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-modes.h insn-modes.h
+	echo timestamp > s-modes-h
+
+version.o:
+	g++ -c $(CFLAGS) -DBASEVER="\"6.4.0\"" -DDATESTAMP="\"\"" -DREVISION="\"\"" -DDEVPHASE="\"\"" -DPKGVERSION="\"(GCC) \"" -DBUGURL="\"<http://gcc.gnu.org/bugs.html>\"" -o build/version.o version.c
+
+
+
+genconstants: build/genconstants.o build/read-md.o build/errors.o
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genconstants build/genconstants.o build/read-md.o build/errors.o ..//libiberty/libiberty.a
+	build/genconstants /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md > tmp-constants.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-constants.h insn-constants.h
+	echo timestamp > s-constants
+
+
+gengenrtl:build/gengenrtl.o build/errors.o
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/gengenrtl build/gengenrtl.o build/errors.o ..//libiberty/libiberty.a
+	build/gengenrtl > tmp-genrtl.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-genrtl.h genrtl.h
+	echo timestamp > s-genrtl-h
+
+bversion.h:
+	echo "#define BUILDING_GCC_MAJOR `echo 6.4.0 | sed -e 's/^\([0-9]*\).*$/\1/'`" > bversion.h
+	echo "#define BUILDING_GCC_MINOR `echo 6.4.0 | sed -e 's/^[0-9]*\.\([0-9]*\).*$/\1/'`" >> bversion.h
+	echo "#define BUILDING_GCC_PATCHLEVEL `echo 6.4.0 | sed -e 's/^[0-9]*\.[0-9]*\.\([0-9]*\)$/\1/'`" >> bversion.h
+	echo "#define BUILDING_GCC_VERSION (BUILDING_GCC_MAJOR * 1000 + BUILDING_GCC_MINOR)" >> bversion.h
+	echo timestamp > s-bversion
+	build/genmodes -m > tmp-min-modes.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-min-modes.c min-insn-modes.c
+	echo timestamp > s-modes-m
+
+
+genpreds_objs = build/genpreds.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/read-md.o build/errors.o
+
+genpreds: $(genpreds_objs)
+	@echo "generate genpreds"
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genpreds $(genpreds_objs) ..//libiberty/libiberty.a
+	build/genpreds -h /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md > tmp-preds.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-preds.h tm-preds.h
+	echo timestamp > s-preds-h
+
+
+genflags_objs_1 = genflags.o rtl.o read-rtl.o ggc-none.o vec.o min-insn-modes.o gensupport.o print-rtl.o hash-table.o read-md.o errors.o 
+genflags_objs = $(addprefix ./build/, $(genflags_objs_1))
+genflags: $(genflags_objs)
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genflags $(genflags_objs) ..//libiberty/libiberty.a
+
+
+genconditions_objs_1 = genconditions.o rtl.o read-rtl.o ggc-none.o vec.o min-insn-modes.o gensupport.o print-rtl.o hash-table.o read-md.o errors.o 
+genconditions_objs = $(addprefix ./build/, $(genconditions_objs_1))
+genconditions:$(genconditions_objs)
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genconditions $(genconditions_objs) ..//libiberty/libiberty.a
+
+gencondmd_objs= build/gencondmd.o
+gencondmd: $(gencondmd_objs)
+	build/genconditions /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md > tmp-condmd.c
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-condmd.c gencondmd.c
+	echo timestamp > s-conditions
+	build/genpreds -c /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md > tmp-constrs.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-constrs.h tm-constrs.h
+	echo timestamp > s-constrs-h
+	g++ $(CFLAGS)  -static-libstdc++ -static-libgcc   -o build/gencondmd $(gencondmd_objs) ..//libiberty/libiberty.a
+	echo timestamp > s-mlib
+
+
+genattr_objs_1= genattr.o rtl.o read-rtl.o ggc-none.o vec.o min-insn-modes.o gensupport.o print-rtl.o hash-table.o read-md.o errors.o 
+genattr_objs= $(addprefix ./build/, $(genattr_objs_1))
+genattr: $(genattr_objs)
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genattr $(genattr_objs) ..//libiberty/libiberty.a
+	build/genattr /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md insn-conditions.md > tmp-attr.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-attr.h insn-attr.h
+	echo timestamp > s-attr
+
+
+
+genattr-common_objs_1 = genattr-common.o rtl.o read-rtl.o ggc-none.o vec.o min-insn-modes.o gensupport.o print-rtl.o hash-table.o read-md.o errors.o 
+genattr-common_objs = $(addprefix ./build/, $(genattr-common_objs_1))
+genattr-common:$(genattr-common_objs)
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genattr-common $(genattr-common_objs) ..//libiberty/libiberty.a
+	build/genattr-common /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md insn-conditions.md > tmp-attr-common.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-attr-common.h insn-attr-common.h
+	echo timestamp > s-attr-common
+
+
+gencodes_objs_1= gencodes.o rtl.o read-rtl.o ggc-none.o vec.o min-insn-modes.o gensupport.o print-rtl.o hash-table.o read-md.o errors.o 
+gencodes_objs= $(addprefix ./build/, $(gencodes_objs_1))
+gencodes:$(gencodes_objs)
+	g++ $(CFLAGS) -fno-PIE -static-libstdc++ -static-libgcc   -o build/gencodes $(gencodes_objs) ..//libiberty/libiberty.a
+	build/gencodes /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md insn-conditions.md > tmp-codes.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-codes.h insn-codes.h
+	echo timestamp > s-codes
+
+genconfig_objs_1= genconfig.o rtl.o read-rtl.o ggc-none.o vec.o min-insn-modes.o gensupport.o print-rtl.o hash-table.o read-md.o errors.o
+genconfig_objs= $(addprefix ./build/, $(genconfig_objs_1))
+genconfig:$(genconfig_objs)
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genconfig $(genconfig_objs)  ..//libiberty/libiberty.a
+	build/genconfig /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md insn-conditions.md > tmp-config.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-config.h insn-config.h
+	echo timestamp > s-config
+
+
+
+gentarget-def_objs_1= gentarget-def.o rtl.o read-rtl.o ggc-none.o vec.o min-insn-modes.o gensupport.o print-rtl.o hash-table.o read-md.o errors.o
+gentarget-def_objs= $(addprefix ./build/, $(gentarget-def_objs_1))
+gentarget-def:$(gentarget-def_objs)
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/gentarget-def $(gentarget-def_objs) ..//libiberty/libiberty.a
+	build/gentarget-def /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md insn-conditions.md > tmp-target-def.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-target-def.h insn-target-def.h
+	echo timestamp > s-target-def
+	#lsf="/android/gcc/gcc-6.4.0/gcc/cp/lang-specs.h /android/gcc/gcc-6.4.0/gcc/lto/lang-specs.h"; for f in $lsf; do \
+	#    echo "#include \"$f\""; \
+	#done | sed 's|/android/gcc/gcc-6.4.0/gcc/||' > tmp-specs.h
+
+	#/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-specs.h specs.h
+	echo timestamp > s-specs
+
+
+gencheck: build/gencheck.o
+	rm -f tmp-all-tree.def
+	echo '#include "tree.def"' > tmp-all-tree.def
+	echo 'END_OF_BASE_TREE_CODES' >> tmp-all-tree.def
+	echo '#include "c-family/c-common.def"' >> tmp-all-tree.def
+	ltf="/android/gcc/gcc-6.4.0/gcc/ada/gcc-interface/ada-tree.def /android/gcc/gcc-6.4.0/gcc/cp/cp-tree.def /android/gcc/gcc-6.4.0/gcc/java/java-tree.def /android/gcc/gcc-6.4.0/gcc/objc/objc-tree.def"; for f in $ltf; do \
+	  echo "#include \"$f\""; \
+	done | sed 's|/android/gcc/gcc-6.4.0/gcc/||' >> tmp-all-tree.def
+	#/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-all-tree.def all-tree.def
+	echo timestamp > s-alltree
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/gencheck build/gencheck.o ..//libiberty/libiberty.a
+	build/gencheck > tmp-check.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-check.h tree-check.h
+	echo timestamp > s-check
+
+
+gcov-iov:build/gcov-iov.o
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   build/gcov-iov.o -o build/gcov-iov
+	build/gcov-iov '6.4.0' '' > tmp-gcov-iov.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-gcov-iov.h gcov-iov.h
+	echo timestamp > s-iov
+
+
+genhooks:build/genhooks.o build/errors.o
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genhooks build/genhooks.o build/errors.o ..//libiberty/libiberty.a
+	build/genhooks "Target Hook" > tmp-target-hooks-def.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-target-hooks-def.h target-hooks-def.h
+	echo timestamp > s-target-hooks-def-h
+
+genopinit_objs_1 = genopinit.o rtl.o read-rtl.o ggc-none.o vec.o min-insn-modes.o gensupport.o print-rtl.o hash-table.o read-md.o errors.o
+genopinit_objs = $(addprefix ./build/, $(genopinit_objs_1))
+genopinit:$(genopinit_objs)
+	g++ $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/genopinit $(genopinit_objs) ..//libiberty/libiberty.a
+	#build/genopinit /android/gcc/gcc-6.4.0/gcc/common.md /android/gcc/gcc-6.4.0/gcc/config/i386/i386.md insn-conditions.md -htmp-opinit.h -ctmp-opinit.c
+	#/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-opinit.h insn-opinit.h
+	#/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-opinit.c insn-opinit.c
+	echo timestamp > s-opinit
+	build/genhooks "Common Target Hook" > tmp-common-target-hooks-def.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-common-target-hooks-def.h common/common-target-hooks-def.h
+	echo timestamp > s-common-target-hooks-def-h
+	mawk -f /android/gcc/gcc-6.4.0/gcc/gen-pass-instances.awk /android/gcc/gcc-6.4.0/gcc/passes.def > pass-instances.def
+	build/genhooks "C Target Hook" > tmp-c-target-hooks-def.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-c-target-hooks-def.h c-family/c-target-hooks-def.h
+	echo timestamp > s-c-target-hooks-def-h
+	#gcc -E /android/gcc/gcc-6.4.0/gcc/params-list.h | sed 's/^#.*//;/^$/d' > tmp-params.list
+	#/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-params.list params.list
+	echo timestamp > s-params.list
+
+gencfn-macros_objs_1= gencfn-macros.o errors.o hash-table.o ggc-none.o
+gencfn-macros_objs= $(addprefix ./build/, $(gencfn-macros_objs_1))
+gencfn-macros:$(gencfn-macros_objs)
+	g++  $(CFLAGS) -static-libstdc++ -static-libgcc   -o build/gencfn-macros $(gencfn-macros_objs) ..//libiberty/libiberty.a
+	build/gencfn-macros -c > tmp-case-cfn-macros.h
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-case-cfn-macros.h case-cfn-macros.h
+	echo timestamp > s-case-cfn-macros
+	build/gencfn-macros -o > tmp-cfn-operators.pd
+	/bin/bash /android/gcc/gcc-6.4.0/gcc/../move-if-change tmp-cfn-operators.pd cfn-operators.pd
+	echo timestamp > s-cfn-operators
+
+#$(OBJS): %.o: %.c
+#	g++ -c $(CFLAGS) $< -o build/$@
+
+%.o: %.c
+	if [ ! -f ./build/$@ ]; then g++ -c $(CFLAGS) $< -o ./build/$@; fi
