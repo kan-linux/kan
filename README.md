@@ -28,30 +28,11 @@ This project thoroughly abandons the bloated legacy desktop stack including GTK,
 
 - **Agent\-First \& Agent\-Friendly** — designed for AI agent autonomous operation, auto\-compilation, component deployment and intelligent troubleshooting
 
-- **True Agent-First** — Most so-called "agentic-first" Linux distributions are essentially conventional systems (Ubuntu, Nix, Arch) with AI tools preinstalled.
+- **True Agent-First** — Most "agentic-first" Linux distributions are essentially conventional systems (Ubuntu, Nix, Arch) with AI tools preinstalled.
 They retain traditional package managers (`deb`/`rpm`/`nix`/`pacman`), binary repositories and legacy system state logic.
 On these systems, **the agent is optional** — it is merely an assistant application, not a system necessity.
 
---- 
-
-## Kan-Linux redefines the Agent-First paradigm fundamentally
-
-
-1. **No traditional package management**
-
-All userland components and applications are built strictly from source.No package database, no binary repository dependencies, no distro-specific packaging abstractions.Software lifecycle is reduced to primitive, automatable workflows:`source fetch → patch → audit → build → deploy`.
-
-2. **Agent is mandatory, not optional**
-
-Kan-Linux only provides a minimal, auditable base system:`Linux kernel + musl/glibc + BusyBox init + minimal Wayland desktop stack`. All upper-layer software extension, dependency resolution, ABI verification and deployment orchestration **depends on the agent**. The system is intentionally not designed for pure manual daily extension.
-
-3. **AI-native security audit pipeline**
-
-Different from distro-reliant security models (maintainer-maintained CVE patches & binary auditing), Kan-Linux embeds LLM-based source-level security audit(GLM-5.3 and others) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to **source pre-admission auditing**.
-
-4. **Deterministic, fully traceable system state**
-
-Every binary in the system can be traced back to exact source commit, patch set and build flags. No implicit upstream drift, no hidden distro patches, no opaque package-manager state.
+- **AI-native security audit pipeline** — Different from distro-reliant security models (maintainer-maintained CVE patches & binary auditing), Kan-Linux embeds LLM-based source-level security audit(GLM-5.3 and others) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to **source pre-admission auditing**.
 
 ---
 
