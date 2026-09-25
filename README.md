@@ -18,19 +18,17 @@ This project thoroughly abandons the bloated legacy desktop stack including GTK,
 
 - **Purity** — Remove redundant dependencies and legacy rendering layers (similar to the core principle of ggml/llama.cpp)
 
-- **Minimalism** — Lightweight musl base with zero useless overhead
+- **Minimalism** — Lightweight underlying architecture with no extraneous system overhead
 
-- **Modernity** — Pure Wayland\-native desktop, drop outdated X11 stack
+- **Modernity** — Pure Wayland\-native desktop, drop outdated X11/GTK stack
 
 - **Source-Built** — The entire OS and all components are built from source, enabling AI agents to intelligently build, deploy and repair the system autonomously
 
 - **llama.cpp-First** — Built-in native llama.cpp edge inference engine for local AI deployment
 
-- **Agent\-First \& Agent\-Friendly** — designed for AI agent autonomous operation, auto\-compilation, component deployment and intelligent troubleshooting
+- **Agent\-First \& Agent\-Friendly** — Designed for intelligent agents. Supports AI agents to autonomously compile, deploy, install components, run system checks and resolve issues
 
-- **True Agent-First** — Most "agentic-first" Linux distributions are essentially conventional systems (Ubuntu, Nix, Arch) with AI tools preinstalled.
-They retain traditional package managers (`deb`/`rpm`/`nix`/`pacman`), binary repositories and legacy system state logic.
-On these systems, **the agent is optional** — it is merely an assistant application, not a system necessity.
+- **True Agent-First** — Most "agent-first" systems on the market simply pre-install AI tools on top of traditional distributions such as Ubuntu, Nix or Arch Linux. Those systems still rely on conventional package managers (deb/rpm/nix/pacman), binary software repositories and legacy system state logic. In such systems, AI agents are merely optional add-on applications rather than core parts of system operation. Kan-Linux provides only a minimal, source-built and auditable base system. Tasks including optional upper-layer extensions, dependency resolution, ABI consistency validation and deployment orchestration are handled by AI agents.
 
 - **AI-native security audit pipeline** — Different from distro-reliant security models (maintainer-maintained CVE patches & binary auditing), Kan-Linux embeds LLM-based source-level security audit(GLM-5.3 and others) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to **source pre-admission auditing**.
 
