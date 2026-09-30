@@ -1,0 +1,32 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# usbhid-dump claims HID interfaces, so an unprivileged run produces a
+# permission error rather than a descriptor dump; both binaries should
+# fail identically, which is still a valid comparison.  As root the
+# dump succeeds and each header line ends in a gettimeofday()
+# timestamp; nots() strips that so the diff stays byte-stable.
+
+setup() {
+	: "${USBHID_DUMP_BUILT:=$DIR/../build/usbhid-dump}"
+	: "${USBHID_DUMP_INSTALLED:=$(command -v usbhid-dump || true)}"
+}
+
+nots() {
+	sed 's/ *[0-9][0-9]*\.[0-9][0-9]*$//'
+}
+
+@test "built usbhid-dump -v reports a version" {
+	run "$USBHID_DUMP_BUILT" -v
+	[ $status -eq 0 ]
+	match "$stdout" '/^usbhid-dump \(usbutils\) /'
+}
+
+@test "usbhid-dump: built and installed output is identical" {
+	[ -n "$USBHID_DUMP_INSTALLED" ]
+	"$USBHID_DUMP_BUILT"     2>&1 | nots > "$TEST_TMP.built"
+	"$USBHID_DUMP_INSTALLED" 2>&1 | nots > "$TEST_TMP.installed"
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}

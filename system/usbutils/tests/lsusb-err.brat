@@ -1,0 +1,45 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Argument-parsing error paths: unknown option, stray positional, -d without
+# the required colon.  Both binaries should reject these identically.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+	: "${LSUSB_INSTALLED:=$(command -v lsusb || true)}"
+}
+
+@test "lsusb -X: unknown option gives usage and non-zero exit" {
+	run "$LSUSB_BUILT" -X
+	[ $status -ne 0 ]
+	match "$stderr" '/Usage: lsusb/'
+}
+
+@test "lsusb -X: built and installed error output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	# getopt(3) prefixes its "invalid option" line with argv[0]; skip it.
+	"$LSUSB_BUILT"     -X 2>&1 | tail -n +2 > "$TEST_TMP.built"     || true
+	"$LSUSB_INSTALLED" -X 2>&1 | tail -n +2 > "$TEST_TMP.installed" || true
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb extra positional: gives usage and non-zero exit" {
+	run "$LSUSB_BUILT" stray
+	[ $status -ne 0 ]
+	match "$stderr" '/Usage: lsusb/'
+}
+
+@test "lsusb -d nocolon: gives usage and non-zero exit" {
+	run "$LSUSB_BUILT" -d nocolon
+	[ $status -ne 0 ]
+	match "$stderr" '/Usage: lsusb/'
+}
+
+@test "lsusb -d nocolon: built and installed error output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -d nocolon > "$TEST_TMP.built"     2>&1 || true
+	"$LSUSB_INSTALLED" -d nocolon > "$TEST_TMP.installed" 2>&1 || true
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}

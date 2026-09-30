@@ -1,0 +1,940 @@
+# Translation of sed to ِArabic
+# Copyright (C) 2026 Free Software Foundation, Inc.
+# This file is distributed under the same license as the sed package.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: sed 4.8.44\n"
+"Report-Msgid-Bugs-To: bug-gnu-utils@gnu.org\n"
+"POT-Creation-Date: 2026-04-21 07:55-0700\n"
+"PO-Revision-Date: 2026-01-31 19:11+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: Arabic <(nothing)>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#: lib/copy-acl.c:55
+#, c-format
+msgid "preserving permissions for %s"
+msgstr "حفظ الصلاحيات لـ %s"
+
+#: lib/dfa.c:905
+msgid "unbalanced ["
+msgstr "أقواس [ غير متوازنة"
+
+#: lib/dfa.c:1026
+msgid "invalid character class"
+msgstr "فئة محارف غير صالحة"
+
+#: lib/dfa.c:1154
+msgid "character class syntax is [[:space:]], not [:space:]"
+msgstr "صياغة فئة المحارف هي [[:space:]] وليس [:space:]"
+
+#: lib/dfa.c:1229
+msgid "unfinished \\ escape"
+msgstr "هروب \\ غير مكتمل"
+
+#: lib/dfa.c:1339
+msgid "? at start of expression"
+msgstr "? في بداية التعبير"
+
+#: lib/dfa.c:1351
+msgid "* at start of expression"
+msgstr "* في بداية التعبير"
+
+#: lib/dfa.c:1365
+msgid "+ at start of expression"
+msgstr "+ في بداية التعبير"
+
+#: lib/dfa.c:1420
+msgid "{...} at start of expression"
+msgstr "{...} في بداية التعبير"
+
+#: lib/dfa.c:1423
+msgid "invalid content of \\{\\}"
+msgstr "محتوى غير صالح في \\{\\}"
+
+#: lib/dfa.c:1425
+msgid "regular expression too big"
+msgstr "التعبير النمطي كبير جداً"
+
+#: lib/dfa.c:1575
+msgid "stray \\ before unprintable character"
+msgstr "علامة \\ تائهة قبل محرف غير قابل للطباعة"
+
+#: lib/dfa.c:1577
+msgid "stray \\ before white space"
+msgstr "علامة \\ تائهة قبل مسافة بيضاء"
+
+#: lib/dfa.c:1588
+#, fuzzy, c-format
+msgid "stray \\ before %s"
+msgstr "علامة \\ تائهة قبل %lc"
+
+#: lib/dfa.c:1589 lib/dfa.c:1592
+msgid "stray \\"
+msgstr "علامة \\ تائهة"
+
+#: lib/dfa.c:1943
+msgid "unbalanced ("
+msgstr "أقواس ( غير متوازنة"
+
+#: lib/dfa.c:2062
+msgid "no syntax specified"
+msgstr "لم تحدد صياغة"
+
+#: lib/dfa.c:2073
+msgid "unbalanced )"
+msgstr "أقواس ) غير متوازنة"
+
+#: lib/error.c:208
+msgid "Unknown system error"
+msgstr "خطأ نظام غير معروف"
+
+#: lib/getopt.c:283
+#, c-format
+msgid "%s: option '%s%s' is ambiguous\n"
+msgstr ""
+
+#: lib/getopt.c:289
+#, c-format
+msgid "%s: option '%s%s' is ambiguous; possibilities:"
+msgstr ""
+
+#: lib/getopt.c:323
+#, c-format
+msgid "%s: unrecognized option '%s%s'\n"
+msgstr ""
+
+#: lib/getopt.c:349
+#, c-format
+msgid "%s: option '%s%s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/getopt.c:364
+#, c-format
+msgid "%s: option '%s%s' requires an argument\n"
+msgstr ""
+
+#: lib/getopt.c:624
+#, c-format
+msgid "%s: invalid option -- '%c'\n"
+msgstr ""
+
+#: lib/getopt.c:639 lib/getopt.c:685
+#, c-format
+msgid "%s: option requires an argument -- '%c'\n"
+msgstr ""
+
+#: lib/obstack.c:351 lib/obstack.c:353 lib/xalloc-die.c:34
+msgid "memory exhausted"
+msgstr "نفاد الذاكرة"
+
+#. TRANSLATORS:
+#. Get translations for open and closing quotation marks.
+#. The message catalog should translate "`" to a left
+#. quotation mark suitable for the locale, and similarly for
+#. "'".  For example, a French Unicode local should translate
+#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), respectively.
+#.
+#. If the catalog has no translation, we will try to
+#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
+#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
+#. current locale is not Unicode, locale_quoting_style
+#. will quote 'like this', and clocale_quoting_style will
+#. quote "like this".  You should always include translations
+#. for "`" and "'" even if U+2018 and U+2019 are appropriate
+#. for your locale.
+#.
+#. If you don't know what to put here, please see
+#. <https://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
+#. and use glyphs suitable for your language.
+#: lib/quotearg.c:357
+msgid "`"
+msgstr "«"
+
+#: lib/quotearg.c:358
+msgid "'"
+msgstr "»"
+
+#: lib/regcomp.c:122
+msgid "Success"
+msgstr "نجاح"
+
+#: lib/regcomp.c:125
+msgid "No match"
+msgstr "لا يوجد تطابق"
+
+#: lib/regcomp.c:128
+msgid "Invalid regular expression"
+msgstr "تعبير نمطي غير صالح"
+
+#: lib/regcomp.c:131
+msgid "Invalid collation character"
+msgstr "محرف ترتيب غير صالح"
+
+#: lib/regcomp.c:134
+msgid "Invalid character class name"
+msgstr "اسم فئة محارف غير صالح"
+
+#: lib/regcomp.c:137
+msgid "Trailing backslash"
+msgstr "شرطة مائلة عكسية في النهاية"
+
+#: lib/regcomp.c:140
+msgid "Invalid back reference"
+msgstr "مرجع خلفي غير صالح"
+
+#: lib/regcomp.c:143
+msgid "Unmatched [, [^, [:, [., or [="
+msgstr "قوس غير متطابق [, [^, [:, [., أو [="
+
+#: lib/regcomp.c:146
+msgid "Unmatched ( or \\("
+msgstr "قوس غير متطابق ( أو \\("
+
+#: lib/regcomp.c:149
+msgid "Unmatched \\{"
+msgstr "قوس غير متطابق \\{"
+
+#: lib/regcomp.c:152
+msgid "Invalid content of \\{\\}"
+msgstr "محتوى غير صالح في \\{\\}"
+
+#: lib/regcomp.c:155
+msgid "Invalid range end"
+msgstr "نهاية نطاق غير صالحة"
+
+#: lib/regcomp.c:158
+msgid "Memory exhausted"
+msgstr "نفاد الذاكرة"
+
+#: lib/regcomp.c:161
+msgid "Invalid preceding regular expression"
+msgstr "تعبير نمطي سابق غير صالح"
+
+#: lib/regcomp.c:164
+msgid "Premature end of regular expression"
+msgstr "نهاية سابقة لأوانها للتعبير النمطي"
+
+#: lib/regcomp.c:167
+msgid "Regular expression too big"
+msgstr "التعبير النمطي كبير جداً"
+
+#: lib/regcomp.c:170
+msgid "Unmatched ) or \\)"
+msgstr "قوس غير متطابق ) أو \\)"
+
+#: lib/regcomp.c:650
+msgid "No previous regular expression"
+msgstr "لا يوجد تعبير نمطي سابق"
+
+#: lib/set-acl.c:46
+#, c-format
+msgid "setting permissions for %s"
+msgstr "ضبط الصلاحيات لـ %s"
+
+#: lib/version-etc.c:73
+#, c-format
+msgid "Packaged by %s (%s)\n"
+msgstr "حزّمه %s (%s)\n"
+
+#: lib/version-etc.c:76
+#, c-format
+msgid "Packaged by %s\n"
+msgstr "حزّمه %s\n"
+
+#. TRANSLATORS: Translate "(C)" to the copyright symbol
+#. (C-in-a-circle), if this symbol is available in the user's
+#. locale.  Otherwise, do not translate "(C)"; leave it as-is.
+#: lib/version-etc.c:83
+msgid "(C)"
+msgstr "©"
+
+#. TRANSLATORS: The %s placeholder is the web address of the GPL license.
+#: lib/version-etc.c:88
+#, c-format
+msgid ""
+"License GPLv3+: GNU GPL version 3 or later <%s>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"الرخصة GPLv3+: إصدار جي إن يو العام الثالث أو أحدث <%s>.\n"
+"هذا برنامج حر: أنت حر في تغييره وإعادة توزيعه.\n"
+"لا يوجد أي ضمان، إلى الحد الذي يسمح به القانون.\n"
+
+#. TRANSLATORS: %s denotes an author name.
+#: lib/version-etc.c:105
+#, c-format
+msgid "Written by %s.\n"
+msgstr "كتبه %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:109
+#, c-format
+msgid "Written by %s and %s.\n"
+msgstr "كتبه %s و %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:113
+#, c-format
+msgid "Written by %s, %s, and %s.\n"
+msgstr "كتبه %s، %s، و %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:120
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"كتبه %s، و%s، و%s،\n"
+"و%s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:127
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"كتبه %s، و%s، و%s،\n"
+"و%s، و%s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:134
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, and %s.\n"
+msgstr ""
+"كتبه %s، و%s، و%s،\n"
+"و%s، و%s، و%s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:142
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, and %s.\n"
+msgstr ""
+"كتبه %s، و%s، و%s،\n"
+"و%s، و%s، و%s، و%s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:150
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"كتبه %s، و%s، و%s،\n"
+"و%s، و%s، و%s، و%s،\n"
+"و%s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:159
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"كتبه %s، و%s، و%s،\n"
+"و%s، و%s، و%s، و%s،\n"
+"و%s، و%s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:170
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, %s, and others.\n"
+msgstr ""
+"كتبه %s، و%s، و%s،\n"
+"و%s، و%s، و%s، و%s،\n"
+"و%s، و%s، وآخرون.\n"
+
+#. TRANSLATORS: The placeholder indicates the bug-reporting address
+#. for this package.  Please add _another line_ saying
+#. "Report translation bugs to <...>\n" with the address for translation
+#. bugs (typically your translation team's web or email address).
+#: lib/version-etc.c:248
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr "أبلغ عن العلل إلى: %s\n"
+
+#: lib/version-etc.c:250
+#, c-format
+msgid "Report %s bugs to: %s\n"
+msgstr "أبلغ عن علل %s إلى: %s\n"
+
+#: lib/version-etc.c:254 lib/version-etc.c:256
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "صفحة %s الرئيسة: <%s>\n"
+
+#: lib/version-etc.c:259
+#, c-format
+msgid "General help using GNU software: <%s>\n"
+msgstr "مساعدة عامة في استخدام برمجيات جنو: <%s>\n"
+
+#: sed/compile.c:121
+#, fuzzy, c-format
+msgid "%s: file %s line %jd: "
+msgstr "%s: الملف %s السطر %lu: %s\n"
+
+#: sed/compile.c:124
+#, fuzzy, c-format
+msgid "%s: -e expression #%d, char %td: "
+msgstr "%s: التعبير -e رقم %lu، المحرف %lu: %s\n"
+
+#: sed/compile.c:215
+#, c-format
+msgid "extra characters after command"
+msgstr "محارف زائدة بعد الأمر"
+
+#: sed/compile.c:290 sed/compile.c:1034 sed/compile.c:1179
+#, c-format
+msgid "e/r/w commands disabled in sandbox mode"
+msgstr "أوامر e/r/w معطلة في وضع الرمال (sandbox)"
+
+#: sed/compile.c:320 sed/compile.c:1128
+#, c-format
+msgid "missing filename in r/R/w/W commands"
+msgstr ""
+
+#: sed/compile.c:457
+#, c-format
+msgid "delimiter character is not a single-byte character"
+msgstr "محرف الفاصل ليس محرفاً أحادي البايت"
+
+#: sed/compile.c:491
+#, c-format
+msgid "%s: warning: using \"\\%c\" in the 's' command is not portable\n"
+msgstr ""
+
+#: sed/compile.c:531 sed/compile.c:538 sed/compile.c:544 sed/compile.c:588
+#, fuzzy, c-format
+msgid "unknown option to 's'"
+msgstr "خيار مجهول لـ `s'"
+
+#: sed/compile.c:550
+#, fuzzy, c-format
+msgid "multiple 'p' options to 's' command"
+msgstr "خيارات `p' متعددة لأمر `s'"
+
+#: sed/compile.c:556
+#, fuzzy, c-format
+msgid "multiple 'g' options to 's' command"
+msgstr "خيارات `g' متعددة لأمر `s'"
+
+#: sed/compile.c:567
+#, fuzzy, c-format
+msgid "multiple number options to 's' command"
+msgstr "خيارات رقمية متعددة لأمر `s'"
+
+#: sed/compile.c:570
+#, fuzzy, c-format
+msgid "number option to 's' command may not be zero"
+msgstr "خيار الرقم لأمر `s' لا يمكن أن يكون صفراً"
+
+#: sed/compile.c:839
+#, c-format
+msgid "unterminated address regex"
+msgstr "تعبير نمطي لعنوان غير منتهٍ"
+
+#: sed/compile.c:939
+#, c-format
+msgid "invalid usage of +N or ~N as first address"
+msgstr "استخدام غير صالح لـ +N أو ~N كعنوان أول"
+
+#: sed/compile.c:946
+#, fuzzy, c-format
+msgid "unexpected ','"
+msgstr "`,` غير متوقعة"
+
+#: sed/compile.c:957
+#, c-format
+msgid "invalid usage of line address 0"
+msgstr "استخدام غير صالح لعنوان السطر 0"
+
+#: sed/compile.c:964
+#, fuzzy, c-format
+msgid "multiple '!'s"
+msgstr "علامات `!' متعددة"
+
+#: sed/compile.c:974 sed/compile.c:1293
+#, fuzzy, c-format
+msgid "unknown command: '%c'"
+msgstr "أمر مجهول: `%c'"
+
+#: sed/compile.c:980 sed/compile.c:1090
+#, c-format
+msgid "command only uses one address"
+msgstr "الأمر يستخدم عنواناً واحداً فقط"
+
+#: sed/compile.c:988
+#, c-format
+msgid "comments don't accept any addresses"
+msgstr "التعليقات لا تقبل أي عناوين"
+
+#: sed/compile.c:1008
+#, c-format
+msgid "expected newer version of sed"
+msgstr "يتوقع إصداراً أحدث من sed"
+
+#: sed/compile.c:1022
+#, fuzzy, c-format
+msgid "unexpected '}'"
+msgstr "`}' غير متوقع"
+
+#: sed/compile.c:1024
+#, fuzzy, c-format
+msgid "'}' doesn't want any addresses"
+msgstr "`}' لا يقبل أي عناوين"
+
+#: sed/compile.c:1052 sed/compile.c:1059
+#, fuzzy, c-format
+msgid "expected \\ after 'a', 'c' or 'i'"
+msgstr "يتوقع وجود \\ بعد `a' أو `c' أو `i'"
+
+#: sed/compile.c:1069
+#, c-format
+msgid ": doesn't want any addresses"
+msgstr ": لا يقبل أي عناوين"
+
+#: sed/compile.c:1073
+#, c-format
+msgid "\":\" lacks a label"
+msgstr "\":\" يفتقر إلى لصيقة"
+
+#: sed/compile.c:1164 sed/compile.c:1166
+#, fuzzy, c-format
+msgid "unterminated 's' command"
+msgstr "أمر `s' غير منتهٍ"
+
+#: sed/compile.c:1192 sed/compile.c:1197
+#, fuzzy, c-format
+msgid "unterminated 'y' command"
+msgstr "أمر `y' غير منتهٍ"
+
+#: sed/compile.c:1235 sed/compile.c:1259 sed/compile.c:1270
+#, fuzzy, c-format
+msgid "'y' command strings have different lengths"
+msgstr "سلاسل أمر `y' بأطوال مختلفة"
+
+#: sed/compile.c:1289
+#, c-format
+msgid "missing command"
+msgstr "أمر مفقود"
+
+#: sed/compile.c:1301
+#, c-format
+msgid "incomplete command"
+msgstr "أمر غير مكتمل"
+
+#: sed/compile.c:1381
+#, c-format
+msgid "recursive escaping after \\c not allowed"
+msgstr "الهروب المتداخل بعد \\c غير مسموح به"
+
+#: sed/compile.c:1524
+#, fuzzy, c-format
+msgid "unmatched '{'"
+msgstr "`{` غير متطابقة"
+
+#: sed/compile.c:1550
+#, fuzzy, c-format
+msgid "can't find label for jump to '%s'"
+msgstr "تعذر العثور على لصيقة للقفز إلى `%s'"
+
+#: sed/execute.c:252 sed/execute.c:269
+#, c-format
+msgid "case conversion produced an invalid character"
+msgstr "تحويل الحالة أنتج محرفاً غير صالح"
+
+#: sed/execute.c:568
+#, c-format
+msgid "%s: can't read %s: %s\n"
+msgstr "%s: تعذر قراءة %s: %s\n"
+
+#: sed/execute.c:594
+#, c-format
+msgid "couldn't edit %s: is a terminal"
+msgstr "تعذر تحرير %s: لأنه طرفية"
+
+#: sed/execute.c:599
+#, c-format
+msgid "couldn't edit %s: not a regular file"
+msgstr "تعذر تحرير %s: ليس ملفاً عادياً"
+
+#: sed/execute.c:610
+#, fuzzy, c-format
+msgid "%s: warning: failed to set default file creation context to %s: %s\n"
+msgstr "%s: تحذير: فشل ضبط سياق إنشاء الملف المبدئي إلى %s: %s"
+
+#: sed/execute.c:618
+#, fuzzy, c-format
+msgid "%s: warning: failed to get security context of %s: %s\n"
+msgstr "%s: تحذير: فشل الحصول على سياق الأمان لـ %s: %s"
+
+#: sed/execute.c:636 sed/utils.c:220
+#, c-format
+msgid "couldn't open temporary file %s: %s"
+msgstr "تعذر فتح الملف المؤقت %s: %s"
+
+#: sed/execute.c:752
+#, c-format
+msgid "line number overflow"
+msgstr ""
+
+#: sed/execute.c:1177 sed/execute.c:1371
+msgid "error in subprocess"
+msgstr "خطأ في العملية الفرعية"
+
+#: sed/execute.c:1179
+#, fuzzy
+msgid "option 'e' not supported"
+msgstr "الخيار `e' غير مدعوم"
+
+#: sed/execute.c:1352
+#, fuzzy
+msgid "'e' command not supported"
+msgstr "الأمر `e' غير مدعوم"
+
+#: sed/execute.c:1673
+msgid "no input files"
+msgstr "لا توجد ملفات دخل"
+
+#: sed/regexp.c:115
+#, fuzzy, c-format
+msgid "invalid reference \\%d on 's' command's RHS"
+msgstr "مرجع غير صالح \\%d في الطرف الأيمن لأمر `s'"
+
+#: sed/regexp.c:145
+#, c-format
+msgid "cannot specify modifiers on empty regexp"
+msgstr ""
+
+#: sed/regexp.c:174
+#, c-format
+msgid "no previous regular expression"
+msgstr "لا يوجد تعبير نمطي سابق"
+
+#: sed/regexp.c:181
+#, fuzzy
+msgid "regex input buffer length overflow"
+msgstr "طول مخزن الدخل للتعبير النمطي أكبر من INT_MAX"
+
+#: sed/sed.c:38
+msgid "Jay Fenlason"
+msgstr "Jay Fenlason"
+
+#: sed/sed.c:39
+msgid "Tom Lord"
+msgstr "Tom Lord"
+
+#: sed/sed.c:40
+msgid "Ken Pizzini"
+msgstr "Ken Pizzini"
+
+#: sed/sed.c:41
+msgid "Paolo Bonzini"
+msgstr "Paolo Bonzini"
+
+#: sed/sed.c:42
+msgid "Jim Meyering"
+msgstr "Jim Meyering"
+
+#: sed/sed.c:43
+msgid "Assaf Gordon"
+msgstr "Assaf Gordon"
+
+#: sed/sed.c:104
+#, c-format
+msgid ""
+"GNU sed home page: <https://www.gnu.org/software/sed/>.\n"
+"General help using GNU software: <https://www.gnu.org/gethelp/>.\n"
+msgstr ""
+"صفحة جـنـو sed الرئيسة: <https://www.gnu.org/software/sed/>.\n"
+"مساعدة عامة في استخدام برمجيات جـنـو: <https://www.gnu.org/gethelp/>.\n"
+
+#: sed/sed.c:110
+#, c-format
+msgid "E-mail bug reports to: <%s>.\n"
+msgstr "أرسل تقارير العلل بالبريد الإلكتروني إلى: <%s>.\n"
+
+#: sed/sed.c:118
+msgid "This sed program was built with SELinux support."
+msgstr "بني برنامج sed هذا مع دعم SELinux."
+
+#: sed/sed.c:120
+msgid "SELinux is enabled on this system."
+msgstr "نظام SELinux مُمكّن في هذا النظام."
+
+#: sed/sed.c:122
+msgid "SELinux is disabled on this system."
+msgstr "نظام SELinux مُعطّل في هذا النظام."
+
+#: sed/sed.c:124
+msgid "This sed program was built without SELinux support."
+msgstr "بني برنامج sed هذا بدون دعم SELinux."
+
+#: sed/sed.c:134
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... {script-only-if-no-other-script} [input-file]...\n"
+"\n"
+msgstr ""
+"الاستخدام: %s [خيار]... {السكربت-فقط-إذا-لم-يوجد-غيره} [ملف-دخل]...\n"
+"\n"
+
+#: sed/sed.c:138
+#, c-format
+msgid ""
+"  -n, --quiet, --silent\n"
+"                 suppress automatic printing of pattern space\n"
+msgstr ""
+"  -n, --quiet, --silent\n"
+"                 كبت الطباعة الآلية لمساحة النمط\n"
+
+#: sed/sed.c:140
+#, c-format
+msgid ""
+"      --debug\n"
+"                 annotate program execution\n"
+msgstr ""
+"      --debug\n"
+"                 تنقيح تنفيذ البرنامج\n"
+
+#: sed/sed.c:142
+#, c-format
+msgid ""
+"  -e script, --expression=script\n"
+"                 add the script to the commands to be executed\n"
+msgstr ""
+"  -e سكربت, --expression=سكربت\n"
+"                 إضافة السكربت إلى الأوامر المراد تنفيذها\n"
+
+#: sed/sed.c:144
+#, c-format
+msgid ""
+"  -f script-file, --file=script-file\n"
+"                 add the contents of script-file to the commands to be "
+"executed\n"
+msgstr ""
+"  -f ملف-سكربت, --file=ملف-سكربت\n"
+"                 إضافة محتويات ملف السكربت إلى الأوامر المراد تنفيذها\n"
+
+#: sed/sed.c:148
+#, c-format
+msgid ""
+"  --follow-symlinks\n"
+"                 follow symlinks when processing in place\n"
+msgstr ""
+"  --follow-symlinks\n"
+"                 تتبع الروابط الرمزية عند المعالجة في المكان\n"
+
+#: sed/sed.c:151
+#, c-format
+msgid ""
+"  -i[SUFFIX], --in-place[=SUFFIX]\n"
+"                 edit files in place (makes backup if SUFFIX supplied)\n"
+msgstr ""
+"  -i[ملحق], --in-place[=ملحق]\n"
+"                 تحرير الملفات في مكانها (إنشاء نسخة احتياطية إذا توفر "
+"الملحق)\n"
+
+#: sed/sed.c:154
+#, c-format
+msgid ""
+"  -b, --binary\n"
+"                 open files in binary mode (CR+LFs are not processed "
+"specially)\n"
+msgstr ""
+"  -b, --binary\n"
+"                 فتح الملفات في الوضع الثنائي (لا تعالج CR+LF بشكل خاص)\n"
+
+#: sed/sed.c:158
+#, fuzzy, c-format
+msgid ""
+"  -l N, --line-length=N\n"
+"                 specify the desired line-wrap length for the 'l' command\n"
+msgstr ""
+"  -l N, --line-length=N\n"
+"                 تحديد طول التفاف السطر المطلوب لأمر `l'\n"
+
+#: sed/sed.c:160
+#, c-format
+msgid ""
+"  --posix\n"
+"                 disable all GNU extensions.\n"
+msgstr ""
+"  --posix\n"
+"                 تعطيل كل امتدادات جـنـو.\n"
+
+#: sed/sed.c:162
+#, c-format
+msgid ""
+"  -E, -r, --regexp-extended\n"
+"                 use extended regular expressions in the script\n"
+"                 (for portability use POSIX -E).\n"
+msgstr ""
+"  -E, -r, --regexp-extended\n"
+"                 استخدام التعبيرات النمطية الموسعة في السكربت\n"
+"                 (للقابلية للنقل استخدم POSIX -E).\n"
+
+#: sed/sed.c:165
+#, c-format
+msgid ""
+"  -s, --separate\n"
+"                 consider files as separate rather than as a single,\n"
+"                 continuous long stream.\n"
+msgstr ""
+"  -s, --separate\n"
+"                 اعتبار الملفات منفصلة بدلاً من دفق واحد طويل\n"
+"                 ومتصل.\n"
+
+#: sed/sed.c:168
+#, c-format
+msgid ""
+"      --sandbox\n"
+"                 operate in sandbox mode (disable e/r/w commands).\n"
+msgstr ""
+"      --sandbox\n"
+"                 العمل في وضع الرمال (تعطيل الأوامر e/r/w).\n"
+
+#: sed/sed.c:170
+#, c-format
+msgid ""
+"  -u, --unbuffered\n"
+"                 load minimal amounts of data from the input files and "
+"flush\n"
+"                 the output buffers more often\n"
+msgstr ""
+"  -u, --unbuffered\n"
+"                 تحميل كميات دنيا من البيانات من ملفات الدخل وتفريغ\n"
+"                 مخازن الخرج بشكل متكرر\n"
+
+#: sed/sed.c:173
+#, c-format
+msgid ""
+"  -z, --null-data\n"
+"                 separate lines by NUL characters\n"
+msgstr ""
+"  -z, --null-data\n"
+"                 يفصل بين الأسطر بمحارف NUL\n"
+
+#: sed/sed.c:175
+#, c-format
+msgid "      --help     display this help and exit\n"
+msgstr "      --help     يعرض هذا الدليل ويخرج\n"
+
+#: sed/sed.c:176
+#, c-format
+msgid "      --version  output version information and exit\n"
+msgstr "      --version  يخرج معلومات الإصدار ويغادر\n"
+
+#: sed/sed.c:177
+#, c-format
+msgid ""
+"\n"
+"If no -e, --expression, -f, or --file option is given, then the first\n"
+"non-option argument is taken as the sed script to interpret.  All\n"
+"remaining arguments are names of input files; if no input files are\n"
+"specified, then the standard input is read.\n"
+"\n"
+msgstr ""
+"\n"
+"في حال عدم إعطاء خيار -e أو --expression أو -f أو --file، يؤخذ المعامل\n"
+"الأول (الذي ليس خياراً) على أنه نص sed البرمجي لتفسيره. جميع المعاملات\n"
+"المتبقية أسماء لملفات الإدخال؛ وإذا لم تحدد ملفات إدخال، يقرأ الإدخال "
+"القياسي.\n"
+"\n"
+
+#: sed/sed.c:371
+msgid "failed to set binary mode on STDIN"
+msgstr "فشل ضبط الوضع الثنائي في STDIN"
+
+#: sed/sed.c:373
+msgid "failed to set binary mode on STDOUT"
+msgstr "فشل ضبط الوضع الثنائي في STDOUT"
+
+#: sed/utils.c:129
+#, c-format
+msgid "couldn't open file %s: %s"
+msgstr "تعذر فتح الملف %s: %s"
+
+#: sed/utils.c:148
+#, c-format
+msgid "couldn't attach to %s: %s"
+msgstr "تعذر الإرفاق بـ %s: %s"
+
+#: sed/utils.c:212
+#, c-format
+msgid "failed to set binary mode on '%s'"
+msgstr "فشل ضبط الوضع الثنائي على '%s'"
+
+#: sed/utils.c:233
+#, fuzzy, c-format
+msgid "couldn't write %jd item to %s: %s"
+msgid_plural "couldn't write %jd items to %s: %s"
+msgstr[0] "تعذر كتابة %llu عنصر إلى %s: %s"
+msgstr[1] "تعذر كتابة (%llu) عنصر واحد إلى %s: %s"
+msgstr[2] "تعذر كتابة (%llu) عنصرين إلى %s: %s"
+msgstr[3] "تعذر كتابة %llu عناصر إلى %s: %s"
+msgstr[4] "تعذر كتابة %llu عنصراً إلى %s: %s"
+msgstr[5] "تعذر كتابة %llu عنصر إلى %s: %s"
+
+#: sed/utils.c:245 sed/utils.c:258
+#, c-format
+msgid "read error on %s: %s"
+msgstr "خطأ قراءة في %s: %s"
+
+#: sed/utils.c:254
+#, fuzzy, c-format
+msgid "read error on %s"
+msgstr "خطأ قراءة في %s: %s"
+
+#: sed/utils.c:357
+#, c-format
+msgid "couldn't readlink %s: %s"
+msgstr "تعذر readlink لـ %s: %s"
+
+#: sed/utils.c:360
+#, c-format
+msgid "couldn't follow symlink %s: %s"
+msgstr "تعذر تتبع الرابط الرمزي %s: %s"
+
+#: sed/utils.c:407
+#, fuzzy, c-format
+msgid "cannot rename %s to %s: %s"
+msgstr "تعذر تغيير اسم %s: %s"
+
+#~ msgid "write error"
+#~ msgstr "خطأ في الكتابة"

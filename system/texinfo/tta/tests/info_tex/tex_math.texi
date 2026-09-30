@@ -1,0 +1,86 @@
+\input texinfo @c -*-texinfo-*-
+
+@node Top
+@top Tests
+
+@node Chap
+@chapter chap
+
+@c can be used to compare direct rendering of an image
+@c @image{my_image}
+
+@ifhtml
+@tex
+
+$$ \chi^2 = \sum_{i=1}^N
+          \left(y_i - (a + b x_i)
+	  \over \sigma_i\right)^2 $$
+		    
+
+@end tex
+Following end tex
+@end ifhtml
+
+LaTeX block
+@latex
+\begin{eqnarray}
+\frac{@var{a}^b}{\xi} &=& @code{@'e} \\
+X &=& Y
+\end{eqnarray}
+@end latex
+
+Test of @@math
+Here some @math{{x^i}\over{\tan y}}.
+
+Some very long math @math{{{x^i}\over{\tan y}} + \frac{x^i}{\tan y} + \frac{x^j}{\tan y} - \frac{x^j}{\tan z}
+ \times \frac{x^i}{\tan y}}.
+
+Maths with protected \ and space at end of math:
+@math{a @\ b }.
+
+Maths with code @@-command:
+
+@math{@code{math code} a < b} after
+@cindex fentry
+
+Maths with code @@-command and braces:
+
+@math{ \underline{@code{math \hbox{ code }}} \sum_{i}{\underline{@var{eff}}}}
+
+Maths with @@-sup
+
+@math{\sum_{i} f(x)@sup{2}}
+
+Math with accented characters @math{\hat{a}ééççàààà}.
+
+@anchor{Before displaymath}
+
+Displaymath
+@displaymath
+-- f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+@end displaymath
+after D
+
+@cindex entry
+
+@anchor{After displaymath}
+
+@quotation
+In quotation
+@displaymath
+ f(x)
+= {1\over\sigma\sqrt{2\pi}}
+     e^{-{1\over2}\left({x-\mu\over\sigma}\right)^2}
+@end displaymath
+@end quotation
+
+@node app
+@appendix Appendix
+
+@xref{Before displaymath}.
+
+@xref{After displaymath}.
+
+@printindex cp
+
+@bye

@@ -1,0 +1,203 @@
+#include "packages.h"
+#include "common/processing.h"
+#include "common/strutil.h"
+#include "common/path.h"
+#include "common/windows/unicode.h"
+#include "common/mallocHelper.h"
+#include "common/io.h"
+
+#include <stdalign.h>
+#include <windows.h>
+#include "common/windows/nt.h"
+#include <ntstatus.h>
+#include <shlobj.h>
+
+static uint32_t getNumElements(const char* searchPath, DWORD type, const wchar_t* ignore) {
+    FF_AUTO_CLOSE_FD HANDLE dfd = CreateFileA(searchPath, FILE_LIST_DIRECTORY | SYNCHRONIZE, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, nullptr, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, nullptr);
+    if (dfd == INVALID_HANDLE_VALUE) {
+        return 0;
+    }
+
+    bool flag = ignore == nullptr;
+    uint32_t counter = 0;
+    alignas(8) uint8_t buffer[64 * 1024];
+    BOOLEAN firstScan = TRUE;
+
+    size_t ignoreLen = ignore ? wcslen(ignore) : 0;
+
+    while (true) {
+        IO_STATUS_BLOCK ioStatus = {};
+        NTSTATUS status = NtQueryDirectoryFile(
+            dfd,
+            nullptr,
+            nullptr,
+            nullptr,
+            &ioStatus,
+            buffer,
+            ARRAY_SIZE(buffer),
+            FileDirectoryInformation,
+            FALSE,
+            nullptr,
+            firstScan);
+        firstScan = FALSE;
+
+        if (!NT_SUCCESS(status) && status != STATUS_BUFFER_OVERFLOW) {
+            break;
+        }
+
+        for (FILE_DIRECTORY_INFORMATION* entry = (FILE_DIRECTORY_INFORMATION*) buffer;
+            ;
+            entry = (FILE_DIRECTORY_INFORMATION*) ((uint8_t*) entry + entry->NextEntryOffset)) {
+            if (!(entry->FileAttributes & type)) {
+                continue;
+            }
+
+            if (!flag &&
+                ignoreLen == entry->FileNameLength / sizeof(*entry->FileName) &&
+                _wcsnicmp(entry->FileName, ignore, ignoreLen) == 0) {
+                flag = true;
+                continue;
+            }
+
+            counter++;
+
+            if (entry->NextEntryOffset == 0) {
+                break;
+            }
+        }
+
+        if (status == STATUS_SUCCESS) {
+            break; // No next page
+        }
+    }
+
+    if (type == FILE_ATTRIBUTE_DIRECTORY && counter >= 2) {
+        counter -= 2; // accounting for . and ..
+    }
+
+    return counter;
+}
+
+static inline void wrapYyjsonFree(yyjson_doc** doc) {
+    assert(doc);
+    if (*doc) {
+        yyjson_doc_free(*doc);
+    }
+}
+
+static void detectScoop(FFPackagesResult* result) {
+    FF_STRBUF_AUTO_DESTROY scoopPath = ffStrbufCreateA(MAX_PATH + 3);
+    ffStrbufAppend(&scoopPath, &instance.state.platform.homeDir);
+    ffStrbufAppendS(&scoopPath, ".config/scoop/config.json");
+
+    yyjson_val* root = nullptr;
+
+    [[gnu::cleanup(wrapYyjsonFree)]] yyjson_doc* doc = yyjson_read_file(scoopPath.chars, 0, nullptr, nullptr);
+    if (doc) {
+        root = yyjson_doc_get_root(doc);
+        if (!yyjson_is_obj(root)) {
+            root = nullptr;
+        }
+    }
+
+    {
+        ffStrbufClear(&scoopPath);
+        if (root) {
+            ffStrbufSetJsonVal(&scoopPath, yyjson_obj_get(root, "root_path"));
+        }
+        if (scoopPath.length == 0) {
+            ffStrbufSet(&scoopPath, &instance.state.platform.homeDir);
+            ffStrbufAppendS(&scoopPath, "/scoop");
+        }
+        ffStrbufAppendS(&scoopPath, "/apps/");
+        result->scoopUser = getNumElements(scoopPath.chars, FILE_ATTRIBUTE_DIRECTORY, L"scoop");
+    }
+
+    {
+        ffStrbufClear(&scoopPath);
+        if (root) {
+            ffStrbufSetJsonVal(&scoopPath, yyjson_obj_get(root, "global_path"));
+        }
+        if (scoopPath.length == 0) {
+            PWSTR pPath = nullptr;
+            if (SUCCEEDED(SHGetKnownFolderPath(&FOLDERID_ProgramData, KF_FLAG_DEFAULT, nullptr, &pPath))) {
+                ffStrbufSetWS(&scoopPath, pPath);
+                CoTaskMemFree(pPath);
+            }
+            ffStrbufAppendS(&scoopPath, "/scoop");
+        }
+        ffStrbufAppendS(&scoopPath, "/apps/");
+        result->scoopGlobal = getNumElements(scoopPath.chars, FILE_ATTRIBUTE_DIRECTORY, L"scoop");
+    }
+}
+
+static void detectChoco([[maybe_unused]] FFPackagesResult* result) {
+    const char* chocoInstall = getenv("ChocolateyInstall");
+    if (!chocoInstall || chocoInstall[0] == '\0') {
+        return;
+    }
+
+    char chocoPath[MAX_PATH + 3];
+    char* pend = ffStrCopy(chocoPath, chocoInstall, ARRAY_SIZE(chocoPath));
+    ffStrCopy(pend, "/lib/", ARRAY_SIZE(chocoPath) - (size_t) (pend - chocoPath));
+    result->choco = getNumElements(chocoPath, FILE_ATTRIBUTE_DIRECTORY, L"choco");
+}
+
+static void detectPacman(FFPackagesResult* result) {
+    const char* msystemPrefix = getenv("MSYSTEM_PREFIX");
+    if (!msystemPrefix) {
+        return;
+    }
+
+    // MSYS2
+    char pacmanPath[MAX_PATH + 3];
+    char* pend = ffStrCopy(pacmanPath, msystemPrefix, ARRAY_SIZE(pacmanPath));
+    ffStrCopy(pend, "/../var/lib/pacman/local/", ARRAY_SIZE(pacmanPath) - (size_t) (pend - pacmanPath));
+    result->pacman = getNumElements(pacmanPath, FILE_ATTRIBUTE_DIRECTORY, nullptr);
+}
+
+static void detectWinget(FFPackagesResult* result) {
+    FF_STRBUF_AUTO_DESTROY buffer = ffStrbufCreate();
+    if (ffProcessAppendStdOut(&buffer, (char*[]) {
+                                           "winget.exe",
+                                           "list",
+                                           "--disable-interactivity",
+                                           nullptr,
+                                       })) {
+        return;
+    }
+
+    uint32_t index = ffStrbufFirstIndexS(&buffer, "--\r\n"); // Ignore garbage and table headers
+    if (index == buffer.length) {
+        return;
+    }
+
+    uint32_t count = 0;
+    for (
+        index += strlen("--\r\n");
+        (index = ffStrbufNextIndexC(&buffer, index, '\n')) < buffer.length;
+        ++index) {
+        ++count;
+    }
+
+    if (buffer.chars[buffer.length - 1] != '\n') { // count last line
+        ++count;
+    }
+
+    result->winget = count;
+}
+
+void ffDetectPackagesImpl(FFPackagesResult* result, FFPackagesOptions* options) {
+    if (FF_PACKAGES_IS_ENABLED(options, SCOOP)) {
+        detectScoop(result);
+    }
+    if (FF_PACKAGES_IS_ENABLED(options, CHOCO)) {
+        detectChoco(result);
+    }
+    if (FF_PACKAGES_IS_ENABLED(options, PACMAN)) {
+        detectPacman(result);
+    }
+    if (FF_PACKAGES_IS_ENABLED(options, WINGET)) {
+        detectWinget(result);
+    }
+}

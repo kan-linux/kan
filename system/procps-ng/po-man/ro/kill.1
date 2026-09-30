@@ -1,0 +1,118 @@
+.\"
+.\" Copyright (c) 2002-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1998-2003 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH KILL 1 27.12.2023 procps\-ng 
+.SH NUME
+kill \- trimite un semnal către unu sau mai multe procese
+.SH REZUMAT
+\fBkill\fP [\fB\-q\ \fP\fIvaloare\fP|\fB\-\-queue\fP\fI\ valoare\fP] \fIpid\fP .\|.\|.
+.P
+\fBkill\fP \fB\-\fP\fIsemnal\fP [\fB\-q\ \fP\fIvaloare\fP|\fB\-\-queue\fP\fI\ valoare\fP]
+\fIpid\-sau\-pgid\fP .\|.\|.
+.br
+\fBkill\fP \fB\-s\fP\fI\ semnal\fP [\fB\-q\ \fP\fIvaloare\fP|\fB\-\-queue\fP\fI\ valoare\fP]
+\fIpid\-sau\-pgid\fP .\|.\|.
+.br
+\fBkill\fP \fB\-\-signal\fP\fI\ semnal\fP [\fB\-q\ \fP\fIvaloare\fP|\fB\-\-queue\fP\fI\ valoare\fP]
+\fIpid\-sau\-pgid\fP .\|.\|.
+.P
+\fBkill \-l\fP\ [\fIsemnal\fP]
+.br
+\fBkill \-\-list\fP\ [\fIsemnal\fP]
+.P
+\fBkill \-L\fP
+.br
+\fBkill \-\-table\fP
+.SH DESCRIERE
+\fBkill\fP trimite un semnal către unul sau mai multe procese prin \fIpid\fP sau
+\fIpgid\fP, un identificator de proces sau de grup de procese. \fBsignal\fP(7)
+explică varietățile și comportamentul semnalelor. Semnalul implicit al lui
+\fBkill\fP este TERM. Opțiunile \fB\-l\fP și \fB\-L\fP listează semnalele
+disponibile. Semnalele care sunt în mod special utile sunt HUP, INT, KILL,
+STOP, CONT și 0. Specificați semnalele prin număr, prin nume sau prin nume
+cu un prefix „SIG”; de exemplu, \fB\-9\fP, \fB\-SIGKILL\fP și \fB\-KILL\fP sunt
+echivalente. Un operand negativ selectează un grup de procese; consultați
+coloana PGID în ieșirea comenzii \fBps\fP(1). Un \fIpid\fP de \fB\-1\fP este special;
+acesta indică toate procesele, cu excepția procesului \fBkill\fP în sine și a
+lui \fBinit\fP(8).
+.P
+Opțiunea \fB\-q\fP utilizează o metodă alternativă de semnalizare pentru a
+transmite în plus o \fIvaloare\fP de număr întreg unui proces receptor. În
+cazul în care procesul respectiv a instalat un operator pentru semnal și a
+specificat fanionul SA_SIGINFO la \fBsigaction\fP(2), atunci acesta poate
+obține aceste date prin intermediul câmpului \fI\%si_value\fP din structura
+\fI\%siginfo_t\fP.
+.SH OPȚIUNI
+.TP 
+\fB\-\fP\fIsemnal\fP
+.TQ
+\fB\-s\fP\fI\ semnal\fP
+.TQ
+\fB\-\-signal\fP\fI\ semnal\fP
+Trimite \fIsemnalul\fP prin nume sau număr, așa cum este descris mai sus. Dacă
+\fIsemnal\fP este 0 (zero), \fBkill\fP nu trimite niciun semnal, dar își validează
+totuși operanzii; acest comportament permite apelantului să verifice dacă
+\fIpid\fP\-urile și/sau \fIpgid\fP\-urile specificate există și dacă are permisiunea
+de a le trimite semnale.
+.TP 
+\fB\-q\fP\fI\ valoare\fP
+.TQ
+\fB\-\-queue\fP\fI\ valoare\fP
+Utilizează \fBsigqueue\fP(3) în loc de \fBkill\fP(2) pentru a trimite în plus
+\fIvaloarea\fP la fiecare \fIpid\fP sau \fIpgid\fP.
+.TP 
+\fB\-l\fP\ [\fIsemnal\fP]
+.TQ
+\fB\-\-list\fP\ [\fIsemnal\fP]
+Fără niciun argument, listează numele semnalelor. Argumentul opțional
+determină \fBkill\fP să convertească \fIsemnalul\fP specificat din nume în formă
+numerică, sau invers, după caz, și să raporteze conversia.
+.TP 
+\fB\-L\fP
+.TQ
+\fB\-\-table\fP
+Listează numele semnalelor în format tabelar.
+.SH NOTE
+Shell\-ul dumneavoastră (interpretul de linie de comandă) poate avea o
+comandă «kill» încorporată. Poate fi necesar să rulați comanda descrisă aici
+ca \fI/bin/\:kill\fP pentru a rezolva conflictul.
+.PP
+Dacă utilizați un operand negativ, specificați mai întâi un semnal prin nume
+sau număr, astfel încât \fBkill\fP să îl poată distinge de un grup de
+procese. De exemplu, comanda «\fBkill 123 \-9\fP» este ambiguă; ar putea însemna
+să distrugeți procesul 123 cu semnalul 9 sau să distrugeți procesul 123 și
+grupul de procese 9 cu semnalul implicit.
+.SH EXEMPLE
+.TP 
+\fBkill \-HUP \-1\fP
+Trimite semnalul de întrerupere „hangup” la toate procesele pe care le
+puteți avea.
+.TP 
+\fBkill \-l 11\fP
+Raportează numele corespunzător semnalului numărul 11.
+.TP 
+\fBkill 123 543\fP
+Trimite semnalul implicit, SIGTERM, către procesele 123 și 543.
+.TP 
+\fBkill \-SIGTERM \-123\fP
+Trimite semnalul SIGTERM către grupul de procese 123.
+.SH "CONSULTAȚI ȘI"
+\fBkill\fP(2), \fBkillall\fP(1), \fBnice\fP(1), \fBpkill\fP(1), \fBrenice\fP(1),
+\fBsignal\fP(7), \fBsigqueue\fP(3), \fBskill\fP(1)
+.SH "RAPORTAREA ERORILOR"
+Trimiteți rapoartele de eroare la
+.MT procps@freelists.org
+.ME .

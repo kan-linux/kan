@@ -1,0 +1,5 @@
+// Ignore third party code.
+*:*/third_party/*
+
+// Not interesting enough to enforce.
+noExplicitConstructor

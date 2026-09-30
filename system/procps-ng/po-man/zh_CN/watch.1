@@ -1,0 +1,150 @@
+.\"
+.\" Copyright (c) 2023 Roman Žilka <roman.zilka@gmail.com>
+.\" Copyright (c) 2009-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2018-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2003      Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH WATCH 1 2025\-04\-16 procps\-ng 
+.SH 名称
+watch \- 周期性地执行程序并全屏显示输出
+.SH 概述
+\fBwatch\fP [\fI选项\fP .\|.\|.\&] \fI命令\fP
+.SH 描述
+\fBwatch\fP 重复运行 \fI命令\fP，显示其输出和错误（前者全屏显示）。这使您可以观察程序输出随时间的变化。默认情况下，\fI命令\fP 每 2
+秒运行一次，\fBwatch\fP 将持续运行，直到被中断 (Ctrl\-C)。输出的头部包括 \fI命令\fP 的开始时间和运行时间，以及它的退出状态码。
+.SH 选项
+.TP 
+\fB\-b\fP, \fB\-\-beep\fP
+如果 \fI命令\fP 以非零返回值退出，则发出哔声。
+.TP 
+\fB\-c\fP, \fB\-\-color\fP
+解释 ANSI 颜色和风格序列。
+.TP 
+\fB\-C\fP, \fB\-\-no\-color\fP
+不要解释 ANSI 颜色和风格序列。
+.TP 
+\fB\-d\fP, \fB\-\-differences\fP[=\fI永久\fP]
+高亮显示两次更新之间的变化。如果指定了可选的 \fI永久\fP 参数，则 \fBwatch\fP 将显示自第一次迭代以来的所有变化。\fI永久\fP
+参数需要和选项相连，例如 \fB\-d1\fP or \fB\-\-differences=1\fP。
+.TP 
+\fB\-e\fP, \fB\-\-errexit\fP
+在 \fI命令\fP 出错时停止更新，并在按任意键后退出。\fBwatch\fP 的退出状态码是 \fI命令\fP 的退出状态码。如果信号 \fBn\fP 是 \fI命令\fP
+终止的原因，则退出状态码是 128 + \fBn\fP。
+.TP 
+\fB\-f\fP, \fB\-\-follow\fP
+\fBwatch\fP 不会在每次更新时清除屏幕，而是会像 \fItail \-f\fP 那样滚动显示输出内容。此选项与任何追踪屏幕输出的选项（如
+\fB\-\-differences\fP、\fB\-\-chgexit\fP 和 \fB\-\-eqexit\fP）均不兼容。
+.TP 
+\fB\-g\fP, \fB\-\-chgexit\fP
+在 \fI命令\fP 的可见的输出发生变化时退出。因为屏幕大小或者输出太大，无法在屏幕上显示的变化，不会导致 \fBwatch\fP 退出。
+.TP 
+\fB\-n\fP, \fB\-\-interval\fP \fI秒\fP
+指定更新间隔。小于 0.1 和大于 2678400（31 天）的时间间隔将被转换成相应的下限和上限。任何区域设置下都可以用 '.' 或 ','
+作为小数点。可使用 \fBWATCH_INTERVAL\fP 环境变量持久性地设置一个非默认的时间间隔（遵循相同的规则和格式）。
+.TP 
+\fB\-p\fP, \fB\-\-precise\fP
+在 \fI命令\fP 上一次执行开始之后 \fB\-\-interval\fP 秒执行命令，而不是上一次执行结束之后 \fB\-\-interval\fP 秒。如果完成
+\fI命令\fP 需要的时间超过了 \fB\-\-interval\fP 秒，那么不论哪种情况，都会等待命令完成。
+.TP 
+\fB\-q\fP, \fB\-\-equexit\fP <周期数>
+如果 \fI命令\fP 的输出在给定的周期数内没有变化，则退出。
+.TP 
+\fB\-r\fP, \fB\-\-no\-rerun\fP
+不要在终端大小变化时重新运行程序，程序的输出将在下一次正常运行时重新出现。
+.TP 
+\fB\-s\fP, \fB\-\-shotsdir\fP
+保存屏幕截图的目录。
+.TP 
+\fB\-t\fP, \fB\-\-no\-title\fP
+关闭通常在屏幕顶部显示的标题行。
+.TP 
+\fB\-w\fP, \fB\-\-no\-wrap\fP
+关闭自动换行。长行将被截断而不是换行到下一行。
+.TP 
+\fB\-x\fP, \fB\-\-exec\fP
+将 \fI命令\fP 传给 \fBexec\fP(3) 而不是 \fBsh \-c\fP。程序的启动会稍微加快一点。Shell
+功能（环境变量设置、变量和路径展开等）将不可用。
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+显示帮助文本并退出。
+.TP 
+\fB\-v\fP, \fB\-\-version\fP
+显示版本信息并退出。
+.SH 按键控制
+.TP 
+\fB空格\fP
+立即执行 \fI命令\fP。如果它当前正在执行，则它不会被打断，但它的下一次执行将在本次执行结束后立即开始。
+.TP 
+\fBq\fP
+退出 \fBwatch\fP。目前，这个操作不会打断正在执行的 \fI命令\fP（和终止信号不同，例如在按下 Ctrl+C 后发出的 SIGKILL）。
+.TP 
+\fBs\fP
+保存屏幕截图。它会被保存在当前工作目录，除非通过 \fB\-\-shotsdir\fP 另外指定。如果 \fI命令\fP
+当前正在执行，则屏幕截图将在它完成之后立即保存。
+.SH 退出状态
+.TP 
+\fB0\fP
+成功。不代表 \fI命令\fP 的退出码。
+.TP 
+\fB1\fP
+和 \fI命令\fP 的操作无关的错误。
+.TP 
+\fB2\fP
+和 \fI命令\fP 的执行和管理有关的错误（不是它的退出码）。
+.TP 
+\fB任何非零值 (\-\-errexit)\fP
+使用 \fB\-\-errexit\fP 时，将返回 \fI命令\fP 的最后一个退出码。
+.SH 环境
+\fBwatch\fP 的行为受以下环境变量的影响。
+.TP 
+\fBWATCH_INTERVAL\fP
+更新间隔，遵循与 \fB\-\-interval\fP 命令行选项相同的规则。
+.TP 
+\fBCOLUMNS\fP
+终端屏幕宽度（字符数）。设置此变量来覆盖自动检测的结果。
+.TP 
+\fBLINES\fP
+终端屏幕高度（字符数）。设置此变量来覆盖自动检测的结果。
+.SH 备注
+本命令使用 POSIX 选项处理方式（即选项处理会在第一个非选项的参数处停止）。这意味着 \fI命令\fP 之后的标志不会由 \fBwatch\fP 本身进行解释。
+.P
+不可打印字符将从程序输出中去除。如果您想查看它们，请使用 \fBcat \-v\fP 作为命令管道的一部分。
+.SH 示例
+.PP
+要监控目录内容的更改，您可以使用
+.IP
+watch \-d ls \-l
+.PP
+如果您有支持动态调频的 CPU，并且想观察频率的变化，请试试以下命令。该命令会被传给 shell，所以您可以使用管道。双引号也是 shell
+的功能之一。
+.IP
+watch \-n1 'grep "^cpu MHz" /proc/cpuinfo | sort \-nrk4'
+.PP
+要监控服务器的运行状态，您可以使用此方法将每次运行的输出的副本保存到文件中。\fB\-p\fP 使命令每 10 秒执行一次，而不管上次运行花了多长时间。
+.IP
+watch \-n10 \-p \-d '{ date; for i in 10.0.0.31 10.0.0.32 10.0.0.33; do R=OK;
+ping \-c2 \-W2 "$i" &>/dev/null || R=FAIL; echo "$i: $R"; done } | tee \-a
+~/log'
+.PP
+要观察管理员有没有安装最新内核，您可以使用
+.IP
+watch uname \-r
+.SH 错误
+当终端大小发生变化时，在下一次 \fI命令\fP 运行时，终端的内容变化将不作数。即使 \fI命令\fP 的输出同时发生变化，本次执行也不会触发
+\fB\-\-chgexit\fP，并且 \fB\-\-equexit\fP 的计数器也不会重置。\fB\-\-differences\fP 的高亮显示将被重置。
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

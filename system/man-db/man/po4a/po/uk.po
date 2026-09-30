@@ -1,0 +1,3856 @@
+# Ukrainian translation for man-db-manpages.
+# This file is distributed under the same license as the man-db package.
+#
+# Volodymyr Lisivka <vlisivka@gmail.com>, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: man-db-manpages-2.13.1-pre1\n"
+"POT-Creation-Date: 2025-04-21 18:50+0100\n"
+"PO-Revision-Date: 2025-04-22 20:25+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Lokalize 23.04.3\n"
+
+#. type: TH
+#: ../../man/man1/apropos.man1:12 ../../man/man1/lexgrog.man1:44
+#: ../../man/man1/man.man1:15 ../../man/man1/man-recode.man1:9
+#: ../../man/man1/manconv.man1:9 ../../man/man1/manpath.man1:13
+#: ../../man/man1/whatis.man1:12 ../../man/man1/zsoelim.man1:12
+#: ../../man/man8/accessdb.man8:12 ../../man/man8/catman.man8:12
+#: ../../man/man8/mandb.man8:14
+#, no-wrap
+msgid "Manual pager utils"
+msgstr "Утиліти переглядача довідки"
+
+#. type: SH
+#: ../../man/man1/apropos.man1:13 ../../man/man1/lexgrog.man1:45
+#: ../../man/man1/man.man1:16 ../../man/man1/man-recode.man1:10
+#: ../../man/man1/manconv.man1:10 ../../man/man1/manpath.man1:14
+#: ../../man/man1/whatis.man1:13 ../../man/man1/zsoelim.man1:13
+#: ../../man/man5/manpath.man5:14 ../../man/man8/accessdb.man8:13
+#: ../../man/man8/catman.man8:13 ../../man/man8/mandb.man8:15
+#, no-wrap
+msgid "NAME"
+msgstr "ІМʼЯ"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:15
+msgid "%apropos% - search the manual page names and descriptions"
+msgstr "%apropos% - шукати в назвах та описах сторінок довідки"
+
+#. type: SH
+#: ../../man/man1/apropos.man1:15 ../../man/man1/lexgrog.man1:47
+#: ../../man/man1/man.man1:18 ../../man/man1/man-recode.man1:12
+#: ../../man/man1/manconv.man1:12 ../../man/man1/manpath.man1:16
+#: ../../man/man1/whatis.man1:15 ../../man/man1/zsoelim.man1:15
+#: ../../man/man8/accessdb.man8:16 ../../man/man8/catman.man8:15
+#: ../../man/man8/mandb.man8:17
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr "СИНОПСИС"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:32
+msgid ""
+"B<%apropos%> [\\|B<-dalv?V>\\|] [\\|B<-e>\\||\\|B<-w>\\||\\|B<-r>\\|] [\\|B<-"
+"s> I<list>\\|] [\\|B<-m> I<system>\\|[\\|,.\\|.\\|.\\|]\\|] [\\|B<-M> "
+"I<path>\\|] [\\|B<-L> I<locale>\\|] [\\|B<-C> I<file>\\|] I<keyword> \\&.\\|."
+"\\|."
+msgstr ""
+"B<%apropos%> [\\|B<-dalv?V>\\|] [\\|B<-e>\\||\\|B<-w>\\||\\|B<-r>\\|] [\\|B<-"
+"s> I<список>\\|] [\\|B<-m> I<система>\\|[\\|,.\\|.\\|.\\|]\\|] [\\|B<-M> "
+"I<шлях>\\|] [\\|B<-L> I<локаль>\\|] [\\|B<-C> I<файл>\\|] I<ключове слово> "
+"\\&.\\|.\\|."
+
+#. type: SH
+#: ../../man/man1/apropos.man1:32 ../../man/man1/lexgrog.man1:55
+#: ../../man/man1/man.man1:60 ../../man/man1/man-recode.man1:20
+#: ../../man/man1/manconv.man1:20 ../../man/man1/manpath.man1:23
+#: ../../man/man1/whatis.man1:32 ../../man/man1/zsoelim.man1:20
+#: ../../man/man5/manpath.man5:16 ../../man/man8/accessdb.man8:20
+#: ../../man/man8/catman.man8:24 ../../man/man8/mandb.man8:30
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr "ОПИС"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:37
+msgid ""
+"Each manual page has a short description available within it.  B<%apropos%> "
+"searches the descriptions for instances of I<keyword>."
+msgstr ""
+"Кожна сторінка довідки має короткий опис, який можна знайти всередині неї. "
+"Команда B<%apropos%> шукає в описах входження заданого I<ключового слова>."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:50
+msgid ""
+"I<keyword> is usually a regular expression, as if (B<-r>)  was used, or may "
+"contain wildcards (B<-w>), or match the exact keyword (B<-e>).  Using these "
+"options, it may be necessary to quote the I<keyword> or escape (\\e) the "
+"special characters to stop the shell from interpreting them."
+msgstr ""
+"I<ключове слово> зазвичай є регулярним виразом, якщо використовується опція "
+"(B<-r>), або може містити знаки шаблону (B<-w>), або точно відповідати "
+"ключовому слову (B<-e>). Використання цих опцій може вимагати цитування "
+"I<ключового слова> або екранування (\\e) спеціальних символів, щоб зупинити "
+"їх інтерпретацію оболонкою."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:53
+msgid ""
+"The standard matching rules allow matches to be made against the page name "
+"and word boundaries in the description."
+msgstr ""
+"Стандартні правила відповідності дозволяють здійснювати порівняння з імʼям "
+"сторінки та межами слів у описі."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:61
+msgid ""
+"The database searched by B<%apropos%> is updated by the B<%mandb%> program.  "
+"Depending on your installation, this may be run by a periodic cron job, or "
+"may need to be run manually after new manual pages have been installed."
+msgstr ""
+"База даних, яку шукає B<%apropos%>, оновлюється програмою B<%mandb%>. "
+"Залежно від вашої установки, це може бути запущено періодичною cron-задачею "
+"або потрібно запустити вручну після встановлення нових сторінок довідки."
+
+#. type: SH
+#: ../../man/man1/apropos.man1:61 ../../man/man1/lexgrog.man1:80
+#: ../../man/man1/man.man1:406 ../../man/man1/man-recode.man1:52
+#: ../../man/man1/manconv.man1:50 ../../man/man1/manpath.man1:38
+#: ../../man/man1/whatis.man1:71 ../../man/man1/zsoelim.man1:55
+#: ../../man/man8/accessdb.man8:29 ../../man/man8/catman.man8:55
+#: ../../man/man8/mandb.man8:74
+#, no-wrap
+msgid "OPTIONS"
+msgstr "ПАРАМЕТРИ"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:65 ../../man/man1/lexgrog.man1:84
+#: ../../man/man1/man.man1:420 ../../man/man1/man-recode.man1:72
+#: ../../man/man1/manconv.man1:67 ../../man/man1/manpath.man1:45
+#: ../../man/man1/whatis.man1:75 ../../man/man8/accessdb.man8:33
+#: ../../man/man8/catman.man8:59 ../../man/man8/mandb.man8:78
+msgid "Print debugging information."
+msgstr "Вивести інформацію для налагодження."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:68 ../../man/man1/whatis.man1:78
+msgid "Print verbose warning messages."
+msgstr "Вивести деталізовані попереджувальні повідомлення."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:76
+msgid ""
+"Interpret each keyword as a regular expression.  This is the default "
+"behaviour.  Each keyword will be matched against the page names and the "
+"descriptions independently.  It can match any part of either.  The match is "
+"not limited to word boundaries."
+msgstr ""
+"Інтерпретувати кожне ключове слово як регулярний вираз. Це стандартна "
+"поведінка. Кожне ключове слово буде збігатися з назвами сторінок та описами "
+"незалежно. Воно може збігатися з будь-якою частиною обох. Збіг не "
+"обмежується межами слів."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:88
+msgid ""
+"Interpret each keyword as a pattern containing shell style wildcards.  Each "
+"keyword will be matched against the page names and the descriptions "
+"independently.  If B<--exact> is also used, a match will only be found if an "
+"expanded keyword matches an entire description or page name.  Otherwise the "
+"keyword is also allowed to match on word boundaries in the description."
+msgstr ""
+"Інтерпретувати кожне ключове слово як шаблон, що містить маски стилю "
+"оболонки. Кожне ключове слово буде порівнюватися з назвами сторінок та "
+"описами незалежно. Якщо також використовується B<--exact>, тоді збіг "
+"знайдеться лише у випадку, якщо розширене ключове слово відповідає цілій "
+"назві сторінки або опису. В іншому випадку дозволено також збігатися на "
+"межах слів у описі."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:92
+msgid ""
+"Each keyword will be exactly matched against the page names and the "
+"descriptions."
+msgstr ""
+"Кожне ключове слово буде точно збігатися з назвами сторінок та описами."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:96
+msgid ""
+"Only display items that match all the supplied keywords.  The default is to "
+"display items that match any keyword."
+msgstr ""
+"Показувати тільки елементи, які відповідають усім наданим ключовим словам. "
+"За замовчуванням показуються елементи, які відповідають будь-якому ключовому "
+"слову."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:103 ../../man/man1/whatis.man1:107
+msgid ""
+"Do not trim output to the terminal width.  Normally, output will be "
+"truncated to the terminal width to avoid ugly results from poorly-written "
+"B<NAME> sections."
+msgstr ""
+"Не обрізати вивід до ширини терміналу. Зазвичай, вивід буде обрізано до "
+"ширини терміналу для уникнення неприємних результатів від погано написаних "
+"розділів B<NAME>."
+
+#. type: TP
+#: ../../man/man1/apropos.man1:103 ../../man/man1/whatis.man1:107
+#, no-wrap
+msgid "B<-s> I<list\\/>, B<--sections=>I<list\\/>, B<--section=>I<list>"
+msgstr "B<-s> I<список\\/>, B<--розділи=>I<список\\/>, B<--розділ=>I<список>"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:118 ../../man/man1/whatis.man1:122
+msgid ""
+"Search only the given manual sections.  I<list> is a colon- or comma-"
+"separated list of sections.  If an entry in I<list> is a simple section, for "
+"example \"3\", then the displayed list of descriptions will include pages in "
+"sections \"3\", \"3perl\", \"3x\", and so on; while if an entry in I<list> "
+"has an extension, for example \"3perl\", then the list will only include "
+"pages in that exact part of the manual section."
+msgstr ""
+"Шукати тільки вказані розділи довідника. I<список> - це список розділів, "
+"розділених комами або двокрапками. Якщо запис у I<списку> є простим "
+"розділом, наприклад \"3\", то виведений список описів буде включати сторінки "
+"в розділах \"3\", \"3perl\", \"3x\" і т.д.; якщо ж запис у I<списку> має "
+"розширення, наприклад \"3perl\", то список буде включати лише сторінки з "
+"точної частини розділу довідника."
+
+#. type: TP
+#: ../../man/man1/apropos.man1:118 ../../man/man1/man.man1:571
+#: ../../man/man1/manpath.man1:54 ../../man/man1/whatis.man1:122
+#, no-wrap
+msgid "B<-m> I<system>\\|[\\|,.\\|.\\|.\\|]\\|, B<--systems=>I<system>\\|[\\|,.\\|.\\|.\\|]"
+msgstr "B<-m> I<система>\\|[\\|,.\\|.\\|.\\|]\\|, B<--systems=>I<система>\\|[\\|,.\\|.\\|.\\|]"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:126
+msgid ""
+"If this system has access to other operating systems' manual page "
+"descriptions, they can be searched using this option.  To search NewOS's "
+"manual page descriptions, use the option B<-m> B<NewOS>."
+msgstr ""
+"Якщо ця система має доступ до описів сторінок керівництва інших операційних "
+"систем, то у них можна шукати за допомогою цієї опції. Для пошуку у описах "
+"сторінок керівництва NewOS використовуйте опцію B<-m> B<NewOS>."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:138
+msgid ""
+"The I<system> specified can be a combination of comma-delimited operating "
+"system names.  To include a search of the native operating system's "
+"B<whatis> descriptions, include the system name B<man> in the argument "
+"string.  This option will override the $B<SYSTEM> environment variable."
+msgstr ""
+"Вказана I<система> може бути комбінацією назв операційних систем розділених "
+"комами. Для включення пошуку описів B<whatis> вбудованої операційної "
+"системи, додайте назву системи B<man> у рядок аргументів. Ця опція "
+"перевизначить змінну середовища $B<SYSTEM>."
+
+#. type: TP
+#: ../../man/man1/apropos.man1:138 ../../man/man1/man.man1:591
+#: ../../man/man1/whatis.man1:142 ../../man/man8/catman.man8:59
+#, no-wrap
+msgid "B<-M\\ >I<path>,\\ B<--manpath=>I<path>"
+msgstr "B<-M\\ >I<шлях>,\\ B<--manpath=>I<шлях>"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:152 ../../man/man1/whatis.man1:156
+msgid ""
+"Specify an alternate set of colon-delimited manual page hierarchies to "
+"search.  By default, B<%program%> uses the $B<MANPATH> environment variable, "
+"unless it is empty or unset, in which case it will determine an appropriate "
+"manpath based on your $B<PATH> environment variable.  This option overrides "
+"the contents of $B<MANPATH>."
+msgstr ""
+"Вкажіть альтернативний набір ієрархій сторінок довідки для пошуку, "
+"розділених двокрапками. За замовчуванням, B<%program%> використовує змінну "
+"середовища $B<MANPATH>, якщо вона не пуста або не встановлена, у цьому "
+"випадку програма визначить відповідний manpath на основі вашої змінної "
+"середовища $B<PATH>. Ця опція перезаписує вміст $B<MANPATH>."
+
+#. type: TP
+#: ../../man/man1/apropos.man1:152 ../../man/man1/man.man1:554
+#: ../../man/man1/whatis.man1:156
+#, no-wrap
+msgid "B<-L\\ >I<locale>,\\ B<--locale=>I<locale>"
+msgstr "B<-L\\ >I<локаль>,\\ B<--locale=>I<локаль>"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:169 ../../man/man1/man.man1:571
+#: ../../man/man1/whatis.man1:173
+msgid ""
+"B<%program%> will normally determine your current locale by a call to the C "
+"function B<setlocale>(3)  which interrogates various environment variables, "
+"possibly including $B<LC_MESSAGES> and $B<LANG>.  To temporarily override "
+"the determined value, use this option to supply a I<locale> string directly "
+"to B<%program%>.  Note that it will not take effect until the search for "
+"pages actually begins.  Output such as the help message will always be "
+"displayed in the initially determined locale."
+msgstr ""
+"Зазвичай програма B<%program%> визначатиме вашу поточний локаль шляхом "
+"виклику функції Сі B<setlocale>(3), яка досліджує різні змінні середовища, "
+"можливо, включаючи $B<LC_MESSAGES> та $B<LANG>. Щоб тимчасово перекрити "
+"визначене значення, скористайтеся цією опцією для безпосереднього надання "
+"рядка I<локалі> програмі B<%program%>. Зверніть увагу, що вона не почне "
+"діяти до тих пір, поки фактично не почнеться пошук сторінок. Виводи такого "
+"типу, як повідомлення про допомогу, завжди будуть показуватися у попередньо "
+"визначеній локалі."
+
+#. type: TP
+#: ../../man/man1/apropos.man1:169 ../../man/man1/man.man1:413
+#: ../../man/man1/manpath.man1:74 ../../man/man1/whatis.man1:173
+#: ../../man/man8/catman.man8:64 ../../man/man8/mandb.man8:125
+#, no-wrap
+msgid "B<-C\\ >I<file>,\\ B<--config-file=>I<file>"
+msgstr "B<-C\\ >I<файл>,\\ B<--config-file=>I<файл>"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:173 ../../man/man1/man.man1:417
+#: ../../man/man1/manpath.man1:78 ../../man/man1/whatis.man1:177
+#: ../../man/man8/catman.man8:68 ../../man/man8/mandb.man8:129
+msgid ""
+"Use this user configuration file rather than the default of I<\\"
+"(ti/.manpath>."
+msgstr ""
+"Використовуйте цей користувацький файл конфігурації замість типового у I<\\"
+"(ti/.manpath)>."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:176 ../../man/man1/lexgrog.man1:124
+#: ../../man/man1/man.man1:1048 ../../man/man1/man-recode.man1:75
+#: ../../man/man1/manconv.man1:70 ../../man/man1/manpath.man1:81
+#: ../../man/man1/whatis.man1:180 ../../man/man1/zsoelim.man1:67
+#: ../../man/man8/accessdb.man8:36 ../../man/man8/catman.man8:71
+msgid "Print a help message and exit."
+msgstr "Надрукувати повідомлення довідки та вийти."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:179 ../../man/man1/lexgrog.man1:127
+#: ../../man/man1/man.man1:1051 ../../man/man1/manpath.man1:84
+#: ../../man/man1/whatis.man1:183 ../../man/man8/accessdb.man8:39
+#: ../../man/man8/catman.man8:74 ../../man/man8/mandb.man8:135
+msgid "Print a short usage message and exit."
+msgstr "Надрукувати коротке повідомлення про використання та вийти."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:182 ../../man/man1/lexgrog.man1:130
+#: ../../man/man1/man.man1:1054 ../../man/man1/man-recode.man1:78
+#: ../../man/man1/manconv.man1:73 ../../man/man1/manpath.man1:87
+#: ../../man/man1/whatis.man1:186 ../../man/man1/zsoelim.man1:70
+#: ../../man/man8/accessdb.man8:42 ../../man/man8/catman.man8:77
+msgid "Display version information."
+msgstr "Показати інформацію про версію."
+
+#. type: SH
+#: ../../man/man1/apropos.man1:182 ../../man/man1/lexgrog.man1:130
+#: ../../man/man1/man.man1:1054 ../../man/man1/whatis.man1:186
+#: ../../man/man8/mandb.man8:138
+#, no-wrap
+msgid "EXIT STATUS"
+msgstr "СТАТУС ВИХОДУ"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:186 ../../man/man1/lexgrog.man1:134
+#: ../../man/man1/man.man1:1058 ../../man/man1/whatis.man1:190
+#: ../../man/man8/mandb.man8:142
+msgid "Successful program execution."
+msgstr "Успішне виконання програми."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:189 ../../man/man1/man.man1:1061
+#: ../../man/man1/whatis.man1:193
+msgid "Usage, syntax or configuration file error."
+msgstr "Помилка використання, синтаксису або файлу конфігурації."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:192 ../../man/man1/man.man1:1064
+#: ../../man/man1/whatis.man1:196 ../../man/man8/mandb.man8:148
+msgid "Operational error."
+msgstr "Операційна помилка."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:195 ../../man/man1/whatis.man1:199
+msgid "Nothing was found that matched the criteria specified."
+msgstr "Нічого не знайдено, що б відповідало зазначеним критеріям."
+
+#. type: SH
+#: ../../man/man1/apropos.man1:195 ../../man/man1/man.man1:1070
+#: ../../man/man1/manpath.man1:87 ../../man/man1/whatis.man1:199
+#: ../../man/man8/catman.man8:77
+#, no-wrap
+msgid "ENVIRONMENT"
+msgstr "СЕРЕДОВИЩЕ"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:204 ../../man/man1/man.man1:1186
+#: ../../man/man1/manpath.man1:110 ../../man/man1/whatis.man1:208
+msgid ""
+"If $B<SYSTEM> is set, it will have the same effect as if it had been "
+"specified as the argument to the B<-m> option."
+msgstr ""
+"Якщо встановлено $B<SYSTEM>, це матиме такий же ефект, як і якби вона була "
+"зазначена як аргумент для опції B<-m>."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:210 ../../man/man1/whatis.man1:214
+#: ../../man/man8/catman.man8:94
+msgid ""
+"If $B<MANPATH> is set, its value is interpreted as the colon-delimited "
+"manual page hierarchy search path to use."
+msgstr ""
+"Якщо встановлено змінну $B<MANPATH>, її значення інтерпретується як шлях "
+"пошуку ієрархії сторінок довідки, розділений двокрапками."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:217 ../../man/man1/man.man1:1084
+#: ../../man/man1/manpath.man1:102 ../../man/man1/whatis.man1:221
+#: ../../man/man8/catman.man8:101
+msgid ""
+"See the B<SEARCH PATH> section of B<manpath>(5)  for the default behaviour "
+"and details of how this environment variable is handled."
+msgstr ""
+"Дивіться розділ B<ШЛЯХ ПОШУКУ> у B<manpath>(5) щодо поведінки за "
+"замовчуванням і подробиць того, як обробляється ця змінна середовища."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:229 ../../man/man1/whatis.man1:233
+msgid ""
+"If $B<MANWIDTH> is set, its value is used as the terminal width (see the B<--"
+"long> option).  If it is not set, the terminal width will be calculated "
+"using the value of $B<COLUMNS>, and B<ioctl>(2)  if available, or falling "
+"back to 80 characters if all else fails."
+msgstr ""
+"Якщо встановлено змінну $B<MANWIDTH>, її значення використовується як ширина "
+"терміналу (див. опцію B<--long>). Якщо вона не встановлена, ширина терміналу "
+"буде розрахована за допомогою значення змінної $B<COLUMNS>, а також за "
+"допомогою B<ioctl>(2), якщо він доступний, або, у випадку невдачі, буде "
+"використовуватися 80 символів."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:238
+msgid ""
+"If $B<POSIXLY_CORRECT> is set, even to a null value, the default "
+"B<%apropos%> search will be as an extended regex (B<-r>).  Nowadays, this is "
+"the default behaviour anyway."
+msgstr ""
+"Якщо встановлено $B<POSIXLY_CORRECT>, навіть у значення null, за "
+"замовчуванням пошук B<%apropos%> буде виконуватися як розширений регулярний "
+"вираз (B<-r>). Сьогодні це є стандартною поведінкою."
+
+#. type: SH
+#: ../../man/man1/apropos.man1:238 ../../man/man1/man.man1:1271
+#: ../../man/man1/manpath.man1:110 ../../man/man1/whatis.man1:233
+#: ../../man/man8/catman.man8:101 ../../man/man8/mandb.man8:185
+#, no-wrap
+msgid "FILES"
+msgstr "ФАЙЛИ"
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:244 ../../man/man1/whatis.man1:239
+#: ../../man/man8/catman.man8:110 ../../man/man8/mandb.man8:201
+msgid "A traditional global I<index> database cache."
+msgstr "Традиційний глобальний кеш I<індексу> бази даних."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:250 ../../man/man1/whatis.man1:245
+#: ../../man/man8/mandb.man8:194
+msgid "An FHS compliant global I<index> database cache."
+msgstr "Сумісний з FHS глобальний кеш I<індексу> бази даних."
+
+#. type: Plain text
+#: ../../man/man1/apropos.man1:255 ../../man/man1/whatis.man1:250
+msgid "A traditional B<whatis> text database."
+msgstr "Традиційна текстова база даних B<whatis>."
+
+#. type: SH
+#: ../../man/man1/apropos.man1:255 ../../man/man1/lexgrog.man1:226
+#: ../../man/man1/man.man1:1280 ../../man/man1/man-recode.man1:78
+#: ../../man/man1/manconv.man1:73 ../../man/man1/manpath.man1:114
+#: ../../man/man1/whatis.man1:250 ../../man/man1/zsoelim.man1:70
+#: ../../man/man8/catman.man8:116 ../../man/man8/mandb.man8:207
+#, no-wrap
+msgid "SEE ALSO"
+msgstr "ДИВ. ТАКОЖ"
+
+#. type: SH
+#: ../../man/man1/apropos.man1:259 ../../man/man1/lexgrog.man1:236
+#: ../../man/man1/man-recode.man1:86 ../../man/man1/manconv.man1:77
+#: ../../man/man1/manpath.man1:118 ../../man/man1/whatis.man1:254
+#: ../../man/man1/zsoelim.man1:75 ../../man/man8/accessdb.man8:42
+#: ../../man/man8/catman.man8:120 ../../man/man8/mandb.man8:217
+#, no-wrap
+msgid "AUTHOR"
+msgstr "АВТОР"
+
+#. type: SH
+#: ../../man/man1/apropos.man1:265 ../../man/man1/lexgrog.man1:249
+#: ../../man/man1/man.man1:1313 ../../man/man1/man-recode.man1:82
+#: ../../man/man1/manconv.man1:81 ../../man/man1/manpath.man1:124
+#: ../../man/man1/whatis.man1:260 ../../man/man1/zsoelim.man1:81
+#: ../../man/man5/manpath.man5:240 ../../man/man8/accessdb.man8:48
+#: ../../man/man8/catman.man8:126 ../../man/man8/mandb.man8:223
+#, no-wrap
+msgid "BUGS"
+msgstr "ПОМИЛКИ"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:47
+msgid "lexgrog - parse header information in man pages"
+msgstr "lexgrog - аналізувати інформацію заголовку в сторінках довідки"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:55
+msgid ""
+"B<lexgrog> [\\|B<-m>\\||\\|B<-c>\\|] [\\|B<-dfw?V>\\|] [\\|B<-E> "
+"I<encoding>\\|] I<file> \\&.\\|.\\|."
+msgstr ""
+"B<lexgrog> [\\|B<-m>\\||\\|B<-c>\\|] [\\|B<-dfw?V>\\|] [\\|B<-E> "
+"I<кодування>\\|] I<файл> \\&.\\|.\\|."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:71
+msgid ""
+"B<lexgrog> is an implementation of the traditional \\(lqgroff guess\\(rq "
+"utility in B<lex>.  It reads the list of files on its command line as either "
+"man page source files or preformatted \\(lqcat\\(rq pages, and displays "
+"their name and description as used by B<apropos> and B<whatis>, the list of "
+"preprocessing filters required by the man page before it is passed to "
+"B<nroff> or B<troff>, or both."
+msgstr ""
+"B<lexgrog> - це реалізація традиційної утиліти «groff guess» в B<lex>. Вона "
+"читає список файлів, переданих їй як аргументи командного рядка, як джерело "
+"сторінок man або вже відформатовані «cat» сторінки, і показує їх назву та "
+"опис, використовуючи B<apropos> та B<whatis>, список попередніх фільтрів, "
+"необхідних для сторінки man перед тим, як вона буде передана до B<nroff> або "
+"B<troff>, або обох."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:80
+msgid ""
+"If its input is badly formatted, B<lexgrog> will print \\(lqparse failed\\"
+"(rq; this may be useful for external programs that need to check man pages "
+"for correctness.  If one of B<lexgrog>'s input files is \\(lq-\\(rq, it will "
+"read from standard input; if any input file is compressed, a decompressed "
+"version will be read automatically."
+msgstr ""
+"Якщо його вхідні дані погано сформовані, B<lexgrog> над «parse failed». Це "
+"може бути корисним для зовнішніх програм, які повинні перевіряти сторінки "
+"man на правильність. Якщо один з вхідних файлів B<lexgrog> є «-», він "
+"прочитає дані зі стандартного вводу; якщо будь-який вхідний файл стиснутий, "
+"буде автоматично прочитана розпакована версія."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:92
+msgid ""
+"Parse input as man page source files.  This is the default if neither B<--"
+"man> nor B<--cat> is given."
+msgstr ""
+"Аналізувати вхідні дані як джерело сторінок man. Це значення за "
+"замовчуванням, якщо не вказано ні B<--man>, ні B<--cat>."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:99
+msgid ""
+"Parse input as preformatted man pages (\\(lqcat pages\\(rq).  B<--man> and "
+"B<--cat> may not be given simultaneously."
+msgstr ""
+"Аналізувати вхідні дані як форматовані сторінки довідки («сторінки cat»). "
+"B<--man> та B<--cat> не можуть бути задані одночасно."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:110
+msgid ""
+"Display the name and description from the man page's header, as used by "
+"B<apropos> and B<whatis>.  This is the default if neither B<--whatis> nor "
+"B<--filters> is given."
+msgstr ""
+"Показати назву та опис із заголовка сторінки man, як використовується у "
+"B<apropos> і B<whatis>. Це значення за замовчуванням, якщо не вказано ні B<--"
+"whatis>, ні B<--filters>."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:117
+msgid ""
+"Display the list of filters needed to preprocess the man page before "
+"formatting with B<nroff> or B<troff>."
+msgstr ""
+"Показати список фільтрів, необхідних для попередньої обробки сторінки man "
+"перед форматуванням за допомогою B<nroff> або B<troff>."
+
+#. type: TP
+#: ../../man/man1/lexgrog.man1:117
+#, no-wrap
+msgid "B<-E> I<encoding>, B<--encoding> I<encoding>"
+msgstr "B<-E> I<кодування>, B<--encoding> I<кодування>"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:121
+msgid "Override the guessed character set for the page to I<encoding>."
+msgstr "Перевизначити вгадану кодову сторінку для сторінки на I<кодування>."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:137
+msgid "Usage error."
+msgstr "Помилка використання."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:141
+msgid "B<lexgrog> failed to parse one or more of its input files."
+msgstr "B<lexgrog> не вдалося розібрати один або кілька своїх вхідних файлів."
+
+#. type: SH
+#: ../../man/man1/lexgrog.man1:141 ../../man/man1/man.man1:187
+#, no-wrap
+msgid "EXAMPLES"
+msgstr "ПРИКЛАДИ"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:151
+#, no-wrap
+msgid ""
+"  $ lexgrog man.1\n"
+"  man.1: \"man - an interface to the system reference manuals\"\n"
+"  $ lexgrog -fw man.1\n"
+"  man.1 (t): \"man - an interface to the system reference manuals\"\n"
+"  $ lexgrog -c whatis.cat1\n"
+"  whatis.cat1: \"whatis - display manual page descriptions\"\n"
+"  $ lexgrog broken.1\n"
+"  broken.1: parse failed\n"
+msgstr ""
+"  $ lexgrog man.1\n"
+"  man.1: \"man - інтерфейс до системних довідкових керівництв\"\n"
+"  $ lexgrog -fw man.1\n"
+"  man.1 (t): \"man - інтерфейс до системних довідкових керівництв\"\n"
+"  $ lexgrog -c whatis.cat1\n"
+"  whatis.cat1: \"whatis - показувати описи сторінок довідки\"\n"
+"  $ lexgrog broken.1\n"
+"  broken.1: синтаксичний аналіз не вдався\n"
+
+#. type: SH
+#: ../../man/man1/lexgrog.man1:152
+#, no-wrap
+msgid "WHATIS PARSING"
+msgstr "РОЗБІР WHATIS"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:163
+msgid ""
+"B<%mandb%> (which uses the same code as B<lexgrog>)  parses the B<NAME> "
+"section at the top of each manual page looking for names and descriptions of "
+"the features documented in each.  While the parser is quite tolerant, as it "
+"has to cope with a number of different forms that have historically been "
+"used, it may sometimes fail to extract the required information."
+msgstr ""
+"B<%mandb%> (яка використовує той самий код, що і B<lexgrog>) аналізує розділ "
+"B<NAME> у верхній частині кожної сторінки довідника, шукаючи назви та описи "
+"функцій, які документуються в кожному. Хоча аналізатор досить толерантний, "
+"оскільки він має впоратися з багатьма різними формами, що історично "
+"використовувалися, йому іноді може не вдаватися видобути необхідну "
+"інформацію."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:169
+msgid ""
+"When using the traditional I<man> macro set, a correct B<NAME> section looks "
+"something like this:"
+msgstr ""
+"При використанні традиційного набору макросів I<man>, правильний розділ "
+"B<NAME> виглядає приблизно так:"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:174
+#, no-wrap
+msgid ""
+"\\&.SH NAME\n"
+"foo \\e- program to do something\n"
+msgstr ""
+"\\&.SH NAME\n"
+"foo \\e- програма для виконання певних дій\n"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:181
+msgid ""
+"Some manual pagers require the \\(oq\\e-\\(cq to be exactly as shown; "
+"B<%mandb%> is more tolerant, but for compatibility with other systems it is "
+"nevertheless a good idea to retain the backslash."
+msgstr ""
+"Деякі гортачі довідки вимагають, щоб \\(oq\\e-\\(cq було показано точно так "
+"само; B<%mandb%> більш терпимий, але для сумісності з іншими системами все ж "
+"бажано зберігати зворотній слеш."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:191
+msgid ""
+"On the left-hand side, there may be several names, separated by commas.  "
+"Names containing whitespace will be ignored to avoid pathological behaviour "
+"on certain ill-formed B<NAME> sections.  The text on the right-hand side is "
+"free-form, and may be spread over multiple lines.  If several features with "
+"different descriptions are being documented in the same manual page, the "
+"following form is therefore used:"
+msgstr ""
+"Зліва можуть бути вказано кілька імен, розділених комами. Імена, що містять "
+"пробіли, будуть ігноруватися, щоб уникнути патологічної поведінки в певних "
+"неправильно сформованих секціях B<NAME>. Текст праворуч є довільним та може "
+"розподілятися на кілька рядків. Якщо в одній сторінці керівництва описується "
+"кілька функцій з різними описами, то використовується наступна форма:"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:198
+#, no-wrap
+msgid ""
+"\\&.SH NAME\n"
+"foo, bar \\e- programs to do something\n"
+"\\&.br\n"
+"baz \\e- program to do nothing\n"
+msgstr ""
+"\\&.SH NAME\n"
+"foo, bar \\e- програми для виконання певних дій\n"
+"\\&.br\n"
+"baz \\e- програма, яка нічого не робить\n"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:203
+msgid ""
+"(A macro which starts a new paragraph, like B<.PP>, may be used instead of "
+"the break macro B<.br>.)"
+msgstr ""
+"(Макрос, який починає новий абзац, на кшталт B<.PP>, може бути використаний "
+"замість макросу перенесення рядка B<.br>.)"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:209
+msgid ""
+"When using the BSD-derived I<mdoc> macro set, a correct B<NAME> section "
+"looks something like this:"
+msgstr ""
+"При використанні набору макросів I<mdoc>, похідних від BSD, правильний "
+"розділ B<NAME> виглядає приблизно так:"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:215
+#, no-wrap
+msgid ""
+"\\&.Sh NAME\n"
+"\\&.Nm foo\n"
+"\\&.Nd program to do something\n"
+msgstr ""
+"\\&.Sh NAME\n"
+"\\&.Nm foo\n"
+"\\&.Nd програма для виконання певних дій\n"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:226
+msgid ""
+"There are several common reasons why whatis parsing fails.  Sometimes "
+"authors of manual pages replace \\(oq.SH NAME\\(cq with \\(oq.SH MYPROGRAM\\"
+"(cq, and then B<%mandb%> cannot find the section from which to extract the "
+"information it needs.  Sometimes authors include a NAME section, but place "
+"free-form text there rather than \\(oqname \\e- description\\(cq.  However, "
+"any syntax resembling the above should be accepted."
+msgstr ""
+"Існує кілька поширених причин, чому аналіз whatis не вдається. Іноді автори "
+"сторінок довідки замінюють \\(oq.SH NAME\\(cq на \\(oq.SH MYPROGRAM\\(cq, і "
+"тоді B<%mandb%> не може знайти розділ, з якого потрібно витягнути необхідну "
+"інформацію. Іноді автори включають розділ B<NAME>, але розміщують там "
+"вільний текст замість \\(oqname \\e- опису\\(cq. Проте, будь-яка синтаксична "
+"конструкція, що нагадує вищезазначене, повинна бути прийнятною."
+
+#. type: SH
+#: ../../man/man1/lexgrog.man1:231
+#, no-wrap
+msgid "NOTES"
+msgstr "ПРИМІТКИ"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:236
+msgid ""
+"B<lexgrog> attempts to parse files containing .so requests, but will only be "
+"able to do so correctly if the files are properly installed in a manual page "
+"hierarchy."
+msgstr ""
+"B<lexgrog> намагається аналізувати файли, які містять запити .so, але зможе "
+"це робити правильно тільки тоді, коли ці файли будуть правильно встановлені "
+"у ієрархії сторінок довідки."
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:240
+msgid "The code used by B<lexgrog> to scan man pages was written by:"
+msgstr ""
+"Код, який використовується B<lexgrog> для сканування сторінок man, написаний:"
+
+#. type: Plain text
+#: ../../man/man1/lexgrog.man1:249
+msgid ""
+"Colin Watson wrote the current incarnation of the command-line front-end, as "
+"well as this man page."
+msgstr ""
+"Колін Вотсон написав поточну версію інтерфейсу командного рядка, а також цю "
+"сторінку довідки."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:18
+msgid "%man% - an interface to the system reference manuals"
+msgstr "%man% - інтерфейс до довідкових матеріалів системи"
+
+#.  The general command line
+#.  The apropos command line
+#. type: Plain text
+#: ../../man/man1/man.man1:25
+msgid ""
+"B<%man%> [\\|I<man options>\\|] [\\|[\\|I<section>\\|] I<page>\\ \\|.\\|.\\|."
+"\\|]\\ .\\|.\\|.\\&"
+msgstr ""
+"B<%man%> [\\|I<параметри man>\\|] [\\|[\\|I<розділ>\\|] I<сторінка>\\ \\|."
+"\\|.\\|.\\|]\\ .\\|.\\|.\\&"
+
+#.  The --global-apropos command line
+#. type: Plain text
+#: ../../man/man1/man.man1:32
+msgid "B<%man%> B<-k> [\\|I<apropos options>\\|] I<regexp> \\&.\\|.\\|.\\&"
+msgstr ""
+"B<%man%> B<-k> [\\|I<параметри apropos>\\|] I<регулярний вираз> \\&.\\|.\\|."
+"\\&"
+
+#.  The whatis command line
+#. type: Plain text
+#: ../../man/man1/man.man1:39
+msgid ""
+"B<%man%> B<-K> [\\|I<man options>\\|] [\\|I<section>\\|] I<term>\\ .\\|.\\|."
+"\\&"
+msgstr ""
+"B<%man%> B<-K> [\\|I<параметри man>\\|] [\\|I<розділ>\\|] I<термін>\\ .\\|."
+"\\|.\\&"
+
+#.  The --local command line
+#. type: Plain text
+#: ../../man/man1/man.man1:47
+msgid "B<%man%> B<-f> [\\|I<whatis> I<options>\\|] I<page> \\&.\\|.\\|.\\&"
+msgstr ""
+"B<%man%> B<-f> [\\|I<whatis> I<параметри>\\|] I<сторінка> \\&.\\|.\\|.\\&"
+
+#.  The --where/--where-cat command line
+#. type: Plain text
+#: ../../man/man1/man.man1:54
+msgid "B<%man%> B<-l> [\\|I<man options>\\|] I<file> \\&.\\|.\\|.\\&"
+msgstr "B<%man%> B<-l> [\\|I<параметри man>\\|] I<файл> \\&.\\|.\\|.\\&"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:60
+msgid ""
+"B<%man%> B<-w>\\||\\|B<-W> [\\|I<man options>\\|] I<page> \\&.\\|.\\|.\\&"
+msgstr ""
+"B<%man%> B<-w>\\||\\|B<-W> [\\|I<параметри man>\\|] I<сторінка> \\&.\\|.\\|."
+"\\&"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:88
+msgid ""
+"B<%man%> is the system's manual pager.  Each I<page> argument given to "
+"B<%man%> is normally the name of a program, utility or function.  The "
+"I<manual page> associated with each of these arguments is then found and "
+"displayed.  A I<section>, if provided, will direct B<%man%> to look only in "
+"that I<section> of the manual.  The default action is to search in all of "
+"the available I<sections> following a pre-defined order (see B<DEFAULTS>), "
+"and to show only the first I<page> found, even if I<page> exists in several "
+"I<sections>."
+msgstr ""
+"B<%man%> - це гортач системних сторінок довідки. Кожний аргумент "
+"I<сторінка>, наданий B<%man%>, зазвичай є іменем програми, утиліти або "
+"функції. Потім знаходиться та показується I<сторінка довідки>, повʼязана з "
+"кожним з цих аргументів. Якщо вказано I<розділ>, B<%man%> буде шукати тільки "
+"у цьому I<розділі> довідки. За замовчуванням програма шукає у всіх доступних "
+"I<розділах> за певним попередньо визначеним порядком (дивіться B<ЗА "
+"ЗАМОВЧУВАННЯМ>) та показує лише першу знайдену I<сторінку>, навіть якщо "
+"I<сторінка> існує у декількох I<розділах>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:92
+msgid ""
+"The table below shows the I<section> numbers of the manual followed by the "
+"types of pages they contain."
+msgstr ""
+"У таблиці нижче наведено номери розділів довідника, за якими слідують типи "
+"сторінок, які вони містять."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:98
+#, no-wrap
+msgid "Executable programs or shell commands"
+msgstr "Виконувані програми або команди оболонки"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:101
+#, no-wrap
+msgid "System calls (functions provided by the kernel)"
+msgstr "Системні виклики (функції, надані ядром)"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:104
+#, no-wrap
+msgid "Library calls (functions within program libraries)"
+msgstr "Виклики бібліотек (функції всередині програмних бібліотек)"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:107
+#, no-wrap
+msgid "Special files (usually found in I</dev\\/>)"
+msgstr "Спеціальні файли (зазвичай знаходяться в /dev/)"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:110
+#, no-wrap
+msgid "File formats and conventions, e.g.\\& I</etc/passwd>"
+msgstr "Формати файлів та узгодження, напр. \\& I</etc/passwd>"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:113
+#, no-wrap
+msgid "Games"
+msgstr "Ігри"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:117
+#, no-wrap
+msgid ""
+"Miscellaneous (including macro packages and conventions),\n"
+"e.g.\\& B<man>(7), B<groff>(7), B<man-pages>(7)"
+msgstr ""
+"Різне (включно з макропакетами та узгодженнями),\n"
+"напр.\\& B<man>(7), B<groff>(7), B<man-pages>(7)"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:120
+#, no-wrap
+msgid "System administration commands (usually only for root)"
+msgstr "Команди системного адміністрування (зазвичай лише для root)"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:123
+#, no-wrap
+msgid "Kernel routines [\\|Non standard\\|]"
+msgstr "Процедури ядра [\\|Не стандартні\\|]"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:129
+msgid "A manual I<page> consists of several sections."
+msgstr "I<Сторінка> довідника складається з декількох розділів."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:149
+msgid ""
+"Conventional section names include B<NAME>, B<SYNOPSIS>, B<CONFIGURATION>, "
+"B<DESCRIPTION>, B<OPTIONS>, B<EXIT\\ STATUS>, B<RETURN\\ VALUE>, B<ERRORS>, "
+"B<ENVIRONMENT>, B<FILES>, B<VERSIONS>, B<STANDARDS>, B<NOTES>, B<BUGS>, "
+"B<EXAMPLE>, B<AUTHORS>, and B<SEE\\ ALSO>."
+msgstr ""
+"Типові назви розділів включають B<NAME>, B<SYNOPSIS>, B<CONFIGURATION>, "
+"B<DESCRIPTION>, B<OPTIONS>, B<EXIT\\ STATUS>, B<RETURN\\ VALUE>, B<ERRORS>, "
+"B<ENVIRONMENT>, B<FILES>, B<VERSIONS>, B<STANDARDS>, B<NOTES>, B<BUGS>, "
+"B<EXAMPLE>, B<AUTHORS>, і B<SEE\\ ALSO>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:153
+msgid ""
+"The following conventions apply to the B<SYNOPSIS> section and can be used "
+"as a guide in other sections."
+msgstr ""
+"Наступні правила застосовуються до розділу B<СИНОПСИС> та можуть бути "
+"використані як посібник у інших розділах."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:157
+#, no-wrap
+msgid "B<bold text>"
+msgstr "B<жирний текст>"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:159
+#, no-wrap
+msgid "type exactly as shown."
+msgstr "введіть точно так, як показано."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:160
+#, no-wrap
+msgid "I<italic text>"
+msgstr "I<текст курсивом>"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:162
+#, no-wrap
+msgid "replace with appropriate argument."
+msgstr "замініть відповідним аргументом."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:163
+#, no-wrap
+msgid "[\\|B<-abc>\\|]"
+msgstr "[\\|B<-abc>\\|]"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:165
+#, no-wrap
+msgid "any or all arguments within [ ] are optional."
+msgstr "будь-які або всі аргументи всередині [ ] є необовʼязковими."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:166
+#, no-wrap
+msgid "B<-a\\|>|\\|B<-b>"
+msgstr "B<-a\\|>|\\|B<-b>"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:168
+#, no-wrap
+msgid "options delimited by | cannot be used together."
+msgstr "опції, розділені символом '|', не можуть використовуватися разом."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:169
+#, no-wrap
+msgid "I<argument> .\\|.\\|."
+msgstr "I<аргумент> .\\|.\\|."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:171
+#, no-wrap
+msgid "I<argument> is repeatable."
+msgstr "I<аргумент> можна повторювати."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:172
+#, no-wrap
+msgid "[\\|I<expression>\\|] .\\|.\\|."
+msgstr "[\\|I<вираз>\\|] .\\|.\\|."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:174
+#, no-wrap
+msgid "entire I<expression>\\ within [ ] is repeatable."
+msgstr "весь вираз I<expression>\\ всередині [ ] може повторюватися."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:180
+msgid ""
+"Exact rendering may vary depending on the output device.  For instance, man "
+"will usually not be able to render italics when running in a terminal, and "
+"will typically use underlined or coloured text instead."
+msgstr ""
+"Точність відображення може відрізнятися залежно від кінцевого пристрою. "
+"Наприклад, команда man зазвичай не зможе показати курсив у терміналі та "
+"часто використовує підкреслений або кольоровий текст замість цього."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:187
+msgid ""
+"The command or function illustration is a pattern that should match all "
+"possible invocations.  In some cases it is advisable to illustrate several "
+"exclusive invocations as is shown in the B<SYNOPSIS> section of this manual "
+"page."
+msgstr ""
+"Ілюстрація команди або функції є шаблоном, який повинен відповідати всім "
+"можливим викликам. У деяких випадках бажано ілюструвати кілька виключних "
+"викликів, як це показано у розділі B<СИНОПСИС> цієї сторінки довідника."
+
+#. type: TP
+#: ../../man/man1/man.man1:188
+#, no-wrap
+msgid "B<%man%>I<\\ ls>"
+msgstr "B<%man%>I<\\ ls>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:194
+msgid "Display the manual page for the I<item> (program)  I<ls>."
+msgstr "Показати сторінку довідки для I<елементу> (програми)  I<ls>."
+
+#. type: TP
+#: ../../man/man1/man.man1:194
+#, no-wrap
+msgid "B<%man%> I<man>.I<7>"
+msgstr "B<%man%> I<man>.I<7>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:202
+msgid ""
+"Display the manual page for macro package I<man> from section I<7>.  (This "
+"is an alternative spelling of \"B<%man%> I<7 man>\".)"
+msgstr ""
+"Показати сторінку довідки для макропакету I<man> з розділу I<7>. (Це "
+"альтернативне написання «B<%man%> I<7 man>».)"
+
+#. type: TP
+#: ../../man/man1/man.man1:202
+#, no-wrap
+msgid "B<%man% '>I<man>(I<7>)B<'>"
+msgstr "B<%man% '>I<man>(I<7>)B<'>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:214
+msgid ""
+"Display the manual page for macro package I<man> from section I<7>.  (This "
+"is another alternative spelling of \"B<%man%> I<7 man>\".  It may be more "
+"convenient when copying and pasting cross-references to manual pages.  Note "
+"that the parentheses must normally be quoted to protect them from the shell.)"
+msgstr ""
+"Показати сторінку довідки для макропакету I<man> з розділу I<7>. (Це інший "
+"варіант написання \"B<%man%> I<7 man>\". Це може бути зручніше при "
+"копіюванні та вставці посилань на сторінки довідки. Зверніть увагу, що дужки "
+"зазвичай повинні бути в лапках, щоб захистити їх від оболонки.)"
+
+#. type: TP
+#: ../../man/man1/man.man1:214
+#, no-wrap
+msgid "B<%man%\\ -a>I<\\ intro>"
+msgstr "B<%man%\\ -a>I<\\ intro>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:220
+msgid ""
+"Display, in succession, all of the available I<intro> manual pages contained "
+"within the manual.  It is possible to quit between successive displays or "
+"skip any of them."
+msgstr ""
+"Послідовно показувати всі доступні сторінки керівництва I<intro>. Можна "
+"вийти між показами або пропустити будь-який з них."
+
+#. type: TP
+#: ../../man/man1/man.man1:220
+#, no-wrap
+msgid "B<%man% -t >I<bash >|I< lpr -Pps>"
+msgstr "B<%man% -t >I<bash >|I< lpr -Pps>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:237
+msgid ""
+"Format the manual page for I<bash> into the default B<troff> or B<groff> "
+"format and pipe it to the printer named I<ps>.  The default output for "
+"B<groff> is usually PostScript.  B<%man% --help> should advise as to which "
+"processor is bound to the B<-t> option."
+msgstr ""
+"Сформувати сторінку довідки для I<bash> у форматі за замовчуванням B<troff> "
+"або B<groff> та передати її принтеру з назвою I<ps>. За замовчуванням "
+"вихідні дані для B<groff> - це зазвичай PostScript.  B<%man% --help> повинно "
+"порадити, який процесор повʼязаний з опцією B<-t>."
+
+#. type: TP
+#: ../../man/man1/man.man1:237
+#, no-wrap
+msgid "B<%man% -l -T>I<dvi ./foo.1x.gz>B< E<gt> >I<./foo.1x.dvi>"
+msgstr "B<%man% -l -T>I<dvi ./foo.1x.gz>B< E<gt> >I<./foo.1x.dvi>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:253
+msgid ""
+"This command will decompress and format the nroff source manual page I<./"
+"foo.1x.gz> into a B<device independent (dvi)> file.  The redirection is "
+"necessary as the B<-T> flag causes output to be directed to B<stdout> with "
+"no pager.  The output could be viewed with a program such as B<xdvi> or "
+"further processed into PostScript using a program such as B<dvips>."
+msgstr ""
+"Ця команда розпакує та сформує джерело сторінки керівництва nroff I<./"
+"foo.1x.gz> у файл B<незалежний від пристрою (dvi)> файл. Перенаправлення "
+"необхідне, оскільки прапорець B<-T> призводить до виведення результату в "
+"B<stdout> без використання гортача. Результат можна переглянути за допомогою "
+"програми, такої як B<xdvi>, або далі обробити у PostScript за допомогою "
+"програми, такої як B<dvips>."
+
+#. type: TP
+#: ../../man/man1/man.man1:253
+#, no-wrap
+msgid "B<%man%\\ -k>I<\\ printf>"
+msgstr "B<%man%\\ -k>I<\\ printf>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:261
+msgid ""
+"Search the short descriptions and manual page names for the keyword "
+"I<printf> as regular expression.  Print out any matches.  Equivalent to "
+"B<%apropos%>I<\\ printf>B<.>"
+msgstr ""
+"Шукає короткі описи та назви сторінок довідки за ключовим словом I<printf>, "
+"використовуючи його як регулярний вираз. Надрукує будь-які збіги. "
+"Еквівалентно B<%apropos%>I<\\ printf>B<.>"
+
+#. type: TP
+#: ../../man/man1/man.man1:261
+#, no-wrap
+msgid "B<%man%\\ -f>I<\\ smail>"
+msgstr "B<%man%\\ -f>I<\\ smail>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:268
+msgid ""
+"Lookup the manual pages referenced by I<smail> and print out the short "
+"descriptions of any found.  Equivalent to B<%whatis%>I<\\ smail>B<.>"
+msgstr ""
+"Знайти сторінки довідника, на які посилається I<smail>, і надрукувати "
+"короткі описи знайдених. Еквівалентно B<%whatis%>I<\\ smail>B<.>"
+
+#. type: SH
+#: ../../man/man1/man.man1:268
+#, no-wrap
+msgid "OVERVIEW"
+msgstr "ОГЛЯД"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:274
+msgid ""
+"Many options are available to B<%man%> in order to give as much flexibility "
+"as possible to the user.  Changes can be made to the search path, section "
+"order, output processor, and other behaviours and operations detailed below."
+msgstr ""
+"Доступно багато опцій для B<%man%>, щоб надати користувачеві максимальну "
+"гнучкість. Можна змінювати шлях пошуку, порядок розділів, обробник виводу та "
+"інші операції та поведінки, про які детальніше описано нижче."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:296
+msgid ""
+"If set, various environment variables are interrogated to determine the "
+"operation of B<%man%>.  It is possible to set the \"catch-all\" variable "
+"$B<MANOPT> to any string in command line format, with the exception that any "
+"spaces used as part of an option's argument must be escaped (preceded by a "
+"backslash).  B<%man%> will parse $B<MANOPT> prior to parsing its own command "
+"line.  Those options requiring an argument will be overridden by the same "
+"options found on the command line.  To reset all of the options set in "
+"$B<MANOPT>, B<-D> can be specified as the initial command line option.  This "
+"will allow %man% to \"forget\" about the options specified in $B<MANOPT>, "
+"although they must still have been valid."
+msgstr ""
+"Якщо встановлено, перевіряються різні змінні середовища для визначення "
+"роботи B<%man>. Можливо встановити \"загальну\" змінну $B<MANOPT> до будь-"
+"якого рядка у форматі командного рядка, за винятком того, що пробіли, "
+"використовувані як частина аргументу опції, повинні бути екрановані "
+"(зворотньою похилою рискою). B<%man%> розбере $B<MANOPT> перед тим, як "
+"розбирати власний командний рядок. Опції, що вимагають аргументів, будуть "
+"перезаписані такими ж опціями, знайденими у командному рядку. Для скидання "
+"всіх опцій, встановлених у $B<MANOPT>, B<-D> можна вказати як першу опцію "
+"командного рядка. Це дозволить %man% «забути» про опції, зазначені у "
+"$B<MANOPT>, хоча вони все ще повинні були бути дійсними."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:307
+msgid ""
+"Manual pages are normally stored in B<nroff>(1)  format under a directory "
+"such as I</usr/share/man>.  In some installations, there may also be "
+"preformatted I<cat pages> to improve performance.  See B<manpath>(5)  for "
+"details of where these files are stored."
+msgstr ""
+"Сторінки довідки зазвичай зберігаються у форматі B<nroff>(1) в каталозі, "
+"такі як I</usr/share/man>. У деяких інсталяціях також можуть бути попередньо "
+"відформатовані I<сторінки cat>, щоб покращити продуктивність. Дізнайтеся "
+"більше у B<manpath>(5) про подробиці того, де зберігаються ці файли."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:318
+msgid ""
+"This package supports manual pages in multiple languages, controlled by your "
+"I<locale>.  If your system did not set this up for you automatically, then "
+"you may need to set $B<LC_MESSAGES>, $B<LANG>, or another system-dependent "
+"environment variable to indicate your preferred locale, usually specified in "
+"the B<POSIX> format:"
+msgstr ""
+"Цей пакет підтримує сторінки довідки на декількох мовах, керовані вашою "
+"I<локаллю>. Якщо ваша система не встановила це для вас автоматично, тоді вам "
+"може знадобитися встановити змінну середовища $B<LC_MESSAGES>, $B<LANG> або "
+"іншу системно-залежну змінну середовища для позначення вашої бажаної локалі, "
+"зазвичай вказаної у форматі B<POSIX>:"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:323
+msgid ""
+"E<lt>I<language>E<gt>[\\|B<_>E<lt>I<territory>E<gt>\\|[\\|"
+"B<.>E<lt>I<character-set>E<gt>\\|[\\|B<,>E<lt>I<version>E<gt>\\|]\\|]\\|]"
+msgstr ""
+"E<lt>I<мова>E<gt>[\\|B<_>E<lt>I<територія>E<gt>\\|[\\|"
+"B<.>E<lt>I<кодування>E<gt>\\|[\\|B<,>E<lt>I<версія>E<gt>\\|]\\|]\\|]"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:328
+msgid ""
+"If the desired page is available in your I<locale>, it will be displayed in "
+"lieu of the standard (usually American English) page."
+msgstr ""
+"Якщо бажана сторінка доступна вашою мовою у ваші I<локалі>, вона буде "
+"показана замість стандартної сторінки (зазвичай англійської)."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:332
+msgid ""
+"If you find that the translations supplied with this package are not "
+"available in your native language and you would like to supply them, please "
+"contact the maintainer who will be coordinating such activity."
+msgstr ""
+"Якщо ви знайдете, що переклади, що постачаються з цим пакетом, недоступні "
+"вашою рідною мовою але ви хотіли б їх надати нам, будь ласка, звʼяжіться з "
+"відповідальним за таку діяльність."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:338
+msgid ""
+"Individual manual pages are normally written and maintained by the "
+"maintainers of the program, function, or other topic that they document, and "
+"are not included with this package.  If you find that a manual page is "
+"missing or inadequate, please report that to the maintainers of the package "
+"in question."
+msgstr ""
+"Індивідуальні сторінки довідки зазвичай пишуть і підтримують ті, хто "
+"відповідає за програму, функцію або іншу тему, яку вони документують, і не "
+"включені до цього пакета. Якщо ви знайдете, що сторінка довідки відсутня або "
+"недостатньо повна, будь ласка, повідомте про це розробників відповідного "
+"пакета."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:341
+msgid ""
+"For information regarding other features and extensions available with this "
+"manual pager, please read the documents supplied with the package."
+msgstr ""
+"Для отримання інформації про інші функції та розширення, доступні з цим "
+"гортачем посібників, будь ласка, прочитайте документи, що постачаються з "
+"пакетом."
+
+#. type: SH
+#: ../../man/man1/man.man1:341
+#, no-wrap
+msgid "DEFAULTS"
+msgstr "ЗА ЗАМОВЧУВАННЯМ"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:350
+msgid ""
+"The order of sections to search may be overridden by the environment "
+"variable $B<MANSECT> or by the B<SECTION> directive in "
+"I<%manpath_config_file%>.  By default it is as follows:"
+msgstr ""
+"Порядок розділів для пошуку може бути перевизначений змінною середовища "
+"$B<MANSECT> або директивою B<SECTION> у файлі конфігурації "
+"I<%manpath_config_file%>. За замовчуванням це виглядає так:"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:361
+msgid ""
+"The formatted manual page is displayed using a I<pager>.  This can be "
+"specified in a number of ways, or else will fall back to a default (see "
+"option B<-P> for details)."
+msgstr ""
+"Форматована сторінка довідки показується за допомогою I<гортача> (pager). Це "
+"можна вказати різними способами, або ж буде використовуватися значення за "
+"замовчуванням (дивіться подробиці для опції B<-P> )."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:373
+msgid ""
+"The filters are deciphered by a number of means.  Firstly, the command line "
+"option B<-p> or the environment variable $B<MANROFFSEQ> is interrogated.  If "
+"B<-p> was not used and the environment variable was not set, the initial "
+"line of the nroff file is parsed for a preprocessor string.  To contain a "
+"valid preprocessor string, the first line must resemble"
+msgstr ""
+"Фільтри розшифровуються різними способами. По-перше, перевіряється опція "
+"командного рядка B<-p> або змінна середовища $B<MANROFFSEQ>. Якщо B<-p> не "
+"використовувалася і змінна середовища не встановлена, перший рядок файлу "
+"nroff аналізується на наявність рядка препроцесора. Для того, щоб містити "
+"дійсний рядок препроцесора, перший рядок повинен бути схожим"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:376
+msgid "B<'\\e\"> E<lt>B<string>E<gt>"
+msgstr "B<'\\е\"> E<lt>B<рядок>E<gt>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:382
+msgid ""
+"where B<string> can be any combination of letters described by option B<-p> "
+"below."
+msgstr ""
+"де B<рядок> може бути будь-якою комбінацією літер, описаних опцією B<-p> "
+"нижче."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:385
+msgid ""
+"If none of the above methods provide any filter information, a default set "
+"is used."
+msgstr ""
+"Якщо жоден з вищезгаданих методів не надає інформації про фільтр, "
+"використовується набір за замовчуванням."
+
+#.  ********************************************************************
+#. type: Plain text
+#: ../../man/man1/man.man1:406
+msgid ""
+"A formatting pipeline is formed from the filters and the primary formatter "
+"(B<nroff> or [B<tg>]B<roff> with B<-t>)  and executed.  Alternatively, if an "
+"executable program I<mandb_nfmt> (or I<mandb_tfmt> with B<-t>)  exists in "
+"the man tree root, it is executed instead.  It gets passed the manual source "
+"file, the preprocessor string, and optionally the device specified with B<-"
+"T> or B<-E> as arguments."
+msgstr ""
+"Створюється конвеєр форматування з фільтрів та основного форматувальника "
+"(B<nroff> або [B<tg>]B<roff> з B<-t>) і виконується. Або, якщо в корені "
+"дерева man існує виконуваний програмний файл I<mandb_nfmt> (або "
+"I<mandb_tfmt> з B<-t>), то замість цього виконується він. Він отримує файл "
+"джерела документації, рядок препроцесора та необовʼязково пристрій, вказаний "
+"з B<-T> або B<-E>, як аргументи."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:412
+msgid ""
+"Non-argument options that are duplicated either on the command line, in "
+"$B<MANOPT>, or both, are not harmful.  For options that require an argument, "
+"each duplication will override the previous argument value."
+msgstr ""
+"Опції без аргумента, які дублюються або в командному рядку, або в "
+"$B<MANOPT>, не завдають шкоди. Для опцій, що вимагають аргумента, кожне "
+"повторення перезаписує попереднє значення аргумента."
+
+#. type: SS
+#: ../../man/man1/man.man1:412
+#, no-wrap
+msgid "General options"
+msgstr "Загальні параметри"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:430
+msgid ""
+"This option is normally issued as the very first option and resets "
+"B<%man%'s> behaviour to its default.  Its use is to reset those options that "
+"may have been set in $B<MANOPT>.  Any options that follow B<-D> will have "
+"their usual effect."
+msgstr ""
+"Ця опція зазвичай видається як перша і скидає поведінку B<%man%> до її "
+"стандартних налаштувань. Її використання полягає в тому, щоб скинути ті "
+"опції, які могли бути встановлені в $B<MANOPT>. Будь-які опції, які йдуть "
+"після B<-D>, збережуть свою звичайну дію."
+
+#. type: TP
+#: ../../man/man1/man.man1:430
+#, no-wrap
+msgid "B<--warnings>[=I<warnings\\/>]"
+msgstr "B<--warnings>[=I<попередження\\/>]"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:448
+msgid ""
+"Enable warnings from I<groff>.  This may be used to perform sanity checks on "
+"the source text of manual pages.  I<warnings> is a comma-separated list of "
+"warning names; if it is not supplied, the default is \"mac\".  To disable a "
+"I<groff> warning, prefix it with \"!\": for example, B<--warnings=mac,!"
+"break> enables warnings in the \"mac\" category and disables warnings in the "
+"\"break\" category.  See the \\(lqWarnings\\(rq node in B<info groff> for a "
+"list of available warning names."
+msgstr ""
+"Увімкнути попередження від I<groff>. Це може використовуватися для перевірки "
+"коректності тексту джерела сторінок довідки. I<попередження> - це список "
+"імен попереджень, розділених комами; якщо він не вказаний, за замовчуванням "
+"використовується \"mac\". Щоб вимкнути попередження I<groff>, попереду його "
+"назви потрібно поставити \"!\": наприклад, B<--warnings=mac,!break> увімкне "
+"попередження в категорії \"mac\" і вимкне попередження в категорії "
+"\"break\". Для перегляду списку доступних імен попереджень див. розділ "
+"«Попередження» у B<info groff>."
+
+#. type: SS
+#: ../../man/man1/man.man1:448
+#, no-wrap
+msgid "Main modes of operation"
+msgstr "Основні режими роботи"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:457
+msgid ""
+"Approximately equivalent to B<%whatis%>.  Display a short description from "
+"the manual page, if available.  See B<%whatis%>(1)  for details."
+msgstr ""
+"Приблизно еквівалентно B<%whatis%>. Виводить короткий опис з сторінки "
+"довідки, якщо він доступний. Подробиці у B<%whatis%>(1)."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:466
+msgid ""
+"Approximately equivalent to B<%apropos%>.  Search the short manual page "
+"descriptions for keywords and display any matches.  See B<%apropos%>(1)  for "
+"details."
+msgstr ""
+"Приблизно еквівалентно команді B<%apropos%>. Пошук коротких описів сторінок "
+"довідки за ключовими словами та показ будь-яких збігів. Дивіться подробиці у "
+"B<%apropos%>(1)."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:476
+msgid ""
+"Search for text in all manual pages.  This is a brute-force search, and is "
+"likely to take some time; if you can, you should specify a section to reduce "
+"the number of pages that need to be searched.  Search terms may be simple "
+"strings (the default), or regular expressions if the B<--regex> option is "
+"used."
+msgstr ""
+"Пошук тексту у всіх сторінках довідки. Це метод грубої сили, і це може "
+"зайняти деякий час; якщо можливо, ви повинні вказати розділ, щоб зменшити "
+"кількість сторінок, які необхідно переглядати. Пошукові терміни можуть бути "
+"простими рядками (за замовчуванням), або регулярними виразами, якщо "
+"використовується опція B<--regex>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:483
+msgid ""
+"Note that this searches the I<sources> of the manual pages, not the rendered "
+"text, and so may include false positives due to things like comments in "
+"source files, or false negatives due to things like hyphens being written as "
+"\"\\e-\" in source files.  Searching the rendered text would be much slower."
+msgstr ""
+"Зверніть увагу, що цей пошук виконується в джерелах сторінок довідки, а не у "
+"відформатованому тексті, тому може включати хибні позитивні результати через "
+"такі речі, як коментарі в файлах джерел, або хибні негативні результати "
+"через такі речі, як тире, записані як \"\\e-\" у файлах джерел. Пошук "
+"відформатованого тексту був би набагато повільнішим."
+
+#.  Compressed nroff source files with a supported compression
+#.  extension will be decompressed by man prior to being displaying via the
+#.  usual filters.
+#. type: Plain text
+#: ../../man/man1/man.man1:495
+msgid ""
+"Activate \"local\" mode.  Format and display local manual files instead of "
+"searching through the system's manual collection.  Each manual page argument "
+"will be interpreted as an nroff source file in the correct format.  No cat "
+"file is produced.  If '-' is listed as one of the arguments, input will be "
+"taken from stdin."
+msgstr ""
+"Активувати «локальний» режим. Форматувати та показувати локальні файли "
+"довідки замість пошуку у колекції системної довідки. Кожен аргумент сторінки "
+"довідки буде інтерпретований як джерело nroff у правильному форматі. Не "
+"створюється файл cat. Якщо '-' вказано одним з аргументів, вхідні дані "
+"будуть братися зі stdin."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:501
+msgid ""
+"If this option is not used, then B<%man%> will also fall back to "
+"interpreting manual page arguments as local file names if the argument "
+"contains a \"/\" character, since that is a good indication that the "
+"argument refers to a path on the file system."
+msgstr ""
+"Якщо цей параметр не використовується, тоді B<%man%> також буде вважати "
+"аргументи сторінок довідки локальними іменами файлів, якщо аргумент містить "
+"символ \"/\", оскільки це є хорошим індикатором того, що аргумент "
+"посилається на шлях у файловій системі."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:509
+msgid ""
+"Don't actually display the manual page, but do print the location of the "
+"source nroff file that would be formatted.  If the B<-a> option is also "
+"used, then print the locations of all source files that match the search "
+"criteria."
+msgstr ""
+"Не показувати сторінку довідки, а лише надрукувати розташування вихідного "
+"файлу nroff, який би був сформований. Якщо також використовується опція B<-"
+"a>, тоді надрукувати розташування всіх вихідних файлів, які відповідають "
+"критеріям пошуку."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:517
+msgid ""
+"Don't actually display the manual page, but do print the location of the "
+"preformatted cat file that would be displayed.  If the B<-a> option is also "
+"used, then print the locations of all preformatted cat files that match the "
+"search criteria."
+msgstr ""
+"Не показувати сторінку довідки, а лише надрукувати розташування файлу "
+"категорії, який би був показаний. Якщо також використовується опція B<-a>, "
+"тоді надрукувати розташування всіх відформатованих файлів категорій, які "
+"відповідають критеріям пошуку."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:531
+msgid ""
+"If B<-w> and B<-W> are both used, then print both source file and cat file "
+"separated by a space.  If all of B<-w>, B<-W>, and B<-a> are used, then do "
+"this for each possible match."
+msgstr ""
+"Якщо використовуються обидва параметри B<-w> та B<-W>, то друкувати як "
+"джерело файлу, так і файл каталогу, розділені пробілом. Якщо "
+"використовуються всі три параметри B<-w>, B<-W>, та B<-a>, то робити це для "
+"кожного можливого збігу."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:536
+msgid ""
+"This option is not for general use and should only be used by the "
+"B<%catman%> program."
+msgstr ""
+"Ця опція не призначена для загального використання і повинна "
+"використовуватися лише програмою B<%catman%>."
+
+#. type: TP
+#: ../../man/man1/man.man1:536
+#, no-wrap
+msgid "B<-R\\ >I<encoding>,\\ B<--recode>=I<encoding>"
+msgstr "B<-R\\ >I<кодування>, \\ B<--recode>=I<кодування>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:548
+msgid ""
+"Instead of formatting the manual page in the usual way, output its source "
+"converted to the specified I<encoding>.  If you already know the encoding of "
+"the source file, you can also use B<%manconv%>(1)  directly.  However, this "
+"option allows you to convert several manual pages to a single encoding "
+"without having to explicitly state the encoding of each, provided that they "
+"were already installed in a structure similar to a manual page hierarchy."
+msgstr ""
+"Замість того, щоб форматувати сторінку довідки за звичайним способом, виведе "
+"її джерело, перекодоване у вказане I<кодування>. Якщо ви вже знаєте "
+"кодування файлу джерела, ви також можете використовувати B<%manconv%>(1) "
+"безпосередньо. Однак ця опція дозволяє перекодувати кілька сторінок довідки "
+"у одне кодування без необхідності явно вказати кодування кожного, при умові, "
+"що вони були вже встановлені в структурі, схожій на ієрархію сторінок "
+"довідки."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:553
+msgid ""
+"Consider using B<%man_recode%>(1)  instead for converting multiple manual "
+"pages, since it has an interface designed for bulk conversion and so can be "
+"much faster."
+msgstr ""
+"Розгляньте використання B<%man_recode%>(1) для перекодування декількох "
+"сторінок довідки, оскільки воно має інтерфейс, розрахований на масове "
+"перекодування, і тому може бути значно швидшим."
+
+#. type: SS
+#: ../../man/man1/man.man1:553
+#, no-wrap
+msgid "Finding manual pages"
+msgstr "Пошук сторінок довідки"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:580
+msgid ""
+"If this system has access to other operating systems' manual pages, they can "
+"be accessed using this option.  To search for a manual page from NewOS's "
+"manual page collection, use the option B<-m> B<NewOS>."
+msgstr ""
+"Якщо ця система має доступ до сторінок довідки інших операційних систем, "
+"вони можуть бути доступні за допомогою цієї опції. Для пошуку сторінки "
+"довідки з колекції сторінок довідки NewOS використовуйте опцію B<-m> "
+"B<NewOS>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:591
+msgid ""
+"The I<system> specified can be a combination of comma delimited operating "
+"system names.  To include a search of the native operating system's manual "
+"pages, include the system name B<man> in the argument string.  This option "
+"will override the $B<SYSTEM> environment variable."
+msgstr ""
+"Вказана I<система> може бути комбінацією операційних систем, перелічених "
+"через кому. Для включення пошуку в керівництвах власної операційної системи, "
+"включіть імʼя системної команди B<man> у рядок аргументів. Ця опція "
+"перевизначить змінну середовища $B<SYSTEM>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:604
+msgid ""
+"Specify an alternate manpath to use.  By default, B<%man%> uses B<%manpath%> "
+"derived code to determine the path to search.  This option overrides the "
+"$B<MANPATH> environment variable and causes option B<-m> to be ignored."
+msgstr ""
+"Вкажіть альтернативний manpath для використання. За замовчуванням, B<%man%> "
+"використовує код, похідний від B<%manpath%>, щоб визначити шлях для пошуку. "
+"Ця опція перевизначає змінну середовища $B<MANPATH> і призводить до того, що "
+"опція B<-m> буде проігнорована."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:611
+msgid ""
+"A path specified as a manpath must be the root of a manual page hierarchy "
+"structured into sections as described in the man-db manual (under \"The "
+"manual page system\").  To view manual pages outside such hierarchies, see "
+"the B<-l> option."
+msgstr ""
+"Шлях, вказаний як manpath, повинен бути коренем ієрархії сторінок довідки, "
+"структурованої у розділи, як описано в керівництві man-db (під розділом "
+"«Система сторінок довідки»). Щоб переглянути сторінки довідки поза такими "
+"ієрархіями, дивіться опцію B<-l>."
+
+#. type: TP
+#: ../../man/man1/man.man1:611
+#, no-wrap
+msgid "B<-S> I<list\\/>, B<-s> I<list\\/>, B<--sections=>I<list\\/>"
+msgstr "B<-S> I<список\\/>, B<-s> I<список\\/>, B<--sections=>I<список\\/>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:625
+msgid ""
+"The given I<list> is a colon- or comma-separated list of sections, used to "
+"determine which manual sections to search and in what order.  This option "
+"overrides the $B<MANSECT> environment variable.  (The B<-s> spelling is for "
+"compatibility with System V.)"
+msgstr ""
+"Заданий I<список> є списком розділених комами або двокрапками секцій, який "
+"використовується для визначення порядку пошуку та в яких саме розділах "
+"довідки. Ця опція перевизначає змінну середовища $B<MANSECT>. (Варіант B<-s> "
+"забезпечує сумісність з System V.)"
+
+#. type: TP
+#: ../../man/man1/man.man1:625
+#, no-wrap
+msgid "B<-e\\ >I<sub-extension>,\\ B<--extension=>I<sub-extension>"
+msgstr "B<-e\\ >I<під-розширення>,\\ B<--extension=>I<під-розширення>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:659
+msgid ""
+"Some systems incorporate large packages of manual pages, such as those that "
+"accompany the B<Tcl> package, into the main manual page hierarchy.  To get "
+"around the problem of having two manual pages with the same name such as "
+"B<exit>(3), the B<Tcl> pages were usually all assigned to section B<l>.  As "
+"this is unfortunate, it is now possible to put the pages in the correct "
+"section, and to assign a specific \"extension\" to them, in this case, "
+"B<exit>(3tcl).  Under normal operation, B<%man%> will display B<exit>(3)  in "
+"preference to B<exit>(3tcl).  To negotiate this situation and to avoid "
+"having to know which section the page you require resides in, it is now "
+"possible to give B<%man%> a I<sub-extension> string indicating which package "
+"the page must belong to.  Using the above example, supplying the option B<-"
+"e\\ tcl> to B<%man%> will restrict the search to pages having an extension "
+"of B<*tcl>."
+msgstr ""
+"Деякі системи включають великі пакети сторінок довідки, такі як ті, що "
+"супроводжують пакет B<Tcl>, у головну ієрархію сторінок довідки. Щоб обійти "
+"проблему наявності двох сторінок довідки з однаковою назвою, такою як "
+"B<exit>(3), сторінки B<Tcl> зазвичай були призначені для розділу B<l>. "
+"Оскільки це небажано, тепер можливо розмістити сторінки у правильному "
+"розділі та присвоїти їм конкретне \"розширення\", наприклад, B<exit>(3tcl). "
+"За звичайних умов B<%man%> показує B<exit>(3) замість B<exit>(3tcl). Щоб "
+"уникнути необхідності знати, в якому розділі знаходиться потрібна сторінка "
+"довідки, тепер можливо надати B<%man%> рядок I<під-розширень>, який вказує, "
+"до якого пакету повинна належати сторінка. Використовуючи вищезазначений "
+"приклад, надання опції B<-e\\ tcl> до B<%man%> обмежить пошук сторінок з "
+"розширенням B<*tcl>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:663
+msgid "Ignore case when searching for manual pages.  This is the default."
+msgstr ""
+"Ігнорувати регістр при пошуку сторінок довідки. Це значення за замовчуванням."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:666
+msgid "Search for manual pages case-sensitively."
+msgstr "Шукати сторінки довідки з урахуванням регістру."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:676
+msgid ""
+"Show all pages with any part of either their names or their descriptions "
+"matching each I<page> argument as a regular expression, as with "
+"B<apropos>(1).  Since there is usually no reasonable way to pick a \"best\" "
+"page when searching for a regular expression, this option implies B<-a>."
+msgstr ""
+"Показати всі сторінки, у яких будь-яка частина їхніх імен або описів "
+"відповідає кожному аргументу I<сторінка> як регулярному виразу, як це "
+"робиться з B<apropos>(1). Оскільки зазвичай немає розумного способу вибрати "
+"«кращу» сторінку при пошуку за регулярним виразом, ця опція передбачає B<-a>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:691
+msgid ""
+"Show all pages with any part of either their names or their descriptions "
+"matching each I<page> argument using shell-style wildcards, as with "
+"B<apropos>(1)  B<--wildcard>.  The I<page> argument must match the entire "
+"name or description, or match on word boundaries in the description.  Since "
+"there is usually no reasonable way to pick a \"best\" page when searching "
+"for a wildcard, this option implies B<-a>."
+msgstr ""
+"Показати всі сторінки, у яких будь-яка частина їхніх назв або описів "
+"відповідає кожному аргументу I<сторінка>, використовуючи шаблони командного "
+"рядка, як у B<apropos>(1) з опцією B<--wildcard>. Аргумент I<сторінка> "
+"повинен повністю відповідати назві або опису, або відповідати у межах слів у "
+"описі. Оскільки зазвичай немає розумного способу вибрати \"кращу\" сторінку "
+"при пошуку за шаблоном, ця опція передбачає B<-a>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:700
+msgid ""
+"If the B<--regex> or B<--wildcard> option is used, match only page names, "
+"not page descriptions, as with B<whatis>(1).  Otherwise, no effect."
+msgstr ""
+"Якщо використовуються опції B<--regex> або B<--wildcard>, то шукається збіг "
+"тільки за назвами сторінок, а не їх описами, як це робиться в B<whatis>(1). "
+"В іншому випадку, ефекту немає."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:708
+msgid ""
+"By default, B<%man%> will exit after displaying the most suitable manual "
+"page it finds.  Using this option forces B<%man%> to display all the manual "
+"pages with names that match the search criteria."
+msgstr ""
+"За замовчуванням, B<%man%> завершиться після показу найпридатнішої сторінки "
+"довідника. Використання цієї опції змусить B<%man%> показати всі сторінки "
+"довідників, імена яких відповідають критеріям пошуку."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:716
+msgid ""
+"This option causes B<%man%> to update its database caches of installed "
+"manual pages.  This is only needed in rare situations, and it is normally "
+"better to run B<%mandb%>(8)  instead."
+msgstr ""
+"Ця опція призводить до оновлення кешів бази даних B<%man%>, які містять "
+"встановлені сторінки довідки. Це потрібно лише у рідкісних ситуаціях, і "
+"зазвичай краще запускати B<%mandb%>(8) натомість."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:728
+msgid ""
+"By default, B<%man%> will try to interpret pairs of manual page names given "
+"on the command line as equivalent to a single manual page name containing a "
+"hyphen or an underscore.  This supports the common pattern of programs that "
+"implement a number of subcommands, allowing them to provide manual pages for "
+"each that can be accessed using similar syntax as would be used to invoke "
+"the subcommands themselves.  For example:"
+msgstr ""
+"За замовчуванням, B<%man%> намагається інтерпретувати пари імен сторінок "
+"довідки, вказаних у командному рядку, як еквівалент однієї сторінки довідки "
+"з дефісом або підкресленням. Це підтримує поширений шаблон програм, які "
+"реалізують кілька підкоманд, дозволяючи їм надавати сторінки довідки для "
+"кожної з них, доступ до яких можна отримати за допомогою синтаксису, схожого "
+"на використання при виклику самих підкоманд. Наприклад:"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:737
+msgid "To disable this behaviour, use the B<--no-subpages> option."
+msgstr "Щоб вимкнути цю поведінку, використовуйте опцію B<--no-subpages>."
+
+#. type: SS
+#: ../../man/man1/man.man1:744
+#, no-wrap
+msgid "Controlling formatted output"
+msgstr "Керування форматованим виведенням"
+
+#. type: TP
+#: ../../man/man1/man.man1:745
+#, no-wrap
+msgid "B<-P\\ >I<pager>,\\ B<--pager=>I<pager>"
+msgstr "B<-P\\ >I<гортач>,\\ B<--pager=>I<гортач>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:766
+msgid ""
+"Specify which output pager to use.  By default, B<%man%> uses B<%pager%>, "
+"falling back to B<%cat%> if B<%pager%> is not found or is not executable.  "
+"This option overrides the $B<MANPAGER> environment variable, which in turn "
+"overrides the $B<PAGER> environment variable.  It is not used in conjunction "
+"with B<-f> or B<-k>."
+msgstr ""
+"Вкажіть програму, гортача виводу. За замовчуванням, B<%man%> використовує "
+"B<%pager%>, якщо B<%pager%> не знайдено або не є виконуваним файлом, тоді "
+"використовується B<%cat%>. Ця опція перевизначає змінну середовища "
+"$B<MANPAGER>, яка в свою чергу перевизначає змінну середовища $B<PAGER>. "
+"Вона не використовується разом з B<-f> або B<-k>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:772 ../../man/man1/man.man1:1143
+msgid ""
+"The value may be a simple command name or a command with arguments, and may "
+"use shell quoting (backslashes, single quotes, or double quotes).  It may "
+"not use pipes to connect multiple commands; if you need that, use a wrapper "
+"script, which may take the file to display either as an argument or on "
+"standard input."
+msgstr ""
+"Значенням може бути просте імʼя команди або команда з аргументами, які "
+"можуть використовувати цитування для оболонки (зворотні похилі риски, "
+"одинарні або подвійні лапки). Вона не може використовувати канали для "
+"підключення декількох команд; якщо вам потрібно це, використовуйте "
+"обгортковий скрипт, який може приймати файл для показу або на стандартному "
+"вводі."
+
+#. type: TP
+#: ../../man/man1/man.man1:772
+#, no-wrap
+msgid "B<-r\\ >I<prompt>,\\ B<--prompt=>I<prompt>"
+msgstr "B<-r\\ >I<запрошення>,\\ B<--prompt=>I<запрошення>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:780
+msgid ""
+"If a recent version of B<less> is used as the pager, B<%man%> will attempt "
+"to set its prompt and some sensible options.  The default prompt looks like"
+msgstr ""
+"Якщо недавня версію B<less> використовується як гортач сторінок, B<%man%> "
+"намагатиметься встановити його рядок запрошення і декілька розумних опцій. "
+"За замовчуванням запрошення виглядає так"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:782
+msgid "B< Manual page>I< name>B<(>I<sec>B<) line>I< x>"
+msgstr "B< Сторінки довідника>I< назва>(I<розділ>B<) рядок>I< x>"
+
+#. The default options are
+#. .BR \-six8 .
+#. The actual default will depend on your chosen
+#. .BR locale .
+#. type: Plain text
+#: ../../man/man1/man.man1:797
+msgid ""
+"where I<name> denotes the manual page name, I<sec> denotes the section it "
+"was found under and I<x> the current line number.  This is achieved by using "
+"the $B<LESS> environment variable."
+msgstr ""
+"де I<імʼя> позначає назву сторінки довідника, I<розділ> - розділ, де вона "
+"була знайдена, а I<x> - поточний номер рядка. Це досягається за допомогою "
+"змінної середовища $B<LESS>."
+
+#. You may need to do this if your
+#. version of
+#. .B less
+#. rejects the default options or if you prefer a different prompt.
+#. type: Plain text
+#: ../../man/man1/man.man1:810
+msgid ""
+"Supplying B<-r> with a string will override this default.  The string may "
+"contain the text B<$MAN_PN> which will be expanded to the name of the "
+"current manual page and its section name surrounded by \"(\" and \")\".  The "
+"string used to produce the default could be expressed as"
+msgstr ""
+"При вказанні B<-r> з рядком, буде перевизначено це значення за "
+"замовчуванням. Рядок може містити текст B<$MAN_PN>, який буде розширений до "
+"імені поточної сторінки керівництва та її назви розділу, оточених «(» і «)». "
+"Рядок, який використовується для створення замовчування, може бути виражений "
+"як"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:812
+msgid "B<\\e\\ Manual\\e\\ page\\e\\ \\e$MAN_PN\\e\\ ?ltline\\e\\ %lt?L/%L.:>"
+msgstr ""
+"B<\\e\\ Сторінка\\e\\ довідки\\e\\ $MAN_PN\\e\\ ?ltрядок\\e\\ %lt?L/%L.:>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:814
+msgid "B<byte\\e\\ %bB?s/%s..?\\e\\ (END):?pB\\e\\ %pB\\e\\e%..>"
+msgstr "B<байт\\e\\ %bB?s/%s..?\\e\\ (КІНЕЦЬ):?pB\\e\\ %pB\\e\\e%..>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:816
+msgid "B<(press h for help or q to quit)>"
+msgstr "B<(натисніть h для довідки або q, щоб вийти)>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:831
+msgid ""
+"It is broken into three lines here for the sake of readability only.  For "
+"its meaning see the B<less>(1)  manual page.  The prompt string is first "
+"evaluated by the shell.  All double quotes, back-quotes and backslashes in "
+"the prompt must be escaped by a preceding backslash.  The prompt string may "
+"end in an escaped $ which may be followed by further options for less.  By "
+"default B<%man%> sets the B<-ix8> options."
+msgstr ""
+"Це розбито на три рядки для зручності читання. Для значення дивіться "
+"сторінку довідки B<less>(1). Рядок запрошення спочатку оцінюється оболонкою. "
+"Усі подвійні лапки, зворотні апострофи та зворотні похилі риски у запрошенні "
+"повинні бути екрановані зворотною похилою рискою. Рядок запрошення може "
+"закінчуватися екранованим знаком $, який може бути продовжений іншими "
+"опціями для less. За замовчуванням B<%man%> встановлює опції B<-ix8>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:836
+msgid ""
+"The $B<MANLESS> environment variable described below may be used to set a "
+"default prompt string if none is supplied on the command line."
+msgstr ""
+"Змінна середовища $B<MANLESS>, описана нижче, може бути використана для "
+"встановлення рядка запрошення за умовчанням, якщо в командному рядку не "
+"вказано жодного."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:862
+msgid ""
+"When viewing a pure I<ascii>(7)  manual page on a 7 bit terminal or terminal "
+"emulator, some characters may not display correctly when using the "
+"I<latin1>(7)  device description with B<GNU> B<nroff>.  This option allows "
+"pure I<ascii> manual pages to be displayed in I<ascii> with the I<latin1> "
+"device.  It will not translate any I<latin1> text.  The following table "
+"shows the translations performed: some parts of it may only be displayed "
+"properly when using B<GNU> B<nroff>'s I<latin1>(7)  device."
+msgstr ""
+"При перегляді чистого сторінки довідки I<ascii>(7) на 7-бітовому терміналі "
+"або емуляторі терміналу, деякі символи можуть показуватися неправильно при "
+"використанні опису пристрою I<latin1>(7) з B<GNU> B<nroff>. Ця опція "
+"дозволяє показувати чисто I<ascii> сторінки довідки в I<ascii> з "
+"використанням пристрою I<latin1>. Вона не перекодує будь-який текст "
+"I<latin1>. Наступна таблиця показує виконувані перекодування: деякі частини "
+"можуть показуватися правильно тільки при використанні пристрою I<latin1>(7) "
+"B<GNU> B<nroff>."
+
+#. type: tbl table
+#: ../../man/man1/man.man1:871
+#, no-wrap
+msgid "Description"
+msgstr "Опис"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:871
+#, no-wrap
+msgid "Octal"
+msgstr "Вісімкове"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:873
+#, no-wrap
+msgid "continuation hyphen"
+msgstr "продовжувальне тире"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:874
+#, no-wrap
+msgid "bullet (middle dot)"
+msgstr "точка (середня точка)"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:875
+#, no-wrap
+msgid "acute accent"
+msgstr "гострий акцент"
+
+#. type: tbl table
+#: ../../man/man1/man.man1:876
+#, no-wrap
+msgid "multiplication sign"
+msgstr "знак множення"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:897
+msgid ""
+"If the I<latin1> column displays correctly, your terminal may be set up for "
+"I<latin1> characters and this option is not necessary.  If the I<latin1> and "
+"I<ascii> columns are identical, you are reading this page using this option "
+"or B<%man%> did not format this page using the I<latin1> device "
+"description.  If the I<latin1> column is missing or corrupt, you may need to "
+"view manual pages with this option."
+msgstr ""
+"Якщо стовпець I<latin1> показується коректно, ваш термінал може бути "
+"налаштований для символів I<latin1>, і ця опція не потрібна. Якщо стовпці "
+"I<latin1> та I<ascii> ідентичні, ви читаєте цю сторінку з використанням цієї "
+"опції або B<%man%> не сформував цю сторінку за допомогою опису пристрою "
+"I<latin1>. Якщо стовпець I<latin1> відсутній або пошкоджений, можливо, вам "
+"потрібно переглядати сторінки довідника з цією опцією."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:908
+msgid ""
+"This option is ignored when using options B<-t>, B<-H>, B<-T>, or B<-Z> and "
+"may be useless for B<nroff> other than B<GNU's>."
+msgstr ""
+"Ця опція ігнорується при використанні опцій B<-t>, B<-H>, B<-T>, або B<-Z> і "
+"може бути непридатною для інших B<nroff>, крім B<GNU>."
+
+#. type: TP
+#: ../../man/man1/man.man1:908
+#, no-wrap
+msgid "B<-E\\ >I<encoding>,\\ B<--encoding>=I<encoding>"
+msgstr "B<-E\\ >I<кодування>,\\ B<--encoding>=I<кодування>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:919
+msgid ""
+"Generate output for a character encoding other than the default.  For "
+"backward compatibility, I<encoding> may be an B<nroff> device such as "
+"B<ascii>, B<latin1>, or B<utf8> as well as a true character encoding such as "
+"B<UTF-8>."
+msgstr ""
+"Створити вивід для кодування символів, яке не є за замовчуванням. Для "
+"забезпечення сумісності з попередніми версіями, I<кодування> може бути "
+"пристроєм B<nroff>, таким як B<ascii>, B<latin1>, або B<utf8>, а також "
+"справжнім кодуванням символів, таким як B<UTF-8>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:928
+msgid ""
+"Normally, B<nroff> will automatically hyphenate text at line breaks even in "
+"words that do not contain hyphens, if it is necessary to do so to lay out "
+"words on a line without excessive spacing.  This option disables automatic "
+"hyphenation, so words will only be hyphenated if they already contain "
+"hyphens."
+msgstr ""
+"Зазвичай B<nroff> автоматично переносить текст на нові рядки навіть у "
+"словах, які не містять дефісів, якщо це необхідно для розміщення слів у "
+"рядку без надмірного простору. Ця опція вимикає автоматичні переноси слів, "
+"тому слова будуть переноситися тільки коли вони вже містять дефіси."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:937
+msgid ""
+"If you are writing a manual page and simply want to prevent B<nroff> from "
+"hyphenating a word at an inappropriate point, do not use this option, but "
+"consult the B<nroff> documentation instead; for instance, you can put \"\\e%"
+"\" inside a word to indicate that it may be hyphenated at that point, or put "
+"\"\\e%\" at the start of a word to prevent it from being hyphenated."
+msgstr ""
+"Якщо ви пишете сторінку довідки та просто хочете запобігти переносу слова в "
+"небажаному місці у B<nroff>, не використовуйте цю опцію, а зверніться до "
+"документації B<nroff>; наприклад, ви можете поставити «\\e%» всередині "
+"слова, щоб вказати, що воно може бути розбито в тому місці, або поставити "
+"«\\e%» на початку слова, щоб запобігти його переносу."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:944
+msgid ""
+"Normally, B<nroff> will automatically justify text to both margins.  This "
+"option disables full justification, leaving justified only to the left "
+"margin, sometimes called \"ragged-right\" text."
+msgstr ""
+"Зазвичай, B<nroff> автоматично вирівнює текст до обох країв. Ця опція "
+"вимикає повне вирівнювання, залишаючи вирівнювання тільки до лівого краю, що "
+"іноді називається «вирівнюванням вліво»."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:951
+msgid ""
+"If you are writing a manual page and simply want to prevent B<nroff> from "
+"justifying certain paragraphs, do not use this option, but consult the "
+"B<nroff> documentation instead; for instance, you can use the \".na\", "
+"\".nf\", \".fi\", and \".ad\" requests to temporarily disable adjusting and "
+"filling."
+msgstr ""
+"Якщо ви пишете сторінку довідки та просто хочете запобігти вирівнюванню "
+"певних абзаців у B<nroff>, не використовуйте цю опцію, а зверніться до "
+"документації B<nroff>; наприклад, ви можете використовувати запити \".na\", "
+"\".nf\", \".fi\" та \".ad\", щоб тимчасово вимкнути вирівнювання та "
+"заповнення."
+
+#. type: TP
+#: ../../man/man1/man.man1:951
+#, no-wrap
+msgid "B<-p\\ >I<string>,\\ B<--preprocessor=>I<string>"
+msgstr "B<-p\\ >I<рядок>,\\ B<--preprocessor=>I<рядок>"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:970
+msgid ""
+"Specify the sequence of preprocessors to run before B<nroff> or B<troff>/"
+"B<groff>.  Not all installations will have a full set of preprocessors.  "
+"Some of the preprocessors and the letters used to designate them are: B<eqn> "
+"(B<e>), B<grap> (B<g>), B<pic> (B<p>), B<tbl> (B<t>), B<vgrind> (B<v>), "
+"B<refer> (B<r>).  This option overrides the $B<MANROFFSEQ> environment "
+"variable.  B<%zsoelim%> is always run as the very first preprocessor."
+msgstr ""
+"Вкажіть послідовність препроцесорів, які потрібно запустити перед B<nroff> "
+"або B<troff>/B<groff>. Не всі інсталяції мають повний набір препроцесорів. "
+"Деякі з препроцесорів та літери, що використовуються для їх позначення: "
+"B<eqn> (B<e>), B<grap> (B<g>), B<pic> (B<p>), B<tbl> (B<t>), B<vgrind> "
+"(B<v>), B<refer> (B<r>). Ця опція перевизначає змінну середовища "
+"$B<MANROFFSEQ>. B<%zsoelim%> завжди запускається як перший препроцесор."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:980
+msgid ""
+"Use I<%troff%> to format the manual page to stdout.  This option is not "
+"required in conjunction with B<-H>, B<-T>, or B<-Z>."
+msgstr ""
+"Використовуйте I<%troff%>, щоб сформатувати сторінку довідки і вивести до "
+"stdout. Ця опція не потрібна разом з B<-H>, B<-T> або B<-Z>."
+
+#. type: TP
+#: ../../man/man1/man.man1:980
+#, no-wrap
+msgid "B<-T>[I<device\\/>], B<--troff-device>[=I<device\\/>]"
+msgstr "B<-T>[I<пристрій\\/>], B<--troff-device>[=I<пристрій\\/>]"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:998
+msgid ""
+"This option is used to change B<groff> (or possibly B<troff's>)  output to "
+"be suitable for a device other than the default.  It implies B<-t>.  "
+"Examples (as of groff 1.23.0) include B<dvi>, B<latin1>, B<pdf>, B<ps>, "
+"B<utf8>, B<X75> and B<X100>."
+msgstr ""
+"Ця опція використовується для зміни виводу B<groff> (або, можливо, B<troff>) "
+"так, щоб він був підходив для пристрою, відмінного від пристрою за "
+"замовчуванням. Вона передбачає B<-t>. Приклади включають B<dvi>, B<latin1>, "
+"B<pdf>, B<ps>, B<utf8>, B<X75> та B<X100>."
+
+#. type: TP
+#: ../../man/man1/man.man1:998
+#, no-wrap
+msgid "B<-H>[I<browser\\/>], B<--html>[=I<browser\\/>]"
+msgstr "B<-H>[I<переглядач\\/>], B<--html>[=I<переглядач\\/>]"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1014
+msgid ""
+"This option will cause B<groff> to produce HTML output, and will display "
+"that output in a web browser.  The choice of browser is determined by the "
+"optional I<browser> argument if one is provided, by the $B<BROWSER> "
+"environment variable, or by a compile-time default if that is unset (usually "
+"B<lynx>).  This option implies B<-t>, and will only work with B<GNU> "
+"B<troff>."
+msgstr ""
+"Ця опція призведе до того, що B<groff> вироблятиме HTML-вивід, і "
+"показуватиме цей вивід у веб-переглядачі. Вибір переглядача визначається "
+"необовʼязковим аргументом I<переглядач>, якщо він наданий, змінною "
+"середовища $B<BROWSER>, або зі значення за замовчуванням під час компіляції, "
+"якщо воно не встановлене (зазвичай це B<lynx>). Ця опція передбачає B<-t>, і "
+"працюватиме тільки з B<GNU> B<troff>."
+
+#. type: TP
+#: ../../man/man1/man.man1:1014
+#, no-wrap
+msgid "B<-X>[I<dpi\\/>], B<--gxditview>[=I<dpi\\/>]"
+msgstr "B<-X>[I<dpi\\/>], B<--gxditview>[=I<dpi\\/>]"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1028
+msgid ""
+"This option displays the output of B<groff> in a graphical window using the "
+"B<gxditview> program.  The I<dpi> (dots per inch) may be 75, 75-12, 100, or "
+"100-12, defaulting to 75; the -12 variants use a 12-point base font.  This "
+"option implies B<-T> with the X75, X75-12, X100, or X100-12 device "
+"respectively."
+msgstr ""
+"Ця опція показує вивід програми B<groff> у графічному вікні за допомогою "
+"програми B<gxditview>. Кількість точок на дюйм (dpi) може бути 75, 75-12, "
+"100 або 100-12, за замовчуванням встановлюється значення 75; варіанти з -12 "
+"використовують базовий шрифт розміром 12 пунктів. Ця опція передбачає B<-T> "
+"з відповідним пристроєм X75, X75-12, X100 або X100-12."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1044
+msgid ""
+"B<groff> will run B<troff> and then use an appropriate post-processor to "
+"produce output suitable for the chosen device.  If I<%troff%> is B<groff>, "
+"this option is passed to B<groff> and will suppress the use of a post-"
+"processor.  It implies B<-t>."
+msgstr ""
+"B<groff> запустить B<troff> і потім використає відповідний пост-процесор для "
+"створення вихідного файлу, придатного для обраного пристрою. Якщо I<%troff%> "
+"є B<groff>, то цей параметр передається до B<groff> і пригнічує використання "
+"пост-процесора. Він підтверджує B<-t>."
+
+#. type: SS
+#: ../../man/man1/man.man1:1044
+#, no-wrap
+msgid "Getting help"
+msgstr "Отримання допомоги"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1067
+msgid "A child process returned a non-zero exit status."
+msgstr "Дочірній процес повернув статус виходу, відмінний від нуля."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1070
+msgid ""
+"At least one of the pages/files/keywords didn't exist or wasn't matched."
+msgstr ""
+"Принаймні одна з сторінок/файлів/ключових слів не існувала або не була "
+"знайдена."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1077
+msgid ""
+"If $B<MANPATH> is set, its value is used as the path to search for manual "
+"pages."
+msgstr ""
+"Якщо встановлено змінну $B<MANPATH>, її значення використовується як шлях "
+"для пошуку сторінок довідки."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1096
+msgid ""
+"Every time B<man> invokes the formatter (B<nroff>, B<troff>, or B<groff>), "
+"it adds the contents of $B<MANROFFOPT> to the formatter's command line."
+msgstr ""
+"Кожного разу, коли B<man> викликає форматувальник (B<nroff>, B<troff>, або "
+"B<groff>), він додає вміст $B<MANROFFOPT> до командного рядка "
+"форматувальника."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1101
+msgid ""
+"For example, B<MANROFFOPT=-P-i> tells the formatter to use italic text "
+"(which is only supported by some terminals) rather than underlined text."
+msgstr ""
+"Наприклад, B<MANROFFOPT=-P-i> вказує форматувальнику використовувати "
+"курсивний текст (який підтримується лише деякими терміналами) замість "
+"підкресленого."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1108
+msgid ""
+"If $B<MANROFFSEQ> is set, its value is used to determine the set of "
+"preprocessors to pass each manual page through.  The default preprocessor "
+"list is system dependent."
+msgstr ""
+"Якщо встановлено змінну $B<MANROFFSEQ>, її значення використовується для "
+"визначення набору препроцесорів, через які проходить кожна сторінка довідки. "
+"Список препроцесорів за замовчуванням залежить від системи."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1120 ../../man/man8/catman.man8:88
+msgid ""
+"If $B<MANSECT> is set, its value is a colon-delimited list of sections and "
+"it is used to determine which manual sections to search and in what order.  "
+"The default is \"%sections%\", unless overridden by the B<SECTION> directive "
+"in I<%manpath_config_file%>."
+msgstr ""
+"Якщо встановлено $B<MANSECT>, його значення є списком розділів, розділених "
+"двокрапками, і використовується для визначення, які розділи довідки потрібно "
+"шукати та в якому порядку. За замовчуванням це «%sections%», якщо не "
+"перевизначено директивою B<SECTION> у файлі I<%manpath_config_file%>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1137
+msgid ""
+"If $B<MANPAGER> or $B<PAGER> is set ($B<MANPAGER> is used in preference), "
+"its value is used as the name of the program used to display the manual "
+"page.  By default, B<%pager%> is used, falling back to B<%cat%> if "
+"B<%pager%> is not found or is not executable."
+msgstr ""
+"Якщо встановлено $B<MANPAGER> або $B<PAGER> (переважно використовується "
+"$B<MANPAGER>), його значення використовується як назва програми для показу "
+"сторінки довідника (гортач). За замовчуванням використовується B<%pager%>, а "
+"якщо B<%pager%> не знайдено або він не є виконуваним, то використовується "
+"B<%cat%>."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1162
+msgid ""
+"If $B<MANLESS> is set, its value will be used as the default prompt string "
+"for the B<less> pager, as if it had been passed using the B<-r> option (so "
+"any occurrences of the text B<$MAN_PN> will be expanded in the same way).  "
+"For example, if you want to set the prompt string unconditionally to \\(lqmy "
+"prompt string\\(rq, set $B<MANLESS> to \\(oqB<-Psmy\\ prompt\\ string>\\"
+"(cq.  Using the B<-r> option overrides this environment variable."
+msgstr ""
+"Якщо встановлено змінну середовища $B<MANLESS>, її значення буде "
+"використовуватися як рядок запрошення за замовчуванням для переглядача "
+"B<less>, так само, ніби вона була передана з допомогою опції B<-r> (тому "
+"будь-які входження тексту B<$MAN_PN> буде розширено таким же чином). "
+"Наприклад, якщо ви хочете однозначно встановити рядок запиту на «my prompt "
+"string», встановіть змінну середовища $B<MANLESS> у значення \\(oqB<-Psmy\\ "
+"prompt\\ string>\\(cq. Використання опції B<-r> перевизначає цю змінну "
+"середовища."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1178
+msgid ""
+"If $B<BROWSER> is set, its value is a colon-delimited list of commands, each "
+"of which in turn is used to try to start a web browser for B<man> B<--"
+"html>.  In each command, I<%s> is replaced by a filename containing the HTML "
+"output from B<groff>, I<%%> is replaced by a single percent sign (%), and "
+"I<%c> is replaced by a colon (:)."
+msgstr ""
+"Якщо встановлено змінну $B<BROWSER>, її значення є списком команд, "
+"розділених двокрапками. Кожна з цих команд використовується для спроби "
+"запустити веб-переглядач для B<man> B<--html>. У кожній команді I<%s> "
+"замінюється на імʼя файлу, що містить HTML вивід з B<groff>, I<%%> "
+"замінюється на одинарний знак відсотка (%), а I<%c> - на двокрапку (:)."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1201
+msgid ""
+"If $B<MANOPT> is set, it will be parsed prior to B<%man%'s> command line and "
+"is expected to be in a similar format.  As all of the other B<%man%> "
+"specific environment variables can be expressed as command line options, and "
+"are thus candidates for being included in $B<MANOPT> it is expected that "
+"they will become obsolete.  N.B.  All spaces that should be interpreted as "
+"part of an option's argument must be escaped."
+msgstr ""
+"Якщо встановлено змінну середовища $B<MANOPT>, вона буде оброблена перед "
+"командним рядком B<%man%> і очікується, що матиме схожий формат. Оскільки "
+"всі інші специфічні для B<%man%> змінні середовища можуть бути виражені як "
+"параметри командного рядка, і тому є кандидатами на включення до $B<MANOPT>, "
+"очікується, що вони стануть застарілими. Зверніть увагу, що всі пробіли, які "
+"повинні бути інтерпретовані як частина аргументу параметра, повинні бути "
+"екрановані."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1215
+msgid ""
+"If $B<MANWIDTH> is set, its value is used as the line length for which "
+"manual pages should be formatted.  If it is not set, manual pages will be "
+"formatted with a line length appropriate to the current terminal (using the "
+"value of $B<COLUMNS>, and B<ioctl>(2)  if available, or falling back to 80 "
+"characters if neither is available).  Cat pages will only be saved when the "
+"default formatting can be used, that is when the terminal line length is "
+"between 66 and 80 characters."
+msgstr ""
+"Якщо встановлено $B<MANWIDTH>, його значення використовується як довжина "
+"рядка для форматування сторінок довідки. Якщо воно не встановлено, сторінки "
+"довідки будуть відформатовані з довжиною рядка, що відповідає поточному "
+"терміналу (використовуючи значення $B<COLUMNS>, і B<ioctl>(2), якщо вони "
+"доступні, або за умовчанням використовується 80 символів, якщо жоден з них "
+"недоступний). Сторінки cat будуть збережені лише тоді, коли можливе "
+"використання форматування за умовчанням, тобто коли довжина рядка терміналу "
+"знаходиться між 66 і 80 символами."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1226
+msgid ""
+"Normally, when output is not being directed to a terminal (such as to a file "
+"or a pipe), formatting characters are discarded to make it easier to read "
+"the result without special tools.  However, if $B<MAN_KEEP_FORMATTING> is "
+"set to any non-empty value, these formatting characters are retained.  This "
+"may be useful for wrappers around B<%man%> that can interpret formatting "
+"characters."
+msgstr ""
+"Зазвичай, коли вивід не спрямовується на термінал (наприклад, у файл або "
+"трубу), символи форматування відкидаються для зручнішого читання результату "
+"без спеціальних інструментів. Однак, якщо $B<MAN_KEEP_FORMATTING> "
+"встановлено в будь-яке непорожнє значення, ці символи форматування "
+"зберігаються. Це може бути корисним для обгортки навколо B<%man%>, яка вміє "
+"інтерпретувати символи форматування."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1239
+msgid ""
+"Normally, when output is being directed to a terminal (usually to a pager), "
+"any error output from the command used to produce formatted versions of "
+"manual pages is discarded to avoid interfering with the pager's display.  "
+"Programs such as B<groff> often produce relatively minor error messages "
+"about typographical problems such as poor alignment, which are unsightly and "
+"generally confusing when displayed along with the manual page.  However, "
+"some users want to see them anyway, so, if $B<MAN_KEEP_STDERR> is set to any "
+"non-empty value, error output will be displayed as usual."
+msgstr ""
+"Зазвичай, коли вивід спрямовується до терміналу (зазвичай до гортача), будь-"
+"який помилковий вивід з команди, яка використовується для створення "
+"форматованих версій сторінок довідки, відкидається, щоб уникнути втручання в "
+"показ гортача . Програми, такі як B<groff>, часто виробляють незначні "
+"повідомлення про помилки стосовно типографічних проблем, таких як погане "
+"вирівнювання, які виглядають непривабливо і зазвичай плутають, коли вони "
+"показуються разом зі сторінкою довідки. Однак деяким користувачам все одно "
+"хочеться їх побачити, тому якщо $B<MAN_KEEP_STDERR> встановлено на будь-яке "
+"непорожнє значення, вивід помилок буде показуватися звичайним чином."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1251
+msgid ""
+"On Linux, B<%man%> normally confines subprocesses that handle untrusted data "
+"using a B<seccomp>(2)  sandbox.  This makes it safer to run complex parsing "
+"code over arbitrary manual pages.  If this goes wrong for some reason "
+"unrelated to the content of the page being displayed, you can set "
+"$B<MAN_DISABLE_SECCOMP> to any non-empty value to disable the sandbox."
+msgstr ""
+"На Linux, B<%man%> зазвичай обмежує підпроцеси, які обробляють ненадійні "
+"дані, використовуючи пісочницю B<seccomp>(2). Це робить безпечнішим запуск "
+"складного коду аналізу довільних сторінок довідки. Якщо це станеться через "
+"якусь причину, не повʼязану з вмістом показаної сторінки, ви можете "
+"встановити $B<MAN_DISABLE_SECCOMP> у будь-яке непорожнє значення, щоб "
+"вимкнути пісочницю."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1259
+msgid ""
+"If the $B<PIPELINE_DEBUG> environment variable is set to \"1\", then "
+"B<%man%> will print debugging messages to standard error describing each "
+"subprocess it runs."
+msgstr ""
+"Якщо змінна середовища $B<PIPELINE_DEBUG> встановлена у \"1\", тоді B<%man%> "
+"виведе повідомлення про налагодження до стандартного виводу для помилок, "
+"описуючи кожен підпроцес, який він запускає."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1271
+msgid ""
+"Depending on system and implementation, either or both of $B<LANG> and "
+"$B<LC_MESSAGES> will be interrogated for the current message locale.  "
+"B<%man%> will display its messages in that locale (if available).  See "
+"B<setlocale>(3)  for precise details."
+msgstr ""
+"Залежно від системи та реалізації, буде перевірено як $B<LANG>, так і "
+"$B<LC_MESSAGES> для поточної мови повідомлень. B<%man%> показуватиме свої "
+"повідомлення в цій мові (якщо доступна). Див. B<setlocale>(3)."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1275 ../../man/man1/manpath.man1:114
+#: ../../man/man8/catman.man8:105 ../../man/man8/mandb.man8:189
+msgid "man-db configuration file."
+msgstr "конфігураційний файл man-db."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1278
+msgid "A global manual page hierarchy."
+msgstr "Глобальна ієрархія сторінок довідки."
+
+#. type: SH
+#: ../../man/man1/man.man1:1278
+#, no-wrap
+msgid "STANDARDS"
+msgstr "СТАНДАРТИ"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1280
+msgid "POSIX.1-2001, POSIX.1-2008, POSIX.1-2017."
+msgstr "POSIX.1-2001, POSIX.1-2008, POSIX.1-2017."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1297
+msgid ""
+"Documentation for some packages may be available in other formats, such as "
+"B<info>(1)  or HTML."
+msgstr ""
+"Документація для деяких пакетів може бути доступна в інших форматах, таких "
+"як B<info>(1) або HTML."
+
+#. type: SH
+#: ../../man/man1/man.man1:1297
+#, no-wrap
+msgid "HISTORY"
+msgstr "ІСТОРІЯ"
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1299
+msgid ""
+"1990, 1991 \\(en Originally written by John W.\\& Eaton (jwe@che.utexas.edu)."
+msgstr ""
+"1990, 1991 \\(en Оригінально написано Джоном В.\\& Ейтоном "
+"(jwe@che.utexas.edu)."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1302
+msgid ""
+"Dec 23 1992: Rik Faith (faith@cs.unc.edu) applied bug fixes supplied by "
+"Willem Kasdorp (wkasdo@nikhefk.nikef.nl)."
+msgstr ""
+"23 грудня 1992 року: Рік Фейт (faith@cs.unc.edu) застосував виправлення "
+"помилок, надані Willem Kasdorp (wkasdo@nikhefk.nikef.nl)."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1306
+msgid ""
+"30th April 1994 \\(en 23rd February 2000: Wilf.\\& "
+"(G.Wilford@ee.surrey.ac.uk)  has been developing and maintaining this "
+"package with the help of a few dedicated people."
+msgstr ""
+"30-го квітня 1994 \\(en 23-го Лютого 2000: Wilf.\\& "
+"(G.Wilford@ee.surrey.ac.uk) розвивав і підтримував цей пакет з допомогою "
+"декількох присвячених цьому людей."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1310
+msgid ""
+"30th October 1996 \\(en 30th March 2001: Fabrizio Polacco "
+"E<lt>fpolacco@debian.orgE<gt> maintained and enhanced this package for the "
+"Debian project, with the help of all the community."
+msgstr ""
+"30го жовтня 1996 \\(en 30го березня 2001: Fabrizio Polacco "
+"E<lt>fpolacco@debian.orgE<gt> підтримував і покращував цей пакет для проекту "
+"Debian, з допомогою всієї спільноти."
+
+#. type: Plain text
+#: ../../man/man1/man.man1:1313
+msgid ""
+"31st March 2001 \\(en present day: Colin Watson "
+"E<lt>cjwatson@debian.orgE<gt> is now developing and maintaining man-db."
+msgstr ""
+"31го березня 2001 \\(en сьогодення: Colin Watson "
+"E<lt>cjwatson@debian.orgE<gt> тепер розробляє і підтримує man-db."
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:12
+msgid "%man_recode% - convert manual pages to another encoding"
+msgstr "%man_recode% - перекодувати сторінки довідки в іншу кодову сторінку"
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:20
+msgid ""
+"B<%man_recode%> B<-t> I<to-code> {\\|B<--suffix=>I<suffix\\/>\\||\\|B<--in-"
+"place>\\|} [\\|B<-dqhV>\\|] [\\|I<filename>\\|]"
+msgstr ""
+"B<%man_recode%> B<-t> I<в-кодування> {\\|B<--suffix=>I<суфікс\\/>\\||\\|B<--"
+"in-place>\\|} [\\|B<-dqhV>\\|] [\\|I<імʼя_файлу>\\|]"
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:32
+msgid ""
+"B<%man_recode%> converts multiple manual pages from one encoding to another, "
+"guessing the appropriate input encoding for each one.  It is useful when "
+"permanently recoding pages written in legacy character sets, or in build "
+"systems that need to recode a set of pages to a single common encoding "
+"(usually UTF-8) for installation.  When converting many manual pages, this "
+"program is much faster than running B<%man% --recode> or B<%manconv%> on "
+"each page."
+msgstr ""
+"B<%man_recode%> перекодовує декілька сторінок довідки з одного кодування в "
+"інше, вгадуючи відповідне вхідне кодування для кожної. Це корисно при "
+"постійному перекодуванні сторінок, написаних у застарілих символьних "
+"наборах, або у системах збірки, які потребують перекодування набору сторінок "
+"до єдиного загального кодування (зазвичай це UTF-8) для встановлення. При "
+"перетворенні багатьох сторінок довідки ця програма значно швидша, ніж запуск "
+"B<%man% --recode> або B<%manconv%> для кожної сторінки."
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:36
+msgid ""
+"If an encoding declaration is found on the first line of a manual page, then "
+"that declaration is used as the input encoding for that page.  Failing that, "
+"the input encoding is guessed based on the file name."
+msgstr ""
+"Якщо в першому рядку сторінки довідника знайдено оголошення кодування, то це "
+"оголошення використовується як вхідне кодування для цієї сторінки. В іншому "
+"випадку вхідне кодування визначається на основі імені файлу."
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:38
+msgid "Encoding declarations have the following form:"
+msgstr "Оголошення кодування мають наступну форму:"
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:46 ../../man/man1/manconv.man1:44
+msgid "or (if manual page preprocessors are also to be declared):"
+msgstr "або (якщо також оголошуються препроцесори сторінок довідки):"
+
+#. type: TP
+#: ../../man/man1/man-recode.man1:53
+#, no-wrap
+msgid "B<-t> I<encoding\\/>, B<--to-code=>I<encoding>"
+msgstr "B<-t> I<кодування\\/>, B<--to-code=>I<кодування>"
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:57
+msgid "Convert manual pages to I<encoding>."
+msgstr "Перекодувати сторінки довідки в I<кодування>."
+
+#. type: TP
+#: ../../man/man1/man-recode.man1:57
+#, no-wrap
+msgid "B<--suffix=>I<suffix>"
+msgstr "B<--suffix=>I<суфікс>"
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:62
+msgid ""
+"Form each output file name by appending I<suffix> to the input file name, "
+"after removing any compression extension."
+msgstr ""
+"Створювати імʼя кожного вихідного файлу шляхом додавання I<суфікса> до імені "
+"вхідного файлу після видалення будь-якого розширення стиснення."
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:66
+msgid ""
+"Overwrite each input file with the output, after removing any compression "
+"extension."
+msgstr ""
+"Перезаписати кожен вхідний файл вихідними даними після видалення будь-якого "
+"розширення стиснення."
+
+#. type: Plain text
+#: ../../man/man1/man-recode.man1:69 ../../man/man1/manconv.man1:64
+msgid "Do not issue error messages when the page cannot be converted."
+msgstr ""
+"Не видавати повідомлення про помилки, коли сторінку неможливо перекодувати."
+
+#. type: Plain text
+#: ../../man/man1/manconv.man1:12
+msgid "%manconv% - convert manual page from one encoding to another"
+msgstr "%manconv% - перетворення сторінки довідника з одного кодування в інше"
+
+#. type: Plain text
+#: ../../man/man1/manconv.man1:20
+msgid ""
+"B<%manconv%> B<-f> [\\|I<from-code>\\|[:I<from-code>\\|.\\|.\\|.]\\|] B<-t> "
+"I<to-code> [\\|B<-dqhV>\\|] [\\|I<filename>\\|]"
+msgstr ""
+"B<%manconv%> B<-f> [\\|I<з-кодування>\\|[:I<з-кодування>\\|.\\|.\\|.]\\|] B<-"
+"t> I<у-кодування> [\\|B<-dqhV>\\|] [\\|I<імʼя-файлу>\\|]"
+
+#. type: Plain text
+#: ../../man/man1/manconv.man1:30
+msgid ""
+"B<%manconv%> converts a manual page from one encoding to another, like "
+"B<iconv>.  Unlike B<iconv>, it can try multiple possible input encodings in "
+"sequence.  This is useful for manual pages installed in directories without "
+"an explicit encoding declaration, since they may be in UTF-8 or in a legacy "
+"character set."
+msgstr ""
+"B<%manconv%> перетворює сторінку довідки з одного кодування в інше, подібно "
+"до B<iconv>. На відміну від B<iconv>, вона може спробувати декілька можливих "
+"вхідних кодувань послідовно. Це корисно для сторінок довідки, встановлених у "
+"каталогах без явного оголошення кодування, оскільки вони можуть бути в UTF-8 "
+"або в застарілому наборі символів."
+
+#. type: Plain text
+#: ../../man/man1/manconv.man1:36
+msgid ""
+"If an encoding declaration is found on the first line of the manual page, "
+"that declaration overrides any input encodings specified on B<%manconv%>'s "
+"command line.  Encoding declarations have the following form:"
+msgstr ""
+"Якщо в першому рядку сторінки довідника знайдено оголошення кодування, то це "
+"оголошення перевизначає будь-які вхідні кодування, зазначені у командному "
+"рядку B<%manconv%>. Оголошення кодування мають наступну форму:"
+
+#. type: TP
+#: ../../man/man1/manconv.man1:51
+#, no-wrap
+msgid "B<-f> I<encodings>, B<--from-code> I<encodings>"
+msgstr "B<-f> I<кодування>, B<--from-code> I<кодування>"
+
+#. type: Plain text
+#: ../../man/man1/manconv.man1:57
+msgid ""
+"Try each of I<encodings> (a colon-separated list) in sequence as the input "
+"encoding.  The default is to guess likely input encodings based on the file "
+"name."
+msgstr ""
+"Спробувати кожне з I<кодувань> (список, розділений двокрапками), послідовно "
+"як вхідне кодування. За замовчуванням програма намагається вгадати можливі "
+"вхідні кодування на основі імені файлу."
+
+#. type: TP
+#: ../../man/man1/manconv.man1:57
+#, no-wrap
+msgid "B<-t> I<encoding>, B<--to-code> I<encoding>"
+msgstr "B<-t> I<кодування>, B<--to-code> I<кодування>"
+
+#. type: Plain text
+#: ../../man/man1/manconv.man1:61
+msgid "Convert the manual page to I<encoding>."
+msgstr "Перекодувати сторінку довідки в I<кодування>."
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:16
+msgid "%manpath% - determine search path for manual pages"
+msgstr "%manpath% - визначити шлях пошуку сторінок довідки"
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:23
+msgid ""
+"B<%manpath%> [\\|B<-qgdc?V>\\|] [\\|B<-m> I<system>\\|[\\|,.\\|.\\|.\\|]\\|] "
+"[\\|B<-C> I<file>\\|]"
+msgstr ""
+"B<%manpath%> [\\|B<-qgdc?V>\\|] [\\|B<-m> I<система>\\|[\\|,.\\|.\\|.\\|]"
+"\\|] [\\|B<-C> I<файл>\\|]"
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:33
+msgid ""
+"If $B<MANPATH> is set, B<%manpath%> will simply display its contents and "
+"issue a warning.  If not, B<%manpath%> will determine a suitable manual page "
+"hierarchy search path and display the results."
+msgstr ""
+"Якщо встановлено змінну $B<MANPATH>, B<%manpath%> просто покаже її вміст і "
+"видасть попередження. Якщо ні, B<%manpath%> визначить відповідний шлях "
+"пошуку сторінок довідки та покаже результати."
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:38
+msgid ""
+"The colon-delimited path is determined using information gained from the man-"
+"db configuration file \\(en (I<%manpath_config_file%>)  and the user's "
+"environment."
+msgstr ""
+"Шлях, розділений двокрапками, визначається за допомогою інформації, "
+"отриманої з файлу конфігурації man-db (%manpath_config_file%) та середовища "
+"користувача."
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:42
+msgid "Do not issue warnings."
+msgstr "Не видавати попередження."
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:50
+msgid ""
+"Produce a catpath as opposed to a manpath.  Once the manpath is determined, "
+"each path element is converted to its relative catpath."
+msgstr ""
+"Створити шляхи_до_талогу замість manpath. Після визначення manpath кожен "
+"елемент шляху перетворюється на відносний catpath."
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:54
+msgid ""
+"Produce a manpath consisting of all paths named as \"global\" within the man-"
+"db configuration file."
+msgstr ""
+"Створити шляхи_до_man, який складається з усіх шляхів, названих як "
+"«глобальні» у файлі конфігурації man-db."
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:63
+msgid ""
+"If this system has access to other operating systems' manual hierarchies, "
+"this option can be used to include them in the output of B<%manpath%>.  To "
+"include NewOS's manual page hierarchies use the option B<-m> B<NewOS>."
+msgstr ""
+"Якщо ця система має доступ до ієрархій сторінок довідки інших операційних "
+"систем, цей параметр можна використовувати для їх включення у вивід "
+"B<%manpath%>. Щоб включити ієрархії сторінок довідки NewOS, використовуйте "
+"опцію B<-m> B<NewOS>."
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:74
+msgid ""
+"The I<system> specified can be a combination of comma delimited operating "
+"system names.  To include the native operating system's manual page "
+"hierarchies, the system name B<man> must be included in the argument "
+"string.  This option will override the $B<SYSTEM> environment variable."
+msgstr ""
+"Вказана I<система> може бути комбінацією через кому операційних систем. Для "
+"включення рідних ієрархій сторінок довідки системи, у рядку аргументів "
+"повинно бути вказано імʼя системного B<man>. Ця опція перевизначить змінну "
+"середовища $B<SYSTEM>."
+
+#. type: Plain text
+#: ../../man/man1/manpath.man1:95
+msgid ""
+"If $B<MANPATH> is set, B<%manpath%> displays its value rather than "
+"determining it on the fly."
+msgstr ""
+"Якщо встановлено змінну середовища $B<MANPATH>, то B<%manpath%> показує її "
+"значення, а не визначає його динамічно."
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:15
+msgid "%whatis% - display one-line manual page descriptions"
+msgstr "%whatis% - показати короткі описи сторінок довідки"
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:32
+msgid ""
+"B<%whatis%> [\\|B<-dlv?V>\\|] [\\|B<-r>\\||\\|B<-w>\\|] [\\|B<-s> "
+"I<list>\\|] [\\|B<-m> I<system>\\|[\\|,.\\|.\\|.\\|]\\|] [\\|B<-M> "
+"I<path>\\|] [\\|B<-L> I<locale>\\|] [\\|B<-C> I<file>\\|] I<name> \\&.\\|."
+"\\|."
+msgstr ""
+"B<%whatis%> [\\|B<-dlv?V>\\|] [\\|B<-r>\\||\\|B<-w>\\|] [\\|B<-s> "
+"I<список>\\|] [\\|B<-m> I<система>\\|[\\|,.\\|.\\|.\\|]\\|] [\\|B<-M> "
+"I<шлях>\\|] [\\|B<-L> I<локаль>\\|] [\\|B<-C> I<файл>\\|] I<імʼя> \\&.\\|."
+"\\|."
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:39
+msgid ""
+"Each manual page has a short description available within it.  B<%whatis%> "
+"searches the manual page names and displays the manual page descriptions of "
+"any I<name> matched."
+msgstr ""
+"Кожна сторінка довідки має короткий опис, який доступний всередині неї. "
+"Команда B<%whatis%> шукає назви сторінок довідки та показує описи тих "
+"сторінок довідки, які відповідають I<імені>."
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:49
+msgid ""
+"I<name> may contain wildcards (B<-w>)  or be a regular expression (B<-r>).  "
+"Using these options, it may be necessary to quote the I<name> or escape "
+"(\\e) the special characters to stop the shell from interpreting them."
+msgstr ""
+"I<Імʼя> може містити шаблони (B<-w>) або бути регулярним виразом (B<-r>). "
+"Використовуючи ці опції, можливо, потрібно буде процитувати I<імʼя> або "
+"екранувати (\\e) спеціальні символи, щоб зупинити їх інтерпретацію оболонкою."
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:61
+msgid ""
+"B<index> databases are used during the search, and are updated by the "
+"B<%mandb%> program.  Depending on your installation, this may be run by a "
+"periodic cron job, or may need to be run manually after new manual pages "
+"have been installed.  To produce an old style text B<whatis> database from "
+"the relative B<index> database, issue the command:"
+msgstr ""
+"B<Індексні> бази даних використовуються під час пошуку та оновлюються "
+"програмою B<%mandb%>. Залежно від вашої інсталяції, це може бути запущено "
+"періодичною задачею cron або, можливо, потрібно вручну запустити її після "
+"встановлення нових сторінок довідки. Щоб створити старомодну текстову базу "
+"даних B<whatis> з відносної B<індексної> бази даних, виконайте команду:"
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:66
+msgid "B<%whatis% -M> I<manpath> B<-w '*' | sort E<gt>> I<manpath/whatis>"
+msgstr ""
+"B<%whatis% -M> I<шляхи_до_man> B<-w '*' | sort E<gt>> I<manpath/whatis>"
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:71
+msgid "where I<manpath> is a manual page hierarchy such as I</usr/man>."
+msgstr ""
+"де I<шляхи_до_man> є ієрархією сторінок довідки, наприклад I</usr/man>."
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:89
+msgid ""
+"Interpret each I<name> as a regular expression.  If a I<name> matches any "
+"part of a page name, a match will be made.  This option causes B<%whatis%> "
+"to be somewhat slower due to the nature of database searches."
+msgstr ""
+"Інтерпретувати кожне I<імʼя> як регулярний вираз. Якщо I<імʼя> відповідає "
+"будь-якій частині назви сторінки, збіг буде знайдено. Ця опція призводить до "
+"того, що B<%whatis%> працює трохи повільніше через особливості пошуку в базі "
+"даних."
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:100
+msgid ""
+"Interpret each I<name> as a pattern containing shell style wildcards.  For a "
+"match to be made, an expanded I<name> must match the entire page name.  This "
+"option causes B<%whatis%> to be somewhat slower due to the nature of "
+"database searches."
+msgstr ""
+"Інтерпретувати кожне I<імʼя> як шаблон, що містить шаблони у стилі оболонки. "
+"Для того, щоб збіг був досягнутий, розширене I<імʼя> повинно відповідати "
+"цілій назві сторінки. Ця опція призводить до того, що B<%whatis%> працює "
+"трохи повільніше через особливості пошуку в базі даних."
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:131
+msgid ""
+"If this system has access to other operating systems' manual page names, "
+"they can be accessed using this option.  To search NewOS's manual page "
+"names, use the option B<-m> B<NewOS>."
+msgstr ""
+"Якщо ця система має доступ до імен сторінок довідки інших операційних "
+"систем, вони можуть бути доступні за допомогою цієї опції. Щоб шукати імена "
+"сторінок довідки NewOS, використовуйте опцію B<-m> B<NewOS>."
+
+#. type: Plain text
+#: ../../man/man1/whatis.man1:142
+msgid ""
+"The I<system> specified can be a combination of comma delimited operating "
+"system names.  To include a search of the native operating system's manual "
+"page names, include the system name B<man> in the argument string.  This "
+"option will override the $B<SYSTEM> environment variable."
+msgstr ""
+"Вказана I<система> може бути комбінацією операційних систем, перелічених "
+"через кому. Для включення пошуку імен сторінок довідки в системі, включіть "
+"назву системного B<man> у рядок аргументів. Ця опція перевизначить змінну "
+"середовища $B<SYSTEM>."
+
+#. type: Plain text
+#: ../../man/man1/zsoelim.man1:15
+msgid "%zsoelim% - satisfy .so requests in roff input"
+msgstr "%zsoelim% - задовольняє запити на .so у вхідних даних roff"
+
+#. type: Plain text
+#: ../../man/man1/zsoelim.man1:20
+msgid "B<%zsoelim%> [\\|B<-CVh>\\|] [\\|I<file> \\&.\\|.\\|.\\|]"
+msgstr "B<%zsoelim%> [\\|B<-CVh>\\|] [\\|I<файл> \\&.\\|.\\|.\\|]"
+
+#. type: Plain text
+#: ../../man/man1/zsoelim.man1:26
+msgid ""
+"B<%zsoelim%> parses I<file> arguments, or if none are specified, its "
+"standard input for lines of the form:"
+msgstr ""
+"B<%zsoelim%> аналізує I<файли>, або якщо вони не вказані, його стандартний "
+"ввід щодо рядків у форматі:"
+
+#. type: Plain text
+#: ../../man/man1/zsoelim.man1:29
+msgid "B<.so> E<lt>\\|I<filename>\\|E<gt>"
+msgstr "B<.so> E<lt>\\|I<імʼя файлу>\\|E<gt>"
+
+#. type: Plain text
+#: ../../man/man1/zsoelim.man1:48
+msgid ""
+"These requests are replaced by the contents of the I<filename> specified.  "
+"If the request cannot be met, B<%zsoelim%> looks for I<filename.ext> where "
+"I<.ext> can be one of B<.gz>, B<.Z> or B<.z>.  Other extension types may be "
+"supported depending upon compile time options.  If the request can be met by "
+"a compressed file, this file is decompressed using an appropriate "
+"decompressor and its output is used to satisfy the request."
+msgstr ""
+"Ці запити замінюються вмістом файлу I<імʼя_файлу>, який вказаний. Якщо запит "
+"не може бути виконаний, B<%zsoelim%> шукає I<імʼя_файлу.роз>, де I<.роз> "
+"може бути одним з B<.gz>, B<.Z> або B<.z>. Інші типи розширень можуть "
+"підтримуватися в залежності від опцій компіляції. Якщо запит може бути "
+"виконаний за допомогою стисненого файлу, цей файл розпаковується за "
+"допомогою відповідного декомпресора, і його вивід використовується для "
+"задоволення запиту."
+
+#. type: Plain text
+#: ../../man/man1/zsoelim.man1:55
+msgid ""
+"Traditionally, B<soelim> programs were used to allow roff preprocessors to "
+"be able to preprocess the files referred to by the requests.  This "
+"particular version was written to circumvent problems created by support for "
+"compressed manual pages."
+msgstr ""
+"Традиційно програми B<soelim> використовувалися для того, щоб дозволити "
+"препроцесорам roff обробляти файли, на які посилаються запити. Ця конкретна "
+"версія була написана для обходу проблем, створених підтримкою стиснутих "
+"сторінок довідки."
+
+#. type: Plain text
+#: ../../man/man1/zsoelim.man1:64
+msgid ""
+"This flag is available for compatibility with other B<soelim> programs.  Its "
+"use is to enable .so requests followed by something other than whitespace.  "
+"As this is already the default behaviour, it is ignored."
+msgstr ""
+"Цей прапорець доступний для сумісності з іншими програмами B<soelim>. Його "
+"використання полягає в тому, щоб дозволити .so запити, які не відділені "
+"пробілом. Оскільки це вже є стандартною поведінкою, він ігнорується."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:16
+msgid "manpath - format of the %manpath_config_file% file"
+msgstr "manpath - формат файлу %manpath_config_file%"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:21
+msgid ""
+"The manpath configuration file is used by the manual page utilities to "
+"assess users' manpaths at run time, to indicate which manual page "
+"hierarchies (manpaths) are to be treated as system hierarchies and to assign "
+"them directories to be used for storing cat files."
+msgstr ""
+"Файл конфігурації manpath використовується утилітами сторінок довідки для "
+"оцінки шляхів користувачів під час роботи, щоб вказати, які ієрархії "
+"сторінок довідки (manpaths) повинні розглядатися як системні ієрархії та "
+"призначати їм каталоги для зберігання файлів cat."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:26
+msgid ""
+"If the environment variable $B<MANPATH> is already set, the information "
+"contained within %manpath_config_file% will not override it."
+msgstr ""
+"Якщо змінна середовища $B<MANPATH> вже встановлена, інформація, яка "
+"міститься у %manpath_config_file%, не буде її перезаписувати."
+
+#. type: SH
+#: ../../man/man5/manpath.man5:26
+#, no-wrap
+msgid "SEARCH PATH"
+msgstr "ШЛЯХ ПОШУКУ"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:35
+msgid ""
+"By default, man-db examines the user's $B<PATH>.  For each I<path_element> "
+"found there, it adds I<manpath_element> to the search path."
+msgstr ""
+"За замовчуванням, man-db перевіряє шлях користувача $B<PATH>. Для кожного "
+"знайденого тут I<елементу_шляху>, воно додає I<елемент_шляху> до шляху "
+"пошуку."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:47
+msgid ""
+"If there is no B<MANPATH_MAP> line in the configuration file for a given "
+"I<path_element>, then it adds all of I<path_element/../man>, I<path_element/"
+"man>, I<path_element/../share/man>, and I<path_element/share/man> that exist "
+"as directories to the search path."
+msgstr ""
+"Якщо у конфігураційному файлі немає рядка B<MANPATH_MAP> для заданого "
+"I<елементу_шляху>, тоді до шляху пошуку додаються всі наявні каталоги "
+"I<елементи_шляху/../man>, I<елементи_шляху/man>, I<елементи_шляху/../share/"
+"man>, та I<елементи_шляху/share/man>."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:51
+msgid ""
+"It then adds any B<MANDATORY_MANPATH> entries from the configuration file to "
+"the search path."
+msgstr ""
+"Потім додає всі записи B<MANDATORY_MANPATH> з файлу конфігурації до шляху "
+"пошуку."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:73
+msgid ""
+"Finally, if the B<--systems> option is used or the $B<SYSTEM> environment "
+"variable is set, then that should consist of a sequence of operating system "
+"names separated by commas or colons.  This acts as a template, expanding the "
+"search path once more to allow access to other operating systems' manual "
+"pages: for each system name, man-db looks for that name as a subdirectory of "
+"each entry in the search path, and adds it to the final search path if it "
+"exists.  A system name of B<man> inserts the normal search path without "
+"subdirectories.  For example, if the search path would otherwise have been "
+"I</usr/share/man:/usr/local/man>, and $B<SYSTEM> is set to I<newOS:man>, "
+"then the final search path will be I</usr/share/man/newOS:\\:/usr/share/man:"
+"\\:/usr/local/man/newOS:\\:/usr/local/man>."
+msgstr ""
+"Нарешті, якщо використовується опція B<--systems> або встановлена змінна "
+"середовища $B<SYSTEM>, то це повинно складатися з послідовності імен "
+"операційних систем, розділених комами або двокрапками. Це діє як шаблон, "
+"розширюючи шлях пошуку ще раз, щоб дозволити доступ до сторінок керівництва "
+"інших операційних систем: для кожної назви системи man-db шукає цю назву як "
+"підкаталог кожного запису у шляху пошуку та додає його до остаточного шляху "
+"пошуку, якщо він існує. Назва системного B<man> вставляє звичайний шлях "
+"пошуку без підкаталогів. Наприклад, якщо шлях пошуку був би I</usr/share/"
+"man:/usr/local/man>, а $B<SYSTEM> встановлено на I<newOS:man>, то остаточний "
+"шлях пошуку буде I</usr/share/man/newOS:\\:/usr/share/man:\\:/usr/local/man/"
+"newOS:\\:/usr/local/man>."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:83
+msgid ""
+"The $B<MANPATH> environment variable overrides man-db's default manual page "
+"search paths.  Most users should not need to set it.  Its syntax is similar "
+"to the $B<PATH> environment variable: it consists of a sequence of directory "
+"names separated by colons.  It overrides the default search path described "
+"above."
+msgstr ""
+"Змінна середовища $B<MANPATH> перекриває шляхи пошуку сторінок довідки за "
+"замовчуванням у man-db. Зазвичай користувачам не потрібно її встановлювати. "
+"Синтаксис схожий на змінну середовища $B<PATH>: вона складається з "
+"послідовності імен каталогів, розділених двокрапками. Вона перекриває "
+"типовий шлях пошуку, описаний вище."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:96
+msgid ""
+"If the value of $B<MANPATH> starts with a colon, then the default search "
+"path is added at its start.  If the value of $B<MANPATH> ends with a colon, "
+"then the default search path is added at its end.  If the value of "
+"$B<MANPATH> contains a double colon (B<::>), then the default search path is "
+"inserted in the middle of the value, between the two colons."
+msgstr ""
+"Якщо значення $B<MANPATH> починається з двокрапки, то допоміжний шлях пошуку "
+"додається на початок. Якщо значення $B<MANPATH> закінчується двокрапкою, то "
+"допоміжний шлях пошуку додається в кінець. Якщо значення $B<MANPATH> містить "
+"подвійну двокрапку (B<::>), то допоміжний шлях пошуку вставляється "
+"посередині значення, між двома двокрапками."
+
+#. type: SH
+#: ../../man/man5/manpath.man5:96
+#, no-wrap
+msgid "FORMAT"
+msgstr "ФОРМАТ"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:98
+msgid "The following field types are currently recognised:"
+msgstr "Наступні типи полів визнаються зараз:"
+
+#. type: TP
+#: ../../man/man5/manpath.man5:98
+#, no-wrap
+msgid "B<#>I<\\ comment>"
+msgstr "B<#>I<\\ коментар>"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:103
+msgid ""
+"Blank lines or those beginning with a B<#> will be treated as comments and "
+"ignored."
+msgstr ""
+"Порожні рядки або ті, що починаються з B<#>, будуть вважатися коментарями і "
+"проігноровані."
+
+#. type: TP
+#: ../../man/man5/manpath.man5:103
+#, no-wrap
+msgid "B<MANDATORY_MANPATH>I<\\ manpath_element>"
+msgstr "B<MANDATORY_MANPATH>I<\\ елемент_шляхів_до_man>"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:110
+msgid ""
+"Lines of this form indicate manpaths that every automatically generated "
+"$B<MANPATH> should contain.  This will typically include I</usr/man>."
+msgstr ""
+"Ці рядки вказують на шляхи до каталогів, які повинні бути включені до "
+"кожного автоматично згенерованого $B<MANPATH>. Зазвичай це включає I</usr/"
+"man>."
+
+#. type: TP
+#: ../../man/man5/manpath.man5:110
+#, no-wrap
+msgid "B<MANPATH_MAP>I<\\ path_element\\ manpath_element>"
+msgstr "B<MANPATH_MAP>I<\\ елемент_шлях\\ елемент_шляхів_до_man>"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:124
+msgid ""
+"Lines of this form set up $B<PATH> to $B<MANPATH> mappings.  For each "
+"I<path_element> found in the user's $B<PATH>, I<manpath_element> will be "
+"added to the $B<MANPATH>."
+msgstr ""
+"Ці рядки встановлюють відповідність між елементами шляху $B<PATH> та "
+"$B<MANPATH>. Для кожного знайденого I<елементу_шляху> у $B<PATH> "
+"користувача, I<елемент_шляху_до_man> буде додано до $B<MANPATH>."
+
+#. type: TP
+#: ../../man/man5/manpath.man5:124
+#, no-wrap
+msgid "B<MANDB_MAP >I<manpath_element >\\|[\\| I<catpath_element> \\|]"
+msgstr "B<MANDB_MAP >I<елемент_шляхів_до_man>\\|[\\| I<елемент_шляхів_до_cat> \\|]"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:134
+msgid ""
+"Lines of this form indicate which manpaths are to be treated as system "
+"manpaths, and optionally where their cat files should be stored.  This field "
+"type is particularly important if B<man> is a setuid program, as (when in "
+"the system configuration file %manpath_config_file% rather than the per-user "
+"configuration file .manpath)  it indicates which manual page hierarchies to "
+"access as the setuid user and which as the invoking user."
+msgstr ""
+"Ці рядки вказують, які шляхи до man повинні розглядатися як системні шляхи "
+"і, необовʼязково, де мають зберігатися їхні файли cat. Цей тип полів "
+"особливо важливий, якщо B<man> є програмою з правами setuid, оскільки вона "
+"вказує, які ієрархії сторінок довідки потрібно отримувати від користувача "
+"setuid, а які - від користувача що викликав команду (при наявності у "
+"системному конфігураційному файлі %manpath_config_file% замість "
+"персонального конфігураційного файлу .manpath)."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:142
+msgid ""
+"The system manual page hierarchies are usually those stored under I</usr> "
+"such as I</usr/man>, I</usr/local/man> and I</usr/X11R6/man>."
+msgstr ""
+"Системні ієрархії сторінок довідки зазвичай зберігаються в /usr, такі як /"
+"usr/man, /usr/local/man та /usr/X11R6/man."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:148
+msgid ""
+"If cat pages from a particular I<manpath_element> are not to be stored or "
+"are to be stored in the traditional location, I<catpath_element> may be "
+"omitted."
+msgstr ""
+"Якщо сторінки каталогу з певного I<елементу_шляху_до_man> не повинні "
+"зберігатися або мають бути збережені в традиційному розташуванні, то можна "
+"опустити I<елементу_шляху_до_cat>."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:157
+msgid ""
+"Traditional cat placement would be impossible for read only mounted manual "
+"page hierarchies and because of this it is possible to specify any valid "
+"directory hierarchy for their storage.  To observe the B<Linux FSSTND> the "
+"keyword B<FSSTND> can be used in place of an actual directory."
+msgstr ""
+"Традиційне розміщення файлів cat було б неможливим для ієрархій сторінок "
+"довідки змонтованих тільки для читання, тому, через це, можна вказати будь-"
+"яку дійсну ієрархію каталогів для зберігання їх. Щоб відповідати стандарту "
+"B<Linux FSSTND>, замість фактичного каталогу можна використовувати ключове "
+"слово B<FSSTND>."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:166
+msgid ""
+"Unfortunately, it is necessary to specify B<all> system man tree paths, "
+"including alternate operating system paths such as I</usr/man/sun> and any "
+"B<NLS locale> paths such as I</usr/man/de_DE.88591>."
+msgstr ""
+"На жаль, необхідно вказати B<ВСІ> шляхи до дерева системних сторінок man, "
+"включаючи альтернативні шляхи операційної системи, такі як I</usr/man/sun>, "
+"а також будь-які шляхи B<NLS locale>, наприклад I</usr/man/de_DE.88591>."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:174
+msgid ""
+"As the information is parsed line by line in the order written, it is "
+"necessary for any manpath that is a sub-hierarchy of another hierarchy to be "
+"listed first, otherwise an incorrect match will be made.  An example is that "
+"I</usr/man/de_DE.88591> must come before I</usr/man>."
+msgstr ""
+"Оскільки інформація аналізується по рядку в тому порядку, в якому вони "
+"записані, необхідно, щоб будь-який шлях до man, який є підієрархією іншої "
+"ієрархії, був перерахований першим, інакше буде зроблено неправильну "
+"відповідність. Наприклад, шлях I</usr/man/de_DE.88591> повинен йти перед I</"
+"usr/man>."
+
+#. type: TP
+#: ../../man/man5/manpath.man5:174
+#, no-wrap
+msgid "B<DEFINE>I<\\ key\\ value>"
+msgstr "B<DEFINE>I<\\ ключ\\ значення>"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:184
+msgid ""
+"Lines of this form define miscellaneous configuration variables; see the "
+"default configuration file for those variables used by the manual pager "
+"utilities.  They include default paths to various programs (such as I<grep> "
+"and I<tbl>), and default sets of arguments to those programs."
+msgstr ""
+"Ці рядки визначають різні конфігураційні змінні; дивіться файл конфігурації "
+"за замовчуванням для тих змінних, які використовуються утилітами переглядача "
+"сторінок. Вони включають шляхи за замовчуванням до різних програм (таких як "
+"I<grep> і I<tbl>) та набори аргументів для цих програм."
+
+#. type: TP
+#: ../../man/man5/manpath.man5:184
+#, no-wrap
+msgid "B<SECTION> I<section> .\\|.\\|."
+msgstr "B<SECTION> I<розділ> .\\|.\\|."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:192
+msgid ""
+"Lines of this form define the order in which manual sections should be "
+"searched.  If there are no B<SECTION> directives in the configuration file, "
+"the default is:"
+msgstr ""
+"Ці рядки визначають порядок пошуку розділів довідки. Якщо в конфігураційному "
+"файлі немає директив B<SECTION>, то за замовчуванням використовується:"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:202
+msgid ""
+"If multiple B<SECTION> directives are given, their section lists will be "
+"concatenated."
+msgstr ""
+"Якщо вказано кілька директив B<SECTION>, їхні списки розділів будуть "
+"обʼєднані."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:209
+msgid ""
+"If a particular extension is not in this list (say, 1mh) it will be "
+"displayed with the rest of the section it belongs to.  The effect of this is "
+"that you only need to explicitly list extensions if you want to force a "
+"particular order.  Sections with extensions should usually be adjacent to "
+"their main section (e.g.\\& \"1 1mh 8 ...\")."
+msgstr ""
+"Якщо певне розширення не знаходиться у цьому списку (наприклад, 1mh), воно "
+"буде показано разом з іншою секцією, до якої воно належить. Наслідком є те, "
+"що вам потрібно вказати розширення явно лише тоді, коли ви хочете задати "
+"певний порядок. Секції з розширеннями зазвичай повинні бути суміжними з "
+"їхньою основною секцією (наприклад, \"1 1mh 8 ...\")."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:212
+msgid "B<SECTIONS> is accepted as an alternative name for this directive."
+msgstr ""
+"B<SECTIONS> також приймається як альтернативна назва для цієї директиви."
+
+#. type: TP
+#: ../../man/man5/manpath.man5:213
+#, no-wrap
+msgid "B<MINCATWIDTH>I<\\ width>"
+msgstr "B<MINCATWIDTH>I<\\ ширина>"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:219
+msgid ""
+"If the terminal width is less than I<width>, cat pages will not be created "
+"(if missing) or displayed.  The default is 80."
+msgstr ""
+"Якщо ширина терміналу менша за I<ширину>, сторінки cat не будуть створені "
+"(якщо їх немає) або показані. За замовчуванням це 80."
+
+#. type: TP
+#: ../../man/man5/manpath.man5:219
+#, no-wrap
+msgid "B<MAXCATWIDTH>I<\\ width>"
+msgstr "B<MAXCATWIDTH>I<\\ ширина>"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:225
+msgid ""
+"If the terminal width is greater than I<width>, cat pages will not be "
+"created (if missing) or displayed.  The default is 80."
+msgstr ""
+"Якщо ширина терміналу більша за I<ширину>, сторінки cat не будуть створені "
+"(якщо вони відсутні) або показані. За замовчуванням це 80."
+
+#. type: TP
+#: ../../man/man5/manpath.man5:225
+#, no-wrap
+msgid "B<CATWIDTH>I<\\ width>"
+msgstr "B<CATWIDTH>I<\\ ширина>"
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:235
+msgid ""
+"If I<width> is non-zero, cat pages will always be formatted for a terminal "
+"of the given width, regardless of the width of the terminal actually being "
+"used.  This overrides B<MINCATWIDTH> and B<MAXCATWIDTH>."
+msgstr ""
+"Якщо I<ширина> не дорівнює нулю, сторінки cat будуть завжди форматовані для "
+"терміналу вказаної ширини, незалежно від фактично використовуваного "
+"терміналу. Це перевизначає B<MINCATWIDTH> та B<MAXCATWIDTH>."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:240
+msgid "This flag prevents B<%man%>(1)  from creating cat pages automatically."
+msgstr ""
+"Цей прапорець забороняє B<%man%>(1) автоматично створювати сторінки "
+"категорій."
+
+#. type: Plain text
+#: ../../man/man5/manpath.man5:244
+msgid ""
+"Unless the rules above are followed and observed precisely, the manual pager "
+"utilities will not function as desired.  The rules are overly complicated."
+msgstr ""
+"Якщо правила вище не будуть дотримані точно, утиліти переглядача сторінок не "
+"працюватимуть так, як бажано. Правила занадто складні."
+
+#. type: Plain text
+#: ../../man/man8/accessdb.man8:16
+msgid ""
+"accessdb - dumps the content of a man-db database in a human readable format"
+msgstr ""
+"accessdb - виводить вміст бази даних man-db у зрозумілому для людини форматі"
+
+#. type: Plain text
+#: ../../man/man8/accessdb.man8:20
+msgid "B</usr/sbin/accessdb> [\\|B<-d?V>\\|] [I<E<lt>index-fileE<gt>>]"
+msgstr "B</usr/sbin/accessdb> [\\|B<-d?V>\\|] [I<E<lt>індексний файлE<gt>>]"
+
+#. type: Plain text
+#: ../../man/man8/accessdb.man8:27
+msgid ""
+"B<accessdb> will output the data contained within a man-db database in a "
+"human readable form.  By default, it will dump the data from B</var/cache/"
+"man/index.E<lt>db-typeE<gt>,> where E<lt>db-typeE<gt> is dependent on the "
+"database library in use."
+msgstr ""
+"B<accessdb> виведе дані, що містяться в базі даних man-db у зрозумілому для "
+"людини форматі. За замовчуванням, вона вивантажить дані з B</var/cache/man/"
+"index.E<lt>db-typeE<gt>,> де E<lt>db-typeE<gt> залежить від використовуваної "
+"бібліотеки бази даних."
+
+#. type: Plain text
+#: ../../man/man8/accessdb.man8:29
+msgid "Supplying an argument to accessdb will override this default."
+msgstr "Надання аргументу до accessdb замінить цей типовий параметр."
+
+#. type: Plain text
+#: ../../man/man8/catman.man8:15
+msgid "%catman% - create or update the pre-formatted manual pages"
+msgstr "%catman% - створити або оновл сторінки довідки у форматованому вигляді"
+
+#. type: Plain text
+#: ../../man/man8/catman.man8:24
+msgid ""
+"B<%catman%> [\\|B<-d?V>\\|] [\\|B<-M> I<path>\\|] [\\|B<-C> I<file>\\|] [\\|"
+"I<section>\\|] \\&.\\|.\\|."
+msgstr ""
+"B<%catman%> [\\|B<-d?V>\\|] [\\|B<-М> I<шлях>\\|] [\\|B<-C> I<файл>\\|] [\\|"
+"I<розділ>\\|] \\&.\\|.\\|."
+
+#. type: Plain text
+#: ../../man/man8/catman.man8:32
+msgid ""
+"B<%catman%> is used to create an up to date set of pre-formatted manual "
+"pages known as cat pages.  Cat pages are generally much faster to display "
+"than the original manual pages, but require extra storage space.  The "
+"decision to support cat pages is that of the local administrator, who must "
+"provide suitable directories to contain them."
+msgstr ""
+"B<%catman%> використовується для створення актуального набору попередньо "
+"форматованих сторінок довідки, відомих як сторінки cat. Сторінки cat "
+"зазвичай значно швидше показуються, ніж оригінальні сторінки довідки, але "
+"вимагають додаткового місця для зберігання. Рішення щодо підтримки сторінок "
+"cat належить місцевому адміністратору, який повинен забезпечити відповідні "
+"каталоги для їхнього зберігання."
+
+#. type: Plain text
+#: ../../man/man8/catman.man8:49
+msgid ""
+"The options available to B<%catman%> are the manual page hierarchies and "
+"sections to pre-format.  The default hierarchies are those specified as "
+"system hierarchies in the man-db configuration file, and the default "
+"sections are either the colon-delimited contents of the environment variable "
+"$B<MANSECT> or the standard set compiled into B<%man%> if $B<MANSECT> is "
+"undefined.  Supplying B<%catman%> with a set of whitespace-delimited section "
+"names will override both of the above."
+msgstr ""
+"Опції, доступні для B<%catman%>, це ієрархії та розділи сторінок довідки, "
+"які потрібно підготувати заздалегідь. За замовчуванням використовуються "
+"ієрархії, вказані у файлі конфігурації man-db як системні ієрархії, а також "
+"розділи або зміст змінної середовища $B<MANSECT>, або стандартний набір, "
+"який вбудовано до B<%man%>, якщо $B<MANSECT> не визначено. Надання "
+"B<%catman%> набору розділів, розділених пробілами, перевизначить обидва "
+"вищезгадані варіанти."
+
+#. type: Plain text
+#: ../../man/man8/catman.man8:55
+msgid ""
+"B<%catman%> makes use of the B<index> database cache associated with each "
+"hierarchy to determine which files need to be formatted."
+msgstr ""
+"B<%catman%> використовує B<індекс> кешу бази даних, повʼязаний з кожною "
+"ієрархією, щоб визначити, які файли потрібно форматувати."
+
+#. type: Plain text
+#: ../../man/man8/catman.man8:64
+msgid ""
+"Specify an alternate colon-delimited manual page hierarchy search path.  By "
+"default, this is all paths indicated as system hierarchies in the man-db "
+"configuration file."
+msgstr ""
+"Вказати альтернативний шлях пошуку ієрархії сторінок довідки, розділених "
+"двокрапками. За замовчуванням це всі шляхи, вказані як системні ієрархії у "
+"файлі конфігурації man-db."
+
+#. type: Plain text
+#: ../../man/man8/catman.man8:116 ../../man/man8/mandb.man8:207
+msgid "An alternate or FSSTND compliant global I<index> database cache."
+msgstr ""
+"Альтернативний або сумісний з FSSTND глобальний кеш бази даних I<індексу>."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:17
+msgid "%mandb% - create or update the manual page index caches"
+msgstr "%mandb% - створює або оновлює кеші індексу сторінок довідки"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:23
+msgid ""
+"B<%mandb%> [\\|B<-dqsucpt?V>\\|] [\\|B<-C> I<file>\\|] [\\|I<manpath>\\|]"
+msgstr ""
+"B<%mandb%> [\\|B<-dqsucpt?V>\\|] [\\|B<-C> I<файл>\\|] [\\|"
+"I<шляхи_до_man>\\|]"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:30
+msgid ""
+"B<%mandb%> [\\|B<-dqsut>\\|] [\\|B<-C> I<file>\\|] B<-f> I<filename>\\ .\\|."
+"\\|."
+msgstr ""
+"B<%mandb%> [\\|B<-dqsut>\\|] [\\|B<-C> I<файл>\\|] B<-f> I<імʼя_файлу>\\ ."
+"\\|.\\|."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:38
+msgid ""
+"B<%mandb%> is used to initialise or manually update B<index> database "
+"caches.  The caches contain information relevant to the current state of the "
+"manual page system and the information stored within them is used by the man-"
+"db utilities to enhance their speed and functionality."
+msgstr ""
+"B<%mandb%> використовується для ініціалізації або ручного оновлення кешів "
+"бази даних B<індексі>. Ці кеші містять інформацію, що стосується поточного "
+"стану системи сторінок довідки, а інформація, збережена в них, "
+"використовується утилітами man-db для покращення їхньої швидкості та "
+"функціональності."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:46
+msgid ""
+"When creating or updating an B<index>, B<%mandb%> will warn of bad ROFF .so "
+"requests, bogus manual page filenames and manual pages from which the "
+"B<whatis> cannot be parsed."
+msgstr ""
+"Під час створення або оновлення індексу B<%mandb%> попереджатиме про "
+"неправильні запити ROFF .so, хибні імена файлів сторінок довідки та сторінки "
+"довідки, з яких не можливо розібрати B<whatis>."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:52
+msgid ""
+"Supplying B<%mandb%> with an optional colon-delimited path will override the "
+"internal system manual page hierarchy search path, determined from "
+"information found within the man-db configuration file."
+msgstr ""
+"Надання B<%mandb%> необовʼязкового шляху, розділеного двокрапкою, "
+"перевизначить внутрішній системний ієрархічний шлях пошуку сторінок довідки, "
+"визначений на основі інформації, знайденої у файлі конфігурації man-db."
+
+#. type: SH
+#: ../../man/man8/mandb.man8:52
+#, no-wrap
+msgid "DATABASE CACHES"
+msgstr "КЕШИ БАЗ ДАНИХ"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:55
+msgid ""
+"B<%mandb%> can be compiled with support for any one of the following "
+"database types."
+msgstr ""
+"B<%mandb%> може бути скомпільовано з підтримкою будь-якого з наступних типів "
+"баз даних."
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:59
+#, no-wrap
+msgid "Name"
+msgstr "Імʼя"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:59
+#, no-wrap
+msgid "Async"
+msgstr "Асинхронний"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:59
+#, no-wrap
+msgid "Filename"
+msgstr "Імʼя файлу"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:61
+#, no-wrap
+msgid "Berkeley db"
+msgstr "Берклійська база даних"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:61 ../../man/man8/mandb.man8:62
+#, no-wrap
+msgid "Yes"
+msgstr "Так"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:61
+#, no-wrap
+msgid "I<index.bt>"
+msgstr "I<index.bt>"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:62
+#, no-wrap
+msgid "GNU gdbm"
+msgstr "GNU gdbm"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:62
+#, no-wrap
+msgid "I<index.db>"
+msgstr "I<index.db>"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:63
+#, no-wrap
+msgid "UNIX ndbm"
+msgstr "UNIX ndbm"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:63
+#, no-wrap
+msgid "No"
+msgstr "Ні"
+
+#. type: tbl table
+#: ../../man/man8/mandb.man8:63
+#, no-wrap
+msgid "I<index.(dir|pag)>"
+msgstr "I<індекс.(каталог|сторінка)>"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:74
+msgid ""
+"Those database types that support asynchronous updates provide enhanced "
+"speed at the cost of possible corruption in the event of unusual "
+"termination.  In an unusual case where this has occurred, it may be "
+"necessary to rerun B<%mandb%> with the B<-c> option to re-create the "
+"databases from scratch."
+msgstr ""
+"Ті типи баз даних, які підтримують асинхронні оновлення, забезпечують "
+"покращену швидкість за рахунок можливого пошкодження у разі незвичайного "
+"завершення. У незвичайному випадку, коли це сталося, можливо необхідно "
+"повторно запустити B<%mandb%> з опцією B<-c>, щоб перестворити бази даних з "
+"нуля."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:81
+msgid "Produce no warnings."
+msgstr "Не видавати жодних попереджень."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:85
+msgid ""
+"Do not spend time looking for or adding information to the databases "
+"regarding stray cats."
+msgstr ""
+"Не витрачати час на пошук або додавання інформації про безхатьків у базах "
+"даних."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:89
+msgid ""
+"Do not spend time checking for deleted manual pages and purging them from "
+"the databases."
+msgstr ""
+"Не витрачати час на перевірку видалених сторінок довідки та їх очищення з "
+"баз даних."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:101
+msgid ""
+"By default, B<%mandb%> will try to update any previously created databases.  "
+"If a database does not exist, it will create it.  This option forces "
+"B<%mandb%> to delete previous databases and re-create them from scratch, and "
+"implies B<--no-purge.> This may be necessary if a database becomes corrupt "
+"or if a new database storage scheme is introduced in the future."
+msgstr ""
+"За замовчуванням, B<%mandb%> намагається оновити будь-які раніше створені "
+"бази даних. Якщо база даних не існує, вона її створить. Ця опція змушує "
+"B<%mandb%> видалити попередні бази даних та повторно створити їх з нуля, і "
+"передбачає B<--no-purge>. Це може бути необхідним, якщо база даних стала "
+"пошкодженою або, якщо в майбутньому буде введена нова схема зберігання бази "
+"даних."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:105
+msgid ""
+"Create user databases only, even with write permissions necessary to create "
+"system databases."
+msgstr ""
+"Створювати тільки користувацькі бази даних, навіть з необхідними правами "
+"запису для створення системних баз даних."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:111
+msgid ""
+"Perform correctness checks on manual pages in the hierarchy search path.  "
+"With this option, B<%mandb%> will not alter existing databases."
+msgstr ""
+"Виконувати перевірку правильності сторінок довідки у шляху пошуку ієрархії. "
+"З цим параметром, B<%mandb%> не змінюватиме існуючі бази даних."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:125
+msgid ""
+"Update only the entries for the given filename.  This option is not for "
+"general use; it is used internally by B<%man%> when it has been compiled "
+"with the B<MAN_DB_UPDATES> option and finds that a page is out of date.  It "
+"implies B<-p> and disables B<-c> and B<-s>."
+msgstr ""
+"Оновити тільки записи для вказаного імені файлу. Ця опція не призначена для "
+"загального використання; вона використовується внутрішньо B<%man%>, коли він "
+"був скомпільований з опцією B<MAN_DB_UPDATES> і виявив, що сторінка "
+"неактуальна. Вона передбачає B<-p> та вимикає B<-c> та B<-s>."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:132
+msgid "Show the usage message, then exit."
+msgstr "Показати повідомлення про використання, а потім вийти."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:138
+msgid "Show the version, then exit."
+msgstr "Показати версію, а потім вийти."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:145
+msgid "Usage, syntax, or configuration file error."
+msgstr "Помилка використання, синтаксису або файлу конфігурації."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:151
+msgid "A child process failed."
+msgstr "Дочірній процес не вдалося виконати."
+
+#. type: SH
+#: ../../man/man8/mandb.man8:151
+#, no-wrap
+msgid "DIAGNOSTICS"
+msgstr "ДІАГНОСТИКА"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:153
+msgid "The following warning messages can be emitted during database building."
+msgstr "Під час створення бази даних можуть виникати наступні попередження."
+
+#. type: TP
+#: ../../man/man8/mandb.man8:153
+#, no-wrap
+msgid "B<E<lt>filenameE<gt>: whatis parse for page(sec) failed>"
+msgstr "B<E<lt>filenameE<gt>: розбір сторінки з допомогою whatis не вдався>"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:164
+msgid ""
+"An attempt to extract whatis line(s) from the given E<lt>filenameE<gt> "
+"failed.  This is usually due to a poorly written manual page, but if many "
+"such messages are emitted it is likely that the system contains non-standard "
+"manual pages which are incompatible with the man-db whatis parser.  See the "
+"B<WHATIS PARSING> section in B<lexgrog>(1)  for more information."
+msgstr ""
+"Спроба вилучити whatis рядки з вказаного E<lt>filenameE<gt> не вдалася. Це "
+"зазвичай спричинено погано написаною сторінкою довідки, але якщо багато "
+"таких повідомлень виникає, ймовірно, система містить нестандартні сторінки "
+"довідки, які несумісні з аналізатором whatis man-db. Для отримання "
+"додаткової інформації дивіться розділ B<WHATIS PARSING> у B<lexgrog>(1)."
+
+#. type: TP
+#: ../../man/man8/mandb.man8:164
+#, no-wrap
+msgid "B<E<lt>filenameE<gt>: is a dangling symlink>"
+msgstr "B<E<lt>filenameE<gt>: це недійсне символічне посилання>"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:169
+msgid ""
+"E<lt>filenameE<gt> does not exist but is referenced by a symbolic link.  "
+"Further diagnostics are usually emitted to identify the E<lt>filenameE<gt> "
+"of the offending link."
+msgstr ""
+"E<lt>filenameE<gt> не існує, але він є посиланням символічного типу. "
+"Зазвичай видаються додаткові діагностичні дані для визначення "
+"E<lt>filenameE<gt> порушуючого посилання."
+
+#. type: TP
+#: ../../man/man8/mandb.man8:169
+#, no-wrap
+msgid "B<E<lt>filenameE<gt>: bad symlink or ROFF `.so' request>"
+msgstr "B<E<lt>filenameE<gt>: помилкове символічне посилання або неправильний запит ROFF «.so»>"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:173
+msgid ""
+"E<lt>filenameE<gt> is either a symbolic link to, or contains a ROFF include "
+"request to, a non existent file."
+msgstr ""
+"E<lt>filenameE<gt> є символьним посиланням на або містить запит на включення "
+"ROFF до неіснуючого файлу."
+
+#. type: TP
+#: ../../man/man8/mandb.man8:173
+#, no-wrap
+msgid "B<E<lt>filenameE<gt>: ignoring bogus filename>"
+msgstr "B<E<lt>filenameE<gt>: ігнорування неправильного імені файлу>"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:179
+msgid ""
+"The E<lt>filenameE<gt> may or may not be a valid manual page but its name is "
+"invalid.  This is usually due to a manual page with sectional extension "
+"E<lt>xE<gt> being put in manual page section E<lt>yE<gt>."
+msgstr ""
+"E<lt>filenameE<gt> може бути або не бути дійсною сторінкою довідки, але його "
+"імʼя є недійсним. Це зазвичай через те, що сторінка довідки з розширенням "
+"секції E<lt>xE<gt> поміщена в секцію сторінок довідки E<lt>yE<gt>."
+
+#. type: TP
+#: ../../man/man8/mandb.man8:179
+#, no-wrap
+msgid "B<E<lt>filename_maskE<gt>: competing extensions>"
+msgstr "B<E<lt>filename_maskE<gt>: конфліктні розширення>"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:185
+msgid ""
+"The wildcard E<lt>filename_maskE<gt> is not unique.  This is usually caused "
+"by the existence of both a compressed and uncompressed version of the same "
+"manual page.  All but the most recent are ignored."
+msgstr ""
+"Шаблон E<lt>filename_maskE<gt> не є унікальним. Це зазвичай спричинено "
+"наявністю як стиснутої, так і розпакованої версії однієї й тієї ж сторінки "
+"довідника. Ігноруються всі, окрім найновішої."
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:196
+msgid "Older locations for the database cache included:"
+msgstr "Старі розташування кешу бази даних включали:"
+
+#. type: Plain text
+#: ../../man/man8/mandb.man8:217
+msgid ""
+"The B<WHATIS PARSING> section formerly in this manual page is now part of "
+"B<lexgrog>(1)."
+msgstr ""
+"Розділ B<РОЗБІР WHATIS>, який був у цій сторінці керівництва, тепер частина "
+"B<lexgrog>(1)."

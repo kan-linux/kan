@@ -1,0 +1,31 @@
+use strict;
+
+texinfo_register_file_id_setting_function('unit_file_name',
+                                          \&test_misc_file_name);
+
+sub test_misc_file_name($$$$)
+{
+  my $converter = shift;
+  my $output_unit = shift;
+  my $input_filename = shift;
+  my $input_filepath = shift;
+
+  return ($input_filename, $input_filepath) if (defined($input_filepath));
+
+  my $filename;
+  if ($converter->unit_is_top_output_unit($output_unit)
+      or ($converter->{'document_units'}->[2]
+          and $converter->{'document_units'}->[2] eq $output_unit)) {
+    my $extension = $converter->get_conf('EXTENSION');
+    my $prefix = $converter->get_info('document_name');
+    $filename = "${prefix}_abt"
+      . ((defined($extension)) ? ".$extension" : '');
+  } else {
+    $filename = $input_filename;
+  }
+  return ($filename, $input_filepath);
+}
+
+texinfo_set_from_init_file('DO_ABOUT', 1);
+
+1;

@@ -1,0 +1,155 @@
+@node Texinfo@asis{::}Report
+@chapter Texinfo::Report
+
+@node Texinfo@asis{::}Report NAME
+@section Texinfo::Report NAME
+
+Texinfo::Report - Error storing for Texinfo modules
+
+@node Texinfo@asis{::}Report SYNOPSIS
+@section Texinfo::Report SYNOPSIS
+
+@verbatim
+  use Texinfo::Report;
+
+  my $error_messages = [];
+
+  if ($warning_happened) {
+    push @$error_messages, Texinfo::Report::line_warn(
+                       sprintf(__("\@%s is wrongly used"),
+                       $current->{'cmdname'}), $current->{'source_info'},
+                       0, $converter->get_conf('DEBUG'));
+  }
+
+  foreach my $error_message (@$error_messages) {
+    warn $error_message->{'error_line'};
+  }
+@end verbatim
+
+@node Texinfo@asis{::}Report NOTES
+@section Texinfo::Report NOTES
+
+The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
+Texinfo to other formats.  There is no promise of API stability.
+
+@node Texinfo@asis{::}Report DESCRIPTION
+@section Texinfo::Report DESCRIPTION
+
+The @code{Texinfo::Report} module helps with error handling.  Errors
+and warnings can be setup, stored and retrieved later on.
+This module methods are used by the @ref{Texinfo@asis{::}Parser NAME,, Texinfo::Parser} and
+@ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter} modules.
+
+@node Texinfo@asis{::}Report METHODS
+@section Texinfo::Report METHODS
+
+No method is exported in the default case.
+
+The methods allow registering errors and warnings.
+
+@table @asis
+@item $error_count = count_errors ($error_messages)
+@anchor{Texinfo@asis{::}Report $error_count = count_errors ($error_messages)}
+
+This function returns as @emph{$error_count} the count of errors in the error
+messages list (as opposed to warnings).  The @emph{$error_warnings_list} is an
+array of hash references one for each error, warning or error line
+continuation.  Each of these has the following keys:
+
+@table @asis
+@item continuation
+@anchor{Texinfo@asis{::}Report continuation}
+
+If set, the line is a continuation line of a message.
+
+@item error_line
+@anchor{Texinfo@asis{::}Report error_line}
+
+The text of the error formatted with the macro name, as needed.
+
+@item file_name
+@anchor{Texinfo@asis{::}Report file_name}
+
+The file name where the error or warning occurs.
+
+@item line_nr
+@anchor{Texinfo@asis{::}Report line_nr}
+
+The line number of the error or warning.
+
+@item macro
+@anchor{Texinfo@asis{::}Report macro}
+
+The user macro name that is expanded at the location of
+the error or warning.
+
+@item text
+@anchor{Texinfo@asis{::}Report text}
+
+The text of the error.
+
+@item type
+@anchor{Texinfo@asis{::}Report type}
+
+May be @code{warning}, or @code{error}.
+
+@end table
+
+@item $message = line_warn ($text, $error_location_info, $continuation, $debug, $silent)
+@anchor{Texinfo@asis{::}Report $message = line_warn ($text@comma{} $error_location_info@comma{} $continuation@comma{} $debug@comma{} $silent)}
+
+@item $message = line_error ($text, $error_location_info, $continuation, $debug, $silent)
+@anchor{Texinfo@asis{::}Report $message = line_error ($text@comma{} $error_location_info@comma{} $continuation@comma{} $debug@comma{} $silent)}
+@cindex @code{line_warn}
+@cindex @code{line_error}
+
+Register a warning or an error message structure.  The @emph{$text} is the text of
+the error or warning.  The mandatory @emph{$error_location_info} holds the
+information on the error or warning location.  The @emph{$error_location_info}
+reference on hash may be obtained from Texinfo elements @emph{source_info} keys.
+It may also be setup to point to a file name, using the @code{file_name} key and to
+a line number, using the @code{line_nr} key.  The @code{file_name} key value should be
+a binary string.
+
+The @emph{$continuation} optional arguments, if true, conveys that
+the line is a continuation line of a message.
+
+The @emph{$debug} optional integer arguments sets the debug level.
+
+The @emph{$silent} optional arguments, if true, suppresses the output of
+a message that is output immediatly if debugging is set.
+
+The @emph{source_info} key of Texinfo tree elements is described
+in more details in @ref{Texinfo@asis{::}Parser source_info}.
+
+@item $message = document_warn ($text, $program_name, $continuation)
+@anchor{Texinfo@asis{::}Report $message = document_warn ($text@comma{} $program_name@comma{} $continuation)}
+
+@item $message = document_error ($text, $program_name, $continuation)
+@anchor{Texinfo@asis{::}Report $message = document_error ($text@comma{} $program_name@comma{} $continuation)}
+@cindex @code{document_warn}
+@cindex @code{document_error}
+
+Returns a document-wide error or warning message structure.  @emph{$text} is the
+error or warning message.  The @emph{$program_name} is prepended to the message, if
+defined.  The @emph{$continuation} optional arguments, if true, conveys that the
+line is a continuation line of a message.
+
+@end table
+
+@node Texinfo@asis{::}Report AUTHOR
+@section Texinfo::Report AUTHOR
+
+Patrice Dumas, <bug-texinfo@@gnu.org>
+
+@node Texinfo@asis{::}Report COPYRIGHT AND LICENSE
+@section Texinfo::Report COPYRIGHT AND LICENSE
+
+Copyright 2010- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+

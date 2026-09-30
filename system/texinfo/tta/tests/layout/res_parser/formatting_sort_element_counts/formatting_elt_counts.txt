@@ -1,0 +1,8 @@
+1775  @chapter chapter
+1729  @top Top section
+  10  @section A section
+   7  @subsubsection subsubsection ``simple-double--
+   7  @subsection subsection
+   4  @appendix An appendix
+   4  @centerchap chapter 2
+   3  @subsubsection three---four----''

@@ -1,0 +1,1980 @@
+# Chinese (Traditional) Translation of findutils
+# Copyright (C) 2019 Free Software Foundation, Inc.
+# This file is distributed under the same license as the findutils package.
+#
+# Abel Cheung <abelcheung@gmail.com>, 2005.
+# pan93412 <pan93412@gmail.com>, 2019, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: findutils 4.9.0\n"
+"Report-Msgid-Bugs-To: bug-findutils@gnu.org\n"
+"POT-Creation-Date: 2026-07-11 10:06+0100\n"
+"PO-Revision-Date: 2024-11-30 17:51+0800\n"
+"Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
+"Language-Team: Chinese (traditional) <zh-l10n@lists.slat.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.5\n"
+
+#: find/exec.c:121
+#, c-format
+msgid "Failed to save working directory in order to run a command on %s"
+msgstr "無法儲存要在 %s 執行指令的工作目錄"
+
+#: find/exec.c:241
+#, c-format
+msgid "Cannot close standard input"
+msgstr "無法關閉標準輸入"
+
+#: find/exec.c:273
+#, fuzzy, c-format
+#| msgid "Failed to change directory%s%s"
+msgid "Failed to change directory to %s"
+msgstr "變更目錄失敗%s%s"
+
+#: find/exec.c:277
+#, fuzzy, c-format
+#| msgid "Failed to change directory%s%s"
+msgid "Failed to change directory"
+msgstr "變更目錄失敗%s%s"
+
+#. TRANSLATORS: fork is the name of a system call, and so it
+#. * doesn't necessarily require a translation.  But to make the
+#. * error message more easily understandable you might translate
+#. * this message as something like "cannot create a new process
+#. * because the system call 'fork' failed".
+#.
+#: find/exec.c:328 xargs/xargs.c:1370
+#, c-format
+msgid "cannot fork"
+msgstr "無法 fork"
+
+#: find/exec.c:360
+#, fuzzy, c-format
+#| msgid "error waiting for child process"
+msgid "error waiting for the command we executed for %s"
+msgstr "等待子程序時出現錯誤"
+
+#: find/exec.c:369
+#, c-format
+msgid "%s terminated by signal %d"
+msgstr "%s 因訊號 %d 而終止"
+
+#: find/fstype.c:236
+#, c-format
+msgid "Cannot read mounted file system list"
+msgstr "無法讀取已掛載的檔案系統列表"
+
+#. TRANSLATORS: The "unknown" here is a placeholder for the type of
+#. * a file system which we were not able to identify.  File system
+#. * names are typically short, so something like "file system of
+#. * unknown type" would be longer than ideal.
+#.
+#: find/fstype.c:271
+msgid "unknown"
+msgstr "未知"
+
+#: find/ftsfind.c:208
+#, c-format
+msgid ""
+"Symbolic link %s is part of a loop in the directory hierarchy; we have "
+"already visited the directory to which it points."
+msgstr ""
+"符號連結 %s 是目錄層次結構中的一個循環的一部分，我們已經走訪過它所指向的目"
+"錄。"
+
+#: find/ftsfind.c:222
+#, fuzzy, c-format
+#| msgid ""
+#| "File system loop detected; %s is part of the same file system loop as %s."
+msgid ""
+"File system loop detected; the following directory is part of the cycle: %s"
+msgstr "偵測到檔案系統迴圈。%s 與 %s 是同一個檔案系統迴圈的一部分。"
+
+#: find/ftsfind.c:374 find/util.c:261
+#, c-format
+msgid "WARNING: file %s appears to have mode 0000"
+msgstr "警告：檔案 %s 看似包含 0000 模式"
+
+#: find/ftsfind.c:492
+#, c-format
+msgid "cannot search %s"
+msgstr "找不到 %s"
+
+#: find/ftsfind.c:538
+#, c-format
+msgid "failed to restore working directory after searching %s"
+msgstr "搜尋完 %s 後無法恢復工作路徑"
+
+#: find/ftsfind.c:565
+#, c-format
+msgid "extra operand %s"
+msgstr "多餘的運算元 %s"
+
+#: find/ftsfind.c:567
+#, c-format
+msgid "file operands cannot be combined with -files0-from"
+msgstr "檔案操作元不能與 -files0-from 結合使用"
+
+#: find/ftsfind.c:578
+#, c-format
+msgid ""
+"when -ok or -okdir is in use, the option -files0-from cannot also read from "
+"standard input"
+msgstr ""
+
+#: find/ftsfind.c:580
+msgid "(standard input)"
+msgstr "（標準輸入）"
+
+#: find/ftsfind.c:589
+#, c-format
+msgid "cannot open %s for reading"
+msgstr "無法開啟 %s 以供讀取"
+
+#: find/ftsfind.c:609
+#, c-format
+msgid ""
+"when -ok or -okdir is in use, the option -files0-from cannot also read from "
+"standard input, but the file (%s) used for -files0-from appears to refer to "
+"the same file as the standard input"
+msgstr ""
+
+#: find/ftsfind.c:651
+#, c-format
+msgid "%s: read error"
+msgstr "%s：讀取錯誤"
+
+#: find/ftsfind.c:678
+msgid "invalid zero-length file name"
+msgstr "無效的零長度檔案名稱"
+
+#: find/ftsfind.c:702
+#, c-format
+msgid "error reading %s"
+msgstr "讀取「%s」時發生錯誤"
+
+#: find/ftsfind.c:737
+#, c-format
+msgid "Failed to initialize shared-file hash table"
+msgstr "無法初始化分享檔案的 Hash 表格"
+
+#: find/ftsfind.c:752 locate/frcode.c:218 locate/locate.c:1564
+#: xargs/xargs.c:433
+#, c-format
+msgid "The atexit library function failed"
+msgstr "atexit 函式庫函式執行失敗"
+
+#: find/parser.c:440
+#, c-format
+msgid ""
+"The -delete action automatically turns on -depth, but -prune does nothing "
+"when -depth is in effect.  If you want to carry on anyway, just explicitly "
+"use the -depth option."
+msgstr ""
+"「-delete」動作會自動啟用「-depth」，但「-prune」在「-depth」生效時無效。如果"
+"您仍然想繼續，請明確使用「-depth」選項。"
+
+#: find/parser.c:598
+#, c-format
+msgid ""
+"warning: you have specified the global option %s after the argument %s, but "
+"global options are not positional, i.e., %s affects tests specified before "
+"it as well as those specified after it.  Please specify global options "
+"before other arguments."
+msgstr ""
+"警告：您在參數 %2$s 之後指定了全域選項 %1$s，但全域選項不受位置影響的。也就是"
+"說，%3$s 會影響在它之前和之後指定的測試。請在其他參數之前指定全域選項。"
+
+#: find/parser.c:658
+#, c-format
+msgid ""
+"warning: operator '%s' (with leading dash '-') will no longer be accepted in "
+"future findutils releases!"
+msgstr ""
+
+#: find/parser.c:915
+#, c-format
+msgid ""
+"warning: the -d option is deprecated; please use -depth instead, because the "
+"latter is a POSIX-compliant feature."
+msgstr ""
+"警告：-d 選項已經過時，請改用 -depth，因為後者才是符合 POSIX 標準的選項。"
+
+#: find/parser.c:1159
+#, fuzzy, c-format
+#| msgid "invalid null argument to -size"
+msgid "invalid group name or GID argument to -group: %s"
+msgstr "-size 後是無效的空白參數"
+
+#: find/parser.c:1232
+#, fuzzy, c-format
+#| msgid "sanity check of the fnmatch() library function failed."
+msgid "basic correctness check of the fnmatch() library function failed."
+msgstr "測試 fnmatch() 是否可用時出錯。"
+
+#: find/parser.c:1247
+#, c-format
+msgid ""
+"warning: %s matches against basenames only, but the given pattern contains a "
+"directory separator (%s), thus the expression will evaluate to false all the "
+"time.  Did you mean %s?"
+msgstr ""
+"警告：%s 只會比對結尾的路徑名稱，但傳入的 pattern 包含目錄分隔符（%s），因此"
+"這個表示式將始終評估為 false。您是指 %s 嗎？"
+
+#: find/parser.c:1361
+#, c-format
+msgid "Expected a positive decimal integer argument to %s, but got %s"
+msgstr "期望傳入 %s 的是十進位正整數參數，但卻是 %s"
+
+#: find/parser.c:1520
+#, c-format
+msgid "This system does not provide a way to find the birth time of a file."
+msgstr "此系統未提供尋找檔案建立日期的方法。"
+
+#: find/parser.c:1541
+#, fuzzy, c-format
+#| msgid "The %s test needs an argument"
+msgid "The %s test needs to be followed by an argument"
+msgstr "%s 測試需要參數"
+
+#: find/parser.c:1578
+#, c-format
+msgid "I cannot figure out how to interpret %s as a date or time"
+msgstr "無法確定要解析 %s 成日期還是時間"
+
+#: find/parser.c:1595
+#, c-format
+msgid "Cannot obtain birth time of file %s"
+msgstr "無法取得檔案「%s」的建立時間"
+
+#. TRANSLATORS: the first argument here (-%s) expands to the a test
+#. * which the user specified on the command line. The second is the
+#. * argument they gave for it.   These might be, for example:
+#. *
+#. * warning: -ipath foo/ will not match anything...
+#. * warning: -path z/q/ will not match anything...
+#.
+#: find/parser.c:1746
+#, c-format
+msgid "warning: -%s %s will not match anything because it ends with /."
+msgstr "警告：-%s %s 因為以「/」結尾，因此什麼也不符合。"
+
+#. TRANSLATORS: "mode" here is used in the same sense as we use
+#. * for the "chmod" program.
+#.
+#: find/parser.c:1845
+#, fuzzy, c-format
+#| msgid "invalid mode %s"
+msgid "invalid file mode %s"
+msgstr "模式 %s 無效"
+
+#: find/parser.c:1864
+#, fuzzy, c-format
+#| msgid ""
+#| "warning: you have specified a mode pattern %s (which is equivalent to /"
+#| "000). The meaning of -perm /000 has now been changed to be consistent "
+#| "with -perm -000; that is, while it used to match no files, it now matches "
+#| "all files."
+msgid ""
+"warning: you have specified a mode pattern %s (which is equivalent to /000). "
+"The meaning of -perm /000 was changed in 2007 to be consistent with -perm "
+"-000; that is, while it used to match no files, it now matches all files. "
+"This warning message will be removed in a future findutils release."
+msgstr ""
+"警告：您已指定模式 pattern %s（等於 /000）。-perm /000 的含義現在已更改為與 "
+"-perm -000 一致，也就是說，這個 pattern 以前不符合任何檔案，而現在卻會符合所"
+"有檔案。"
+
+#: find/parser.c:2039
+#, c-format
+msgid "failed to compile regular expression '%s': %s"
+msgstr "編譯正則表達式「%s」失敗：%s"
+
+#: find/parser.c:2069
+#, c-format
+msgid "invalid null argument to -size"
+msgstr "-size 後是無效的空白參數"
+
+#: find/parser.c:2119
+#, c-format
+msgid "invalid -size type `%c'"
+msgstr "-size 指定的檔案大小單位「%c」無效"
+
+#: find/parser.c:2129
+#, c-format
+msgid "Invalid argument `%s%s' to -size"
+msgstr "傳給 -size 的參數「%s%s」無效"
+
+#: find/parser.c:2378
+#, c-format
+msgid "Invalid argument %s to -used"
+msgstr "傳給 -used 的參數「%s」無效"
+
+#: find/parser.c:2411
+#, fuzzy, c-format
+#| msgid "invalid null argument to -size"
+msgid "invalid user name or UID argument to -user: %s"
+msgstr "-size 後是無效的空白參數"
+
+#: find/parser.c:2433
+#, c-format
+msgid "Features enabled: "
+msgstr "啟用了的功能："
+
+#: find/parser.c:2479
+#, c-format
+msgid "invalid predicate -context: SELinux is not enabled."
+msgstr "-context 謂語無效：未啟用 SELinux。"
+
+#: find/parser.c:2547
+#, c-format
+msgid "Arguments to %s should contain at least one letter"
+msgstr "傳入 %s 的參數應至少包含一個字母"
+
+#: find/parser.c:2612
+#, c-format
+msgid ""
+"%s %c is not supported because symbolic links are not supported on the "
+"platform find was compiled on."
+msgstr "不支援 %s %c，因為編譯 find 的平台不支援符號連結。"
+
+#: find/parser.c:2624
+#, c-format
+msgid ""
+"%s %c is not supported because FIFOs are not supported on the platform find "
+"was compiled on."
+msgstr "不支援 %s %c，因為編譯 find 的平台不支援 FIFO。"
+
+#: find/parser.c:2636
+#, c-format
+msgid ""
+"%s %c is not supported because named sockets are not supported on the "
+"platform find was compiled on."
+msgstr "不支援 %s %c，因為編譯 find 的平台不支援命名 socket。"
+
+#: find/parser.c:2652
+#, c-format
+msgid ""
+"%s %c is not supported because Solaris doors are not supported on the "
+"platform find was compiled on."
+msgstr "不支援 %s %c，因為編譯 find 的平台不支援 Solaris 門。"
+
+#: find/parser.c:2660
+#, c-format
+msgid "Unknown argument to %s: %c"
+msgstr "傳入 %s 的參數未知：%c"
+
+#: find/parser.c:2668
+#, c-format
+msgid "Duplicate file type '%c' in the argument list to %s."
+msgstr "在傳遞給 %2$s 的參數列表中，檔案類型「%1$c」重複。"
+
+#: find/parser.c:2684
+#, c-format
+msgid "Must separate multiple arguments to %s using: ','"
+msgstr "必須使用「,」分隔多個參數到 %s"
+
+#: find/parser.c:2693
+#, c-format
+msgid ""
+"Last file type in list argument to %s is missing, i.e., list is ending on: "
+"','"
+msgstr "傳遞給 %s 的列表參數中的最後一個檔案類型遺失，即列表以「,」結尾"
+
+#: find/parser.c:2752
+#, c-format
+msgid ""
+"The current directory is included in the PATH environment variable, which is "
+"insecure in combination with the %s action of find.  Please remove the "
+"current directory from your $PATH (that is, remove \".\", doubled colons, or "
+"leading or trailing colons)"
+msgstr ""
+"PATH 環境變數中包括了目前目錄，當配合 find 的 %s 操作模式時會令系統安全產生漏"
+"洞。請從 $PATH 變數移除目前目錄 (即是「.」、雙冒號或者最前或最後的冒號)"
+
+#: find/parser.c:2764
+#, c-format
+msgid ""
+"The relative path %s is included in the PATH environment variable, which is "
+"insecure in combination with the %s action of find.  Please remove that "
+"entry from $PATH"
+msgstr ""
+"PATH 環境變數中包括了相對路徑「%s」，當配合 find 的 %s 操作模式時會令系統安全"
+"產生漏洞。請從 $PATH 變數移除該項"
+
+#: find/parser.c:2883
+#, c-format
+msgid ""
+"You may not use {} within the utility name for -execdir and -okdir, because "
+"this is a potential security problem."
+msgstr ""
+"您不應該在 -execdir 和 -okdir 中使用 {} 作為程式名稱，因為這樣做可能會造成安"
+"全漏洞。"
+
+#: find/parser.c:2909
+#, c-format
+msgid "Only one instance of {} is supported with -exec%s ... +"
+msgstr "在 -exec%s ... + 裡面只可以使用一次 {}"
+
+#: find/parser.c:2919
+#, c-format
+msgid "In %s the %s must appear by itself, but you specified %s"
+msgstr "在 %s 中，%s 必須單獨出現，但您指定了 %s"
+
+#: find/parser.c:2938
+#, c-format
+msgid "The environment is too large for exec()."
+msgstr "執行 exec() 時的環境變數太大。"
+
+#: find/parser.c:3048
+#, fuzzy, c-format
+#| msgid "invalid %s%s argument '%s'"
+msgid "invalid not-a-number argument: `%s'"
+msgstr "%s%s 參數「%s」無效"
+
+#: find/parser.c:3113
+#, c-format
+msgid "arithmetic overflow while converting %s days to a number of seconds"
+msgstr "將 %s 天轉換為秒數時發生算術溢位"
+
+#: find/parser.c:3137
+#, c-format
+msgid "arithmetic overflow when trying to calculate the end of today"
+msgstr "嘗試計算 end of today 時發生算術溢位"
+
+#: find/parser.c:3287
+#, fuzzy, c-format
+#| msgid "Unknown argument to %s: %c"
+msgid "non-numeric argument to %s: %s"
+msgstr "傳入 %s 的參數未知：%c"
+
+#: find/parser.c:3306
+msgid "standard error"
+msgstr "標準錯誤"
+
+#: find/parser.c:3311
+msgid "standard output"
+msgstr "標準輸出"
+
+#: find/pred.c:233
+#, c-format
+msgid "cannot delete %s"
+msgstr "無法刪除 %s"
+
+#: find/pred.c:605
+#, c-format
+msgid "WARNING: cannot determine birth time of file %s"
+msgstr "警告：無法確認 %s 檔案的建立時間"
+
+#: find/pred.c:653
+#, c-format
+msgid "< %s ... %s > ? "
+msgstr "< %s ... %s > ? "
+
+#: find/pred.c:655
+#, c-format
+msgid "Failed to write prompt for -ok"
+msgstr "無法寫入用於 -ok 的提示"
+
+#: find/pred.c:1131 find/print.c:1236
+#, c-format
+msgid "getfilecon failed: %s"
+msgstr "getfilecon 失敗：%s"
+
+#: find/print.c:333
+#, c-format
+msgid "warning: escape `\\' followed by nothing at all"
+msgstr "警告：跳脫字元「\\」後方什麼也沒有"
+
+#: find/print.c:352
+#, c-format
+msgid "warning: unrecognized escape `\\%c'"
+msgstr "警告：無效辨認轉義控制序列 (escape sequence)「\\%c」"
+
+#: find/print.c:372 find/print.c:1258
+#, c-format
+msgid "error: %s at end of format string"
+msgstr "錯誤：%s 在格式字串結尾"
+
+#: find/print.c:396
+#, c-format
+msgid "error: the format directive `%%%c' is reserved for future use"
+msgstr "錯誤：「%%%c」格式指令保留作未來使用"
+
+#: find/print.c:404
+#, c-format
+msgid ""
+"warning: format directive `%%%c' should be followed by another character"
+msgstr "警告：「%%%c」格式指令後方應接其他字元"
+
+#: find/print.c:412
+#, c-format
+msgid "warning: unrecognized format directive `%%%c'"
+msgstr "警告：「%%%c」格式指令無法識別"
+
+#: find/tree.c:113 find/tree.c:118 find/tree.c:224 find/tree.c:263
+#, c-format
+msgid "invalid expression"
+msgstr "表達式無效"
+
+#: find/tree.c:124
+#, c-format
+msgid ""
+"invalid expression; you have used a binary operator '%s' with nothing before "
+"it."
+msgstr "表達式無效：您在前面沒有任何內容的情況下使用了二元運算元「%s」。"
+
+#: find/tree.c:133 find/tree.c:192
+#, c-format
+msgid ""
+"invalid expression: expected expression before closing parentheses '%s'."
+msgstr "表達式無效：在閉合括號「%s」之前預期有一個表達式。"
+
+#: find/tree.c:143
+#, c-format
+msgid "expected an expression between '%s' and ')'"
+msgstr "期望「%s」和「)」之間有表示式"
+
+#: find/tree.c:153
+#, c-format
+msgid "expected an expression after '%s'"
+msgstr "期望「%s」後有表示式"
+
+#: find/tree.c:158
+#, c-format
+msgid "invalid expression; you have too many ')'"
+msgstr "表達式無效：出現太多的「)」"
+
+#: find/tree.c:181
+#, c-format
+msgid ""
+"invalid expression; expected to find a ')' but didn't see one. Perhaps you "
+"need an extra predicate after '%s'"
+msgstr "表達式無效：預期應該有「)」但未見到，或許在「%s」之後需要額外的謂語"
+
+#: find/tree.c:196
+#, c-format
+msgid "invalid expression; empty parentheses are not allowed."
+msgstr "表達式無效：不允許空括弧。"
+
+#: find/tree.c:202
+#, c-format
+msgid ""
+"invalid expression; I was expecting to find a ')' somewhere but did not see "
+"one."
+msgstr "表達式無效；「)」本應出現但實際上沒有。"
+
+#: find/tree.c:209
+#, fuzzy, c-format
+#| msgid "oops -- invalid expression type!"
+msgid "oops -- invalid expression type! This is probably a bug."
+msgstr "表達式類型無效！"
+
+#: find/tree.c:281
+#, fuzzy, c-format
+#| msgid "oops -- invalid expression type (%d)!"
+msgid "oops -- invalid expression type (%d)!  This is probably a bug."
+msgstr "表達式類型 (%d) 無效！"
+
+#: find/tree.c:837
+#, fuzzy, c-format
+#| msgid "oops -- invalid expression type!"
+msgid "oops -- invalid expression type!  This is probably a bug."
+msgstr "表達式類型無效！"
+
+#: find/tree.c:1092
+#, fuzzy, c-format
+#| msgid "Failed to write to stderr"
+msgid "failed to sort the costlookup array"
+msgstr "無法寫入標準錯誤"
+
+#: find/tree.c:1114
+#, c-format
+msgid ""
+"warning: there is no entry in the predicate evaluation cost table for "
+"predicate %s; please report this as a bug"
+msgstr "警告：謂詞 %s 不在謂詞評估成本表中。請將此問題回報為 bug"
+
+#: find/tree.c:1288
+#, c-format
+msgid "paths must precede expression: `%s'"
+msgstr "路徑必須放在表達式之前：「%s」"
+
+#: find/tree.c:1290
+#, c-format
+msgid "possible unquoted pattern after predicate `%s'?"
+msgstr "在謂詞「%s」後可能有未加引號的 pattern？"
+
+#: find/tree.c:1300
+#, c-format
+msgid "unknown predicate `%s'"
+msgstr "未知謂語「%s」"
+
+#: find/tree.c:1320
+#, c-format
+msgid "invalid predicate `%s'"
+msgstr "無效謂語「%s」"
+
+#: find/tree.c:1324
+#, c-format
+msgid "invalid argument `%s' to `%s'"
+msgstr "「%2$s」的參數「%1$s」無效"
+
+#: find/tree.c:1331
+#, c-format
+msgid "missing argument to `%s'"
+msgstr "「%s」後缺少了參數"
+
+#: find/tree.c:1407
+#, c-format
+msgid "you have too many ')'"
+msgstr "過多「)」"
+
+#: find/tree.c:1413
+#, c-format
+msgid "unexpected extra predicate '%s'"
+msgstr "非預期延伸謂語「%s」"
+
+#: find/tree.c:1415
+#, c-format
+msgid "unexpected extra predicate"
+msgstr "非預期延伸謂語"
+
+#: find/tree.c:1538
+#, fuzzy, c-format
+msgid "oops -- invalid default insertion of and!  This is probably a bug."
+msgstr "插入預設值 and 無效！"
+
+#: find/util.c:137
+msgid "Valid arguments for -D:\n"
+msgstr "可以傳入 -D 的有效參數：\n"
+
+#: find/util.c:161 locate/frcode.c:138 locate/locate.c:1361 xargs/xargs.c:1767
+#, c-format
+msgid "Try '%s --help' for more information.\n"
+msgstr "試試執行「%s --help」取得更多資訊。\n"
+
+#: find/util.c:167
+#, c-format
+msgid ""
+"Usage: %s [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] [expression]\n"
+msgstr ""
+"用法：%s [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] [expression]\n"
+
+#: find/util.c:171
+msgid ""
+"\n"
+"Default path is the current directory; default expression is -print.\n"
+"Expression may consist of: operators, options, tests, and actions.\n"
+msgstr ""
+"\n"
+"預設路徑為目前的目錄；預設的表達式是 -print。\n"
+"表達式可以包括：運算子、選項、測試和操作。\n"
+
+#: find/util.c:174
+msgid ""
+"\n"
+"Operators (decreasing precedence; -and is implicit where no others are "
+"given):\n"
+"      ( EXPR )   ! EXPR   -not EXPR   EXPR1 -a EXPR2   EXPR1 -and EXPR2\n"
+"      EXPR1 -o EXPR2   EXPR1 -or EXPR2   EXPR1 , EXPR2\n"
+msgstr ""
+"\n"
+"運算子（優先次數由高到低；如果沒有其他運算子，則預設為 -and）：\n"
+"      （ EXPR ）   ！ EXPR   -not EXPR   EXPR1 -a EXPR2   EXPR1 -and EXPR2\n"
+"      EXPR1 -o EXPR2   EXPR1 -or EXPR2   EXPR1 ， EXPR2\n"
+
+#: find/util.c:178
+msgid ""
+"\n"
+"Positional options (always true):\n"
+"      -daystart -follow -nowarn -regextype -warn\n"
+msgstr ""
+"\n"
+"位置選項（始終為 true）：\n"
+"      -daystart -follow -nowarn -regextype -warn\n"
+
+#: find/util.c:181
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "Normal options (always true, specified before other expressions):\n"
+#| "      -depth -files0-from FILE -maxdepth LEVELS -mindepth LEVELS\n"
+#| "       -mount -noleaf -xdev -ignore_readdir_race -noignore_readdir_race\n"
+msgid ""
+"\n"
+"Normal options (always true, specified before other expressions):\n"
+"      -depth -files0-from FILE -maxdepth LEVELS -mindepth LEVELS\n"
+"      -mount -noleaf -xdev -ignore_readdir_race -noignore_readdir_race\n"
+msgstr ""
+"\n"
+"一般選項（邏輯值永遠為 true，必須加在其它表達式之前）：\n"
+"      -depth -files0-from FILE -maxdepth LEVELS -mindepth LEVELS\n"
+"       -mount -noleaf -xdev -ignore_readdir_race -noignore_readdir_race\n"
+
+#: find/util.c:185
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "Tests (N can be +N or -N or N):\n"
+#| "      -amin N -anewer FILE -atime N -cmin N -cnewer FILE -context "
+#| "CONTEXT\n"
+#| "      -ctime N -empty -false -fstype TYPE -gid N -group NAME -ilname "
+#| "PATTERN\n"
+#| "      -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN\n"
+#| "      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE\n"
+#| "      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN\n"
+#| "      -readable -writable -executable\n"
+#| "      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N\n"
+#| "      -used N -user NAME -xtype [bcdpfls]\n"
+msgid ""
+"\n"
+"Tests (N can be +N or -N or N):\n"
+"      -amin N -anewer FILE -atime N -cmin N -cnewer FILE -context CONTEXT\n"
+"      -ctime N -empty -false -fstype TYPE -gid N -group NAME -ilname "
+"PATTERN\n"
+"      -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN\n"
+"      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE\n"
+"      -newerXY REFERENCE -nouser -nogroup -path PATTERN -perm [-/]MODE\n"
+"      -regex PATTERN -readable -writable -executable\n"
+"      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N\n"
+"      -used N -user NAME -xtype [bcdpfls]\n"
+msgstr ""
+"\n"
+"測試 (N 可以是 +N 或 -N 或 N): \n"
+"      -amin N -anewer FILE -atime N -cmin N -cnewer FILE -context CONTEXT\n"
+"      -ctime N -empty -false -fstype TYPE -gid N -group NAME -ilname "
+"PATTERN\n"
+"      -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN\n"
+"      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE\n"
+"      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN\n"
+"      -readable -writable -executable\n"
+"      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N\n"
+"      -used N -user NAME -xtype [bcdpfls]\n"
+
+#: find/util.c:195
+msgid ""
+"\n"
+"Actions:\n"
+"      -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print \n"
+"      -fprint0 FILE -fprint FILE -ls -fls FILE -prune -quit\n"
+"      -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ;\n"
+"      -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND ;\n"
+msgstr ""
+"\n"
+"操作：\n"
+"      -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print \n"
+"      -fprint0 FILE -fprint FILE -ls -fls FILE -prune -quit\n"
+"      -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ;\n"
+"      -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND ;\n"
+
+#: find/util.c:202
+msgid ""
+"\n"
+"Other common options:\n"
+msgstr ""
+"\n"
+"其他常見選項：\n"
+
+#: find/util.c:204 xargs/xargs.c:1816
+msgid "      --help                   display this help and exit\n"
+msgstr "      --help                   顯示此說明後離開\n"
+
+#: find/util.c:205 xargs/xargs.c:1817
+msgid ""
+"      --version                output version information and exit\n"
+"\n"
+msgstr "      --version                輸出版本資訊後離開\n"
+
+#: find/util.c:207
+msgid ""
+"\n"
+"In -newerXY, XY stands for the combination [aBcm][aBcmt]; see find(1).\n"
+"\n"
+msgstr ""
+
+#: find/util.c:212
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "Use '-D help' for a description of the options, or see find(1)\n"
+#| "\n"
+msgid ""
+"\n"
+"Use '-D help' for a description of the options, or see find(1).\n"
+"\n"
+msgstr ""
+"\n"
+"使用「-D help」來查看選項的描述，或參閱 find(1)\n"
+"\n"
+
+#: find/util.c:481
+#, fuzzy, c-format
+#| msgid "Failed to save initial working directory%s%s"
+msgid "Failed to save initial working directory %s"
+msgstr "無法儲存初始工作目錄%1$s%2$s"
+
+#: find/util.c:486
+#, fuzzy, c-format
+#| msgid "Failed to save initial working directory%s%s"
+msgid "Failed to save initial working directory"
+msgstr "無法儲存初始工作目錄%1$s%2$s"
+
+#: find/util.c:506
+#, fuzzy, c-format
+#| msgid "Failed to restore initial working directory%s%s"
+msgid "Failed to restore initial working directory %s"
+msgstr "無法復原初始工作目錄%1$s%2$s"
+
+#: find/util.c:510
+#, fuzzy, c-format
+#| msgid "Failed to restore initial working directory%s%s"
+msgid "Failed to restore initial working directory"
+msgstr "無法復原初始工作目錄%1$s%2$s"
+
+#: find/util.c:848
+#, c-format
+msgid "Ignoring unrecognised debug flag %s"
+msgstr "忽略無法識別的偵錯旗標 %s"
+
+#: find/util.c:855
+#, c-format
+msgid "Empty argument to the -D option."
+msgstr "傳入 -D 選項的參數空白。"
+
+#: find/util.c:872
+#, c-format
+msgid "The -O option must be immediately followed by a decimal integer"
+msgstr "必須在 -O 後立即接著一個十進位數字"
+
+#: find/util.c:882 find/util.c:893
+#, c-format
+msgid "Please specify a decimal number immediately after -O"
+msgstr "請在 -O 後立即指定一個十進位數字"
+
+#: find/util.c:898 find/util.c:903
+#, c-format
+msgid "Invalid optimisation level %s"
+msgstr "最佳化等級 %s 無效"
+
+#: find/util.c:911
+#, c-format
+msgid ""
+"Optimisation level %lu is too high.  If you want to find files very quickly, "
+"consider using GNU locate."
+msgstr ""
+"最佳化等級 %lu 過高。如果你希望非常快速地尋找檔案，請考慮使用 GNU locate。"
+
+#: find/util.c:957
+#, c-format
+msgid "Missing argument after the -D option."
+msgstr "-D 選項後缺少參數。"
+
+#: find/util.c:1043
+#, c-format
+msgid ""
+"The environment variable FIND_BLOCK_SIZE is not supported, the only thing "
+"that affects the block size is the POSIXLY_CORRECT environment variable"
+msgstr ""
+"環境變數 FIND_BLOCK_SIZE 已經不再支援，唯一一個能夠影響檔案區段大小的環境變數"
+"是 POSIXLY_CORRECT"
+
+#: lib/bugreports.c:28
+#, c-format
+msgid ""
+"Please see also the documentation at %s.\n"
+"You can report (and track progress on fixing) bugs in the \"%s\"\n"
+"program via the %s bug-reporting page at\n"
+"%s or, if\n"
+"you have no web access, by sending email to <%s>.\n"
+msgstr ""
+"請參閱 %1$s 的文件。\n"
+"您可以透過 %3$s 的錯誤報告頁面 %4$s\n"
+"回報「%2$s」程式的錯誤（並跟蹤修正進度），\n"
+"或者如果您無法上網，也可以傳送電子郵件至 <%5$s>。\n"
+
+#: lib/buildcmd.c:143
+#, c-format
+msgid "command too long"
+msgstr "指令太長"
+
+#: lib/buildcmd.c:283
+#, c-format
+msgid "can't call exec() due to argument size restrictions"
+msgstr "因參數大小限制而無法呼叫 exec()"
+
+#: lib/buildcmd.c:349
+#, c-format
+msgid "cannot fit single argument within argument list size limit"
+msgstr "無法在參數列表大小限制內放入一個參數"
+
+#: lib/buildcmd.c:357
+#, c-format
+msgid "argument list too long"
+msgstr "參數列表過長"
+
+#: lib/buildcmd.c:615
+#, c-format
+msgid "Environment variable %s is not set to a valid decimal number"
+msgstr "%s 環境變數並未設定成有效的十進位數字"
+
+#: lib/fdleak.c:390
+#, c-format
+msgid ""
+"File descriptor %d will leak; please report this as a bug, remembering to "
+"include a detailed description of the simplest way to reproduce this problem."
+msgstr ""
+"檔案描述符 %d 將會洩漏。請回報這個 bug，並記得附上詳細描述此問題最簡單重現方"
+"式的說明。"
+
+#. TRANSLATORS: This is a proper name.
+#: lib/findutils-version.c:50
+msgid "Eric B. Decker"
+msgstr "Eric B. Decker"
+
+#. TRANSLATORS: This is a proper name.
+#: lib/findutils-version.c:52
+msgid "James Youngman"
+msgstr "James Youngman"
+
+#. TRANSLATORS: This is a proper name.
+#: lib/findutils-version.c:54
+msgid "Bernhard Voelker"
+msgstr ""
+
+#. TRANSLATORS: This is a proper name.
+#: lib/findutils-version.c:56
+msgid "Kevin Dalley"
+msgstr "Kevin Dalley"
+
+#: lib/listfile.c:452
+#, c-format
+msgid "Failed to write output (at stage %d)"
+msgstr "無法寫入輸出（在第 %d 個階段）"
+
+#: lib/regextype.c:97
+#, c-format
+msgid "Unknown regular expression type %s; valid types are %s."
+msgstr "未知的正規表示式類型 %s，有效的類型有 %s。"
+
+#: lib/safe-atoi.c:67
+#, c-format
+msgid "Unexpected suffix %s on %s"
+msgstr "%2$s 上有非預期的 %1$s 後綴"
+
+#. TRANSLATORS: the argument here is the thing we actually got
+#. * instead of the integer we expected.
+#.
+#: lib/safe-atoi.c:76
+#, c-format
+msgid "Expected an integer: %s"
+msgstr "期望整數：%s"
+
+#: locate/frcode.c:143
+#, c-format
+msgid "Usage: %s [-0 | --null] [--version] [--help]\n"
+msgstr "用法：%s [-0 | --null] [--version] [--help]\n"
+
+#: locate/frcode.c:165
+#, c-format
+msgid "You need to specify a security level as a decimal integer."
+msgstr "您需要指定一個十進位整數的安全級別。"
+
+#: locate/frcode.c:173
+#, c-format
+msgid "Security level %s is outside the convertible range."
+msgstr "安全級別 %s 超出了可轉換範圍。"
+
+#: locate/frcode.c:181
+#, c-format
+msgid "Security level %s has unexpected suffix %s."
+msgstr "安全級別 %s 有非預期的後綴 %s。"
+
+#: locate/frcode.c:195
+#, c-format
+msgid "write error"
+msgstr "寫入時發生錯誤"
+
+#: locate/frcode.c:242
+#, c-format
+msgid "slocate security level %ld is unsupported."
+msgstr "slocate 安全等級 %ld 不受支援。"
+
+#: locate/frcode.c:261
+#, c-format
+msgid "no argument expected."
+msgstr "預期沒有參數。"
+
+#: locate/frcode.c:278
+#, c-format
+msgid "Failed to write to standard output"
+msgstr "無法寫入標準輸出"
+
+#: locate/frcode.c:287
+#, c-format
+msgid "The input file should end with the delimiter"
+msgstr "輸入檔案應以分隔符結尾"
+
+#: locate/locate.c:110
+msgid "days"
+msgstr "日"
+
+#: locate/locate.c:158
+#, c-format
+msgid "The argument for option --max-database-age must not be empty"
+msgstr "選項 --max-database-age 的參數不能空白"
+
+#: locate/locate.c:174 locate/locate.c:181
+#, c-format
+msgid "Invalid argument %s for option --max-database-age"
+msgstr "傳給「--max-database-age」的參數「%s」無效"
+
+#: locate/locate.c:431
+#, c-format
+msgid "locate database %s contains a filename longer than locate can handle"
+msgstr "locate 資料庫 %s 有無效檔名，這個黨名長度超過 locate 可以處理的範圍"
+
+#: locate/locate.c:542 locate/locate.c:561
+#, c-format
+msgid "locate database %s is corrupt or invalid"
+msgstr "locate 資料庫「%s」損壞或無效"
+
+#: locate/locate.c:846
+#, c-format
+msgid "Database was last modified at %s.%09ld"
+msgstr "資料庫上次修改於 %s.%09ld"
+
+#: locate/locate.c:854
+#, c-format
+msgid "Locate database size: %s byte\n"
+msgid_plural "Locate database size: %s bytes\n"
+msgstr[0] "Locate 資料庫大小：%s 位元組\n"
+
+#: locate/locate.c:860
+#, c-format
+msgid "Matching Filenames: %s\n"
+msgstr "符合的檔案名稱：%s\n"
+
+#: locate/locate.c:861
+#, c-format
+msgid "All Filenames: %s\n"
+msgstr "所有檔案名稱：%s\n"
+
+#: locate/locate.c:867
+#, c-format
+msgid ""
+"File names have a cumulative length of %s bytes.\n"
+"Of those file names,\n"
+"\n"
+"\t%s contain whitespace, \n"
+"\t%s contain newline characters, \n"
+"\tand %s contain characters with the high bit set.\n"
+msgstr ""
+"檔案名稱的總長度為 %s 位元組。在這些檔案名稱中，\n"
+"\n"
+"\t%s 包含空白字元，\n"
+"\t%s 包含換列字元，\n"
+"\t以及 %s 包含高位元組字元。\n"
+
+#: locate/locate.c:881
+#, c-format
+msgid ""
+"Some filenames may have been filtered out, so we cannot compute the "
+"compression ratio.\n"
+msgstr "某些檔名可能已被過濾掉，因此我們無法計算壓縮比。\n"
+
+#: locate/locate.c:894
+#, c-format
+msgid "Compression ratio %4.2f%% (higher is better)\n"
+msgstr "壓縮比例：%4.2f%%（越高越好）\n"
+
+#: locate/locate.c:901
+#, c-format
+msgid "Compression ratio is undefined\n"
+msgstr "未定義壓縮比例\n"
+
+#: locate/locate.c:956
+#, c-format
+msgid ""
+"locate database %s looks like an slocate database but it seems to have "
+"security level %c, which GNU findutils does not currently support"
+msgstr ""
+"locate 資料庫 %s 看起來像是 slocate 資料庫，但似乎具有 GNU findutils 目前不支"
+"援的安全等級 %c"
+
+#: locate/locate.c:1078
+#, c-format
+msgid ""
+"%s is an slocate database of unsupported security level %d; skipping it."
+msgstr "%s slocate 資料庫的安全層級 %d 不受支援。略過。"
+
+#: locate/locate.c:1095
+#, c-format
+msgid ""
+"You specified the -E option, but that option cannot be used with slocate-"
+"format databases with a non-zero security level.  No results will be "
+"generated for this database.\n"
+msgstr ""
+"您指定了 -E 選項，但這個選項無法與安全級別非零的 slocate 格式資料庫一起使用。"
+"此資料庫將不會產生任何結果。\n"
+
+#: locate/locate.c:1106
+#, c-format
+msgid "%s is an slocate database.  Turning on the '-e' option."
+msgstr "%s 是一個 slocate 資料庫。開啟「-e」選項。"
+
+#: locate/locate.c:1144
+#, c-format
+msgid "Old-format locate database %s is too short to be valid"
+msgstr "舊格式的定位資料庫「%s」因過短而無效"
+
+#: locate/locate.c:1296
+#, c-format
+msgid "Database %s is in the %s format.\n"
+msgstr "資料庫 %s 使用了%s格式。\n"
+
+#: locate/locate.c:1323
+msgid "The database has little-endian machine-word encoding.\n"
+msgstr "資料庫使用小端機器字組編碼。\n"
+
+#: locate/locate.c:1325
+msgid "The database has big-endian machine-word encoding.\n"
+msgstr "資料庫使用大端機器字組編碼。\n"
+
+#: locate/locate.c:1338
+#, c-format
+msgid "The database machine-word encoding order is not obvious.\n"
+msgstr "資料庫機器字組編碼順序不明顯。\n"
+
+#: locate/locate.c:1365
+#, c-format
+msgid ""
+"Usage: %s [-d path | --database=path] [-e | -E | --[non-]existing]\n"
+"      [-i | --ignore-case] [-w | --wholename] [-b | --basename] \n"
+"      [--limit=N | -l N] [-S | --statistics] [-0 | --null] [-c | --count]\n"
+"      [-P | -H | --nofollow] [-L | --follow] [-m | --mmap] [-s | --stdio]\n"
+"      [-A | --all] [-p | --print] [-r | --regex] [--regextype=TYPE]\n"
+"      [--max-database-age D] [--version] [--help]\n"
+"      pattern...\n"
+msgstr ""
+"用法：%s [-d path | --database=path] [-e | -E | --[non-]existing]\n"
+"      [-i | --ignore-case] [-w | --wholename] [-b | --basename] \n"
+"      [--limit=N | -l N] [-S | --statistics] [-0 | --null] [-c | --count]\n"
+"      [-P | -H | --nofollow] [-L | --follow] [-m | --mmap] [-s | --stdio]\n"
+"      [-A | --all] [-p | --print] [-r | --regex] [--regextype=TYPE]\n"
+"      [--max-database-age D] [--version] [--help]\n"
+"      pattern...\n"
+
+#: locate/locate.c:1431
+msgid "failed to drop group privileges"
+msgstr "無法拋棄群組權限"
+
+#: locate/locate.c:1449
+msgid "failed to drop setuid privileges"
+msgstr "無法拋棄 setuid 權限"
+
+#: locate/locate.c:1463
+msgid "Failed to fully drop privileges"
+msgstr "無法完全拋棄權限"
+
+#: locate/locate.c:1481
+msgid "failed to drop setgid privileges"
+msgstr "無法拋棄 setgid 權限"
+
+#: locate/locate.c:1718
+#, c-format
+msgid "pattern argument expected"
+msgstr "預期有 pattern 參數"
+
+#: locate/locate.c:1759
+#, fuzzy, c-format
+#| msgid "warning: the locate database can only be read from stdin once."
+msgid "warning: the locate database can only be read from standard input once."
+msgstr "警告：locate 資料庫只可以由標準輸入讀取一次。"
+
+#: locate/locate.c:1832
+#, c-format
+msgid "time system call failed"
+msgstr "時間系統呼叫失敗"
+
+# e.g. database `%s' is more than 8 days old
+#: locate/locate.c:1843
+#, c-format
+msgid "warning: database %s is more than %u %s old (actual age is %.1f %s)"
+msgstr "警告：資料庫「%s」是超過 %u %s 前產生的（實際產生時間為 %.1f %s）"
+
+#: locate/word_io.c:75
+#, c-format
+msgid "WARNING: locate database %s was built with a different byte order"
+msgstr "警告：locate 資料庫 %s 是用不同的位元組順序建立的"
+
+#: locate/word_io.c:121
+#, fuzzy, c-format
+#| msgid "unexpected EOF in %s"
+msgid "unexpected end-of-file in %s"
+msgstr "%s 中有非預期的檔案結尾"
+
+#: locate/word_io.c:124
+#, c-format
+msgid "error reading a word from %s"
+msgstr "從「%s」讀取單字時發生錯誤"
+
+#: xargs/xargs.c:253
+#, c-format
+msgid "Invalid escape sequence %s in input delimiter specification."
+msgstr "轉義控制序列 (escape sequence)「%s」無效。"
+
+#: xargs/xargs.c:271
+#, c-format
+msgid ""
+"Invalid escape sequence %s in input delimiter specification; character "
+"values must not exceed %lx."
+msgstr "轉義控制序列 (escape sequence)「%s」無效：字元值不可以超過 %lx。"
+
+#: xargs/xargs.c:278
+#, c-format
+msgid ""
+"Invalid escape sequence %s in input delimiter specification; character "
+"values must not exceed %lo."
+msgstr "轉義控制序列 (escape sequence)「%s」無效：字元值不可以超過 %lo。"
+
+#: xargs/xargs.c:288
+#, c-format
+msgid ""
+"Invalid escape sequence %s in input delimiter specification; trailing "
+"characters %s not recognised."
+msgstr "轉義控制序列 (escape sequence)「%s」無效：無法辨認最後的字元「%s」。"
+
+#: xargs/xargs.c:334
+#, c-format
+msgid ""
+"Invalid input delimiter specification %s: the delimiter must be either a "
+"single character or an escape sequence starting with \\."
+msgstr ""
+"分隔字元「%s」無效：分隔字元必須是一個 ASCII 字元或以反斜號 \\ 開始的轉義控制"
+"序列 (escape sequence)。"
+
+#: xargs/xargs.c:353
+#, c-format
+msgid "environment is too large for exec"
+msgstr "執行 exec 時的環境變數太大"
+
+#: xargs/xargs.c:390
+#, c-format
+msgid ""
+"warning: options %s and %s are mutually exclusive, ignoring previous %s value"
+msgstr "警告：選項 %s 和 %s 互斥，忽略先前 %s 的值"
+
+#: xargs/xargs.c:635
+#, c-format
+msgid "warning: value %ld for -s option is too large, using %ld instead"
+msgstr "警告：-s 選項的值 %ld 過大，將使用 %ld 代替"
+
+#: xargs/xargs.c:675
+#, c-format
+msgid ""
+"SIGUSR1 and SIGUSR2 are not both defined, so the -P option does nothing."
+msgstr ""
+
+#: xargs/xargs.c:692
+#, c-format
+msgid "option --%s may not be set to a value which includes `='"
+msgstr "選項 --%s 的值不能包含「=」"
+
+#: xargs/xargs.c:704
+#, c-format
+msgid "failed to unset environment variable %s"
+msgstr "無法解除設定環境變數 %s"
+
+#: xargs/xargs.c:718
+#, c-format
+msgid "warning: the -E option has no effect if -0 or -d is used.\n"
+msgstr "警告：如果使用 -0 或 -d，則 -E 選項將無效。\n"
+
+#: xargs/xargs.c:744
+#, c-format
+msgid "Cannot set SIGUSR1 signal handler"
+msgstr "無法設定 SIGUSR1 信號處理器"
+
+#: xargs/xargs.c:750
+#, c-format
+msgid "Cannot set SIGUSR2 signal handler"
+msgstr "無法設定 SIGUSR2 信號處理器"
+
+#: xargs/xargs.c:766
+#, c-format
+msgid "Cannot open input file %s"
+msgstr "無法開啟輸入檔「%s」"
+
+#: xargs/xargs.c:785
+#, c-format
+msgid "Your environment variables take up %<PRIuMAX> bytes\n"
+msgstr "環境變數總共用了 %<PRIuMAX> 位元組\n"
+
+#: xargs/xargs.c:788
+#, c-format
+msgid "POSIX upper limit on argument length (this system): %<PRIuMAX>\n"
+msgstr "（此系統）參數長度的 POSIX 上限：%<PRIuMAX>\n"
+
+#: xargs/xargs.c:791
+#, c-format
+msgid ""
+"POSIX smallest allowable upper limit on argument length (all systems): "
+"%<PRIuMAX>\n"
+msgstr "（所有系統）參數長度的 POSIX 最低接受上限：%<PRIuMAX>\n"
+
+#: xargs/xargs.c:794
+#, c-format
+msgid "Maximum length of command we could actually use: %<PRIuMAX>\n"
+msgstr "實際可用的指令最長長度：%<PRIuMAX>\n"
+
+#: xargs/xargs.c:797
+#, c-format
+msgid "Size of command buffer we are actually using: %<PRIuMAX>\n"
+msgstr "實際使用的指令列緩衝區大小：%<PRIuMAX>\n"
+
+#: xargs/xargs.c:800
+#, c-format
+msgid "Maximum parallelism (--max-procs must be no greater): %<PRIuMAX>\n"
+msgstr "最大平行執行數（--max-procs 必須不大於）：%<PRIuMAX>\n"
+
+#: xargs/xargs.c:806
+#, c-format
+msgid ""
+"\n"
+"Execution of xargs will continue now, and it will try to read its input and "
+"run commands; if this is not what you wanted to happen, please type the end-"
+"of-file keystroke.\n"
+msgstr ""
+"\n"
+"xargs 的執行將繼續，並嘗試讀取輸入及執行命令；如果這不是您想要的結果，請按下 "
+"EOF 鍵。\n"
+
+#: xargs/xargs.c:814
+#, c-format
+msgid ""
+"Warning: %s will be run at least once.  If you do not want that to happen, "
+"then press the interrupt keystroke.\n"
+msgstr "警告：%s 將至少執行一次。如果您不希望發生這種情況，請按下中斷鍵。\n"
+
+#: xargs/xargs.c:946 xargs/xargs.c:1042
+#, c-format
+msgid ""
+"unmatched %s quote; by default quotes are special to xargs unless you use "
+"the -0 option"
+msgstr ""
+"%s引號不配合；除非使用 -0 選項，否則在預設模式下引號對於 xargs 來說是有特別意"
+"義的"
+
+#: xargs/xargs.c:948 xargs/xargs.c:1044
+msgid "double"
+msgstr "雙"
+
+#: xargs/xargs.c:948 xargs/xargs.c:1044
+msgid "single"
+msgstr "單"
+
+#: xargs/xargs.c:1063
+#, c-format
+msgid ""
+"WARNING: a NUL character occurred in the input.  It cannot be passed through "
+"in the argument list.  Did you mean to use the --null option?"
+msgstr ""
+"警告：輸入中出現了一個 NUL 字元，其無法在參數列表中傳遞。您是否打算使用 --"
+"null 選項？"
+
+#: xargs/xargs.c:1073 xargs/xargs.c:1140
+#, c-format
+msgid "argument line too long"
+msgstr "參數太長"
+
+#: xargs/xargs.c:1168 xargs/xargs.c:1192
+#, fuzzy, c-format
+#| msgid "Failed to write to standard output"
+msgid "Failed to write to standard error"
+msgstr "無法寫入標準輸出"
+
+#: xargs/xargs.c:1182
+#, c-format
+msgid "failed to open /dev/tty for reading"
+msgstr "無法開啟 /dev/tty 以供讀取"
+
+#: xargs/xargs.c:1199
+#, fuzzy, c-format
+#| msgid "Failed to read from stdin"
+msgid "Failed to read from standard input"
+msgstr "無法從標準輸入讀取"
+
+#: xargs/xargs.c:1235
+#, c-format
+msgid "failed to set environment variable %s"
+msgstr "設定環境變數 %s 失敗"
+
+#: xargs/xargs.c:1289
+#, c-format
+msgid "failed to redirect standard input of the child process"
+msgstr "無法重新導向子程序的標準輸入"
+
+#. TRANSLATORS: The pipe being referred to is an
+#. * operating-system object for communicating between
+#. * processes (created by the "pipe" system call), not a
+#. * piece of plumbing.  These just happen to have the same
+#. * name in English.  Similarly, fork is also the name of a
+#. * specific system call (named by analogy to English idioms
+#. * such as "fork in the road") not a thing you might eat
+#. * with.
+#.
+#: xargs/xargs.c:1351
+#, c-format
+msgid "could not create pipe before fork"
+msgstr "無法在 fork 前建立管道"
+
+#: xargs/xargs.c:1405
+#, fuzzy, c-format
+#| msgid "failed to unset environment variable %s"
+msgid "failed to run command %s"
+msgstr "無法解除設定環境變數 %s"
+
+#: xargs/xargs.c:1435
+#, c-format
+msgid ""
+"errno-buffer safe_read failed in xargs_do_exec (this is probably a bug, "
+"please report it)"
+msgstr "xargs_do_exec 中的 errno-buffer safe_read 失敗（這大概是 bug，請回報）"
+
+#: xargs/xargs.c:1566
+#, c-format
+msgid "error waiting for child process"
+msgstr "等待子程序時出現錯誤"
+
+#: xargs/xargs.c:1599
+#, c-format
+msgid "WARNING: Lost track of %lu child processes"
+msgstr "警告：失去對 %lu 個子程序的追蹤"
+
+#: xargs/xargs.c:1627
+#, c-format
+msgid "%s: exited with status 255; aborting"
+msgstr "%s: 回傳碼為 255；中止"
+
+#: xargs/xargs.c:1632
+#, c-format
+msgid "%s: stopped by signal %d"
+msgstr "%s: 因訊號 %d 而停止"
+
+#: xargs/xargs.c:1638
+#, c-format
+msgid "%s: terminated by signal %d"
+msgstr "%s: 因訊號 %d 而中止"
+
+#: xargs/xargs.c:1736
+#, c-format
+msgid "%s: invalid number \"%s\" for -%c option\n"
+msgstr "%1$s: -%3$c 選項後的數值「%2$s」無效\n"
+
+#: xargs/xargs.c:1743
+#, c-format
+msgid "%s: value %s for -%c option should be >= %ld\n"
+msgstr "%1$s: -%3$c 選項的數值 %2$s 必須不小於 %4$ld\n"
+
+#: xargs/xargs.c:1752
+#, c-format
+msgid "%s: value %s for -%c option should be <= %ld\n"
+msgstr "%1$s: -%3$c 選項的數值 %2$s 必須小於或等於 %4$ld\n"
+
+#: xargs/xargs.c:1772
+#, fuzzy, c-format
+#| msgid "Usage: %s [OPTION]... COMMAND [INITIAL-ARGS]...\n"
+msgid "Usage: %s [OPTION]... [COMMAND [INITIAL-ARGS]...]\n"
+msgstr "用法：%s [OPTION]... COMMAND [INITIAL-ARGS]...\n"
+
+#: xargs/xargs.c:1777
+msgid ""
+"Run COMMAND with arguments INITIAL-ARGS and more arguments read from input.\n"
+"\n"
+msgstr "執行 COMMAND 並傳入 INITIAL-ARGS 及從輸入讀取的更多參數。\n"
+
+#: xargs/xargs.c:1779
+msgid ""
+"Mandatory and optional arguments to long options are also\n"
+"mandatory or optional for the corresponding short option.\n"
+msgstr "傳入長選項的必選及選用參數，對相對應的短選項亦然。\n"
+
+#: xargs/xargs.c:1781
+msgid ""
+"  -0, --null                   items are separated by a null, not "
+"whitespace;\n"
+"                                 disables quote and backslash processing "
+"and\n"
+"                                 logical EOF processing\n"
+msgstr ""
+"  -0, --null                   項目以空字元分隔（而不是空白字元）\n"
+"                                 停用引號和反斜線處理以及\n"
+"                                 邏輯 EOF 處理\n"
+
+#: xargs/xargs.c:1784
+msgid ""
+"  -a, --arg-file=FILE          read arguments from FILE, not standard input\n"
+msgstr "  -a, --arg-file=檔案          從 <檔案> 而非標準輸入讀取參數\n"
+
+#: xargs/xargs.c:1785
+msgid ""
+"  -d, --delimiter=CHARACTER    items in input stream are separated by "
+"CHARACTER,\n"
+"                                 not by whitespace; disables quote and "
+"backslash\n"
+"                                 processing and logical EOF processing\n"
+msgstr ""
+"  -d, --delimiter=CHARACTER    輸入串流中的項目以 CHARACTER \n"
+"                                 而非空白字元進行分隔；不進行引號和反斜線\n"
+"                                 處理以及邏輯 EOF 處理\n"
+
+#: xargs/xargs.c:1788
+msgid ""
+"  -E END                       set logical EOF string; if END occurs as a "
+"line\n"
+"                                 of input, the rest of the input is ignored\n"
+"                                 (ignored if -0 or -d was specified)\n"
+msgstr ""
+"  -E END                       設定邏輯 EOF 字串；如果 END 作為輸入列出現，\n"
+"                                 則忽略其後的所有輸入\n"
+"                                 （如果指定了 -0 或 -d，則忽略此選項）\n"
+
+#: xargs/xargs.c:1791
+msgid ""
+"  -e, --eof[=END]              equivalent to -E END if END is specified;\n"
+"                                 otherwise, there is no end-of-file string\n"
+msgstr ""
+"  -e, --eof[=END]              如果指定了 END，則等同於 -E END；\n"
+"                                 否則代表沒有 EOF 字串\n"
+
+#: xargs/xargs.c:1793
+msgid "  -I R                         same as --replace=R\n"
+msgstr "  -I R                         等於 --replace=R\n"
+
+#: xargs/xargs.c:1794
+msgid ""
+"  -i, --replace[=R]            replace R in INITIAL-ARGS with names read\n"
+"                                 from standard input, split at newlines;\n"
+"                                 if R is unspecified, assume {}\n"
+msgstr ""
+"  -i, --replace[=R]            將 INITIAL-ARGS 中的 R 取代為從標準輸入\n"
+"                                 讀取的名稱，並在換行處分割；\n"
+"                                 如果 R 未指定，則假設為 {}\n"
+
+#: xargs/xargs.c:1797
+msgid ""
+"  -L, --max-lines=MAX-LINES    use at most MAX-LINES non-blank input lines "
+"per\n"
+"                                 command line\n"
+msgstr ""
+"  -L, --max-lines=MAX-LINES    每個指令列最多使用 MAX-LINES 列非空白輸入\n"
+
+#: xargs/xargs.c:1799
+msgid ""
+"  -l[MAX-LINES]                similar to -L but defaults to at most one "
+"non-\n"
+"                                 blank input line if MAX-LINES is not "
+"specified\n"
+msgstr ""
+"  -l[MAX-LINES]                類似於 -L，但如果未指定 MAX-LINES，\n"
+"                                 則預設最多一列非空白輸入列\n"
+
+#: xargs/xargs.c:1801
+msgid ""
+"  -n, --max-args=MAX-ARGS      use at most MAX-ARGS arguments per command "
+"line\n"
+msgstr "  -n, --max-args=MAX-ARGS      每列指令最多使用 MAX-ARGS 個參數\n"
+
+#: xargs/xargs.c:1802
+#, fuzzy
+#| msgid ""
+#| "  -o, --open-tty               Reopen stdin as /dev/tty in the child "
+#| "process\n"
+#| "                                 before executing the command; useful to "
+#| "run an\n"
+#| "                                 interactive application.\n"
+msgid ""
+"  -o, --open-tty               Reopen standard input as /dev/tty in the "
+"child\n"
+"                                 process before executing the command; "
+"useful to\n"
+"                                 run an interactive application.\n"
+msgstr ""
+"  -o, --open-tty               在執行指令前於子程序中將標準輸入\n"
+"                                 重新開啟為 /dev/tty；適用於執行\n"
+"                                 互動式應用程式。\n"
+
+#: xargs/xargs.c:1805
+msgid ""
+"  -P, --max-procs=MAX-PROCS    run at most MAX-PROCS processes at a time\n"
+msgstr "  -P, --max-procs=MAX-PROCS    同時最多執行 MAX-PROCS 個程序\n"
+
+#: xargs/xargs.c:1806
+msgid "  -p, --interactive            prompt before running commands\n"
+msgstr "  -p, --interactive            執行指令前提示\n"
+
+#: xargs/xargs.c:1807
+msgid ""
+"      --process-slot-var=VAR   set environment variable VAR in child "
+"processes\n"
+msgstr "      --process-slot-var=VAR   在子程序中設定環境變數 VAR\n"
+
+#: xargs/xargs.c:1808
+msgid ""
+"  -r, --no-run-if-empty        if there are no arguments, then do not run "
+"COMMAND;\n"
+"                                 if this option is not given, COMMAND will "
+"be\n"
+"                                 run at least once\n"
+msgstr ""
+"  -r, --no-run-if-empty        如果沒有參數，則不執行 COMMAND；\n"
+"                                 如果未指定此選項，COMMAND 將至少執行一次\n"
+
+#: xargs/xargs.c:1811
+msgid ""
+"  -s, --max-chars=MAX-CHARS    limit length of command line to MAX-CHARS\n"
+msgstr "  -s, --max-chars=MAX-CHARS    限制命令列長度為 MAX-CHARS\n"
+
+#: xargs/xargs.c:1812
+msgid "      --show-limits            show limits on command-line length\n"
+msgstr "      --show-limits            顯示命令行長度的限制\n"
+
+#: xargs/xargs.c:1813
+msgid "  -t, --verbose                print commands before executing them\n"
+msgstr "  -t, --verbose                執行前輸出指令\n"
+
+#: xargs/xargs.c:1814
+msgid "  -x, --exit                   exit if the size (see -s) is exceeded\n"
+msgstr "  -x, --exit                   如果大小 (見 -s) 超出範圍則離開\n"
+
+#: xargs/xargs.c:1818
+msgid ""
+"If COMMAND is omitted, the default is 'echo'.\n"
+"\n"
+msgstr ""
+
+#, c-format
+#~ msgid "error waiting for %s"
+#~ msgstr "等待 %s 時出現錯誤"
+
+#, c-format
+#~ msgid ""
+#~ "option -files0-from reading from standard input cannot be combined with "
+#~ "-ok, -okdir"
+#~ msgstr "從標準輸入讀取的選項 -files0-from 不能與 -ok, -okdir 結合使用"
+
+#, fuzzy, c-format
+#~| msgid ""
+#~| "option -files0-from: standard input must not refer to the same file when "
+#~| "combined with -ok, -okdir"
+#~ msgid ""
+#~ "option -files0-from: standard input must not refer to the same file when "
+#~ "combined with -ok, -okdir: %s"
+#~ msgstr ""
+#~ "選項 -files0-from：標準輸入在與 -ok, -okdir 結合使用時不得指向相同的檔案"
+
+#, c-format
+#~ msgid "Failed to write to stderr"
+#~ msgstr "無法寫入標準錯誤"
+
+#, c-format
+#~ msgid ""
+#~ "%s is not the name of an existing group and it does not look like a "
+#~ "numeric group ID because it has the unexpected suffix %s"
+#~ msgstr ""
+#~ "%s 不是現有群組的名稱，看起來也不像是數字群組 ID，因為有非預期的後綴 %s"
+
+#, c-format
+#~ msgid "%s is not the name of an existing group"
+#~ msgstr "%s 名稱不屬於任何現存群組"
+
+#~ msgid "argument to -group is empty, but should be a group name"
+#~ msgstr "傳入 -group 的參數空白，但應為群組名稱"
+
+#~ msgid ""
+#~ "The -show-control-chars option takes a single argument which must be "
+#~ "'literal' or 'safe'"
+#~ msgstr ""
+#~ "「-show-control-chars」選項接受一個參數，必須是「literal」或「safe」"
+
+#, c-format
+#~ msgid "%s is not the name of a known user"
+#~ msgstr "%s 不是已知使用者的名稱"
+
+#~ msgid "The argument to -user should not be empty"
+#~ msgstr "傳入 -user 的參數不應空白"
+
+#, c-format
+#~ msgid ""
+#~ "read returned unexpected value %<PRIuMAX>; this is probably a bug, please "
+#~ "report it"
+#~ msgstr "read 回傳非預期的值 %<PRIuMAX>。這可能是 bug，請回報此問題"
+
+#~ msgid "cannot stat current directory"
+#~ msgstr "無法 stat 目前目錄"
+
+#~ msgid "Cannot read list of mounted devices."
+#~ msgstr "無法讀取已掛載裝置的列表。"
+
+#~ msgid "WARNING: file system %s has recently been unmounted."
+#~ msgstr "警告︰檔案系統 %s 剛被卸載。"
+
+#~ msgid "WARNING: file system %s has recently been mounted."
+#~ msgstr "警告︰檔案系統 %s 剛被掛載。"
+
+#~ msgid ""
+#~ "%s%s changed during execution of %s (old device number %ld, new device "
+#~ "number %ld, file system type is %s) [ref %ld]"
+#~ msgstr ""
+#~ "執行 %3$s 時 %1$s%2$s 被修改過（舊的裝置號碼：%4$ld，新的裝置號碼：%5$ld，"
+#~ "檔案系統類型：%6$s）[ref %7$ld]"
+
+#~ msgid ""
+#~ "%s%s changed during execution of %s (old inode number %<PRIuMAX>, new "
+#~ "inode number %<PRIuMAX>, file system type is %s) [ref %ld]"
+#~ msgstr ""
+#~ "執行 %3$s 時 %1$s%2$s 被修改過 (舊 inode 編號為 %4$<PRIuMAX>，新 inode 編"
+#~ "號為 %5$<PRIuMAX>，檔案系統類型為 %6$s) [ref %7$ld]"
+
+#~ msgid "failed to return to parent directory"
+#~ msgstr "無法回到上層目錄"
+
+#~ msgid "Failed to safely change directory into %s"
+#~ msgstr "無法安全地將目錄切換至 %s"
+
+#~ msgid "warning: not following the symbolic link %s"
+#~ msgstr "警告：未在符號連結 %s 之後"
+
+#~ msgid ""
+#~ "      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN\n"
+#~ "      -readable -writable -executable\n"
+#~ "      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N\n"
+#~ "      -used N -user NAME -xtype [bcdpfls]"
+#~ msgstr ""
+#~ "      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN\n"
+#~ "      -readable -writable -executable\n"
+#~ "      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N\n"
+#~ "      -used N -user NAME -xtype [bcdpfls]"
+
+#~ msgid "      -context CONTEXT\n"
+#~ msgstr "      -context 上下文\n"
+
+#~ msgid ""
+#~ "warning: Unix filenames usually don't contain slashes (though pathnames "
+#~ "do).  That means that '%s %s' will probably evaluate to false all the "
+#~ "time on this system.  You might find the '-wholename' test more useful, "
+#~ "or perhaps '-samefile'.  Alternatively, if you are using GNU grep, you "
+#~ "could use 'find ... -print0 | grep -FzZ %s'."
+#~ msgstr ""
+#~ "警告：Unix 檔案名稱中一般上不會出現斜號 (雖然完整路徑會用斜號)。即是說，在"
+#~ "本系統中「%s %s」可能永遠是 false。在這情況下「-wholename」或「-samefile」"
+#~ "可能會有用。又或者，如果您使用 GNU grep，可以嘗試使用 'find ... -print0 | "
+#~ "grep -FzZ %s'。"
+
+#~ msgid "] [path...] [expression]\n"
+#~ msgstr "] [路徑...] [表達式]\n"
+
+#~ msgid "invalid argument %s for %s"
+#~ msgstr "傳入 %2$s 之參數 %1$s 無效"
+
+#~ msgid "ambiguous argument %s for %s"
+#~ msgstr "傳入 %2$s 之參數 %1$s 不明確"
+
+#~ msgid "error closing file"
+#~ msgstr "關閉檔案時發生錯誤"
+
+#~ msgid "Unknown system error"
+#~ msgstr "未知系統錯誤"
+
+#~ msgid "%s: option '%s' is ambiguous; possibilities:"
+#~ msgstr "%s：「%s」選項不明確；可能為："
+
+#~ msgid "%s: option '--%s' doesn't allow an argument\n"
+#~ msgstr "%s：選項「--%s」不允許參數\n"
+
+#~ msgid "%s: option '%c%s' doesn't allow an argument\n"
+#~ msgstr "%s：「%c%s」選項不允許參數\n"
+
+#~ msgid "%s: option '--%s' requires an argument\n"
+#~ msgstr "%s：「--%s」選項需要參數\n"
+
+#~ msgid "%s: unrecognized option '--%s'\n"
+#~ msgstr "%s：無法識別「--%s」選項\n"
+
+#~ msgid "%s: unrecognized option '%c%s'\n"
+#~ msgstr "%s：無法識別「%c%s」選項\n"
+
+#~ msgid "%s: invalid option -- '%c'\n"
+#~ msgstr "%s：無效選項 -- '%c'\n"
+
+#~ msgid "%s: option requires an argument -- '%c'\n"
+#~ msgstr "%s：選項需要參數 -- '%c'\n"
+
+#~ msgid "%s: option '-W %s' is ambiguous\n"
+#~ msgstr "%s：選項「-W %s」不明確\n"
+
+#~ msgid "%s: option '-W %s' doesn't allow an argument\n"
+#~ msgstr "%s：選項「-W %s」不允許參數\n"
+
+#~ msgid "%s: option '-W %s' requires an argument\n"
+#~ msgstr "%s：選項「-W %s」需要參數\n"
+
+#~ msgid "unable to record current working directory"
+#~ msgstr "無法記錄目前工作目錄"
+
+#~ msgid "failed to return to initial working directory"
+#~ msgstr "無法回到初始工作目錄"
+
+#~ msgid "`"
+#~ msgstr "「"
+
+#~ msgid "'"
+#~ msgstr "」"
+
+#~ msgid "^[yY]"
+#~ msgstr "^[yY]"
+
+#~ msgid "^[nN]"
+#~ msgstr "^[nN]"
+
+#~ msgid "Packaged by %s (%s)\n"
+#~ msgstr "由 %s (%s) 打包\n"
+
+#~ msgid "Packaged by %s\n"
+#~ msgstr "由 %s 打包\n"
+
+#~ msgid "(C)"
+#~ msgstr "(C)"
+
+#~ msgid ""
+#~ "\n"
+#~ "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+#~ "gpl.html>.\n"
+#~ "This is free software: you are free to change and redistribute it.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "GPLv3+ 授權條款：GNU GPL 第三版或更新版本 <http://gnu.org/licenses/"
+#~ "gpl.html>。\n"
+#~ "這是自由軟體：你能自由變更及重散佈。\n"
+#~ "在法律允許的範圍內沒有任何擔保。\n"
+#~ "\n"
+
+#~ msgid "Written by %s.\n"
+#~ msgstr "由 %s 編寫。\n"
+
+#~ msgid "Written by %s and %s.\n"
+#~ msgstr "由 %s 和 %s 編寫。\n"
+
+#~ msgid "Written by %s, %s, and %s.\n"
+#~ msgstr "由 %s、%s 和 %s 編寫。\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "and %s.\n"
+#~ msgstr ""
+#~ "由 %s、%s、%s\n"
+#~ "和 %s 編寫。\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, and %s.\n"
+#~ msgstr ""
+#~ "由 %s、%s、%s、\n"
+#~ "%s 和 %s 編寫。\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, and %s.\n"
+#~ msgstr ""
+#~ "由 %s、%s、%s、\n"
+#~ "%s、%s 和 %s 編寫。\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, and %s.\n"
+#~ msgstr ""
+#~ "由 %s、%s、%s、%s、\n"
+#~ "%s、%s 和 %s 編寫。\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "and %s.\n"
+#~ msgstr ""
+#~ "由 %s、%s、%s、%s、\n"
+#~ "%s、%s、%s 和 %s 編寫。\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "%s, and %s.\n"
+#~ msgstr ""
+#~ "由 %s、%s、%s、%s、\n"
+#~ "%s、%s、%s、%s\n"
+#~ "和 %s 編寫。\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "%s, %s, and others.\n"
+#~ msgstr ""
+#~ "由 %s、%s、%s、%s、\n"
+#~ "%s、%s、%s、%s\n"
+#~ "和 %s 等人編寫。\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "Report bugs to: %s\n"
+#~ msgstr ""
+#~ "\n"
+#~ "回報臭蟲至：%s\n"
+
+#~ msgid "Report %s bugs to: %s\n"
+#~ msgstr "請將 %s 的臭蟲匯報至：%s\n"
+
+#~ msgid "%s home page: <%s>\n"
+#~ msgstr "%s 首頁：<%s>\n"
+
+#~ msgid "%s home page: <http://www.gnu.org/software/%s/>\n"
+#~ msgstr "%s 首頁：<http://www.gnu.org/software/%s/>\n"
+
+#~ msgid "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
+#~ msgstr "使用 GNU 軟體的一般說明：<http://www.gnu.org/gethelp/>\n"
+
+#~ msgid "memory exhausted"
+#~ msgstr "記憶體用盡"
+
+#~ msgid "invalid suffix in %s%s argument '%s'"
+#~ msgstr "%s%s 參數「%s」有無效後綴"
+
+#~ msgid "%s%s argument '%s' too large"
+#~ msgstr "%s%s 參數「%s」過長"
+
+#~ msgid ""
+#~ "Usage: %s [--version | --help]\n"
+#~ "or     %s most_common_bigrams < file-list > locate-database\n"
+#~ msgstr ""
+#~ "用法: %s [--version | --help]\n"
+#~ "或     %s most_common_bigrams < 檔案清單 > locate資料庫\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "Report bugs to <bug-findutils@gnu.org>.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "請向 <bug-findutils@gnu.org> 報告錯誤。\n"
+
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s：不合法的選項 ─ %c\n"
+
+#~ msgid "block size"
+#~ msgstr "區塊大小"

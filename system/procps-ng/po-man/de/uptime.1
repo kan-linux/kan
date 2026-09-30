@@ -1,0 +1,77 @@
+.\"
+.\" Copyright (c) 2011-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002      Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH UPTIME 1 "8. August 2024" procps\-ng 
+.SH BEZEICHNUNG
+uptime \- feststellen, wie lange das System schon läuft
+.SH ÜBERSICHT
+\fBuptime\fP [\fIOption\fP .\|.\|.]
+.SH BESCHREIBUNG
+\fBuptime\fP zeigt in einer Zeile die folgenden Informationen an: die aktuelle
+Zeit, wie lange das System bereits läuft, die Anzahl der aktuell
+angemeldeten Benutzer und die durchschnittliche Auslastung des Systems in
+den letzten 1, 5 und 15 Minuten.
+.PP
+Dies sind dieselben Informationen, die auch in der Kopfzeile des Befehls
+\fBw\fP(1) angezeigt werden.
+.PP
+System load averages is the average number of processes that are either in a
+runnable or uninterruptible state.  A process in a runnable state is either
+using the CPU or waiting to use the CPU.  A process in uninterruptible state
+is waiting for some I/O access, eg waiting for disk.  The averages are taken
+over the three time intervals.  Load averages are not normalized for the
+number of CPUs in a system, so a load average of 1 means a single CPU system
+is loaded all the time while on a 4 CPU system it means it was idle 75% of
+the time.
+.SH OPTIONEN
+.TP 
+\fB\-c\fP, \fB\-\-container\fP
+zeigt die Container\- anstatt der System\-Betriebszeit.
+.TP 
+\fB\-p\fP, \fB\-\-pretty\fP
+zeigt die Betriebszeit im schönen Format an.
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+zeigt diesen Hilfetext an.
+.TP 
+\fB\-r\fP, \fB\-\-raw\fP
+zeigt die Werte im Rohformat an. Die aktuelle Zeit und die Betriebszeit
+werden in Sekunden angezeigt.
+.TP 
+\fB\-s\fP, \fB\-\-since\fP
+System ist hochgefahren seit, im Format »yyyy\-mm\-dd HH:MM:SS«
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+Versionsinformationen anzeigen und das Programm beenden.
+.SH UMGEBUNGSVARIABLEN
+.TP 
+\fBPROCPS_CONTAINER\fP
+Falls $\fBPROCPS_CONTAINER\fP gesetzt ist, verhält sich \fBuptime\fP so, als ob
+die Option \fB\-\-container\fP angegeben wurde.
+.SH DATEIEN
+.TP 
+\fI/var/run/utmp\fP
+Informationen darüber, wer aktuell angemeldet ist
+.TP 
+\fI/proc\fP
+Prozessinformation
+.SH "SIEHE AUCH"
+\fBps\fP(1), \fBtop\fP(1), \fButmp\fP(5), \fBw\fP(1)
+.SH "FEHLER MELDEN"
+Bitte schicken Sie Fehlermeldungen (auf Englisch) an
+.MT procps@freelists.org
+.ME .

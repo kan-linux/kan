@@ -1,0 +1,14 @@
+
+@node Top
+
+@include i1.texi
+
+@include unknown.texi
+
+@macro mmm
+@include i3.texi
+
+Some text
+@end macro
+
+@mmm{}

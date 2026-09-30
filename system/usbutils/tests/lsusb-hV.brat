@@ -1,0 +1,32 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# -h sets a flag and continues; -V returns immediately.  So both
+# orders print the version line and exit 0; -h never reaches the
+# usage block.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+}
+
+@test "lsusb -h -V: -V wins, version and exit 0" {
+	run "$LSUSB_BUILT" -h -V
+	[ $status -eq 0 ]
+	match "$stdout" '/^lsusb \(usbutils\) /'
+	[ ! -s "$stderr" ]
+}
+
+@test "lsusb -V -h: -V wins, version and exit 0" {
+	run "$LSUSB_BUILT" -V -h
+	[ $status -eq 0 ]
+	match "$stdout" '/^lsusb \(usbutils\) /'
+	[ ! -s "$stderr" ]
+}
+
+@test "lsusb -h -V and -V -h: identical output" {
+	"$LSUSB_BUILT" -h -V > "$TEST_TMP.hV" 2>&1
+	"$LSUSB_BUILT" -V -h > "$TEST_TMP.Vh" 2>&1
+	diff -u "$TEST_TMP.hV" "$TEST_TMP.Vh"
+}

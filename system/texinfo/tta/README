@@ -1,0 +1,178 @@
+tta/README
+
+  Copyright 2011-2026 Free Software Foundation, Inc.
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+See also README-hacking file at top level.
+
+texi2any is a Perl or C program (experimental) for converting Texinfo
+input to diverse output formats.  All the code is available in pure Perl,
+the C code coverage is partial.  The Perl code can call native code
+extensions for speed, while the C code can call Perl modules and embed
+a Perl interpreter.  The Perl code, Perl extension interfaces (XS) code
+and embedded Perl initialization code are in the perl/ subdirectory.
+The C code, including code calling Perl modules, code called by the
+extension interfaces and code loading embedded Perl is in the C/
+subdirectory.
+
+Specific installation instructions
+
+* The `texi2any' (makeinfo) program is a Perl program in the default case.
+  If you prefer an experimental C implementation of the texi2any program,
+  you can give the --enable-using-c-texi2any flag to `configure'.  The C
+  implementation will only be actually used if all the prerequisites are
+  found, which includes a working iconv library, the possibility to embed
+  a Perl interpreter and enabled Perl extension modules, known as XS modules.
+
+* The C texi2any implementation uses native code for the parsing and the
+  structure step.  For the conversion step, however, Perl code is often
+  needed, therefore the C texi2any implementation embeds a Perl interpreter
+  to call Perl code.  In that case, XS modules are always used.  It may
+  still be relevant to set TEXINFO_XS=debug to print additional information.
+
+
+Module requirements
+
+These modules and libraries are required (all have been standard
+parts of Perl for years, at least since 5.7.3):
+  Carp, Config, Data::Dumper, Encode, File::Basename, File::Spec
+  Getopt::Long, Unicode::Normalize, Storable
+
+Unicode::Collate (also a standard module since 5.7.3) is required for
+correct index sorting.
+
+texi2any also uses the less widely-available modules:
+  Locale::Messages, Unicode::EastAsianWidth, Text::Unidecode
+For these, internal versions are included, and are installed and used as
+part of Texinfo (not disturbing the Perl installation at all) (although
+see the output of 'configure --help' for how to use externally installed
+modules).
+
+Archive::Zip is needed for the EPUB output format final file creation.
+It is not included in Texinfo; it is detected at runtime and an error is
+issued if it cannot be loaded.
+
+
+About running the Texinfo programs from a development source tree:
+
+Regarding texi2any (aka makeinfo), you can run tta/perl/texi2any.pl
+directly.  This is the original source file for the program, so it's
+convenient to be able to make changes and then run it.
+
+To run the output "tta/perl/texi2any" instead, you can set the environment
+variable TEXINFO_DEV_SOURCE to 1.  Otherwise, it will try to use
+Texinfo's Perl modules in the installed locations.  "tta/perl/texi2any"
+uses the Perl interpreter found by configure, so you might want to run
+that script instead of texi2any.pl if it's different from the default
+interpreter in your environment.
+
+To directly run programs out of source, you should set the t2a_builddir
+variable to the tta/ build directory, in order to have compiled modules
+and translated in-document strings found.  If you use scripts with
+names ending in .pl or .t test files, the source directory obtained
+from the script name might be used to determine the source directories
+and you may not need to set them explicitely.  Otherwise, you could
+need to set the srcdir environment variable, and/or set the t2a_srcdir
+environment variables to the in-source tta/ directory.
+
+
+Running tests:
+
+Tests in perl/t/ test the Perl modules used by the texi2any command.
+To run those tests, you also need:
+  Test::More, Data::Compare, Test::Deep
+On Debian-based distros, Test::More is part of perl-modules and thus
+installed with perl, the packages corresponding to the other modules
+are named:
+  libdata-compare-perl libtest-deep-perl
+
+Devel::Refcount is needed for some checks.  It is detected at configure
+time.  If checks using Devel::Refcount fail, Devel::FindRef, detected at
+runtime, gives additional interesting debugging information.
+
+For tests in perl/t/, if the Text::Diff module is installed, the difference
+between reference and obtained test results are shown as a diff, which
+should be more readable.
+
+The tests in tests/ test the command itself.
+
+Tests of cycles in Perl data require the Devel::Cycle module and uncommenting
+the find_cycle calls in Perl modules codes manually.  This intervention
+is needed because the run time increases significantly with these calls.
+Cycles being found do not cause the tests to fail, so the test logs should
+be checked for this information.
+
+Cycles in data are relevant, because they prevent Perl from releasing
+memory.  Note, however, that cycles are not removed by default, since it
+takes more time to do so than to let the memory be released at the end of a
+run.  Removing cycles requires to specifically remove some data that creates
+the cycles and is only activated in some cases (more than one manual
+converted, tests).
+
+
+Internals:
+
+The conversion of Texinfo to output formats is done in three steps:
+1) input Texinfo code parsing into a Texinfo tree representing the
+   Texinfo code structure.  Using the Texinfo::ParserNonXS Perl module
+   or C code in the C/parsetexi directory.
+2) information gathering on the document structure and Texinfo tree
+   transformations.  Using the Texinfo::Structuring and
+   Texinfo::Transformation Perl modules or C code in the C/structuring_transfo
+   directory.
+3) conversion of the Texinfo tree to output format by a converter
+   backend.  Using Texinfo::Converter::**** Perl modules or C code in
+   C/convert.
+
+The C converage of steps 1) and 2) is complete.  Many converter backends
+are only available in Perl.
+
+Much of the code is available in two versions, both Perl and C.  Please
+check if any code you are updating needs to be updated in both languages.
+Affected files should have a comment near the top stating if this is the
+case but you can grep the code base for symbol names if that fails.
+You can check for an "ALTIMP" comment giving the name of a source code
+file that is part of an alternative implementation - paths are relative
+either to tta/ or the directory containing the file.
+
+Some, but not all of the C code is also available to Perl code as
+"XSUBs" (external subroutines).  These interfaces are defined in files
+with a .xs file extension.
+
+
+If you want to delve into making a new Perl converter backend, the
+documentation in perl/Texinfo/Convert/Converter.pm is a good starting
+point, as it describes the existing backends and other places to look.
+
+The Texinfo parser builds a complicated parse tree.  It can output a lot of
+debug information about the tree, and what it's doing generally.  For example,
+these commands output the tree (in different forms):
+  texi2any -c TEXINFO_OUTPUT_FORMAT=debugtree document.texi
+Or:
+  texi2any -c DUMP_TREE=1 -c TEXINFO_OUTPUT_FORMAT=parse document.texi
+In addition (or instead) setting the DEBUG configuration variable will
+dump more information about what it's doing.
+
+
+Sometime the messages on syntax errors can be incomplete because of the
+system used to set the paths.  It is possible in that case to use something
+along the following line to test the validity of one source file from
+the perl/ subdirectory:
+
+perl -c -I '.' -I '../maintain/lib/libintl-perl/lib/' -I '../maintain/lib/Unicode-EastAsianWidth/lib/' -I '../maintain/lib/Text-Unidecode/lib' Texinfo/Convert/HTML.pm
+
+
+The modules in perl/Texinfo/Example are not developped anymore.  Docbook
+conversion modules in this directory were developped using an interface
+consisting of Texinfo::Reader, Texinfo::TreeElement and
+Texinfo::Example::TreeElementConverter as a proof of concept.  However, this
+interface proved to be too slow in Perl and difficult to implement with XS
+code.  The Reader and TreeElement interface (except for one function) are not
+used from Perl anymore.  Going forward, the SWIG interface based on the
+Reader, Parser, Structuring and Texinfo Document C codes should
+be used.  The SWIG interface is in the swig directory.  Texinfo::Reader and
+Texinfo::TreeElement (except for the 'new' function) should not be used
+anymore.

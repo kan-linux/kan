@@ -1,0 +1,139 @@
+'\" t
+.\"     Title: fincore
+.\"    Author: [see the "AUTHOR(S)" section]
+.\" Generator: Asciidoctor 2.0.26
+.\"      Date: 2026-06-16
+.\"    Manual: User Commands
+.\"    Source: util-linux 2.42.2
+.\"  Language: English
+.\"
+.TH "FINCORE" "1" "2026-06-16" "util\-linux 2.42.2" "User Commands"
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.ss \n[.ss] 0
+.nh
+.ad l
+.de URL
+\fI\\$2\fP <\\$1>\\$3
+..
+.als MTO URL
+.if \n[.g] \{\
+.  mso www.tmac
+.  am URL
+.    ad l
+.  .
+.  am MTO
+.    ad l
+.  .
+.  LINKSTYLE blue R < >
+.\}
+.SH "NAME"
+fincore \- count pages of file contents in core
+.SH "SYNOPSIS"
+.sp
+\fBfincore\fP [options] \fIfile\fP.\|.\|.
+.SH "DESCRIPTION"
+.sp
+\fBfincore\fP counts pages of file contents being resident in memory (in core), and reports the numbers. If an error occurs during counting, then an error message is printed to the stderr and \fBfincore\fP continues processing the rest of files listed in a command line.
+\fBfincore\fP uses the \fBcachestat\fP(2) syscall to count resident pages. If the \fBcachestat\fP(2) syscall is not available and \fBcachestat\fP usage is not forced with the \fB\-\-cachestat\fP option, then \fBfincore\fP uses the \fBmincore\fP(2) syscall as a fallback.
+The \fBcachestat\fP(2) syscall is more efficient than \fBmincore\fP because it does not require a page table lock to walks page tables, and also reports more information than \fBmincore\fP, like the number of cached pages, dirty pages, pages marked for writeback, evicted pages, and recently evicted pages.
+Another difference between the two syscalls is that if write permissions are not granted to the file, then \fBcachestat\fP(2) returns an error, while \fBmincore\fP(2) for security reasons, returns fake data as if all pages were resident in memory (c.f.r. \c
+.URL "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=134fca9063ad4851de767d1768180e5dede9a881" "kernel commit \(dqmake mincore() more conservative\(dq" ")."
+.sp
+The default output is subject to change. So whenever possible, you should avoid using default outputs in your scripts. Always explicitly define expected columns by using \fB\-\-output\fP \fIcolumns\-list\fP in environments where a stable output is required.
+.SH "OPTIONS"
+.sp
+\fB\-n\fP, \fB\-\-noheadings\fP
+.RS 4
+Do not print a header line in status output.
+.RE
+.sp
+\fB\-b\fP, \fB\-\-bytes\fP
+.RS 4
+Print sizes in bytes rather than in human\-readable form.
+.sp
+By default, sizes are shown in units that are powers of 1024 bytes.
+The formal abbreviations for these units (KiB, MiB, GiB, .\|.\|.) are
+further shortened to just their first letter: K, M, G, .\|.\|..
+.RE
+.sp
+\fB\-c\fP, \fB\-\-total\fP
+.RS 4
+produce a grand total.
+.RE
+.sp
+\fB\-C\fP, \fB\-\-cachestat\fP
+.RS 4
+force usage of the \fBcachestat\fP(2) syscall instead of \fBmincore\fP(2), and fail if it\(cqs not available.
+.RE
+.sp
+\fB\-o\fP, \fB\-\-output\fP \fIlist\fP
+.RS 4
+Define output columns. See the \fB\-\-help\fP output to get a list of the currently supported columns. The default list of columns may be extended if \fIlist\fP is specified in the format \fI+list\fP.
+.RE
+.sp
+\fB\-\-output\-all\fP
+.RS 4
+Output all available columns.
+.RE
+.sp
+\fB\-r\fP, \fB\-\-raw\fP
+.RS 4
+Produce output in raw format. All potentially unsafe characters are hex\-escaped (\(rsx<code>).
+.RE
+.sp
+\fB\-J\fP, \fB\-\-json\fP
+.RS 4
+Use JSON output format.
+.RE
+.sp
+\fB\-R\fP, \fB\-\-recursive\fP
+.RS 4
+Recursively check all files in directories.
+.RE
+.sp
+\fB\-h\fP, \fB\-\-help\fP
+.RS 4
+Display help text and exit.
+.RE
+.sp
+\fB\-V\fP, \fB\-\-version\fP
+.RS 4
+Display version and exit.
+.RE
+.SH "ENVIRONMENT"
+.sp
+\fBLIBSMARTCOLS_DEBUG\fP=all
+.RS 4
+enables libsmartcols debug output.
+.RE
+.sp
+\fBLIBSMARTCOLS_DEBUG_PADDING\fP=on
+.RS 4
+use visible padding characters.
+.RE
+.sp
+\fBLIBSMARTCOLS_JSON\fP=compact|lines
+.RS 4
+Controls JSON output format when using \fB\-\-json\fP. Supported values are
+\fBcompact\fP for JSON output with minimal whitespace, and \fBlines\fP for JSON Lines
+format (one JSON object per line). If unset or set to any other value,
+pretty\-printed JSON is used.
+.RE
+.SH "AUTHORS"
+.sp
+.MTO "yamato\(atredhat.com" "Masatake YAMATO" ""
+.SH "SEE ALSO"
+.sp
+\fBmincore\fP(2),
+\fBgetpagesize\fP(2),
+\fBgetconf\fP(1p)
+\fBcachestat\fP(2)
+.SH "REPORTING BUGS"
+.sp
+For bug reports, use the \c
+.URL "https://github.com/util\-linux/util\-linux/issues" "issue tracker" "."
+.SH "AVAILABILITY"
+.sp
+The \fBfincore\fP command is part of the util\-linux package which can be downloaded from \c
+.URL "https://www.kernel.org/pub/linux/utils/util\-linux/" "Linux Kernel Archive" "."

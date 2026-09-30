@@ -1,0 +1,254 @@
+'\" t
+.\"     Title: lscpu
+.\"    Author: [see the "AUTHOR(S)" section]
+.\" Generator: Asciidoctor 2.0.26
+.\"      Date: 2026-06-16
+.\"    Manual: User Commands
+.\"    Source: util-linux 2.42.2
+.\"  Language: English
+.\"
+.TH "LSCPU" "1" "2026-06-16" "util\-linux 2.42.2" "User Commands"
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.ss \n[.ss] 0
+.nh
+.ad l
+.de URL
+\fI\\$2\fP <\\$1>\\$3
+..
+.als MTO URL
+.if \n[.g] \{\
+.  mso www.tmac
+.  am URL
+.    ad l
+.  .
+.  am MTO
+.    ad l
+.  .
+.  LINKSTYLE blue R < >
+.\}
+.SH "NAME"
+lscpu \- display information about the CPU architecture
+.SH "SYNOPSIS"
+.sp
+\fBlscpu\fP [options]
+.SH "DESCRIPTION"
+.sp
+\fBlscpu\fP gathers CPU architecture information from \fIsysfs\fP, \fI/proc/cpuinfo\fP and any applicable architecture\-specific libraries (e.g. \fBlibrtas\fP on Powerpc). The command output can be optimized for parsing or for easy readability by humans. The information includes, for example, the number of CPUs, threads, cores, sockets, and Non\-Uniform Memory Access (NUMA) nodes. There is also information about the CPU caches and cache sharing, family, model, bogoMIPS, byte order, stepping and microcode version.
+.sp
+The default output formatting on a terminal is subject to change and may be optimized for better readability. The output for non\-terminals (e.g., pipes) is never affected by this optimization and it is always in "Field: data\(rsn" format. Use for example "\fBlscpu | less\fP" to see the default output without optimizations.
+.sp
+In virtualized environments, the CPU architecture information displayed reflects the configuration of the guest operating system which is typically different from the physical (host) system. On architectures that support retrieving physical topology information, \fBlscpu\fP also displays the number of physical sockets, chips, cores in the host system.
+.sp
+Options that produce an output table accept an optional \fIlist\fP argument.
+This \fIlist\fP is a comma\-separated series of column labels to limit the
+table to only the specified columns, arranged in the specified order.
+Use \fB\-\-help\fP to see a list of valid column labels.
+The labels are case insensitive.
+Not all columns are supported on all architectures. If an unsupported column is specified, \fBlscpu\fP prints the column but does not provide any data for it.
+.sp
+The cache sizes are reported as summary from all CPUs. The versions before v2.34 reported per\-core sizes, but this output was confusing due to complicated CPUs topology and the way how caches are shared between CPUs. For more details about caches see \fB\-\-cache\fP. Since version v2.37 \fBlscpu\fP follows cache IDs as provided by Linux kernel and it does not always start from zero.
+.SH "OPTIONS"
+.sp
+\fB\-a\fP, \fB\-\-all\fP
+.RS 4
+Include lines for online and offline CPUs in the output (default for \fB\-e\fP). This option may only be specified together with option \fB\-e\fP or \fB\-p\fP.
+.RE
+.sp
+\fB\-B\fP, \fB\-\-bytes\fP
+.RS 4
+Print sizes in bytes rather than in human\-readable form.
+.sp
+By default, sizes are shown in units that are powers of 1024 bytes.
+The formal abbreviations for these units (KiB, MiB, GiB, .\|.\|.) are
+further shortened to just their first letter: K, M, G, .\|.\|..
+.RE
+.sp
+\fB\-b\fP, \fB\-\-online\fP
+.RS 4
+Limit the output to online CPUs (default for \fB\-p\fP). This option may only be specified together with option \fB\-e\fP or \fB\-p\fP.
+.RE
+.sp
+\fB\-C\fP, \fB\-\-caches\fP[\fB=\fP\fIlist\fP]
+.RS 4
+Display details about CPU caches. For details about available information see \fB\-\-list\-columns\fP output.
+.sp
+If the \fIlist\fP argument is omitted, all columns for which data is available are included in the command output.
+.sp
+When specifying the \fIlist\fP argument, the option string plus the
+equal sign (=) plus the \fIlist\fP may not contain any whitespace.
+Examples: \fB\-C=NAME,ONE\-SIZE\fP or \fB\-\-caches=NAME,ONE\-SIZE\fP.
+.sp
+The default list of columns may be extended if list is specified in the format +list (e.g., \fBlscpu \-C=+ALLOC\-POLICY\fP).
+.RE
+.sp
+\fB\-c\fP, \fB\-\-offline\fP
+.RS 4
+Limit the output to offline CPUs. This option may only be specified together with option \fB\-e\fP or \fB\-p\fP.
+.RE
+.sp
+\fB\-e\fP, \fB\-\-extended\fP[\fB=\fP\fIlist\fP]
+.RS 4
+Display the CPU information in human\-readable format.
+.sp
+If the \fIlist\fP argument is omitted, the default columns are included in the command output.  The default output is subject to change.
+.sp
+When specifying the \fIlist\fP argument, the option string plus the
+equal sign (=) plus the \fIlist\fP may not contain any whitespace.
+Examples: \fB\-e=cpu,node\fP or \fB\-\-extended=cpu,node\fP.
+.sp
+The default list of columns may be extended if list is specified in the format +list (e.g., lscpu \-e=+MHZ).
+.RE
+.sp
+\fB\-H\fP, \fB\-\-list\-columns\fP
+.RS 4
+List the columns that can be specified with the \fB\-\-extended\fP, \fB\-\-parse\fP and \fB\-\-caches\fP options.
+Can be used with \fB\-\-json\fP or \fB\-\-raw\fP to get the list in a machine\-readable format.
+.RE
+.sp
+\fB\-\-hierarchic\fP[\fB=\fP\fIwhen\fP]
+.RS 4
+Use subsections in summary output. For backward compatibility, the default is to use subsections only when output on a terminal, and to use flattened output on a non\-terminal. The optional argument \fIwhen\fP can be \fBnever\fP, \fBalways\fP, or \fBauto\fP. If the \fIwhen\fP argument is omitted, it defaults to \fBalways\fP.
+.RE
+.sp
+\fB\-J\fP, \fB\-\-json\fP
+.RS 4
+Use JSON output format for the default summary or extended output (see
+\fB\-\-extended\fP).  For backward compatibility, JSON output follows the default
+summary behavior for non\-terminals (e.g., pipes) where subsections are missing. See
+also \fB\-\-hierarchic\fP.
+.RE
+.sp
+\fB\-\-output\-all\fP
+.RS 4
+Output all available columns. This option must be combined with either \fB\-\-extended\fP, \fB\-\-parse\fP, or \fB\-\-caches\fP.
+.RE
+.sp
+\fB\-p\fP, \fB\-\-parse\fP[\fB=\fP\fIlist\fP]
+.RS 4
+Optimize the command output for easy parsing.
+.sp
+If the \fIlist\fP argument is omitted, the command output is compatible with earlier versions of \fBlscpu\fP. In this compatible format, two commas are used to separate CPU cache columns. If no CPU caches are identified the cache column is omitted. If the \fIlist\fP argument is used, cache columns are separated with a colon (:).
+.sp
+When specifying the \fIlist\fP argument, the option string plus the
+equal sign (=) plus the \fIlist\fP may not contain any whitespace.
+Examples: \fB\-p=cpu,online,mhz\fP or \fB\-\-parse=cpu,online,mhz\fP.
+.sp
+The default list of columns may be extended if list is specified in the format +list (e.g., lscpu \-p=+MHZ).
+.RE
+.sp
+\fB\-r\fP, \fB\-\-raw\fP
+.RS 4
+Produce output in its raw format. This option is only applicable for the \fB\-\-extended\fP, \fB\-\-parse\fP, and \fB\-\-caches\fP outputs.
+.RE
+.sp
+\fB\-s\fP, \fB\-\-sysroot\fP \fIdirectory\fP
+.RS 4
+Gather CPU data for a Linux instance other than the instance from which the \fBlscpu\fP command is issued. The specified \fIdirectory\fP is the system root of the Linux instance to be inspected.
+.RE
+.sp
+\fB\-x\fP, \fB\-\-hex\fP
+.RS 4
+Use hexadecimal masks for CPU sets (for example "ff"). The default is to print the sets in list format (for example 0,1). Note that before version 2.30 the mask has been printed with 0x prefix.
+.RE
+.sp
+\fB\-y\fP, \fB\-\-physical\fP
+.RS 4
+Display physical IDs for all columns with topology elements (core, socket, etc.). Other than logical IDs, which are assigned by \fBlscpu\fP, physical IDs are platform\-specific values that are provided by the kernel. Physical IDs are not necessarily unique and they might not be arranged sequentially. If the kernel could not retrieve a physical ID for an element \fBlscpu\fP prints the dash (\-) character.
+.sp
+The CPU logical numbers are not affected by this option.
+.RE
+.sp
+\fB\-\-arm\-id\fP[\fB=\fP\fIlist\fP]
+.RS 4
+Print a list of the known ARM core implementers and their human readable names.
+.sp
+If an argument is given, print a list of the individual core IDs and their
+names, for the given implementer.
+.RE
+.sp
+\fB\-\-arm\-model\fP \fIid\fP
+.RS 4
+Print the name for this specific core model. This requires passing
+\fB\-\-arm\-id=\fIid\fP\fP to indicate the implementer id as well.
+.RE
+.sp
+\fB\-\-annotate\fP[\fB=\fP\fIwhen\fP]
+.RS 4
+Adds an annotation to each column header name. Such an annotation can be shown
+as a tooltip by terminals that support this feature. The optional \fIwhen\fP argument
+can be \fBalways\fP, \fBnever\fP, or \fBauto\fP. If the argument is omitted, it defaults to
+\fBauto\fP, which means that annotations will only be used when the output
+goes to a terminal.
+.RE
+.sp
+\fB\-h\fP, \fB\-\-help\fP
+.RS 4
+Display help text and exit.
+.RE
+.sp
+\fB\-V\fP, \fB\-\-version\fP
+.RS 4
+Display version and exit.
+.RE
+.SH "ENVIRONMENT"
+.sp
+LSCPU_COLUMNS=
+.RS 4
+Specifies a comma\-separated list of output columns to print. All columns listed by \fB\-\-list\-columns\fP for the options \fB\-e\fP and \fB\-p\fP can be used.
+.RE
+.sp
+LSCPU_CACHES_COLUMNS=
+.RS 4
+Same as \fBLSCPU_COLUMNS\fP with the difference that columns only listed for the \fB\-C\fP option can be used.
+.RE
+.sp
+\fBLIBSMARTCOLS_DEBUG\fP=all
+.RS 4
+enables libsmartcols debug output.
+.RE
+.sp
+\fBLIBSMARTCOLS_DEBUG_PADDING\fP=on
+.RS 4
+use visible padding characters.
+.RE
+.sp
+\fBLIBSMARTCOLS_JSON\fP=compact|lines
+.RS 4
+Controls JSON output format when using \fB\-\-json\fP. Supported values are
+\fBcompact\fP for JSON output with minimal whitespace, and \fBlines\fP for JSON Lines
+format (one JSON object per line). If unset or set to any other value,
+pretty\-printed JSON is used.
+.RE
+.SH "COLUMNS"
+.sp
+A list of valid column labels can be viewed with the \fB\-\-list\-columns\fP option.
+.SH "NOTES"
+.sp
+The default output is subject to change. So whenever possible, you should avoid using default output in your scripts.
+.SH "BUGS"
+.sp
+The basic overview of CPU models is based on heuristics, taking into account differences such as
+CPU model names and implementer IDs. In some (unusual) cases, CPUs may differentiate in flags or BogoMIPS,
+but these differences are ignored in the lscpu overview.
+.sp
+Sometimes in Xen Dom0 the kernel reports wrong data.
+.sp
+On virtual hardware the number of cores per socket, etc. can be wrong.
+.SH "AUTHORS"
+.sp
+.MTO "qcai\(atredhat.com" "Cai Qian" ","
+.MTO "kzak\(atredhat.com" "Karel Zak" ","
+.MTO "heiko.carstens\(atde.ibm.com" "Heiko Carstens" ","
+.MTO "cgoesc2\(atwgu.edu" "Christian Goeschel Ndjomouo" ""
+.SH "SEE ALSO"
+.sp
+\fBchcpu\fP(8)
+.SH "REPORTING BUGS"
+.sp
+For bug reports, use the \c
+.URL "https://github.com/util\-linux/util\-linux/issues" "issue tracker" "."
+.SH "AVAILABILITY"
+.sp
+The \fBlscpu\fP command is part of the util\-linux package which can be downloaded from \c
+.URL "https://www.kernel.org/pub/linux/utils/util\-linux/" "Linux Kernel Archive" "."

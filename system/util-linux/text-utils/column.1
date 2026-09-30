@@ -1,0 +1,507 @@
+'\" t
+.\"     Title: column
+.\"    Author: [see the "AUTHOR(S)" section]
+.\" Generator: Asciidoctor 2.0.26
+.\"      Date: 2026-06-16
+.\"    Manual: User Commands
+.\"    Source: util-linux 2.42.2
+.\"  Language: English
+.\"
+.TH "COLUMN" "1" "2026-06-16" "util\-linux 2.42.2" "User Commands"
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.ss \n[.ss] 0
+.nh
+.ad l
+.de URL
+\fI\\$2\fP <\\$1>\\$3
+..
+.als MTO URL
+.if \n[.g] \{\
+.  mso www.tmac
+.  am URL
+.    ad l
+.  .
+.  am MTO
+.    ad l
+.  .
+.  LINKSTYLE blue R < >
+.\}
+.SH "NAME"
+column \- columnate lists
+.SH "SYNOPSIS"
+.sp
+\fBcolumn\fP [options] [\fIfile\fP .\|.\|.]
+.SH "DESCRIPTION"
+.sp
+The \fBcolumn\fP utility formats its input into multiple columns. It supports three modes:
+.sp
+\fBfill columns before rows\fP
+.RS 4
+This is the default mode (required for backwards compatibility).
+.RE
+.sp
+\fBfill rows before columns\fP
+.RS 4
+This mode is enabled with the \fB\-x, \-\-fillrows\fP option.
+.RE
+.sp
+\fBcreate a table\fP
+.RS 4
+Determine the number of columns the input contains and create a table.
+This mode is enabled with the \fB\-t\fP/\fB\-\-table\fP option.
+Output is aligned to the terminal width in interactive mode, and to 80 columns
+in non\-interactive mode (see \fB\-\-output\-width\fP for more details).
+Custom formatting can be applied by using various \fB\-\-table\-\fP* options.
+.RE
+.sp
+Input is taken from \fIfile\fP, or otherwise from standard input. Empty lines are ignored and all invalid multibyte sequences are encoded with the x<hex> convention.
+.SH "OPTIONS"
+.sp
+The argument \fIcolumns\fP, for the \fB\-\-table\-\fP* options below, is a comma\-separated list
+of user\-supplied names defined with \fB\-\-table\-columns\fP \fIname1\fP\fB,\fP\fIname2\fP\fB,\fP.\|.\|.,
+or indices of columns as they appear in the input, beginning with 1,
+or names defined through a \fB\-\-table\-column\fP attribute.
+It\(cqs possible to mix names and indices. The special placeholder \*(Aq0\*(Aq (e.g. \-R0) may
+be used to specify all columns and \*(Aq\-1\*(Aq (e.g. \-R \-1) to specify the last visible column.
+It\(cqs possible to use ranges like \*(Aq1\-5\*(Aq when addressing columns by indices.
+.sp
+\fB\-J, \-\-json\fP
+.RS 4
+Use JSON output format to print the table. The option \fB\-\-table\-columns\fP is required and the option \fB\-\-table\-name\fP is recommended.
+.RE
+.sp
+\fB\-c, \-\-output\-width\fP \fIwidth\fP
+.RS 4
+Output is formatted to a width specified as a number of characters.
+Note that input longer than \fIwidth\fP is not truncated by default.
+The default is the terminal width in interactive mode, and 80 columns in non\-interactive mode.
+The column headers are never truncated.
+.sp
+The placeholder \fBunlimited\fP (or \fB0\fP) can be used to prevent restricting the output width.
+This is recommended when redirecting output to a file.
+.sp
+(The original long name of this option was \fB\-\-columns\fP; this name is deprecated since v2.30.)
+.RE
+.sp
+\fB\-d, \-\-table\-noheadings\fP
+.RS 4
+Omit printing the header. This option allows having user\-supplied column names on the command line, but keeps the header hidden when printing the table.
+.RE
+.sp
+\fB\-o, \-\-output\-separator\fP \fIstring\fP
+.RS 4
+Column delimiter for table output (default is two spaces).
+.RE
+.sp
+\fB\-s, \-\-input\-separator, \-\-separator\fP \fIseparators\fP
+.RS 4
+Possible input\-item delimiters (default is whitespace).
+.RE
+.sp
+\fB\-S, \-\-use\-spaces\fP \fInumber\fP
+.RS 4
+When not in table mode, use spaces instead of tabulators to align the columns. This option specifies the minimum number of spaces that separate two columns.
+.RE
+.sp
+\fB\-t, \-\-table\fP
+.RS 4
+Determine the number of columns the input contains and create a table. Columns are by default delimited with whitespace, or with characters supplied using the \fB\-\-output\-separator\fP option. Table output is useful for pretty\-printing.
+.RE
+.sp
+\fB\-\-table\-colorscheme\fP \fIname\fP
+.RS 4
+Specifies color scheme. The default name is "column". For more details see the \fBCOLORS\fP section.
+.RE
+.sp
+\fB\-C, \-\-table\-column\fP \fIattributes\fP
+.RS 4
+Define a column with a comma\-separated list of attributes.
+This option can be used more than once, every use defines a single column.
+Attributes replace some of the \fB\-\-table\-\fP* options: for example,
+\fB\-\-table\-column name=FOO,right\fP defines a column where text is aligned to the right.
+The option is mutually exclusive with \fB\-N\fP/\fB\-\-table\-columns\fP.
+.sp
+Supported attributes are:
+.sp
+\fBname=\fP\fIstring\fP
+.RS 4
+Column name.
+.RE
+.sp
+\fBtrunc\fP
+.RS 4
+Truncate column text when necessary. The same as \fB\-\-table\-truncate\fP. Note that
+the column header is never truncated, and it is the minimal column width.
+.RE
+.sp
+\fBtree\fP
+.RS 4
+Use this column for tree\-like output. See \fB\-\-tree\fP for more details.
+.RE
+.sp
+\fBright\fP
+.RS 4
+Right align text. The same as \fB\-\-table\-right\fP.
+.RE
+.sp
+\fBwidth=\fP\fInumber\fP
+.RS 4
+Column width. It\(cqs used only as a hint. To enforce it, specify the \fBstrictwidth\fP attribute
+as well. The actual minimum width is the column header width.
+.RE
+.sp
+\fBstrictwidth\fP
+.RS 4
+Strictly follow the \fBwidth=\fP to set the minimum size of the column. The column
+can be larger if the output width provides enough space.
+.RE
+.sp
+\fBnoextremes\fP
+.RS 4
+Ignore unusually long content width. See \fB\-\-table\-noextreme\fP for more details.
+.RE
+.sp
+\fBhidden\fP
+.RS 4
+Don\(cqt print the column. See \fB\-\-table\-hide\fP for more details.
+.RE
+.sp
+\fBwrap\fP
+.RS 4
+Allow the use of a multi\-line cell for long text if necessary. Note that the column header is never wrapped and determines the minimum column width. See \fB\-\-table\-wrap\fP for more details.
+.RE
+.sp
+\fBwrapnl\fP
+.RS 4
+Wrap at newline characters; newlines in cell data are treated as line breaks.
+.RE
+.sp
+\fBwrapzero\fP
+.RS 4
+Wrap at zero (NUL) characters in cell data.
+.RE
+.sp
+\fBjson=\fP\fItype\fP
+.RS 4
+Define the column type for JSON output. Supported types are \fBstring\fP, \fBnumber\fP, \fBfloat\fP,
+\fBarray\-string\fP, \fBarray\-number\fP and \fBboolean\fP.
+.RE
+.sp
+\fBcolor=\fP\fIname\fP
+.RS 4
+Define the column color for output on the terminal. The \fIname\fP is a color name
+(black, blink, blue, bold, brown, cyan, darkgray, gray, green, halfbright,
+lightblue, lightcyan, lightgray, lightgreen, lightmagenta, lightred, magenta,
+red, reset, reverse, and yellow) or ANSI color sequence number(s) separated by
+a semicolon, but without the \*(AqESC[\*(Aq prefix and \*(Aqm\*(Aq suffix. For example, "37;41"
+defines sequences for a red background and white foreground. For more details
+see the \fBCOLORS\fP section.
+.RE
+.sp
+\fBcolorkey=\fP\fIname\fP
+.RS 4
+Addresses color as defined in the color scheme. See \fB\-\-table\-colorscheme\fP.
+.RE
+.sp
+\fBheadercolor=\fP\fIname\fP
+.RS 4
+Like \fBcolor=\fP, but define the color for column header only.
+.RE
+.sp
+\fBheadercolorkey=\fP\fIname\fP
+.RS 4
+Addresses color for header as defined in the color scheme. See \fB\-\-table\-colorscheme\fP.
+.RE
+.RE
+.sp
+\fB\-N, \-\-table\-columns\fP \fInames\fP
+.RS 4
+Specify column names with a comma\-separated list. The names are used for the table header
+and for column addressing in option arguments. See also \fB\-\-table\-column\fP.
+.RE
+.sp
+\fB\-l, \-\-table\-columns\-limit\fP \fInumber\fP
+.RS 4
+Specify the maximum number of input columns. The last column will contain all remaining line data if the limit is smaller than the number of columns in the input data.
+.RE
+.sp
+\fB\-R, \-\-table\-right\fP \fIcolumns\fP
+.RS 4
+Right align text in the specified columns.
+.RE
+.sp
+\fB\-T, \-\-table\-truncate\fP \fIcolumns\fP
+.RS 4
+Specify the columns where text can be truncated when necessary, otherwise very long table entries may be printed on multiple lines.
+.RE
+.sp
+\fB\-E, \-\-table\-noextreme\fP \fIcolumns\fP
+.RS 4
+Specify the columns where longer\-than\-average content should be ignored when calculating the column width. The option influences width calculation and table formatting, but the printed text is not affected.
+.sp
+This option is active by default for the last visible column.
+.RE
+.sp
+\fB\-e, \-\-table\-header\-repeat\fP
+.RS 4
+Print header line for each page.
+.RE
+.sp
+\fB\-K, \-\-table\-header\-as\-columns\fP
+.RS 4
+Use the first input line as table header. This option is mutually exclusive with \fB\-\-table\-columns\fP and \fB\-\-table\-column\fP.
+.RE
+.sp
+\fB\-W, \-\-table\-wrap\fP \fIcolumns\fP
+.RS 4
+Specify the columns where multi\-line cells can be used for long text. By default, text is wrapped according to column width. Use \fB\-\-wrap\-separator\fP to wrap at custom separator characters instead. Note that the column header is never wrapped and determines the minimum column width.
+.RE
+.sp
+\fB\-\-wrap\-separator\fP \fIstring\fP
+.RS 4
+Use \fIstring\fP as a separator for wrapping text within columns that have wrapping enabled. The separator is replaced with newlines when the text is displayed. This option requires table mode and columns with wrapping enabled (see \fB\-\-table\-wrap\fP). For example, use \f(CR|\fP to allow wrapping at pipe characters within column data.
+.RE
+.sp
+\fB\-H, \-\-table\-hide\fP \fIcolumns\fP
+.RS 4
+Don\(cqt print the specified columns. The special placeholder \*(Aq\fB\-\fP\*(Aq may be used to hide all unnamed columns (see \fB\-\-table\-columns\fP).
+.RE
+.sp
+\fB\-O, \-\-table\-order\fP \fIcolumns\fP
+.RS 4
+Specify the output column order.
+.RE
+.sp
+\fB\-n, \-\-table\-name\fP \fIname\fP
+.RS 4
+Specify the table name used for JSON output. The default is "table".
+.RE
+.sp
+\fB\-m, \-\-table\-maxout\fP
+.RS 4
+Fill all available space on output.
+.RE
+.sp
+\fB\-L, \-\-keep\-empty\-lines\fP
+.RS 4
+Preserve whitespace\-only lines in the input. The default is to ignore all empty lines. This option\(cqs original name was \fB\-\-table\-empty\-lines\fP, but has since been deprecated because it gives the false impression that the option only applies to table mode.
+.RE
+.sp
+\fB\-r, \-\-tree\fP \fIcolumn\fP
+.RS 4
+Specify the column to use for a tree\-like output. Note that the circular dependencies and other anomalies in child and parent relation are silently ignored.
+.RE
+.sp
+\fB\-i, \-\-tree\-id\fP \fIcolumn\fP
+.RS 4
+Specify the column that contains each line\(cqs unique child ID for a child\-parent relation.
+.RE
+.sp
+\fB\-p, \-\-tree\-parent\fP \fIcolumn\fP
+.RS 4
+Specify the column that contains each line\(cqs parent ID for a child\-parent relation.
+.RE
+.sp
+\fB\-x, \-\-fillrows\fP
+.RS 4
+Fill rows before filling columns.
+.RE
+.sp
+\fB\-\-color\fP[\fB=\fP\fIwhen\fP]
+.RS 4
+Colorize the output. The optional argument \fIwhen\fP can be \fBauto\fP, \fBnever\fP or \fBalways\fP. If the \fIwhen\fP argument is omitted, it defaults to \fBauto\fP. The colors can be disabled; for the current built\-in default see the \fB\-\-help\fP output. See also the \fBCOLORS\fP section.
+.RE
+.sp
+\fB\-h\fP, \fB\-\-help\fP
+.RS 4
+Display help text and exit.
+.RE
+.sp
+\fB\-V\fP, \fB\-\-version\fP
+.RS 4
+Display version and exit.
+.RE
+.SH "COLORS"
+.sp
+The output colorization is implemented by \fBterminal\-colors.d\fP(5) functionality.
+Implicit coloring can be disabled by an empty file
+.RS 3
+.ll -.6i
+.sp
+\fI/etc/terminal\-colors.d/column.disable\fP
+.br
+.RE
+.ll
+.sp
+for the \fBcolumn\fP command or for all tools by
+.RS 3
+.ll -.6i
+.sp
+\fI/etc/terminal\-colors.d/disable\fP
+.br
+.RE
+.ll
+.sp
+Since version 2.41, the $NO_COLOR environment variable is also supported to
+disable output colorization unless explicitly enabled by a command\-line option.
+.sp
+The user\-specific \fI$XDG_CONFIG_HOME/terminal\-colors.d\fP
+or \fI$HOME/.config/terminal\-colors.d\fP overrides the global setting.
+.sp
+Note that the output colorization may be enabled by default, and in this case
+\fIterminal\-colors.d\fP directories do not have to exist yet.
+.sp
+The default color scheme name is "column," and it can be overridden by
+.RS 3
+.ll -.6i
+.sp
+\fB\-\-table\-colorscheme name\fP
+.br
+.RE
+.ll
+.sp
+Then \fIname\fP[.disable|enable|scheme] file may be used in \fI/etc/terminal\-colors.d/\fP,
+\fI$XDG_CONFIG_HOME/terminal\-colors.d\fP, or \fI$HOME/.config/terminal\-colors.d/\fP.
+.sp
+The logical color name (key) in the color scheme may be addressed by column properties
+\fBcolorkey=\fP and \fBheadercolorkey=\fP. For example
+.sp
+.if n .RS 4
+.nf
+.fam C
+echo \*(Aqimportant red\*(Aq\&           > ~/.config/terminal\-colors.d/cooltable.scheme
+echo \*(Aqimportant\-header 37;41\*(Aq >> ~/.config/terminal\-colors.d/cooltable.scheme
+echo \-e "a b c\(rsnaa bb cc\(rsnaaa bbb ccc" | column \-t \(rs
+        \-\-table\-colorscheme=cooltable \(rs
+        \-C name=AAA,colorkey=important,headercolorkey=important\-header \(rs
+        \-C name=BBB,color=magenta,headercolor=cyan \(rs
+        \-C name=CCC,color=green
+.fam
+.fi
+.if n .RE
+.sp
+This will create a color scheme with the name "cooltable" and colorize the first
+column header and data according to keys from the scheme. The other two columns
+will be colorized by direct color names.
+.SH "ENVIRONMENT"
+.sp
+\fBCOLUMNS\fP
+.RS 4
+is used to determine the size of the screen if no other information is available.
+.RE
+.sp
+\fBLIBSMARTCOLS_DEBUG\fP=all
+.RS 4
+enables libsmartcols debug output.
+.RE
+.sp
+\fBLIBSMARTCOLS_DEBUG_PADDING\fP=on
+.RS 4
+use visible padding characters.
+.RE
+.SH "HISTORY"
+.sp
+The \fBcolumn\fP command appeared in 4.3BSD\-Reno.
+.SH "BUGS"
+.sp
+Version 2.23 changed the \fB\-s\fP option to be non\-greedy, for example:
+.sp
+.if n .RS 4
+.nf
+.fam C
+printf "a:b:c\(rsn1::3\(rsn" | column \-t \-s \*(Aq:\*(Aq
+.fam
+.fi
+.if n .RE
+.sp
+Old output:
+.sp
+.if n .RS 4
+.nf
+.fam C
+a\&  b\&  c
+1\&  3
+.fam
+.fi
+.if n .RE
+.sp
+New output (since util\-linux 2.23):
+.sp
+.if n .RS 4
+.nf
+.fam C
+a\&  b\&  c
+1\&     3
+.fam
+.fi
+.if n .RE
+.sp
+Historical versions of this tool indicated that "rows are filled before columns" by default, and that the \fB\-x\fP option reverses this. This wording did not reflect the actual behavior, and it has since been corrected (see above). Other implementations of \fBcolumn\fP may continue to use the older documentation, but the behavior should be identical in any case.
+.SH "EXAMPLES"
+.sp
+Print fstab with a header line and align numbers to the right:
+.sp
+.if n .RS 4
+.nf
+.fam C
+sed \*(Aqs/#.*//\*(Aq /etc/fstab | column \-\-table \-\-table\-columns SOURCE,TARGET,TYPE,OPTIONS,FREQ,PASS \-\-table\-right FREQ,PASS
+.fam
+.fi
+.if n .RE
+.sp
+Print fstab and hide unnamed columns:
+.sp
+.if n .RS 4
+.nf
+.fam C
+sed \*(Aqs/#.*//\*(Aq /etc/fstab | column \-\-table \-\-table\-columns SOURCE,TARGET,TYPE \-\-table\-hide \-
+.fam
+.fi
+.if n .RE
+.sp
+Print a tree:
+.sp
+.if n .RS 4
+.nf
+.fam C
+echo \-e \*(Aq1 0 A\(rsn2 1 AA\(rsn3 1 AB\(rsn4 2 AAA\(rsn5 2 AAB\*(Aq | column \-\-tree\-id 1 \-\-tree\-parent 2 \-\-tree 3
+1\&  0\&  A
+2\&  1\&  |\-AA
+4\&  2\&  | |\-AAA
+5\&  2\&  | `\-AAB
+3\&  1\&  `\-AB
+.fam
+.fi
+.if n .RE
+.sp
+Print table with custom wrap separator:
+.sp
+.if n .RS 4
+.nf
+.fam C
+echo \-e \*(AqName:Description\(rsnJohn:A|software|developer\(rsnJane:A|data|scientist\*(Aq | column \-\-table \-\-separator \*(Aq:\*(Aq \-\-table\-wrap 2 \-\-wrap\-separator \*(Aq|\*(Aq
+Name\&  Description
+John\&  A
+      software
+      developer
+Jane\&  A
+      data
+      scientist
+.fam
+.fi
+.if n .RE
+.SH "SEE ALSO"
+.sp
+\fBcolrm\fP(1),
+\fBls\fP(1),
+\fBpaste\fP(1),
+\fBsort\fP(1)
+.SH "REPORTING BUGS"
+.sp
+For bug reports, use the \c
+.URL "https://github.com/util\-linux/util\-linux/issues" "issue tracker" "."
+.SH "AVAILABILITY"
+.sp
+The \fBcolumn\fP command is part of the util\-linux package which can be downloaded from \c
+.URL "https://www.kernel.org/pub/linux/utils/util\-linux/" "Linux Kernel Archive" "."

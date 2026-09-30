@@ -1,0 +1,61 @@
+#! /bin/sh
+set -e
+
+# Check that a manual page formats without errors. Lintian does something
+# similar for Debian packages. Relies on top_builddir and LINGUA variables
+# exported from 'make check', or you can set them manually.
+
+if [ -z "$top_builddir" ]; then
+	echo "top_builddir unset; try 'make check' instead?"
+	exit 77
+elif [ -z "$LINGUA" ]; then
+	echo "LINGUA unset; try 'make check' instead?"
+	exit 77
+fi
+
+[ -x "$top_builddir/src/man" ] || exit 77
+
+if [ -z "$MAN_TEST_INSTALLED" ]; then
+	PATH="$top_builddir/src:$PATH"
+fi
+
+run () {
+	if [ "$MAN_TEST_INSTALLED" ]; then
+		"$@"
+	else
+		# Ideally we'd test the installed manual pages too, but
+		# repeating the install transformation is fiddly, and we get
+		# most of the testing value by running man(1) from the
+		# installed system over the pages from the build tree.
+		"$top_builddir/libtool" --mode=execute \
+			-dlopen "$top_builddir/lib/.libs/libman.la" \
+			-dlopen "$top_builddir/libdb/.libs/libmandb.la" \
+			"$@"
+	fi
+}
+
+warnings=mac
+# Ignore wrapping failures for CJK manual pages; this should go away once
+# groff supports these natively.
+# Indeed, even for other languages we're going to get "cannot adjust line"
+# if %manpath_config_file% expands to something long. Hmm. We'll just ignore
+# this across the board for now.
+warnings="$warnings,!break"
+
+code=0
+errors="$(LC_ALL=C MANWIDTH=80 MAN_KEEP_FORMATTING=1 run man \
+		--warnings="$warnings" -E UTF-8 \
+		-l "$1" \
+		2>&1 >/dev/null)" || code=$?
+
+if [ "$code" != 0 ]; then
+	echo "man -E UTF-8 -l $1 failed with exit status $code and error output:"
+	echo "$errors"
+	exit $code
+elif [ "$errors" ]; then
+	echo "man -E UTF-8 -l $1 produced error output:"
+	echo "$errors"
+	exit 1
+else
+	exit 0
+fi

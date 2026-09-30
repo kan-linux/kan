@@ -1,0 +1,229 @@
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter
+@chapter Texinfo::Convert::TreeElementConverter
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter NAME
+@section Texinfo::Convert::TreeElementConverter NAME
+
+Texinfo::Convert::TreeElementConverter - Parent class for TreeElement based converters
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter SYNOPSIS
+@section Texinfo::Convert::TreeElementConverter SYNOPSIS
+
+@verbatim
+  package Texinfo::Convert::MyConverter;
+
+  use Texinfo::Convert::Converter;
+  use Texinfo::Convert::TreeElementConverter;
+  our @ISA = qw(Texinfo::Convert::TreeElementConverter);
+
+  sub converter_defaults ($;$) {
+    return \%myconverter_defaults;
+  }
+  sub converter_initialize($) {
+    my $self = shift;
+    ...
+  }
+
+  sub conversion_initialization($;$) {
+    my $self = shift;
+    my $document = shift;
+
+    if ($document) {
+      $self->set_document($document);
+    }
+
+    $self->{'document_context'} = [{}];
+    ...
+  }
+
+  sub conversion_finalization($) {
+    my $self = shift;
+  }
+
+  sub convert_tree($$) {
+    ...
+  }
+
+  sub convert($$) {
+    my $self = shift;
+    my $document = shift;
+
+    $self->conversion_initialization($document);
+
+    ...
+
+    $document->register_document_relations_lists_elements();
+
+    ...
+    $self->conversion_finalization();
+  }
+
+  sub output($$) {
+    my $self = shift;
+    my $document = shift;
+
+    $self->conversion_initialization($document);
+
+    ...
+    $document->register_document_relations_lists_elements();
+
+    ...
+    $self->conversion_finalization();
+    ...
+  }
+
+  # end of Texinfo::Convert::MyConverter
+
+  my $converter = Texinfo::Convert::MyConverter->converter();
+  $converter->output($texinfo_parsed_document);
+@end verbatim
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter NOTES
+@section Texinfo::Convert::TreeElementConverter NOTES
+
+The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
+Texinfo to other formats.  There is no promise of API stability.
+
+Note that this module is not used in @code{texi2any}.
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter DESCRIPTION
+@section Texinfo::Convert::TreeElementConverter DESCRIPTION
+
+@code{Texinfo::Convert::TreeElementConverter} is a super class that helps
+using the @ref{Texinfo@asis{::}TreeElement NAME,, Texinfo::TreeElement} interface in converters.  It provides
+implementations of methods from other Texinfo Perl modules using the
+TreeElement @ref{Texinfo@asis{::}TreeElement NAME,, Texinfo::TreeElement} interface only.  The original
+methods can be in the @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter}, @ref{Texinfo@asis{::}Common NAME,, Texinfo::Common},
+@ref{Texinfo@asis{::}Convert@asis{::}Utils NAME,, Texinfo::Convert::Utils} and @ref{Texinfo@asis{::}Structuring NAME,, Texinfo::Structuring} modules.
+
+The Texinfo Perl modules can be setup to use Perl XS module extensions in
+native code (written in C) that replace Perl package or methods by native code
+for faster execution.
+The Texinfo modules XS interface is designed such that the Texinfo tree
+actually processed is not the Perl elements tree, but a tree stored in
+native code in XS extensions, corresponding to compiled C data structures.
+If XS extensions are loaded, finding a Perl element associated C data
+is required in some cases, namely to initialize
+@ref{Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions} with XS
+on an element (except for the tree root) or to find replaced substrings
+elements in translations.
+
+The @code{Texinfo::Convert::TreeElementConverter} modules helps with
+setting up the link from Perl elements to C, first by providing the
+methods using the TreeElement interface
+since the @ref{Texinfo@asis{::}TreeElement NAME,, Texinfo::TreeElement} interface automatically sets up this link.
+The module also provides XS interfaces for methods also available in other
+modules that setup the link from Perl elements to C.  Lastly, some methods are
+also available to create or access Texinfo tree elements that also setup
+Texinfo elements with the link from Perl elements to C.
+
+Using the Reader, the TreeElement interface and the methods provided in this
+module with XS to access and create elements also allows to go through the
+Texinfo tree without ever building full Perl element data.  This may be all the
+more important that building full Perl element data wipes out the link from
+Perl elements to C element data.
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter METHODS
+@section Texinfo::Convert::TreeElementConverter METHODS
+
+The following methods allow to create new elements and get elements.
+If XS extensions are used, elements should be created and accessed through
+these methods to have a link from Perl to C data setup for the created or
+returned element.
+
+@table @asis
+@item $converter->new_tree_element($element, $use_sv)
+@anchor{Texinfo@asis{::}Convert@asis{::}TreeElementConverter $converter->new_tree_element($element@comma{} $use_sv)}
+@cindex @code{new_tree_element}
+
+Create a new tree elements based on the @emph{$element} hash reference.  The
+@emph{$use_sv} argument is optional; if set and XS is used, the @emph{$element} hash
+reference is associated to the new tree element data in C, otherwise it is
+discarded.
+
+@item ($index_entry, $index_info) = $converter->get_tree_element_index_entry($element)
+@anchor{Texinfo@asis{::}Convert@asis{::}TreeElementConverter ($index_entry@comma{} $index_info) = $converter->get_tree_element_index_entry($element)}
+@cindex @code{get_tree_element_index_entry}
+
+Finds the index entry and index information associated to the tree
+element @emph{$element}.  See @ref{Texinfo@asis{::}Common ($index_entry@comma{} $index_info) = lookup_index_entry($index_entry_info@comma{} $indices_information),, Texinfo::Common lookup_index_entry}
+for a general description of the return values.  Note that the returned
+@emph{$index_info} information does not contain the index entries associated to
+the index, only some basic information on the index.
+
+@item $element = $converter->get_global_unique_tree_element($command_name)
+@anchor{Texinfo@asis{::}Convert@asis{::}TreeElementConverter $element = $converter->get_global_unique_tree_element($command_name)}
+
+@item $elements = global_commands_information_command_list($document, $command_name)
+@anchor{Texinfo@asis{::}Convert@asis{::}TreeElementConverter $elements = global_commands_information_command_list($document@comma{} $command_name)}
+
+@cindex @code{get_global_unique_tree_element}
+@cindex @code{global_commands_information_command_list}
+
+
+Returns the tree element or tree elements corresponding to the
+@emph{$command_name} @@-command with a link from Perl to C element data setup.
+Only for @@-commands that could also be accessed
+through @ref{Texinfo@asis{::}Document $commands = global_commands_information($document),, Texinfo::Document global_commands_information}
+(if the link from Perl to C element data was not needed).
+
+@code{get_global_unique_tree_element} should be called for @@-commands that should
+appear only once in a Texinfo document.  This method returns the element.
+
+@code{global_commands_information_command_list} requires a @code{Texinfo::Document}
+@emph{$document} argument.  The @emph{$document} could be available as
+@code{$converter->@{'document'@}}. This method should be called for @@-commands
+that may appear more than once in a Texinfo document.  This method returns
+a reference on the array of all the @emph{$command_name} @@-command tree elements
+appearing in the document.
+
+@end table
+
+The other methods are documented in the modules that provide the
+non-TreeElement interface or the methods that do not setup elements with
+link from Perl to C element data.   The method name is either the same
+as in this module, if the method is used as a wrapper around the method
+with the same name, or can be obtained by removing a leading @code{tree_element_}.
+For example, the @code{index_content_element} documentation can be used for the
+@code{tree_element_index_content_element} method of this module.
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter Related methods from other modules
+@subsection Related methods from other modules
+
+To associate sectioning commands and nodes tree elements Perl to C data, the
+@code{register_document_relations_lists_elements} @code{Texinfo::Document}
+method may be called after getting the tree before starting the tree
+conversion, such that sectioning commands and nodes elements accessed through
+nodes and section relations have the association to C data already setup:
+
+@verbatim
+  $converter->{'document'}->register_document_relations_lists_elements()
+@end verbatim
+
+If you use the @ref{Texinfo@asis{::}Reader NAME,, Texinfo::Reader} to go through the tree you can call
+reader methods to associate Perl to C data based on the current element
+being read, @ref{Texinfo@asis{::}Reader $reader->register_token_element(),, Texinfo::Reader @code{register_token_element}}
+and @ref{Texinfo@asis{::}Reader $reader->register_token_element_child($index),, Texinfo::Reader @code{register_token_element_child}}.
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter SEE ALSO
+@section Texinfo::Convert::TreeElementConverter SEE ALSO
+
+@ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter}, @ref{Texinfo@asis{::}Common NAME,, Texinfo::Common}, @ref{Texinfo@asis{::}Convert@asis{::}Utils NAME,, Texinfo::Convert::Utils}
+and @ref{Texinfo@asis{::}Structuring NAME,, Texinfo::Structuring}.
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter AUTHOR
+@section Texinfo::Convert::TreeElementConverter AUTHOR
+
+Patrice Dumas, <bug-texinfo@@gnu.org>
+
+@node Texinfo@asis{::}Convert@asis{::}TreeElementConverter COPYRIGHT AND LICENSE
+@section Texinfo::Convert::TreeElementConverter COPYRIGHT AND LICENSE
+
+Copyright 2011- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+

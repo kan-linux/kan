@@ -1,0 +1,628 @@
+# Copyright 2010-2026 Free Software Foundation, Inc.
+#
+# This file is part of GNU Texinfo.
+#
+# GNU Texinfo is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License,
+# or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# this information is used to setup both the C Parser commands
+# builtin_command_data and the Perl Parser commands classification
+# hashes.
+
+# Most flags (second column) should be documented (with _commands
+# postpended) in Texinfo/Commands.pod.
+# Some documentation of the flags is in C/main/builtin_commands.h.
+
+##############################################################
+# Internal commands
+# invalid if not accept_internalvalue set in configuration
+txiinternalvalue        brace,internal                  special
+# used in converters for easy access to flags.
+definfoenclose_command  brace,internal                  style_other
+index_entry_command     line,index_entry_command,contain_basic_inline,internal      line
+
+
+##############################################################
+# nobrace commands:
+#
+# commands never taking braces nor arguments on the line
+#
+# symbol:      non-alphabetical one letter commands without braces.
+# skipspace:   following spaces are skipped.
+# other:       other.
+
+# no brace commands - single letter commands
+
+*                       nobrace,preamble,formatted_nobrace,no_paragraph   symbol
+# space
+\x20                    nobrace,formatted_nobrace       symbol
+\t                      nobrace,formatted_nobrace       symbol
+\n                      nobrace,formatted_nobrace       symbol
+-                       nobrace,formatted_nobrace       symbol
+|                       nobrace,in_heading_spec         symbol
+/                       nobrace,formatted_nobrace       symbol
+:                       nobrace,formatted_nobrace       symbol
+!                       nobrace,formatted_nobrace       symbol
+?                       nobrace,formatted_nobrace       symbol
+.                       nobrace,formatted_nobrace       symbol
+@                       nobrace,formatted_nobrace       symbol
+&                       nobrace,formatted_nobrace       symbol
+}                       nobrace,formatted_nobrace       symbol
+{                       nobrace,formatted_nobrace       symbol
+\\                      nobrace,formatted_nobrace       symbol
+
+# no brace commands - miscellaneous commands
+
+# formatting
+noindent                nobrace,preamble,no_paragraph                skipspace
+indent                  nobrace,preamble,no_paragraph                skipspace
+# Next three commands are also containers
+headitem                nobrace,formatted_nobrace,close_paragraph,no_paragraph         skipspace
+item                    nobrace,formatted_nobrace,close_paragraph,no_paragraph         skipspace
+tab                     nobrace,formatted_nobrace,close_paragraph,no_paragraph         skipspace
+# only valid in heading or footing
+thischapter             nobrace,in_heading_spec         other
+thischaptername         nobrace,in_heading_spec         other
+thischapternum          nobrace,in_heading_spec         other
+thissection             nobrace,in_heading_spec         other
+thissectionname         nobrace,in_heading_spec         other
+thissectionnum          nobrace,in_heading_spec         other
+thispart                nobrace,in_heading_spec         other
+thisfile                nobrace,in_heading_spec         other
+thispage                nobrace,in_heading_spec         other
+thistitle               nobrace,in_heading_spec         other
+# obsolete @-commands.
+refill                  nobrace,preamble,deprecated,no_paragraph     other
+
+
+##########################################################
+#
+# line commands
+#
+##########################################################
+
+# commands taking a line as argument or no argument.
+# index commands are added dynamically.
+#
+# Note that all the line commands are set to no_paragraph when this
+# file is processed
+#
+# The values signification is:
+# lineraw:    no value and macro expansion, the line is kept as-is.
+#             Some have the line as argument, some have the line especially
+#             analysed during parsing (parse_rawline_command)
+# text:       the line is parsed as texinfo, and the argument is converted
+#             to simple text with convert_to_text allowing only a few @-commands
+# line:       the line is parsed as texinfo
+# specific:   the line is parsed as texinfo and the result should be plain
+#             text maybe followed by a comment; the result is analysed
+#             during parsing (parse_line_command_args).
+#
+# Beware that @item may be a 'line' command or a 'nobrace' command
+# depending on the context.
+
+# line commands number of arguments is only set for line specific commands
+# and for @node.  The number of arguments of line specific commands
+# is not used anywhere in the code, it is here as documentation only.
+
+# Root and heading commands
+node                    line,formatted_line,root,contain_basic_inline                                line     4
+top                     line,formatted_line,root,contain_basic_inline,sectioning_heading,global_unique,unnumbered line
+chapter                 line,formatted_line,root,contain_basic_inline,sectioning_heading               line
+unnumbered              line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered               line
+chapheading             line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    line
+appendix                line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               line
+section                 line,formatted_line,root,contain_basic_inline,sectioning_heading               line
+unnumberedsec           line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered               line
+heading                 line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    line
+appendixsec             line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               line
+subsection              line,formatted_line,root,contain_basic_inline,sectioning_heading               line
+unnumberedsubsec        line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered               line
+subheading              line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    line
+appendixsubsec          line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               line
+subsubsection           line,formatted_line,root,contain_basic_inline,sectioning_heading               line
+unnumberedsubsubsec     line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered               line
+subsubheading           line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    line
+appendixsubsubsec       line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               line
+
+part                    line,formatted_line,root,contain_basic_inline,sectioning_heading,global,unnumbered        line
+appendixsection         line,formatted_line,root,contain_basic_inline,sectioning_heading,appendix               line
+majorheading            line,formatted_line,contain_basic_inline,sectioning_heading,close_paragraph,global    line
+centerchap              line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered,deprecated    line
+
+# used as section title name for @node, but not formatted
+xrefname                line,contain_basic_inline,close_paragraph,global   line
+
+# end of document, end of block
+bye                     line,preamble                       lineraw
+end                     line,preamble,contain_plain_text    text
+
+# comments
+c                       line,preamble                   lineraw 1
+comment                 line,preamble                   lineraw 1
+
+# set, clear, argument especially parsed
+set                     line,preamble                   lineraw 2
+clear                   line,preamble                   lineraw 1
+unmacro                 line,preamble                   lineraw 1
+# arg should be an @-command
+clickstyle              line,global,preamble,deprecated            lineraw 1
+
+# special
+definfoenclose          line,preamble,contain_plain_text,deprecated    specific  3
+alias                   line,preamble,contain_plain_text               specific  2
+
+# number of arguments is not known in advance.
+columnfractions         line,preamble,contain_plain_text         specific
+
+# file names, only plain text in argument
+setfilename             line,close_paragraph,global_unique,preamble,contain_plain_text   text
+verbatiminclude         line,formattable_line,close_paragraph,contain_plain_text         text
+include                 line,preamble,contain_plain_text                                 text
+
+raisesections           line,preamble                    lineraw
+lowersections           line,preamble                    lineraw
+contents                line,close_paragraph,global,preamble    lineraw
+shortcontents           line,close_paragraph,global,preamble    lineraw
+summarycontents         line,close_paragraph,global,preamble    lineraw
+insertcopying           line,formattable_line,close_paragraph,global      lineraw
+maketitle               line,formattable_line,close_paragraph,global_unique      lineraw
+
+# more relevant in preamble
+documentencoding        line,global,preamble,contain_plain_text   text
+novalidate              line,global_unique,preamble               lineraw
+# Position with regard with direntry is significant
+dircategory             line,close_paragraph,preamble,contain_basic_inline   line
+# arg like 200mm,150mm or 11.5in
+pagesizes               line,global_unique,preamble,contain_plain_text      line
+finalout                line,preamble                            lineraw
+# arg none asis
+# or a number and forbids anything else on the line
+paragraphindent         line,global,preamble,contain_plain_text  specific  1
+# arg none insert
+firstparagraphindent    line,global,preamble,contain_plain_text  specific  1
+# arg on off
+frenchspacing           line,global,preamble,contain_plain_text  specific  1
+# arg on off
+codequoteundirected     line,global,preamble,contain_plain_text  specific  1
+# arg on off
+codequotebacktick       line,global,preamble,contain_plain_text  specific  1
+# arg on off
+xrefautomaticsectiontitle line,global,preamble,contain_plain_text    specific  1
+# arg on off
+deftypefnnewline        line,global,preamble,contain_plain_text  specific  1
+# arg 10 11
+fonttextsize            line,global_unique,preamble,contain_plain_text    specific  1
+# arg false or true
+allowcodebreaks         line,global,preamble,contain_plain_text  specific  1
+# arg asis or a number
+exampleindent           line,global,preamble,contain_plain_text  specific  1
+# args end and separate, nothing else on the line
+footnotestyle           line,global_unique,preamble,contain_plain_text    specific  1
+# arg after|before|none
+urefbreakstyle          line,global,preamble,contain_plain_text  specific  1
+smallbook               line,global_unique,preamble     lineraw
+afivepaper              line,global_unique,preamble     lineraw
+afourpaper              line,global_unique,preamble     lineraw
+afourlatex              line,global_unique,preamble     lineraw
+afourwide               line,global_unique,preamble     lineraw
+bsixpaper               line,global_unique,preamble     lineraw
+# arg off on single double singleafter doubleafter
+# interacts with setchapternewpage
+headings                line,global,preamble,contain_plain_text  specific  1
+# arg off on odd
+setchapternewpage       line,global_unique,preamble,contain_plain_text    specific  1
+# arg on off
+microtype               line,global,preamble,contain_plain_text  specific  1
+
+everyheading            line,global_unique,heading_spec,preamble,contain_basic_inline      line
+everyfooting            line,global_unique,heading_spec,preamble,contain_basic_inline      line
+evenheading             line,global_unique,heading_spec,preamble,contain_basic_inline      line
+evenfooting             line,global_unique,heading_spec,preamble,contain_basic_inline      line
+oddheading              line,global_unique,heading_spec,preamble,contain_basic_inline      line
+oddfooting              line,global_unique,heading_spec,preamble,contain_basic_inline      line
+
+# args are index identifiers
+syncodeindex            line,preamble,contain_plain_text         specific  2
+synindex                line,preamble,contain_plain_text         specific  2
+# one identifier arg
+defindex                line,preamble,contain_plain_text         specific  1
+# one identifier arg
+defcodeindex            line,preamble,contain_plain_text         specific  1
+
+# language code arg
+documentlanguage        line,global,preamble,contain_plain_text  text
+
+# arg code example distinct
+kbdinputstyle           line,global,preamble,contain_plain_text  specific  1
+
+# arg top bottom
+everyheadingmarks       line,global_unique,preamble,contain_plain_text   specific  1
+everyfootingmarks       line,global_unique,preamble,contain_plain_text   specific  1
+evenheadingmarks        line,global_unique,preamble,contain_plain_text   specific  1
+oddheadingmarks         line,global_unique,preamble,contain_plain_text   specific  1
+evenfootingmarks        line,global_unique,preamble,contain_plain_text   specific  1
+oddfootingmarks         line,global_unique,preamble,contain_plain_text   specific  1
+
+# formatting
+center                  line,formatted_line,close_paragraph                line
+printindex              line,formattable_line,close_paragraph,global,contain_plain_text     specific  1
+listoffloats            line,formattable_line,close_paragraph,global,contain_basic_inline   line
+exdent                  line,formatted_line,close_paragraph            line
+# or nobrace skipspace, depending on the context
+item_LINE               line,formatted_line,close_paragraph    line
+itemx                   line,formatted_line,close_paragraph    line
+nodedescription         line,close_paragraph,contain_basic_inline          line
+# in index entries
+subentry                line,in_index,contain_basic_inline          line
+# for printed output.  @vskip 0pt plus 1filll
+vskip                   line,formattable_line                       lineraw 1
+# one numerical/real arg
+need                    line,formattable_line,close_paragraph,contain_plain_text   specific  1
+
+shorttitlepage          line,global_unique,preamble,contain_basic_inline     line
+settitle                line,global_unique,preamble,contain_basic_inline     line
+# especially in titlepage
+# can appear in preamble only within @titlepage
+author                  line,formatted_line,global,contain_basic_inline            line
+subtitle                line,formatted_line,global,contain_basic_inline            line
+title                   line,formatted_line,global_unique,contain_basic_inline     line
+# numerical arg
+sp                      line,formattable_line,close_paragraph,contain_plain_text    specific  1
+page                    line,formatted_line,close_paragraph        lineraw
+
+# index commands
+cpindex                 line,index_entry_command,contain_basic_inline      line
+cindex                  line,index_entry_command,contain_basic_inline      line
+fnindex                 line,index_entry_command,contain_basic_inline      line
+findex                  line,index_entry_command,contain_basic_inline      line
+vrindex                 line,index_entry_command,contain_basic_inline      line
+vindex                  line,index_entry_command,contain_basic_inline      line
+kyindex                 line,index_entry_command,contain_basic_inline      line
+kindex                  line,index_entry_command,contain_basic_inline      line
+pgindex                 line,index_entry_command,contain_basic_inline      line
+pindex                  line,index_entry_command,contain_basic_inline      line
+tpindex                 line,index_entry_command,contain_basic_inline      line
+tindex                  line,index_entry_command,contain_basic_inline      line
+
+##########################################################
+#
+# brace commands
+#
+##########################################################
+
+# letter_no_arg_commands
+aa                      brace,letter_no_arg             noarg
+AA                      brace,letter_no_arg             noarg
+ae                      brace,letter_no_arg             noarg
+oe                      brace,letter_no_arg             noarg
+AE                      brace,letter_no_arg             noarg
+OE                      brace,letter_no_arg             noarg
+o                       brace,letter_no_arg             noarg
+O                       brace,letter_no_arg             noarg
+ss                      brace,letter_no_arg             noarg
+l                       brace,letter_no_arg             noarg
+L                       brace,letter_no_arg             noarg
+DH                      brace,letter_no_arg             noarg
+dh                      brace,letter_no_arg             noarg
+TH                      brace,letter_no_arg             noarg
+th                      brace,letter_no_arg             noarg
+
+# no arg commands
+TeX                     brace                           noarg
+LaTeX                   brace                           noarg
+bullet                  brace                           noarg
+copyright               brace                           noarg
+registeredsymbol        brace                           noarg
+dots                    brace                           noarg
+enddots                 brace                           noarg
+equiv                   brace                           noarg
+error                   brace                           noarg
+expansion               brace                           noarg
+arrow                   brace                           noarg
+minus                   brace                           noarg
+point                   brace                           noarg
+print                   brace                           noarg
+result                  brace                           noarg
+today                   brace                           noarg
+exclamdown              brace                           noarg
+questiondown            brace                           noarg
+pounds                  brace                           noarg
+ordf                    brace                           noarg
+ordm                    brace                           noarg
+atchar                  brace                           noarg
+ampchar                 brace                           noarg
+lbracechar              brace                           noarg
+rbracechar              brace                           noarg
+backslashchar           brace                           noarg
+hashchar                brace                           noarg
+comma                   brace                           noarg
+euro                    brace                           noarg
+geq                     brace                           noarg
+leq                     brace                           noarg
+tie                     brace                           noarg
+textdegree              brace                           noarg
+click                   brace                           noarg
+quotedblleft            brace                           noarg
+quotedblright           brace                           noarg
+quoteleft               brace                           noarg
+quoteright              brace                           noarg
+quotedblbase            brace                           noarg
+quotesinglbase          brace                           noarg
+guillemetleft           brace                           noarg
+guillemetright          brace                           noarg
+guillemotleft           brace                           noarg
+guillemotright          brace                           noarg
+guilsinglleft           brace                           noarg
+guilsinglright          brace                           noarg
+
+# accent commands - can be called with or without braces
+\"                      brace,accent,contain_plain_text   accent
+~                       brace,accent,contain_plain_text   accent
+^                       brace,accent,contain_plain_text   accent
+`                       brace,accent,contain_plain_text   accent
+'                       brace,accent,contain_plain_text   accent
+,                       brace,accent,contain_plain_text   accent
+=                       brace,accent,contain_plain_text   accent
+ringaccent              brace,accent,contain_plain_text   accent
+H                       brace,accent,contain_plain_text   accent
+dotaccent               brace,accent,contain_plain_text   accent
+u                       brace,accent,contain_plain_text   accent
+ubaraccent              brace,accent,contain_plain_text   accent
+udotaccent              brace,accent,contain_plain_text   accent
+v                       brace,accent,contain_plain_text   accent
+ogonek                  brace,accent,contain_plain_text   accent
+tieaccent               brace,accent,contain_plain_text   accent
+dotless                 brace,accent,contain_plain_text   accent
+
+# Style commands
+# Leading and trailing spaces kept in main text.
+asis                    brace                           style_other
+i                       brace                           style_other
+b                       brace                           style_other
+sansserif               brace                           style_other
+slanted                 brace                           style_other
+cite                    brace                           style_other
+clicksequence           brace                           style_other
+dfn                     brace                           style_other
+emph                    brace                           style_other
+sc                      brace                           style_other
+var                     brace                           style_other
+headitemfont            brace                           style_other
+strong                  brace                           style_other
+sub                     brace                           style_other
+sup                     brace                           style_other
+
+# code style commands
+code                    brace,brace_code                      style_code
+command                 brace,brace_code                      style_code
+env                     brace,brace_code                      style_code
+file                    brace,brace_code                      style_code
+indicateurl             brace,brace_code                      style_code
+kbd                     brace,brace_code                      style_code
+key                     brace,brace_code,contain_plain_text   style_code
+option                  brace,brace_code                      style_code
+samp                    brace,brace_code                      style_code
+t                       brace,brace_code                      style_code
+
+# No code style commands
+r                       brace                           style_no_code
+
+# context brace commands - commands that enclose full texts
+# not in the main document context.  They can contain multiple paragraphs.
+# They hold leading and trailing spaces.  They contain a brace_command_context
+# type element.
+footnote                brace,global                    context
+caption                 brace,close_paragraph,no_paragraph,non_formatted_brace           context
+shortcaption            brace,close_paragraph,contain_basic_inline,no_paragraph,non_formatted_brace    context
+# Commands that enclose math content, and, because of that, are not in the
+# main document context.
+math                    brace,math,contain_basic_inline  context
+
+# in this category, the leading and trailing spaces are separated from
+# the arguments and commas do not delimitate arguments.
+# Similar with other arguments brace_commands, they can only contain
+# simple text (no ref, footnote, titlefont, anchor, verb) or even plain text,
+# without even indicatric @-commands.
+# Parsers have specific checks for U content.
+U                       brace                                      arguments     1
+hyphenation             brace,global,preamble,contain_plain_text,no_paragraph,non_formatted_brace   arguments     1
+anchor                  brace,contain_basic_inline,no_paragraph,non_formatted_brace                 arguments     1
+namedanchor             brace,contain_basic_inline,no_paragraph,non_formatted_brace                 arguments     2
+errormsg                brace,preamble,contain_basic_inline,no_paragraph,non_formatted_brace        arguments     1
+sortas                  brace,in_index,contain_plain_text,non_formatted_brace          arguments     1
+seeentry                brace,in_index,contain_basic_inline        arguments     1
+seealso                 brace,in_index,contain_basic_inline        arguments     1
+
+# explained commands
+abbr                    brace,explained,contain_basic_inline      arguments     2
+acronym                 brace,explained,contain_basic_inline      arguments     2
+
+email                   brace,contain_basic_inline      arguments     2
+
+uref                    brace,contain_basic_inline      arguments     3
+url                     brace,contain_basic_inline      arguments     3
+inforef                 brace,ref,contain_basic_inline,deprecated     arguments     3
+link                    brace,ref,contain_basic_inline  arguments     3
+
+xref                    brace,ref,contain_basic_inline  arguments     5
+ref                     brace,ref,contain_basic_inline  arguments     5
+pxref                   brace,ref,contain_basic_inline  arguments     5
+image                   brace,contain_basic_inline,no_paragraph      arguments     5
+
+# leading space is ignored in inline brace commands, not trailing space
+# inline format command
+inlineraw               brace,preamble,inline_format    inline        2
+inlinefmt               brace,preamble,inline_format    inline        2
+inlinefmtifelse         brace,preamble,inline_format    inline        3
+
+# inline conditional commands
+inlineifclear           brace,preamble,inline_conditional   inline        2
+inlineifset             brace,preamble,inline_conditional   inline        2
+
+# verb is treated especially, it should not matter much in which category it is.
+# value also is treated especially.
+# Leading and trailing spaces kept in main text.
+value                   brace                           special
+verb                    brace,brace_code                special
+w                       brace,contain_basic_inline      special
+
+# other brace commands, leading and trailing spaces kept in main text
+dmn                     brace,contain_plain_text        other         1
+titlefont               brace,close_paragraph,global,contain_basic_inline,no_paragraph    other         1
+
+
+##########################################################
+#
+# Block commands
+#
+# commands delimiting blocks, with an @end.
+#
+##########################################################
+
+# Note that all the block commands are set to no_paragraph when this
+# file is processed
+
+# def* commands
+deffn                   block,def,contain_basic_inline,close_paragraph       def
+defvr                   block,def,contain_basic_inline,close_paragraph       def
+deftypefn               block,def,contain_basic_inline,close_paragraph       def
+deftypeop               block,def,contain_basic_inline,close_paragraph       def
+deftypevr               block,def,contain_basic_inline,close_paragraph       def
+defcv                   block,def,contain_basic_inline,close_paragraph       def
+deftypecv               block,def,contain_basic_inline,close_paragraph       def
+defop                   block,def,contain_basic_inline,close_paragraph       def
+deftp                   block,def,contain_basic_inline,close_paragraph       def
+#   shortcuts
+defun                   block,def,contain_basic_inline,def_alias,close_paragraph    def
+defmac                  block,def,contain_basic_inline,def_alias,close_paragraph    def
+defspec                 block,def,contain_basic_inline,def_alias,close_paragraph    def
+defvar                  block,def,contain_basic_inline,def_alias,close_paragraph    def
+defopt                  block,def,contain_basic_inline,def_alias,close_paragraph    def
+deftypefun              block,def,contain_basic_inline,def_alias,close_paragraph    def
+deftypevar              block,def,contain_basic_inline,def_alias,close_paragraph    def
+defivar                 block,def,contain_basic_inline,def_alias,close_paragraph    def
+deftypeivar             block,def,contain_basic_inline,def_alias,close_paragraph    def
+defmethod               block,def,contain_basic_inline,def_alias,close_paragraph    def
+deftypemethod           block,def,contain_basic_inline,def_alias,close_paragraph    def
+
+# generic, no automatic index
+defblock                block,close_paragraph           def
+defline                 line,def,close_paragraph        line
+deftypeline             line,def,close_paragraph        line
+
+# def*x
+deffnx                  line,def,contain_basic_inline,close_paragraph        line
+defvrx                  line,def,contain_basic_inline,close_paragraph        line
+deftypefnx              line,def,contain_basic_inline,close_paragraph        line
+deftypeopx              line,def,contain_basic_inline,close_paragraph        line
+deftypevrx              line,def,contain_basic_inline,close_paragraph        line
+defcvx                  line,def,contain_basic_inline,close_paragraph        line
+deftypecvx              line,def,contain_basic_inline,close_paragraph        line
+defopx                  line,def,contain_basic_inline,close_paragraph        line
+deftpx                  line,def,contain_basic_inline,close_paragraph        line
+#   shortcuts
+defunx                  line,def,contain_basic_inline,def_alias,close_paragraph     line
+defmacx                 line,def,contain_basic_inline,def_alias,close_paragraph     line
+defspecx                line,def,contain_basic_inline,def_alias,close_paragraph     line
+defvarx                 line,def,contain_basic_inline,def_alias,close_paragraph     line
+defoptx                 line,def,contain_basic_inline,def_alias,close_paragraph     line
+deftypefunx             line,def,contain_basic_inline,def_alias,close_paragraph     line
+deftypevarx             line,def,contain_basic_inline,def_alias,close_paragraph     line
+defivarx                line,def,contain_basic_inline,def_alias,close_paragraph     line
+deftypeivarx            line,def,contain_basic_inline,def_alias,close_paragraph     line
+defmethodx              line,def,contain_basic_inline,def_alias,close_paragraph     line
+deftypemethodx          line,def,contain_basic_inline,def_alias,close_paragraph     line
+
+multitable              block,close_paragraph,blockitem,contain_basic_inline   multitable
+
+# menu commands in which menu entry and menu comments appear
+menu                    block,close_paragraph             menu
+detailmenu              block,close_paragraph,global      menu
+direntry                block,close_paragraph,preamble    menu
+
+# align commands
+raggedright             block,close_paragraph
+flushleft               block,close_paragraph
+flushright              block,close_paragraph
+indentedblock           block,close_paragraph
+smallindentedblock      block,close_paragraph
+
+cartouche               block,close_paragraph             other    1
+group                   block,close_paragraph
+
+nodedescriptionblock    block,close_paragraph,non_formatted_block
+
+# region commands
+titlepage               block,close_paragraph,global_unique,preamble     region
+copying                 block,close_paragraph,global_unique,preamble     region
+documentdescription     block,close_paragraph,global_unique,preamble     region
+documentinfo            block,close_paragraph,global_unique,preamble     region
+publication             block,close_paragraph,global_unique,preamble     region
+
+# preformatted commands
+example           block,close_paragraph,preformatted,preformatted_code,variadic,contain_basic_inline   preformatted
+smallexample      block,close_paragraph,preformatted,preformatted_code            preformatted
+lisp              block,close_paragraph,preformatted,preformatted_code            preformatted
+smalllisp         block,close_paragraph,preformatted,preformatted_code            preformatted
+display           block,close_paragraph,preformatted      preformatted
+smalldisplay      block,close_paragraph,preformatted      preformatted
+format            block,close_paragraph,preformatted      preformatted
+smallformat       block,close_paragraph,preformatted      preformatted
+
+# format raw commands
+html                    block,preamble                    format_raw
+tex                     block,preamble                    format_raw
+xml                     block,preamble                    format_raw
+docbook                 block,preamble                    format_raw
+latex                   block,preamble                    format_raw
+
+# raw commands
+verbatim                block,close_paragraph                 raw
+ignore                  block,preamble,non_formatted_block    raw
+linemacro               block,preamble,non_formatted_block    raw
+macro                   block,preamble,non_formatted_block    raw
+rmacro                  block,preamble,non_formatted_block    raw
+
+table                   block,close_paragraph,blockitem,contain_basic_inline   item_line       1
+ftable                  block,close_paragraph,blockitem,contain_basic_inline   item_line       1
+vtable                  block,close_paragraph,blockitem,contain_basic_inline   item_line       1
+itemize                 block,close_paragraph,blockitem,contain_basic_inline   item_container  1
+enumerate               block,close_paragraph,blockitem,contain_basic_inline   item_container  1
+quotation               block,close_paragraph,contain_basic_inline             quotation       1
+smallquotation          block,close_paragraph,contain_basic_inline             quotation       1
+
+float                   block,close_paragraph,global,contain_basic_inline      float           2
+
+displaymath             block,close_paragraph,math        math
+
+# Conditional commands
+ifhtml                  block                           conditional
+ifnothtml               block                           conditional
+iftex                   block                           conditional
+ifnottex                block                           conditional
+ifxml                   block                           conditional
+ifnotxml                block                           conditional
+ifdocbook               block                           conditional
+ifnotdocbook            block                           conditional
+ifinfo                  block                           conditional
+ifnotinfo               block                           conditional
+ifplaintext             block                           conditional
+ifnotplaintext          block                           conditional
+iflatex                 block                           conditional
+ifnotlatex              block                           conditional
+ifset                   block                           conditional             1
+ifclear                 block                           conditional             1
+ifcommanddefined        block                           conditional             1
+ifcommandnotdefined     block                           conditional             1
+

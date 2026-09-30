@@ -1,0 +1,270 @@
+* Document setfacl --restore --physical / setfattr --restore --physical -h
+
+
+Send encrypted mail:
+
+  gpg --encrypt --armor --recipient linux-distros@vs.openwall.org -o - announce-private.txt \
+  | mail -s "[vs] Symlink Traversal Privilege Escalation via getfattr/setfattr, getfacl/setfacl/chacl, libacl" linux-distros@vs.openwall.org
+
+Next steps:
+
+Google Drive:
+https://drive.google.com/drive/folders/1fnrCxTiGglDk82gLkcF-65YYe6Hv9Ud_
+
+* Create pre-release tarballs, sign them, and upload them to Google Drive
+  - Use gnupload for signing?
+* Send an announcement to the private list linux-distros@lists.openwall.com
+  (encrypted (pubkey attached))
+  - Credit Wade and Marcus Meissner
+
+When public:
+
+* Release and create tarballs
+* Push to Savannah
+* Gnupload
+* Email Wade Sparks to release the CVEs
+* Send an announcement to the public list oss-security@lists.openwall.com
+
+===
+
+All the embargoed JIRA issues:
+
+https://redhat.atlassian.net/issues?jql=type%20%3D%20Vulnerability%20AND%20project%20%3D%20%22RHEL%22%20and%20labels%20in%20%28%22CVE-2026-54369%22%2C%20%22CVE-2026-54370%22%2C%20%22CVE-2026-54371%22%29
+
+===
+
+* Get gnupload to work for uploading release tarballs!
+
+===
+
+* Add libacl functional tests for library funtions (for follow / nofollow / empty pathname / ...)
+* Remove broken tests
+* Add walk_tree tests
+
+* Talk to the package maintainers.
+
+Tools:
+* getfacl visited directory skipping testing
+* getfacl --one-file-system testing
+* setfacl walk_tree testing
+
+--
+
+* Utilities don't quote filenames that they print out; may be tricky to address. xquote()?
+
+===
+
+* perm_copy_file_at()?  Deprecate perm_copy_*()?
+* perm_copy_fd() doesn't copy default ACLs of directories => fixed
+  - currently affects shadow-utils
+
+===
+
+libacl notes:
+
+"An aggravating problem is that acl_get_fd() and acl_set_fd() operate on the
+access acl only and cannot be used to change the default acl of a directory
+file descriptor. This will have pushed users towards using acl_get_file() and
+acl_set_file() instead. The _at function variants get rid of that problem as
+well."
+
+libacl backward compatibility note:
+
+Be careful when using AT_EMPTY_PATH with O_PATH dirfd file descriptors because
+that will currently cause all future AT_EMPTY_PATH calls to go through
+/proc/self/fd.  Those may be slightly slower than expected, but they will also
+break when /proc isn't mounted.
+
+Related suggested kernel fix:
+[PATCH 2/3] xattrat: accept empty O_PATH file descriptors
+https://lore.kernel.org/linux-fsdevel/20260607164136.2948550-2-agruenba@redhat.com/
+
+GNU tar compatibility note:
+
+Currently, tar unconditionally defines its own internal acl_get_file_at(),
+acl_set_file_at(), acl_delete_def_file_at(), and file_has_acl_at() functions.
+The first three will conflict with the functions now defined in libacl, and
+tar's internal functions are not compatible with the libacl ones (they lack the
+AT_*flags parameter).  A minimal patch to rename tar's internal functions is on
+its way.
+
+On systems where openat2 is available but the historic behavior should be
+preserved, use the --disable-openat2 configure option.
+
+===
+
+* Kind of fix perm_copy_file()?
+* Use O_PATH operations for modifying individual objects?
+
+===
+
+Relevant Packages
+-----------------
+
+System Utilities:
+  systemd
+  shadow-utils
+    https://github.com/shadow-maint/shadow/blob/master/lib/copydir.c
+    - Uses perm_copy_fd() for files and directories => affected by perm_copy_fd() not copying default acls!
+    Fedora: ipedrosa
+  coreutils
+  GNU tar
+    Fedora: praiskup
+  star
+  rpm
+    pcahyna
+  samba
+    Looks okay; upstream informed
+  rsync
+    Upstream was already aware
+  logrotate
+    TODO: check!
+
+Editors:
+  emacs
+  vim
+  vis
+
+Other:
+  gnulib
+    * Use acl_{get/set}_file_at to get / set the default acl of a directory
+      file descriptor
+  cups
+  gettext
+  kdelibs*
+  proftpd
+  pylibacl
+
+From lzaoral:
+> List of Fedora Rawhide components that have a runtime dependency on acl (either cli or libacl):
+>
+> Command executed on a rawhide 1minutetip machine:
+> repoquery -q --disablerepo '*' --enablerepo 'fedora' --whatdepends acl \
+>   --whatdepends libacl --whatdepends 'libacl.so.1()(64bit)' \
+>   --whatdepends libacl-devel --qf '%{source_name}'
+>
+> 389-ds-base acl aide bacula bfs borgbackup clifm conu coreutils cups
+> diffoscope dnf5 eiciel emacs freeipa gettext glusterfs gnome-vfs2 incus
+> kdelibs kdelibs3 kf5-kio kf6-kio krusader libarchive libguestfs libisoburn
+> libisofs libvirt logrotate munin netatalk nfs-ganesha openscap php proftpd
+> pylibacl rpm rsync rsync-bpc rust-exacl rust-sigul-pesign-bridge samba
+> shadow-utils snapper spice-gtk sssd star systemd tar testcloud tlpi udisks2
+> uutils-coreutils vim vis
+
+===
+
+RSYNC RELEASE
+=============
+
+https://github.com/RsyncProject/rsync-security/blob/master/May2026/cve_plan.txt
+https://github.com/RsyncProject/rsync-security/tree/master/April2026/rsync-3.4.3-security
+
+LIBACL / ACL / ATTR RELEASE
+===========================
+
+Release versions:
+  acl-2.4.0
+  attr-2.6.0
+
+Release time:
+  2026-06-29T13:00:00.000Z
+
+Release process:
+  1. Make release
+  2. Email Wade Sparks to release the CVEs
+
+When the final release happens:
+* email the public list oss-security@lists.openwall.com.
+  * Archive: https://www.openwall.com/lists/oss-security/
+  * Example, "libcap-2.77 (since libcap-2.04) has TOCTOU privilege escalation issue"
+    https://www.openwall.com/lists/oss-security/2026/04/07/4
+
+
+CVE DESCRIPTION / RELEASE NOTES
+===============================
+
+- When passed directory file descriptors, function perm_copy_fd() didn't copy
+  the default ACL from one directory to the other.  It now does.
+
+
+1. libacl symlink traversal vulnerabilities (local privilege escalation)
+CVE ID: CVE-2026-54369
+Date Public: 2026-06-29T13:00:00.000Z
+Fixed in: acl = 2.4.0 [UNRELEASED]
+Affected software: All programs that use libacl "improperly"
+Problem type: CWE-59: Improper Link Resolution Before File Access ('Link Following')
+
+The libacl functions acl_get_file(), acl_set_file(), acl_extended_file(), and
+acl_delete_def_file() take a pathname argument, and follow symbolic links.
+When a privileged user calls one of those functions, an attacker that controls
+a pathname component can replace a file or directory with a symbolic link and
+redirect the operation to a different file.  This can lead to local privilege
+escalation.
+
+These library functions cannot be fixed without breaking compatibility; the
+described behaviour is by design.
+
+Instead, version 2.4.0 of the acl package [UNRELEASED] introduces the new
+functions acl_get_file_at(), acl_set_file_at(), acl_extended_file_at(), and
+acl_delete_def_file_at().  These functions each take a dirfd file descriptor
+argument and an at_flags argument and accept the AT_SYMLINK_NOFOLLOW and
+AT_EMPTY_PATH flags.  These functions should be used when following symbolic
+links is not desired.
+
+In addition, the libacl functions acl_get_fd(), acl_set_fd(), and
+acl_extended_fd() functions always operate on the access ACL of the file or
+directory specified by file descriptor, and do not allow to operate on the
+default ACL of a directory.  This may have caused the pathname based functions
+to be used instead, leading to the above mentioned vulnerability.  The new
+functions do not have this limitation.
+
+System call interface: for operations not supported by the old
+[l]{get,set,remove}xattr() system calls, the new libacl library functions will
+use the {get,set,remove}xattrat() system calls introduced in kernel version
+6.13 in January 2025.  When those system calls are not available, the library
+will fall back to /proc filesystem hacks.  The new functions will fail with
+errno == EBADF when the /proc filesystem is not available.
+
+
+2. getfacl and setfacl symlink traversal vulnerabilities (local privilege escalation)
+CVE ID: CVE-2026-54370
+Date Public: 2026-06-29T13:00:00.000Z
+Fixed in: acl = 2.4.0 [UNRELEASED]
+Affected versions: acl < 2.4.0
+Problem type: CWE-367: Time-of-check Time-of-use (TOCTOU) Race Condition
+
+The getfacl and setfacl utilities access files and traverse directory
+hierarchies by constructing the full pathnames for each file to be
+visited. Then, after checking the file type with lstat(), they use
+system calls like stat(), chown(), and chmod(), and libacl functions
+like acl_get_file() and acl_set_file() which do traverse symlinks. An
+attacker that controls a pathname component can replace a file or
+directory with a symbolic link and redirect the operation to different
+files. This can lead to local privilege escalation.
+
+
+3. getfattr symlink traversal vulnerabilities (local privilege escalation)
+CVE ID: CVE-2026-54371
+Date Public: 2026-06-29T13:00:00.000Z
+Fixed in: attr = 2.6.0 [UNRELEASED]
+Affected versions: attr < 2.6.0
+Problem type: CWE-367: Time-of-check Time-of-use (TOCTOU) Race Condition
+
+The getfattr utility accesses files and traverses directory
+hierarchies by constructing the full pathnames for each file to be
+visited. An attacker that controls a pathname component can replace a
+file or directory with a symbolic link and redirect the operation to
+different files. This can lead to local privilege escalation.
+
+
+CVE
+===
+
+CWE definitions: https://cwe.mitre.org/data/index.html
+
+
+Fixes since acl-2.3.99 / attr-2.5.99:
+
+- Recent glibs does provide an openat2 shim, but it's slightly different.
+
+- Fix 'attr -l' failure (bug in attr commit "Fix some compiler warnings")

@@ -1,0 +1,166 @@
+.\"
+.\" Copyright (c) 2002-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2012-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1994      Henry Ware <al172@yfn.ysu.edu>
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH VMSTAT 8 2024\-07\-19 procps\-ng 
+.SH 名称
+vmstat \- 报告虚拟内存统计信息
+.SH 概述
+\fBvmstat\fP [\fI选项\fP .\|.\|.\&] [\fI延迟\fP [\fI计数\fP]]
+.SH 描述
+\fBvmstat\fP 报告有关进程、内存、分页、块 IO、陷阱、磁盘和 CPU 活动的信息。
+.PP
+生成的第一份报告给出了自上次重新启动以来的平均值。后续的报告提供在长度为 \fI延迟\fP 的采样周期内的信息。无论哪种情况，进程和内存报告都是即时的。
+.SH 选项
+.TP 
+\fI延迟\fP
+更新之间的 \fI延迟\fP（以秒为单位）。如果未指定 \fI延迟\fP，则仅打印一份报告，其中包含自启动以来的平均值。
+.TP 
+\fI计数\fP
+更新次数。在没有 \fI计数\fP，且定义了 \fI延迟\fP 时，默认为无限次。
+.TP 
+\fB\-a\fP, \fB\-\-active\fP
+显示活动和不活动内存（内核版本 2.5.41 或更高）。
+.TP 
+\fB\-f\fP, \fB\-\-forks\fP
+\fB\-f\fP 开关显示自启动以来的 fork 次数。这包括 fork、vfork 和 clone
+系统调用，相当于创建的任务总数。每个进程包括一个或多个任务，具体取决于线程的使用情况。该输出不会重复显示。
+.TP 
+\fB\-m\fP, \fB\-\-slabs\fP
+显示 slab 信息。
+.TP 
+\fB\-n\fP, \fB\-\-one\-header\fP
+表头仅显示一次，而不是周期性地显示。
+.TP 
+\fB\-s\fP, \fB\-\-stats\fP
+显示包含各种事件计数器和内存统计信息的表格。该输出不会重复显示。
+.TP 
+\fB\-d\fP, \fB\-\-disk\fP
+报告磁盘统计信息（需要 2.5.70 或更高）。
+.TP 
+\fB\-D\fP, \fB\-\-disk\-sum\fP
+报告关于磁盘活动的一些统计信息的总结。
+.TP 
+\fB\-p\fP, \fB\-\-partition\fP \fI设备\fP
+关于分区的详细统计信息（需要 2.5.70 或更高）。
+.TP 
+\fB\-S\fP, \fB\-\-unit\fP \fI字符\fP
+选择输出的单位：1000 (\fIk\fP)、1024 (\fIK\fP)、1000000 (\fIm\fP) 或 1048576 (\fIM\fP)
+字节。请注意，此选项不会更改块（块入/块出）字段。
+.TP 
+\fB\-t\fP, \fB\-\-timestamp\fP
+在每行末尾添加时间戳
+.TP 
+\fB\-w\fP, \fB\-\-wide\fP
+宽输出模式（对于具有较大的内存的系统很有用，这种情况下默认输出模式的各列可能不对齐，让人感觉不太舒服）。输出的行的长度超过 80 个字符。
+.TP 
+\fB\-y\fP, \fB\-\-no\-first\fP
+省略第一份报告，即自系统启动以来的统计信息。
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+显示版本信息并退出。
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+显示帮助并退出。
+.SH "VM 模式的字段描述"
+.SS 进程
+.nf
+运 (r)：可运行进程的数量（正在运行或等待运行）。
+阻 (b)：被阻塞以等待 I/O 完成的进程数量。
+.fi
+.SS 内存
+\fB\-\-unit\fP 选项对这部分内容有效。
+.nf
+交换 (swpd)：已用的交换内存大小。
+空闲 (free)：空闲内存大小。
+缓冲区 (buff)：用作缓冲区的内存大小。
+缓存 (cache)：用作缓存的内存大小。
+不活动 (inact)：不活动内存的大小。（\fB\-a\fP 选项）
+活动 (active)：活动内存的大小。（\fB\-a\fP 选项）
+.fi
+.SS 交换
+\fB\-\-unit\fP 选项对这部分内容有效。
+.nf
+换入 (si)：从磁盘换入到内存的内存大小（每秒）。
+换出 (so)：从内存换出到磁盘的内存大小（每秒）。
+.fi
+.SS IO
+.nf
+块入 (bi)：从块设备接收到的 KiB 数 (KiB/s)。
+块出 (bo)：发送到块设备的 KiB 数 (KiB/s)。
+.fi
+.SS 系统
+.nf
+中断 (in)：每秒的中断次数，包括时钟中断。
+上下 (cs)：每秒的上下文切换次数。
+.fi
+.SS CPU
+这些是占总 CPU 时间的百分比。
+.nf
+用 (us)：运行非内核代码的时间。（用户时间，包括 nice 时间）
+系 (sy)：运行内核代码的时间。（系统时间）
+闲 (id)：空闲时消耗的时间。在 Linux 2.5.41 之前，此项包括 IO 等待时间。
+等 (wa)：等待 IO 时消耗的时间。在 Linux 2.5.41 之前，包含于闲 (id) 中。
+丢 (st)：虚拟机被偷取的时间。在 Linux 2.6.11 之前，未知。
+客 (gu)：运行 KVM 客户代码的时间（客户时间，包括客户 nice 时间）。
+.fi
+.SH 磁盘模式的字段描述
+.SS 读取
+.nf
+总计 (total)：成功完成的总读取次数
+合并的 (merged)：已合并的读取次数（只产生一次 I/O）
+扇区 (sectors)：成功读取的扇区数
+毫秒 (ms)：读取耗费的总毫秒数
+.fi
+.SS 写入
+.nf
+总计 (total)：成功完成的总写入次数
+合并的 (merged)：已合并的写入次数（只产生一次 I/O）
+扇区 (sectors)：成功写入的扇区数
+毫秒 (ms)：写入耗费的总毫秒数
+.fi
+.SS IO
+.nf
+当前 (cur)：正在进行的 I/O
+秒 (s)：I/O 耗费的秒数
+.fi
+.SH 磁盘分区模式的字段描述
+.nf
+读取 (reads)：向该分区发出的总读取次数
+读取扇区数 (read sectors)：该分区的已读取的扇区总数
+写入 (writes)：向该分区发出的总写入次数
+写入请求数 (requested writes)：对该分区的写请求总数
+.fi
+.SH "SLAB 模式的字段描述"
+slab 模式显示每个 slab 的统计信息，关于此信息的更多信息请参阅 \fBslabinfo\fP(5)
+.PP
+.nf
+缓存 (cache)：缓存名称
+数量 (num)：当前活动的对象数量
+总计 (total)：可用对象的总数
+大小 (size)：每个对象的大小
+页面 (pages)：含有至少一个活动对象的页面数量
+.fi
+.SH 备注
+\fBvmstat\fP 需要对 \fI/proc\fP 下的文件的读取权限。\fB\-m\fP 需要对 \fI/proc/slabinfo\fP
+的读取权限，而标准用户可能没有该权限。\fI/proc\fP 的挂载选项（例如 \fIsubset=pid\fP）也可能会影响可读取的内容。
+.SH 参见
+\fBfree\fP(1), \fBiostat\fP(1), \fBmpstat\fP(1), \fBps\fP(1), \fBsar\fP(1), \fBtop\fP(1),
+\fBslabinfo\fP(5)
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

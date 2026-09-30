@@ -1,0 +1,22 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+
+setup() {
+	: "${USBHID_DUMP_BUILT:=$DIR/../build/usbhid-dump}"
+	: "${USBHID_DUMP_INSTALLED:=$(command -v usbhid-dump || true)}"
+}
+
+@test "usbhid-dump -h: built and installed help text is identical" {
+	[ -n "$USBHID_DUMP_INSTALLED" ]
+	"$USBHID_DUMP_BUILT"     -h > "$TEST_TMP.built"     2>&1
+	"$USBHID_DUMP_INSTALLED" -h > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "usbhid-dump --help: long option matches -h" {
+	"$USBHID_DUMP_BUILT" -h     > "$TEST_TMP.short" 2>&1
+	"$USBHID_DUMP_BUILT" --help > "$TEST_TMP.long"  2>&1
+	diff -u "$TEST_TMP.short" "$TEST_TMP.long"
+}

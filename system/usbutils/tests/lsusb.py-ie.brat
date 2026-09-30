@@ -1,0 +1,39 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Detail-stacking combinations: interfaces + endpoints (+ wakeup).
+# -C forces no-color so the diff is byte-for-byte.
+
+setup() {
+	: "${LSUSB_PY_BUILT:=$DIR/../lsusb.py}"
+	: "${LSUSB_PY_INSTALLED:=$(command -v lsusb.py || true)}"
+}
+
+@test "lsusb.py -Cie: built and installed output is identical" {
+	[ -n "$LSUSB_PY_INSTALLED" ]
+	"$LSUSB_PY_BUILT"     -Cie > "$TEST_TMP.built"     2>&1
+	"$LSUSB_PY_INSTALLED" -Cie > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb.py -CIe: built and installed output is identical" {
+	[ -n "$LSUSB_PY_INSTALLED" ]
+	"$LSUSB_PY_BUILT"     -CIe > "$TEST_TMP.built"     2>&1
+	"$LSUSB_PY_INSTALLED" -CIe > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb.py -CIew: built and installed output is identical" {
+	[ -n "$LSUSB_PY_INSTALLED" ]
+	"$LSUSB_PY_BUILT"     -CIew > "$TEST_TMP.built"     2>&1
+	"$LSUSB_PY_INSTALLED" -CIew > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb.py -CIew: split flags match" {
+	"$LSUSB_PY_BUILT" -CIew         > "$TEST_TMP.joined" 2>&1
+	"$LSUSB_PY_BUILT" -C -I -e -w   > "$TEST_TMP.split"  2>&1
+	diff -u "$TEST_TMP.joined" "$TEST_TMP.split"
+}

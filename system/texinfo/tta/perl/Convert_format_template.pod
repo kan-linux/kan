@@ -1,0 +1,84 @@
+# Automatically generated from Convert_format_template.pod
+
+=head1 NAME
+
+Texinfo::Convert::OUTFORMAT - Convert Texinfo tree to OUTFORMAT
+
+=head1 SYNOPSIS
+
+  my $converter
+    = Texinfo::Convert::OUTFORMAT->converter({'NUMBER_SECTIONS' => 0});
+
+  # output to files
+  $converter->output($document);
+  # no header nor footer output
+  my $converted = $converter->convert($document);
+
+__HTML   $converter->output_internal_links(); # HTML only
+
+=head1 NOTES
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
+=head1 DESCRIPTION
+
+Texinfo::Convert::OUTFORMAT converts a Texinfo tree to OUTFORMAT.
+
+=head1 METHODS
+
+=over
+
+=item $converter = Texinfo::Convert::OUTFORMAT->converter($options)
+
+Initialize converter from Texinfo to OUTFORMAT.
+
+The I<$options> hash reference holds Texinfo customization options for the
+converter.  These options should be Texinfo customization options
+that can be passed to the converter.  Most of the customization options are
+described in the Texinfo manual or in the customization API manual.  Those
+customization options, when appropriate, override the document content.
+
+See L<Texinfo::Convert::Converter> for more information.
+
+=item $converter->output($document)
+
+Convert a Texinfo parsed document I<$document> and output the result in files as
+described in the Texinfo manual.
+
+=item $result = $converter->convert($document)
+
+Convert a Texinfo parsed document I<$document> and return the resulting output.
+
+=item $result = $converter->convert_tree($tree)
+
+Convert a Texinfo tree portion I<$tree> and return the resulting
+output.  This function does not try to output a full document but only
+portions.  In general it is better to call this function when conversion
+is already ongoing, as it requires an association to a document and a suitably
+initialized converter formatting state.
+
+__HTML =item $result = $converter->output_internal_links()
+__HTML X<C<output_internal_links>>
+__HTML
+__HTML Returns text representing the links in the document.  The format should
+__HTML follow the C<--internal-links> option of the C<texi2any>
+__HTML specification.  This is only supported in (and relevant for) HTML.
+__HTML
+=back
+
+=head1 AUTHOR
+
+Patrice Dumas, E<lt>bug-texinfo@gnu.orgE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2010- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+
+=cut

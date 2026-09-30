@@ -1,0 +1,202 @@
+@node Texinfo@asis{::}Translations
+@chapter Texinfo::Translations
+
+@node Texinfo@asis{::}Translations NAME
+@section Texinfo::Translations NAME
+
+Texinfo::Translations - Translations of output documents strings for Texinfo modules
+
+@node Texinfo@asis{::}Translations SYNOPSIS
+@section Texinfo::Translations SYNOPSIS
+
+@verbatim
+  @ISA = qw(Texinfo::Translations);
+
+  Texinfo::Translations::configure('LocaleData');
+
+  my $tree_translated
+    = Texinfo::Translations::gdt('See {reference} in @cite{{book}}',
+                           [$converter->get_conf('documentlanguage')],
+                          {'reference' => $tree_reference,
+                           'book'  => {'text' => $book_name}});
+@end verbatim
+
+@node Texinfo@asis{::}Translations NOTES
+@section Texinfo::Translations NOTES
+
+The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
+Texinfo to other formats.  There is no promise of API stability.
+
+@node Texinfo@asis{::}Translations DESCRIPTION
+@section Texinfo::Translations DESCRIPTION
+
+The @code{Texinfo::Translations} module helps with translations
+in output documents.
+
+Translation of error messages is not described here, some
+elements are in @ref{Texinfo@asis{::}Common $translated_string = __($msgid),, Texinfo::Common @code{__} and @code{__p}}.
+
+@node Texinfo@asis{::}Translations METHODS
+@section Texinfo::Translations METHODS
+
+No method is exported.
+
+The @code{configure} method sets the translation files base directory.  If not
+called, system defaults are used.
+
+@table @asis
+@item configure($localesdir, $strings_textdomain)
+@anchor{Texinfo@asis{::}Translations configure($localesdir@comma{} $strings_textdomain)}
+
+@emph{$localesdir} is the directory where translation files are found. The
+directory structure and files format should follow the @url{https://www.gnu.org/software/gettext/manual/html_node/Locating-Catalogs.html, conventions expected
+for gettext based
+internationalization}.
+The @emph{$strings_textdomain} is optional, if set, it determines the translation
+domain.
+
+@end table
+
+The @code{new_lang_translation} method sets up a lang translation object that
+is used as argument inthe other method, that contains the language and
+associated already translated strings.
+
+@table @asis
+@item $lang_translations = new_lang_translation($lang, $locale_encoding)
+@anchor{Texinfo@asis{::}Translations $lang_translations = new_lang_translation($lang@comma{} $locale_encoding)}
+@cindex @code{new_lang_translation}
+
+@emph{$lang} is the language of the returned lang translations.  @emph{$locale}
+encoding is optional and should be the encoding used to encode character
+strings to for environment variables.  In general, you should base it on
+the @emph{COMMAND_LINE_ENCODING} customization variable value.
+
+The returned @emph{$lang_translations} is an array reference.  The first element of
+the array is the language.  The second element is the language encoded to the
+local encoding.  The third element should be set to an hash reference holding
+translations already done.
+
+@end table
+
+The @code{gdt} and @code{pgdt} methods are used to translate strings to be output in
+converted documents, and return a Texinfo tree.  The @code{gdt_string} is similar
+but returns a simple string, for already converted strings.
+
+@table @asis
+@item $tree = gdt($string, $lang_translations, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
+@anchor{Texinfo@asis{::}Translations $tree = gdt($string@comma{} $lang_translations@comma{} $replaced_substrings@comma{} $translation_context@comma{} $debug_level@comma{} $object@comma{} $translate_string_method)}
+
+@item $string = gdt_string($string, $lang_translations, $replaced_substrings, $translation_context, $object, $translate_string_method)
+@anchor{Texinfo@asis{::}Translations $string = gdt_string($string@comma{} $lang_translations@comma{} $replaced_substrings@comma{} $translation_context@comma{} $object@comma{} $translate_string_method)}
+
+@cindex @code{gdt}
+@cindex @code{gdt_string}
+
+
+The @emph{$string} is a string to be translated.  With @code{gdt}
+the function returns a Texinfo tree, as the string is interpreted
+as Texinfo code after translation.  With @code{gdt_string} a string
+is returned.
+
+The @emph{$lang_translations}
+argument should be an array reference with one or two elements.  The first
+element of the array is the language used for the translation.  The second
+element, if set, should be an hash reference holding translations already done.
+
+@emph{$replaced_substrings} is an optional hash reference specifying
+some substitution to be done after the translation.  The key of the
+@emph{$replaced_substrings} hash reference identifies what is to be substituted.
+In the string to be translated word in brace matching keys of
+@emph{$replaced_substrings} are replaced.
+For @code{gdt}, the value is a Texinfo tree element that is substituted in the
+resulting Texinfo tree. For @code{gdt_string}, the value is a string that
+is replaced in the resulting string.
+
+@emph{$debug_level} is an optional debugging level supplied to @code{gdt}, similar to
+the @code{DEBUG} customization variable.  If set, the debug level minus one is
+passed to the Texinfo string parser called in @code{gdt}.
+
+The @emph{$translation_context} is optional.  If not @code{undef} this is a translation
+context string for @emph{$string}.  It is the first argument of @code{pgettext}
+in the C API of Gettext.
+
+For example, in the following call, the string
+@code{See @{reference@} in @@cite@{@{book@}@}} is translated, then
+parsed as a Texinfo string, with @emph{@{reference@}} substituted by
+@emph{$tree_reference} in the resulting tree, and @emph{@{book@}}
+replaced by the associated Texinfo tree text element:
+
+@verbatim
+  $tree = gdt('See {reference} in @cite{{book}}', ['ca'],
+              {'reference' => $tree_reference,
+               'book'  => {'text' => $book_name}});
+@end verbatim
+
+By default, @code{gdt} and @code{gdt_string} call @code{cache_translate_string} to use a
+gettext-like infrastructure to retrieve the translated strings, using the
+@emph{texinfo_document} domain.  You can change the method used to retrieve the
+translated strings by providing a @emph{$translate_string_method} argument.  If not
+undef it should be a reference on a function that is called instead of
+@code{cache_translate_string}.  The @emph{$object} is passed as first argument of the
+@emph{$translate_string_method}, the other arguments are the same as
+@ref{Texinfo@asis{::}Translations $translated_string_tree = cache_translate_string($string@comma{} $lang_translations@comma{} $translation_context),, @code{cache_translate_string}}
+arguments.
+
+@item $tree = pgdt($translation_context, $string, $lang_translations, $replaced_substrings, $debug_level, $object, $translate_string_method)
+@anchor{Texinfo@asis{::}Translations $tree = pgdt($translation_context@comma{} $string@comma{} $lang_translations@comma{} $replaced_substrings@comma{} $debug_level@comma{} $object@comma{} $translate_string_method)}
+@cindex @code{pgdt}
+
+Same to @code{gdt} except that the @emph{$translation_context} is not optional.
+Calls @code{gdt}.  This function is useful to mark strings with a
+translation context for translation.  This function is similar to pgettext
+in the Gettext C API.
+
+@end table
+
+By default, in @code{gdt}, @code{gdt_string} and @code{pgdt} a string is translated with
+@code{cache_translate_string}.
+
+@table @asis
+@item $translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context)
+@anchor{Texinfo@asis{::}Translations $translated_string_tree = cache_translate_string($string@comma{} $lang_translations@comma{} $translation_context)}
+@cindex @code{cache_translate_string}
+
+The @emph{$string} is a string to be translated.  The @emph{$lang_translations}
+argument should be an array reference with one or two elements.  The first
+element of the array is the language used for the translation.  The second
+element, if set, should be an hash reference holding translations already done.
+If the language is @code{undef} or an empty string, the input string does not
+need to be translated.  The @emph{$translation_context} is optional.  If not
+@code{undef} this is a translation context string for @emph{$string}.  It is the first
+argument of @code{pgettext} in the C API of Gettext.
+
+@code{cache_translate_string} uses a gettext-like infrastructure to retrieve the
+translated strings, using the @emph{texinfo_document} domain.  Returns an array
+reference with the translated string as first element, or undef if the
+input string should be used as translation.  The second element of the
+reference array, if present, should be the Texinfo tree corresponding to
+the translated string, without the braced arguments substituted.
+
+@end table
+
+@node Texinfo@asis{::}Translations SEE ALSO
+@section Texinfo::Translations SEE ALSO
+
+@url{https://www.gnu.org/software/gettext/manual/, GNU gettext utilities manual}.
+
+@node Texinfo@asis{::}Translations AUTHOR
+@section Texinfo::Translations AUTHOR
+
+Patrice Dumas, <bug-texinfo@@gnu.org>
+
+@node Texinfo@asis{::}Translations COPYRIGHT AND LICENSE
+@section Texinfo::Translations COPYRIGHT AND LICENSE
+
+Copyright 2010- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+

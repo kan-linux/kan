@@ -1,0 +1,246 @@
+@node Texinfo@asis{::}Reader
+@chapter Texinfo::Reader
+
+@node Texinfo@asis{::}Reader NAME
+@section Texinfo::Reader NAME
+
+Texinfo::Reader - Texinfo tree reader
+
+@node Texinfo@asis{::}Reader SYNOPSIS
+@section Texinfo::Reader SYNOPSIS
+
+@verbatim
+  use Texinfo::Parser;
+  use Texinfo::Reader;
+
+  my $parser = Texinfo::Parser::parser();
+  my $document = $parser->parse_texi_file("somefile.texi");
+
+  my $start_element = $document->tree();
+
+  my $reader = Texinfo::Reader::new($start_element);
+
+  while (1) {
+    my $next = $reader->read();
+    last if (!defined($next));
+
+    my $category = $next->{'category'};
+
+    my $element = $next->{'element'};
+
+    if ($category == Texinfo::Reader->TXI_READ_TEXT) {
+      my $text = $element->{'text'};
+      ....
+    } elsif ($category == Texinfo::Reader->TXI_READ_ELEMENT_START) {
+      my $cmdname = $element->{'cmdname'};
+      ...
+    ....
+    }
+  }
+@end verbatim
+
+@node Texinfo@asis{::}Reader NOTES
+@section Texinfo::Reader NOTES
+
+The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
+Texinfo to other formats.  There is no promise of API stability.
+
+Note that this module is not used in @code{texi2any}.
+
+Note that this module could be removed at any time.
+
+@node Texinfo@asis{::}Reader DESCRIPTION
+@section Texinfo::Reader DESCRIPTION
+
+@code{Texinfo::Reader} offers an interface to a Texinfo tree obtained from
+parsing Texinfo code.  This interface is based on a stream of tokens associated
+to tree elements.  This interface is conceptually similar to the interface of
+@url{https://metacpan.org/pod/XML::LibXML::Reader, XML::LibXML::Reader} or @url{https://metacpan.org/pod/Pod::Simple::PullParser, Pod::Simple::PullParser}.
+
+The Reader acts as a cursor going forward on the Texinfo tree and stopping
+at each element on the way, providing with a new token.  The user's code keeps
+control of the progress and simply calls the @code{read()} function repeatedly to
+progress to the next token in the Texinfo document order.  The other
+function provides means for skipping sub-trees.
+
+@node Texinfo@asis{::}Reader METHODS
+@section Texinfo::Reader METHODS
+
+@table @asis
+@item $reader = Texinfo::Reader::new ($element)
+@anchor{Texinfo@asis{::}Reader $reader = Texinfo@asis{::}Reader@asis{::}new ($element)}
+@cindex @code{Texinfo::Reader::new}
+
+Initialize a reader starting at the @emph{$element} Texinfo tree element.
+
+@item $token = $reader->read()
+@anchor{Texinfo@asis{::}Reader $token = $reader->read()}
+@cindex @code{read}
+
+Returns the next token or undef at the end of the tree.
+
+A token is an hash reference with string keys:
+
+@table @asis
+@item element
+@anchor{Texinfo@asis{::}Reader element}
+
+The current tree element.
+
+@item category
+@anchor{Texinfo@asis{::}Reader category}
+
+Information on the tree element and on the position read.  The possible token
+category values are declared as constants and are accessed through
+the @code{Texinfo::Reader} package, like
+@code{Texinfo::Reader->TXI_READ_ELEMENT_START}.
+
+The token category can take the following @code{Texinfo::Reader} constant values:
+
+@table @asis
+@item TXI_READ_ELEMENT_START
+@anchor{Texinfo@asis{::}Reader TXI_READ_ELEMENT_START}
+
+Start of the tree element, before getting the element contents.
+
+@item TXI_READ_ELEMENT_END
+@anchor{Texinfo@asis{::}Reader TXI_READ_ELEMENT_END}
+
+End of the tree element after having read the contents (after a closing
+brace, an @@end, at the end of a container).
+
+@item TXI_READ_TEXT
+@anchor{Texinfo@asis{::}Reader TXI_READ_TEXT}
+
+Text element.
+
+@item TXI_READ_IGNORABLE_TEXT
+@anchor{Texinfo@asis{::}Reader TXI_READ_IGNORABLE_TEXT}
+
+Text element supposed to be ignored, such as spaces appearing after
+an opening brace or around a comma delimiting arguments.
+
+@item TXI_READ_EMPTY
+@anchor{Texinfo@asis{::}Reader TXI_READ_EMPTY}
+
+A tree element which is not a text tree element and does not hold content.  For
+Texinfo @@-commands without braces nor line argument such as @code{@@@@} and for empty
+arguments.  For example the @code{brace_container} argument container of @code{@@TeX@{@}}
+is empty.  Also for invalid constructs such as brace @@-commands without braces.
+
+@end table
+
+@end table
+
+The Texinfo tree element is described in @ref{Texinfo@asis{::}Parser TEXINFO TREE}.
+
+@item $token = $reader->skip_children($element)
+@anchor{Texinfo@asis{::}Reader $token = $reader->skip_children($element)}
+@cindex @code{skip_children}
+
+Skip the remaining of the contents currently being processed.
+Return a token with the @emph{TXI_READ_ELEMENT_END} category, or undef at the end
+of the tree.
+
+If the @emph{$element} optional argument is specified, a fatal error is emitted if
+it does not match with the parent element of the skipped contents.
+
+@item $elements = reader_collect_commands_list($element, $command_names)
+@anchor{Texinfo@asis{::}Reader $elements = reader_collect_commands_list($element@comma{} $command_names)}
+
+Collect all the tree elements corresponding to @@-command names in the
+@emph{$command_names} array reference, starting at @emph{$element}.  The
+return value is an array reference of the collected elements, in the order of
+their appearence in the Texinfo tree.
+
+@end table
+
+@node Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions
+@subsection @code{Texinfo::Reader} and XS extensions
+
+The Texinfo Perl modules can be setup to use Perl XS module extensions
+in native code (written in C) that replace Perl package or methods
+by native code for faster execution.  In general, using pure Perl or XS
+extensions is transparent.  This is not fully the case for @code{Texinfo::Reader}.
+The XS interface is designed such that the Texinfo tree actually processed is
+not the Perl elements tree, but a tree stored in native code in XS
+extensions, corresponding to compiled C data structures.
+
+If the @code{Texinfo::Reader} XS extension is used, the element used to
+initialize the reader through
+@ref{Texinfo@asis{::}Reader $reader = Texinfo@asis{::}Reader@asis{::}new ($element),, new}
+need to have a link from Perl to native code C data registered in the
+Perl element to find the C tree data corresponding to the Perl element.
+This is done automatically if the element is the Texinfo tree root element.
+For other elements, this link may need to be setup especially.
+
+To setup this link explicitly for the element associated to the
+current Reader token or the child elements of the current Reader token
+the following methods may be called:
+
+@table @asis
+@item $reader->register_token_element()
+@anchor{Texinfo@asis{::}Reader $reader->register_token_element()}
+
+Add a link from the current token Perl element to the associated C
+data.
+
+@item $reader->register_token_element_child($index)
+@anchor{Texinfo@asis{::}Reader $reader->register_token_element_child($index)}
+
+Add a link from the Perl element to the associated C data for the child of the
+current token Perl element at index @emph{$index}.  If the first child of the
+current token Perl element is of type @code{arguments_line}, the child
+of the @code{arguments_line} tree element is selected instead of the child
+of the current token Perl element.
+
+@end table
+
+For example, to register all the elements upon reading them:
+
+@verbatim
+  while (1) {
+
+    my $next = $reader->read();
+    last if (!defined($next));
+
+    my $element = $next->{'element'};
+
+    my $registerd_element = $reader->register_token_element();
+
+    if (!defined($element)) {
+      $element = $registerd_element;
+    }
+
+    ...
+  }
+@end verbatim
+
+Calling these two functions is not the only possibility to create
+a link from Perl to C data.  Another possibility is to use the
+@ref{Texinfo@asis{::}TreeElement NAME,, Texinfo::TreeElement} interface to access other elements from elements with
+the link to C data already setup, or to use the
+@ref{Texinfo@asis{::}Example@asis{::}TreeElementConverter NAME,, Texinfo::Example::TreeElementConverter} module methods.
+
+@node Texinfo@asis{::}Reader SEE ALSO
+@section Texinfo::Reader SEE ALSO
+
+@ref{Texinfo@asis{::}Parser NAME,, Texinfo::Parser}. @ref{Texinfo@asis{::}Document NAME,, Texinfo::Document}.
+@ref{Texinfo@asis{::}Example@asis{::}TreeElementConverter NAME,, Texinfo::Example::TreeElementConverter}.
+
+@node Texinfo@asis{::}Reader AUTHOR
+@section Texinfo::Reader AUTHOR
+
+Patrice Dumas.
+
+@node Texinfo@asis{::}Reader COPYRIGHT AND LICENSE
+@section Texinfo::Reader COPYRIGHT AND LICENSE
+
+Copyright 2025- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+

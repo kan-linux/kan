@@ -1,0 +1,193 @@
+.\"
+.\" Copyright (c) 2023 Roman Žilka <roman.zilka@gmail.com>
+.\" Copyright (c) 2009-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2018-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2003      Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH WATCH 1 16.04.2025 procps\-ng 
+.SH NUME
+watch \- execut\- un program periodic, afișând ieșirea pe întreg ecranul
+.SH REZUMAT
+\fBwatch\fP [\fIopțiune\fP .\|.\|.\&] \fIcomanda\fP
+.SH DESCRIERE
+\fBwatch\fP rulează \fIcomanda\fP în mod repetat, afișând rezultatul și erorile
+(primul conținut al ecranului). Acest lucru vă permite să urmăriți
+modificarea ieșirii programului în timp. În mod implicit, \fIcomanda\fP este
+rulată la fiecare 2 secunde și \fBwatch\fP va rula până când este întrerupt. Un
+antet informează cu privire la ora de începere și de execuție a \fIcomenzii\fP,
+precum și la codul său de ieșire.
+.SH OPȚIUNI
+.TP 
+\fB\-b\fP, \fB\-\-beep\fP
+Emite un bip dacă \fIcomanda\fP are o ieșire diferită de zero.
+.TP 
+\fB\-c\fP, \fB\-\-color\fP
+Interpretează secvențele de culori și stil ANSI.
+.TP 
+\fB\-C\fP, \fB\-\-no\-color\fP
+Nu interpretează secvențele de culori și stil ANSI.
+.TP 
+\fB\-d\fP, \fB\-\-differences\fP[=\fIpermanent\fP]
+Evidențiază diferențele dintre actualizările succesive. Dacă este specificat
+argumentul opțional \fIpermanent\fP, atunci \fBwatch\fP va afișa toate
+modificările de la prima iterație. Argumentul \fIpermanent\fP trebuie să fie
+legat de opțiune, cum ar fi \fB\-d1\fP sau \fB\-\-differences=1\fP.
+.TP 
+\fB\-e\fP, \fB\-\-errexit\fP
+Îngheață actualizările la o eroare a \fIcomenzii\fP și iese după apăsarea unei
+taste. Codul de ieșire din \fBwatch\fP va fi codul cu care \fIcomanda\fP
+iese. Dacă semnalul \fBn\fP este cauza încetării \fIcomenzii\fP, codul de ieșire
+va fi 128 + \fBn\fP.
+.TP 
+\fB\-f\fP, \fB\-\-follow\fP
+Instead of clearing the screen at each update, \fBwatch\fP will scroll the
+output similar to how \fItail \-f\fP works. This option is not compatible with
+any option tracking the output of the screen, such as the \fB\-\-differences\fP,
+\fB\-\-chgexit\fP and \fB\-\-eqexit\fP options.
+.TP 
+\fB\-g\fP, \fB\-\-chgexit\fP
+Iese atunci când se modifică ieșirea vizibilă a \fIcomenzii\fP. Modificările
+care nu sunt vizibile pe ecran din cauza dimensiunii mici a ecranului sau a
+ieșirii mari nu vor determina ca \fBwatch\fP să iasă.
+.TP 
+\fB\-n\fP, \fB\-\-interval\fP \fIsecunde\fP
+Specifică intervalul de actualizare. Valorile mai mici de 0,1 și mai mari de
+2678400 (31 de zile) sunt convertite în aceste limite. Ambele semne de
+separare a zecimalelor „.’ și „,”, funcționează pentru orice configurare
+regională. Variabila de mediu \fBWATCH_INTERVAL\fP, poate fi utilizată pentru a
+configura în mod persistent un interval care nu este implicit (urmând
+aceleași reguli și formatare).
+.TP 
+\fB\-p\fP, \fB\-\-precise\fP
+Execută \fIcomanda\fP la \fB\-\-interval\fP secunde după ce execuția sa anterioară a
+început, în loc de \fB\-\-interval\fP secunde după ce execuția sa anterioară s\-a
+încheiat. Dacă \fIcomanda\fP are nevoie de mai mult de \fB\-\-interval\fP secunde
+pentru a se finaliza, aceasta este așteptată în ambele cazuri.
+.TP 
+\fB\-q\fP, \fB\-\-equexit\fP <cycles>
+Iese, când ieșirea \fIcomenzii\fP nu se modifică pentru numărul de cicluri dat.
+.TP 
+\fB\-r\fP, \fB\-\-no\-rerun\fP
+Nu rulează programul la redimensionarea terminalului, ieșirea programului va
+apărea din nou la următoarea rulare obișnuită.
+.TP 
+\fB\-s\fP, \fB\-\-shotsdir\fP
+Director în care se salvează capturile de ecran.
+.TP 
+\fB\-t\fP, \fB\-\-no\-title\fP
+Dezactivează antetul afișat în mod normal în partea de sus a ecranului.
+.TP 
+\fB\-w\fP, \fB\-\-no\-wrap\fP
+Dezactivează încadrarea liniilor (prin împărțirea lor la lățimea
+ferestrei). Liniile lungi vor fi trunchiate în loc să fie transferate pe
+linia următoare.
+.TP 
+\fB\-x\fP, \fB\-\-exec\fP
+Pasează \fIcomanda\fP la un apel \fBexec\fP(3) în loc de \fBsh \-c\fP. Programul va
+porni un pic mai repede. Funcțiile Shell (configurarea mediului, extinderea
+variabilelor și a numelor de rută etc.) nu vor fi disponibile.
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+Afișează acest mesaj de ajutor.
+.TP 
+\fB\-v\fP, \fB\-\-version\fP
+Afișează informațiile despre versiune și iese.
+.SH "TASTE DE CONTROL"
+.TP 
+\fBbara\-de\-spațiu\fP
+Lansează \fIcomanda\fP imediat. Dacă este în curs de execuție în acest moment,
+nu este întreruptă și următoarea sa rundă va începe fără întârziere.
+.TP 
+\fBq\fP
+Oprește \fBwatch\fP. În prezent, nu întrerupe o \fIcomandă\fP în curs de execuție
+(spre deosebire de semnalele de terminare, cum ar fi SIGKILL după Ctrl+C).
+.TP 
+\fBs\fP
+Realizează o captură de ecran. Aceasta va fi salvată în directorul de lucru,
+dacă nu se specifică altfel prin \fB\-\-shotsdir\fP. Dacă \fIcomanda\fP rulează în
+acel moment, captura de ecran va fi făcută imediat ce se termină.
+.SH "STARE DE IEȘIRE"
+.TP 
+\fB0\fP
+Succes. Nu reprezintă codul de ieșire al \fIcomenzii\fP.
+.TP 
+\fB1\fP
+Erori care nu au legătură cu operația \fIcomenzii\fP.
+.TP 
+\fB2\fP
+Erori legate de execuția și gestionarea \fIcomenzii\fP (nu codul acesteia de
+ieșire).
+.TP 
+\fBorice non\-zero (\-\-errexit)\fP
+Cu \fB\-\-errexit\fP este returnat ultimul cod de ieșire din \fIcomandă\fP.
+.SH "VARIABILE DE MEDIU"
+Comportamentul lui \fBwatch\fP este afectat de următoarele variabile de mediu.
+.TP 
+\fBWATCH_INTERVAL\fP
+Intervalul de actualizare, urmează aceleași reguli ca și opțiunea
+\fB\-\-interval\fP din linia de comandă.
+.TP 
+\fBCOLUMNS\fP
+Lățimea în caractere a ecranului terminalului. Definiți pentru a anula
+autodetecția.
+.TP 
+\fBLINES\fP
+Înălțimea în caractere a ecranului terminalului. Definiți pentru a anula
+autodetecția.
+.SH NOTE
+Se utilizează procesarea opțiunii POSIX (adică procesarea opțiunii se
+oprește la primul argument care nu este opțiunea). Aceasta înseamnă că
+opțiunile de după \fIcomandă\fP nu vor fi interpretate de \fBwatch\fP.
+.P
+Caracterele care nu se imprimă sunt eliminate din ieșirea
+programului. Utilizați \fBcat \-v\fP ca parte a unei secvențe de comandă creată
+cu caracterul conductă (|) dacă doriți să le vedeți.
+.SH EXEMPLE
+.PP
+Pentru a urmări conținutul modificării unui director, puteți utiliza
+următoarea comandă:
+.IP
+watch \-d ls \-l
+.PP
+Dacă aveți procesoare cu o frecvență dinamică și doriți să observați
+schimbarea acesteia, încercați următoarele. Comanda este transmisă către
+shell, care vă permite să realizați conducta. Ghilimelele sunt de asemenea o
+caracteristică a shell\-ului.
+.IP
+watch \-n1 'grep "^cpu MHz" /proc/cpuinfo | sort \-nrk4'
+.PP
+Pentru a monitoriza starea de funcționare a serverelor dvs., salvând o copie
+a rezultatelor fiecărei execuții într\-un fișier, puteți utiliza această
+comandă. \fB\-p\fP face ca comanda să fie executată la fiecare 10 secunde,
+indiferent de cât timp a durat execuția anterioară.
+.IP
+watch \-n10 \-p \-d '{ date; for i in 10.0.0.31 10.0.0.32 10.0.0.33; do R=OK;
+ping \-c2 \-W2 "$i" &>/dev/null || R=FAIL; echo "$i: $R"; done } | tee \-a
+~/log'
+.PP
+Puteți urmări ca administratorul dumneavoastră să instaleze cel mai recent
+nucleu cu ajutorul comenzii:
+.IP
+watch uname \-r
+.SH ERORI
+Când dimensiunile terminalului se modifică, modificările conținutului
+acestuia nu sunt înregistrate la următoarea execuție a
+\fIcomenzii\fP. \fB\-\-chgexit\fP nu va declanșa acea întoarcere și contorul lui
+\fB\-\-equexit\fP nu va reporni chiar dacă ieșirea \fI comenzii\fP se modifică între
+timp. Evidențierea \fB\-\-differences\fP este reinițializată.
+.SH "RAPORTAREA ERORILOR"
+Trimiteți rapoartele de eroare la
+.MT procps@freelists.org
+.ME .

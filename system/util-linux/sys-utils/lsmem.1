@@ -1,0 +1,210 @@
+'\" t
+.\"     Title: lsmem
+.\"    Author: [see the "AUTHOR(S)" section]
+.\" Generator: Asciidoctor 2.0.26
+.\"      Date: 2026-06-16
+.\"    Manual: User Commands
+.\"    Source: util-linux 2.42.2
+.\"  Language: English
+.\"
+.TH "LSMEM" "1" "2026-06-16" "util\-linux 2.42.2" "User Commands"
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.ss \n[.ss] 0
+.nh
+.ad l
+.de URL
+\fI\\$2\fP <\\$1>\\$3
+..
+.als MTO URL
+.if \n[.g] \{\
+.  mso www.tmac
+.  am URL
+.    ad l
+.  .
+.  am MTO
+.    ad l
+.  .
+.  LINKSTYLE blue R < >
+.\}
+.SH "NAME"
+lsmem \- list the ranges of available memory with their online status
+.SH "SYNOPSIS"
+.sp
+\fBlsmem\fP [options]
+.SH "DESCRIPTION"
+.sp
+The \fBlsmem\fP command lists the ranges of available memory with their online status. The listed memory blocks correspond to the memory block representation in sysfs. The command also shows the size of a single memory block and the total amounts of memory in online and offline state.
+.sp
+The default output is compatible with the original implementation from s390\-tools, but it\(cqs strongly recommended to avoid using default outputs in your scripts. Always explicitly define expected columns by using the \fB\-\-output\fP option together with a columns list in environments where a stable output is required.
+.sp
+The \fBlsmem\fP command always lists a new memory range when the current memory block differs from the previous block by some output column. This default behavior can be overridden with the \fB\-\-split\fP option (for example: \fBlsmem \-\-split=ZONES\fP). The special word \fBnone\fP may be used with \fB\-\-split\fP to ignore all differences between memory blocks and to create contiguous ranges that are as large as possible. The opposite semantics has \fB\-\-all\fP, which lists all individual memory blocks.
+.sp
+Note that some output columns may provide inaccurate information if a splitting policy forces \fBlsmem\fP to ignore differences in some attributes. For example, if you merge removable and non\-removable memory blocks into a single range, then the whole range will be marked as non\-removable in \fBlsmem\fP output.
+.sp
+The supported columns are \fBRANGE\fP, \fBSIZE\fP, \fBSTATE\fP, \fBREMOVABLE\fP, \fBBLOCK\fP, \fBNODE\fP, \fBZONES\fP, \fBCONFIGURED\fP, and \fBMEMMAP\-ON\-MEMORY\fP.
+.RS 3
+.ll -.6i
+.sp
+\fBRANGE\fP
+.RS 4
+The start and end physical addresses of the memory range.
+.RE
+.sp
+\fBSIZE\fP
+.RS 4
+The size of the memory range, representing the total amount of memory in that range.
+.RE
+.sp
+\fBSTATE\fP
+.RS 4
+The current online status of the memory range. Common states include online, offline, and transitional states.
+.RE
+.sp
+\fBREMOVABLE\fP
+.RS 4
+Whether the memory is removable.
+.RE
+.sp
+\fBBLOCK\fP
+.RS 4
+The specific memory block number or range.
+.RE
+.sp
+\fBNODE\fP
+.RS 4
+The NUMA (Non\-Uniform Memory Access) node to which the memory block belongs.
+.RE
+.sp
+\fBZONES\fP
+.RS 4
+The memory zones to which the blocks belongs, such as DMA, Normal, Movable.
+.RE
+.sp
+\fBCONFIGURED\fP
+.RS 4
+The configuration state of a memory block. Refer to \fBchmem\fP(8) for details on configuring or deconfiguring memory blocks.
+.RE
+.sp
+\fBMEMMAP\-ON\-MEMORY\fP
+.RS 4
+The memmap\-on\-memory state of the memory block at configuration time. This setting indicates where memory hotplug stores its internal metadata (the struct pages array or memmap). If MEMMAP\-ON\-MEMORY is set to 1, the metadata is allocated directly from the newly added hotplugged memory, enabling hot\-add operations even when the system is under high memory pressure. If set to 0, the memmap metadata is allocated from existing system memory.
+.RE
+.br
+.RE
+.ll
+.sp
+Not all columns are supported on all systems. If an unsupported column is specified, \fBlsmem\fP prints the column but does not provide any data for it. Additionally, \fBlsmem\fP may skip columns like \fBCONFIGURED\fP or \fBMEMMAP\-ON\-MEMORY\fP if these states are not relevant to the system\(cqs architecture.
+.sp
+On systems that can configure/deconfigure memory, memory needs to be configured
+before it can come online.
+.sp
+The "Memmap on memory parameter" summary line shows the global memmap\-on\-memory setting for memory_hotplug.  This is typically set on the kernel command line via memory_hotplug.memmap_on_memory.
+.SH "OPTIONS"
+.sp
+\fB\-a\fP, \fB\-\-all\fP
+.RS 4
+List each individual memory block, instead of combining memory blocks with similar attributes.
+.RE
+.sp
+\fB\-b\fP, \fB\-\-bytes\fP
+.RS 4
+Print sizes in bytes rather than in human\-readable form.
+.sp
+By default, sizes are shown in units that are powers of 1024 bytes.
+The formal abbreviations for these units (KiB, MiB, GiB, .\|.\|.) are
+further shortened to just their first letter: K, M, G, .\|.\|..
+.RE
+.sp
+\fB\-J\fP, \fB\-\-json\fP
+.RS 4
+Use JSON output format.
+.RE
+.sp
+\fB\-n\fP, \fB\-\-noheadings\fP
+.RS 4
+Do not print a header line.
+.RE
+.sp
+\fB\-o\fP, \fB\-\-output\fP \fIlist\fP
+.RS 4
+Specify which output columns to print. Use \fB\-\-help\fP to obtain a list of all supported columns. To extend the default list of columns specify \fIlist\fP in the format \fB+\fP\fIlist\fP. For example, \fBlsmem \-o +NODE\fP.
+.RE
+.sp
+\fB\-\-output\-all\fP
+.RS 4
+Output all available columns.
+.RE
+.sp
+\fB\-P\fP, \fB\-\-pairs\fP
+.RS 4
+Produce output in the form of key="value" pairs. All potentially unsafe value characters are hex\-escaped (\(rsx<code>).
+.RE
+.sp
+\fB\-r\fP, \fB\-\-raw\fP
+.RS 4
+Produce output in raw format. All potentially unsafe characters are hex\-escaped (\(rsx<code>).
+.RE
+.sp
+\fB\-S\fP, \fB\-\-split\fP \fIlist\fP
+.RS 4
+Specify which columns are used to split memory blocks into ranges. The supported columns are \fBSTATE\fP, \fBREMOVABLE\fP, \fBNODE\fP, \fBZONES\fP, \fBCONFIGURED\fP, \fBMEMMAP\-ON\-MEMORY\fP, and \fBnone\fP. Other column names are silently ignored. For more details see \fBDESCRIPTION\fP above.
+.RE
+.sp
+\fB\-s\fP, \fB\-\-sysroot\fP \fIdirectory\fP
+.RS 4
+Gather memory data for a Linux instance other than the instance from which the \fBlsmem\fP command is issued. The specified \fIdirectory\fP is the system root of the Linux instance to be inspected.
+.RE
+.sp
+\fB\-\-summary\fP[\fB=\fP\fIwhen\fP]
+.RS 4
+This option controls summary lines output. The optional argument \fIwhen\fP can be \fBnever\fP, \fBalways\fP or \fBonly\fP. If the \fIwhen\fP argument is omitted, it defaults to \fBonly\fP. The summary output is suppressed for \fB\-\-raw\fP, \fB\-\-pairs\fP, and \fB\-\-json\fP.
+.RE
+.sp
+\fB\-h\fP, \fB\-\-help\fP
+.RS 4
+Display help text and exit.
+.RE
+.sp
+\fB\-V\fP, \fB\-\-version\fP
+.RS 4
+Display version and exit.
+.RE
+.SH "ENVIRONMENT"
+.sp
+\fBLSMEM_COLUMNS\fP
+.RS 4
+Specifies a comma\-separated list of output columns to print. All columns listed in \fB\-\-help\fP can be used.
+.RE
+.sp
+\fBLIBSMARTCOLS_DEBUG\fP=all
+.RS 4
+enables libsmartcols debug output.
+.RE
+.sp
+\fBLIBSMARTCOLS_DEBUG_PADDING\fP=on
+.RS 4
+use visible padding characters.
+.RE
+.sp
+\fBLIBSMARTCOLS_JSON\fP=compact|lines
+.RS 4
+Controls JSON output format when using \fB\-\-json\fP. Supported values are
+\fBcompact\fP for JSON output with minimal whitespace, and \fBlines\fP for JSON Lines
+format (one JSON object per line). If unset or set to any other value,
+pretty\-printed JSON is used.
+.RE
+.SH "AUTHORS"
+.sp
+\fBlsmem\fP was originally written by Gerald Schaefer for s390\-tools in Perl. The C version for util\-linux was written by Clemens von Mann, Heiko Carstens and Karel Zak.
+.SH "SEE ALSO"
+.sp
+\fBchmem\fP(8)
+.SH "REPORTING BUGS"
+.sp
+For bug reports, use the \c
+.URL "https://github.com/util\-linux/util\-linux/issues" "issue tracker" "."
+.SH "AVAILABILITY"
+.sp
+The \fBlsmem\fP command is part of the util\-linux package which can be downloaded from \c
+.URL "https://www.kernel.org/pub/linux/utils/util\-linux/" "Linux Kernel Archive" "."

@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2024 Emil Velikov <emil.l.velikov@gmail.com>
+# SPDX-FileCopyrightText: 2024 Lucas De Marchi <lucas.de.marchi@gmail.com>
+#
+# SPDX-License-Identifier: LGPL-2.1-or-later
+
+name: 'setup Ubuntu'
+description: 'Setup an Ubuntu container for running CI'
+runs:
+  using: 'composite'
+  steps:
+    - name: Install dependencies
+      shell: bash
+      run: |
+        export DEBIAN_FRONTEND=noninteractive
+        export TZ=Etc/UTC
+        dpkg --add-architecture i386
+        apt-get update
+        apt-get install --yes \
+          build-essential \
+          clang \
+          crossbuild-essential-i386 \
+          gcc \
+          git \
+          libudev-dev \
+          libudev-dev:i386 \
+          libusb-1.0-0-dev \
+          libusb-1.0-0-dev:i386 \
+          linux-libc-dev \
+          meson \
+          pkgconf \
+          pkgconf:i386

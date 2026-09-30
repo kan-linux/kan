@@ -1,0 +1,37 @@
+use strict;
+
+use Texinfo::Convert::Text;
+use Texinfo::Common;
+
+texinfo_register_command_formatting('need', \&my_need_formatting);
+
+sub my_need_formatting($$$)
+{
+  my $converter = shift;
+  my $cmdname = shift;
+  my $command = shift;
+
+  my $package = Texinfo::Common::get_build_constant('PACKAGE');
+  $package = '' if (!defined($package));
+  my $package_config = Texinfo::Common::get_build_constant('PACKAGE_CONFIG');
+  $package_config = '' if (!defined($package_config));
+
+  if ($command->{'extra'} and $command->{'extra'}->{'misc_args'}
+      and @{$command->{'extra'}->{'misc_args'}}) {
+    $converter->converter_line_warn(
+            "need has the right arg: $command->{'extra'}->{'misc_args'}->[0]",
+                           $command->{'source_info'});
+  } else {
+    $converter->converter_line_warn("Bad arg for $cmdname",
+                          $command->{'source_info'});
+  }
+  my $arg_text;
+  if ($command->{'contents'} and $command->{'contents'}->[0]) {
+    $arg_text
+     = Texinfo::Convert::Text::convert_to_text($command->{'contents'}->[0]);
+  } else {
+    $arg_text = '';
+  }
+  return (&{$converter->formatting_function('format_comment')}($converter,
+                         "$cmdname: $arg_text ($package|$package_config)"));
+}

@@ -1,0 +1,30 @@
+#include "bluetooth.h"
+
+#define L2CAP_SOCKET_CHECKED
+#include <bluetooth.h>
+
+static int enumDev([[maybe_unused]] int sockfd, struct bt_devinfo const* dev, FFlist* devices) {
+    FFBluetoothResult* device = FF_LIST_ADD(FFBluetoothResult, *devices);
+    ffStrbufInitS(&device->name,
+#if __FreeBSD__
+        bt_devremote_name_gen(dev->devname, &dev->bdaddr)
+#else
+        dev->devname
+#endif
+    );
+    ffStrbufInitS(&device->address, bt_ntoa(&dev->bdaddr, nullptr));
+    ffStrbufUpperCase(&device->address);
+    ffStrbufInit(&device->type);
+    device->battery = 0;
+    device->connected = true;
+    return 0;
+}
+
+const char* ffDetectBluetooth([[maybe_unused]] FFBluetoothOptions* options, [[maybe_unused]] FFlist* devices /* FFBluetoothResult */) {
+    // struct hostent* ent = bt_gethostent();
+    if (bt_devenum((void*) enumDev, devices) < 0) {
+        return "bt_devenum() failed";
+    }
+
+    return nullptr;
+}

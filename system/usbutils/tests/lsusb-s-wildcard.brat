@@ -1,0 +1,43 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Partial -s selectors: bus only, devnum only, and the ":" wildcard.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+	: "${LSUSB_INSTALLED:=$(command -v lsusb || true)}"
+	# "Bus 001 Device 001: ID 1d6b:0002 Linux Foundation ..."
+	set -- $("$LSUSB_BUILT" | head -n1)
+	[ $# -ge 4 ]
+	bus=$2
+	dev=${4%:}
+}
+
+@test "lsusb -s bus: (bus only): built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -s "$bus:" | sort > "$TEST_TMP.built"
+	"$LSUSB_INSTALLED" -s "$bus:" | sort > "$TEST_TMP.installed"
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb -s :dev (devnum only): built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -s ":$dev" | sort > "$TEST_TMP.built"
+	"$LSUSB_INSTALLED" -s ":$dev" | sort > "$TEST_TMP.installed"
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb -s dev (bare devnum, no colon): built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -s "$dev" | sort > "$TEST_TMP.built"
+	"$LSUSB_INSTALLED" -s "$dev" | sort > "$TEST_TMP.installed"
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb -s : (wildcard): matches bare lsusb" {
+	"$LSUSB_BUILT"        | sort > "$TEST_TMP.bare"
+	"$LSUSB_BUILT" -s ":" | sort > "$TEST_TMP.wild"
+	diff -u "$TEST_TMP.bare" "$TEST_TMP.wild"
+}

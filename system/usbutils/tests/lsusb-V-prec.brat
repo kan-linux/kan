@@ -1,0 +1,38 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# -V returns from main() the moment getopt yields it, so anything to its
+# right is unparsed and anything to its left (including option errors)
+# is discarded.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+}
+
+@test "lsusb -v -V: matches bare -V" {
+	run "$LSUSB_BUILT" -v -V
+	[ $status -eq 0 ]
+	"$LSUSB_BUILT" -V    > "$TEST_TMP.bare"
+	"$LSUSB_BUILT" -v -V > "$TEST_TMP.vV"
+	diff -u "$TEST_TMP.bare" "$TEST_TMP.vV"
+}
+
+@test "lsusb -V -t -s 1:1 -d 1:1 -D /x: -V short-circuits, exit 0" {
+	run "$LSUSB_BUILT" -V -t -s 1:1 -d 1:1 -D /x
+	[ $status -eq 0 ]
+	match "$stdout" '/^lsusb \(usbutils\) /'
+}
+
+@test "lsusb -d nocolon -V: option error before -V is swallowed" {
+	run "$LSUSB_BUILT" -d nocolon -V
+	[ $status -eq 0 ]
+	match "$stdout" '/^lsusb \(usbutils\) /'
+}
+
+@test "lsusb -V stray: positional after -V is unparsed" {
+	run "$LSUSB_BUILT" -V stray
+	[ $status -eq 0 ]
+	match "$stdout" '/^lsusb \(usbutils\) /'
+}

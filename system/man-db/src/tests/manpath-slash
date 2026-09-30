@@ -1,0 +1,28 @@
+#! /bin/sh
+
+: "${srcdir=.}"
+# shellcheck source-path=SCRIPTDIR
+. "$srcdir/testlib.sh"
+
+: "${MANPATH=manpath}"
+
+# Check whether manpath correctly parses PATH elements with trailing slash.
+
+init
+fake_config /usr/share/man
+mkdir -p "$tmpdir/bin"
+mkdir -p "$tmpdir/share/man"
+OLDPATH="$PATH"
+export PATH="$tmpdir/bin/:$OLDPATH"
+output=$(run $MANPATH)
+case "$output" in
+	"$tmpdir/share/man:"*) report "manpath with trailing slash" 0 ;;
+	*) report "manpath with trailing slash" 1 ;;
+esac
+export PATH="$tmpdir/bin:$OLDPATH"
+output=$(run $MANPATH)
+case "$output" in
+	"$tmpdir/share/man:"*) report "manpath without trailing slash" 0 ;;
+	*) report "manpath without trailing slash" 1 ;;
+esac
+finish

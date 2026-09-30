@@ -1,0 +1,97 @@
+\input texinfo
+@setfilename cpp_lines.info
+
+#line 3 "a_file" 
+ # 66 "g_f" 4 
+
+@email{before top}.
+
+@node Top
+@node chap
+
+# 10 25 209
+# 1 2
+# 46
+
+@verbatim
+
+  #line 5 "f"
+@end verbatim
+
+@macro macr
+# line 7 "k"
+@end macro
+
+@email{after lacro def}
+
+@macr{}
+
+@email{after macro call}.
+
+@macro macrtwo
+line before
+# line 666 "x"
+@end macro
+
+@email{after macrotwo def}
+
+@macrtwo{}
+
+@email{after macrotwo call}. 
+
+@include file_with_cpp_lines.texi
+@email{after inc}. 
+
+@verb{:
+#line 5 "in verb"
+:}
+
+@email{after verb}
+
+a@footnote{
+#line 25 "footnote"
+in footnote}
+
+a@footnote{
+#line 35 "footnote2"
+
+in 2footnote}
+
+
+@email{ 
+#line 50 "email1"
+etext1,
+#line 60 "email2"
+etext2
+}
+
+@email{
+ no line directive mail space,
+ no line directive text space
+}
+
+@email{ 
+#line 50 "email11"
+ mail space,
+#line 60 "email12"
+ text space
+}
+
+@email{ 
+#line 80 "email3"
+
+etext3,
+
+#line 60 "email4"
+
+etext4
+}
+
+
+#line 70 "email3"
+
+#line 5 "accentêd"
+
+@documentlanguage làng
+
+@bye

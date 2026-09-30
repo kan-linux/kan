@@ -1,0 +1,31 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# -d 0000:0000 matches any vendor/product, so this exercises the option
+# parser without needing to know which attached device is HID.
+
+setup() {
+	: "${USBHID_DUMP_BUILT:=$DIR/../build/usbhid-dump}"
+	: "${USBHID_DUMP_INSTALLED:=$(command -v usbhid-dump || true)}"
+}
+
+nots() {
+	sed 's/ *[0-9][0-9]*\.[0-9][0-9]*$//'
+}
+
+@test "usbhid-dump -d vid:pid: built and installed output is identical" {
+	[ -n "$USBHID_DUMP_INSTALLED" ]
+	"$USBHID_DUMP_BUILT"     -d 0000:0000 2>&1 | nots > "$TEST_TMP.built"
+	"$USBHID_DUMP_INSTALLED" -d 0000:0000 2>&1 | nots > "$TEST_TMP.installed"
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "usbhid-dump -m, --model: aliases match -d" {
+	"$USBHID_DUMP_BUILT" -d 0000:0000      2>&1 | nots > "$TEST_TMP.d"
+	"$USBHID_DUMP_BUILT" -m 0000:0000      2>&1 | nots > "$TEST_TMP.m"
+	"$USBHID_DUMP_BUILT" --model=0000:0000 2>&1 | nots > "$TEST_TMP.long"
+	diff -u "$TEST_TMP.d" "$TEST_TMP.m"
+	diff -u "$TEST_TMP.d" "$TEST_TMP.long"
+}

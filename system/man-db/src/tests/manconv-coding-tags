@@ -1,0 +1,74 @@
+#! /bin/sh
+
+# Test manconv's support for Emacs-style coding: tags.
+
+: "${srcdir=.}"
+# shellcheck source-path=SCRIPTDIR
+. "$srcdir/testlib.sh"
+
+: "${MANCONV=manconv}"
+
+init
+
+cat >"$tmpdir/1.exp" <<'EOF'
+'\" -*- coding: UTF-8
+á
+EOF
+cat >"$tmpdir/1.inp" <<'EOF'
+'\" -*- coding: ISO-8859-1
+EOF
+<"$tmpdir/1.exp" tail -n +2 | iconv -f UTF-8 -t ISO-8859-1 >>"$tmpdir/1.inp"
+run $MANCONV -f UTF-8 -t UTF-8 <"$tmpdir/1.inp" >"$tmpdir/1.out"
+if [ "$HAVE_ICONV" = yes ]; then
+	expect_files_equal 'simple coding tag' "$tmpdir/1.exp" "$tmpdir/1.out"
+else
+	report_skip 'simple coding tag'
+fi
+
+cat >"$tmpdir/2.exp" <<'EOF'
+'\" -*- mode: troff; coding: UTF-8 -*-
+á
+EOF
+cat >"$tmpdir/2.inp" <<'EOF'
+'\" -*- mode: troff; coding: ISO-8859-1 -*-
+EOF
+<"$tmpdir/2.exp" tail -n +2 | iconv -f UTF-8 -t ISO-8859-1 >>"$tmpdir/2.inp"
+run $MANCONV -f UTF-8 -t UTF-8 <"$tmpdir/2.inp" >"$tmpdir/2.out"
+if [ "$HAVE_ICONV" = yes ]; then
+	expect_files_equal 'mode and coding tags' "$tmpdir/2.exp" "$tmpdir/2.out"
+else
+	report_skip 'mode and coding tags'
+fi
+
+cat >"$tmpdir/3.exp" <<'EOF'
+'\" -*- mode: troff; coding: UTF-8 -*-
+á
+EOF
+cat >"$tmpdir/3.inp" <<'EOF'
+'\" -*- mode: troff; coding: ISO-LATIN-1 -*-
+EOF
+<"$tmpdir/3.exp" tail -n +2 | iconv -f UTF-8 -t ISO-8859-1 >>"$tmpdir/3.inp"
+run $MANCONV -f UTF-8 -t UTF-8 <"$tmpdir/3.inp" >"$tmpdir/3.out"
+if [ "$HAVE_ICONV" = yes ]; then
+	expect_files_equal 'iso-latin-1 coding alias' "$tmpdir/3.exp" "$tmpdir/3.out"
+else
+	report_skip 'iso-latin-1 coding alias'
+fi
+
+cat >"$tmpdir/4.inp" <<'EOF'
+'\" -*- nroff -*-
+EOF
+run $MANCONV -f UTF-8 -t UTF-8 <"$tmpdir/4.inp" >"$tmpdir/4.out"
+expect_files_equal 'preprocessor comment but no coding tag' \
+	"$tmpdir/4.inp" "$tmpdir/4.out"
+
+cat >"$tmpdir/5.exp" <<'EOF'
+'\" -*- coding: utf-8
+á
+EOF
+cp "$tmpdir/5.exp" "$tmpdir/5.inp"
+run $MANCONV -f UTF-8 -t UTF-8 <"$tmpdir/5.inp" >"$tmpdir/5.out"
+expect_files_equal 'coding tag matches target encoding' \
+	"$tmpdir/5.inp" "$tmpdir/5.out"
+
+finish

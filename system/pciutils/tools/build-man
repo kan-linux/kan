@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+if [ $# != 2 ] ; then
+	echo >&2 "Usage: $0 <source> <target>"
+	exit 1
+fi
+
+TODAY=`echo $DATE | sed 's/-01-/-January-/;s/-02-/-February-/;s/-03-/-March-/;s/-04-/-April-/;s/-05-/-May-/;s/-06-/-June-/;s/-07-/-July-/;s/-08-/-August-/;s/-09-/-September-/;s/-10-/-October-/;s/-11-/-November-/;s/-12-/-December-/;s/\(.*\)-\(.*\)-\(.*\)/\3 \2 \1/'`
+
+sed <"$1" >"$2" "
+	s/@TODAY@/$TODAY/
+	s/@VERSION@/pciutils-$VERSION/
+	s#@IDSDIR@#$IDSDIR#
+	s#@PCI_IDS@#$PCI_IDS#
+"

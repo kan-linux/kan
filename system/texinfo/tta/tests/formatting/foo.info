@@ -1,0 +1,29 @@
+This is foo.info, produced by texi2any version 7.2+dev from foo.texi.
+
+
+File: foo.info,  Node: Top,  Next: chap,  Up: (dir)
+
+this is foo
+***********
+
+* Menu:
+
+* chap::
+
+
+File: foo.info,  Node: chap,  Prev: Top,  Up: Top
+
+1 foo chapter
+*************
+
+
+Tag Table:
+Node: Top71
+Node: chap170
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:

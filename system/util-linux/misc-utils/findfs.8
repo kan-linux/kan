@@ -1,0 +1,133 @@
+'\" t
+.\"     Title: findfs
+.\"    Author: [see the "AUTHOR(S)" section]
+.\" Generator: Asciidoctor 2.0.26
+.\"      Date: 2026-06-16
+.\"    Manual: System Administration
+.\"    Source: util-linux 2.42.2
+.\"  Language: English
+.\"
+.TH "FINDFS" "8" "2026-06-16" "util\-linux 2.42.2" "System Administration"
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.ss \n[.ss] 0
+.nh
+.ad l
+.de URL
+\fI\\$2\fP <\\$1>\\$3
+..
+.als MTO URL
+.if \n[.g] \{\
+.  mso www.tmac
+.  am URL
+.    ad l
+.  .
+.  am MTO
+.    ad l
+.  .
+.  LINKSTYLE blue R < >
+.\}
+.SH "NAME"
+findfs \- find a filesystem by label or UUID
+.SH "SYNOPSIS"
+.sp
+\fBfindfs\fP \fITAGNAME\fP\fB=\fP\fIvalue\fP
+.SH "DESCRIPTION"
+.sp
+\fBfindfs\fP will search the block devices in the system for a filesystem or partition
+with the specified tag. The currently supported tags are:
+.RS 3
+.ll -.6i
+.sp
+\fBLABEL=\fP\fIlabel\fP
+.RS 4
+Specifies a filesystem label.
+.RE
+.sp
+\fBUUID=\fP\fIuuid\fP
+.RS 4
+Specifies a filesystem UUID.
+.RE
+.sp
+\fBPARTUUID=\fP\fIuuid\fP
+.RS 4
+Specifies a partition UUID. Partition identifiers are supported for example for GUID Partition Table (GPT) partition tables.
+.RE
+.sp
+\fBPARTLABEL=\fP\fIlabel\fP
+.RS 4
+Specifies a partition label (name). Partition labels are supported for example for GPT and MAC partition tables.
+.RE
+.br
+.RE
+.ll
+.sp
+If the filesystem or partition is found, the device name will be printed on stdout.
+If the input is not in the format of \fITAGNAME\fP\fB=\fP\fIvalue\fP, then the input will be
+copied to the output without any modification.
+.sp
+You can get a complete overview about the filesystems and partitions in the system
+with one of the following commands:
+.RS 3
+.ll -.6i
+.sp
+\fBlsblk \-\-fs\fP
+.sp
+\fBpartx \-\-show\fP \fIdisk\fP
+.sp
+\fBblkid\fP
+.br
+.RE
+.ll
+.SH "OPTIONS"
+.sp
+\fB\-h\fP, \fB\-\-help\fP
+.RS 4
+Display help text and exit.
+.RE
+.sp
+\fB\-V\fP, \fB\-\-version\fP
+.RS 4
+Display version and exit.
+.RE
+.SH "EXIT STATUS"
+.sp
+\fB0\fP
+.RS 4
+success
+.RE
+.sp
+\fB1\fP
+.RS 4
+label or UUID cannot be found
+.RE
+.sp
+\fB2\fP
+.RS 4
+usage error, wrong number of arguments or unknown option
+.RE
+.SH "ENVIRONMENT"
+.sp
+LIBBLKID_DEBUG=all
+.RS 4
+enables libblkid debug output.
+.RE
+.SH "AUTHORS"
+.sp
+\fBfindfs\fP was originally written by \c
+.MTO "tytso\(atmit.edu" "Theodore Ts\(cqo" ""
+and re\-written for the util\-linux package by
+.MTO "kzak\(atredhat.com" "Karel Zak" "."
+.SH "SEE ALSO"
+.sp
+\fBblkid\fP(8),
+\fBlsblk\fP(8),
+\fBpartx\fP(8)
+.SH "REPORTING BUGS"
+.sp
+For bug reports, use the \c
+.URL "https://github.com/util\-linux/util\-linux/issues" "issue tracker" "."
+.SH "AVAILABILITY"
+.sp
+The \fBfindfs\fP command is part of the util\-linux package which can be downloaded from \c
+.URL "https://www.kernel.org/pub/linux/utils/util\-linux/" "Linux Kernel Archive" "."

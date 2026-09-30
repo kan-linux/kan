@@ -1,0 +1,58 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Repeated -s / -d assign per-field: an empty side of the colon leaves
+# that variable untouched, so the last non-empty value wins for bus,
+# devnum, vendor, product independently.  Repeated -D is a plain
+# pointer assignment so the last one wins outright.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+	: "${LSUSB_INSTALLED:=$(command -v lsusb || true)}"
+	# "Bus 001 Device 001: ID 1d6b:0002 Linux Foundation ..."
+	set -- $("$LSUSB_BUILT" | head -n1)
+	[ $# -ge 6 ]
+	bus=$2
+	dev=${4%:}
+	vid=${6%:*}
+	pid=${6#*:}
+	devpath="/dev/bus/usb/$bus/$dev"
+}
+
+@test "lsusb -s repeated: last non-empty per-field wins" {
+	"$LSUSB_BUILT" -s "$bus:$dev"            | sort > "$TEST_TMP.ref"
+	"$LSUSB_BUILT" -s 999:999 -s "$bus:$dev" | sort > "$TEST_TMP.full"
+	"$LSUSB_BUILT" -s "$bus:999" -s ":$dev"  | sort > "$TEST_TMP.merge"
+	diff -u "$TEST_TMP.ref" "$TEST_TMP.full"
+	diff -u "$TEST_TMP.ref" "$TEST_TMP.merge"
+}
+
+@test "lsusb -s : after -s bus:dev: empty fields do not reset" {
+	"$LSUSB_BUILT" -s "$bus:$dev"      | sort > "$TEST_TMP.ref"
+	"$LSUSB_BUILT" -s "$bus:$dev" -s : | sort > "$TEST_TMP.noop"
+	diff -u "$TEST_TMP.ref" "$TEST_TMP.noop"
+}
+
+@test "lsusb -d repeated: last non-empty per-field wins" {
+	"$LSUSB_BUILT" -d "$vid:$pid"              | sort > "$TEST_TMP.ref"
+	"$LSUSB_BUILT" -d ffff:ffff -d "$vid:$pid" | sort > "$TEST_TMP.full"
+	"$LSUSB_BUILT" -d "$vid:" -d ":$pid"       | sort > "$TEST_TMP.merge"
+	diff -u "$TEST_TMP.ref" "$TEST_TMP.full"
+	diff -u "$TEST_TMP.ref" "$TEST_TMP.merge"
+}
+
+@test "lsusb -D repeated: last wins" {
+	"$LSUSB_BUILT" -D "$devpath"                  > "$TEST_TMP.ref"  2>&1
+	"$LSUSB_BUILT" -D /nonexistent -D "$devpath"  > "$TEST_TMP.last" 2>&1
+	diff -u "$TEST_TMP.ref" "$TEST_TMP.last"
+}
+
+@test "lsusb -s/-d repeated: built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -s "$bus:" -s ":$dev" -d "$vid:" -d ":$pid" | sort > "$TEST_TMP.built"
+	"$LSUSB_INSTALLED" -s "$bus:" -s ":$dev" -d "$vid:" -d ":$pid" | sort > "$TEST_TMP.installed"
+	[ -s "$TEST_TMP.built" ]
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}

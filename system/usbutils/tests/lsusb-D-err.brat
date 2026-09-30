@@ -1,0 +1,45 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# -D error paths.  dump_one_device() resolves the argument to a
+# bus/devnum pair via /dev/bus/usb/BBB/DDD; anything that doesn't
+# parse to an attached device yields "Cannot open <arg>" and exit 1.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+	: "${LSUSB_INSTALLED:=$(command -v lsusb || true)}"
+}
+
+@test "lsusb -D /nonexistent: cannot-open, exit 1" {
+	run "$LSUSB_BUILT" -D /nonexistent
+	[ $status -eq 1 ]
+	match "$stderr" '/^Cannot open /'
+}
+
+@test "lsusb -D /dev/null: cannot-open, exit 1" {
+	run "$LSUSB_BUILT" -D /dev/null
+	[ $status -eq 1 ]
+	match "$stderr" '/^Cannot open /'
+}
+
+@test "lsusb -D /dev/bus/usb/999/999: cannot-open, exit 1" {
+	run "$LSUSB_BUILT" -D /dev/bus/usb/999/999
+	[ $status -eq 1 ]
+	match "$stderr" '/^Cannot open /'
+}
+
+@test "lsusb -D /nonexistent: built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -D /nonexistent > "$TEST_TMP.built"     2>&1 || true
+	"$LSUSB_INSTALLED" -D /nonexistent > "$TEST_TMP.installed" 2>&1 || true
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb -v -D /dev/bus/usb/999/999: built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -v -D /dev/bus/usb/999/999 > "$TEST_TMP.built"     2>&1 || true
+	"$LSUSB_INSTALLED" -v -D /dev/bus/usb/999/999 > "$TEST_TMP.installed" 2>&1 || true
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}

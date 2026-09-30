@@ -1,0 +1,1059 @@
+# Translation of sed to Croatian
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# This file is distributed under the same license as the sed package.
+#
+# Denis Lacković <delacko@fly.srk.fer.hr>, 2002.
+# Tomislav Krznar <tomislav.krznar@gmail.com>, 2012.
+# Božidar Putanec <bozidarp@yahoo.com>, 2018, 2019, 2025, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: sed-4.9.72\n"
+"Report-Msgid-Bugs-To: bug-gnu-utils@gnu.org\n"
+"POT-Creation-Date: 2026-04-21 07:55-0700\n"
+"PO-Revision-Date: 2026-04-13 14:06-0700\n"
+"Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
+"Language-Team: Croatian <lokalizacija@linux.hr>\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: vim9.2\n"
+"Revised with stylistic and terminological assistance from ChatGPT..\n"
+
+#: lib/copy-acl.c:55
+#, c-format
+msgid "preserving permissions for %s"
+msgstr "čuvaju se dopuštenja za %s"
+
+#: lib/dfa.c:905
+msgid "unbalanced ["
+msgstr "nesparena ["
+
+#: lib/dfa.c:1026
+msgid "invalid character class"
+msgstr "neispravna klasa znakova"
+
+#: lib/dfa.c:1154
+msgid "character class syntax is [[:space:]], not [:space:]"
+msgstr "sintaksa klase znakova je [[:space:]], a ne [:space:]"
+
+#: lib/dfa.c:1229
+msgid "unfinished \\ escape"
+msgstr "nedovršena \\ escape sekvencija"
+
+#: lib/dfa.c:1339
+msgid "? at start of expression"
+msgstr "? na početku izraza"
+
+#: lib/dfa.c:1351
+msgid "* at start of expression"
+msgstr "* na početku izraza"
+
+#: lib/dfa.c:1365
+msgid "+ at start of expression"
+msgstr "+ na početku izraza"
+
+#: lib/dfa.c:1420
+msgid "{...} at start of expression"
+msgstr "{...} na početku izraza"
+
+#: lib/dfa.c:1423
+msgid "invalid content of \\{\\}"
+msgstr "neispravan sadržaj \\{\\}"
+
+#: lib/dfa.c:1425
+msgid "regular expression too big"
+msgstr "regularni izraz je prevelik"
+
+#: lib/dfa.c:1575
+msgid "stray \\ before unprintable character"
+msgstr "zalutala obrnuta kosa crta \\ ispred neispisivog znaka"
+
+#: lib/dfa.c:1577
+msgid "stray \\ before white space"
+msgstr "zalutala obrnuta kosa crta \\ ispred bjeline"
+
+#: lib/dfa.c:1588
+#, c-format
+msgid "stray \\ before %s"
+msgstr "zalutala obrnuta kosa crta \\ ispred %s"
+
+#: lib/dfa.c:1589 lib/dfa.c:1592
+msgid "stray \\"
+msgstr "zalutala obrnuta kosa crta \\"
+
+#: lib/dfa.c:1943
+msgid "unbalanced ("
+msgstr "nesparena ("
+
+#: lib/dfa.c:2062
+msgid "no syntax specified"
+msgstr "sintaksa nije navedena"
+
+#: lib/dfa.c:2073
+msgid "unbalanced )"
+msgstr "nesparena )"
+
+#: lib/error.c:208
+msgid "Unknown system error"
+msgstr "nepoznata greška sustava"
+
+#: lib/getopt.c:283
+#, c-format
+msgid "%s: option '%s%s' is ambiguous\n"
+msgstr "%s: opcija '%s%s' nije jednoznačna\n"
+
+#: lib/getopt.c:289
+#, c-format
+msgid "%s: option '%s%s' is ambiguous; possibilities:"
+msgstr "%s: opcija '%s%s' nije jednoznačna; moguće su ove opcije:"
+
+#: lib/getopt.c:323
+#, c-format
+msgid "%s: unrecognized option '%s%s'\n"
+msgstr "%s: neprepoznata opcija '%s%s'\n"
+
+#: lib/getopt.c:349
+#, c-format
+msgid "%s: option '%s%s' doesn't allow an argument\n"
+msgstr "%s: opcija '%s%s' ne prihvaća argument\n"
+
+#: lib/getopt.c:364
+#, c-format
+msgid "%s: option '%s%s' requires an argument\n"
+msgstr "%s: opcija '%s%s' zahtijeva argument\n"
+
+#: lib/getopt.c:624
+#, c-format
+msgid "%s: invalid option -- '%c'\n"
+msgstr "%s: neispravna opcija -- '%c'\n"
+
+#: lib/getopt.c:639 lib/getopt.c:685
+#, c-format
+msgid "%s: option requires an argument -- '%c'\n"
+msgstr "%s: opcija zahtijeva argument -- '%c'\n"
+
+#: lib/obstack.c:351 lib/obstack.c:353 lib/xalloc-die.c:34
+msgid "memory exhausted"
+msgstr "nema dovoljno memorije"
+
+#. TRANSLATORS:
+#. Get translations for open and closing quotation marks.
+#. The message catalog should translate "`" to a left
+#. quotation mark suitable for the locale, and similarly for
+#. "'".  For example, a French Unicode local should translate
+#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), respectively.
+#.
+#. If the catalog has no translation, we will try to
+#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
+#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
+#. current locale is not Unicode, locale_quoting_style
+#. will quote 'like this', and clocale_quoting_style will
+#. quote "like this".  You should always include translations
+#. for "`" and "'" even if U+2018 and U+2019 are appropriate
+#. for your locale.
+#.
+#. If you don't know what to put here, please see
+#. <https://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
+#. and use glyphs suitable for your language.
+#: lib/quotearg.c:357
+msgid "`"
+msgstr "„"
+
+#: lib/quotearg.c:358
+msgid "'"
+msgstr "”"
+
+#: lib/regcomp.c:122
+msgid "Success"
+msgstr "uspjeh"
+
+#: lib/regcomp.c:125
+msgid "No match"
+msgstr "nema podudaranja"
+
+#: lib/regcomp.c:128
+msgid "Invalid regular expression"
+msgstr "neispravan regularni izraz"
+
+#: lib/regcomp.c:131
+msgid "Invalid collation character"
+msgstr "neispravan znak za razvrstavanje"
+
+#: lib/regcomp.c:134
+msgid "Invalid character class name"
+msgstr "neispravno ime klase znakova"
+
+#: lib/regcomp.c:137
+msgid "Trailing backslash"
+msgstr "obrnuta kosa crta na kraju"
+
+#: lib/regcomp.c:140
+msgid "Invalid back reference"
+msgstr "neispravna povratna referenca"
+
+#: lib/regcomp.c:143
+msgid "Unmatched [, [^, [:, [., or [="
+msgstr "nespareni [, [^, [:, [., ili [="
+
+#: lib/regcomp.c:146
+msgid "Unmatched ( or \\("
+msgstr "nesparena ( ili \\("
+
+#: lib/regcomp.c:149
+msgid "Unmatched \\{"
+msgstr "nesparena \\{"
+
+#: lib/regcomp.c:152
+msgid "Invalid content of \\{\\}"
+msgstr "neispravan sadržaj \\{\\}"
+
+#: lib/regcomp.c:155
+msgid "Invalid range end"
+msgstr "neispravan kraj raspona"
+
+#: lib/regcomp.c:158
+msgid "Memory exhausted"
+msgstr "nema dovoljno memorije"
+
+#: lib/regcomp.c:161
+msgid "Invalid preceding regular expression"
+msgstr "prethodni regularni izraz nije ispravan"
+
+#: lib/regcomp.c:164
+msgid "Premature end of regular expression"
+msgstr "prerani kraj regularnog izraza"
+
+#: lib/regcomp.c:167
+msgid "Regular expression too big"
+msgstr "regularni izraz je prevelik"
+
+#: lib/regcomp.c:170
+msgid "Unmatched ) or \\)"
+msgstr "nesparena ) ili \\)"
+
+#: lib/regcomp.c:650
+msgid "No previous regular expression"
+msgstr "nema prethodnog regularnog izraza"
+
+#: lib/set-acl.c:46
+#, c-format
+msgid "setting permissions for %s"
+msgstr "postavljaju se dopuštenja za %s"
+
+#: lib/version-etc.c:73
+#, c-format
+msgid "Packaged by %s (%s)\n"
+msgstr "Paket pripremio %s (%s).\n"
+
+#: lib/version-etc.c:76
+#, c-format
+msgid "Packaged by %s\n"
+msgstr "Paket pripremio %s.\n"
+
+#. TRANSLATORS: Translate "(C)" to the copyright symbol
+#. (C-in-a-circle), if this symbol is available in the user's
+#. locale.  Otherwise, do not translate "(C)"; leave it as-is.
+#: lib/version-etc.c:83
+msgid "(C)"
+msgstr "C"
+
+#. TRANSLATORS: The %s placeholder is the web address of the GPL license.
+#: lib/version-etc.c:88
+#, c-format
+msgid ""
+"License GPLv3+: GNU GPL version 3 or later <%s>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Licencija GPLv3+: GNU GPL inačica 3 ili novija <%s>.\n"
+"Ovo je slobodan softver: slobodno ga mijenjajte i redistribuirajte.\n"
+"NEMA JAMSTVA, u granicama dopuštenim zakonom.\n"
+
+#. TRANSLATORS: %s denotes an author name.
+#: lib/version-etc.c:105
+#, c-format
+msgid "Written by %s.\n"
+msgstr "Autor %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:109
+#, c-format
+msgid "Written by %s and %s.\n"
+msgstr "Autori %s i %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:113
+#, c-format
+msgid "Written by %s, %s, and %s.\n"
+msgstr "Autori %s, %s i %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:120
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"Autori %s, %s, %s,\n"
+"i %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:127
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"Autori %s, %s, %s,\n"
+"%s, i %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:134
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, and %s.\n"
+msgstr ""
+"Autori %s, %s, %s,\n"
+"%s, %s, i %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:142
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, and %s.\n"
+msgstr ""
+"Autori %s, %s, %s,\n"
+"%s, %s, %s, i %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:150
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"Autori %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"i %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:159
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"Autori %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, i %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:170
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, %s, and others.\n"
+msgstr ""
+"Autori %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, %s, i ostali.\n"
+
+#. TRANSLATORS: The placeholder indicates the bug-reporting address
+#. for this package.  Please add _another line_ saying
+#. "Report translation bugs to <...>\n" with the address for translation
+#. bugs (typically your translation team's web or email address).
+#: lib/version-etc.c:248
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr ""
+"Pogreške prijavite na engleskom (LC_ALL=C) na: <%s>\n"
+"Primjedbe i pogreške u prijevodu prijavite na: <lokalizacija@linux.hr>\n"
+
+#: lib/version-etc.c:250
+#, c-format
+msgid "Report %s bugs to: %s\n"
+msgstr "Prijavite pogreške '%s' na <%s>\n"
+
+#: lib/version-etc.c:254 lib/version-etc.c:256
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "Početna stranica za %s: <%s>\n"
+
+#: lib/version-etc.c:259
+#, c-format
+msgid "General help using GNU software: <%s>\n"
+msgstr "Općenita pomoć za korištenje GNU softvera: <%s>\n"
+
+#: sed/compile.c:121
+#, c-format
+msgid "%s: file %s line %jd: "
+msgstr "%s: datoteka %s, redak %jd: "
+
+#: sed/compile.c:124
+#, c-format
+msgid "%s: -e expression #%d, char %td: "
+msgstr "%s: -e izraz #%d, znak %td: "
+
+#: sed/compile.c:215
+#, c-format
+msgid "extra characters after command"
+msgstr "suvišni znakovi nakon naredbe"
+
+#: sed/compile.c:290 sed/compile.c:1034 sed/compile.c:1179
+#, c-format
+msgid "e/r/w commands disabled in sandbox mode"
+msgstr "naredbe 'e', 'r' i 'w' onemogućene su u načinu rada 'sandbox'"
+
+#: sed/compile.c:320 sed/compile.c:1128
+#, c-format
+msgid "missing filename in r/R/w/W commands"
+msgstr "nedostaje ime datoteke u naredbama 'r', 'R', 'w' i 'W'"
+
+#: sed/compile.c:457
+#, c-format
+msgid "delimiter character is not a single-byte character"
+msgstr "znak razdjelnika nije jednobajtni znak"
+
+#: sed/compile.c:491
+#, c-format
+msgid "%s: warning: using \"\\%c\" in the 's' command is not portable\n"
+msgstr "%s: upozorenje: uporaba \"\\%c\" u naredbi 's' nije prenosiva\n"
+
+#: sed/compile.c:531 sed/compile.c:538 sed/compile.c:544 sed/compile.c:588
+#, c-format
+msgid "unknown option to 's'"
+msgstr "nepoznata opcija za 's'"
+
+#: sed/compile.c:550
+#, c-format
+msgid "multiple 'p' options to 's' command"
+msgstr "više opcija 'p' za naredbu 's'"
+
+#: sed/compile.c:556
+#, c-format
+msgid "multiple 'g' options to 's' command"
+msgstr "više opcija 'g' za naredbu 's'"
+
+#: sed/compile.c:567
+#, c-format
+msgid "multiple number options to 's' command"
+msgstr "više brojčanih opcija za naredbu 's'"
+
+#: sed/compile.c:570
+#, c-format
+msgid "number option to 's' command may not be zero"
+msgstr "brojčana opcija za naredbu 's' ne smije biti nula"
+
+#: sed/compile.c:839
+#, c-format
+msgid "unterminated address regex"
+msgstr "nezavršeni regularni izraz adrese"
+
+#: sed/compile.c:939
+#, c-format
+msgid "invalid usage of +N or ~N as first address"
+msgstr "neispravna uporaba +N ili ~N u svojstvu prve adrese"
+
+#: sed/compile.c:946
+#, c-format
+msgid "unexpected ','"
+msgstr "neočekivani ','"
+
+#: sed/compile.c:957
+#, c-format
+msgid "invalid usage of line address 0"
+msgstr "neispravna uporaba adrese retka 0"
+
+#: sed/compile.c:964
+#, c-format
+msgid "multiple '!'s"
+msgstr "više znakova '!'"
+
+#: sed/compile.c:974 sed/compile.c:1293
+#, c-format
+msgid "unknown command: '%c'"
+msgstr "nepoznata naredba: '%c'"
+
+#: sed/compile.c:980 sed/compile.c:1090
+#, c-format
+msgid "command only uses one address"
+msgstr "naredba koristi samo jednu adresu"
+
+#: sed/compile.c:988
+#, c-format
+msgid "comments don't accept any addresses"
+msgstr "komentarska naredba ne prihvaća adrese"
+
+#: sed/compile.c:1008
+#, c-format
+msgid "expected newer version of sed"
+msgstr "očekuje se novija inačica programa 'sed'"
+
+#: sed/compile.c:1022
+#, c-format
+msgid "unexpected '}'"
+msgstr "neočekivana '}'"
+
+#: sed/compile.c:1024
+#, c-format
+msgid "'}' doesn't want any addresses"
+msgstr "'}' ne prihvaća nikakve adrese"
+
+#: sed/compile.c:1052 sed/compile.c:1059
+#, c-format
+msgid "expected \\ after 'a', 'c' or 'i'"
+msgstr "očekuje se '\\' nakon 'a', 'c' ili 'i'"
+
+#: sed/compile.c:1069
+#, c-format
+msgid ": doesn't want any addresses"
+msgstr "':' ne prihvaća nikakve adrese"
+
+#: sed/compile.c:1073
+#, c-format
+msgid "\":\" lacks a label"
+msgstr "\":\" nema oznaku"
+
+#: sed/compile.c:1164 sed/compile.c:1166
+#, c-format
+msgid "unterminated 's' command"
+msgstr "nezavršena naredba 's'"
+
+#: sed/compile.c:1192 sed/compile.c:1197
+#, c-format
+msgid "unterminated 'y' command"
+msgstr "nezavršena naredba 'y'"
+
+#: sed/compile.c:1235 sed/compile.c:1259 sed/compile.c:1270
+#, c-format
+msgid "'y' command strings have different lengths"
+msgstr "stringovi za naredbu 'y' različitih su duljina"
+
+#: sed/compile.c:1289
+#, c-format
+msgid "missing command"
+msgstr "nedostaje naredba"
+
+#: sed/compile.c:1301
+#, c-format
+msgid "incomplete command"
+msgstr "nepotpuna naredba"
+
+#: sed/compile.c:1381
+#, c-format
+msgid "recursive escaping after \\c not allowed"
+msgstr "rekurzivno maskiranje nakon \\c nije dopušteno"
+
+#: sed/compile.c:1524
+#, c-format
+msgid "unmatched '{'"
+msgstr "nesparena '{'"
+
+#: sed/compile.c:1550
+#, c-format
+msgid "can't find label for jump to '%s'"
+msgstr "nije moguće pronaći oznaku za skok na '%s'"
+
+#: sed/execute.c:252 sed/execute.c:269
+#, c-format
+msgid "case conversion produced an invalid character"
+msgstr "promjena veličine slova proizvela je neispravan znak"
+
+#: sed/execute.c:568
+#, c-format
+msgid "%s: can't read %s: %s\n"
+msgstr "%s: nije moguće pročitati %s: %s\n"
+
+#: sed/execute.c:594
+#, c-format
+msgid "couldn't edit %s: is a terminal"
+msgstr "nije moguće urediti %s: to je terminal"
+
+#: sed/execute.c:599
+#, c-format
+msgid "couldn't edit %s: not a regular file"
+msgstr "nije moguće urediti %s: to nije obična datoteka"
+
+#: sed/execute.c:610
+#, fuzzy, c-format
+msgid "%s: warning: failed to set default file creation context to %s: %s\n"
+msgstr ""
+"%s: upozorenje: nije uspjelo postaviti zadani kontekst za\n"
+"stvaranje datoteke na vrijednost %s: %s"
+
+#: sed/execute.c:618
+#, fuzzy, c-format
+msgid "%s: warning: failed to get security context of %s: %s\n"
+msgstr "%s: upozorenje: nije uspjelo dohvatiti sigurnosni kontekst za %s: %s"
+
+#: sed/execute.c:636 sed/utils.c:220
+#, c-format
+msgid "couldn't open temporary file %s: %s"
+msgstr "nije moguće otvoriti privremenu datoteku %s: %s"
+
+#: sed/execute.c:752
+#, c-format
+msgid "line number overflow"
+msgstr "prekoračenje broja retka"
+
+#: sed/execute.c:1177 sed/execute.c:1371
+msgid "error in subprocess"
+msgstr "greška u podprocesu"
+
+#: sed/execute.c:1179
+msgid "option 'e' not supported"
+msgstr "opcija 'e' nije podržana"
+
+#: sed/execute.c:1352
+msgid "'e' command not supported"
+msgstr "naredba 'e' nije podržana"
+
+#: sed/execute.c:1673
+msgid "no input files"
+msgstr "nema ulaznih datoteka"
+
+#: sed/regexp.c:115
+#, c-format
+msgid "invalid reference \\%d on 's' command's RHS"
+msgstr "neispravna referenca \\%d na desnoj strani naredbe 's'"
+
+#: sed/regexp.c:145
+#, c-format
+msgid "cannot specify modifiers on empty regexp"
+msgstr "nije moguće navesti modifikatore za prazan regularni izraz"
+
+#: sed/regexp.c:174
+#, c-format
+msgid "no previous regular expression"
+msgstr "nema prethodnog regularnog izraza"
+
+#: sed/regexp.c:181
+msgid "regex input buffer length overflow"
+msgstr "prekoračenje duljine ulaznog međuspremnika regularnog izraza"
+
+#: sed/sed.c:38
+msgid "Jay Fenlason"
+msgstr "Jay Fenlason"
+
+#: sed/sed.c:39
+msgid "Tom Lord"
+msgstr "Tom Lord"
+
+#: sed/sed.c:40
+msgid "Ken Pizzini"
+msgstr "Ken Pizzini"
+
+#: sed/sed.c:41
+msgid "Paolo Bonzini"
+msgstr "Paolo Bonzini"
+
+#: sed/sed.c:42
+msgid "Jim Meyering"
+msgstr "Jim Meyering"
+
+#: sed/sed.c:43
+msgid "Assaf Gordon"
+msgstr "Assaf Gordon"
+
+#: sed/sed.c:104
+#, c-format
+msgid ""
+"GNU sed home page: <https://www.gnu.org/software/sed/>.\n"
+"General help using GNU software: <https://www.gnu.org/gethelp/>.\n"
+msgstr ""
+"Web stranica GNU sed: <http://www.gnu.org/software/sed/>.\n"
+"Općenita pomoć za korištenje GNU softvera: <http://www.gnu.org/gethelp/>.\n"
+
+#: sed/sed.c:110
+#, c-format
+msgid "E-mail bug reports to: <%s>.\n"
+msgstr "Pogreške u ovom programu prijavite na: <%s>.\n"
+
+#: sed/sed.c:118
+msgid "This sed program was built with SELinux support."
+msgstr "Ovaj sed program podržava SELinux."
+
+#: sed/sed.c:120
+msgid "SELinux is enabled on this system."
+msgstr "SELinux je omogućen na ovom sustavu."
+
+#: sed/sed.c:122
+msgid "SELinux is disabled on this system."
+msgstr "SELinux nije omogućen na ovom sustavu."
+
+#: sed/sed.c:124
+msgid "This sed program was built without SELinux support."
+msgstr "Ovaj sed program ne podržava SELinux."
+
+#: sed/sed.c:134
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... {script-only-if-no-other-script} [input-file]...\n"
+"\n"
+msgstr ""
+"Uporaba: %s [OPCIJA]... {script-only-if-no-other-script} [ulazna-"
+"datoteka]...\n"
+"\n"
+
+#: sed/sed.c:138
+#, c-format
+msgid ""
+"  -n, --quiet, --silent\n"
+"                 suppress automatic printing of pattern space\n"
+msgstr ""
+"  -n, --quiet, --silent\n"
+"                 onemogućuje automatski ispis prostora uzorka\n"
+
+#: sed/sed.c:140
+#, c-format
+msgid ""
+"      --debug\n"
+"                 annotate program execution\n"
+msgstr ""
+"      --debug\n"
+"                 ispisuje bilješke o izvršavanju programa\n"
+
+#: sed/sed.c:142
+#, c-format
+msgid ""
+"  -e script, --expression=script\n"
+"                 add the script to the commands to be executed\n"
+msgstr ""
+"  -e script, --expression=script\n"
+"                 dodaje SKRIPTU naredbama koje će se izvršiti\n"
+
+#: sed/sed.c:144
+#, c-format
+msgid ""
+"  -f script-file, --file=script-file\n"
+"                 add the contents of script-file to the commands to be "
+"executed\n"
+msgstr ""
+"  -f DATOTEKA-SKRIPTE, --file=DATOTEKA-SKRIPTA\n"
+"                 dodaje sadržaj DATOTEKE-SKRIPTE naredbama koje će se\n"
+"                 izvršiti\n"
+
+#: sed/sed.c:148
+#, c-format
+msgid ""
+"  --follow-symlinks\n"
+"                 follow symlinks when processing in place\n"
+msgstr ""
+"  --follow-symlinks\n"
+"                 slijedi simboličke poveznice pri obradi na mjestu\n"
+
+#: sed/sed.c:151
+#, c-format
+msgid ""
+"  -i[SUFFIX], --in-place[=SUFFIX]\n"
+"                 edit files in place (makes backup if SUFFIX supplied)\n"
+msgstr ""
+"  -i[SUFIKS], --in-place[=SUFIKS]\n"
+"                 uređuje datoteke na mjestu (stvara sigurnosnu kopiju\n"
+"                 ako je zadan SUFIKS)\n"
+
+#: sed/sed.c:154
+#, c-format
+msgid ""
+"  -b, --binary\n"
+"                 open files in binary mode (CR+LFs are not processed "
+"specially)\n"
+msgstr ""
+"  -b, --binary\n"
+"                 otvara datoteke u binarnom načinu\n"
+"                 (CR+LF ne obrađuje na poseban način)\n"
+
+#: sed/sed.c:158
+#, c-format
+msgid ""
+"  -l N, --line-length=N\n"
+"                 specify the desired line-wrap length for the 'l' command\n"
+msgstr ""
+"  -l N, --line-length=N\n"
+"                 zadaje željenu duljinu prelamanja redaka za naredbu 'l'\n"
+
+#: sed/sed.c:160
+#, c-format
+msgid ""
+"  --posix\n"
+"                 disable all GNU extensions.\n"
+msgstr ""
+"  --posix\n"
+"                 onemogućuje sva GNU proširenja\n"
+
+#: sed/sed.c:162
+#, c-format
+msgid ""
+"  -E, -r, --regexp-extended\n"
+"                 use extended regular expressions in the script\n"
+"                 (for portability use POSIX -E).\n"
+msgstr ""
+"  -E, -r, --regexp-extended\n"
+"                 koristi proširene regularne izraze u skripti\n"
+"                 (radi prenosivosti preporučuje se POSIX opcija -E)\n"
+
+#: sed/sed.c:165
+#, c-format
+msgid ""
+"  -s, --separate\n"
+"                 consider files as separate rather than as a single,\n"
+"                 continuous long stream.\n"
+msgstr ""
+"  -s, --separate\n"
+"                 obrađuje datoteke kao zasebne cjeline, a ne kao jedan\n"
+"                 neprekidni dugi tok podataka\n"
+
+#: sed/sed.c:168
+#, c-format
+msgid ""
+"      --sandbox\n"
+"                 operate in sandbox mode (disable e/r/w commands).\n"
+msgstr ""
+"      --sandbox\n"
+"                 radi u načinu rada 'sandbox'\n"
+"                 (onemogućuje naredbe 'e', 'r' i 'w')\n"
+
+#: sed/sed.c:170
+#, c-format
+msgid ""
+"  -u, --unbuffered\n"
+"                 load minimal amounts of data from the input files and "
+"flush\n"
+"                 the output buffers more often\n"
+msgstr ""
+"  -u, --unbuffered\n"
+"                 učitava minimalne količine podataka iz ulaznih\n"
+"                 datoteka i češće prazni izlazne međuspremnike\n"
+
+#: sed/sed.c:173
+#, c-format
+msgid ""
+"  -z, --null-data\n"
+"                 separate lines by NUL characters\n"
+msgstr ""
+"  -z, --null-data\n"
+"                 retke odvaja znakom NUL\n"
+
+#: sed/sed.c:175
+#, c-format
+msgid "      --help     display this help and exit\n"
+msgstr "      --help     pokaže ovu pomoć i završi\n"
+
+#: sed/sed.c:176
+#, c-format
+msgid "      --version  output version information and exit\n"
+msgstr "      --version  ispisuje podatke o inačici i izlazi\n"
+
+#: sed/sed.c:177
+#, c-format
+msgid ""
+"\n"
+"If no -e, --expression, -f, or --file option is given, then the first\n"
+"non-option argument is taken as the sed script to interpret.  All\n"
+"remaining arguments are names of input files; if no input files are\n"
+"specified, then the standard input is read.\n"
+"\n"
+msgstr ""
+"\n"
+"Ako nije zadana nijedna opcija -e, --expression, -f ili --file, prvi\n"
+"argument koji nije opcija uzima se kao sed skripta koju treba protumačiti.\n"
+"Svi preostali argumenti tumače se kao imena ulaznih datoteka; ako nije\n"
+"navedena nijedna ulazna datoteka, čita se standardni ulaz.\n"
+"\n"
+
+#: sed/sed.c:371
+msgid "failed to set binary mode on STDIN"
+msgstr "nije uspjelo postaviti STDIN u binarni način rada"
+
+#: sed/sed.c:373
+msgid "failed to set binary mode on STDOUT"
+msgstr "nije uspjelo postaviti binarni način rada za STDOUT"
+
+#: sed/utils.c:129
+#, c-format
+msgid "couldn't open file %s: %s"
+msgstr "nije moguće otvoriti datoteku %s: %s"
+
+#: sed/utils.c:148
+#, c-format
+msgid "couldn't attach to %s: %s"
+msgstr "nije moguće pridružiti se na %s: %s"
+
+#: sed/utils.c:212
+#, c-format
+msgid "failed to set binary mode on '%s'"
+msgstr "nije uspjelo postaviti binarni način rada za '%s'"
+
+#: sed/utils.c:233
+#, c-format
+msgid "couldn't write %jd item to %s: %s"
+msgid_plural "couldn't write %jd items to %s: %s"
+msgstr[0] "nije moguće zapisati %jd stavku u %s: %s"
+msgstr[1] "nije moguće zapisati %jd stavke u %s: %s"
+msgstr[2] "nije moguće zapisati %jd stavki u %s: %s"
+
+#: sed/utils.c:245 sed/utils.c:258
+#, c-format
+msgid "read error on %s: %s"
+msgstr "greška pri čitanju na %s: %s"
+
+#: sed/utils.c:254
+#, fuzzy, c-format
+msgid "read error on %s"
+msgstr "greška pri čitanju na %s: %s"
+
+#: sed/utils.c:357
+#, c-format
+msgid "couldn't readlink %s: %s"
+msgstr "nije moguće pročitati cilj poveznice %s: %s"
+
+#: sed/utils.c:360
+#, c-format
+msgid "couldn't follow symlink %s: %s"
+msgstr "nije moguće slijediti simboličku poveznicu %s: %s"
+
+#: sed/utils.c:407
+#, c-format
+msgid "cannot rename %s to %s: %s"
+msgstr "nije moguće preimenovati %s u %s: %s"
+
+#, c-format
+#~ msgid ""
+#~ "Autori by %s, %s, %s,\n"
+#~ "%s, and %s.\n"
+#~ msgstr ""
+#~ "Autori %s, %s, %s,\n"
+#~ "%s, i %s.\n"
+
+#~ msgid "write error"
+#~ msgstr "greška pri pisanju"
+
+#~ msgid "cannot remove %s: %s"
+#~ msgstr "nije moguće ukloniti %s: %s"
+
+#~ msgid "cannot stat %s: %s"
+#~ msgstr "ne može se dobiti status od %s: %s"
+
+#~ msgid "%s home page: <https://www.gnu.org/software/%s/>\n"
+#~ msgstr "Web stranica od „%s”: <https://www.gnu.org/software/%s/>\n"
+
+#~ msgid ""
+#~ "  -R, --regexp-perl\n"
+#~ "                 use Perl 5's regular expressions syntax in the script.\n"
+#~ msgstr ""
+#~ "  -R, --regexp-perl\n"
+#~ "                 koristi Perl 5 sintaksu za regularne izraze u skripti\n"
+
+#~ msgid ""
+#~ "E-mail bug reports to: <%s>.\n"
+#~ "Be sure to include the word ``%s'' somewhere in the ``Subject:'' field.\n"
+#~ msgstr ""
+#~ "Prijavite greške na: <%s>.\n"
+#~ "Obavezno dodajte riječ „%s” u polju „Predmet:”.\n"
+
+#~ msgid "super-sed version %s\n"
+#~ msgstr "super-sed inačica %s\n"
+
+#~ msgid ""
+#~ "based on GNU sed version %s\n"
+#~ "\n"
+#~ msgstr "temeljen na GNU sed inačici %s\n"
+
+#~ msgid "GNU sed version %s\n"
+#~ msgstr "GNU sed inačica %s\n"
+
+#~ msgid ""
+#~ "Copyright (C) %d Free Software Foundation, Inc.\n"
+#~ "This is free software; see the source for copying conditions.  There is "
+#~ "NO\n"
+#~ "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR "
+#~ "PURPOSE,\n"
+#~ "to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright (C) %d Free Software Foundation, Inc.\n"
+#~ "Ovo je slobodan softver; pogledajte kod za upute o kopiranju.  NEMA "
+#~ "jamstava;\n"
+#~ "čak ni za TRGOVINSKU PRIKLADNOST ili ODGOVARANJE ODREĐENOJ SVRSI, do "
+#~ "krajnje\n"
+#~ "mjere dozvoljene zakonom.\n"
+
+#~ msgid "bad regexp: %s\n"
+#~ msgstr "neispravan regularni izraz: %s\n"
+
+#~ msgid "Unexpected End-of-file"
+#~ msgstr "Neočekivani kraj datoteke"
+
+#~ msgid "Called savchar() with unexpected pushback (%x)"
+#~ msgstr "Pozvao savchar() sa neočekivanim rezultatom (%x)"
+
+#~ msgid "input read error: %s"
+#~ msgstr "greška pri čitanju ulaza: %s"
+
+#~ msgid "INTERNAL ERROR: bad address type"
+#~ msgstr "INTERNA GREŠKA: neispravan tip adrese"
+
+#~ msgid "INTERNAL ERROR: Bad cmd %c"
+#~ msgstr "INTERNA GREŠKA: Neispravna naredba %c"
+
+#~ msgid ""
+#~ "Usage: %s [OPTION]... {script-only-if-no-other-script} [input-file]...\n"
+#~ "\n"
+#~ "  -n, --quiet, --silent\n"
+#~ "                 suppress automatic printing of pattern space\n"
+#~ "  -e script, --expression=script\n"
+#~ "                 add the script to the commands to be executed\n"
+#~ "  -f script-file, --file=script-file\n"
+#~ "                 add the contents of script-file to the commands to be "
+#~ "executed\n"
+#~ "      --help     display this help and exit\n"
+#~ "  -V, --version  output version information and exit\n"
+#~ "\n"
+#~ "If no -e, --expression, -f, or --file option is given, then the first\n"
+#~ "non-option argument is taken as the sed script to interpret.  All\n"
+#~ "remaining arguments are names of input files; if no input files are\n"
+#~ "specified, then the standard input is read.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Uporaba: %s [OPCIJA]... {skripta-samo-ako-nema-druge-skripte} [ulazna-"
+#~ "datoteka]...\n"
+#~ "\n"
+#~ "  -n, --quiet, --silent\n"
+#~ "                 suzbij ispis uzoraka\n"
+#~ "  -e script, --expression=script\n"
+#~ "                 dodaj skriptu naredbama koje treba izvršiti\n"
+#~ "  -f script-file, --file=script-file\n"
+#~ "                 dodaj sadržaj skriptne-datoteke naredbi koju treba "
+#~ "izvršiti\n"
+#~ "      --help     prikaži ovu pomoć i izađi\n"
+#~ "  -V, --version  ispiši informacije o inačici i izađi\n"
+#~ "\n"
+#~ "Ako nema -e, --expression, -f, ili --file opcije, tada se uzima prvi\n"
+#~ "argument koji nije opcija kao sed skripta koju treba protumačiti.  Svi\n"
+#~ "preostali argumenti su imena ulaznih datoteka; ako nema ulaznih datoteka\n"
+#~ "tada se cita standardni ulaz.\n"
+#~ "\n"

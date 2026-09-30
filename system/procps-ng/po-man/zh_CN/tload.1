@@ -1,0 +1,57 @@
+.\"
+.\" Copyright (c) 2011-2023 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1993      Matt Welsh <mdw@tc.cornell.edu>
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH TLOAD 1 2020\-06\-04 procps\-ng 
+.SH 名称
+tload \- 用图表表示系统的平均负载
+.SH 概述
+\fBtload\fP [\fI选项\fP .\|.\|.\&] [\fItty\fP]
+.SH 描述
+\fBtload\fP 将当前系统平均负载的图表打印到指定的 \fItty\fP（如果未指定，则打印到 \fBtload\fP 进程的 tty）。
+.SH 选项
+.TP 
+\fB\-s\fP, \fB\-\-scale\fP \fI数字\fP
+scale 选项允许指定显示时使用的垂直缩放（以图表刻度之间的字符为单位）；因此，值越小，可显示的负载上限越大，反之亦然。
+.TP 
+\fB\-d\fP, \fB\-\-delay\fP \fI秒\fP
+delay 选项设置图像更新之间的延迟（以 \fI秒\fP 为单位）。
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+显示此帮助文本。
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+显示版本信息并退出。
+.PP
+.SH 文件
+\fI/proc/loadavg\fP 平均负载信息
+.SH 参见
+\fBps\fP(1), \fBtop\fP(1), \fBuptime\fP(1), \fBw\fP(1)
+.SH 错误
+\fB\-d\fP \fI延迟\fP 选项用于设置 \fBalarm\fP(2) 的时间参数；如果指定 \-d 0，则 alarm 的时间被设置为 0，这样将永远不会发送
+\fBSIGALRM\fP 来更新显示。
+.SH 作者
+Branko Lankester、
+.MT david@\:ods.\:com
+David Engel
+.ME 、
+和
+.MT johnsonm@\:redhat.\:com
+Michael K. Johnson
+.ME 。
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

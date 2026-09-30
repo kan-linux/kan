@@ -1,0 +1,373 @@
+2026-04-29  Simon Josefsson  <simon@josefsson.org>
+
+	version 2.8
+	* NEWS.md: Record release date.
+
+	tests: Disable utmp/readutmp (no systemd support)
+	* tests/Makefile.am (EXTRA_DIST): Add utmp.sh.
+	(dist_check_SCRIPTS): Remove utmp.sh.
+
+	maint: Bump GNULIB_REVISION
+	* bootstrap.conf (GNULIB_REVISION): Use stable-202601 branch commit
+	6466c4b5321eb2625a25e582516c0fa4a5261d05.
+
+	libtelnet: Don't use printsub
+
+2026-04-29  Collin Funk  <collin.funk1@gmail.com>
+
+	telnetd: remove the --debug (-D) option
+	This change is being made because of a local privilege escalation
+	reported by Justin Swartz in
+	<https://lists.gnu.org/r/bug-inetutils/2026-03/msg00040.html>.
+
+	* NEWS.md: Mention the removal of this option.
+	* doc/inetutils.texi (telnetd invocation): Remove the documentation
+	forthe option.
+	* telnetd/slc.c (end_slc): Remove the call to DEBUG.
+	* telnetd/state.c (telrcv, send_do, willoption, send_dont, wontoption)
+	(send_will, doption, sent_wont, dontoption, suboption, send_status):
+	Likwise.
+	* telnetd/telnetd.c (parse_debug_level): Remove declaration and
+	function.
+	(debug_level, debug_tcp, debug_mode): Remove variables.
+	(argp_option, parse_opt): Remove the option.
+	(telnet_setup): Don't set SO_DEBUG on the socket.
+	(telnetd_run, print_hostinfo): Remove the calls to DEBUG.
+	* telnetd/telnetd.h (debug_mode_t): Remove type.
+	(MAX_DEBUG_LEVEL, DEBUG): Remove definitions.
+	(debug_level, printoption, printdata, printsub, debug_output_datalen)
+	(debug_output_data): Remove declarations.
+	* telnetd/termstat.c (localstat, flowstat, clientstat): Remove calls to
+	DEBUG.
+	* telnetd/utility.c: Include attribute.h
+	(net_read, ptyflush, pty_read, io_drain, netflush): Remove calls to
+	DEBUG.
+	(debug_fp): Remove variable.
+	(debug_open, debug_close, debug_out_datalen, debug_output_data)
+	(printoption, printdata): Remove functions.
+	(printsub): Make function a stub as required by libtelnet if kerberos is
+	enabled.
+
+2026-04-13  Simon Josefsson  <simon@josefsson.org>
+
+	maint: Bump GNULIB_REVISION
+	* bootstrap.conf (GNULIB_REVISION): Use 4a3650d88725e8fda6387fbdbaa0ed98cdca76ce.
+
+	maint: Run 'make indent'
+
+2026-04-12  Collin Funk  <collin.funk1@gmail.com>
+
+	ftp: assume char is 8 bits
+	* ftp/cmds.c (setpeer): Don't use NBBY.
+
+2026-04-12  Collin Funk  <collin.funk1@gmail.com>
+
+	ftpd: assume char is 8 bits
+	Gnulib already makes this assumption, so we can remove some dead code.
+
+	* bootstrap.conf (gnulib_modules): Add limits-h explicitly, which is
+	already a transitive dependency.
+	* ftpd/ftpcmd.y (NBBY): Remove definition.
+	(cmd, type_code): Use CHAR_BIT instead of NBBY.
+	* ftpd/ftpd.c (statcmd): Remove fallback code for if CHAR_BIT is not
+	defined.
+
+2026-03-27  Collin Funk  <collin.funk1@gmail.com>
+
+	telnet: don't leak the value of unexported environment variables
+	Patch based on the following OpenBSD commit:
+	<https://github.com/openbsd/src/commit/1a11dc7253488a97d6df686dae9230f78682e8df>
+
+	* NEWS.md: Mention the fix.
+	* telnet/commands.c (env_getvalue): Add a boolean argument to prevent
+	prevent unexported variables from being returned.
+	* telnet/externs.h (env_getvalue): Adjust the function declaration.
+	* telnet/authenc.c (telnet_getenv): Add the new argument.
+	* telnet/telnet.c (dooption, gettermname, suboption, env_opt_add)
+	(telnet): Likewise.
+
+2026-03-14  Collin Funk  <collin.funk1@gmail.com>
+
+	doc: NEWS: mention recently assigned CVEs
+	* NEWS.md: Mention CVE-2026-32746 and CVE-2026-28372. Add a link to the
+	report written by DREAM Security Research Team. Mention the rationale
+	behind the telnetd --accept-env option.
+
+2026-03-13  Collin Funk  <collin.funk1@gmail.com>
+
+	syslogd: prefer lchmod to chmod
+	* src/syslogd.c (create_unix_socket): Use lchmod instead of chmod.
+
+	rcp: prefer lchmod to chmod
+	* src/rcp.c (sink): Use lchmod.
+
+	rlogind: prefer lchmod and lchown to chmod and chown
+	* src/rlogind.c (cleanup): Use lchown and lchmod.
+
+	libtelnet: prefer lchown to chown
+	* libtelnet/forward.c (rd_and_store_for_creds): Use lchown.
+
+	libinetutils: prefer lchmod and lchown to chmod and chown
+	* libinetutils/cleansess.c (cleanup_session): Use lchmod and lchown.
+
+2026-03-13  Collin Funk  <collin.funk1@gmail.com>
+
+	telnetd: prefer lchmod and lchown to chmod and chown
+	In ideal circumstances no one is able to create symbolic links under the
+	/dev/pts/ directory. However, we should avoid the possibility of
+	following symbolic links regardless.
+
+	* bootstrap.conf (gnulib_modules): Add lchmod and lchown.
+	* telnetd/pty.c (cleanup) Use lchmod and lchown.
+
+2026-03-13  Collin Funk  <collin.funk1@gmail.com>
+
+	telnetd: fix stack buffer overflow processing SLC suboption triplets
+	Previously a client could write past the end of an internal buffer using
+	an SLC suboption with many triplets using function octets greater than
+	18, possibly leading to remote code execution. Reported by Adiel Sol,
+	Arad Inbar, Erez Cohen, Nir Somech, Ben Grinberg, Daniel Lubel at DREAM
+	Security Research Team at:
+	<https://lists.gnu.org/r/bug-inetutils/2026-03/msg00031.html>.
+
+	* telnetd/slc.c (add_slc): Return early if writing the tuple would lead
+	us to writing past the end of the buffer.
+	* NEWS.md: Mention the fix.
+
+2026-03-12  Guillem Jover  <guillem@hadrons.org>
+
+	doc: Fix typo
+	* AUTHORS: Fix typo.
+
+	Fixes: https://bugs.debian.org/1127398
+
+2026-03-12  Collin Funk  <collin.funk1@gmail.com>
+
+	maint: fix Haiku spelling in README.md
+	* README.md: Fix typo.
+
+2026-03-09  Simon Josefsson  <simon@josefsson.org>
+
+	doc: Add NEWS entry for configure.ac hosts_ctl fix
+
+2026-03-09  Simon Josefsson  <simon@josefsson.org>
+
+	configure.ac: modernize check for hosts_ctl
+	Get the proper declaration from tcpd.h and pass the appropriate number
+	of pointer arguments. This avoids relying on an implicit declaration.
+
+	Bug: https://bugs.gentoo.org/962943
+
+2026-03-08  Collin Funk  <collin.funk1@gmail.com>
+
+	telnetd: add the new --accept-env option
+	This changes telnetd to ignore all environment options from clients
+	unless the variable was listed by an --accept-env option.  This
+	mitigates the many ways to escalate privileges using environment
+	variables.
+
+	* NEWS.md: Mention the change.
+	* bootstrap.conf (gnulib_modules): Add hashcode-string1, hash-set, and
+	xset.
+	* doc/inetutils.texi (telnetd invocation): Mention the new option.
+	* telnetd/pty.c (scrub_env): Remove function.
+	(start_login): Remove call to scrub_env.  Remove unsetenv call that is
+	no longer needed.
+	* telnetd/state.c (suboption): Check for the environment variable in
+	accept_env_set before making changes to the environment.
+	* telnetd/telnetd.c (accept_env_set): New variable.
+	(string_hashcode, string_equals): New function needed for
+	gl_set_create_empty.
+	(ACCEPT_ENV_OPTION): New definition.
+	(argp_options): Add the --accept-env option.
+	(parse_opt): Process the new option.
+	(telnetd_setup): Clear the environment before processing options.
+	* telnetd/telnetd.h: Include gl_hash_set.h, gl_xset.h, and
+	hashcode-string1.h.
+	(accept_env_set): New declaration.
+
+2026-03-06  Collin Funk  <collin.funk1@gmail.com>
+
+	maint: fix 'make syntax-check'
+	* NEWS.md: Fix a typo that causes sc_codespell to fail.
+
+2026-02-19  Erik Auerswald  <auerswal@unix-ag.uni-kl.de>
+
+	Adjusted Ron Ben Yizhak's attribution as requested
+	in <https://lists.gnu.org/archive/html/bug-inetutils/2026-02/msg00012.html>.
+
+	* NEWS.md: Replace "Ron Ben Yizhak" with "Ron Ben Yizhak@SafeBreach".
+	* THANKS: Likewise.
+
+2026-02-15  Erik Auerswald  <auerswal@unix-ag.uni-kl.de>
+
+	telnetd: don't allow systemd service credentials
+	The login(1) implementation of util-linux added support for
+	systemd service credentials in release 2.40.  This allows to
+	bypass authentication by specifying a directory name in the
+	environment variable CREDENTIALS_DIRECTORY.  If this directory
+	contains a file named 'login.noauth' with the content of 'yes',
+	login(1) skips authentication.
+
+	GNU Inetutils telnetd supports to set arbitrary environment
+	variables using the 'Environment' and 'New Environment'
+	Telnet options.  This allows specifying a directory containing
+	'login.noauth'.  A local user can create such a directory
+	and file, and, e.g., specify the user name 'root' to escalate
+	privileges.
+
+	This problem was reported by Ron Ben Yizhak in
+	<https://lists.gnu.org/archive/html/bug-inetutils/2026-02/msg00000.html>.
+
+	This commit clears CREDENTIALS_DIRECTORY from the environment
+	before executing login(1) to implement a simple fix that can
+	be backported easily.
+
+	* NEWS.md: Mention fix.
+	* THANKS: Mention Ron Ben Yizhak.
+	* telnetd/pty.c: Clear CREDENTIALS_DIRECTORY from the environment
+	before executing 'login'.
+
+2026-01-26  Guillem Jover  <guillem@hadrons.org>
+
+	Use krb5_auth_con_getsendsubkey() instead of krb5_auth_con_getlocalsubkey()
+	The latter is not exposed in the headers anymore.
+
+2026-01-26  Simon Josefsson  <simon@josefsson.org>
+
+	doc: Mention runstatedir change
+	* NEWS: Add.
+
+2026-01-26  Guillem Jover  <guillem@hadrons.org>
+
+	build: Use runstatedir for /run directory
+	Instead of using $(localstatedir)/run, use the more specific
+	$(runstatedir), which can then be specified independently of
+	localstatedir, and where the last component can be changed as well.
+
+2026-01-26  Simon Josefsson  <simon@josefsson.org>
+
+	doc: Mention new inetd --foreground parameter
+	* doc/inetutils.texi (inetd invocation): Document --foreground.
+
+2026-01-26  Guillem Jover  <guillem@hadrons.org>
+
+	inetd: Add new --foreground option
+	This option avoids daemonizing, like --debug, except that it does not
+	imply debugging output. To be used primarily by the systemd service.
+
+2026-01-26  Guillem Jover  <guillem@hadrons.org>
+
+	tests: Remove bogus libls test for unsorted file listing
+	We cannot reliably test whether the -f option works against a normal
+	filesystem, because that relies on the unsorted output coming out
+	accidentally not sorted, and this has been the cause for several
+	indeterministic build failures in various hosts (such as some
+	sparc64 or reproducible build nodes).
+
+	This could be guaranteed with something like disorderfs, but we do
+	not bother and simply remove the test case.
+
+2026-01-26  Simon Josefsson  <simon@josefsson.org>
+
+	Fix -Wpointer-sign
+	* src/syslogd.c (wallmsg): Use idx_t per gnulib API.
+
+2026-01-25  Simon Josefsson  <simon@josefsson.org>
+
+	doc: Mention --enable-gcc-warnings in NEWS
+
+	Fix -Wtype-limits
+	* ifconfig/options.c (parse_opt): Remove redundant n<0 check.
+
+	Fix -Wdangling-pointer
+	ifconfig/changeif.c (set_hwaddr): Move addr namespace.
+
+	Fix -Wunused-variable
+	* ftp/ftp.c (ptransfer): Drop unused bs and s.
+
+	Fix -Wunused-macros
+	* libls/stat_flags.c (TEST, SAPPEND): Remove.
+	src/inetd.c (NUMINT): Remove.
+	(SIGBLOCK): Define only for !HAVE_SIGACTION.
+	ping/ping_echo.c (NROUTES): Remove.
+
+	Enable gnulib manywarnings for compiler warnings
+	* bootstrap.conf (gnulib_modules): Add manywarnings.
+	configure.ac: Add --enable-gcc-warnings and disable noise for now.
+	*/Makefile.am: Add WARN_CFLAGS to AM_CFLAGS.
+
+	Drop non-working TN3270 code
+
+	Pass USER to /bin/login after a '--' delimiter
+	* telnetd/telnetd (login_invocation): Add '--' for non-Solaris case.
+
+2026-01-25  Collin Funk  <collin.funk1@gmail.com>
+
+	maint: fix a -Wdiscarded-qualifiers warning
+	* telnetd/utility.c (sanitize): Add a const qualifier to the return
+	type.
+
+2026-01-22  Simon Josefsson  <simon@josefsson.org>
+
+	doc: Harmonize on end section titles without a period
+	* doc/inetutils.texi (File format of ftpusers and ftpchroot): Drop '.'.
+	(Crafting an execution string): Likewise.
+	(Authentication steps): Likewise.
+
+	doc: Mention CVE-2026-24061 for telnetd exploit in NEWS
+
+2026-01-21  Simon Josefsson  <simon@josefsson.org>
+
+	doc: Give credit for telnetd exploit in THANKS
+	* THANKS: Mention Kyu Neushwaistein
+
+2026-01-20  Simon Josefsson  <simon@josefsson.org>
+
+	doc: Mention telnetd fix in NEWS
+
+	telnetd: Sanitize all variable expansions
+	* telnetd/utility.c (sanitize): New function.
+	(_var_short_name): Use it for all variables.
+
+2026-01-20  Paul Eggert  <eggert@cs.ucla.edu>
+
+	Fix injection bug with bogus user names
+	Problem reported by Kyu Neushwaistein.
+	* telnetd/utility.c (_var_short_name):
+	Ignore user names that start with '-' or contain shell metacharacters.
+
+2026-01-20  Simon Josefsson  <simon@josefsson.org>
+
+	doc: Remove older ChangeLog items
+	* Makefile.am: Remove older ChangeLogs that were previously thought to
+	be for changes not in the git history, but are adequately recorded
+	upon review.  Saves around 0.7MB.  Compare coreutils commit
+	4e112e90b11b70bd6dc5b441f820803fc2aadd69.
+	* ChangeLog.0, ChangeLog.1, ChangeLog.2: Remove file.
+
+	maint: Fix Makefile.am CL2STR copyright year
+	* Makefile.am (CL2STR): Add 2026.
+
+	maint: Run 'make update-copyright'
+
+	maint: Run './bootstrap  --bootstrap-sync'
+
+	maint: Bump GNULIB_REVISION
+	* bootstrap.conf (GNULIB_REVISION): Use 2a288c048e2a23ea9cd8cbef9a60aa4ac82bdc3d.
+
+	Fix codespell typo
+	* cfg.mk (codespell_ignore_words_list): Add 'indx'.
+
+2025-12-14  Simon Josefsson  <simon@josefsson.org>
+
+	maint: post-release administrivia
+	* NEWS.md: Add header line for next release.
+	* .prev-version: Record previous version.
+	* cfg.mk (old_NEWS_hash): Auto-update.
+
+	version 2.7
+	* NEWS.md: Record release date.
+
+
+See the source repo for older entries

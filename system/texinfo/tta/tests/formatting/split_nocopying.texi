@@ -1,0 +1,17 @@
+\input texinfo
+
+@node Top
+@top Test file used to test split Info without @@copying
+
+This is the top node.
+
+@menu
+* Ch1::
+@end menu
+
+@node Ch1
+@chapter Ch1
+
+First chapter.
+
+@bye

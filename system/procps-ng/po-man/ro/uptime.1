@@ -1,0 +1,78 @@
+.\"
+.\" Copyright (c) 2011-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002      Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH UPTIME 1 08.02.2024 procps\-ng 
+.SH NUME
+uptime \- Indică timpul de când sistemul se află în funcționare.
+.SH REZUMAT
+\fBuptime\fP [\fIopțiune\fP .\|.\|.]
+.SH DESCRIERE
+\fBuptime\fP oferă o afișare pe o singură linie a următoarelor informații. Ora
+curentă, de cât timp funcționează sistemul, câți utilizatori sunt conectați
+în prezent și mediile de încărcare a sistemului pentru ultimele 1, 5 și 15
+minute.
+.PP
+Acestea sunt aceleași informații conținute în linia antetului afișată de
+comanda \fBw\fP(1).
+.PP
+System load averages is the average number of processes that are either in a
+runnable or uninterruptible state.  A process in a runnable state is either
+using the CPU or waiting to use the CPU.  A process in uninterruptible state
+is waiting for some I/O access, eg waiting for disk.  The averages are taken
+over the three time intervals.  Load averages are not normalized for the
+number of CPUs in a system, so a load average of 1 means a single CPU system
+is loaded all the time while on a 4 CPU system it means it was idle 75% of
+the time.
+.SH OPȚIUNI
+.TP 
+\fB\-c\fP, \fB\-\-container\fP
+afișează timpul de funcționare al containerului în loc de timpul de
+funcționare al sistemului.
+.TP 
+\fB\-p\fP, \fB\-\-pretty\fP
+afișează timpul de funcționare într\-un format amiabil
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+afișează acest mesaj de ajutor
+.TP 
+\fB\-r\fP, \fB\-\-raw\fP
+Afișează valorile în format brut. Ora curentă și timpul de funcționare sunt
+afișate în secunde.
+.TP 
+\fB\-s\fP, \fB\-\-since\fP
+sistemul este activat de când; în format aaaa\-mm\-zz HH:MM:SS
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+afișează informațiile despre versiune și iese
+.SH "VARIABILE DE MEDIU"
+.TP 
+\fBPROCPS_CONTAINER\fP
+Dacă $\fBPROCPS_CONTAINER\fP este activat, atunci \fBuptime\fP se comportă ca și
+cum ar fi fost dată opțiunea \fB\-\-container\fP.
+.SH FIȘIERE
+.TP 
+\fI/var/run/utmp\fP
+informații despre cine este conectat în prezent
+.TP 
+\fI/proc\fP
+informații despre procese
+.SH "CONSULTAȚI ȘI"
+\fBps\fP(1), \fBtop\fP(1), \fButmp\fP(5), \fBw\fP(1)
+.SH "RAPORTAREA ERORILOR"
+Trimiteți rapoartele de eroare la
+.MT procps@freelists.org
+.ME .

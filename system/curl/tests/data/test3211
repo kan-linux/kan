@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<testcase>
+<info>
+<keywords>
+unittest
+uint_bset
+u8_strset
+u32_ptrset
+</keywords>
+</info>
+
+# Client-side
+<client>
+<features>
+unittest
+</features>
+<name>
+uint_bset, u8_strset and u32_ptrset unit tests
+</name>
+</client>
+</testcase>

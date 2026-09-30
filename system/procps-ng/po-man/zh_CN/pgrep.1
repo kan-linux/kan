@@ -1,0 +1,223 @@
+.\"
+.\" Copyright (c) 2004-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2013-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002-2004 Albert Cahalan
+.\" Copyright (c) 2000      Kjetil Torgrim Homme
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH PGREP 1 2025\-12\-29 procps\-ng 
+.SH 名称
+pgrep, pkill, pidwait \- 根据名称和其他属性查找进程、向进程发送信号或等待进程结束
+.SH 概述
+\fBpgrep\fP [\fI选项\fP .\|.\|.\&] \fI模式\fP
+.P
+\fBpkill\fP [\fI选项\fP .\|.\|.\&] \fI模式\fP
+.P
+\fBpidwait\fP [\fI选项\fP .\|.\|.\&] \fI模式\fP
+.SH 描述
+\fBpgrep\fP 查找当前正在运行的进程，然后将与选择标准匹配的进程 ID 列出到标准输出。所有标准都必须匹配。例如，
+.IP
+$ pgrep \-u root sshd
+.PP
+将会仅列出名称包含 \fBsshd\fP \fB且\fP 被 \fBroot\fP 拥有的进程。另一方面，
+.IP
+$ pgrep \-u root,daemon
+.PP
+则会列出被 \fBroot\fP \fB或\fP \fBdaemon\fP 拥有的进程。
+.PP
+\fBpkill\fP 会将指定的信号（默认为 \fBSIGTERM\fP）发送给各个进程，而不是将它们列出到标准输出。
+.PP
+\fBpidwait\fP 会等待各个进程结束，而不是将它们列出到标准输出。
+.SH 选项
+.TP 
+\fB\-\fP\fI信号\fP
+.TQ
+\fB\-\-signal\fP \fI信号\fP
+指定发送到每个被匹配的进程的信号。信号可以使用数字或符号名称。在 \fBpgrep\fP 或 \fBpidwait\fP 模式下，只能使用长选项，并且除非与
+\fB\-\-require\-handler\fP 结合使用，来筛选出已针对特定信号注册了用户空间信号处理程序的进程，否则该选项无效。
+.TP 
+\fB\-a\fP, \fB\-\-list\-full\fP
+列出进程的完整命令行和进程 ID。（仅限 \fBpgrep\fP。）
+.TP 
+\fB\-A\fP, \fB\-\-ignore\-ancestors\fP
+忽略 \fBpgrep\fP、\fBpkill\fP 或 \fBpidwait\fP 的所有祖先。例如，当使用 \fBsudo\fP 或类似工具进行提权时，此选项可能很有用。
+.TP 
+\fB\-c\fP, \fB\-\-count\fP
+阻止正常输出；改为打印匹配进程的数量。当 count 选项未找到匹配时，例如返回零时，该命令将返回非零值。请注意，对于 pkill 和
+pidwait，数量是匹配进程的数量，而不是成功发出信号或等待的进程的数量。
+.TP 
+\fB\-d\fP, \fB\-\-delimiter\fP \fI分隔符\fP
+设置用于分隔输出中各个进程 ID 的字符串（默认为换行符）。（仅限 \fBpgrep\fP。）
+.TP 
+\fB\-e\fP, \fB\-\-echo\fP
+显示被杀死的进程的名称和 PID。（仅限 \fBpkill\fP。）
+.TP 
+\fB\-f\fP, \fB\-\-full\fP
+\fI模式\fP 通常仅与进程名称进行匹配。使用 \fB\-f\fP 时，将匹配完整的命令行。
+.TP 
+\fB\-F\fP, \fB\-\-pidfile\fP \fI文件\fP
+从 \fI文件\fP 读取 \fIPID\fP。此选项在使用 \fBpkill\fP 或 \fBpidwait\fP 时比使用 \fBpgrep\fP 时更有用。文件名 "\-"
+可以让程序从 \fI标准输入\fP 读取。与 \fB\-\-pid\fP 选项冲突。
+.TP 
+\fB\-g\fP, \fB\-\-pgroup\fP \fI进程组\fP,.\|.\|.
+仅匹配列出的进程组 ID 中的进程。进程组 0 表示 \fBpgrep\fP、\fBpkill\fP 或 \fBpidwait\fP 自己的进程组。
+.TP 
+\fB\-G\fP, \fB\-\-group\fP \fIgid\fP,.\|.\|.
+仅匹配具有列出的真实组 ID 的进程。可以使用数值或符号化的值。
+.TP 
+\fB\-H\fP, \fB\-\-require\-handler\fP
+仅匹配注册了所发送的信号的用户空间信号处理程序的进程。
+.TP 
+\fB\-i\fP, \fB\-\-ignore\-case\fP
+匹配进程时不区分大小写。
+.TP 
+\fB\-l\fP, \fB\-\-list\-name\fP
+列出进程名称和进程 ID。（仅限 \fBpgrep\fP。）
+.TP 
+\fB\-L\fP, \fB\-\-logpidfile\fP
+如果 pidfile（参见 \fB\-F\fP）未锁定，则失败。
+.TP 
+\fB\-m\fP, \fB\-\-mrelease\fP
+发送信号后，调用 \fBprocess_mrelease\fP() 系统调用以立即释放目标进程的内存。
+.TP 
+\fB\-n\fP, \fB\-\-newest\fP
+仅选择最新（最近启动）的匹配进程。
+.TP 
+\fB\-o\fP, \fB\-\-oldest\fP
+仅选择最旧（最早启动）的匹配进程。
+.TP 
+\fB\-O\fP, \fB\-\-older\fP \fI秒\fP
+选择年龄大于指定秒数的进程。
+.TP 
+\fB\-p\fP, \fB\-\-pid\fP \fIpid\fP,.\|.\|.
+仅匹配具有列出的父进程 ID 的进程。与 \fB\-\-pidfile\fP 选项冲突。
+.TP 
+\fB\-P\fP, \fB\-\-parent\fP \fIppid\fP,.\|.\|.
+仅匹配具有列出的父进程 ID 的进程。
+.TP 
+\fB\-q\fP, \fB\-\-queue \fP\fI值\fP
+随信号一起发送一个整数 \fI值\fP。此选项会将该值传递给 \fBpidfd_send_signal\fP(2)，或者使用 \fBsigqueue\fP(3) 替代
+\fBkill\fP(2)。如果接收进程使用 \fBsigaction\fP(2) 的 SA_SIGINFO 标志安装了该信号的处理程序，则它可以通过
+siginfo_t 结构的 si_value 字段获取该值。
+.TP 
+\fB\-Q\fP, \fB\-\-shell\-quote\fP
+以用于 shell 的加引号的格式输出命令行。（仅限 \fBpgrep\fP。）
+.TP 
+\fB\-r\fP, \fB\-\-runstates\fP \fID,R,S,Z,\fP.\|.\|.
+仅匹配具有匹配的进程状态的进程。
+.TP 
+\fB\-s\fP, \fB\-\-session\fP \fIsid\fP,.\|.\|.
+仅匹配具有列出的会话 ID 的进程。会话 ID 0 表示 \fBpgrep\fP、\fBpkill\fP 或 \fBpidwait\fP 自己的会话 ID。
+.TP 
+\fB\-t\fP, \fB\-\-terminal\fP \fI终端\fP,.\|.\|.
+仅匹配被列出的终端所控制的进程。指定的终端名称不应包含 "/dev/" 前缀。
+.TP 
+\fB\-u\fP, \fB\-\-euid\fP \fIeuid\fP,.\|.\|.
+仅匹配具有列出的有效用户 ID 的进程。可以使用数值或符号化的值。
+.TP 
+\fB\-U\fP, \fB\-\-uid\fP \fIuid\fP,.\|.\|.
+仅匹配具有列出的真实用户 ID 的进程。可以使用数值或符号化的值。
+.TP 
+\fB\-v\fP, \fB\-\-inverse\fP
+反向匹配。此选项通常在使用 \fBpgrep\fP 或 \fBpidwait\fP 时使用。使用 \fBpkill\fP 时，短选项被禁用，以避免意外使用该选项。
+.TP 
+\fB\-w\fP, \fB\-\-lightweight\fP
+使用 \fBpgrep\fP 或 \fBpidwait\fP 时，显示所有线程 id，而不是 pid。使用 \fBpkill\fP 时，此选项被禁用。
+.TP 
+\fB\-x\fP, \fB\-\-exact\fP
+仅匹配名称（指定了 \fB\-f\fP 时，为命令行）\fB完全\fP 与 \fI模式\fP 匹配的进程。
+.TP 
+\fB\-\-cgroup \fP\fI名称\fP\fB,.\|.\|.\fP
+匹配给定的控制组 (cgroup) v2 名称。参见 \fBcgroups\fP(7)
+.TP 
+\fB\-\-env \fP\fI名称\fP[\fI=值\fP],.\|.\|.
+匹配含有这些环境变量的进程。如果未定义参数 \fI=值\fP，则只匹配变量名。
+.TP 
+\fB\-\-ns \fP\fIpid\fP
+匹配处于同一个命名空间的进程。需要以 root 身份运行才能匹配其他用户的进程。请参阅 \fB\-\-nslist\fP 了解如何限制要匹配的命名空间。
+.TP 
+\fB\-\-nslist \fP\fI名称\fP\fB,.\|.\|.\fP
+仅匹配指定的命名空间。 可用的命名空间：ipc、mnt、net、pid、user、uts。
+.TP 
+\fB\-\-quiet\fP
+不要向标准输出写入任何内容（仅限 \fBpgrep\fP）。
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+显示版本信息并退出。
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+显示帮助并退出。
+.SH 操作数
+.TP 
+\fI模式\fP
+指定用于匹配进程名称或命令行的扩展正则表达式。
+.SH 示例
+示例 1：查找 \fBnamed\fP 守护进程的进程 ID：
+.IP
+$ pgrep \-u root named
+.PP
+示例 2：让 \fBsyslog\fP 重新读取它的配置文件：
+.IP
+$ pkill \-HUP syslogd
+.PP
+示例 3：提供所有 \fBbash\fP 进程的详细信息：
+.IP
+$ ps \-fp $(pgrep \-d, \-x bash)
+.PP
+示例 4：提高所有 \fBchrome\fP 进程的 nice 值：
+.IP
+$ renice +4 $(pgrep chrome)
+.PP
+示例 5：等待一个 PID 已知的进程结束：
+.IP
+$ echo ${PID} | pidwait \-F \-
+.SH 退出状态
+.TP 
+\fB0\fP
+一个或多个进程符合匹配标准。对于 \fBpkill\fP 和 \fBpidwait\fP，还必须对至少一个进程成功地发出信号或等待。
+.TP 
+\fB1\fP
+没有匹配的进程或者没能向任何一个进程发出信号。
+.TP 
+\fB2\fP
+命令行有语法错误。
+.TP 
+\fB3\fP
+致命错误：内存不足等。
+.SH 备注
+用于匹配的进程名称长度限制为 15 个字符，位于 /proc/\fIpid\fP/stat 的输出中。使用 \fB\-f\fP 选项来匹配完整的命令行，即
+/proc/\fIpid\fP/cmdline。线程可能不具有与父进程相同的进程名称，但具有相同的命令行。
+.PP
+正在运行的 \fBpgrep\fP、\fBpkill\fP 或 \fBpidwait\fP 进程永远不会匹配它自己。
+.PP
+如果 \fI/proc\fP 使用 \fIsubset=pid\fP 选项挂载，则 \fB\-O \-\-older\fP 选项将失败且不进行提示。
+.PP
+若能获取目标进程的进程文件描述符，\fBpkill\fP 将尝试使用 \fBpidfd_send_signal\fP(2) 替代 \fBkill\fP(2) 或
+\fBsigqueue\fP(3) 向目标进程发送信号。
+.SH 错误
+选项 \fB\-n\fP 和 \fB\-o\fP 以及 \fB\-v\fP 不能同时使用。如果您需要这样做，请告诉我。
+.PP
+如果进程在同一个 tick 内启动（通常为百分之一秒，但并非总是如此），则选项 \fB\-n\fP 和 \fB\-o\fP 将无法区分哪些进程在同一个 tick
+内启动，可能导致结果错误。
+.PP
+会报告已不存在的进程（僵尸进程）。
+.PP
+\fBpidwait\fP 需要 \fBpidfd_open\fP(2) 系统调用，该调用首次出现在 Linux 5.3 中。
+.SH 参见
+\fBkillall\fP(1), \fBkill\fP(1), \fBps\fP(1), \fBskill\fP(1), \fBkill\fP(2),
+\fBsigaction\fP(2), \fBpidfd_open\fP(2), \fBpidfd_send_signal\fP(2), \fBsigqueue\fP(3),
+\fBcgroups\fP(7), \fBregex\fP(7), \fBsignal\fP(7)
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

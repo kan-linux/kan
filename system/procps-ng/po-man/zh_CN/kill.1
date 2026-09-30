@@ -1,0 +1,96 @@
+.\"
+.\" Copyright (c) 2002-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1998-2003 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH KILL 1 2023\-12\-27 procps\-ng 
+.SH 名称
+kill \- 向一个或多个进程发送一个信号
+.SH 概述
+\fBkill\fP [\fB\-q\ \fP\fI值\fP|\fB\-\-queue\fP\fI\ 值\fP] \fIpid\fP .\|.\|.
+.P
+\fBkill\fP \fB\-\fP\fI信号\fP [\fB\-q\ \fP\fI值\fP|\fB\-\-queue\fP\fI\ 值\fP] \fIpid或pgid\fP .\|.\|.
+.br
+\fBkill\fP \fB\-s\fP\fI\ 信号\fP [\fB\-q\ \fP\fI值\fP|\fB\-\-queue\fP\fI\ 值\fP] \fIpid或pgid\fP .\|.\|.
+.br
+\fBkill\fP \fB\-\-signal\fP\fI\ 信号\fP [\fB\-q\ \fP\fI值\fP|\fB\-\-queue\fP\fI\ 值\fP] \fIpid或pgid\fP
+\&.\|.\|.
+.P
+\fBkill \-l\fP\ [\fI信号\fP]
+.br
+\fBkill \-\-list\fP\ [\fI信号\fP]
+.P
+\fBkill \-L\fP
+.br
+\fBkill \-\-table\fP
+.SH 描述
+\fBkill\fP 根据 \fIpid\fP（进程标识符）或 \fIpgid\fP（进程组标识符）发送信号给一个或多个进程。\fBsignal\fP(7)
+解释了各种信号的行为。\fBkill\fP 的默认信号是 TERM。使用 \fB\-l\fP 或 \fB\-L\fP 选项列出可用的信号。特别有用的信号包括
+HUP、INT、KILL、STOP、CONT 和 0。可以使用编号、名称或含有 "SIG" 前缀的名称指定信号；例如，\fB\-9\fP、\fB\-SIGKILL\fP
+和 \fB\-KILL\fP 等价。负的操作数选择整个进程组；请参阅 \fBps\fP(1) 命令输出中的 PGID 列。\fIpid\fP \fB\-1\fP 是特殊的；它表示除
+\fBkill\fP 进程本身和 \fBinit\fP(8) 之外的所有进程。
+.P
+\fB\-q\fP 选项使用了另外一种信号发送方法，可以传递一个整数 \fI值\fP 给接收信号的进程。如果该进程安装了该信号的处理程序，且调用
+\fBsigaction\fP(2) 时指定了 SA_SIGINFO 标志，那么它可以通过 \fI\%siginfo_t\fP 结构的 \fI\%si_value\fP
+字段获取该数据。
+.SH 选项
+.TP 
+\fB\-\fP\fI信号\fP
+.TQ
+\fB\-s\fP\fI\ 信号\fP
+.TQ
+\fB\-\-signal\fP\fI\ 信号\fP
+根据名称或编号发送信号，像上面描述的那样。如果 \fI信号\fP 是 0（零），\fBkill\fP 不发送信号，但仍然验证它的操作数；这一行为允许调用者检查指定的
+\fIpid\fP 和/或 \fIpgid\fP 是否存在，以及它是否有权限向它们发送信号。
+.TP 
+\fB\-q\fP\fI\ 值\fP
+.TQ
+\fB\-\-queue\fP\fI\ 值\fP
+使用 \fBsigqueue\fP(3) 而不是 \fBkill\fP(2) 以向每个 \fIpid\fP 或 \fIpgid\fP 额外发送一个 \fI值\fP。
+.TP 
+\fB\-l\fP\ [\fI信号\fP]
+.TQ
+\fB\-\-list\fP\ [\fI信号\fP]
+不带参数时，列出信号名称。带了可选的参数时，\fBkill\fP 视情况将指定的 \fI信号\fP 的名称转换成编号，或将编号转换成名称，并返回转换的结果。
+.TP 
+\fB\-L\fP
+.TQ
+\fB\-\-table\fP
+以表格形式列出信号名称。
+.SH 备注
+系统的 shell（命令行解释器）常常有一个内置的 "kill" 命令。您可能需要使用 \fI/bin/\:kill\fP 来运行此处描述的命令，以覆盖
+shell 的内置命令。
+.PP
+如果您想使用负的操作数，请先用名称或编号指定信号，这样 \fBkill\fP 才能将它和进程组区别开来。例如，命令 "\fBkill 123 \-9\fP"
+有歧义；它的意思可以是向进程 123 发送信号 9，也可以是向进程 123 和进程组 9 发送默认信号。
+.SH 示例
+.TP 
+\fBkill \-HUP \-1\fP
+将挂断信号发送给所有可以发送的进程。
+.TP 
+\fBkill \-l 11\fP
+返回和信号编号 11 对应的信号名称。
+.TP 
+\fBkill 123 543\fP
+将默认的信号，SIGTERM，发送给进程 123 和 543。
+.TP 
+\fBkill \-SIGTERM \-123\fP
+将信号 SIGTERM 发送给进程组 123。
+.SH 参见
+\fBkill\fP(2), \fBkillall\fP(1), \fBnice\fP(1), \fBpkill\fP(1), \fBrenice\fP(1),
+\fBsignal\fP(7), \fBsigqueue\fP(3), \fBskill\fP(1)
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

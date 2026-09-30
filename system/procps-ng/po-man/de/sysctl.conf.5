@@ -1,0 +1,86 @@
+.\"
+.\" Copyright (c) 2016-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2019-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1999      George Staikos <staikos@0wned.org>
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH SYSCTL.CONF 5 "29. Mai 2025" procps\-ng 
+.SH BEZEICHNUNG
+sysctl.conf \- Konfigurationsparameter des Linux\-Kernels
+.SH BESCHREIBUNG
+\fBsysctl.conf\fP ist ein Satz von Konfigurationsdateien, die
+Konfigurationsparameter für den Linux\-Kernel enthalten, welche von
+\fBsysctl\fP(8) gelesen und geschrieben werden.
+.PP
+Diese Handbuchseite beschreibt die Konfigurationsdateien für die
+\fIprocps\fP\-Version von \fBsysctl\fP. Falls Sie \fBsystemd\-sysctl\fP(8) verwenden,
+beziehen Sie sich auf \fBsysctl.d\fP(5)  und beachten Sie, dass jenes die Datei
+\fI\%/etc/\:\%sysctl\:\%.conf\fP nicht verwendet.
+.SS Konfigurationsformat
+Jede Zeile einer von \fBsysctl\fP aus \fIprocps\fP gelesenen Datei beschreibt
+einen Kernelparameter in folgendem Format.
+.P
+.RS
+.EX
+Token = Wert
+.EE
+.RE
+.P
+.P
+Für den \fIWert\fP müssen keine Anführungszeichen verwendet werden, selbst wenn
+der Wert eine Liste von Elementen ist.
+.P
+Leere Zeilen sowie jene, die mit \[lq]\fB#\fP\[rq] oder \[lq]\fB;\fP\[rq]
+beginnen, werden ignoriert.
+.P
+Falls eine Zeile mit einem einzelnen \[lq]\fB\-\fP\[rq] beginnt, wird ein
+fehlgeschlagener Versuch, den Wert zu setzen, ignoriert.
+.SH DATEIEN
+Wenn die \fIprocps\fP\-Version von \fBsysctl\fP mit der Option \fB\%\-\-system\fP
+ausgeführt wird, werden Dateien aus Verzeichnissen in der nachstehend
+gelisteten Reihenfolge gelesen.
+.P
+.RS
+.TP 
+\fI/etc/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/run/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/local/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/lib/sysctl.d/\fP*\fI.conf\fP
+.RE
+.P
+Zum Schluss liest die \fIprocps\fP\-Version von \fBsysctl\fP die Datei
+\fI\%/etc/\:\%sysctl\:\%.conf\fP. Diese Datei wird von \fBsystemd\-sysctl\fP nicht
+verwendet, was zur Folge hat, dass einige Kernel\-Parameter nicht gesetzt
+werden, abhängig davon, wie die installierte Version von \fBsysctl\fP
+implementiert ist.
+.SH FEHLER
+Aufgrund einer Beschränkung der \fI/proc\fP\-Einträge im Linux\-Kernel ist der
+\fIWert\fP der maximal möglichen Zeilenlänge auf 4096 Zeichen begrenzt.
+.SH BEISPIELE
+.EX
+#
+#
+kernel.domainname = example.com
+; Ein Wert, der ein Leerzeichen enthält, wird in sysctl geschrieben.
+kernel.modprobe = /sbin/mod probe
+# Eine Liste der Elemente für den Wert
+net.ipv4.ip_local_reserved_ports=8080,9148
+.EE
+.SH "SIEHE AUCH"
+\fBsysctl.d\fP(5), \fBsysctl\fP(8), \fBsystemd\-sysctl\fP(8)

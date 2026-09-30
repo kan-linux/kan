@@ -1,0 +1,71 @@
+#! /bin/sh
+
+# If mandb purges missing pages, it updates the database's timestamp,
+# without confusing itself into not scanning for newer pages.
+
+: "${srcdir=.}"
+# shellcheck source-path=SCRIPTDIR
+. "$srcdir/testlib.sh"
+
+: "${MANDB=mandb}"
+: "${ACCESSDB=accessdb}"
+
+init
+fake_config /usr/share/man
+MANPATH="$tmpdir/usr/share/man"
+export MANPATH
+db_ext="$(db_ext)"
+case $DBTYPE in
+	ndbm)	full_db_ext=.pag ;;
+	*)	full_db_ext="$db_ext" ;;
+esac
+
+write_page test1 1 "$tmpdir/usr/share/man/man1/test1.1.gz" \
+	UTF-8 gz t 'test1 \- test1(1)'
+write_page test2 1 "$tmpdir/usr/share/man/man1/test2.1.gz" \
+	UTF-8 gz t 'test2 \- test2(1)'
+write_page test3 1 "$tmpdir/usr/share/man/man1/test3.1.gz" \
+	UTF-8 gz t 'test3 \- test3(1)'
+run $MANDB -C "$tmpdir/manpath.config" -u -q "$tmpdir/usr/share/man"
+cat >"$tmpdir/1.exp" <<EOF
+test1 -> "- 1 1 MTIME A - - gz test1(1)"
+test2 -> "- 1 1 MTIME A - - gz test2(1)"
+test3 -> "- 1 1 MTIME A - - gz test3(1)"
+EOF
+accessdb_filter "$tmpdir/usr/share/man/index$db_ext" >"$tmpdir/1.out"
+expect_files_equal 'setup' "$tmpdir/1.exp" "$tmpdir/1.out"
+mtime1="$(./get-mtime "$tmpdir/usr/share/man/index$full_db_ext")"
+
+./fspause
+rm -f "$tmpdir/usr/share/man/man1/test3.1.gz"
+# Fool mandb into believing that this directory was not modified.  It will
+# still run its purge step.
+touch -r "$tmpdir/usr/share/man/index$db_ext" "$tmpdir/usr/share/man/man1"
+run $MANDB -C "$tmpdir/manpath.config" -u -q "$tmpdir/usr/share/man"
+cat >"$tmpdir/2.exp" <<EOF
+test1 -> "- 1 1 MTIME A - - gz test1(1)"
+test2 -> "- 1 1 MTIME A - - gz test2(1)"
+EOF
+accessdb_filter "$tmpdir/usr/share/man/index$db_ext" >"$tmpdir/2.out"
+expect_files_equal 'remove test3' "$tmpdir/2.exp" "$tmpdir/2.out"
+mtime2="$(./get-mtime "$tmpdir/usr/share/man/index$full_db_ext")"
+test "$mtime1" != "$mtime2"
+# shellcheck disable=SC2319
+report 'mtime changed (1)' "$?"
+
+./fspause
+rm -f "$tmpdir/usr/share/man/man1/test2.1.gz"
+write_page test4 1 "$tmpdir/usr/share/man/man1/test4.1.gz" \
+	UTF-8 gz t 'test4 \- test4(1)'
+run $MANDB -C "$tmpdir/manpath.config" -u -q "$tmpdir/usr/share/man"
+cat >"$tmpdir/3.exp" <<EOF
+test1 -> "- 1 1 MTIME A - - gz test1(1)"
+test4 -> "- 1 1 MTIME A - - gz test4(1)"
+EOF
+accessdb_filter "$tmpdir/usr/share/man/index$db_ext" >"$tmpdir/3.out"
+expect_files_equal 'remove test2, add test4' "$tmpdir/3.exp" "$tmpdir/3.out"
+mtime3="$(./get-mtime "$tmpdir/usr/share/man/index$full_db_ext")"
+test "$mtime2" != "$mtime3"
+report 'mtime changed (2)' "$?"
+
+finish

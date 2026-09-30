@@ -1,0 +1,91 @@
+==================== Changes in man-pages-6.18 ====================
+
+Released: 2026-04-22, Aldaya
+
+
+New and rewritten pages
+-----------------------
+
+man2/
+	futex_waitv.2
+
+man3/
+	aprintf.3
+	io_destroy.3			(previously, io_destroy(2))
+	io_setup.3			(previously, io_setup(2))
+	rawmemchr.3			(previously, memchr(3))
+	stpcpy.3			(previously, strcpy(3))
+	strchrnul.3			(previously, strchr(3))
+	strdupa.3			(previously, strdup(3))
+	strnul.3
+	strtok_r.3			(previously, strtok(3))
+
+
+Newly documented interfaces in existing pages
+---------------------------------------------
+
+man2/
+	landlock_create_ruleset.2
+		struct landlock_ruleset_attr::scoped
+		LANDLOCK_RESTRICT_SELF_LOG_SUBDOMAINS_OFF
+		LANDLOCK_RESTRICT_SELF_LOG_SAME_EXEC_OFF
+		LANDLOCK_RESTRICT_SELF_LOG_NEW_EXEC_ON
+		LANDLOCK_CREATE_RULESET_ERRATA
+	landlock_restrict_self.2
+		LANDLOCK_RESTRICT_SELF_TSYNC
+	statmount.2
+		req.mnt_ns_id
+		STATMOUNT_MNT_NS_ID
+		STATMOUNT_MNT_OPTS
+		STATMOUNT_FS_SUBTYPE
+		STATMOUNT_SB_SOURCE
+		STATMOUNT_OPT_ARRAY
+		STATMOUNT_OPT_SEC_ARRAY
+		STATMOUNT_{UIDMAP,GIDMAP}
+		STATMOUNT_SUPPORTED_MASK
+		req.mnt_ns_fd
+		STATMOUNT_BY_FD
+	truncate.2
+		ENOSPC
+
+man3/
+	printf.3
+	scanf.3
+		%wN
+
+man5/
+	core.5
+		%f
+		FC
+
+man7/
+	landlock.7
+		LANDLOCK_RESTRICT_SELF_LOG_SUBDOMAINS_OFF
+		LANDLOCK_RESTRICT_SELF_LOG_SAME_EXEC_OFF
+		LANDLOCK_RESTRICT_SELF_LOG_NEW_EXEC_ON
+		LANDLOCK_CREATE_RULESET_ERRATA
+		LANDLOCK_RESTRICT_SELF_TSYNC
+
+New and changed links
+---------------------
+
+man3/
+	strndupa.3			(strdupa(3))
+	vaprintf.3			(aprintf(3))
+
+
+Global changes
+--------------
+
+-  man/
+   -  man3/
+      -  Document how string functions relate to each other.
+   -  Separate documentation of system calls and of libaio wrappers.
+
+
+Changes to individual files
+---------------------------
+
+The manual pages and other files in the repository have been improved
+beyond what this changelog covers.  To learn more about changes applied
+to individual pages, or the authors of changes, use git(1).

@@ -1,0 +1,461 @@
+\input texinfo
+
+@c this is needed by old automake versions < 1.6.2, that are still used
+@c in some platforms in 2024
+@setfilename texi2any_internals.info
+
+@settitle Texinfo modules documentation
+
+@dircategory Texinfo documentation system
+@direntry
+* texi2any modules: (texi2any_internals).
+                                Texinfo Perl modules used in texi2any
+@end direntry
+
+@shorttitlepage Texinfo modules documentation
+@headings on
+
+@contents
+
+@node Top
+@top Texinfo modules documentation
+
+@menu
+* Texinfo@asis{::}Commands::
+* Texinfo@asis{::}CommandsValues::
+* Texinfo@asis{::}Common::
+* Texinfo@asis{::}Parser::
+* Texinfo@asis{::}Document::
+* Texinfo@asis{::}ManipulateTree::
+* Texinfo@asis{::}Structuring::
+* Texinfo@asis{::}Report::
+* Texinfo@asis{::}Translations::
+* Texinfo@asis{::}Transformations::
+* Texinfo@asis{::}Indices::
+* Texinfo@asis{::}OutputUnits::
+* Texinfo@asis{::}Convert@asis{::}Texinfo::
+* Texinfo@asis{::}Convert@asis{::}Utils::
+* Texinfo@asis{::}Convert@asis{::}Unicode::
+* Texinfo@asis{::}Convert@asis{::}NodeNameNormalization::
+* Texinfo@asis{::}Convert@asis{::}Text::
+* Texinfo@asis{::}Convert@asis{::}Converter::
+* Texinfo@asis{::}Convert@asis{::}Info::
+* Texinfo@asis{::}Convert@asis{::}HTML::
+* Texinfo@asis{::}Convert@asis{::}DocBook::
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup::
+* Texinfo@asis{::}Convert@asis{::}TexinfoXML::
+* Texinfo@asis{::}Convert@asis{::}Plaintext::
+* Texinfo@asis{::}TreeElement::
+* Texinfo@asis{::}Reader::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter::
+
+@detailmenu
+ --- The Detailed Node Listing ---
+
+Texinfo::Commands
+
+* Texinfo@asis{::}Commands NAME::
+* Texinfo@asis{::}Commands SYNOPSIS::
+* Texinfo@asis{::}Commands NOTES::
+* Texinfo@asis{::}Commands DESCRIPTION::
+* Texinfo@asis{::}Commands @@-COMMAND INFORMATION::
+* Texinfo@asis{::}Commands @@-COMMAND CLASSES::
+* Texinfo@asis{::}Commands SEE ALSO::
+* Texinfo@asis{::}Commands AUTHOR::
+* Texinfo@asis{::}Commands COPYRIGHT AND LICENSE::
+
+Texinfo::CommandsValues
+
+* Texinfo@asis{::}CommandsValues NAME::
+* Texinfo@asis{::}CommandsValues SYNOPSIS::
+* Texinfo@asis{::}CommandsValues NOTES::
+* Texinfo@asis{::}CommandsValues DESCRIPTION::
+* Texinfo@asis{::}CommandsValues @@-COMMAND ASSOCIATED INFORMATION::
+* Texinfo@asis{::}CommandsValues SEE ALSO::
+* Texinfo@asis{::}CommandsValues AUTHOR::
+* Texinfo@asis{::}CommandsValues COPYRIGHT AND LICENSE::
+
+Texinfo::Common
+
+* Texinfo@asis{::}Common NAME::
+* Texinfo@asis{::}Common SYNOPSIS::
+* Texinfo@asis{::}Common NOTES::
+* Texinfo@asis{::}Common DESCRIPTION::
+* Texinfo@asis{::}Common MISC INFORMATION::
+* Texinfo@asis{::}Common @@-COMMAND INFORMATION::
+* Texinfo@asis{::}Common METHODS::
+* Texinfo@asis{::}Common SEE ALSO::
+* Texinfo@asis{::}Common AUTHOR::
+* Texinfo@asis{::}Common COPYRIGHT AND LICENSE::
+
+Texinfo::Parser
+
+* Texinfo@asis{::}Parser NAME::
+* Texinfo@asis{::}Parser SYNOPSIS::
+* Texinfo@asis{::}Parser NOTES::
+* Texinfo@asis{::}Parser DESCRIPTION::
+* Texinfo@asis{::}Parser METHODS::
+* Texinfo@asis{::}Parser TEXINFO TREE::
+* Texinfo@asis{::}Parser SEE ALSO::
+* Texinfo@asis{::}Parser AUTHOR::
+* Texinfo@asis{::}Parser COPYRIGHT AND LICENSE::
+
+Texinfo::Parser METHODS
+
+* Texinfo@asis{::}Parser Initialization::
+* Texinfo@asis{::}Parser Parsing Texinfo text::
+
+TEXINFO TREE
+
+* Texinfo@asis{::}Parser Texinfo tree structure::
+* Texinfo@asis{::}Parser Element keys::
+* Texinfo@asis{::}Parser Element types::
+* Texinfo@asis{::}Parser Information available in the @code{info} key::
+* Texinfo@asis{::}Parser Information available in the @code{extra} key::
+
+Texinfo tree structure
+
+* Texinfo@asis{::}Parser Root and first level elements::
+* Texinfo@asis{::}Parser Line command tree element::
+* Texinfo@asis{::}Parser Block command tree element::
+* Texinfo@asis{::}Parser Paragraphs and preformatted::
+* Texinfo@asis{::}Parser Brace commands::
+* Texinfo@asis{::}Parser Texinfo line tree::
+* Texinfo@asis{::}Parser Showing the tree structure::
+
+Element types
+
+* Texinfo@asis{::}Parser Types for command and user-defined macro call elements::
+* Texinfo@asis{::}Parser Types for text elements::
+* Texinfo@asis{::}Parser Tree container elements::
+* Texinfo@asis{::}Parser Types of container elements::
+
+Information available in the @code{extra} key
+
+* Texinfo@asis{::}Parser Extra keys available for more than one @@-command::
+* Texinfo@asis{::}Parser Extra keys specific of certain @@-commands or containers::
+
+Texinfo::Document
+
+* Texinfo@asis{::}Document NAME::
+* Texinfo@asis{::}Document SYNOPSIS::
+* Texinfo@asis{::}Document NOTES::
+* Texinfo@asis{::}Document DESCRIPTION::
+* Texinfo@asis{::}Document METHODS::
+* Texinfo@asis{::}Document SEE ALSO::
+* Texinfo@asis{::}Document AUTHOR::
+* Texinfo@asis{::}Document COPYRIGHT AND LICENSE::
+
+Texinfo::Document METHODS
+
+* Texinfo@asis{::}Document Getting document information::
+* Texinfo@asis{::}Document Merging and sorting indexes::
+* Texinfo@asis{::}Document Getting errors and warnings::
+* Texinfo@asis{::}Document Getting customization options values registered in document::
+* Texinfo@asis{::}Document Registering information in document::
+* Texinfo@asis{::}Document Methods for Perl and C code interactions::
+
+Texinfo::ManipulateTree
+
+* Texinfo@asis{::}ManipulateTree NAME::
+* Texinfo@asis{::}ManipulateTree SYNOPSIS::
+* Texinfo@asis{::}ManipulateTree NOTES::
+* Texinfo@asis{::}ManipulateTree DESCRIPTION::
+* Texinfo@asis{::}ManipulateTree METHODS::
+* Texinfo@asis{::}ManipulateTree SEE ALSO::
+* Texinfo@asis{::}ManipulateTree AUTHOR::
+* Texinfo@asis{::}ManipulateTree COPYRIGHT AND LICENSE::
+
+Texinfo::Structuring
+
+* Texinfo@asis{::}Structuring NAME::
+* Texinfo@asis{::}Structuring SYNOPSIS::
+* Texinfo@asis{::}Structuring NOTES::
+* Texinfo@asis{::}Structuring DESCRIPTION::
+* Texinfo@asis{::}Structuring METHODS::
+* Texinfo@asis{::}Structuring SEE ALSO::
+* Texinfo@asis{::}Structuring AUTHOR::
+* Texinfo@asis{::}Structuring COPYRIGHT AND LICENSE::
+
+Texinfo::Report
+
+* Texinfo@asis{::}Report NAME::
+* Texinfo@asis{::}Report SYNOPSIS::
+* Texinfo@asis{::}Report NOTES::
+* Texinfo@asis{::}Report DESCRIPTION::
+* Texinfo@asis{::}Report METHODS::
+* Texinfo@asis{::}Report AUTHOR::
+* Texinfo@asis{::}Report COPYRIGHT AND LICENSE::
+
+Texinfo::Translations
+
+* Texinfo@asis{::}Translations NAME::
+* Texinfo@asis{::}Translations SYNOPSIS::
+* Texinfo@asis{::}Translations NOTES::
+* Texinfo@asis{::}Translations DESCRIPTION::
+* Texinfo@asis{::}Translations METHODS::
+* Texinfo@asis{::}Translations SEE ALSO::
+* Texinfo@asis{::}Translations AUTHOR::
+* Texinfo@asis{::}Translations COPYRIGHT AND LICENSE::
+
+Texinfo::Transformations
+
+* Texinfo@asis{::}Transformations NAME::
+* Texinfo@asis{::}Transformations NOTES::
+* Texinfo@asis{::}Transformations DESCRIPTION::
+* Texinfo@asis{::}Transformations METHODS::
+* Texinfo@asis{::}Transformations SEE ALSO::
+* Texinfo@asis{::}Transformations AUTHOR::
+* Texinfo@asis{::}Transformations COPYRIGHT AND LICENSE::
+
+Texinfo::Indices
+
+* Texinfo@asis{::}Indices NAME::
+* Texinfo@asis{::}Indices SYNOPSIS::
+* Texinfo@asis{::}Indices NOTES::
+* Texinfo@asis{::}Indices DESCRIPTION::
+* Texinfo@asis{::}Indices METHODS::
+* Texinfo@asis{::}Indices SEE ALSO::
+* Texinfo@asis{::}Indices AUTHOR::
+* Texinfo@asis{::}Indices COPYRIGHT AND LICENSE::
+
+Texinfo::OutputUnits
+
+* Texinfo@asis{::}OutputUnits NAME::
+* Texinfo@asis{::}OutputUnits SYNOPSIS::
+* Texinfo@asis{::}OutputUnits NOTES::
+* Texinfo@asis{::}OutputUnits DESCRIPTION::
+* Texinfo@asis{::}OutputUnits METHODS::
+* Texinfo@asis{::}OutputUnits SEE ALSO::
+* Texinfo@asis{::}OutputUnits AUTHOR::
+* Texinfo@asis{::}OutputUnits COPYRIGHT AND LICENSE::
+
+Texinfo::OutputUnits METHODS
+
+* Texinfo@asis{::}OutputUnits Output units creation::
+* Texinfo@asis{::}OutputUnits Grouping output units in pages::
+* Texinfo@asis{::}OutputUnits Setting output units directions::
+
+Texinfo::Convert::Texinfo
+
+* Texinfo@asis{::}Convert@asis{::}Texinfo NAME::
+* Texinfo@asis{::}Convert@asis{::}Texinfo SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}Texinfo NOTES::
+* Texinfo@asis{::}Convert@asis{::}Texinfo DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}Texinfo METHODS::
+* Texinfo@asis{::}Convert@asis{::}Texinfo AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}Texinfo COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::Utils
+
+* Texinfo@asis{::}Convert@asis{::}Utils NAME::
+* Texinfo@asis{::}Convert@asis{::}Utils SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}Utils NOTES::
+* Texinfo@asis{::}Convert@asis{::}Utils DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}Utils METHODS::
+* Texinfo@asis{::}Convert@asis{::}Utils SEE ALSO::
+* Texinfo@asis{::}Convert@asis{::}Utils AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}Utils COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::Unicode
+
+* Texinfo@asis{::}Convert@asis{::}Unicode NAME::
+* Texinfo@asis{::}Convert@asis{::}Unicode SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}Unicode NOTES::
+* Texinfo@asis{::}Convert@asis{::}Unicode DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}Unicode METHODS::
+* Texinfo@asis{::}Convert@asis{::}Unicode AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}Unicode COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::NodeNameNormalization
+
+* Texinfo@asis{::}Convert@asis{::}NodeNameNormalization NAME::
+* Texinfo@asis{::}Convert@asis{::}NodeNameNormalization SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}NodeNameNormalization NOTES::
+* Texinfo@asis{::}Convert@asis{::}NodeNameNormalization DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}NodeNameNormalization METHODS::
+* Texinfo@asis{::}Convert@asis{::}NodeNameNormalization AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}NodeNameNormalization COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::Text
+
+* Texinfo@asis{::}Convert@asis{::}Text NAME::
+* Texinfo@asis{::}Convert@asis{::}Text SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}Text NOTES::
+* Texinfo@asis{::}Convert@asis{::}Text DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}Text METHODS::
+* Texinfo@asis{::}Convert@asis{::}Text AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}Text COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::Converter
+
+* Texinfo@asis{::}Convert@asis{::}Converter NAME::
+* Texinfo@asis{::}Convert@asis{::}Converter SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}Converter NOTES::
+* Texinfo@asis{::}Convert@asis{::}Converter DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}Converter METHODS::
+* Texinfo@asis{::}Convert@asis{::}Converter SEE ALSO::
+* Texinfo@asis{::}Convert@asis{::}Converter AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}Converter COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::Converter METHODS
+
+* Texinfo@asis{::}Convert@asis{::}Converter Converter Initialization::
+* Texinfo@asis{::}Convert@asis{::}Converter Conversion::
+* Texinfo@asis{::}Convert@asis{::}Converter Output units and converter destruction::
+* Texinfo@asis{::}Convert@asis{::}Converter Getting and setting customization variables::
+* Texinfo@asis{::}Convert@asis{::}Converter Registering error and warning messages::
+* Texinfo@asis{::}Convert@asis{::}Converter Translations in output documents::
+* Texinfo@asis{::}Convert@asis{::}Converter Index sorting::
+* Texinfo@asis{::}Convert@asis{::}Converter Accents conversion::
+* Texinfo@asis{::}Convert@asis{::}Converter Conversion to XML::
+* Texinfo@asis{::}Convert@asis{::}Converter Helper methods::
+
+Texinfo::Convert::Info
+
+* Texinfo@asis{::}Convert@asis{::}Info NAME::
+* Texinfo@asis{::}Convert@asis{::}Info SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}Info NOTES::
+* Texinfo@asis{::}Convert@asis{::}Info DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}Info METHODS::
+* Texinfo@asis{::}Convert@asis{::}Info AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}Info COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::HTML
+
+* Texinfo@asis{::}Convert@asis{::}HTML NAME::
+* Texinfo@asis{::}Convert@asis{::}HTML SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}HTML NOTES::
+* Texinfo@asis{::}Convert@asis{::}HTML DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}HTML METHODS::
+* Texinfo@asis{::}Convert@asis{::}HTML AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}HTML COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::DocBook
+
+* Texinfo@asis{::}Convert@asis{::}DocBook NAME::
+* Texinfo@asis{::}Convert@asis{::}DocBook SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}DocBook NOTES::
+* Texinfo@asis{::}Convert@asis{::}DocBook DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}DocBook METHODS::
+* Texinfo@asis{::}Convert@asis{::}DocBook AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}DocBook COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::TexinfoMarkup
+
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup NAME::
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup NOTES::
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup METHODS::
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup SEE ALSO::
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::TexinfoMarkup METHODS
+
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup Markup formatting methods defined by subclasses::
+* Texinfo@asis{::}Convert@asis{::}TexinfoMarkup Formatting state information::
+
+Texinfo::Convert::TexinfoXML
+
+* Texinfo@asis{::}Convert@asis{::}TexinfoXML NAME::
+* Texinfo@asis{::}Convert@asis{::}TexinfoXML SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}TexinfoXML NOTES::
+* Texinfo@asis{::}Convert@asis{::}TexinfoXML DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}TexinfoXML METHODS::
+* Texinfo@asis{::}Convert@asis{::}TexinfoXML AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}TexinfoXML COPYRIGHT AND LICENSE::
+
+Texinfo::Convert::Plaintext
+
+* Texinfo@asis{::}Convert@asis{::}Plaintext NAME::
+* Texinfo@asis{::}Convert@asis{::}Plaintext SYNOPSIS::
+* Texinfo@asis{::}Convert@asis{::}Plaintext NOTES::
+* Texinfo@asis{::}Convert@asis{::}Plaintext DESCRIPTION::
+* Texinfo@asis{::}Convert@asis{::}Plaintext METHODS::
+* Texinfo@asis{::}Convert@asis{::}Plaintext AUTHOR::
+* Texinfo@asis{::}Convert@asis{::}Plaintext COPYRIGHT AND LICENSE::
+
+Texinfo::TreeElement
+
+* Texinfo@asis{::}TreeElement NAME::
+* Texinfo@asis{::}TreeElement SYNOPSIS::
+* Texinfo@asis{::}TreeElement NOTES::
+* Texinfo@asis{::}TreeElement DESCRIPTION::
+* Texinfo@asis{::}TreeElement METHODS::
+* Texinfo@asis{::}TreeElement SEE ALSO::
+* Texinfo@asis{::}TreeElement AUTHOR::
+* Texinfo@asis{::}TreeElement COPYRIGHT AND LICENSE::
+
+Texinfo::TreeElement METHODS
+
+* Texinfo@asis{::}TreeElement @code{Texinfo@asis{::}TreeElement} and XS extensions::
+
+Texinfo::Reader
+
+* Texinfo@asis{::}Reader NAME::
+* Texinfo@asis{::}Reader SYNOPSIS::
+* Texinfo@asis{::}Reader NOTES::
+* Texinfo@asis{::}Reader DESCRIPTION::
+* Texinfo@asis{::}Reader METHODS::
+* Texinfo@asis{::}Reader SEE ALSO::
+* Texinfo@asis{::}Reader AUTHOR::
+* Texinfo@asis{::}Reader COPYRIGHT AND LICENSE::
+
+Texinfo::Reader METHODS
+
+* Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions::
+
+Texinfo::Example::TreeElementConverter
+
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter NAME::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter SYNOPSIS::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter NOTES::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter DESCRIPTION::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter METHODS::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter SEE ALSO::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter AUTHOR::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter COPYRIGHT AND LICENSE::
+
+Texinfo::Example::TreeElementConverter METHODS
+
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter Related methods from other modules::
+@end detailmenu
+@end menu
+
+@include api_includes/Texinfo-Commands.texi
+@include api_includes/Texinfo-CommandsValues.texi
+@include api_includes/Texinfo-Common.texi
+@include api_includes/Texinfo-Parser.texi
+@include api_includes/Texinfo-Document.texi
+@include api_includes/Texinfo-ManipulateTree.texi
+@include api_includes/Texinfo-Structuring.texi
+@include api_includes/Texinfo-Report.texi
+@include api_includes/Texinfo-Translations.texi
+@include api_includes/Texinfo-Transformations.texi
+@include api_includes/Texinfo-Indices.texi
+@include api_includes/Texinfo-OutputUnits.texi
+@include api_includes/Texinfo-Convert-Texinfo.texi
+@include api_includes/Texinfo-Convert-Utils.texi
+@include api_includes/Texinfo-Convert-Unicode.texi
+@include api_includes/Texinfo-Convert-NodeNameNormalization.texi
+@include api_includes/Texinfo-Convert-Text.texi
+@include api_includes/Texinfo-Convert-Converter.texi
+@include api_includes/Texinfo-Convert-Info.texi
+@include api_includes/Texinfo-Convert-HTML.texi
+@include api_includes/Texinfo-Convert-DocBook.texi
+@include api_includes/Texinfo-Convert-TexinfoMarkup.texi
+@include api_includes/Texinfo-Convert-TexinfoXML.texi
+@include api_includes/Texinfo-Convert-Plaintext.texi
+@include api_includes/Texinfo-TreeElement.texi
+@include api_includes/Texinfo-Reader.texi
+@include api_includes/Texinfo-Example-TreeElementConverter.texi
+
+
+@node Index
+@appendix Index
+
+@printindex cp
+
+@bye

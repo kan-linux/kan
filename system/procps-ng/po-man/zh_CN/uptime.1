@@ -1,0 +1,66 @@
+.\"
+.\" Copyright (c) 2011-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002      Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH UPTIME 1 2024\-02\-08 procps\-ng 
+.SH 名称
+uptime \- 告知系统已经运行了多久。
+.SH 概述
+\fBuptime\fP [\fI选项\fP .\|.\|.]
+.SH 描述
+\fBuptime\fP 用一行文本显示以下信息：当前时间、系统运行时长、当前登录用户数以及过去 1、5、15 分钟的系统平均负载。
+.PP
+这与 \fBw\fP(1) 显示的标题行中包含的信息相同。
+.PP
+系统平均负载是处于可运行或不可中断状态的进程的平均数量。处于可运行状态的进程要么正在使用 CPU，要么正在等待使用
+CPU。处于不可中断状态的进程正在等待某些 I/O 访问，例如等待磁盘。平均负载取了三种时间间隔内的平均值。平均负载并未针对系统中的 CPU
+数量进行标准化，因此平均负载为 1 意味着单 CPU 系统始终处于负载状态，而在 4 个 CPU 的系统上则意味着 75% 的时间处于空闲状态。
+.SH 选项
+.TP 
+\fB\-c\fP, \fB\-\-container\fP
+显示容器的上线时间，而不是系统的上线时间。
+.TP 
+\fB\-p\fP, \fB\-\-pretty\fP
+用漂亮的格式显示上线时间
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+显示此帮助文本
+.TP 
+\fB\-r\fP, \fB\-\-raw\fP
+用原始格式显示上线时间。当前时间和上线时间将用秒表示。
+.TP 
+\fB\-s\fP, \fB\-\-since\fP
+系统从何时开始上线，格式为 yyyy\-mm\-dd HH:MM:SS
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+显示版本信息并退出
+.SH 环境
+.TP 
+\fBPROCPS_CONTAINER\fP
+如果设置了 $\fBPROCPS_CONTAINER\fP，那么 \fBuptime\fP 执行时将视为使用了 \fB\-\-container\fP 选项。
+.SH 文件
+.TP 
+\fI/var/run/utmp\fP
+关于当前谁已登录的信息
+.TP 
+\fI/proc\fP
+进程信息
+.SH 参见
+\fBps\fP(1), \fBtop\fP(1), \fButmp\fP(5), \fBw\fP(1)
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

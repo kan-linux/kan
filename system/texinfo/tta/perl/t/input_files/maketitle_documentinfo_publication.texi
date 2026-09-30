@@ -1,0 +1,34 @@
+
+@publication
+C'est toto
+@end publication
+ 
+@documentinfo
+@author SOme ONe
+@title TTT
+@author Gàther Person
+@subtitle ST1
+@subtitle ST2
+Toto
+@end documentinfo
+
+@copying
+You shoukd
+@end copying
+
+@contents
+ 
+@maketitle
+
+@node top
+@top top
+ 
+aaa
+ 
+@node chùpter
+@chapter chap
+ 
+@node section
+@section Sec
+
+@bye

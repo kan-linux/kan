@@ -1,0 +1,88 @@
+# SPDX-FileCopyrightText: 2024 Emil Velikov <emil.l.velikov@gmail.com>
+# SPDX-FileCopyrightText: 2024 Lucas De Marchi <lucas.de.marchi@gmail.com>
+#
+# SPDX-License-Identifier: LGPL-2.1-or-later
+
+name: CodeQL
+
+on:
+  push:
+    branches: [master, ci-test]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: "30 2 * * 0"
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-24.04
+    permissions:
+      actions: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        container:
+          - name: 'ubuntu:24.04'
+            meson_setup: '-D b_sanitize=none -D build-tests=false'
+
+    container:
+      image: ${{ matrix.container.name }}
+
+    steps:
+      - name: Sparse checkout the local actions
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          sparse-checkout: .github
+
+      - uses: ./.github/actions/setup-ubuntu
+        if: ${{ startsWith(matrix.container.name, 'ubuntu') }}
+
+      - name: Checkout the whole project
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set the environment
+        run: |
+          # The second checkout above claims to set safe.directory, yet it
+          # doesn't quite work. Perhaps our double/sparse checkout is to blame?
+          git config --global --add safe.directory '*'
+
+          .github/print-kdir.sh >> "$GITHUB_ENV"
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@4f3212b61783c3c68e8309a0f18a699764811cda # v3.27.1
+        with:
+          languages: cpp
+          queries: +security-and-quality
+
+      - name: Build
+        run: |
+          mkdir build && cd build
+          meson setup --native-file ../build-dev.ini ${{ matrix.container.meson_setup }} . ..
+          meson compile
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@4f3212b61783c3c68e8309a0f18a699764811cda # v3.27.1
+        with:
+          category: "/language:cpp"
+          upload: false
+          output: sarif-results
+
+      - name: Filter out meson-internal test files
+        uses: advanced-security/filter-sarif@f3b8118a9349d88f7b1c0c488476411145b6270d # v1.0.1
+        with:
+          patterns: |
+            -build/meson-private/**/testfile.c
+          input: sarif-results/cpp.sarif
+          output: sarif-results/cpp.sarif
+
+      - name: Upload CodeQL results to code scanning
+        uses: github/codeql-action/upload-sarif@4f3212b61783c3c68e8309a0f18a699764811cda # v3.27.1
+        with:
+          sarif_file: sarif-results/cpp.sarif
+          category: "/language:cpp"

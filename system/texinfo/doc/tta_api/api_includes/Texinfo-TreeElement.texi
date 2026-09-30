@@ -1,0 +1,175 @@
+@node Texinfo@asis{::}TreeElement
+@chapter Texinfo::TreeElement
+
+@node Texinfo@asis{::}TreeElement NAME
+@section Texinfo::TreeElement NAME
+
+Texinfo::TreeElement - Texinfo tree element interface
+
+@node Texinfo@asis{::}TreeElement SYNOPSIS
+@section Texinfo::TreeElement SYNOPSIS
+
+@verbatim
+  my $element = Texinfo::TreeElement::new({});
+@end verbatim
+
+@node Texinfo@asis{::}TreeElement NOTES
+@section Texinfo::TreeElement NOTES
+
+The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
+Texinfo to other formats.  There is no promise of API stability.
+
+Note that this module is not used in @code{texi2any} (except for the @code{new} method,
+which is trivial and could be moved to another module).
+
+Note that this module could be removed at any time.
+
+@node Texinfo@asis{::}TreeElement DESCRIPTION
+@section Texinfo::TreeElement DESCRIPTION
+
+@code{Texinfo::TreeElement::new} should be called on every Perl tree
+elements created.
+
+@code{Texinfo::TreeElement} defines accessors and methods for Texinfo tree elements
+obtained from parsing Texinfo code.  There is no specific advantage of using
+the accessors, but they may be needed when some Texinfo modules XS interfaces
+are used.
+
+These accessors are not used in @code{texi2any}.
+
+@node Texinfo@asis{::}TreeElement METHODS
+@section Texinfo::TreeElement METHODS
+
+@table @asis
+@item $element = new($element_hash)
+@anchor{Texinfo@asis{::}TreeElement $element = new($element_hash)}
+@cindex @code{new}
+
+Turns the @emph{$element_hash} element hash into a @code{Texinfo::TreeElement} object.
+
+This function is called on all the tree elements created in Texinfo modules
+codes.  Since no accessors are used in @code{texi2any} Texinfo modules,
+the call to @code{new} is mainly cosmetic.  It also allows to distinguish a
+Texinfo tree element from a hash.
+
+@item $type = $element->type()
+@anchor{Texinfo@asis{::}TreeElement $type = $element->type()}
+@cindex @code{type}
+
+Return the @emph{$element} type, or @code{undef}.
+
+@item $cmdname = $element->cmdname()
+@anchor{Texinfo@asis{::}TreeElement $cmdname = $element->cmdname()}
+@cindex @code{cmdname}
+
+Return the @emph{$element} command name, if defined, or @code{undef}.
+
+@item $text = $element->text()
+@anchor{Texinfo@asis{::}TreeElement $text = $element->text()}
+@cindex @code{text}
+
+Return the @emph{$element} text if the element is a text element, or @code{undef}.
+
+@item $number = $element->children_number()
+@anchor{Texinfo@asis{::}TreeElement $number = $element->children_number()}
+@cindex @code{children_number}
+
+Return the number of children elements contained in @emph{$element}.
+
+@item $child = $element->get_child($index)
+@anchor{Texinfo@asis{::}TreeElement $child = $element->get_child($index)}
+@cindex @code{get_child}
+
+Return the @emph{$element} child element at index @emph{$index}.
+
+@item $children_list = $element->get_children()
+@anchor{Texinfo@asis{::}TreeElement $children_list = $element->get_children()}
+@cindex @code{get_children}
+
+Return an array reference holding the elements contained in @emph{$element}.
+
+@item $parent = $element->parent()
+@anchor{Texinfo@asis{::}TreeElement $parent = $element->parent()}
+@cindex @code{parent}
+
+Return the parent element of @emph{$element}.
+
+@item $source_info = $element->source_info()
+@anchor{Texinfo@asis{::}TreeElement $source_info = $element->source_info()}
+@cindex @code{source_info}
+
+Return the @emph{$element} source info, or @code{undef} if there is none.
+
+@item $value = $element->get_attribute($attribute_name)
+@anchor{Texinfo@asis{::}TreeElement $value = $element->get_attribute($attribute_name)}
+@cindex @code{get_attribute}
+
+Return the @emph{$element} @emph{$attribute_name} attribute value.  If the
+@emph{$attribute_name} does not exist or is not set at all, return @code{undef}.
+
+@item $element->add_to_element_contents($added_element)
+@anchor{Texinfo@asis{::}TreeElement $element->add_to_element_contents($added_element)}
+@cindex @code{add_to_element_contents}
+
+Insert @emph{$added_element} at the end of the @emph{$element} contents
+(ie the element children array).
+
+@end table
+
+@node Texinfo@asis{::}TreeElement @code{Texinfo@asis{::}TreeElement} and XS extensions
+@subsection @code{Texinfo::TreeElement} and XS extensions
+
+The Texinfo Perl modules can be setup to use Perl XS module extensions in
+native code (written in C) that replace Perl package or methods by native code
+for faster execution.  It may be important to use the @code{Texinfo::TreeElement}
+accessors that return elements instead of using hash keys described in
+@ref{Texinfo@asis{::}Parser TEXINFO TREE} when some Texinfo modules XS interfaces are
+used.
+
+The Texinfo modules XS interface is designed such that the Texinfo tree
+actually processed is not the Perl elements tree, but a tree stored in
+native code in XS extensions, corresponding to compiled C data structures.  For
+some Texinfo modules XS extensions, Perl tree elements need to have a link from
+Perl to native code C data registered in the Perl element to find the C tree
+data corresponding to a Perl element.
+
+Using the @code{Texinfo::TreeElement} methods may help setting up this link.
+Indeed, if an element has already a link to C data,
+the elements returned by @code{Texinfo::TreeElement} methods will also have
+this link setup.
+
+For example, if @emph{$element} has already a link to C data, @emph{$element_child} will
+also have a link to C data setup:
+
+@verbatim
+  my $element_child = $element->get_child(0)
+@end verbatim
+
+Note that, even if XS extensions are used, calling
+@ref{Texinfo@asis{::}TreeElement $element = new($element_hash),, @code{new}} does not set up a link to C,
+@ref{Texinfo@asis{::}Example@asis{::}TreeElementConverter $converter->new_tree_element($element@comma{} $use_sv),, Texinfo::Example::TreeElementConverter @code{new_tree_element}} should be used for that.
+
+For other ways to setup this link, see @ref{Texinfo@asis{::}Example@asis{::}TreeElementConverter NAME,, Texinfo::Example::TreeElementConverter}
+and @ref{Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions}.
+
+@node Texinfo@asis{::}TreeElement SEE ALSO
+@section Texinfo::TreeElement SEE ALSO
+
+@ref{Texinfo@asis{::}Parser TEXINFO TREE}.
+
+@node Texinfo@asis{::}TreeElement AUTHOR
+@section Texinfo::TreeElement AUTHOR
+
+Patrice Dumas.
+
+@node Texinfo@asis{::}TreeElement COPYRIGHT AND LICENSE
+@section Texinfo::TreeElement COPYRIGHT AND LICENSE
+
+Copyright 2025- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+

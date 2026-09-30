@@ -1,0 +1,109 @@
+CODE_COVERAGE_DIRECTORY        = \
+	$(top_builddir)/src/libkbdfile \
+	$(top_builddir)/src/libkeymap \
+	$(top_builddir)/src/libkfont \
+	$(top_builddir)/tests
+CODE_COVERAGE_OUTPUT_FILE      = coverage.info
+CODE_COVERAGE_OUTPUT_DIRECTORY = coverage
+CODE_COVERAGE_LCOV_OPTIONS     = --ignore-errors gcov --gcov-tool "$(GCOV)"
+CODE_COVERAGE_GENHTML_OPTIONS  = --ignore-errors unmapped
+CODE_COVERAGE_IGNORE_PATTERN   = \
+	'*/src/libkeymap/analyze.l' \
+	'*/src/libkeymap/parser.y'
+COVERAGE_CHECK_KEYWORDS        = $(if $(CHECK_KEYWORDS),$(CHECK_KEYWORDS),unittest)
+
+include $(top_srcdir)/aminclude_static.am
+
+KBD_DISTCHECK_CONFIGURE_FLAGS = \
+	--disable-code-coverage \
+	--enable-libkeymap \
+	--enable-libkfont \
+	--enable-optional-progs \
+	${DISTCHECK_CONFIGURE_EXTRA_FLAGS}
+
+if CODE_COVERAGE_ENABLED
+AM_DISTCHECK_CONFIGURE_FLAGS += $(KBD_DISTCHECK_CONFIGURE_FLAGS)
+else
+AM_DISTCHECK_CONFIGURE_FLAGS = $(KBD_DISTCHECK_CONFIGURE_FLAGS)
+endif
+
+ACLOCAL_AMFLAGS = -I m4
+
+EXTRA_DIST = \
+	CREDITS \
+	contrib docs
+
+SUBDIRS = src data po docs
+if BUILD_TESTS
+SUBDIRS += tests
+endif
+
+SPARSE = sparse
+CHECK  = $(SPARSE) \
+	-Wsparse-error -Wsparse-all -Wno-default-bitfield-sign \
+	-Wno-declaration-after-statement -Wno-unknown-attribute
+
+check-sparse:
+	make CC="cgcc" REAL_CC="$(CC)" CHECK="$(CHECK)" CFLAGS+="-D_LINUX_WAIT_H"
+
+.PHONY: coverage-build coverage-reset coverage-report
+
+coverage-build:
+if CODE_COVERAGE_ENABLED
+	$(MAKE) clean
+	$(MAKE) all
+else
+	@echo "Need to reconfigure with --enable-code-coverage"
+	@false
+endif
+
+coverage-reset:
+if CODE_COVERAGE_ENABLED
+	$(LCOV) $(addprefix --directory ,$(CODE_COVERAGE_DIRECTORY)) -z --ignore-errors gcov
+	-find $(CODE_COVERAGE_DIRECTORY) -name '*.gcov' -delete
+	-rm -rf "$(CODE_COVERAGE_OUTPUT_FILE)" "$(CODE_COVERAGE_OUTPUT_FILE).tmp" \
+		"$(CODE_COVERAGE_OUTPUT_DIRECTORY)"
+else
+	@echo "Need to reconfigure with --enable-code-coverage"
+	@false
+endif
+
+coverage-report:
+if CODE_COVERAGE_ENABLED
+	$(MAKE) coverage-build
+	$(MAKE) coverage-reset
+	$(MAKE) -C tests check CHECK_KEYWORDS="$(COVERAGE_CHECK_KEYWORDS)"
+	$(MAKE) code-coverage-capture
+else
+	@echo "Need to reconfigure with --enable-code-coverage"
+	@false
+endif
+
+.PHONY: compile_commands.json
+compile_commands.json:
+	@make -C src $(MAKEFLAGS) REAL_CC="$(CC)" CC=$(CURDIR)/contrib/gen_compile_commands
+	@EXPORT_COMPILE_COMMANDS=1 $(CURDIR)/contrib/gen_compile_commands
+	@rm -rf -- .lsp.data
+
+clean-local:
+	rm -rf -- .lsp.data compile_commands.json
+
+kbd-$(VERSION).tar.xz:
+	make distcheck
+
+kbd-$(VERSION).tar.sign:
+	xz -d -c kbd-$(VERSION).tar.xz | \
+	    gpg --armor --detach-sign \
+	        --default-key $(GPG_KEY) \
+	        --output kbd-$(VERSION).tar.sign
+
+tar: kbd-$(VERSION).tar.xz kbd-$(VERSION).tar.sign
+
+tar-sync: kbd-$(VERSION).tar.xz kbd-$(VERSION).tar.sign
+	kup put \
+	    kbd-$(VERSION).tar.xz \
+	    kbd-$(VERSION).tar.sign \
+	    /pub/linux/utils/kbd/
+
+clean-local: code-coverage-clean
+dist-clean-local: code-coverage-dist-clean

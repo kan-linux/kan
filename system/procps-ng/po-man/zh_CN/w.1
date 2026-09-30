@@ -1,0 +1,108 @@
+.\"
+.\" Copyright (c) 2009-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2015-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2012-2013 Jaromir Capik <jcapik@redhat.com>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002-2004 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH W 1 2025\-11\-29 procps\-ng 
+.SH 名称
+w \- 显示谁已经登录以及他们都在做什么。
+.SH 概述
+\fBw\fP [\fI选项\fP .\|.\|.\&] [\fI用户\fP]
+.SH 描述
+\fBw\fP 显示有关计算机上当前用户及其进程的信息。标题行依次显示当前时间、系统已运行多长时间、当前登录的用户数以及过去 1、5 和 15
+分钟的系统平均负载。
+.PP
+对于每个用户，显示以下条目：登录名、tty 名称、远程主机、登录时间、空闲时间、JCPU、PCPU 以及当前进程的命令行。
+.PP
+JCPU 时间是依附于 tty 的所有进程使用的时间。它不包括过去的后台任务，但包括当前正在运行的后台任务。
+.PP
+PCPU 时间是当前进程（"what" 字段中的进程）使用的时间。
+.SH 选项
+.TP 
+\fB\-c\fP, \fB\-\-container\fP
+在输出的头部，显示容器上线时间，而不是系统上线时间。
+.TP 
+\fB\-h\fP, \fB\-\-no\-header\fP
+不要打印表头。
+.TP 
+\fB\-u\fP, \fB\-\-no\-current\fP
+在获取当前进程和 CPU 时间时忽略用户名。为了说明这一点，请运行 \fBsu\fP 并运行 \fBw\fP 和 \fBw \-u\fP。
+.TP 
+\fB\-s\fP, \fB\-\-short\fP
+使用短格式。不打印登录名、JCPU 和 PCPU 时间。
+.TP 
+\fB\-t\fP, \fB\-\-terminal\fP
+通常 \fBw\fP 会使用 systemd 会话表或 utmp 文件来定位用户。在 \fI终端模式\fP 中，\fBw\fP
+会扫描终端设备并以此方式定位用户会话。这并非真实用户计数，例如拥有两个 xterm
+的用户会显示为两次，因此标题行中的用户计数会有所不同。当前扫描的终端设备包括 \fI/dev/tty*\fP 和 \fI/dev/pts/*\fP。
+.TP 
+\fB\-f\fP, \fB\-\-from\fP
+切换是否打印 \fB来自\fP（远程主机名）字段。发布时的默认设置是不打印 \fB来自\fP 字段，尽管您的系统管理员或发行版维护者可能已经编译了默认显示
+\fB来自\fP 字段的版本。
+.TP 
+\fB\-\-help\fP
+显示帮助文本并退出。
+.TP 
+\fB\-i\fP, \fB\-\-ip\-addr\fP
+在 \fBfrom\fP 字段中显示 IP 地址而非主机名。此选项仅适用于非 systemd 平台，因为 libsystemd 仅提供远程主机信息。
+.TP 
+\fB\-p\fP, \fB\-\-pids\fP
+在 "what" 字段中显示登录进程/"what" 进程的 pid。登录进程又叫做会话头领。
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+显示版本信息。
+.TP 
+\fB\-o\fP, \fB\-\-old\-style\fP
+旧风格输出。空闲时间少于一分钟时，以空格代替。
+.TP 
+\fB用户\fP
+仅显示指定用户的信息。
+.SH 环境
+.TP 
+\fBPROCPS_CONTAINER\fP
+如果设置了 $\fBPROCPS_CONTAINER\fP，那么 \fBw\fP 执行时将视为使用了 \fB\-\-container\fP 选项。
+.TP 
+\fBPROCPS_USERLEN\fP
+覆盖用户名列的默认宽度。默认为 8。
+.TP 
+\fBPROCPS_FROMLEN\fP
+覆盖 "来自" 列的默认宽度。默认为 16。
+.SH 文件
+.TP 
+\fI/var/run/utmp\fP
+关于当前谁已登录的信息，只适用于非 systemd 的主机。
+.TP 
+\fI/proc\fP
+进程信息
+.TP 
+\fI/dev/tty*\fP , \fI/dev/pts/*\fP
+\fB\-\-terminal\fP 模式扫描的终端设备。
+.SH 错误
+.PP
+使用 \fB\-\-terminal\fP 选项时，\fBw\fP 会将父进程 PID 为 0 或 1 的进程视为 \fBagetty\fP(8)
+进程而不予显示。此行为易导致误报和漏报错误。
+.PP
+某些会话（如 X/Wayland 会话）中用户的空闲时间将显示不正确。启用 \fB\-\-terminal\fP 选项后，终端会话在 X/Wayland
+环境下的空闲时间将正确显示。
+.PP
+在使用 \fBsystemd\fP(1) 的平台上，\fB\-\-ip\-addr\fP 选项将被忽略，"来自" 列将把远程主机显示为主机名或者 IP 地址。
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。
+.SH 参见
+\fBfree\fP(1), \fBloginctl\fP(1), \fBps\fP(1), \fBsystemd\fP(1), \fBtop\fP(1),
+\fBuptime\fP(1), \fBwho\fP(1), \fButmp\fP(5), \fBagetty\fP(8)

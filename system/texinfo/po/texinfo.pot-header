@@ -1,0 +1,10 @@
+# texinfo.pot
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the GNU texinfo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# This is "texinfo.pot" for translations of messages printed by
+# Texinfo programs.
+# See also "texinfo_document.pot" which is for translations of strings
+# placed into output files by texi2any.
+#

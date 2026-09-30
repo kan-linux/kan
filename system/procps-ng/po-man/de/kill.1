@@ -1,0 +1,117 @@
+.\"
+.\" Copyright (c) 2002-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1998-2003 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH KILL 1 "27. Dezember 2023" procps\-ng 
+.SH BEZEICHNUNG
+kill \- ein Signal an einen oder mehrere Prozesse senden
+.SH ÜBERSICHT
+\fBkill\fP [\fB\-q\ \fP\fIWert\fP|\fB\-\-queue\fP\fI\ Wert\fP] \fIPID\fP .\|.\|.
+.P
+\fBkill\fP \fB\-\fP\fISignal\fP [\fB\-q\ \fP\fIWert\fP|\fB\-\-queue\fP\fI\ Wert\fP] \fIPID\-oder\-PGID\fP
+\&.\|.\|.
+.br
+\fBkill\fP \fB\-s\fP\fI\ Signal\fP [\fB\-q\ \fP\fIWert\fP|\fB\-\-queue\fP\fI\ Wert\fP]
+\fIPID\-oder\-PGID\fP .\|.\|.
+.br
+\fBkill\fP \fB\-\-signal\fP\fI\ Signal\fP [\fB\-q\ \fP\fIWert\fP|\fB\-\-queue\fP\fI\ Wert\fP]
+\fIPID\-oder\-PGID\fP .\|.\|.
+.P
+\fBkill \-l\fP\ [\fISignal\fP]
+.br
+\fBkill \-\-list\fP\ [\fISignal\fP]
+.P
+\fBkill \-L\fP
+.br
+\fBkill \-\-table\fP
+.SH BESCHREIBUNG
+\fBkill\fP sendet ein Signal an einen oder mehrere Prozesse anhand der \fIPID\fP
+oder \fIPGID\fP, einen Prozess\- oder Prozessgruppenbezeichner. \fBsignal\fP(7)
+erklärt die verschiedenen Signale und deren Wirkungsweise. Das
+Standardsignal für \fBkill\fP ist TERM. Mit \fB\-l\fP oder \fB\-L\fP können Sie die
+verfügbaren Signale auflisten. Im einzelnen sind HUP, INT, KILL, STOP, CONT
+und 0 nützliche Signale. Signale können nach Nummer oder Name oder nach
+Namen, dem ein »SIG« vorangestellt ist, angegeben werden. Zum Beispiel sind
+\fB\-9\fP, \fB\-SIGKILL\fP oder \fB\-KILL\fP gleichbedeutend. Ein negativer Operand
+wählt eine Prozessgruppe; siehe die Spalte PGID der Ausgabe des Befehls
+\fBps\fP(1). Eine Prozesskennung von \fB\-1\fP ist besonders. Sie bezeichnet alle
+Prozesse außer \fBinit\fP(8) und den \fBkill\fP\-Prozess selbst.
+.P
+Die Option \fB\-q\fP verwendet eine alternative Signalisierungsmethode, um
+zusätzlich einen ganzzahligen \fIWert\fP an den empfangenden Prozess zu
+übertragen. Falls dieser Prozess einen Handler installiert hat und der
+SA_SIGINFO\-Schalter für \fBsigaction\fP(2) angegeben wurde, dann kann er diese
+Daten über das \fI\%si_value\fP\-Feld der Struktur \fI\%siginfo_t\fP beziehen.
+.SH OPTIONEN
+.TP 
+\fB\-\fP\fISignal\fP
+.TQ
+\fB\-s\fP\fI\ Signal\fP
+.TQ
+\fB\-\-signal\fP\fI\ Signal\fP
+sendet ein \fISignal\fP per Name oder Nummer wie vorstehend beschrieben. Falls
+das \fISignal\fP 0 ist (zero), dann sendet \fBkill\fP kein Signal, aber prüft die
+Operanden des Befehls. Dieses Verhalten erlaubt dem Aufrufenden zu prüfen,
+ob der oder die angegebene(n) \fIPID(s)\fP und/oder \fIPGID(s)\fP existieren und
+die nötigen Rechte vorhanden sind, diese Signale zu senden.
+.TP 
+\fB\-q\fP\fI\ Wert\fP
+.TQ
+\fB\-\-queue\fP\fI\ Wert\fP
+verwendet \fBsigqueue\fP(3) anstatt \fBkill\fP(2), um zusätzlich diesen \fIWert\fP an
+jede \fIPID\fP oder \fIPGID\fP zu senden.
+.TP 
+\fB\-l\fP\ [\fISignal\fP]
+.TQ
+\fB\-\-list\fP\ [\fISignal\fP]
+listet Signalnamen auf, falls ohne Argument angegeben. Das optionale
+Argument veranlasst \fBkill\fP, den Namen des angegebenen \fISignals\fP in dessen
+numerische Form umzuwandeln oder umgekehrt, und die Umwandlung anzuzeigen.
+.TP 
+\fB\-L\fP
+.TQ
+\fB\-\-table\fP
+listet Signalnamen im Tabellenformat auf.
+.SH ANMERKUNGEN
+Die Shell (der Befehlszeileninterpreter) verfügt oft über einen eingebauten
+Kill\-Befehl. In diesem Fall müssen Sie den hier beschriebenen Befehl als
+\fI/bin/\:kill\fP aufrufen, um den eingebauten Shell\-Befehl außer Kraft zu
+setzen.
+.PP
+Falls Sie einen negativen Operanden verwenden, geben Sie zuerst einen
+Signalnamen oder eine Signalnummer an, so dass \fBkill\fP dies von einer
+Prozessgruppe unterscheiden kann. Beispielsweise ist der Befehl \[lq]\fBkill 123 \-9\fP\[rq] zweideutig; er könnte bedeuten, dass entweder der Prozess 123
+mit dem Signal 9 oder der Prozess 123 und die Prozessgruppe 9 mit dem
+Standardsignal abgewürgt werden soll.
+.SH BEISPIELE
+.TP 
+\fBkill \-HUP \-1\fP
+Sendet das Hangup\-Signal an alle Prozesse, an die Sie senden können.
+.TP 
+\fBkill \-l 11\fP
+Gibt den Namen aus, der der Signalnummer 11 entspricht.
+.TP 
+\fBkill 123 543\fP
+sendet das Standardsignal SIGTERM an die Prozesse 123 und 543.
+.TP 
+\fBkill \-SIGTERM \-123\fP
+sendet das Standardsignal SIGTERM an die Prozessgruppe 123.
+.SH "SIEHE AUCH"
+\fBkill\fP(2), \fBkillall\fP(1), \fBnice\fP(1), \fBpkill\fP(1), \fBrenice\fP(1),
+\fBsignal\fP(7), \fBsigqueue\fP(3), \fBskill\fP(1)
+.SH "FEHLER MELDEN"
+Bitte schicken Sie Fehlermeldungen (auf Englisch) an
+.MT procps@freelists.org
+.ME .

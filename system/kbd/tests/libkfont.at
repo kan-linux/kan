@@ -1,0 +1,56 @@
+AT_BANNER([libkfont unit tests])
+
+AT_SETUP([test 01 (read font and unicode maps across get paths)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test01])
+AT_CLEANUP
+
+AT_SETUP([test 02 (write fonts across retry and tall-font paths)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test05])
+AT_CLEANUP
+
+AT_SETUP([test 03 (read and write screen and unicode maps)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test08])
+AT_CLEANUP
+
+AT_SETUP([test 04 (read minimal PSF1 font image)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test13])
+AT_CLEANUP
+
+AT_SETUP([test 05 (load console maps from symbolic and binary inputs)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test14])
+AT_CLEANUP
+
+AT_SETUP([test 06 (read PSF2 font with unicode table and sequence)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test15])
+AT_CLEANUP
+
+AT_SETUP([test 07 (write PSF1 and PSF2 font images)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test16])
+AT_CLEANUP
+
+AT_SETUP([test 08 (reject malformed PSF2 utf8 table)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test17])
+AT_CLEANUP
+
+AT_SETUP([test 09 (reject malformed PSF font metadata)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test18])
+AT_CLEANUP
+
+AT_SETUP([test 10 (save console maps and report write failures)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test19])
+AT_CLEANUP
+
+AT_SETUP([test 11 (exercise context logging and kdfontop helpers)])
+AT_KEYWORDS([libkfont unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkfont/libkfont-test24])
+AT_CLEANUP

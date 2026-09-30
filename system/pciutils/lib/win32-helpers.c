@@ -1,0 +1,1600 @@
+/*
+ *      The PCI Library -- Win32 helper functions
+ *
+ *      Copyright (c) 2023 Pali Rohár <pali@kernel.org>
+ *
+ *      Can be freely distributed and used under the terms of the GNU GPL v2+
+ *
+ *      SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
+#include <windows.h>
+
+#include <stdio.h> /* for sprintf() */
+
+#include "win32-helpers.h"
+
+/* Unfortunately i586-mingw32msvc toolchain does not provide this constant. */
+#ifndef PROCESS_QUERY_LIMITED_INFORMATION
+#define PROCESS_QUERY_LIMITED_INFORMATION 0x1000
+#endif
+
+#ifndef IMAGE_FILE_MACHINE_ARMNT
+#define IMAGE_FILE_MACHINE_ARMNT 0x01c4
+#endif
+#ifndef IMAGE_FILE_MACHINE_IA64
+#define IMAGE_FILE_MACHINE_IA64 0x0200
+#endif
+#ifndef IMAGE_FILE_MACHINE_AMD64
+#define IMAGE_FILE_MACHINE_AMD64 0x8664
+#endif
+#ifndef IMAGE_FILE_MACHINE_ARM64
+#define IMAGE_FILE_MACHINE_ARM64 0xaa64
+#endif
+
+#ifndef PROCESSOR_ARCHITECTURE_INTEL
+#define PROCESSOR_ARCHITECTURE_INTEL 0
+#endif
+#ifndef PROCESSOR_ARCHITECTURE_ARM
+#define PROCESSOR_ARCHITECTURE_ARM 5
+#endif
+#ifndef PROCESSOR_ARCHITECTURE_IA64
+#define PROCESSOR_ARCHITECTURE_IA64 6
+#endif
+#ifndef PROCESSOR_ARCHITECTURE_AMD64
+#define PROCESSOR_ARCHITECTURE_AMD64 9
+#endif
+#ifndef PROCESSOR_ARCHITECTURE_ARM64
+#define PROCESSOR_ARCHITECTURE_ARM64 12
+#endif
+#ifndef PROCESSOR_ARCHITECTURE_UNKNOWN
+#define PROCESSOR_ARCHITECTURE_UNKNOWN 0xffff
+#endif
+
+#if WINVER < 0x0400
+#define wProcessorArchitecture dwOemId
+#endif
+
+/* Unfortunately some toolchains do not provide this constant. */
+#ifndef SE_IMPERSONATE_NAME
+#define SE_IMPERSONATE_NAME TEXT("SeImpersonatePrivilege")
+#endif
+
+/* Unfortunately some toolchains do not provide these constants. */
+#ifndef SE_DACL_AUTO_INHERIT_REQ
+#define SE_DACL_AUTO_INHERIT_REQ 0x0100
+#endif
+#ifndef SE_SACL_AUTO_INHERIT_REQ
+#define SE_SACL_AUTO_INHERIT_REQ 0x0200
+#endif
+#ifndef SE_DACL_AUTO_INHERITED
+#define SE_DACL_AUTO_INHERITED 0x0400
+#endif
+#ifndef SE_SACL_AUTO_INHERITED
+#define SE_SACL_AUTO_INHERITED 0x0800
+#endif
+
+/* Older SDK versions do not provide NtCurrentTeb symbol for X86, header files have only function declaration. */
+#if defined(_MSC_VER) && defined(_M_IX86) && !defined(PcTeb)
+#define PcTeb 0x18
+#if _MSC_VER >= 1400
+#pragma intrinsic(__readfsdword)
+__inline struct _TEB *NtCurrentTeb(void) { return (struct _TEB *)__readfsdword(PcTeb); }
+#else
+__inline struct _TEB *NtCurrentTeb(void) { __asm mov eax, fs:[PcTeb] }
+#endif
+#endif
+
+/* Offset to ULONG HardErrorMode field in TEB structure, it is architecture specific. */
+#if defined(_M_IX86) || defined(__i386__)
+#define TEB_HARD_ERROR_MODE_OFFSET 0x0F28
+#elif defined(_M_AMD64) || defined(__x86_64__)
+#define TEB_HARD_ERROR_MODE_OFFSET 0x16B0
+#endif
+
+/*
+ * These aclapi function is available in advapi.dll library on Windows 2000
+ * and higher systems.
+ */
+typedef BOOL (WINAPI *SetSecurityDescriptorControlProt)(PSECURITY_DESCRIPTOR pSecurityDescriptor, SECURITY_DESCRIPTOR_CONTROL ControlBitsOfInterest, SECURITY_DESCRIPTOR_CONTROL ControlBitsToSet);
+
+/*
+ * This errhandlingapi function is available in kernel32.dll library on
+ * Win9x systems and then on Windows Vista and higher systems.
+ */
+typedef UINT (WINAPI *GetErrorModeProt)(VOID);
+
+/*
+ * These errhandlingapi functions are available in kernel32.dll library on
+ * Windows 7 and higher systems.
+ */
+typedef DWORD (WINAPI *GetThreadErrorModeProt)(VOID);
+typedef BOOL (WINAPI *SetThreadErrorModeProt)(DWORD dwNewMode, LPDWORD lpOldMode);
+
+/*
+ * This NtQuerySystemInformation() function and SystemProcessInformation class
+ * is available in all Windows NT based systems. But their definitions are in
+ * any standard WinAPI header file.
+ */
+#ifndef NTSTATUS
+#define NTSTATUS LONG
+#endif
+#ifndef STATUS_INFO_LENGTH_MISMATCH
+#define STATUS_INFO_LENGTH_MISMATCH ((NTSTATUS)0xC0000004)
+#endif
+#ifndef SYSTEM_INFORMATION_CLASS
+#define SYSTEM_INFORMATION_CLASS DWORD
+#endif
+#ifndef SystemProcessInformation
+#define SystemProcessInformation 5
+#endif
+typedef struct {
+  ULONG NextEntryOffset;
+  ULONG NumberOfThreads;
+  LARGE_INTEGER Reserved[6];
+  struct {
+    USHORT Length;
+    USHORT MaximumLength;
+    PWSTR Buffer;
+  } ImageName;
+  LONG BasePriority;
+  HANDLE UniqueProcessId;
+} MY_SYSTEM_PROCESS_INFORMATION;
+typedef NTSTATUS (NTAPI *NtQuerySystemInformationProt)(SYSTEM_INFORMATION_CLASS SystemInformationClass, PVOID SystemInformation, ULONG SystemInformationLength, PULONG ReturnLength);
+
+
+static DWORD
+format_message_from_system(DWORD win32_error_id, DWORD lang_id, LPSTR buffer, DWORD size)
+{
+  return FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL, win32_error_id, lang_id, buffer, size, NULL);
+}
+
+const char *
+win32_strerror(DWORD win32_error_id)
+{
+  /*
+   * Use static buffer which is large enough.
+   * Hopefully no Win32 API error message string is longer than 4 kB.
+   */
+  static char buffer[4096];
+  DWORD len;
+
+  /*
+   * If it is possible show error messages in US English language.
+   * International Windows editions do not have to provide error
+   * messages in English language, so fallback to the language
+   * which system provides (neutral).
+   */
+  len = format_message_from_system(win32_error_id, MAKELANGID(LANG_ENGLISH, SUBLANG_ENGLISH_US), buffer, sizeof(buffer));
+  if (!len)
+    len = format_message_from_system(win32_error_id, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), buffer, sizeof(buffer));
+
+  /* FormatMessage() automatically appends ".\r\n" to the error message. */
+  if (len && buffer[len-1] == '\n')
+    buffer[--len] = '\0';
+  if (len && buffer[len-1] == '\r')
+    buffer[--len] = '\0';
+  if (len && buffer[len-1] == '.')
+    buffer[--len] = '\0';
+
+  if (!len)
+    sprintf(buffer, "Unknown Win32 error %lu", win32_error_id);
+
+  return buffer;
+}
+
+USHORT
+win32_get_process_machine(void)
+{
+  IMAGE_DOS_HEADER *dos_header;
+  IMAGE_NT_HEADERS *nt_header;
+
+  dos_header = (IMAGE_DOS_HEADER *)GetModuleHandle(NULL);
+  if (dos_header->e_magic != IMAGE_DOS_SIGNATURE)
+    return IMAGE_FILE_MACHINE_UNKNOWN;
+
+  nt_header = (IMAGE_NT_HEADERS *)((BYTE *)dos_header + dos_header->e_lfanew);
+  if (nt_header->Signature != IMAGE_NT_SIGNATURE)
+    return IMAGE_FILE_MACHINE_UNKNOWN;
+
+  return nt_header->FileHeader.Machine;
+}
+
+BOOL
+win32_is_non_nt_system(void)
+{
+#if defined(_M_IX86) || defined(__i386__)
+  /* Highest bit set indicates the non-NT system. */
+  return GetVersion() >> 31;
+#else
+  /* Non-i386 systems are not pre-NT compatible. */
+  return FALSE;
+#endif
+}
+
+static BOOL
+win32_is_nt40_system(void)
+{
+#if defined(_M_IX86) || defined(__i386__)
+  /* Check for Windows NT 4.0. Highest two bits are zero for NT and in lowest 8 bits is major os version. */
+  DWORD raw_version = GetVersion();
+  return (raw_version >> 30) == 0 && (raw_version & 0xff) >= 4;
+#else
+  /* Modern non-i386 systems have at least version 5.2 (XP x64). */
+  return TRUE;
+#endif
+}
+
+static BOOL
+win32_is_win2k_system(void)
+{
+#if defined(_M_IX86) || defined(__i386__)
+  /* Check for Windows 2000 (NT 5.0). Highest two bits are zero for NT and in lowest 8 bits is major os version. */
+  DWORD raw_version = GetVersion();
+  return (raw_version >> 30) == 0 && (raw_version & 0xff) >= 5;
+#else
+  /* Modern non-i386 systems have at least version 5.2 (XP x64). */
+  return TRUE;
+#endif
+}
+
+BOOL
+win32_is_vista_system(void)
+{
+#if defined(_M_IX86) || defined(__i386__)
+  /* Check for Windows Vista (NT 6.0). Highest two bits are zero for NT and in lowest 8 bits is major os version. */
+  DWORD raw_version = GetVersion();
+  return (raw_version >> 30) == 0 && (raw_version & 0xff) >= 6;
+#else
+  /* Check for Windows Vista (NT 6.0). */
+  OSVERSIONINFO version;
+  version.dwOSVersionInfoSize = sizeof(version);
+  if (!GetVersionEx(&version) ||
+      version.dwPlatformId != VER_PLATFORM_WIN32_NT ||
+      version.dwMajorVersion >= 6)
+    return FALSE;
+  else
+    return TRUE;
+#endif
+}
+
+#ifndef _WIN64
+static BOOL
+win32_is_win8_system(void)
+{
+#if defined(_M_IX86) || defined(__i386__)
+  /* Check for Windows 8 (NT 6.2). Highest two bits are zero for NT and in lowest 16 bits are minor<<8 + major os version. */
+  DWORD raw_version = GetVersion();
+  if ((raw_version >> 30) != 0 ||
+      (raw_version & 0xff) < 6 ||
+      ((raw_version & 0xff) == 6 && ((raw_version >> 8) & 0xff) < 2))
+    return FALSE;
+  else
+    return TRUE;
+#else
+  /* Check for Windows 8 (NT 6.2). */
+  OSVERSIONINFO version;
+  version.dwOSVersionInfoSize = sizeof(version);
+  if (!GetVersionEx(&version) ||
+      version.dwPlatformId != VER_PLATFORM_WIN32_NT ||
+      version.dwMajorVersion < 6 ||
+      (version.dwMajorVersion == 6 && version.dwMinorVersion < 2))
+    return FALSE;
+  else
+    return TRUE;
+#endif
+}
+#endif
+
+BOOL
+win32_is_32bit_on_64bit_system(void)
+{
+#ifdef _WIN64
+  return FALSE;
+#else
+  BOOL (WINAPI *MyIsWow64Process)(HANDLE, PBOOL);
+  HMODULE kernel32;
+  BOOL is_wow64;
+
+  /*
+   * 32-bit process running on 64-bit system is called Wow64 process.
+   * So AMD64 process running on ARM64 system is not Wow64 process.
+   * Check for Wow64 process via IsWow64Process() function exported
+   * from 32-bit kernel32.dll library available on the 64-bit systems.
+   * Resolve pointer to this function at runtime as this code path is
+   * primary running on 32-bit systems where are not available 64-bit
+   * functions.
+   */
+
+  kernel32 = GetModuleHandle(TEXT("kernel32.dll"));
+  if (!kernel32)
+    return FALSE;
+
+  MyIsWow64Process = (void *)GetProcAddress(kernel32, "IsWow64Process");
+  if (!MyIsWow64Process)
+    return FALSE;
+
+  if (!MyIsWow64Process(GetCurrentProcess(), &is_wow64))
+    return FALSE;
+
+  return is_wow64;
+#endif
+}
+
+BOOL
+win32_is_32bit_on_win8_64bit_system(void)
+{
+#ifdef _WIN64
+  return FALSE;
+#else
+  return win32_is_win8_system() && win32_is_32bit_on_64bit_system();
+#endif
+}
+
+BOOL
+win32_is_not_native_process(USHORT *native_machine_ptr)
+{
+  BOOL (WINAPI *MyIsWow64Process2)(HANDLE, PUSHORT, PUSHORT);
+  void (WINAPI *MyGetNativeSystemInfo)(LPSYSTEM_INFO);
+  SYSTEM_INFO system_info;
+  USHORT process_machine;
+  USHORT native_machine;
+  HMODULE kernel32;
+
+  /*
+   * Process is not native if the process architecture does not match the
+   * native machine architecture. Every Wow64 process is not native (which
+   * means 32-bit process on 64-bit system) but there are also non-Wow64
+   * processes which are not native (e.g. AMD64 process on ARM64 system).
+   */
+
+  kernel32 = GetModuleHandle(TEXT("kernel32.dll"));
+  if (!kernel32)
+    return FALSE;
+
+  /*
+   * First try to use IsWow64Process2() function to determinate if the process
+   * is native or not. This function is available since Windows 10.
+   */
+  MyIsWow64Process2 = (void *)GetProcAddress(kernel32, "IsWow64Process2");
+  if (MyIsWow64Process2 && MyIsWow64Process2(GetCurrentProcess(), &process_machine, &native_machine))
+    {
+      /*
+       * Return value from IsWow64Process2() does not indicate if the process
+       * is Wow64, but rather it indicates if the function succeed or not and
+       * filled process_machine and native_machine values.
+       * Process is Wow64 if process_machine is not IMAGE_FILE_MACHINE_UNKNOWN.
+       * For non-Wow64 processes this function does not provide information
+       * about process architecture, so it cannot be used for detecting if the
+       * non-Wow64 process is native or not.
+       */
+      if (process_machine != IMAGE_FILE_MACHINE_UNKNOWN)
+        {
+          if (native_machine_ptr)
+            *native_machine_ptr = native_machine;
+          return TRUE;
+        }
+
+      /*
+       * For non-Wow64 processes retrieve process architecture and compare it
+       * with native machine architecture. This will distinguish between native
+       * and non-native non-Wow64 processes.
+       */
+      process_machine = win32_get_process_machine();
+      if (process_machine != native_machine)
+        {
+          if (native_machine_ptr)
+            *native_machine_ptr = native_machine;
+          return TRUE;
+        }
+      return FALSE;
+    }
+
+  /*
+   * If function IsWow64Process2() is not available or failed then fallback to
+   * IsWow64Process() via win32_is_32bit_on_64bit_system() wrapper. For Wow64
+   * processes is function GetNativeSystemInfo() returning the correct native
+   * machine architecture. For non-Wow64 it is same as GetSystemInfo() and
+   * therefore does NOT return native system information, despite the name
+   * (this happens for example for AMD64 process on ARM64 system).
+   */
+  if (win32_is_32bit_on_64bit_system())
+    {
+      system_info.wProcessorArchitecture = PROCESSOR_ARCHITECTURE_UNKNOWN;
+      MyGetNativeSystemInfo = (void *)GetProcAddress(kernel32, "GetNativeSystemInfo");
+      if (MyGetNativeSystemInfo)
+        MyGetNativeSystemInfo(&system_info);
+      switch (system_info.wProcessorArchitecture)
+        {
+        case PROCESSOR_ARCHITECTURE_INTEL:
+          *native_machine_ptr = IMAGE_FILE_MACHINE_I386;
+          break;
+        case PROCESSOR_ARCHITECTURE_IA64:
+          *native_machine_ptr = IMAGE_FILE_MACHINE_IA64;
+          break;
+        case PROCESSOR_ARCHITECTURE_ARM:
+          *native_machine_ptr = IMAGE_FILE_MACHINE_ARMNT;
+          break;
+        case PROCESSOR_ARCHITECTURE_AMD64:
+          *native_machine_ptr = IMAGE_FILE_MACHINE_AMD64;
+          break;
+        case PROCESSOR_ARCHITECTURE_ARM64:
+          *native_machine_ptr = IMAGE_FILE_MACHINE_ARM64;
+          break;
+        default:
+          *native_machine_ptr = IMAGE_FILE_MACHINE_UNKNOWN;
+        }
+      return TRUE;
+    }
+
+  /*
+   * It looks like that IsWow64Process2() is currently the only function which
+   * can determinate if the non-Wow64 process is native or not. So if the
+   * IsWow64Process2() function is not available (or failed) and process in not
+   * Wow64 then expects that it is native process.
+   */
+  return FALSE;
+}
+
+/*
+ * Change error mode of the current thread. If it is not possible then change
+ * error mode of the whole process. Always returns previous error mode.
+ */
+UINT
+win32_change_error_mode(UINT new_mode, BOOL append)
+{
+  GetThreadErrorModeProt MyGetThreadErrorMode = NULL;
+  SetThreadErrorModeProt MySetThreadErrorMode = NULL;
+  GetErrorModeProt MyGetErrorMode = NULL;
+  HMODULE kernel32;
+  HMODULE ntdll;
+  DWORD old_mode;
+
+  /*
+   * Functions GetThreadErrorMode() and SetThreadErrorMode() were introduced
+   * in Windows 7, so use GetProcAddress() for compatibility with older systems.
+   */
+  kernel32 = GetModuleHandle(TEXT("kernel32.dll"));
+  if (kernel32)
+    {
+      MyGetThreadErrorMode = (GetThreadErrorModeProt)(void(*)(void))GetProcAddress(kernel32, "GetThreadErrorMode");
+      MySetThreadErrorMode = (SetThreadErrorModeProt)(void(*)(void))GetProcAddress(kernel32, "SetThreadErrorMode");
+      MyGetErrorMode = (GetErrorModeProt)(void(*)(void))GetProcAddress(kernel32, "GetErrorMode");
+    }
+
+  /*
+   * Functions RtlGetThreadErrorMode() and RtlSetThreadErrorMode() were introduced
+   * in Windows XP x64 and Windows Server 2003. Use GetProcAddress() as they are in ntdll.dll.
+   */
+  if (!MyGetThreadErrorMode || !MySetThreadErrorMode)
+    {
+      ntdll = GetModuleHandle(TEXT("ntdll.dll"));
+      if (ntdll)
+        {
+          MyGetThreadErrorMode = (GetThreadErrorModeProt)(void(*)(void))GetProcAddress(ntdll, "RtlGetThreadErrorMode");
+          MySetThreadErrorMode = (SetThreadErrorModeProt)(void(*)(void))GetProcAddress(ntdll, "RtlSetThreadErrorMode");
+        }
+    }
+
+  if (MyGetThreadErrorMode && MySetThreadErrorMode)
+    {
+      old_mode = MyGetThreadErrorMode();
+      MySetThreadErrorMode(new_mode | (append ? old_mode : 0), &old_mode);
+      return old_mode;
+    }
+
+#ifdef TEB_HARD_ERROR_MODE_OFFSET
+  /*
+   * On Windows NT 4.0+ systems fallback to thread HardErrorMode API.
+   * It depends on architecture specific offset for HardErrorMode field in TEB.
+   */
+  if (win32_is_nt40_system())
+    {
+      ULONG *hard_error_mode_ptr = (ULONG *)((BYTE *)NtCurrentTeb() + TEB_HARD_ERROR_MODE_OFFSET);
+      old_mode = *hard_error_mode_ptr;
+      *hard_error_mode_ptr = new_mode | (append ? old_mode : 0);
+      return old_mode;
+    }
+#endif
+
+  /*
+   * If GetErrorMode() is available and we were requested to just append
+   * new error bits then fallback to GetErrorMode()+SetErrorMode()
+   * functions which modifies error mode of the whole process just once.
+   */
+  if (MyGetErrorMode && append)
+    {
+      old_mode = MyGetErrorMode();
+      old_mode = SetErrorMode(new_mode | old_mode);
+      return old_mode;
+    }
+
+  /*
+   * Fallback to function SetErrorMode() which modifies error mode of the
+   * whole process in thread-unsafe way two times and returns old mode.
+   */
+  old_mode = SetErrorMode(new_mode);
+  if (append)
+    SetErrorMode(new_mode | old_mode);
+  return old_mode;
+}
+
+/*
+ * Check if the current thread has particular privilege in current active access
+ * token. Case when it not possible to determinate it (e.g. current thread does
+ * not have permission to open its own current active access token) is evaluated
+ * as thread does not have that privilege.
+ */
+static BOOL
+win32_have_privilege(LUID luid_privilege)
+{
+  PRIVILEGE_SET priv;
+  HANDLE token;
+  BOOL ret;
+
+  /*
+   * If the current thread does not have active access token then thread
+   * uses primary process access token for all permission checks.
+   */
+  if (!OpenThreadToken(GetCurrentThread(), TOKEN_QUERY, TRUE, &token) &&
+      (GetLastError() != ERROR_NO_TOKEN ||
+       !OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token)))
+    return FALSE;
+
+  priv.PrivilegeCount = 1;
+  priv.Control = PRIVILEGE_SET_ALL_NECESSARY;
+  priv.Privilege[0].Luid = luid_privilege;
+  priv.Privilege[0].Attributes = SE_PRIVILEGE_ENABLED;
+
+  if (!PrivilegeCheck(token, &priv, &ret))
+    return FALSE;
+
+  return ret;
+}
+
+/*
+ * Enable or disable particular privilege in specified access token.
+ *
+ * Note that it is not possible to disable privilege in access token with
+ * SE_PRIVILEGE_ENABLED_BY_DEFAULT attribute. This function does not check
+ * this case and incorrectly returns no error even when disabling failed.
+ * Rationale for this decision: Simplification of this function as WinAPI
+ * call AdjustTokenPrivileges() does not signal error in this case too.
+ */
+static BOOL
+set_privilege(HANDLE token, LUID luid_privilege, BOOL enable)
+{
+  TOKEN_PRIVILEGES token_privileges;
+
+  token_privileges.PrivilegeCount = 1;
+  token_privileges.Privileges[0].Luid = luid_privilege;
+  token_privileges.Privileges[0].Attributes = enable ? SE_PRIVILEGE_ENABLED : 0;
+
+  /*
+   * WinAPI function AdjustTokenPrivileges() success also when not all
+   * privileges were enabled. It is always required to check for failure
+   * via GetLastError() call. AdjustTokenPrivileges() always sets error
+   * also when it success, as opposite to other WinAPI functions.
+   */
+  if (!AdjustTokenPrivileges(token, FALSE, &token_privileges, sizeof(token_privileges), NULL, NULL) ||
+      GetLastError() != ERROR_SUCCESS)
+    return FALSE;
+
+  return TRUE;
+}
+
+/*
+ * Change access token for the current thread to new specified access token.
+ * Previously active access token is stored in old_token variable and can be
+ * used for reverting to this access token. It is set to NULL if the current
+ * thread previously used primary process access token.
+ */
+static BOOL
+win32_change_token(HANDLE new_token, HANDLE *old_token)
+{
+  HANDLE current_token;
+  HANDLE impersonate_token;
+
+  if (!OpenThreadToken(GetCurrentThread(), TOKEN_IMPERSONATE, TRUE, &current_token))
+    {
+      if (GetLastError() != ERROR_NO_TOKEN)
+        return FALSE;
+      current_token = NULL;
+    }
+
+  /*
+   * SetThreadToken() can set only impersonation token, not the primary token
+   * (which caller passed as argument). Function DuplicateToken() can be used
+   * to create a new impersonation token as duplicate of the primary token.
+   */
+  if (!DuplicateToken(new_token, SecurityImpersonation, &impersonate_token))
+    {
+      if (current_token)
+        CloseHandle(current_token);
+      return FALSE;
+    }
+
+  /*
+   * NULL argument for SetThreadToken() specifies the current thread.
+   * If thread handle argument is value returned GetCurrentThread() then
+   * SetThreadToken() function crashes on older Windows versions.
+   */
+  if (!SetThreadToken(NULL, impersonate_token))
+    {
+      if (current_token)
+        CloseHandle(current_token);
+      return FALSE;
+    }
+
+  *old_token = current_token;
+  return TRUE;
+}
+
+/*
+ * Change access token for the current thread to the primary process access
+ * token. This function fails also when the current thread already uses primary
+ * process access token.
+ */
+static BOOL
+change_token_to_primary(HANDLE *old_token)
+{
+  HANDLE token;
+
+  if (!OpenThreadToken(GetCurrentThread(), TOKEN_IMPERSONATE, TRUE, &token))
+    return FALSE;
+
+  RevertToSelf();
+
+  *old_token = token;
+  return TRUE;
+}
+
+/*
+ * Revert to the specified access token for the current thread. When access
+ * token is specified as NULL then revert to the primary process access token.
+ * Use to revert after win32_change_token() or change_token_to_primary() call.
+ */
+static VOID
+win32_revert_to_token(HANDLE token)
+{
+  /*
+   * If SetThreadToken() call fails then there is no option to revert to
+   * the specified previous thread access token. So in this case revert to
+   * the primary process access token.
+   */
+  if (!token || !SetThreadToken(NULL, token))
+    RevertToSelf();
+  if (token)
+    CloseHandle(token);
+}
+
+/*
+ * Enable particular privilege for the current thread. And set method how to
+ * revert this privilege (if to revert whole token or only privilege).
+ */
+BOOL
+win32_enable_privilege(LUID luid_privilege, HANDLE *revert_token, BOOL *revert_only_privilege)
+{
+  HANDLE thread_token;
+  HANDLE new_token;
+
+  if (OpenThreadToken(GetCurrentThread(), TOKEN_ADJUST_PRIVILEGES, TRUE, &thread_token))
+    {
+      if (set_privilege(thread_token, luid_privilege, TRUE))
+        {
+          /*
+           * Indicate that correct revert method is just to
+           * disable privilege in access token.
+           */
+          if (revert_token && revert_only_privilege)
+            {
+              *revert_token = thread_token;
+              *revert_only_privilege = TRUE;
+            }
+          else
+            {
+              CloseHandle(thread_token);
+            }
+          return TRUE;
+        }
+      CloseHandle(thread_token);
+      /*
+       * If enabling privilege failed then try to enable it via
+       * primary process access token.
+       */
+    }
+
+  /*
+   * If the current thread has already active thread access token then
+   * open it with just impersonate right as it would be used only for
+   * future revert.
+   */
+  if (revert_token && revert_only_privilege)
+    {
+      if (!OpenThreadToken(GetCurrentThread(), TOKEN_IMPERSONATE, TRUE, &thread_token))
+        {
+          if (GetLastError() != ERROR_NO_TOKEN)
+            return FALSE;
+          thread_token = NULL;
+        }
+
+      /*
+       * If current thread has no access token (and uses primary
+       * process access token) or it does not have permission to
+       * adjust privileges or it does not have specified privilege
+       * then create a copy of the primary process access token,
+       * assign it for the current thread (= impersonate self)
+       * and then try adjusting privilege again.
+       */
+      if (!ImpersonateSelf(SecurityImpersonation))
+        {
+          if (thread_token)
+            CloseHandle(thread_token);
+          return FALSE;
+        }
+    }
+
+  if (!OpenThreadToken(GetCurrentThread(), TOKEN_ADJUST_PRIVILEGES, TRUE, &new_token))
+    {
+      /* thread_token is set only when we were asked for revert method. */
+      if (revert_token && revert_only_privilege)
+        win32_revert_to_token(thread_token);
+      return FALSE;
+    }
+
+  if (!set_privilege(new_token, luid_privilege, TRUE))
+    {
+      CloseHandle(new_token);
+      /* thread_token is set only when we were asked for revert method. */
+      if (revert_token && revert_only_privilege)
+        win32_revert_to_token(thread_token);
+      return FALSE;
+    }
+
+  /*
+   * Indicate that correct revert method is to change to the previous
+   * access token. Either to the primary process access token or to the
+   * previous thread access token.
+   */
+  if (revert_token && revert_only_privilege)
+    {
+      *revert_token = thread_token;
+      *revert_only_privilege = FALSE;
+    }
+  return TRUE;
+}
+
+/*
+ * Revert particular privilege for the current thread was previously enabled by
+ * win32_enable_privilege() call. Either disable privilege in specified access token
+ * or revert to previous access token.
+ */
+VOID
+win32_revert_privilege(LUID luid_privilege, HANDLE revert_token, BOOL revert_only_privilege)
+{
+  if (revert_only_privilege)
+    {
+      set_privilege(revert_token, luid_privilege, FALSE);
+      CloseHandle(revert_token);
+    }
+  else
+    {
+      win32_revert_to_token(revert_token);
+    }
+}
+
+/*
+ * Return owner of the access token used by the current thread. Buffer for
+ * returned owner needs to be released by LocalFree() call.
+ */
+static TOKEN_OWNER *
+get_current_token_owner(VOID)
+{
+  HANDLE token;
+  DWORD length;
+  TOKEN_OWNER *owner;
+
+  /*
+   * If the current thread does not have active access token then thread
+   * uses primary process access token for all permission checks.
+   */
+  if (!OpenThreadToken(GetCurrentThread(), TOKEN_QUERY, TRUE, &token) &&
+      (GetLastError() != ERROR_NO_TOKEN ||
+       !OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token)))
+    return NULL;
+
+  if (!GetTokenInformation(token, TokenOwner, NULL, 0, &length) &&
+      GetLastError() != ERROR_INSUFFICIENT_BUFFER)
+    {
+      CloseHandle(token);
+      return NULL;
+    }
+
+retry:
+  owner = (TOKEN_OWNER *)LocalAlloc(LPTR, length);
+  if (!owner)
+    {
+      CloseHandle(token);
+      return NULL;
+    }
+
+  if (!GetTokenInformation(token, TokenOwner, owner, length, &length))
+    {
+      /*
+       * Length of token owner (SID) buffer between two get calls may
+       * changes (e.g. by another thread of process), so retry.
+       */
+      if (GetLastError() == ERROR_INSUFFICIENT_BUFFER)
+        {
+          LocalFree(owner);
+          goto retry;
+        }
+      LocalFree(owner);
+      CloseHandle(token);
+      return NULL;
+    }
+
+  CloseHandle(token);
+  return owner;
+}
+
+/*
+ * Create a new security descriptor in absolute form from relative form.
+ * Newly created security descriptor in absolute form is stored in linear buffer.
+ */
+static PSECURITY_DESCRIPTOR
+create_relsd_from_abssd(PSECURITY_DESCRIPTOR rel_security_descriptor)
+{
+  PBYTE abs_security_descriptor_buffer;
+  DWORD abs_security_descriptor_size=0, abs_dacl_size=0, abs_sacl_size=0, abs_owner_size=0, abs_primary_group_size=0;
+
+  if (!MakeAbsoluteSD(rel_security_descriptor,
+        NULL, &abs_security_descriptor_size,
+        NULL, &abs_dacl_size,
+        NULL, &abs_sacl_size,
+        NULL, &abs_owner_size,
+        NULL, &abs_primary_group_size) && GetLastError() != ERROR_INSUFFICIENT_BUFFER)
+    return NULL;
+
+  abs_security_descriptor_buffer = (PBYTE)LocalAlloc(LPTR, abs_security_descriptor_size+abs_dacl_size+abs_sacl_size+abs_owner_size+abs_primary_group_size);
+  if (!abs_security_descriptor_buffer)
+    return NULL;
+
+  if (!MakeAbsoluteSD(rel_security_descriptor,
+        (PSECURITY_DESCRIPTOR)abs_security_descriptor_buffer, &abs_security_descriptor_size,
+        (PACL)(abs_security_descriptor_buffer+abs_security_descriptor_size), &abs_dacl_size,
+        (PACL)(abs_security_descriptor_buffer+abs_security_descriptor_size+abs_dacl_size), &abs_sacl_size,
+        (PSID)(abs_security_descriptor_buffer+abs_security_descriptor_size+abs_dacl_size+abs_sacl_size), &abs_owner_size,
+        (PSID)(abs_security_descriptor_buffer+abs_security_descriptor_size+abs_dacl_size+abs_sacl_size+abs_owner_size), &abs_primary_group_size))
+    return NULL;
+
+  return (PSECURITY_DESCRIPTOR)abs_security_descriptor_buffer;
+}
+
+/*
+ * Prepare security descriptor obtained by GetKernelObjectSecurity() so it can be
+ * passed to SetKernelObjectSecurity() as identity operation. It modifies control
+ * flags of security descriptor, which is needed for Windows 2000 and new.
+ */
+static BOOL
+prepare_security_descriptor_for_set_operation(PSECURITY_DESCRIPTOR security_descriptor)
+{
+  SetSecurityDescriptorControlProt MySetSecurityDescriptorControl;
+  SECURITY_DESCRIPTOR_CONTROL bits_mask;
+  SECURITY_DESCRIPTOR_CONTROL bits_set;
+  SECURITY_DESCRIPTOR_CONTROL control;
+  HMODULE advapi32;
+  DWORD revision;
+
+  /*
+   * SE_DACL_AUTO_INHERITED and SE_SACL_AUTO_INHERITED are flags introduced in
+   * Windows 2000 to control client-side automatic inheritance (client - user
+   * process - is responsible for propagating inherited ACEs to subobjects).
+   * To prevent applications which do not understand client-side automatic
+   * inheritance (applications created prior Windows 2000 or which use low
+   * level API like SetKernelObjectSecurity()) to unintentionally set those
+   * SE_DACL_AUTO_INHERITED and SE_SACL_AUTO_INHERITED control flags when
+   * coping them from other security descriptor.
+   *
+   * As we are not modifying existing ACEs, we are compatible with Windows 2000
+   * client-side automatic inheritance model and therefore prepare security
+   * descriptor for SetKernelObjectSecurity() to not clear existing automatic
+   * inheritance control flags.
+   *
+   * Control flags SE_DACL_AUTO_INHERITED and SE_SACL_AUTO_INHERITED are set
+   * into security object only when they are set together with set-only flags
+   * SE_DACL_AUTO_INHERIT_REQ and SE_SACL_AUTO_INHERIT_REQ. Those flags are
+   * never received by GetKernelObjectSecurity() and are just commands for
+   * SetKernelObjectSecurity() how to interpret SE_DACL_AUTO_INHERITED and
+   * SE_SACL_AUTO_INHERITED flags.
+   *
+   * Function symbol SetSecurityDescriptorControl is not available in the
+   * older versions of advapi32.dll library, so resolve it at runtime.
+   */
+
+  if (!win32_is_win2k_system())
+    return TRUE;
+
+  if (!GetSecurityDescriptorControl(security_descriptor, &control, &revision))
+    return FALSE;
+
+  bits_mask = 0;
+  bits_set = 0;
+
+  if (control & SE_DACL_AUTO_INHERITED)
+    {
+      bits_mask |= SE_DACL_AUTO_INHERIT_REQ;
+      bits_set |= SE_DACL_AUTO_INHERIT_REQ;
+    }
+
+  if (control & SE_SACL_AUTO_INHERITED)
+    {
+      bits_mask |= SE_SACL_AUTO_INHERIT_REQ;
+      bits_set |= SE_SACL_AUTO_INHERIT_REQ;
+    }
+
+  if (!bits_mask)
+    return TRUE;
+
+  advapi32 = GetModuleHandle(TEXT("advapi32.dll"));
+  if (!advapi32)
+    return FALSE;
+
+  MySetSecurityDescriptorControl = (SetSecurityDescriptorControlProt)(void(*)(void))GetProcAddress(advapi32, "SetSecurityDescriptorControl");
+  if (!MySetSecurityDescriptorControl)
+    return FALSE;
+
+  if (!MySetSecurityDescriptorControl(security_descriptor, bits_mask, bits_set))
+    return FALSE;
+
+  return TRUE;
+}
+
+/*
+ * Grant particular permissions in the primary access token of the specified
+ * process for the owner of current thread token and set old DACL of the
+ * process access token for reverting permissions. Security descriptor is
+ * just memory buffer for old DACL.
+ */
+static BOOL
+grant_process_token_dacl_permissions(HANDLE process, DWORD permissions, HANDLE *token, PSECURITY_DESCRIPTOR *old_security_descriptor)
+{
+  TOKEN_OWNER *owner;
+  PACL old_dacl;
+  BOOL old_dacl_present;
+  BOOL old_dacl_defaulted;
+  PACL new_dacl;
+  WORD new_dacl_size;
+  PSECURITY_DESCRIPTOR new_security_descriptor;
+  DWORD length;
+
+  owner = get_current_token_owner();
+  if (!owner)
+    return FALSE;
+
+  /*
+   * READ_CONTROL is required for GetSecurityInfo(DACL_SECURITY_INFORMATION)
+   * and WRITE_DAC is required for SetSecurityInfo(DACL_SECURITY_INFORMATION).
+   */
+  if (!OpenProcessToken(process, READ_CONTROL | WRITE_DAC, token))
+    {
+      LocalFree(owner);
+      return FALSE;
+    }
+
+  if (!GetKernelObjectSecurity(*token, DACL_SECURITY_INFORMATION, NULL, 0, &length) && GetLastError() != ERROR_INSUFFICIENT_BUFFER)
+    {
+      LocalFree(owner);
+      CloseHandle(*token);
+      return FALSE;
+    }
+
+retry:
+  *old_security_descriptor = (PSECURITY_DESCRIPTOR)LocalAlloc(LPTR, length);
+  if (!*old_security_descriptor)
+    {
+      LocalFree(owner);
+      CloseHandle(*token);
+      return FALSE;
+    }
+
+  if (!GetKernelObjectSecurity(*token, DACL_SECURITY_INFORMATION, *old_security_descriptor, length, &length))
+    {
+      /*
+       * Length of the security descriptor between two get calls
+       * may changes (e.g. by another thread of process), so retry.
+       */
+      if (GetLastError() == ERROR_INSUFFICIENT_BUFFER)
+        {
+          LocalFree(*old_security_descriptor);
+          goto retry;
+        }
+      LocalFree(*old_security_descriptor);
+      LocalFree(owner);
+      CloseHandle(*token);
+      return FALSE;
+    }
+
+  if (!prepare_security_descriptor_for_set_operation(*old_security_descriptor))
+    {
+      LocalFree(*old_security_descriptor);
+      LocalFree(owner);
+      CloseHandle(*token);
+      return FALSE;
+    }
+
+  /* Retrieve the current DACL from security descriptor including present and defaulted properties. */
+  if (!GetSecurityDescriptorDacl(*old_security_descriptor, &old_dacl_present, &old_dacl, &old_dacl_defaulted))
+    {
+      LocalFree(*old_security_descriptor);
+      LocalFree(owner);
+      CloseHandle(*token);
+      return FALSE;
+    }
+
+  /*
+   * If DACL is not present then system grants full access to everyone. It this
+   * case do not modify DACL as it just adds one ACL allow rule for us, which
+   * automatically disallow access to anybody else which had access before.
+   */
+  if (!old_dacl_present || !old_dacl)
+    {
+      LocalFree(*old_security_descriptor);
+      LocalFree(owner);
+      *old_security_descriptor = NULL;
+      return TRUE;
+    }
+
+  /* Create new DACL which would be copy of the current old one. */
+  new_dacl_size = old_dacl->AclSize + sizeof(ACCESS_ALLOWED_ACE) + GetLengthSid(owner->Owner) - sizeof(DWORD);
+  new_dacl = (PACL)LocalAlloc(LPTR, new_dacl_size);
+  if (!new_dacl)
+    {
+      LocalFree(*old_security_descriptor);
+      LocalFree(owner);
+      CloseHandle(*token);
+      return FALSE;
+    }
+
+  /*
+   * Initialize new DACL structure to the same format as was the old one.
+   * Set new explicit access for the owner of the current thread access
+   * token with non-inherited granting access to specified permissions.
+   * This permission is added in the first ACE, so has the highest priority.
+   */
+  if (!InitializeAcl(new_dacl, new_dacl_size, old_dacl->AclRevision) ||
+      !AddAccessAllowedAce(new_dacl, ACL_REVISION2, permissions, owner->Owner))
+    {
+      LocalFree(new_dacl);
+      LocalFree(*old_security_descriptor);
+      LocalFree(owner);
+      CloseHandle(*token);
+      return FALSE;
+    }
+
+  /*
+   * Now (after setting our new permissions) append all ACE entries from the
+   * old DACL to the new DACL, which preserve all other existing permissions.
+   */
+  if (old_dacl->AceCount > 0)
+    {
+      WORD ace_index;
+      LPVOID ace;
+
+      for (ace_index = 0; ace_index < old_dacl->AceCount; ace_index++)
+        {
+          if (!GetAce(old_dacl, ace_index, &ace) ||
+              !AddAce(new_dacl, old_dacl->AclRevision, MAXDWORD, ace, ((PACE_HEADER)ace)->AceSize))
+            {
+              LocalFree(new_dacl);
+              LocalFree(*old_security_descriptor);
+              LocalFree(owner);
+              CloseHandle(*token);
+              return FALSE;
+            }
+        }
+    }
+
+  /*
+   * Create copy of the old security descriptor, so we can modify its DACL.
+   * Function SetSecurityDescriptorDacl() works only with security descriptors
+   * in absolute format. So use our helper function create_relsd_from_abssd()
+   * for converting security descriptor from relative format (which is returned
+   * by GetKernelObjectSecurity() function) to the absolute format.
+   */
+  new_security_descriptor = create_relsd_from_abssd(*old_security_descriptor);
+  if (!new_security_descriptor)
+    {
+      LocalFree(new_dacl);
+      LocalFree(*old_security_descriptor);
+      LocalFree(owner);
+      CloseHandle(*token);
+      return FALSE;
+    }
+
+  /*
+   * In the new security descriptor replace old DACL by the new DACL (which has
+   * new permissions) and then set this new security descriptor to the token,
+   * so token would have new access permissions.
+   */
+  if (!SetSecurityDescriptorDacl(new_security_descriptor, TRUE, new_dacl, FALSE) ||
+      !SetKernelObjectSecurity(*token, DACL_SECURITY_INFORMATION, new_security_descriptor))
+    {
+      LocalFree(new_security_descriptor);
+      LocalFree(new_dacl);
+      LocalFree(*old_security_descriptor);
+      LocalFree(owner);
+      CloseHandle(*token);
+      return FALSE;
+    }
+
+  LocalFree(new_security_descriptor);
+  LocalFree(new_dacl);
+  LocalFree(owner);
+  return TRUE;
+}
+
+/*
+ * Revert particular granted permissions in specified access token done by
+ * grant_process_token_dacl_permissions() call.
+ */
+static VOID
+revert_token_dacl_permissions(HANDLE token, PSECURITY_DESCRIPTOR old_security_descriptor)
+{
+  SetKernelObjectSecurity(token, DACL_SECURITY_INFORMATION, old_security_descriptor);
+  LocalFree(old_security_descriptor);
+  CloseHandle(token);
+}
+
+/*
+ * Open process handle specified by the process id with the query right and
+ * optionally also with vm read right.
+ */
+static HANDLE
+open_process_for_query(DWORD pid)
+{
+  BOOL revert_only_privilege;
+  LUID luid_debug_privilege;
+  DWORD process_right;
+  HANDLE revert_token;
+  HANDLE process;
+
+  /*
+   * Some processes on Windows Vista and higher systems can be opened only
+   * with PROCESS_QUERY_LIMITED_INFORMATION right. This right is enough
+   * for accessing primary process token. But this right is not supported
+   * on older pre-Vista systems. When the current thread on these older
+   * systems does not have Debug privilege then OpenProcess() fails with
+   * ERROR_ACCESS_DENIED. If the current thread has Debug privilege then
+   * OpenProcess() success and returns handle to requested process.
+   * Problem is that this handle does not have PROCESS_QUERY_INFORMATION
+   * right and so cannot be used for accessing primary process token
+   * on those older systems. Moreover it has zero rights and therefore
+   * such handle is fully useless. So never try to use open process with
+   * PROCESS_QUERY_LIMITED_INFORMATION right on older systems than
+   * Windows Vista (NT 6.0).
+   */
+  if (win32_is_vista_system())
+    process_right = PROCESS_QUERY_LIMITED_INFORMATION;
+  else
+    process_right = PROCESS_QUERY_INFORMATION;
+
+  process = OpenProcess(process_right, FALSE, pid);
+  if (process)
+    return process;
+
+  /*
+   * It is possible to open only processes to which owner of the current
+   * thread access token has permissions. For opening other processing it
+   * is required to have Debug privilege enabled. By default local
+   * administrators have this privilege, but it is disabled. So try to
+   * enable it and then try to open process again.
+   */
+
+  if (!LookupPrivilegeValue(NULL, SE_DEBUG_NAME, &luid_debug_privilege))
+    return NULL;
+
+  if (!win32_enable_privilege(luid_debug_privilege, &revert_token, &revert_only_privilege))
+    return NULL;
+
+  process = OpenProcess(process_right, FALSE, pid);
+
+  win32_revert_privilege(luid_debug_privilege, revert_token, revert_only_privilege);
+
+  return process;
+}
+
+/*
+ * Check if the non-nul-term wide string of the process image file name
+ * (base name with extension) matches the narrow nul-term string of the
+ * exe file name (base name with extension). Do case-insensitive string
+ * comparison because process image name is uppercase on older Windows
+ * versions.
+ */
+static BOOL
+check_process_name(LPCWSTR image_name, DWORD image_name_byte_length, LPCSTR exe_file)
+{
+  DWORD exe_file_length = strlen(exe_file);
+  WCHAR c1;
+  UCHAR c2;
+  DWORD i;
+
+  if (image_name_byte_length / sizeof(WCHAR) != exe_file_length)
+    return FALSE;
+
+  for (i = 0; i < exe_file_length; i++)
+    {
+      c1 = image_name[i];
+      c2 = exe_file[i];
+      if (c1 >= L'a' && c1 <= L'z')
+        c1 -= L'a' - L'A';
+      if (c2 >= 'a' && c2 <= 'z')
+        c2 -= 'a' - 'A';
+      if (c1 != c2 || c2 >= 0x80) /* exe_file must be 7-bit ASCII */
+        return FALSE;
+    }
+
+  return TRUE;
+}
+
+/* Open process handle with the query right specified by process exe file. */
+static HANDLE
+win32_find_and_open_process_for_query(LPCSTR exe_file)
+{
+  HMODULE ntdll;
+  NtQuerySystemInformationProt MyNtQuerySystemInformation;
+  MY_SYSTEM_PROCESS_INFORMATION *info;
+  NTSTATUS status;
+  BYTE *buffer;
+  DWORD size;
+  HANDLE process;
+
+  /* Ntdll.dll is loaded into every process on all NT systems. */
+  ntdll = GetModuleHandle(TEXT("ntdll.dll"));
+  if (!ntdll)
+    return NULL;
+
+  MyNtQuerySystemInformation = (LPVOID)GetProcAddress(ntdll, "NtQuerySystemInformation");
+  if (!MyNtQuerySystemInformation)
+    return NULL;
+
+  /*
+   * Retrieve information about all processes in system via
+   * NtQuerySystemInformation(SystemProcessInformation) call.
+   * This method returns both process id and process name.
+   * It is supported on all Windows NT based systems.
+   */
+  size = 4096;
+retry:
+  buffer = (BYTE *)LocalAlloc(LPTR, size);
+  if (!buffer)
+    return NULL;
+  status = MyNtQuerySystemInformation(SystemProcessInformation, buffer, size, NULL);
+  if (status == STATUS_INFO_LENGTH_MISMATCH)
+    {
+      LocalFree(buffer);
+      size *= 2;
+      goto retry;
+    }
+  if (status < 0)
+    {
+      LocalFree(buffer);
+      return NULL;
+    }
+
+  process = NULL;
+  info = (MY_SYSTEM_PROCESS_INFORMATION *)buffer;
+  while (1)
+    {
+      /*
+       * ImageName is just file base name with extension, not the full path.
+       * For inaccessible and system processes it can be an empty string.
+       * Note that ImageName.Length is length without nul term in bytes
+       * and ImageName.Buffer is the wide string.
+       */
+      if (check_process_name(info->ImageName.Buffer, info->ImageName.Length, exe_file))
+        {
+          process = open_process_for_query((DWORD)info->UniqueProcessId);
+          break;
+        }
+
+      if (info->NextEntryOffset == 0)
+        break;
+
+      info = (MY_SYSTEM_PROCESS_INFORMATION *)((BYTE *)info + info->NextEntryOffset);
+    }
+
+  LocalFree(buffer);
+  return process;
+}
+
+/*
+ * Try to open primary access token of the particular process with specified
+ * rights. Before opening access token try to adjust DACL permissions of the
+ * primary process access token, so following open does not fail on error
+ * related to no open permissions. Revert DACL permissions after open attempt.
+ * As following steps are not atomic, try to execute them more times in case
+ * of possible race conditions caused by other threads or processes.
+ */
+static HANDLE
+try_grant_permissions_and_open_process_token(HANDLE process, DWORD rights)
+{
+  PSECURITY_DESCRIPTOR old_security_descriptor;
+  HANDLE grant_token;
+  HANDLE token;
+  DWORD retry;
+  DWORD error;
+
+  /*
+   * This code is not atomic. Between grant and open calls can other
+   * thread or process change or revert permissions. So try to execute
+   * it more times.
+   */
+  for (retry = 0; retry < 10; retry++)
+    {
+      if (!grant_process_token_dacl_permissions(process, rights, &grant_token, &old_security_descriptor))
+        return NULL;
+      if (!OpenProcessToken(process, rights, &token))
+        {
+          token = NULL;
+          error = GetLastError();
+        }
+      if (old_security_descriptor)
+        revert_token_dacl_permissions(grant_token, old_security_descriptor);
+      if (token)
+        return token;
+      else if (error != ERROR_ACCESS_DENIED)
+        return NULL;
+    }
+
+  return NULL;
+}
+
+/*
+ * Open primary access token of particular process handle with specified rights.
+ * If permissions for specified rights are missing then try to grant them.
+ */
+static HANDLE
+win32_open_process_token_with_rights(HANDLE process, DWORD rights)
+{
+  HANDLE old_token;
+  HANDLE token;
+
+  /* First try to open primary access token of process handle directly. */
+  if (OpenProcessToken(process, rights, &token))
+    return token;
+
+  /*
+   * If opening failed then it means that owner of the current thread
+   * access token does not have permission for it. Try it again with
+   * primary process access token.
+   */
+  if (change_token_to_primary(&old_token))
+    {
+      if (!OpenProcessToken(process, rights, &token))
+        token = NULL;
+      win32_revert_to_token(old_token);
+      if (token)
+        return token;
+    }
+
+  /*
+   * If opening is still failing then try to grant specified permissions
+   * for the current thread and try to open it again.
+   */
+  token = try_grant_permissions_and_open_process_token(process, rights);
+  if (token)
+    return token;
+
+  /*
+   * And if it is still failing then try it again with granting
+   * permissions for the primary process token of the current process.
+   */
+  if (change_token_to_primary(&old_token))
+    {
+      token = try_grant_permissions_and_open_process_token(process, rights);
+      win32_revert_to_token(old_token);
+      if (token)
+        return token;
+    }
+
+  /*
+   * TODO: Sorry, no other option for now...
+   * It could be possible to use Take Ownership Name privilege to
+   * temporary change token owner of specified process to the owner of
+   * the current thread token, grant permissions for current thread in
+   * that process token, change ownership back to original one, open
+   * that process token and revert granted permissions. But this is
+   * not implemented yet.
+   */
+  return NULL;
+}
+
+/*
+ * Call supplied function with its argument and if it fails with
+ * ERROR_PRIVILEGE_NOT_HELD then try to enable Tcb privilege and
+ * call function with its argument again.
+ */
+BOOL
+win32_call_func_with_tcb_privilege(BOOL (*function)(LPVOID), LPVOID argument)
+{
+  LUID luid_tcb_privilege;
+  LUID luid_impersonate_privilege;
+
+  HANDLE revert_token_tcb_privilege;
+  BOOL revert_only_tcb_privilege;
+
+  HANDLE revert_token_impersonate_privilege;
+  BOOL revert_only_impersonate_privilege;
+
+  BOOL impersonate_privilege_enabled;
+
+  BOOL revert_to_old_token;
+  HANDLE old_token;
+
+  HANDLE lsass_process;
+  HANDLE lsass_token;
+
+  DWORD error;
+  BOOL ret;
+
+  impersonate_privilege_enabled = FALSE;
+  revert_to_old_token = FALSE;
+  lsass_token = NULL;
+  old_token = NULL;
+
+  /* Call supplied function. */
+  ret = function(argument);
+  if (ret || GetLastError() != ERROR_PRIVILEGE_NOT_HELD)
+    goto ret;
+
+  /*
+   * If function call failed with ERROR_PRIVILEGE_NOT_HELD
+   * error then it means that the current thread token does not have
+   * Tcb privilege enabled. Try to enable it.
+   */
+
+  if (!LookupPrivilegeValue(NULL, SE_TCB_NAME, &luid_tcb_privilege))
+    goto err_privilege_not_held;
+
+  /*
+   * If the current thread has already Tcb privilege enabled then there
+   * is some additional unhanded restriction.
+   */
+  if (win32_have_privilege(luid_tcb_privilege))
+    goto err_privilege_not_held;
+
+  /* Try to enable Tcb privilege and try function call again. */
+  if (win32_enable_privilege(luid_tcb_privilege, &revert_token_tcb_privilege, &revert_only_tcb_privilege))
+    {
+      ret = function(argument);
+      win32_revert_privilege(luid_tcb_privilege, revert_token_tcb_privilege, revert_only_tcb_privilege);
+      goto ret;
+    }
+
+  /*
+   * If enabling of Tcb privilege failed then it means that current thread
+   * does not have this privilege. But current process may have it. So try it
+   * again with primary process access token.
+   */
+
+  /*
+   * If system supports Impersonate privilege (Windows 2000 SP4 or higher) then
+   * all future actions in this function require this Impersonate privilege.
+   * So try to enable it in case it is currently disabled.
+   */
+  if (LookupPrivilegeValue(NULL, SE_IMPERSONATE_NAME, &luid_impersonate_privilege) &&
+      !win32_have_privilege(luid_impersonate_privilege))
+    {
+      /*
+       * If current thread does not have Impersonate privilege enabled
+       * then first try to enable it just for the current thread. If
+       * it is not possible to enable it just for the current thread
+       * then try it to enable globally for whole process (which
+       * affects all process threads). Both actions will be reverted
+       * at the end of this function.
+       */
+      if (win32_enable_privilege(luid_impersonate_privilege, &revert_token_impersonate_privilege, &revert_only_impersonate_privilege))
+        {
+          impersonate_privilege_enabled = TRUE;
+        }
+      else if (win32_enable_privilege(luid_impersonate_privilege, NULL, NULL))
+        {
+          impersonate_privilege_enabled = TRUE;
+          revert_token_impersonate_privilege = NULL;
+          revert_only_impersonate_privilege = TRUE;
+        }
+      else
+        {
+          goto err_privilege_not_held;
+        }
+
+      /*
+       * Now when Impersonate privilege is enabled, try to enable Tcb
+       * privilege again. Enabling other privileges for the current
+       * thread requires Impersonate privilege, so enabling Tcb again
+       * could now pass.
+       */
+      if (win32_enable_privilege(luid_tcb_privilege, &revert_token_tcb_privilege, &revert_only_tcb_privilege))
+        {
+          ret = function(argument);
+          win32_revert_privilege(luid_tcb_privilege, revert_token_tcb_privilege, revert_only_tcb_privilege);
+          goto ret;
+        }
+    }
+
+  /*
+   * If enabling Tcb privilege failed then it means that the current
+   * thread access token does not have this privilege or does not
+   * have permission to adjust privileges.
+   *
+   * Try to use more privileged token from Local Security Authority
+   * Subsystem Service process (lsass.exe) which has Tcb privilege.
+   * Retrieving this more privileged token is possible for local
+   * administrators (unless it was disabled by local administrators).
+   */
+
+  lsass_process = win32_find_and_open_process_for_query("lsass.exe");
+  if (!lsass_process)
+    goto err_privilege_not_held;
+
+  /*
+   * Open primary lsass.exe process access token with query and duplicate
+   * rights. Just these two rights are required for impersonating other
+   * primary process token (impersonate right is really not required!).
+   */
+  lsass_token = win32_open_process_token_with_rights(lsass_process, TOKEN_QUERY | TOKEN_DUPLICATE);
+
+  CloseHandle(lsass_process);
+
+  if (!lsass_token)
+    goto err_privilege_not_held;
+
+  /*
+   * After successful open of the primary lsass.exe process access token,
+   * assign its copy for the current thread.
+   */
+  if (!win32_change_token(lsass_token, &old_token))
+    goto err_privilege_not_held;
+
+  revert_to_old_token = TRUE;
+
+  ret = function(argument);
+  if (ret || GetLastError() != ERROR_PRIVILEGE_NOT_HELD)
+    goto ret;
+
+  /*
+   * Now current thread is not using primary process token anymore
+   * but is using custom access token. There is no need to revert
+   * enabled Tcb privilege as the whole custom access token would
+   * be reverted. So there is no need to setup revert method for
+   * enabling privilege.
+   */
+  if (win32_have_privilege(luid_tcb_privilege) ||
+      !win32_enable_privilege(luid_tcb_privilege, NULL, NULL))
+    goto err_privilege_not_held;
+
+  ret = function(argument);
+  goto ret;
+
+err_privilege_not_held:
+  SetLastError(ERROR_PRIVILEGE_NOT_HELD);
+  ret = FALSE;
+  goto ret;
+
+ret:
+  error = GetLastError();
+
+  if (revert_to_old_token)
+    win32_revert_to_token(old_token);
+
+  if (impersonate_privilege_enabled)
+    win32_revert_privilege(luid_impersonate_privilege, revert_token_impersonate_privilege, revert_only_impersonate_privilege);
+
+  if (lsass_token)
+    CloseHandle(lsass_token);
+
+  SetLastError(error);
+
+  return ret;
+}

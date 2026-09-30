@@ -1,0 +1,233 @@
+use vars qw(%result_texis %result_texts %result_tree_text %result_errors
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_sectioning_root %result_headings_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
+
+use utf8;
+
+$result_tree_text{'add_lower_case_redirection_file_names'} = '*document_root C7
+ *before_node_section C1
+  *preamble_before_content
+ *@node C1 l1 {Top}
+ |INFO
+ |spaces_before_argument:
+  |{spaces_before_argument: }
+ |EXTRA
+ |is_target:{1}
+ |node_number:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {Top}
+ *@top C2 l2 {top}
+ |INFO
+ |spaces_before_argument:
+  |{spaces_before_argument: }
+ |EXTRA
+ |section_level:{0}
+ |section_number:{1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {top}
+  {empty_line:\\n}
+ *@node C1 l4 {Chap}
+ |INFO
+ |spaces_before_argument:
+  |{spaces_before_argument: }
+ |EXTRA
+ |is_target:{1}
+ |node_number:{2}
+ |normalized:{Chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {Chap}
+ *@chapter C5 l5 {The chapt}
+ |INFO
+ |spaces_before_argument:
+  |{spaces_before_argument: }
+ |EXTRA
+ |section_heading_number:{1}
+ |section_level:{1}
+ |section_number:{2}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {The chapt}
+  {empty_line:\\n}
+  *@anchor C1 l7
+  |EXTRA
+  |is_target:{1}
+  |normalized:{Up-and-Down}
+   *brace_arg C1
+    {Up and Down}
+  {spaces_after_close_brace:\\n}
+  {empty_line:\\n}
+ *@node C1 l9 {section}
+ |INFO
+ |spaces_before_argument:
+  |{spaces_before_argument: }
+ |EXTRA
+ |is_target:{1}
+ |node_number:{3}
+ |normalized:{section}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {section}
+ *@section C6 l10 {Sect}
+ |INFO
+ |spaces_before_argument:
+  |{spaces_before_argument: }
+ |EXTRA
+ |section_heading_number:{1.1}
+ |section_level:{2}
+ |section_number:{3}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {Sect}
+  {empty_line:\\n}
+  *@anchor C1 l12
+  |EXTRA
+  |is_target:{1}
+  |normalized:{lowerc}
+   *brace_arg C1
+    {lowerc}
+  {spaces_after_close_brace:\\n}
+  {empty_line:\\n}
+  *paragraph C8
+   *@xref C1 l14
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Up and Down}
+    |normalized:{Up-and-Down}
+     {Up and Down}
+   {.\\n}
+   *@xref C1 l15
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Chap}
+    |normalized:{Chap}
+     {Chap}
+   {.\\n}
+   *@xref C1 l16
+    *brace_arg C1
+    |EXTRA
+    |node_content:{section}
+    |normalized:{section}
+     {section}
+   {.\\n}
+   *@xref C1 l17
+    *brace_arg C1
+    |EXTRA
+    |node_content:{lowerc}
+    |normalized:{lowerc}
+     {lowerc}
+   {.\\n}
+';
+
+
+$result_texis{'add_lower_case_redirection_file_names'} = '@node Top
+@top top
+
+@node Chap
+@chapter The chapt
+
+@anchor{Up and Down}
+
+@node section
+@section Sect
+
+@anchor{lowerc}
+
+@xref{Up and Down}.
+@xref{Chap}.
+@xref{section}.
+@xref{lowerc}.
+';
+
+
+$result_texts{'add_lower_case_redirection_file_names'} = 'top
+***
+
+1 The chapt
+***********
+
+
+1.1 Sect
+========
+
+
+Up and Down.
+Chap.
+section.
+lowerc.
+';
+
+$result_errors{'add_lower_case_redirection_file_names'} = '';
+
+$result_nodes_list{'add_lower_case_redirection_file_names'} = '1|Top
+ associated_section: top
+ associated_title_command: top
+ node_directions:
+  next->Chap
+2|Chap
+ associated_section: 1 The chapt
+ associated_title_command: 1 The chapt
+ node_directions:
+  prev->Top
+  up->Top
+3|section
+ associated_section: 1.1 Sect
+ associated_title_command: 1.1 Sect
+ node_directions:
+  up->Chap
+';
+
+$result_sections_list{'add_lower_case_redirection_file_names'} = '1|top
+ associated_anchor_command: Top
+ associated_node: Top
+ toplevel_directions:
+  next->The chapt
+ section_children:
+  1|The chapt
+2|The chapt
+ associated_anchor_command: Chap
+ associated_node: Chap
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
+ section_children:
+  1|Sect
+3|Sect
+ associated_anchor_command: section
+ associated_node: section
+ section_directions:
+  up->The chapt
+';
+
+$result_sectioning_root{'add_lower_case_redirection_file_names'} = 'level: -1
+list:
+ 1|top
+';
+
+$result_headings_list{'add_lower_case_redirection_file_names'} = '';
+
+1;

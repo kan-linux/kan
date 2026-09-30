@@ -1,0 +1,202 @@
+.\"
+.\" Copyright (c) 2020-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2020-2024 Craig Small <csmall@dropbear.xyz>
+.\"
+.\" This manual is free software; you can redistribute it and/or
+.\" modify it under the terms of the GNU Lesser General Public
+.\" License as published by the Free Software Foundation; either
+.\" version 2.1 of the License, or (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH PROCPS_PIDS 3 "3. September 2004" procps\-ng 
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.nh
+.SH BEZEICHNUNG
+procps_pids – API für den Zugriff auf Prozessinformationen im
+/proc\-Dateisystem
+.SH ÜBERSICHT
+.nf
+#include <libproc2/pids.h>
+.P
+int\fB procps_pids_new  \fP (struct pids_info **\fIInfo\fP, enum pids_item *\fIitems\fP, int \fInumitems\fP);
+int\fB procps_pids_ref  \fP (struct pids_info  *\fIInfo\fP);
+int\fB procps_pids_unref\fP (struct pids_info **\fIInfo\fP);
+.P
+struct pids_stack *\fBprocps_pids_get\fP (
+    struct pids_info *\fIinfo\fP,
+    enum pids_fetch_type \fIwhich\fP);
+.P
+struct pids_fetch *\fBprocps_pids_reap\fP (
+    struct pids_info *\fIinfo\fP,
+    enum pids_fetch_type \fIwhich\fP);
+.P
+struct pids_fetch *\fBprocps_pids_select\fP (
+    struct pids_info *\fIinfo\fP,
+    unsigned *\fIthese\fP,
+    int \fInumthese\fP,
+    enum pids_select_type \fIwhich\fP);
+.P
+struct pids_stack **\fBprocps_pids_sort\fP (
+    struct pids_info *\fIinfo\fP,
+    struct pids_stack *\fIstacks\fP[],
+    int \fInumstacked\fP,
+    enum pids_item \fIsortitem\fP,
+    enum pids_sort_order \fIorder\fP);
+.P
+int \fBprocps_pids_reset\fP (
+    struct pids_info *\fIinfo\fP,
+    enum pids_item *\fInewitems\fP,
+    int \fInewnumitems\fP);
+.P
+struct pids_stack *\fBfatal_proc_unmounted\fP (
+    struct pids_info *\fIinfo\fP,
+    int \fIreturn_self\fP);
+.P
+.fi
+.P
+Linken Sie mit der Option \fI\-lproc2\fP.
+.SH BESCHREIBUNG
+.SS Übersicht
+Im Mittelpunkt dieser Schnittstelle steht eine einfache
+\[oq]result\[cq]\-Struktur, die ein \[oq]item\[cq] plus seinen Wert
+widerspiegelt (in einer Union mit Standard\-C\-Sprachtypen als
+Mitgliedern). Alle \[oq]result\[cq]\-Strukturen werden automatisch von der
+Bibliothek zugewiesen und bereitgestellt.
+.P
+Durch die Angabe eines Arrays von \[oq]Elementen\[cq] können diese
+Strukturen als \[oq]Stapel\[cq] organisiert werden, wodurch potenziell viele
+Ergebnisse mit einem einzigen Funktionsaufruf erzielt werden. Somit kann ein
+\[oq]Stapel\[cq] als Datensatz variabler Länge betrachtet werden, dessen
+Inhalt und Reihenfolge ausschließlich vom Benutzer bestimmt werden.
+.P
+Diese Schnittstelle verfügt über zwei eindeutige Enumeratoren. Die Elemente
+\[oq]noop\[cq] und \[oq]extra\[cq] dienen zur Speicherung von
+Benutzerwerten. Sie werden nie von der Bibliothek gesetzt, aber das Ergebnis
+von \[oq]extra\[cq] wird bei jeder Bibliotheksinteraktion auf Null gesetzt.
+.P
+Die Datei pids.h ist ein unverzichtbares Dokument während der Entwicklung
+Ihres Benutzerprogramms. Dort finden Sie die verfügbaren Elemente, deren
+Rückgabetyp (den Namen des Strukturelements \[oq]result\[cq]) und den
+Quellcode dieser Werte. Zusätzliche Enumeratoren und Strukturen sind dort
+ebenfalls dokumentiert.
+.SS Verwendung
+Im Folgenden sehen Sie eine typische Sequenz zum Aufruf dieser
+Schnittstelle.
+.P
+.nf
+1. \fBfatal_proc_unmounted()\fP
+2. \fBprocps_pids_new()\fP
+3. \fBprocps_pids_get()\fP, \fBprocps_pids_reap()\fP oder \fBprocps_pids_select()\fP
+4. \fBprocps_pids_unref()\fP
+.fi
+.P
+Die Funktion \fBget\fP ist ein Iterator für aufeinanderfolgende PIDs/TIDs und
+gibt diejenigen \[oq]items\[cq] zurück, die zuvor über \fBnew\fP oder \fBreset\fP
+identifiziert wurden.
+.P
+Zwei Funktionen unterstützen unvorhersehbare, variable Ergebnisse. Die
+Funktion \fBreap\fP sammelt Daten für alle Prozesse, während die Funktion
+\fBselect\fP bestimmte Prozess\-IDs (PIDs) oder Benutzer\-IDs (UIDs)
+verarbeitet. Beide können mehrere \[oq]Stacks\[cq] zurückgeben, die jeweils
+mehrere Strukturen vom Typ \[oq]result\[cq] enthalten. Optional kann ein
+Benutzer diese Ergebnisse mit \fBsort\fP sortieren.
+.P
+Um einen beliebigen \[oq]stack\[cq] zu nutzen und auf einzelne
+\[oq]result\[cq]\-Strukturen zuzugreifen, ist ein \fIrelative_enum\fP
+erforderlich, wie im Makro \fBVAL\fP in der Header\-Datei definiert. Solche
+Werte könnten fest codiert werden, z.B. 0 bis numitems\-1. In der Regel wird
+dieser Bedarf jedoch durch die Erstellung eigener Enumeratoren gedeckt, die
+der Reihenfolge des \[oq]items\[cq]\-Arrays entsprechen.
+.SS Einschränkungen
+Die <pids>\-API unterscheidet sich von anderen dadurch, dass die
+relevanten Elemente zum Zeitpunkt \fBnew\fP oder \fBreset\fP angegeben werden
+müssen, wobei letzteres für diese API einzigartig ist. Wenn der Parameter
+\fIitems\fP oder \fInumitems\fP zum Zeitpunkt \fBnew\fP null ist, ist \fBreset\fP
+zwingend erforderlich, bevor ein weiterer Aufruf erfolgt. Anderenfalls
+sollte procps_pids_reset() nur aufgerufen werden, wenn sich die Reihenfolge
+oder die Anzahl der Elemente in Ihren Stacks ändert.
+.P
+Für die Funktionen \fBnew\fP und \fBunref\fP muss die Adresse eines
+\fIInfo\fP\-Strukturzeigers angegeben werden. Bei \fBnew\fP muss dieser auf NULL
+initialisiert worden sein. Bei \fBunref\fP wird er auf NULL zurückgesetzt, wenn
+der Referenzzähler Null erreicht.
+.P
+Die Funktionen \fBget\fP und \fBreap\fP verwenden den Parameter \fIwhich\fP, um
+anzugeben, ob nur Tasks oder sowohl Tasks als auch Threads abgerufen werden
+sollen.
+.P
+Die Funktion \fBselect\fP benötigt ein Array von PIDs oder UIDs als \fIthese\fP
+sowie\fInumthese\fP, um die abzurufenden Prozesse zu identifizieren. Diese
+Funktion arbeitet dann als Teilmenge von \fBreap\fP.
+.P
+Bei Verwendung der Funktion \fBsort\fP wären die Parameter \fIstacks\fP und
+\fInumstacked\fP normalerweise diejenigen, die in der Struktur
+\[oq]pids_fetch\[cq] zurückgegeben werden.
+.P
+Schließlich kann vor jeder anderen Funktion die Funktion
+\fBfatal_proc_unmounted\fP aufgerufen werden, um sicherzustellen, dass das
+Verzeichnis /proc/ eingehängt ist. In diesem Fall wäre der Parameter \fIinfo\fP
+NULL und der Parameter \fIreturn_self\fP null. Falls jedoch für das aufrufende
+Programm bestimmte Elemente benötigt werden (ein \fIreturn_self\fP ungleich
+null), muss der Aufruf von \fBnew\fP vorangestellt werden, um die Elemente
+\fIitems\fP zu identifizieren und den benötigten Zeiger \fIinfo\fP zu erhalten.
+.SH RÜCKGABEWERT
+.SS "Funktionen, die ein \[oq]int\[cq] zurückgeben"
+Ein Fehler wird durch eine negative Zahl angezeigt, die stets der Kehrwert
+eines bekannten errno.h\-Wertes ist.
+.P
+Ein Erfolg wird durch den Rückgabewert Null signalisiert. Die Funktionen
+\fBref\fP und \fBunref\fP geben jedoch die aktuelle Referenzanzahl der
+\fIinfo\fP\-Struktur zurück.
+.SS "Funktionen, die ein \[oq]address\[cq] zurückgeben"
+Ein Fehler wird durch einen NULL\-Rückgabezeiger angezeigt, wobei der Grund
+im formalen errno\-Wert zu finden ist.
+.P
+Der Erfolg wird durch einen Zeiger auf die genannte Struktur angezeigt. Wenn
+jedoch ein \fBfatal_proc_unmounted\fP\-Aufruf überstanden wird, wird immer NULL
+zurückgegeben, wenn\fIreturn_self\fP null ist.
+.SH FEHLERDIAGNOSE
+Zur Unterstützung der Programmentwicklung stehen zwei procps\-ng\-Provisionen
+zur Verfügung, die genutzt werden können.
+.P
+Die erste ist eine mitgelieferte Datei namens \[oq]libproc.supp\[cq], die
+bei der Entwicklung einer \fImultithreaded\fP\-Anwendung nützlich sein kann. Bei
+Verwendung mit der valgrind\-Option \[oq]\-\-suppressions=\[cq] werden
+Warnungen vermieden, die mit der procps\-Bibliothek selbst zusammenhängen.
+.P
+Solche Warnungen entstehen, weil die Bibliothek Heap\-basierte Zuweisungen
+threadsicher verarbeitet. Eine \fIsingle\-threaded\fP\-Anwendung erhält diese
+Warnungen nicht.
+.P
+Die zweite Bestimmung kann dazu beitragen, sicherzustellen, dass die
+Mitgliedsreferenzen von \[oq]result\[cq] den Erwartungen der Bibliothek
+entsprechen. Sie setzt voraus, dass für den Zugriff auf den Wert von
+\[oq]result\[cq] ein in der Header\-Datei bereitgestelltes Makro verwendet
+wird.
+.P
+Diese Funktion kann über eine der folgenden Methoden aktiviert werden und
+etwaige Abweichungen werden in \fBstderr\fP geschrieben.
+.IP 1) 3
+Fügen Sie CFLAGS='\-DXTRA_PROCPS_DEBUG' zu allen anderen ./configure\-Optionen
+hinzu, die Ihr Projekt möglicherweise verwendet.
+.IP 2) 3
+Fügen Sie #include <libproc2/xtra\-procps\-debug.h> zu jedem Programm
+\fInach\fP dem #include <libproc2/pids.h> hinzu.
+.PP
+Diese Verifizierungsfunktion verursacht einen erheblichen Mehraufwand. Daher
+ist es wichtig, dass sie für einen Produktions\-/Release\-Build \fInicht\fP
+aktiviert wird.
+.SH UMGEBUNGSVARIABLE(N)
+The value set for the following is unimportant, just its presence.
+.IP LIBPROC_HIDE_KERNEL
+Dadurch werden Kernel\-Threads ausgeblendet, die anderenfalls mit einem
+\fBprocps_pids_get\fP\-, \fBprocps_pids_select\fP\- oder \fBprocps_pids_reap\fP\-Aufruf
+zurückgegeben werden würden.
+.SH "SIEHE AUCH"
+\fBprocps\fP(3), \fBprocps_misc\fP(3), \fBproc\fP(5).

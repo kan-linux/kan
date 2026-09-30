@@ -1,0 +1,33 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# -P and -p are still in the optstring (with required arguments) but
+# have no case in the switch, so they fall through to default and
+# err++.  Unlike a getopt-rejected option (-X) there is no "invalid
+# option" line on stderr, just the usage text.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+	: "${LSUSB_INSTALLED:=$(command -v lsusb || true)}"
+}
+
+@test "lsusb -p arg: vestigial option gives usage, exit 1" {
+	run "$LSUSB_BUILT" -p foo
+	[ $status -ne 0 ]
+	match "$stderr" '/Usage: lsusb/'
+}
+
+@test "lsusb -P arg: vestigial option gives usage, exit 1" {
+	run "$LSUSB_BUILT" -P foo
+	[ $status -ne 0 ]
+	match "$stderr" '/Usage: lsusb/'
+}
+
+@test "lsusb -p/-P: built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -p foo > "$TEST_TMP.built"     2>&1 || true
+	"$LSUSB_INSTALLED" -p foo > "$TEST_TMP.installed" 2>&1 || true
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}

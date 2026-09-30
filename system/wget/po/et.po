@@ -1,0 +1,2485 @@
+# Estonian translations for GNU wget.
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the wget2 package.
+# Toomas Soome <tsoome@me.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU wget2-2.2.1\n"
+"Report-Msgid-Bugs-To: bug-wget2@gnu.org\n"
+"POT-Creation-Date: 2026-09-16 18:48+0200\n"
+"PO-Revision-Date: 2026-02-07 18:41+0200\n"
+"Last-Translator: Toomas Soome <tsoome@me.com>\n"
+"Language-Team: Estonian <linux-ee@lists.eenet.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/error.c:208
+msgid "Unknown system error"
+msgstr "Tundmatu süsteemne viga"
+
+#: lib/gai_strerror.c:57
+msgid "Address family for hostname not supported"
+msgstr "Seda aadresside perekonda ei toetata"
+
+#: lib/gai_strerror.c:58
+msgid "Temporary failure in name resolution"
+msgstr "Nime lahendamisel tekkis ajutine viga"
+
+#: lib/gai_strerror.c:59
+msgid "Bad value for ai_flags"
+msgstr "ai_flags vigane väärtus"
+
+#: lib/gai_strerror.c:60
+msgid "Non-recoverable failure in name resolution"
+msgstr "Nime lahendamisel tekkis parandamatu viga"
+
+#: lib/gai_strerror.c:61
+msgid "ai_family not supported"
+msgstr "ai_family ei ole toetatud"
+
+#: lib/gai_strerror.c:62
+msgid "Memory allocation failure"
+msgstr "Mälu ei jätku"
+
+#: lib/gai_strerror.c:63
+msgid "No address associated with hostname"
+msgstr "Serveri nimele ei leidu aadressi"
+
+#: lib/gai_strerror.c:64
+msgid "Name or service not known"
+msgstr "Nimi või teenus on tundmatu"
+
+#: lib/gai_strerror.c:65
+msgid "Servname not supported for ai_socktype"
+msgstr "Servname ei ole ai_socktype korral toetatud"
+
+#: lib/gai_strerror.c:66
+msgid "ai_socktype not supported"
+msgstr "ai_socktype ei toetata"
+
+#: lib/gai_strerror.c:67
+msgid "System error"
+msgstr "Süsteemne viga"
+
+#: lib/gai_strerror.c:68
+msgid "Argument buffer too small"
+msgstr "Argumentide puhver on liiga väike"
+
+#: lib/gai_strerror.c:70
+msgid "Processing request in progress"
+msgstr "Päringu töötlemine alles käib"
+
+#: lib/gai_strerror.c:71
+msgid "Request canceled"
+msgstr "Päring katkestati"
+
+#: lib/gai_strerror.c:72
+msgid "Request not canceled"
+msgstr "Päringut ei katkestatud"
+
+#: lib/gai_strerror.c:73
+msgid "All requests done"
+msgstr "Kõik päringud on töödeldud"
+
+#: lib/gai_strerror.c:74
+msgid "Interrupted by a signal"
+msgstr "Katkestatud signaali poolt"
+
+#: lib/gai_strerror.c:75
+msgid "Parameter string not correctly encoded"
+msgstr "Parameetri sõne ei ole korrektselt kodeeritud"
+
+#: lib/gai_strerror.c:86 libwget/error.c:58
+msgid "Unknown error"
+msgstr "Tundmatu viga"
+
+#: lib/openat-die.c:38
+#, c-format
+msgid "unable to record current working directory"
+msgstr "ei suuda salvestada praegust töökataloogi"
+
+#: lib/openat-die.c:57
+#, c-format
+msgid "failed to return to initial working directory"
+msgstr "ei õnnestunud naasta algsesse töökataloogi"
+
+#: lib/os2-spawn.c:51
+#, c-format
+msgid "_open_osfhandle failed"
+msgstr "_open_osfhandle sai vea"
+
+#: lib/os2-spawn.c:88
+#, c-format
+msgid "cannot restore fd %d: dup2 failed"
+msgstr "ei õnnestu taastada fd %d: dup2 sai vea"
+
+#: lib/regcomp.c:128 libwget/error.c:44
+msgid "Success"
+msgstr "Leitud"
+
+#: lib/regcomp.c:131
+msgid "No match"
+msgstr "Ei leitud"
+
+#: lib/regcomp.c:134
+msgid "Invalid regular expression"
+msgstr "Vigane regulaaravaldis"
+
+#: lib/regcomp.c:137
+msgid "Invalid collation character"
+msgstr "Vigane järjestamise sümbol"
+
+#: lib/regcomp.c:140
+msgid "Invalid character class name"
+msgstr "Vigane sümbolite klassi nimi"
+
+#: lib/regcomp.c:143
+msgid "Trailing backslash"
+msgstr "Langkriips lõpus"
+
+#: lib/regcomp.c:146
+msgid "Invalid back reference"
+msgstr "Vigane tagasi viide"
+
+#: lib/regcomp.c:149
+msgid "Unmatched [, [^, [:, [., or [="
+msgstr "[, [^, [:, [. või [= paariline puudub"
+
+#: lib/regcomp.c:152
+msgid "Unmatched ( or \\("
+msgstr "( või \\( paariline puudub"
+
+#: lib/regcomp.c:155
+msgid "Unmatched \\{"
+msgstr "Sulgemata \\{"
+
+#: lib/regcomp.c:158
+msgid "Invalid content of \\{\\}"
+msgstr "Vigane \\{\\} sisu"
+
+#: lib/regcomp.c:161
+msgid "Invalid range end"
+msgstr "Vigane vahemiku lõpp"
+
+#: lib/regcomp.c:164
+msgid "Memory exhausted"
+msgstr "Mälu on otsas"
+
+#: lib/regcomp.c:167
+msgid "Invalid preceding regular expression"
+msgstr "Vigane eelnev regulaaravaldis"
+
+#: lib/regcomp.c:170
+msgid "Premature end of regular expression"
+msgstr "Enneaegne regulaaravaldise lõpp"
+
+#: lib/regcomp.c:173
+msgid "Regular expression too big"
+msgstr "Regulaaravaldis on liiga suur"
+
+#: lib/regcomp.c:176
+msgid "Unmatched ) or \\)"
+msgstr ") või \\) paariline puudub"
+
+#: lib/regcomp.c:669
+msgid "No previous regular expression"
+msgstr "Eelmist regulaaravaldist pole"
+
+#: lib/spawn-pipe.c:218 lib/spawn-pipe.c:221
+#, c-format
+msgid "cannot create pipe"
+msgstr "toru ei õnnestu luua"
+
+#: lib/spawn-pipe.c:601 lib/wait-process.c:324 lib/wait-process.c:395
+#, c-format
+msgid "%s subprocess failed"
+msgstr "%s alamprotsess sai vea"
+
+#: lib/wait-process.c:265 lib/wait-process.c:297 lib/wait-process.c:356
+#, c-format
+msgid "%s subprocess"
+msgstr "%s alamprotsess"
+
+#: lib/wait-process.c:316 lib/wait-process.c:385
+#, c-format
+msgid "%s subprocess got fatal signal %d"
+msgstr "%s alamprotsess sai fataalse signaali %d"
+
+#: lib/xalloc-die.c:34
+msgid "memory exhausted"
+msgstr "mälu on otsas"
+
+#: libwget/cookie.c:416
+#, c-format
+msgid "Incomplete cookie entry: %s\n"
+msgstr "Puudulik küpsise kirje: %s\n"
+
+#: libwget/cookie.c:450
+msgid "Failed to read cookies\n"
+msgstr "Küpsiste lugemine ebaõnnestus\n"
+
+#: libwget/cookie.c:511
+#, c-format
+msgid "Failed to write cookie file '%s'\n"
+msgstr "Küpsiste faili '%s' kirjutamine ebaõnnestus\n"
+
+#: libwget/cookie_parse.c:368
+msgid "Cookie without name or assignment ignored\n"
+msgstr "Nimeta või omistamiseta küpsist ignoreeriti\n"
+
+#: libwget/css.c:152
+#, c-format
+msgid "Unknown token after @charset: %d\n"
+msgstr "Tundmatu lekseem pärast @charset: %d\n"
+
+#: libwget/css.c:194 libwget/io.c:353 libwget/xml.c:685
+#, c-format
+msgid "Failed to open %s\n"
+msgstr "%s avamine ebaõnnestus\n"
+
+#: libwget/css_url.c:104
+#, c-format
+msgid "Cannot resolve relative URI '%s'\n"
+msgstr "Suhtelist URI't '%s' ei õnnestu lahendada\n"
+
+#: libwget/decompressor.c:123
+msgid "Failed to init gzip decompression\n"
+msgstr "gzip lahtipakkimise lähtestamine ebaõnnestus\n"
+
+#: libwget/decompressor.c:159
+msgid "Failed to re-init deflate/gzip decompression\n"
+msgstr "deflate/gzip lahtipakkimise taaslähtestamine ebaõnnestus\n"
+
+#: libwget/decompressor.c:175
+#, c-format
+msgid "Failed to uncompress gzip stream (%d)\n"
+msgstr "gzip voo lahtipakkimine ebaõnnestus (%d)\n"
+
+#: libwget/decompressor.c:184
+#, c-format
+msgid "Failed to close gzip stream (%d)\n"
+msgstr "gzip voo sulgemine ebaõnnestus (%d)\n"
+
+#: libwget/decompressor.c:193
+msgid "Failed to init deflate decompression\n"
+msgstr "deflate lahtipakkimise lähtestamine ebaõnnestus\n"
+
+#: libwget/decompressor.c:208
+msgid "Failed to init LZMA decompression\n"
+msgstr "LZMA lahtipakkimise lähtestamine ebaõnnestus\n"
+
+#: libwget/decompressor.c:247
+#, c-format
+msgid "Failed to uncompress LZMA stream (%d)\n"
+msgstr "LZMA voo lahtipakkimine ebaõnnestus (%d)\n"
+
+#: libwget/decompressor.c:261
+msgid "Failed to init Brotli decompression\n"
+msgstr "Brotli lahtipakkimise lähtestamine ebaõnnestus\n"
+
+#: libwget/decompressor.c:304
+#, c-format
+msgid "Failed to uncompress Brotli stream (%u): %s\n"
+msgstr "Brotli voo lahtipakkimine ebaõnnestus (%u): %s\n"
+
+#: libwget/decompressor.c:319
+msgid "Failed to create Zstandard decompression\n"
+msgstr "Zstandard lahtipakkimise loomine ebaõnnestus\n"
+
+#: libwget/decompressor.c:325
+#, c-format
+msgid "Failed to init Zstandard decompression: %s\n"
+msgstr "Zstandard lahtipakkimise lähtestamine ebaõnnestus: %s\n"
+
+#: libwget/decompressor.c:356
+#, c-format
+msgid "Failed to uncompress Zstandard stream: %s\n"
+msgstr "Zstandard voo lahtipakkimine ebaõnnestus: %s\n"
+
+#: libwget/decompressor.c:377
+msgid "Failed to create lzip decompression\n"
+msgstr "lzip lahtipakkimise loomine ebaõnnestus\n"
+
+#: libwget/decompressor.c:384
+#, c-format
+msgid "Failed to create lzip decompression: %d %s\n"
+msgstr "lzip lahtipakkimise loomine ebaõnnestus: %d %s\n"
+
+#: libwget/decompressor.c:405
+#, c-format
+msgid "Failed to uncompress lzip stream: %d %s\n"
+msgstr "lzip voo lahtipakkimine ebaõnnestus: %d %s\n"
+
+#: libwget/decompressor.c:460
+msgid "Failed to init bzip2 decompression\n"
+msgstr "bzip2 lahtipakkimise lähtestamine ebaõnnestus\n"
+
+#: libwget/decompressor.c:499
+#, c-format
+msgid "Failed to uncompress bzip2 stream (%d)\n"
+msgstr "bzip2 voo lahtipakkimine ebaõnnestus (%d)\n"
+
+#: libwget/dns.c:313
+#, c-format
+msgid "Failed to resolve '[%s]:%d': %s\n"
+msgstr "'[%s]:%d' lahendamine ebaõnnestus: %s\n"
+
+#: libwget/dns.c:315
+#, c-format
+msgid "Failed to resolve '%s:%d': %s\n"
+msgstr "'%s:%d' lahendamine ebaõnnestus: %s\n"
+
+#: libwget/dns.c:398
+#, c-format
+msgid "Failed to resolve '%s' (%s)\n"
+msgstr "'%s' lahendamine ebaõnnestus (%s)\n"
+
+#: libwget/encoding.c:112
+#, c-format
+msgid "Failed to transcode '%s' string into '%s' (%d)\n"
+msgstr "Sõne '%s' transkodeerimine '%s' kujule ebaõnnestus (%d)\n"
+
+#: libwget/encoding.c:124
+#, c-format
+msgid "Failed to prepare transcoding '%s' into '%s' (%d)\n"
+msgstr "Transkodeerimise '%s' kujule '%s' ettevalmistamine ebaõnnestus (%d)\n"
+
+#: libwget/encoding.c:261
+#, c-format
+msgid "toASCII(%s) failed (%d): %s\n"
+msgstr "toASCII(%s) ebaõnnestus (%d): %s\n"
+
+#: libwget/encoding.c:280
+#, c-format
+msgid "toASCII failed (%d): %s\n"
+msgstr "toASCII ebaõnnestus (%d): %s\n"
+
+#: libwget/encoding.c:283
+#, c-format
+msgid "Invalid UTF-8 sequence not converted: '%s'\n"
+msgstr "Vigast UTF-8 jada ei teisendatud: '%s'\n"
+
+#: libwget/encoding.c:287
+#, c-format
+msgid "toASCII not available: '%s'\n"
+msgstr "toASCII ei ole saadaval: '%s'\n"
+
+#: libwget/error.c:45
+msgid "General error"
+msgstr "Üldine viga"
+
+#: libwget/error.c:46
+msgid "No memory"
+msgstr "Mälu on otsas"
+
+#: libwget/error.c:47
+msgid "Invalid value"
+msgstr "Vigane väärtus"
+
+#: libwget/error.c:48
+msgid "Timeout"
+msgstr "Ajapiirang"
+
+#: libwget/error.c:49
+msgid "Connect error"
+msgstr "Viga ühenduse loomisel"
+
+#: libwget/error.c:50
+msgid "Handshake error"
+msgstr "Viga kätluses"
+
+#: libwget/error.c:51
+msgid "Certificate error"
+msgstr "Sertifikaadi viga"
+
+#: libwget/error.c:52
+msgid "libwget has been built without TLS support"
+msgstr "libwget on kompileeritud TLS toeta"
+
+#: libwget/error.c:53
+msgid "Failed to parse XML"
+msgstr "XML parsimine ebaõnnestus"
+
+#: libwget/error.c:54
+msgid "Failed to open file"
+msgstr "Faili avamine ebaõnnestus"
+
+#: libwget/error.c:55
+msgid "I/O error"
+msgstr "S/V viga"
+
+#: libwget/error.c:56
+msgid "Unsupported function"
+msgstr "Mittetoetatud funktsioon"
+
+#: libwget/error.c:57
+msgid "Maximum XML depth of 1024 was reached"
+msgstr ""
+
+#: libwget/hash_printf.c:83
+#, c-format
+msgid "Failed to hash (%d)\n"
+msgstr "Räsifunktsiooni arvutamine ebaõnnestus (%d)\n"
+
+#: libwget/hash_printf.c:89
+#, c-format
+msgid "%s: Failed to malloc %zu bytes\n"
+msgstr "%s: %zu baidi eraldamine ebaõnnestus\n"
+
+#: libwget/hashfile.c:92
+#, c-format
+msgid "Unknown hash type '%s'\n"
+msgstr "Tundmatu räsi tüüp '%s'\n"
+
+#: libwget/hashfile.c:794 libwget/hpkp_db.c:159
+#, c-format
+msgid "%s: Unexpected hash len %zu > %zu\n"
+msgstr "%s: Ootamatu räsi pikkus %zu > %zu\n"
+
+#: libwget/hashfile.c:816
+#, c-format
+msgid "%s: Hash init failed for type '%s': %s\n"
+msgstr "%s: Räsi lähtestamine tüübile '%s' ebaõnnestus: %s\n"
+
+#: libwget/hashfile.c:822
+#, c-format
+msgid "%s: Hash update failed: %s\n"
+msgstr "%s: Räsi uuendamine ebaõnnestus: %s\n"
+
+#: libwget/hashfile.c:833
+#, c-format
+msgid "%s: Hash finalization failed: %s\n"
+msgstr "%s: Räsi lõpetamine ebaõnnestus: %s\n"
+
+#: libwget/hashfile.c:838
+#, c-format
+msgid "%s: Failed to read %llu bytes\n"
+msgstr "%s: %llu baidi lugemine ebaõnnestus\n"
+
+#: libwget/hpkp_db.c:311
+#, c-format
+msgid "HPKP: could not parse host line '%s'\n"
+msgstr "HPKP: serveri rea '%s' parsimine ebaõnnestus\n"
+
+#: libwget/hpkp_db.c:317
+#, c-format
+msgid "HPKP: could not parse pin line '%s'\n"
+msgstr "HPKP: pinni rea '%s' parsimine ebaõnnestus\n"
+
+#: libwget/hpkp_db.c:360
+msgid "Failed to read HPKP data\n"
+msgstr "HPKP andmete lugemine ebaõnnestus\n"
+
+#: libwget/hpkp_db.c:450
+#, c-format
+msgid "Failed to write HPKP file '%s'\n"
+msgstr "HPKP faili '%s' kirjutamine ebaõnnestus\n"
+
+#: libwget/hsts.c:414 libwget/tls_session.c:339
+#, c-format
+msgid "Failed to parse HSTS line: '%s'\n"
+msgstr "HSTS rea '%s' parsimine ebaõnnestus\n"
+
+#: libwget/hsts.c:454
+msgid "Failed to read HSTS data\n"
+msgstr "HSTS andmete lugemine ebaõnnestus\n"
+
+#: libwget/hsts.c:517
+#, c-format
+msgid "Failed to write HSTS file '%s'\n"
+msgstr "HSTS faili '%s' kirjutamine ebaõnnestus\n"
+
+#: libwget/http.c:190 libwget/http.c:200 libwget/http.c:209 libwget/http.c:218
+#, c-format
+msgid "%s: Unknown key %d (or value must not be an integer)\n"
+msgstr "%s: Tundmatu võti %d (või väärtus ei tohi olla täisarv)\n"
+
+#: libwget/http.c:323
+#, c-format
+msgid "Unsupported quality of protection '%s'.\n"
+msgstr "Mittetoetatud kaitse kvaliteet '%s'.\n"
+
+#: libwget/http.c:334
+#, c-format
+msgid "Unsupported algorithm '%s'.\n"
+msgstr "Mittetoetatud algoritm '%s'.\n"
+
+#: libwget/http.c:426
+#, c-format
+msgid "Decompress failed [host: %s - resource: %s]\n"
+msgstr "Lahtipakkimine ebaõnnestus [server: %s - ressurss: %s]\n"
+
+#: libwget/http.c:505
+#, c-format
+msgid "Proxy connection failed with: %s\n"
+msgstr "Puhverserveri ühendus ebaõnnestus: %s\n"
+
+#: libwget/http.c:705
+msgid "Failed to create request buffer\n"
+msgstr "Päringu puhvri loomine ebaõnnestus\n"
+
+#: libwget/http.c:881 libwget/tls_session.c:381
+#, c-format
+msgid "Failed to allocate %zu bytes\n"
+msgstr "%zu baidi eraldamine ebaõnnestus\n"
+
+#: libwget/http.c:983
+#, c-format
+msgid "Failed to allocate %zu bytes (%s)\n"
+msgstr "%zu baidi eraldamine ebaõnnestus (%s)\n"
+
+#: libwget/http.c:1008
+#, c-format
+msgid "Failed to convert chunk size '%.31s' (%s)\n"
+msgstr "Tüki suuruse '%.31s' teisendamine ebaõnnestus (%s)\n"
+
+#: libwget/http.c:1052
+#, c-format
+msgid "Chunk size overflow: %zX (%s)\n"
+msgstr "Tüki suuruse ületäitumine: %zX (%s)\n"
+
+#: libwget/http.c:1107
+#, c-format
+msgid "Expected end-of-chunk not found (%s)\n"
+msgstr "Oodatud lõpu tükki ei leitud (%s)\n"
+
+#: libwget/http.c:1171
+#, c-format
+msgid "Failed to read %zd bytes (%d) (%s)\n"
+msgstr "%zd baidi lugemine ebaõnnestus (%d) (%s)\n"
+
+#: libwget/http.c:1177
+#, c-format
+msgid "Just got %zu of %zu bytes (%s)\n"
+msgstr "Saadi ainult %zu baiti %zu-st (%s)\n"
+
+#: libwget/http.c:1182
+#, c-format
+msgid "Body too large: %zu instead of %zu bytes (%s)\n"
+msgstr "Keha on liiga suur: %zu baiti %zu asemel (%s)\n"
+
+#: libwget/http2.c:201
+msgid "Failed to create HTTP2 callbacks\n"
+msgstr "HTTP2 tagasikutsete loomine ebaõnnestus\n"
+
+#: libwget/http2.c:210
+#, c-format
+msgid "Failed to create HTTP2 client session (%d)\n"
+msgstr "HTTP2 kliendi seansi loomine ebaõnnestus (%d)\n"
+
+#: libwget/http2.c:221
+#, c-format
+msgid "Failed to submit HTTP2 client settings (%d)\n"
+msgstr "HTTP2 kliendi seadete esitamine ebaõnnestus (%d)\n"
+
+#: libwget/http2.c:241
+#, c-format
+msgid "Failed to terminate HTTP2 session (%d)\n"
+msgstr "HTTP2 seansi lõpetamine ebaõnnestus (%d)\n"
+
+#: libwget/http2.c:292
+#, c-format
+msgid "Failed to allocate nvs[%d]\n"
+msgstr "nvs[%d] eraldamine ebaõnnestus\n"
+
+#: libwget/http2.c:298
+#, c-format
+msgid "Failed to allocate resource[%zu]\n"
+msgstr "resource[%zu] eraldamine ebaõnnestus\n"
+
+#: libwget/http2.c:369
+msgid "Failed to submit HTTP2 request\n"
+msgstr "HTTP2 päringu esitamine ebaõnnestus\n"
+
+#: libwget/http_highlevel.c:45
+#, c-format
+msgid "Failed to fwrite %zu bytes of data (%d)\n"
+msgstr "%zu baidi andmete fwrite ebaõnnestus (%d)\n"
+
+#: libwget/http_highlevel.c:60
+#, c-format
+msgid "Failed to write %zu bytes of data (%d)\n"
+msgstr "%zu baidi andmete kirjutamine ebaõnnestus (%d)\n"
+
+#: libwget/http_highlevel.c:165
+#, c-format
+msgid "Unknown option %d\n"
+msgstr "Tundmatu võti %d\n"
+
+#: libwget/http_highlevel.c:175
+msgid "Error parsing URL\n"
+msgstr "Viga URL-i parsimisel\n"
+
+#: libwget/http_highlevel.c:182
+msgid "Missing URL/URI\n"
+msgstr "Puuduv URL/URI\n"
+
+#: libwget/http_parse.c:925 libwget/http_parse.c:950
+#, c-format
+msgid "Failed to parse date '%s'\n"
+msgstr "Kuupäeva '%s' parsimine ebaõnnestus\n"
+
+#: libwget/http_parse.c:1337
+msgid "HTTP response header not found\n"
+msgstr "HTTP vastuse päist ei leitud\n"
+
+#: libwget/init.c:137 src/options.c:3760
+#, c-format
+msgid "Failed to init DNS cache (%d)"
+msgstr "DNS puhvri lähtestamine ebaõnnestus (%d)"
+
+#: libwget/init.c:172 libwget/init.c:246 libwget/init.c:271 libwget/init.c:286
+#, c-format
+msgid "%s: Unknown option %d"
+msgstr "%s: Tundmatu võti %d"
+
+#: libwget/init.c:191
+#, c-format
+msgid "%s: Failed to init networking (%d)"
+msgstr "%s: Võrgu lähtestamine ebaõnnestus (%d)"
+
+#: libwget/init.c:229
+#, c-format
+msgid "%s: Failed to deinit networking (%d)"
+msgstr "%s: Võrgukasutamise lõpetamine ebaõnnestus (%d)"
+
+#: libwget/io.c:126
+#, c-format
+msgid "%s: Failed to read, error %d\n"
+msgstr "%s: Lugemine ebaõnnestus, viga %d\n"
+
+#: libwget/io.c:346
+#, c-format
+msgid ""
+"WARNING: Size of %s changed from %lld to %lld while reading. This may lead "
+"to unwanted results !\n"
+msgstr ""
+"HOIATUS: %s suurus muutus %lld-lt %lld-le lugemise ajal. See võib põhjustada "
+"soovimatuid tulemusi!\n"
+
+#: libwget/io.c:349
+#, c-format
+msgid "Failed to fstat %s\n"
+msgstr "%s fstat ebaõnnestus\n"
+
+#: libwget/io.c:438
+#, c-format
+msgid "Failed to create '%s' (%d)\n"
+msgstr "'%s' loomine ebaõnnestus (%d)\n"
+
+#: libwget/io.c:445
+#, c-format
+msgid "Failed to lock '%s' (%d)\n"
+msgstr "'%s' lukustamine ebaõnnestus (%d)\n"
+
+#: libwget/io.c:454
+#, c-format
+msgid "Failed to read open '%s' (%d)\n"
+msgstr "Avatud failist '%s' lugemine ebaõnnestus (%d)\n"
+
+#: libwget/io.c:477
+#, c-format
+msgid "Failed to open tmpfile '%s' (%d)\n"
+msgstr "Ajutise faili '%s' avamine ebaõnnestus (%d)\n"
+
+#: libwget/io.c:486
+#, c-format
+msgid "Failed to write open '%s' (%d)\n"
+msgstr "Avatud faili '%s' kirjutamine ebaõnnestus (%d)\n"
+
+#: libwget/io.c:502
+#, c-format
+msgid "Failed to write/close '%s' (%d)\n"
+msgstr "'%s' kirjutamine/sulgemine ebaõnnestus (%d)\n"
+
+#: libwget/io.c:510
+#, c-format
+msgid "Failed to rename '%s' to '%s' (%d)\n"
+msgstr "'%s' ümbernimetamine '%s'-ks ebaõnnestus (%d)\n"
+
+#: libwget/io.c:511
+#, c-format
+msgid "Take manually care for '%s'\n"
+msgstr "Hoolitsege '%s' eest käsitsi\n"
+
+#: libwget/iri.c:648
+msgid "Port number must be in the range 1..65535\n"
+msgstr "Pordi number peab olema vahemikus 1..65535\n"
+
+#: libwget/iri.c:682
+#, c-format
+msgid "Missing host/domain in URI '%s'\n"
+msgstr "URI-s puudub server/domeen '%s'\n"
+
+#: libwget/net.c:134
+#, c-format
+msgid "%s (hostname='%s', ip=%s, errno=%d)\n"
+msgstr "%s (serverinimi='%s', ip=%s, veakood=%d)\n"
+
+#: libwget/net.c:141
+#, c-format
+msgid "%s (hostname='%s', errno=%d)\n"
+msgstr "%s (serverinimi='%s', veakood=%d)\n"
+
+#: libwget/net.c:613 libwget/net.c:621
+msgid "Failed to set socket to non-blocking\n"
+msgstr "Pistiku seadmine mitteblokeerivaks ebaõnnestus\n"
+
+#: libwget/net.c:618
+msgid "Failed to get socket flags\n"
+msgstr "Pistiku lippude lugemine ebaõnnestus\n"
+
+#: libwget/net.c:635
+msgid "Failed to set socket option SO_SNDTIMEO\n"
+msgstr "Pistiku võtme SO_SNDTIMEO seadmine ebaõnnestus\n"
+
+#: libwget/net.c:638
+#, fuzzy
+#| msgid "Failed to set socket option SO_SNDTIMEO\n"
+msgid "Failed to set socket option SO_RCVTIMEO\n"
+msgstr "Pistiku võtme SO_SNDTIMEO seadmine ebaõnnestus\n"
+
+#: libwget/net.c:646
+msgid "Failed to set socket option REUSEADDR\n"
+msgstr "Pistiku võtme REUSEADDR seadmine ebaõnnestus\n"
+
+#: libwget/net.c:650
+msgid "Failed to set socket option NODELAY\n"
+msgstr "Pistiku võtme NODELAY seadmine ebaõnnestus\n"
+
+#: libwget/net.c:655
+msgid "Failed to set socket option BINDTODEVICE\n"
+msgstr "Pistiku võtme BINDTODEVICE seadmine ebaõnnestus\n"
+
+#: libwget/net.c:660
+msgid "Unsupported socket option BINDTODEVICE\n"
+msgstr "Mittetoetatud pistiku võti BINDTODEVICE\n"
+
+#: libwget/net.c:803
+msgid "Failed to create socket"
+msgstr "Pistiku loomine ebaõnnestus"
+
+#: libwget/net.c:816
+msgid "Failed to bind"
+msgstr "Sidumine ebaõnnestus"
+
+#: libwget/net.c:828 libwget/net.c:1007
+msgid "Failed to connect"
+msgstr "Ühendamine ebaõnnestus"
+
+#: libwget/net.c:941
+#, c-format
+msgid "Failed to read %zu bytes (hostname='%s', ip=%s, errno=%d)\n"
+msgstr "%zu baidi lugemine ebaõnnestus (serverinimi='%s', ip=%s, veakood=%d)\n"
+
+#: libwget/net.c:1029
+#, c-format
+msgid "Failed to send %zu bytes (hostname='%s', ip=%s, errno=%d)\n"
+msgstr "%zu baidi saatmine ebaõnnestus (serverinimi='%s', ip=%s, veakood=%d)\n"
+
+#: libwget/net.c:1071
+#, c-format
+msgid "%s: internal error: length mismatch %zu != %zd\n"
+msgstr "%s: sisemine viga: pikkuste mittevastavus %zu != %zd\n"
+
+#: libwget/metalink.c:136
+#, c-format
+msgid "Mirror scheme not supported: '%s'\n"
+msgstr "Peegeldamise skeemi ei toetata: '%s'\n"
+
+#: libwget/metalink.c:335
+msgid "Error in parsing XML"
+msgstr "Viga XML-i parsimisel"
+
+#: libwget/ocsp.c:479
+#, c-format
+msgid "Failed to parse OCSP line: '%s'\n"
+msgstr "OCSP rea parsimine ebaõnnestus: '%s'\n"
+
+#: libwget/ocsp.c:525
+msgid "Failed to read OCSP hosts\n"
+msgstr "OCSP serverite lugemine ebaõnnestus\n"
+
+#: libwget/ocsp.c:532
+msgid "Failed to read OCSP fingerprints\n"
+msgstr "OCSP sõrmejälgede lugemine ebaõnnestus\n"
+
+#: libwget/ocsp.c:619
+#, c-format
+msgid "Failed to write to OCSP hosts to '%s'\n"
+msgstr "OCSP serverite kirjutamine faili '%s' ebaõnnestus\n"
+
+#: libwget/ocsp.c:626
+#, c-format
+msgid "Failed to write to OCSP fingerprints to '%s'\n"
+msgstr "OCSP sõrmejälgede kirjutamine faili '%s' ebaõnnestus\n"
+
+#: libwget/pipe.c:85
+#, c-format
+msgid "Failed to create pipe for STDIN on %s\n"
+msgstr "STDIN toru loomine %s jaoks ebaõnnestus\n"
+
+#: libwget/pipe.c:89
+#, c-format
+msgid "Failed to create pipe for STDOUT on %s\n"
+msgstr "STDOUT toru loomine %s jaoks ebaõnnestus\n"
+
+#: libwget/pipe.c:97
+#, c-format
+msgid "Failed to create pipe for STDERR on %s\n"
+msgstr "STDERR toru loomine %s jaoks ebaõnnestus\n"
+
+#: libwget/pipe.c:115 libwget/pipe.c:125 libwget/pipe.c:136
+#, c-format
+msgid "Failed to dup2(%d,%d) (%d)\n"
+msgstr "dup2(%d,%d) ebaõnnestus (%d)\n"
+
+#: libwget/pipe.c:163
+#, c-format
+msgid "Failed to fork '%s'\n"
+msgstr "'%s' alamprotsessi loomine ebaõnnestus\n"
+
+#: libwget/ssl_gnutls.c:218 libwget/ssl_wolfssl.c:210
+#, c-format
+msgid "Unknown config key %d (or value must not be a string)\n"
+msgstr "Tundmatu seadistuse võti %d (või väärtus ei tohi olla sõne)\n"
+
+#: libwget/ssl_gnutls.c:252 libwget/ssl_wolfssl.c:244
+#, c-format
+msgid "Unknown config key %d (or value must not be an object)\n"
+msgstr "Tundmatu seadistuse võti %d (või väärtus ei tohi olla objekt)\n"
+
+#: libwget/ssl_gnutls.c:308 libwget/ssl_wolfssl.c:294
+#, c-format
+msgid "Unknown config key %d (or value must not be an integer)\n"
+msgstr "Tundmatu seadistuse võti %d (või väärtus ei tohi olla täisarv)\n"
+
+#: libwget/ssl_gnutls.c:355
+#, c-format
+msgid "Certificate info [%u]:\n"
+msgstr "Sertifikaadi info [%u]:\n"
+
+#: libwget/ssl_gnutls.c:358
+#, c-format
+msgid "  Valid since: %s"
+msgstr "  Kehtiv alates: %s"
+
+#: libwget/ssl_gnutls.c:361
+#, c-format
+msgid "  Expires: %s"
+msgstr "  Aegub: %s"
+
+#: libwget/ssl_gnutls.c:368
+#, c-format
+msgid "  Fingerprint: %s\n"
+msgstr "  Sõrmejälg: %s\n"
+
+#: libwget/ssl_gnutls.c:376
+#, c-format
+msgid "  Serial number: %s\n"
+msgstr "  Seerianumber: %s\n"
+
+#: libwget/ssl_gnutls.c:381
+#, c-format
+msgid "  Public key: %s, %s (%u bits)\n"
+msgstr "  Avalik võti: %s, %s (%u bitti)\n"
+
+#: libwget/ssl_gnutls.c:386
+#, c-format
+msgid "  Version: #%d\n"
+msgstr "  Versioon: #%d\n"
+
+#: libwget/ssl_gnutls.c:390
+#, c-format
+msgid "  DN: %s\n"
+msgstr "  DN: %s\n"
+
+#: libwget/ssl_gnutls.c:394
+#, c-format
+msgid "  Issuer's DN: %s\n"
+msgstr "  Väljaandja DN: %s\n"
+
+#: libwget/ssl_gnutls.c:398
+#, c-format
+msgid "  Issuer's OID: %s\n"
+msgstr "  Väljaandja OID: %s\n"
+
+#: libwget/ssl_gnutls.c:402
+#, c-format
+msgid "  Issuer's UID: %s\n"
+msgstr "  Väljaandja UID: %s\n"
+
+#: libwget/ssl_gnutls.c:414
+#, c-format
+msgid "  Unknown certificate type %d\n"
+msgstr "  Tundmatu sertifikaadi tüüp %d\n"
+
+#: libwget/ssl_gnutls.c:429 libwget/ssl_gnutls.c:495 libwget/ssl_gnutls.c:522
+msgid "----\n"
+msgstr "----\n"
+
+#: libwget/ssl_gnutls.c:437
+msgid "TLS/IA session\n"
+msgstr "TLS/IA seanss\n"
+
+#: libwget/ssl_gnutls.c:442
+#, c-format
+msgid "SRP session with username %s\n"
+msgstr "SRP seanss kasutajanimega %s\n"
+
+#: libwget/ssl_gnutls.c:450
+#, c-format
+msgid "PSK authentication. PSK hint '%s'\n"
+msgstr "PSK autentimine. PSK vihje '%s'\n"
+
+#: libwget/ssl_gnutls.c:455
+#, c-format
+msgid "PSK authentication. Connected as '%s'\n"
+msgstr "PSK autentimine. Ühendatud kui '%s'\n"
+
+#: libwget/ssl_gnutls.c:465
+msgid "Anonymous authentication.\n"
+msgstr "Anonüümne autentimine.\n"
+
+#: libwget/ssl_gnutls.c:489
+msgid "Transport authentication failure\n"
+msgstr "Viga transpordi autentimisel\n"
+
+#: libwget/ssl_gnutls.c:491
+#, c-format
+msgid "Unsupported credential type %d.\n"
+msgstr "Mittetoetatud krediitide tüüp %d.\n"
+
+#: libwget/ssl_gnutls.c:498
+#, c-format
+msgid "Ephemeral DH using prime of %d bits\n"
+msgstr "Efemeerne DH kasutab %d-bitist algarvu\n"
+
+#: libwget/ssl_gnutls.c:500
+#, c-format
+msgid "Ephemeral ECDH using curve %s\n"
+msgstr "Efemeerne ECDH kasutab kõverat %s\n"
+
+#: libwget/ssl_gnutls.c:504
+#, c-format
+msgid "Key Exchange: %s\n"
+msgstr "Võtmevahetus: %s\n"
+
+#: libwget/ssl_gnutls.c:508
+#, c-format
+msgid "Protocol: %s\n"
+msgstr "Protokoll: %s\n"
+
+#: libwget/ssl_gnutls.c:512
+#, c-format
+msgid "Certificate Type: %s\n"
+msgstr "Sertifikaadi tüüp: %s\n"
+
+#: libwget/ssl_gnutls.c:516
+#, c-format
+msgid "Cipher: %s\n"
+msgstr "Šiffer: %s\n"
+
+#: libwget/ssl_gnutls.c:520
+#, c-format
+msgid "MAC: %s\n"
+msgstr "MAC: %s\n"
+
+#: libwget/ssl_gnutls.c:876
+#, c-format
+msgid "Failed to import pubkey: %s\n"
+msgstr "Avaliku võtme importimine ebaõnnestus: %s\n"
+
+#: libwget/ssl_gnutls.c:883
+#, c-format
+msgid "Failed to export pubkey: %s\n"
+msgstr "Avaliku võtme eksportimine ebaõnnestus: %s\n"
+
+#: libwget/ssl_gnutls.c:932
+msgid "ERROR"
+msgstr "VIGA"
+
+#: libwget/ssl_gnutls.c:932
+msgid "WARNING"
+msgstr "HOIATUS"
+
+#: libwget/ssl_gnutls.c:958
+#, c-format
+msgid "%s: Certificate verification error\n"
+msgstr "%s: Sertifikaadi verifitseerimise viga\n"
+
+#: libwget/ssl_gnutls.c:1006
+#, c-format
+msgid "DANE verification print error for %s: %s\n"
+msgstr "DANE verifitseerimise printimise viga %s jaoks: %s\n"
+
+#: libwget/ssl_gnutls.c:1008
+#, c-format
+msgid "DANE verification failed for %s: %s\n"
+msgstr "DANE verifitseerimine ebaõnnestus %s jaoks: %s\n"
+
+#: libwget/ssl_gnutls.c:1028
+#, c-format
+msgid "%s: Certificate must be X.509\n"
+msgstr "%s: Sertifikaat peab olema X.509\n"
+
+#: libwget/ssl_gnutls.c:1033
+#, c-format
+msgid "%s: Error initializing X.509 certificate\n"
+msgstr "%s: Viga X.509 sertifikaadi lähtestamisel\n"
+
+#: libwget/ssl_gnutls.c:1039
+#, c-format
+msgid "%s: No certificate was found!\n"
+msgstr "%s: Sertifikaati ei leitud!\n"
+
+#: libwget/ssl_gnutls.c:1044
+#, c-format
+msgid "%s: Failed to parse certificate: %s\n"
+msgstr "%s: Sertifikaadi parsimine ebaõnnestus: %s\n"
+
+#: libwget/ssl_gnutls.c:1050
+#, fuzzy, c-format
+#| msgid "%s: Key %s missing\n"
+msgid "%s: Hostname mismatch or missing\n"
+msgstr "%s: Võti %s puudub\n"
+
+#: libwget/ssl_gnutls.c:1068
+msgid "WARNING: The certificate's (stapled) OCSP status is invalid\n"
+msgstr "HOIATUS: Sertifikaadi (klammerdatud) OCSP olek on vigane\n"
+
+#: libwget/ssl_gnutls.c:1074
+#, c-format
+msgid ""
+"WARNING: OCSP stapling is not supported by '%s', but OCSP validation has "
+"been requested.\n"
+msgstr ""
+"HOIATUS: OCSP klammerdamist ei toeta '%s', kuid OCSP valideerimine on "
+"nõutud.\n"
+
+#: libwget/ssl_gnutls.c:1075
+msgid ""
+"WARNING: This implies a privacy leak: the client sends the certificate "
+"serial ID over HTTP to the CA.\n"
+msgstr ""
+"HOIATUS: See tähendab privaatsusleket: klient saadab sertifikaadi "
+"seerianumbri HTTP kaudu CA-le.\n"
+
+#: libwget/ssl_gnutls.c:1087
+#, c-format
+msgid "%s: Failed to parse certificate[%u]: %s\n"
+msgstr "%s: Sertifikaadi[%u] parsimine ebaõnnestus: %s\n"
+
+#: libwget/ssl_gnutls.c:1092
+#, c-format
+msgid "%s: Pubkey pinning mismatch!\n"
+msgstr "%s: Avaliku võtme kinnituse mittevastavus!\n"
+
+#: libwget/ssl_gnutls.c:1233
+msgid "GnuTLS requires the key and the cert to be of the same type.\n"
+msgstr "GnuTLS nõuab, et võti ja sertifikaat oleksid sama tüüpi.\n"
+
+#: libwget/ssl_gnutls.c:1237
+msgid "No certificates or keys were found\n"
+msgstr "Sertifikaate või võtmeid ei leitud\n"
+
+#: libwget/ssl_gnutls.c:1244
+#, c-format
+msgid "No CAs were found in '%s'\n"
+msgstr "CA-sid ei leitud '%s'-st\n"
+
+#: libwget/ssl_gnutls.c:1309
+#, c-format
+msgid "Failed to allocate file name for cert '%s/%s'\n"
+msgstr "Failinime eraldamine sertifikaadile '%s/%s' ebaõnnestus\n"
+
+#: libwget/ssl_gnutls.c:1328
+#, c-format
+msgid "Failed to opendir %s\n"
+msgstr "Kataloogi %s avamine ebaõnnestus\n"
+
+#: libwget/ssl_gnutls.c:1335
+#, c-format
+msgid "Failed to load CRL '%s': (%d)\n"
+msgstr "CRL '%s' laadimine ebaõnnestus: (%d)\n"
+
+#: libwget/ssl_gnutls.c:1345
+#, c-format
+msgid "GnuTLS: Unsupported default priority 'NULL': %s\n"
+msgstr "GnuTLS: Mittetoetatud vaikimisi prioriteet 'NULL': %s\n"
+
+#: libwget/ssl_gnutls.c:1366
+#, c-format
+msgid "GnuTLS: Unsupported priority string '%s': %s\n"
+msgstr "GnuTLS: Mittetoetatud prioriteedi sõne '%s': %s\n"
+
+#: libwget/ssl_gnutls.c:1605
+#, c-format
+msgid "GnuTLS: Failed to set priorities: %s\n"
+msgstr "GnuTLS: Prioriteetide seadmine ebaõnnestus: %s\n"
+
+#: libwget/ssl_gnutls.c:1636
+msgid "WARNING: OCSP is not available in this version of GnuTLS.\n"
+msgstr "HOIATUS: OCSP ei ole selles GnuTLS versioonis saadaval.\n"
+
+#: libwget/ssl_gnutls.c:1696
+#, c-format
+msgid "GnuTLS: Failed to set session data: %s\n"
+msgstr "GnuTLS: Seansi andmete seadmine ebaõnnestus: %s\n"
+
+#: libwget/ssl_wolfssl.c:639
+msgid "Missing TLS method\n"
+msgstr "Puuduv TLS meetod\n"
+
+#: libwget/ssl_wolfssl.c:645
+msgid "Failed to create WOLFSSL_CTX\n"
+msgstr "WOLFSSL_CTX loomine ebaõnnestus\n"
+
+#: libwget/ssl_wolfssl.c:660
+#, c-format
+msgid "WolfSSL: Failed to set ciphers '%s'\n"
+msgstr "WolfSSL: Šifrite '%s' seadmine ebaõnnestus\n"
+
+#: libwget/ssl_wolfssl.c:681
+#, fuzzy
+#| msgid "WolfSSL: Failed to set ciphers '%s'\n"
+msgid "WolfSSL: Failed to enable OCSP\n"
+msgstr "WolfSSL: Šifrite '%s' seadmine ebaõnnestus\n"
+
+#: libwget/ssl_wolfssl.c:688
+#, fuzzy
+#| msgid "Failed to read OCSP hosts\n"
+msgid "WolfSSL: Failed to enable OCSP stapling\n"
+msgstr "OCSP serverite lugemine ebaõnnestus\n"
+
+#: libwget/ssl_wolfssl.c:697
+msgid "Failed to load system certs\n"
+msgstr "Süsteemi sertifikaatide laadimine ebaõnnestus\n"
+
+#: libwget/ssl_wolfssl.c:723
+msgid "Skipped loading CA certs. SSL verification will likely fail.\n"
+msgstr ""
+"CA sertifikaatide laadimine jäeti vahele. SSL verifitseerimine tõenäoliselt "
+"ebaõnnestub.\n"
+
+#: libwget/ssl_wolfssl.c:729
+#, c-format
+msgid ""
+"Failed to load CA pem: %s or cert dir: %s, SSL verification will likely "
+"fail.\n"
+msgstr ""
+"CA pem: %s või sertifikaatide kataloogi: %s laadimine ebaõnnestus, SSL "
+"verifitseerimine tõenäoliselt ebaõnnestub.\n"
+
+#: libwget/ssl_wolfssl.c:959
+msgid "Failed to create WolfSSL session\n"
+msgstr "WolfSSL seansi loomine ebaõnnestus\n"
+
+#: libwget/ssl_wolfssl.c:1102
+#, c-format
+msgid "failed to connect TLS (%d): %s\n"
+msgstr "TLS ühendamine ebaõnnestus (%d): %s\n"
+
+#: libwget/ssl_wolfssl.c:1108
+#, c-format
+msgid "cert verification result: %ld"
+msgstr ""
+
+#: libwget/ssl_openssl.c:246 libwget/ssl_openssl.c:286
+#: libwget/ssl_openssl.c:365
+#, c-format
+msgid ""
+"Unknown configuration key %d (maybe this config value should be of another "
+"type?)\n"
+msgstr ""
+"Tundmatu seadistuse võti %d (võib-olla peaks see seadistuse väärtus olema "
+"teist tüüpi?)\n"
+
+#: libwget/ssl_openssl.c:414
+msgid ""
+"OpenSSL: TLS 1.3 is not supported by your OpenSSL version. Will use TLS 1.2 "
+"instead.\n"
+msgstr ""
+"OpenSSL: Teie OpenSSL versioon ei toeta TLS 1.3. Kasutatakse hoopis TLS "
+"1.2.\n"
+
+#: libwget/ssl_openssl.c:424
+#, c-format
+msgid "OpenSSL: Invalid priority string '%s'\n"
+msgstr "OpenSSL: Vigane prioriteedi sõne '%s'\n"
+
+#: libwget/ssl_openssl.c:486
+#, c-format
+msgid ""
+"OpenSSL: Could not load certificates from default paths. Falling back to "
+"'%s'."
+msgstr ""
+"OpenSSL: Sertifikaate ei õnnestunud vaiketeedelt laadida. Kasutatakse '%s'."
+
+#: libwget/ssl_openssl.c:491
+#, c-format
+msgid "OpenSSL: No certificates could be loaded from directory '%s'\n"
+msgstr "OpenSSL: Kataloogist '%s' ei õnnestunud sertifikaate laadida\n"
+
+#: libwget/ssl_openssl.c:495
+#, c-format
+msgid "OpenSSL: Could not open directory '%s'. No certificates were loaded.\n"
+msgstr ""
+"OpenSSL: Kataloogi '%s' ei õnnestunud avada. Sertifikaate ei laaditud.\n"
+
+#: libwget/ssl_openssl.c:686
+msgid "Could not get user data to verify stapled OCSP.\n"
+msgstr ""
+"Kasutaja andmeid ei õnnestunud klammerdatud OCSP verifitseerimiseks saada.\n"
+
+#: libwget/ssl_openssl.c:698
+msgid "Got a stapled OCSP response, but could not parse it. Aborting.\n"
+msgstr ""
+"Saadi klammerdatud OCSP vastus, kuid seda ei õnnestunud parsida. "
+"Katkestatakse.\n"
+
+#: libwget/ssl_openssl.c:704
+msgid "Could not get server's cert stack\n"
+msgstr "Serveri sertifikaatide pinu ei õnnestunud saada\n"
+
+#: libwget/ssl_openssl.c:716
+msgid "Could not verify stapled OCSP response. Aborting.\n"
+msgstr ""
+"Klammerdatud OCSP vastust ei õnnestunud verifitseerida. Katkestatakse.\n"
+
+#: libwget/ssl_openssl.c:878
+msgid "ERROR: print_openssl_time: BIO_read failed\n"
+msgstr "VIGA: print_openssl_time: BIO_read ebaõnnestus\n"
+
+#: libwget/ssl_openssl.c:892
+msgid "Could not get current time!\n"
+msgstr "Praegust aega ei õnnestunud saada!\n"
+
+#: libwget/ssl_openssl.c:901
+msgid "Could not compute time difference for thisUpd. Aborting.\n"
+msgstr "Ajavahet thisUpd jaoks ei õnnestunud arvutada. Katkestatakse.\n"
+
+#: libwget/ssl_openssl.c:905
+msgid "*** OCSP response thisUpd is too old. Aborting.\n"
+msgstr "*** OCSP vastuse thisUpd on liiga vana. Katkestatakse.\n"
+
+#: libwget/ssl_openssl.c:916
+msgid "Could not compute time difference for nextUpd. Aborting.\n"
+msgstr "Ajavahet nextUpd jaoks ei õnnestunud arvutada. Katkestatakse.\n"
+
+#: libwget/ssl_openssl.c:921
+msgid "*** OCSP next update is in the past!\n"
+msgstr "*** OCSP järgmine uuendus on minevikus!\n"
+
+#: libwget/ssl_openssl.c:951
+msgid "Unsuccessful OCSP response\n"
+msgstr "Ebaõnnestunud OCSP vastus\n"
+
+#: libwget/ssl_openssl.c:959
+msgid "Could not verify OCSP certificate chain\n"
+msgstr "OCSP sertifikaatide ahelat ei õnnestunud verifitseerida\n"
+
+#: libwget/ssl_openssl.c:965
+msgid "Could not parse OCSP single response\n"
+msgstr "OCSP üksikut vastust ei õnnestunud parsida\n"
+
+#: libwget/ssl_openssl.c:972
+msgid "Could not obtain OCSP response status\n"
+msgstr "OCSP vastuse olekut ei õnnestunud saada\n"
+
+#: libwget/ssl_openssl.c:987
+msgid "Could not get 'thisUpd' from OCSP response. Cannot check time.\n"
+msgstr ""
+"'thisUpd' ei õnnestunud OCSP vastusest saada. Aega ei saa kontrollida.\n"
+
+#: libwget/ssl_openssl.c:1049
+msgid "Could not obtain OCSP_BASICRESPONSE\n"
+msgstr "OCSP_BASICRESPONSE ei õnnestunud saada\n"
+
+#: libwget/ssl_openssl.c:1055
+msgid "OCSP nonce does not match\n"
+msgstr "OCSP nonce ei ühti\n"
+
+#: libwget/ssl_openssl.c:1200 libwget/ssl_openssl.c:1235
+#, c-format
+msgid "Could not compute certificate fingerprint for cert %u\n"
+msgstr "Sertifikaadi %u sõrmejälge ei õnnestunud arvutada\n"
+
+#: libwget/ssl_openssl.c:1269
+msgid "Certificate check disabled. Peer's certificate will NOT be checked.\n"
+msgstr ""
+"Sertifikaadi kontroll keelatud. Partneri sertifikaati EI kontrollita.\n"
+
+#: libwget/ssl_openssl.c:1275
+msgid "OpenSSL: Could not obtain cert store\n"
+msgstr "OpenSSL: Sertifikaatide hoidlat ei õnnestunud saada\n"
+
+#: libwget/ssl_openssl.c:1288
+#, c-format
+msgid "Could not load CRL from '%s' (%d)\n"
+msgstr "CRL-i '%s' laadimine ebaõnnestus (%d)\n"
+
+#: libwget/ssl_openssl.c:1304
+#, c-format
+msgid "Could not load CA certificate from file '%s'\n"
+msgstr "CA sertifikaati ei õnnestunud failist '%s' laadida\n"
+
+#: libwget/ssl_openssl.c:1363
+msgid "Could not initialize OpenSSL\n"
+msgstr "OpenSSL-i ei õnnestunud lähtestada\n"
+
+#: libwget/ssl_openssl.c:1414
+msgid "OpenSSL: Could not parse cached session data.\n"
+msgstr "OpenSSL: Puhverdatud seansi andmeid ei õnnestunud parsida.\n"
+
+#: libwget/ssl_openssl.c:1422
+msgid "OpenSSL: Could not set session data.\n"
+msgstr "OpenSSL: Seansi andmeid ei õnnestunud seada.\n"
+
+#: libwget/ssl_openssl.c:1637
+msgid ""
+"Host name check disabled. Server certificate's subject name will not be "
+"checked.\n"
+msgstr ""
+"Serveri nime kontroll keelatud. Serveri sertifikaadi subjekti nime ei "
+"kontrollita.\n"
+
+#: libwget/ssl_openssl.c:1646
+msgid "Could not set 'status_request' extension\n"
+msgstr "'status_request' laiendust ei õnnestunud seada\n"
+
+#: libwget/ssl_openssl.c:1652
+msgid "SNI could not be sent"
+msgstr "SNI-d ei õnnestunud saata"
+
+#: libwget/ssl_openssl.c:1656
+msgid "ALPN offering could not be sent"
+msgstr "ALPN pakkumist ei õnnestunud saata"
+
+#: libwget/ssl_openssl.c:1664
+msgid "Could not get cached TLS session"
+msgstr "Puhverdatud TLS seanssi ei õnnestunud saada"
+
+#: libwget/ssl_openssl.c:1686
+#, c-format
+msgid "Could not complete TLS handshake: %s\n"
+msgstr "TLS kätlust ei õnnestunud lõpule viia: %s\n"
+
+#: libwget/ssl_openssl.c:1704
+msgid "Public key pinning mismatch\n"
+msgstr "Avaliku võtme kinnituse mittevastavus\n"
+
+#: libwget/ssl_openssl.c:1723
+msgid "Aborting handshake. Could not verify OCSP chain.\n"
+msgstr "Kätlus katkestatakse. OCSP ahelat ei õnnestunud verifitseerida.\n"
+
+#: libwget/ssl_openssl.c:1882
+#, c-format
+msgid "TLS read error: %s\n"
+msgstr "TLS lugemise viga: %s\n"
+
+#: libwget/ssl_openssl.c:1916
+#, c-format
+msgid "TLS write error: %s\n"
+msgstr "TLS kirjutamise viga: %s\n"
+
+#: libwget/tls_session.c:362
+msgid "Failed to read TLS session data\n"
+msgstr "TLS seansi andmete lugemine ebaõnnestus\n"
+
+#: libwget/tls_session.c:425
+#, c-format
+msgid "Failed to write TLS session file '%s'\n"
+msgstr "TLS seansi faili '%s' kirjutamine ebaõnnestus\n"
+
+#: libwget/xml.c:668
+#, c-format
+msgid "Failed to allocate %zu bytes for XML parse buffer\n"
+msgstr "%zu baidi eraldamine XML parsimise puhvrile ebaõnnestus\n"
+
+#: src/bar.c:317
+msgid "Cannot create progress bar thread. Disabling progress bar.\n"
+msgstr "Edenemisriba lõime ei õnnestu luua. Edenemisriba keelatakse.\n"
+
+#: src/dl.c:41
+#, c-format
+msgid "Piling up error '%s' over error '%s'"
+msgstr "Viga '%s' kuhjub veale '%s'"
+
+#: src/gpgme.c:60
+msgid "GPGME Failure\n"
+msgstr "GPGME tõrge\n"
+
+#: src/gpgme.c:64
+#, c-format
+msgid "%s: Invalid signature\n"
+msgstr "%s: Vigane allkiri\n"
+
+#: src/gpgme.c:67
+#, c-format
+msgid "%s: Key %s expired\n"
+msgstr "%s: Võti %s on aegunud\n"
+
+#: src/gpgme.c:70
+#, c-format
+msgid "%s: Expired signature\n"
+msgstr "%s: Aegunud allkiri\n"
+
+#: src/gpgme.c:73
+#, c-format
+msgid "%s: Key %s missing\n"
+msgstr "%s: Võti %s puudub\n"
+
+#: src/gpgme.c:76
+#, c-format
+msgid "%s: Unhandled failure\n"
+msgstr "%s: Käsitlemata tõrge\n"
+
+#: src/gpgme.c:117
+msgid "Invalid signature, signature file must have a sig extension\n"
+msgstr "Vigane allkiri, allkirja failil peab olema sig laiend\n"
+
+#: src/gpgme.c:156
+msgid "Failed to init gpgme context\n"
+msgstr "gpgme konteksti lähtestamine ebaõnnestus\n"
+
+#: src/gpgme.c:171
+msgid "Couldn't specify gnupg homedir\n"
+msgstr "gnupg kodukataloogi ei õnnestunud määrata\n"
+
+#: src/gpgme.c:177
+#, c-format
+msgid "Couldn't canonicalize %s. (Does the path exist?)\n"
+msgstr "%s-i ei õnnestunud kanoniseerida. (Kas tee on olemas?)\n"
+
+#: src/gpgme.c:186
+msgid "Error during verification\n"
+msgstr "Viga verifitseerimisel\n"
+
+#: src/gpgme.c:194
+msgid "GPGME verify failed!\n"
+msgstr "GPGME verifitseerimine ebaõnnestus!\n"
+
+#: src/gpgme.c:273
+#, c-format
+msgid "Unsupported protocol type for content: %s\n"
+msgstr "Mittetoetatud protokolli tüüp sisule: %s\n"
+
+#: src/gpgme.c:281
+msgid "Couldn't correct signature file!\n"
+msgstr "Allkirja faili ei õnnestunud parandada!\n"
+
+#: src/gpgme.c:290
+#, c-format
+msgid "Failed to read file to verify sig: %s\n"
+msgstr "Allkirja verifitseerimiseks vajaliku faili lugemine ebaõnnestus: %s\n"
+
+#: src/host.c:394 src/wget.c:1046
+#, c-format
+msgid "URL '%s' not followed (disallowed by robots.txt)\n"
+msgstr "URL-i '%s' ei järgitud (keelatud robots.txt poolt)\n"
+
+#: src/job.c:183
+#, c-format
+msgid ""
+"Failed to truncate %s\n"
+" from %llu to %llu bytes\n"
+msgstr ""
+"%s kärpimine\n"
+" %llu-lt %llu baidile ebaõnnestus\n"
+
+#: src/job.c:203
+#, c-format
+msgid "Checksum OK for '%s'\n"
+msgstr "'%s' kontrollsumma on korrektne\n"
+
+#: src/job.c:210
+msgid "Failed to build checksum, assuming file to be OK\n"
+msgstr ""
+"Kontrollsumma arvutamine ebaõnnestus, eeldatakse et fail on korrektne\n"
+
+#: src/job.c:215
+#, c-format
+msgid "Bad checksum for '%s'\n"
+msgstr "'%s' kontrollsumma on vigane\n"
+
+#: src/job.c:233
+#, c-format
+msgid "Piece %d/%d not OK - requeuing\n"
+msgstr "Tükk %d/%d ei ole korrektne - lisatakse uuesti järjekorda\n"
+
+#: src/options.c:298
+#, c-format
+msgid "Value out of range (0-65535): %s\n"
+msgstr "Väärtus vahemikust väljas (0-65535): %s\n"
+
+#: src/options.c:362
+#, c-format
+msgid "Invalid byte specifier: %s\n"
+msgstr "Vigane baidi täpsustaja: %s\n"
+
+#: src/options.c:434
+#, c-format
+msgid "Ignoring invalid header: %s\n"
+msgstr "Ignoreerin vigast päist: %s\n"
+
+#: src/options.c:443
+#, c-format
+msgid "No value in header (ignoring): %s\n"
+msgstr "Päises puudub väärtus (ignoreeritakse): %s\n"
+
+#: src/options.c:687
+#, c-format
+msgid "Invalid value '%s'\n"
+msgstr "Vigane väärtus '%s'\n"
+
+#: src/options.c:703
+#, c-format
+msgid "Invalid boolean value '%s'\n"
+msgstr "Vigane tõeväärtus '%s'\n"
+
+#: src/options.c:736
+msgid "Missing timeout value\n"
+msgstr ""
+
+#: src/options.c:750
+#, c-format
+msgid "Invalid time specifier in '%s'\n"
+msgstr "Vigane aja täpsustaja '%s'-s\n"
+
+#: src/options.c:780
+#, c-format
+msgid "Unknown cert type '%s'\n"
+msgstr "Tundmatu sertifikaadi tüüp '%s'\n"
+
+#: src/options.c:797
+#, c-format
+msgid "Unsupported regex type '%s'\n"
+msgstr "Mittetoetatud regulaaravaldise tüüp '%s'\n"
+
+#: src/options.c:807
+msgid "Empty progress type\n"
+msgstr "Tühi edenemise tüüp\n"
+
+#: src/options.c:836
+#, fuzzy, c-format
+#| msgid "Unknown cert type '%s'\n"
+msgid "Unknown dot style '%s', using default.\n"
+msgstr "Tundmatu sertifikaadi tüüp '%s'\n"
+
+#: src/options.c:842
+#, c-format
+msgid "Unknown progress type '%s'\n"
+msgstr "Tundmatu edenemise tüüp '%s'\n"
+
+#: src/options.c:855
+msgid "Missing restrict-file-name type\n"
+msgstr "Puuduv restrict-file-name tüüp\n"
+
+#: src/options.c:885
+#, c-format
+msgid "Unknown restrict-file-name type '%s'\n"
+msgstr "Tundmatu restrict-file-name tüüp '%s'\n"
+
+#: src/options.c:891
+msgid "Restrict file names to either 'unix' or 'windows'\n"
+msgstr "Piira failinimed kas 'unix' või 'windows' süsteemile\n"
+
+#: src/options.c:896
+msgid "Restrict file names to either 'uppercase' or 'lowercase'\n"
+msgstr ""
+"Piira failinimed kas 'uppercase' (suurtähed) või 'lowercase' (väiketähed) "
+"süsteemile\n"
+
+#: src/options.c:905
+msgid ""
+"    use [none]|[unix|windows],[lowercase|uppercase],[nocontrol][,ascii].\n"
+msgstr ""
+"    kasuta [none]|[unix|windows],[lowercase|uppercase],[nocontrol][,ascii].\n"
+
+#: src/options.c:934
+#, c-format
+msgid "Unknown option '-n%c'\n"
+msgstr "Tundmatu võti '-n%c'\n"
+
+#: src/options.c:954
+#, c-format
+msgid "Unknown address family '%s'\n"
+msgstr "Tundmatu aadressiperekond '%s'\n"
+
+#: src/options.c:981
+#, c-format
+msgid "Unknown stats format '%s'\n"
+msgstr "Tundmatu statistika vorming '%s'\n"
+
+#: src/options.c:1011 src/options.c:1029
+#, c-format
+msgid "Plugin '%s' failed to load: %s\n"
+msgstr "Plugina '%s' laadimine ebaõnnestus: %s\n"
+
+#: src/options.c:1090 src/options.c:1110
+msgid "Missing required type specifier\n"
+msgstr "Puuduv nõutud tüübi täpsustaja\n"
+
+#: src/options.c:1094 src/options.c:1114
+#, c-format
+msgid "Invalid type specifier: %s\n"
+msgstr "Vigane tüübi täpsustaja: %s\n"
+
+#: src/options.c:1127
+msgid "no-verify-sig cannot take additional arguments\n"
+msgstr "no-verify-sig ei aktsepteeri lisaargumente\n"
+
+#: src/options.c:1137
+#, c-format
+msgid "Invalid option specifier: %s\n"
+msgstr "Vigane võti: %s\n"
+
+#: src/options.c:1182
+#, c-format
+msgid "Compression type '%s' not supported\n"
+msgstr "Tihendamise tüüpi '%s' ei toetata\n"
+
+#: src/options.c:1185
+#, c-format
+msgid "Duplicate type '%s'"
+msgstr "Korduv tüüp '%s'"
+
+#: src/options.c:1215
+#, c-format
+msgid "Lib for type %s not built"
+msgstr "Teek tüübile %s ei ole kompileeritud"
+
+#: src/options.c:1247
+#, c-format
+msgid "Disallowed Value for --no-download-attr: %s\n"
+msgstr "Keelatud väärtus --no-download-attr jaoks: %s\n"
+
+#: src/options.c:1256
+#, c-format
+msgid "Invalid value for --download-attr: %s\n"
+msgstr "Vigane väärtus --download-attr jaoks: %s\n"
+
+#: src/options.c:2633 src/options.c:2668
+#, c-format
+msgid "Unknown option '%s'\n"
+msgstr "Tundmatu võti '%s'\n"
+
+#: src/options.c:2683
+#, c-format
+msgid "Option 'no-%s' doesn't allow an argument\n"
+msgstr "Võti 'no-%s' ei luba argumenti\n"
+
+#: src/options.c:2687
+#, c-format
+msgid "Option '%s' doesn't allow an argument\n"
+msgstr "Võti '%s' ei luba argumenti\n"
+
+#: src/options.c:2698
+#, c-format
+msgid "Missing argument for option '%s'\n"
+msgstr "Puuduv argument võtmele '%s'\n"
+
+#: src/options.c:2764
+#, c-format
+msgid "Failed to parse: '%s'\n"
+msgstr "'%s' parsimine ebaõnnestus\n"
+
+#: src/options.c:2826
+#, c-format
+msgid "Config file recursion detected in %s\n"
+msgstr "Seadistusfaili rekursioon tuvastati failis %s\n"
+
+#: src/options.c:2861
+#, c-format
+msgid "Failed to open %s (%d): %s\n"
+msgstr "%s avamine ebaõnnestus (%d): %s\n"
+
+#: src/options.c:2925
+#, c-format
+msgid "Failed to parse last line in '%s'\n"
+msgstr "Viimase rea parsimine '%s'-s ebaõnnestus\n"
+
+#: src/options.c:3005
+#, c-format
+msgid "Missing argument(s) for option '-%c'\n"
+msgstr "Puuduv(ad) argument(argumendid) võtmele '-%c'\n"
+
+#: src/options.c:3025
+#, c-format
+msgid "Unknown option '-%c'\n"
+msgstr "Tundmatu võti '-%c'\n"
+
+#: src/options.c:3056
+#, c-format
+msgid "Password for user \"%s\": "
+msgstr "Kasutaja \"%s\" parool: "
+
+#: src/options.c:3058
+msgid "Password: "
+msgstr "Parool: "
+
+#: src/options.c:3079
+msgid "Cannot create pipe"
+msgstr "Toru ei õnnestu luua"
+
+#: src/options.c:3085
+#, c-format
+msgid "Error initializing spawn file actions for use-askpass: %d"
+msgstr "Viga use-askpass käivitamise failitoimingute lähtestamisel: %d"
+
+#: src/options.c:3096
+#, c-format
+msgid "Error setting spawn file actions for use-askpass: %d"
+msgstr "Viga use-askpass käivitamise failitoimingute seadmisel: %d"
+
+#: src/options.c:3103
+#, c-format
+msgid "Error spawning %s: %d"
+msgstr "Viga %s käivitamisel: %d"
+
+#: src/options.c:3120
+#, c-format
+msgid "Error reading response from command \"%s %s\": %s\n"
+msgstr "Viga käsu vastuse lugemisel \"%s %s\": %s\n"
+
+#: src/options.c:3208
+#, c-format
+msgid "Failed to open %s"
+msgstr "%s avamine ebaõnnestus"
+
+#: src/options.c:3246
+#, c-format
+msgid "~/.wget2rc is deprecated. Please move it to %s/wget2rc\n"
+msgstr "~/.wget2rc on aegunud. Palun teisaldage see faili %s/wget2rc\n"
+
+#: src/options.c:3574
+#, fuzzy
+#| msgid "unable to record current working directory"
+msgid "Failed to get current directory\n"
+msgstr "ei suuda salvestada praegust töökataloogi"
+
+#: src/options.c:3584
+#, fuzzy, c-format
+#| msgid "Failed to resolve '%s' (%s)\n"
+msgid "Failed to resolve directory prefix '%s' (%d, %s)\n"
+msgstr "'%s' lahendamine ebaõnnestus (%s)\n"
+
+#: src/options.c:3599
+#, c-format
+msgid "Failed to set http proxies %s\n"
+msgstr "HTTP puhverserverite %s seadmine ebaõnnestus\n"
+
+#: src/options.c:3603
+#, c-format
+msgid "Failed to set https proxies %s\n"
+msgstr "HTTPS puhverserverite %s seadmine ebaõnnestus\n"
+
+#: src/options.c:3607
+#, c-format
+msgid "Failed to set proxy exceptions %s\n"
+msgstr "Puhverserveri erandite %s seadmine ebaõnnestus\n"
+
+#: src/options.c:3633
+#, c-format
+msgid "Failed to load %s (%d)"
+msgstr "%s laadimine ebaõnnestus (%d)"
+
+#: src/options.c:3693
+msgid ""
+"Specifying both --start-pos and --continue is not recommended; --continue "
+"will be disabled"
+msgstr ""
+"Nii --start-pos kui --continue samaaegne kasutamine ei ole soovitatav; --"
+"continue keelatakse"
+
+#: src/options.c:3699
+msgid "WARNING: timestamping does nothing in combination with -O"
+msgstr "HOIATUS: ajatempliga märgistamine ei tee midagi koos -O võtmega"
+
+#: src/options.c:3703
+msgid "Can't timestamp and not clobber old files at the same time"
+msgstr ""
+"Ajatempli lisamine ja vanade failide säilitamine ei ole samaaegselt võimalik"
+
+#: src/options.c:3707
+msgid "WARNING: timestamping does nothing in combination with spider"
+msgstr "HOIATUS: ajatempliga märgistamine ei tee midagi koos spider režiimiga"
+
+#: src/options.c:3711
+msgid ""
+"WARNING: timestamping and chunk-size only work together without If-Modified-"
+"Since"
+msgstr ""
+"HOIATUS: ajatempliga märgistamine ja chunk-size töötavad koos ainult ilma If-"
+"Modified-Since päiseta"
+
+#: src/options.c:3750
+#, c-format
+msgid "Failed to init networking (%d)"
+msgstr "Võrgu kasutamise lähtestamine ebaõnnestus (%d)"
+
+#: src/options.c:3755
+#, c-format
+msgid "Failed to init DNS (%d)"
+msgstr "DNS-i lähtestamine ebaõnnestus (%d)"
+
+#: src/options.c:3773 src/options.c:3784 src/options.c:3795 src/options.c:3806
+#: src/options.c:3817
+#, c-format
+msgid "Failed to open '%s' (%d)"
+msgstr "'%s' avamine ebaõnnestus (%d)"
+
+#: src/options.c:4070
+#, c-format
+msgid "%s: Option not in order '%s' after '%s' (using opt_compare())\n"
+msgstr ""
+"%s: Võti '%s' ei ole järjestuses pärast '%s' (kasutades opt_compare())\n"
+
+#: src/options.c:4079
+#, c-format
+msgid "%s: Option not in order '%s' after '%s' (using opt_compare_config())\n"
+msgstr ""
+"%s: Võti '%s' ei ole järjestuses pärast '%s' (kasutades "
+"opt_compare_config())\n"
+
+#: src/options.c:4089
+#, c-format
+msgid "%s: Failed to find option '%s' (using opt_compare())\n"
+msgstr "%s: Võtme '%s' leidmine ebaõnnestus (kasutades opt_compare())\n"
+
+#: src/options.c:4099 src/options.c:4123
+#, c-format
+msgid "%s: Failed to find option '%s' (using opt_compare_config())\n"
+msgstr "%s: Võtme '%s' leidmine ebaõnnestus (kasutades opt_compare_config())\n"
+
+#: src/options.c:4148
+#, c-format
+msgid "%s: Failed to parse bool short option #%zu (=%d)\n"
+msgstr "%s: Lühikese tõeväärtuse võtme #%zu (=%d) parsimine ebaõnnestus\n"
+
+#: src/options.c:4174 src/options.c:4180
+#, c-format
+msgid "%s: Failed to parse bool long option #%zu (%d)\n"
+msgstr "%s: Pika tõeväärtuse võtme #%zu (%d) parsimine ebaõnnestus\n"
+
+#: src/options.c:4223
+#, c-format
+msgid "%s: Failed to parse timeout short option #%zu (=%d)\n"
+msgstr "%s: Lühikese ajalimiidi võtme #%zu (=%d) parsimine ebaõnnestus\n"
+
+#: src/options.c:4254
+#, c-format
+msgid "%s: Failed to parse timeout long option #%zu (%d)\n"
+msgstr "%s: Pika ajalimiidi võtme #%zu (%d) parsimine ebaõnnestus\n"
+
+#: src/options.c:4289
+#, c-format
+msgid "%s: Extra headers found in option #%zu\n"
+msgstr "%s: Lisapäised leiti võtmes #%zu\n"
+
+#: src/options.c:4294
+#, c-format
+msgid "%s: Failed to parse header option #%zu\n"
+msgstr "%s: Päise võtme #%zu parsimine ebaõnnestus\n"
+
+#: src/options.c:4317
+#, c-format
+msgid "%s: Accepted illegal header option #%zu\n"
+msgstr "%s: Lubamatu päise võti #%zu aktsepteeriti\n"
+
+#: src/options.c:4345 src/options.c:4364
+#, c-format
+msgid "%s: Failed to parse string short option #%zu (=%s)\n"
+msgstr "%s: Lühikese sõne võtme #%zu (=%s) parsimine ebaõnnestus\n"
+
+#: src/plugin.c:398
+#, c-format
+msgid "Plugin '%s' failed to load: %s"
+msgstr "Plugina '%s' laadimine ebaõnnestus: %s"
+
+#: src/plugin.c:506
+#, c-format
+msgid "Options for %s:\n"
+msgstr "%s võtmed:\n"
+
+#: src/utils.c:55
+#, c-format
+msgid "Internal error: Unexpected relative path: '%s'\n"
+msgstr "Sisemine viga: Ootamatu suhteline tee: '%s'\n"
+
+#: src/utils.c:88 src/utils.c:95
+#, c-format
+msgid "Failed to make directory '%s' (errno=%d)\n"
+msgstr "Kataloogi '%s' loomine ebaõnnestus (veakood=%d)\n"
+
+#: src/utils.c:93
+#, c-format
+msgid "Failed to rename '%s' (errno=%d)\n"
+msgstr "'%s' ümbernimetamine ebaõnnestus (veakood=%d)\n"
+
+#: src/wget.c:650
+#, c-format
+msgid "HSTS in effect for [%s]:%hu\n"
+msgstr "HSTS kehtib [%s]:%hu jaoks\n"
+
+#: src/wget.c:652
+#, c-format
+msgid "HSTS in effect for %s:%hu\n"
+msgstr "HSTS kehtib %s:%hu jaoks\n"
+
+#: src/wget.c:707
+msgid "<redacted>"
+msgstr ""
+
+#: src/wget.c:730
+#, c-format
+msgid "Failed to parse URI '%s'\n"
+msgstr "URI '%s' parsimine ebaõnnestus\n"
+
+#: src/wget.c:748
+#, c-format
+msgid "URI scheme not supported: '%s'\n"
+msgstr "URI skeemi ei toetata: '%s'\n"
+
+#: src/wget.c:893
+msgid "Cannot resolve URI\n"
+msgstr "URI-t ei õnnestu lahendada\n"
+
+#: src/wget.c:899
+#, c-format
+msgid "URL '%s' not followed (max redirections exceeded)\n"
+msgstr "URL-i '%s' ei järgitud (maksimaalne ümbersuunamiste arv ületatud)\n"
+
+#: src/wget.c:909
+#, fuzzy, c-format
+#| msgid "URL '%s' no followed (plugin verdict)\n"
+msgid "URL '%s' not followed (plugin verdict)\n"
+msgstr "URL-i '%s' ei järgitud (plugina otsus)\n"
+
+#: src/wget.c:923
+#, c-format
+msgid "URL '%s' not followed (unsupported scheme)\n"
+msgstr "URL-i '%s' ei järgitud (mittetoetatud skeem)\n"
+
+#: src/wget.c:933
+#, c-format
+msgid "URL '%s' not followed (https-only requested)\n"
+msgstr "URL-i '%s' ei järgitud (nõutud ainult https)\n"
+
+#: src/wget.c:950
+msgid "missing ip/host/domain"
+msgstr "puuduv ip/server/domeen"
+
+#: src/wget.c:954
+msgid "domain explicitly excluded"
+msgstr "domeen on selgesõnaliselt välistatud"
+
+#: src/wget.c:957
+msgid "no host-spanning requested"
+msgstr "serveriteülene liikumine ei ole nõutud"
+
+#: src/wget.c:963
+#, c-format
+msgid "URL '%s' not followed (%s)\n"
+msgstr "URL-i '%s' ei järgitud (%s)\n"
+
+#: src/wget.c:997
+#, c-format
+msgid "URL '%s' not followed (parent ascending not allowed)\n"
+msgstr "URL-i '%s' ei järgitud (ülemkataloogi liikumine pole lubatud)\n"
+
+#: src/wget.c:1020
+#, fuzzy, c-format
+#| msgid "URL '%s' no followed (plugin verdict)\n"
+msgid "URL '%s' not followed (reading from disk)\n"
+msgstr "URL-i '%s' ei järgitud (plugina otsus)\n"
+
+#: src/wget.c:1023
+#, c-format
+msgid "URL '%s' not followed (file already exists)\n"
+msgstr "URL-i '%s' ei järgitud (fail on juba olemas)\n"
+
+#: src/wget.c:1053
+#, c-format
+msgid "Failed to get '%s' from hosts\n"
+msgstr "'%s' hankimine serveritest ebaõnnestus\n"
+
+#: src/wget.c:1061
+#, c-format
+msgid "URL '%s' not followed (doesn't match accept pattern)\n"
+msgstr "URL-i '%s' ei järgitud (ei sobi lubamise mustriga)\n"
+
+#: src/wget.c:1068
+#, c-format
+msgid "URL '%s' not followed (matches reject pattern)\n"
+msgstr "URL-i '%s' ei järgitud (sobib keelatud mustriga)\n"
+
+#: src/wget.c:1073
+#, c-format
+msgid "URL '%s' not followed (path excluded)\n"
+msgstr "URL-i '%s' ei järgitud (tee on välistatud)\n"
+
+#: src/wget.c:1078
+#, fuzzy, c-format
+#| msgid "Enqueue %s\n"
+msgid "Enqueuing %s\n"
+msgstr "Lisatakse järjekorda %s\n"
+
+#: src/wget.c:1247
+#, c-format
+msgid "Cannot resolve URI '%s'\n"
+msgstr "URI-t '%s' ei õnnestu lahendada\n"
+
+#: src/wget.c:1278
+#, c-format
+msgid "Failed to rename %s to %s (%d)"
+msgstr "%s ümbernimetamine %s-ks ebaõnnestus (%d)"
+
+#: src/wget.c:1284
+#, c-format
+msgid "Failed to write open %s (%d)"
+msgstr "%s avamine kirjutamiseks ebaõnnestus (%d)"
+
+#: src/wget.c:1312
+#, c-format
+msgid "convert %s %s %s\n"
+msgstr "teisenda %s %s %s\n"
+
+#: src/wget.c:1315
+#, c-format
+msgid "%s not found (%d)\n"
+msgstr "%s ei leitud (%d)\n"
+
+#: src/wget.c:1477 src/wget.c:1571
+#, c-format
+msgid "Failed to start downloader, error %d\n"
+msgstr "Allalaadija käivitamine ebaõnnestus, viga %d\n"
+
+#: src/wget.c:1500
+#, c-format
+msgid "Failed to open input file %s\n"
+msgstr "Sisendfaili %s avamine ebaõnnestus\n"
+
+#: src/wget.c:1505
+msgid "Nothing to do - goodbye\n"
+msgstr "Midagi pole teha - head aega\n"
+
+#: src/wget.c:1524
+msgid "Wget2 built without thread support. Disabling progress report\n"
+msgstr ""
+"Wget2 on kompileeritud ilma lõimede toeta. Edenemise aruanne keelatakse\n"
+
+#: src/wget.c:1543
+#, c-format
+msgid "Failed to start progress report thread, error %d\n"
+msgstr "Edenemise aruande lõime käivitamine ebaõnnestus, viga %d\n"
+
+#: src/wget.c:1578
+#, c-format
+msgid "Quota of %lld bytes reached - stopping.\n"
+msgstr "Kvoot %lld baiti on täis - peatatakse.\n"
+
+#: src/wget.c:1598
+#, c-format
+msgid "Failed to wait for downloader #%d (%d %d)\n"
+msgstr "Allalaadija #%d ootamine ebaõnnestus (%d %d)\n"
+
+#: src/wget.c:1605
+#, c-format
+msgid "Downloaded: %d files, %s bytes, %d redirects, %d errors\n"
+msgstr "Alla laaditud: %d faili, %s baiti, %d ümbersuunamist, %d viga\n"
+
+#: src/wget.c:1631
+msgid ""
+"--convert-links and --convert-file-only cannot be used together, error\n"
+msgstr "--convert-links ja --convert-file-only ei saa koos kasutada, viga\n"
+
+#: src/wget.c:1647
+#, c-format
+msgid "Failed to wait for progress thread (%d %d)\n"
+msgstr "Edenemise lõime ootamine ebaõnnestus (%d %d)\n"
+
+#: src/wget.c:1745
+#, c-format
+msgid "Failed to connect: %s\n"
+msgstr "Ühendamine ebaõnnestus: %s\n"
+
+#: src/wget.c:1973
+msgid "The file is already fully retrieved; nothing to do.\n"
+msgstr "Fail on juba täielikult alla laaditud; midagi pole teha.\n"
+
+#: src/wget.c:2041
+#, c-format
+msgid "File '%s' not modified on server. Omitting download"
+msgstr "Faili '%s' ei ole serveris muudetud. Allalaadimine jäetakse vahele"
+
+#: src/wget.c:2078
+#, c-format
+msgid "Not scanning '%s' (known ETag)\n"
+msgstr "'%s' ei skaneerita (tuntud ETag)\n"
+
+#: src/wget.c:2125
+#, c-format
+msgid "The sizes do not match (local %lld, remote %zu) -- retrieving"
+msgstr "Suurused ei ühti (kohalik %lld, eemal %zu) -- laetakse alla"
+
+#: src/wget.c:2319
+#, fuzzy, c-format
+#| msgid "File length %llu - remove job\n"
+msgid "File length %llu - removing job\n"
+msgstr "Faili pikkus %llu - töö eemaldatakse\n"
+
+#: src/wget.c:2321
+#, fuzzy
+#| msgid "No download mirrors found - remove job\n"
+msgid "No download mirrors found - removing job\n"
+msgstr "Allalaadimise peegleid ei leitud - töö eemaldatakse\n"
+
+#: src/wget.c:2323
+#, fuzzy
+#| msgid "Metalink file name is invalid, missing or empty - remove job\n"
+msgid "Metalink file name is invalid, missing or empty - removing job\n"
+msgstr "Metalink failinimi on vigane, puudub või on tühi - töö eemaldatakse\n"
+
+#: src/wget.c:2331
+#, fuzzy
+#| msgid "Metalink validation failed: max tries reached - remove job\n"
+msgid "Metalink validation failed: max tries reached - removing job\n"
+msgstr ""
+"Metalink valideerimine ebaõnnestus: maksimaalne katsete arv saavutatud - töö "
+"eemaldatakse\n"
+
+#: src/wget.c:2445
+msgid "Couldn't determine base file to delete for failed verification\n"
+msgstr ""
+"Ebaõnnestunud verifitseerimise jaoks kustutatavat baasifaili ei õnnestunud "
+"tuvastada\n"
+
+#: src/wget.c:2449
+#, c-format
+msgid "Signature for file %s successfully verified\n"
+msgstr "Faili %s allkiri on edukalt verifitseeritud\n"
+
+#: src/wget.c:2465
+msgid "Should not have remaining extensions!\n"
+msgstr "Ei tohiks olla allesjäänud laiendeid!\n"
+
+#: src/wget.c:2479
+msgid "File name for signature checking not assigned to job!\n"
+msgstr "Allkirja kontrollimise failinimi ei ole tööle omistatud!\n"
+
+#: src/wget.c:2481
+msgid "Cannot check the signature on a signature!\n"
+msgstr "Allkirja allkirja ei saa kontrollida!\n"
+
+#: src/wget.c:2722
+#, c-format
+msgid "Unhandled action %d\n"
+msgstr "Käsitlemata tegevus %d\n"
+
+#: src/wget.c:2838
+#, c-format
+msgid "URL '%.*s' not followed (conversion failed)\n"
+msgstr "URL-i '%.*s' ei järgitud (teisendamine ebaõnnestus)\n"
+
+#: src/wget.c:2846
+#, c-format
+msgid "Cannot resolve relative URI %.*s\n"
+msgstr "Suhtelist URI %.*s ei õnnestu lahendada\n"
+
+#: src/wget.c:2868
+msgid "set by user"
+msgstr "seatud kasutaja poolt"
+
+#: src/wget.c:2873 src/wget.c:2881 src/wget.c:2889
+msgid "set by BOM"
+msgstr "seatud BOM-i poolt"
+
+#: src/wget.c:2895
+msgid "set by server response"
+msgstr "seatud serveri vastusega"
+
+#: src/wget.c:2904
+#, c-format
+msgid "Convert non-ASCII encoding '%s' (%s) to UTF-8\n"
+msgstr "Teisenda mitte-ASCII kodeering '%s' (%s) UTF-8 kujule\n"
+
+#: src/wget.c:2908
+#, c-format
+msgid "Link conversion disabled for '%s'\n"
+msgstr "Linkide teisendamine on '%s' jaoks keelatud\n"
+
+#: src/wget.c:2911
+#, c-format
+msgid "Filename conversion disabled for '%s'\n"
+msgstr "Failinime teisendamine on '%s' jaoks keelatud\n"
+
+#: src/wget.c:2915
+#, c-format
+msgid "Failed to convert non-ASCII encoding '%s' (%s) to UTF-8, skip parsing\n"
+msgstr ""
+"Mitte-ASCII kodeeringu '%s' (%s) teisendamine UTF-8 kujule ebaõnnestus, "
+"parsimine jäetakse vahele\n"
+
+#: src/wget.c:2928
+msgid "set by document"
+msgstr "seatud dokumendi poolt"
+
+#: src/wget.c:2931
+msgid "default, encoding not specified"
+msgstr "vaikimisi, kodeering on määramata"
+
+#: src/wget.c:2935
+#, c-format
+msgid "URI content encoding = '%s' (%s)\n"
+msgstr "URI sisu kodeering = '%s' (%s)\n"
+
+#: src/wget.c:2943
+#, c-format
+msgid "BASE '%.*s' not usable (missing absolute base URI)\n"
+msgstr "BASE '%.*s' ei ole kasutatav (puuduv absoluutne baas-URI)\n"
+
+#: src/wget.c:2950
+#, c-format
+msgid "Cannot resolve BASE URI %.*s\n"
+msgstr "Baas-URI-t %.*s ei õnnestu lahendada\n"
+
+#: src/wget.c:2960
+#, c-format
+msgid "URL '%.*s' not followed (action/formaction attribute)\n"
+msgstr "URL-i '%.*s' ei järgitud (action/formaction atribuut)\n"
+
+#: src/wget.c:2974
+#, c-format
+msgid "URL '%.*s' not followed (page requisites + level)\n"
+msgstr "URL-i '%.*s' ei järgitud (lehe vajadused + tase)\n"
+
+#: src/wget.c:2985 src/wget.c:3195 src/wget.c:3340
+#, c-format
+msgid "URL '%.*s' not followed (missing base URI)\n"
+msgstr "URL-i '%.*s' ei järgitud (puudub baas-URI)\n"
+
+#: src/wget.c:3052 src/wget.c:3185
+#, c-format
+msgid "found %d url(s) (base=%s)\n"
+msgstr "leiti %d URL(i) (baas=%s)\n"
+
+#: src/wget.c:3059 src/wget.c:3163
+#, c-format
+msgid "URL '%.*s' not followed (not matching sitemap location)\n"
+msgstr "URL-i '%.*s' ei järgitud (ei sobi saidikaardi asukohaga)\n"
+
+#: src/wget.c:3070 src/wget.c:3091 src/wget.c:3206
+#, c-format
+msgid "URL '%.*s' not followed (already known)\n"
+msgstr "URL-i '%.*s' ei järgitud (juba teada)\n"
+
+#: src/wget.c:3078
+#, c-format
+msgid "found %d sitemap url(s) (base=%s)\n"
+msgstr "leiti %d saidikaardi URL(i) (baas=%s)\n"
+
+#: src/wget.c:3123
+#, c-format
+msgid "Can't scan '%s' because no libz support enabled at compile time\n"
+msgstr ""
+"'%s' ei saa skaneerida, kuna libz tugi ei ole kompileerimisel lubatud\n"
+
+#: src/wget.c:3271
+#, c-format
+msgid "Invalid file length %llu\n"
+msgstr "Vigane faili pikkus %llu\n"
+
+#: src/wget.c:3274
+msgid "No download mirrors found\n"
+msgstr "Allalaadimise peegleid ei leitud\n"
+
+#: src/wget.c:3277
+msgid "Metalink file name is missing or empty\n"
+msgstr "Metalink failinimi puudub või on tühi\n"
+
+#: src/wget.c:3326 src/wget.c:3354 src/wget.c:3378
+#, c-format
+msgid "URI content encoding = '%s'\n"
+msgstr "URI sisu kodeering = '%s'\n"
+
+#: src/wget.c:3456
+#, c-format
+msgid "Failed to set file date (%d)\n"
+msgstr "Faili kuupäeva seadmine ebaõnnestus (%d)\n"
+
+#: src/wget.c:3611
+#, fuzzy
+#| msgid "Failed to open input file %s\n"
+msgid "Failed to determine max length of file names"
+msgstr "Sisendfaili %s avamine ebaõnnestus\n"
+
+#: src/wget.c:3701
+#, c-format
+msgid "Failed to write to STDOUT (%td, errno=%d)\n"
+msgstr "STDOUT-i kirjutamine ebaõnnestus (%td, veakood=%d)\n"
+
+#: src/wget.c:3811
+#, c-format
+msgid "Failed to rename %s to %s (errno=%d)\n"
+msgstr "%s ümbernimetamine %s-ks ebaõnnestus (veakood=%d)\n"
+
+#: src/wget.c:3837 src/wget.c:3843
+#, c-format
+msgid "Failed to load partial content from '%s' (errno=%d)\n"
+msgstr "Osalise sisu laadimine '%s'-st ebaõnnestus (veakood=%d)\n"
+
+#: src/wget.c:3852
+#, c-format
+msgid "Failed to unlink '%s' (errno=%d)\n"
+msgstr "'%s' kustutamine ebaõnnestus (veakood=%d)\n"
+
+#: src/wget.c:3873
+#, c-format
+msgid "Saving ']8;;file://%s%s\\%s]8;;\\'\n"
+msgstr "Salvestan ']8;;file://%s%s\\%s]8;;\\'\n"
+
+#: src/wget.c:3877
+#, c-format
+msgid "Saving '%s'\n"
+msgstr "Salvestatakse '%s'\n"
+
+#: src/wget.c:3883
+#, c-format
+msgid "Failed to write file %s (%zd, errno=%d)\n"
+msgstr "Faili %s kirjutamine ebaõnnestus (%zd, veakood=%d)\n"
+
+#: src/wget.c:3892
+#, c-format
+msgid "File '%s' already there; not retrieving.\n"
+msgstr "Fail '%s' on juba olemas; ei laadita alla.\n"
+
+#: src/wget.c:3898
+#, c-format
+msgid "Directory / file name clash - not saving '%s'\n"
+msgstr "Kataloogi/failinime konflikt - '%s' ei salvestata\n"
+
+#: src/wget.c:3900
+#, c-format
+msgid "Failed to open '%s' (%d)\n"
+msgstr "'%s' avamine ebaõnnestus (%d)\n"
+
+#: src/wget.c:3912
+#, c-format
+msgid "Failed to save extended attribute %s\n"
+msgstr "Laiendatud atribuudi %s salvestamine ebaõnnestus\n"
+
+#: src/wget.c:3965 src/wget.c:4108
+#, c-format
+msgid ""
+"# got header %zu bytes:\n"
+"%s\n"
+msgstr ""
+"# saadi päis %zu baiti:\n"
+"%s\n"
+
+#: src/wget.c:4182
+#, c-format
+msgid "Failed to open .netrc file '%s' (%d): %s\n"
+msgstr ".netrc faili '%s' avamine ebaõnnestus (%d): %s\n"
+
+#: src/wget.c:4553
+#, c-format
+msgid "Failed to fsync errno=%d\n"
+msgstr "fsync ebaõnnestus veakood=%d\n"
+
+#: src/wget.c:4860
+#, c-format
+msgid "Continuing in background, pid %lu.\n"
+msgstr "Jätkatakse taustal, pid %lu.\n"
+
+#: src/wget.c:4862 src/wget.c:4943
+#, c-format
+msgid "Output will be written to %s.\n"
+msgstr "Väljund kirjutatakse faili %s.\n"
+
+#: src/wget.c:4888
+msgid "fake_fork_child() failed\n"
+msgstr "fake_fork_child() ebaõnnestus\n"
+
+#: src/wget.c:4896
+msgid "fake_fork() failed\n"
+msgstr "fake_fork() ebaõnnestus\n"
+
+#: src/wget.c:4937
+#, c-format
+msgid "Failed to fork (%d)\n"
+msgstr "Alamprotsessi loomine ebaõnnestus (%d)\n"
+
+#: src/wget.c:4941
+#, c-format
+msgid "Continuing in background, pid %d.\n"
+msgstr "Jätkatakse taustal, pid %d.\n"
+
+#: src/wget.c:4951
+msgid "Failed to redirect stdin to /dev/null.\n"
+msgstr "Standard sisendi ümbersuunamine /dev/null-i ebaõnnestus.\n"
+
+#: src/wget.c:4953
+msgid "Failed to redirect stdout to /dev/null.\n"
+msgstr "Standard väljundi ümbersuunamine /dev/null-i ebaõnnestus.\n"
+
+#: src/wget.c:4955
+msgid "Failed to redirect stderr to /dev/null.\n"
+msgstr "Vea väljundi ümbersuunamine /dev/null-i ebaõnnestus.\n"
+
+#, c-format
+#~ msgid "%s: The certificate is not trusted.\n"
+#~ msgstr "%s: Sertifikaat ei ole usaldusväärne.\n"
+
+#, c-format
+#~ msgid "%s: The certificate has been revoked.\n"
+#~ msgstr "%s: Sertifikaat on tühistatud.\n"
+
+#, c-format
+#~ msgid "%s: The certificate doesn't have a known issuer.\n"
+#~ msgstr "%s: Sertifikaadil puudub tuntud väljaandja.\n"
+
+#, c-format
+#~ msgid "%s: The certificate signer was not a CA.\n"
+#~ msgstr "%s: Sertifikaadi allkirjastaja ei olnud CA.\n"
+
+#, c-format
+#~ msgid "%s: The certificate was signed using an insecure algorithm.\n"
+#~ msgstr "%s: Sertifikaat on allkirjastatud ebaturvalise algoritmiga.\n"
+
+#, c-format
+#~ msgid "%s: The certificate is not yet activated.\n"
+#~ msgstr "%s: Sertifikaat ei ole veel aktiveeritud.\n"
+
+#, c-format
+#~ msgid "%s: The certificate has expired.\n"
+#~ msgstr "%s: Sertifikaat on aegunud.\n"
+
+#, c-format
+#~ msgid "%s: The certificate signature is invalid.\n"
+#~ msgstr "%s: Sertifikaadi allkiri on vigane.\n"
+
+#, c-format
+#~ msgid "%s: The certificate's owner does not match hostname '%s'.\n"
+#~ msgstr "%s: Sertifikaadi omanik ei vasta serverinimele '%s'.\n"
+
+#, c-format
+#~ msgid "%s: The certificate could not be verified (0x%X).\n"
+#~ msgstr "%s: Sertifikaati ei õnnestunud verifitseerida (0x%X).\n"
+
+#~ msgid ""
+#~ "TLS False Start requested but libwget built with insufficient GnuTLS "
+#~ "version\n"
+#~ msgstr ""
+#~ "TLS False Start nõutud, kuid libwget on kompileeritud ebapiisava GnuTLS "
+#~ "versiooniga\n"
+
+#, c-format
+#~ msgid "Progress type '%s' ignored. It is not implemented yet\n"
+#~ msgstr "Edenemise tüüp '%s' ignoreeriti. See ei ole veel realiseeritud\n"

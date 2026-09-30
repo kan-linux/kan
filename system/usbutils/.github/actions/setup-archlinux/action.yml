@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2024 Emil Velikov <emil.l.velikov@gmail.com>
+# SPDX-FileCopyrightText: 2024 Lucas De Marchi <lucas.de.marchi@gmail.com>
+#
+# SPDX-License-Identifier: LGPL-2.1-or-later
+
+name: 'setup Archlinux'
+description: 'Setup an Archlinux container for running CI'
+runs:
+  using: 'composite'
+  steps:
+    - name: Install dependencies
+      shell: bash
+      run: |
+        pacman-key --init
+        pacman-key --populate
+        pacman --noconfirm -Sy archlinux-keyring
+
+        pacman --noconfirm -Su \
+          clang \
+          git \
+          lib32-libusb \
+          lib32-systemd \
+          libusb \
+          linux-headers \
+          meson \
+          systemd

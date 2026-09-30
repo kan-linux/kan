@@ -1,0 +1,38 @@
+
+@node Top
+@top top
+
+@menu
+*    ::
+* 	::
+* ::
+*   ::
+* ᠎ ::
+*          　::
+@c *   ::
+@end menu
+
+
+@node    
+@chapter EN QUAD| | EM QUAD| | EN SPACE| |
+
+@node 	
+@chapter CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
+
+@node 
+@chapter CARRIAGE RETURN||
+
+@node   
+@chapter NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+
+@node ᠎ 
+@chapter MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+
+@node          　
+@chapter THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+
+@c Perl and XS code give different width.
+@c @node   
+@c @chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
+
+@bye

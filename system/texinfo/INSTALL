@@ -1,0 +1,124 @@
+INSTALL file for texinfo.
+
+     Copyright 1992-2026 Free Software Foundation, Inc.
+
+     Copying and distribution of this file, with or without modification,
+     are permitted in any medium without royalty provided the copyright
+     notice and this notice are preserved.
+
+For generic installation instructions on compiling and installing this
+Automake-based distribution, please read the file `INSTALL.generic'.
+
+Installation notes specific to Texinfo:
+
+* texinfo.tex and the other *.tex files are not installed by
+  `make install', because TeX installations vary so widely.
+  Installing them in the wrong place would give a false sense of
+  security.   Instead, you have to run an additional make command
+  after the normal make install:
+
+    make TEXMF=/your/texmf install-tex
+
+  where TEXMF is a root of a TeX hierachy that follows the TeX
+  Directory Structure standard (http://tug.org/tds/).
+  texinfo.tex is installed in ${TEXMF}/tex/texinfo, epsf.tex
+  in ${TEXMF}/tex/generic/epsf/, etc.
+
+  (Alternatively, you can simply cp *.tex to the appropriate places.)
+
+  For information on how or where to install files, see your TeX
+  documentation in general (i.e. web2c and kpathsea manuals), and the
+  texmf.cnf file.
+
+  It is possible to put these .tex files in a `local' place instead of
+  overwriting existing ones.  You might find where this is by running
+  `kpsewhich -var-value TEXMFLOCAL'.
+
+  If you add files to your TeX installations, not just replace existing
+  ones, you very likely will also have to update your ls-R file; do this
+  by running the mktexlsr command.
+
+  An alternative is to copy texinfo.tex to the same directory as your
+  Texinfo manual, but this is not especially recommended.
+
+  You can get the latest texinfo.tex from
+  https://ftp.gnu.org/gnu/texinfo/texinfo.tex (and all GNU mirrors)
+  ftp://tug.org/tex/texinfo.tex (and all CTAN mirrors)
+  or from the gnulib project on Savannah (among other places).
+  If you have problems with the texinfo.tex in this distribution, please
+  check for a newer version.
+
+* If you're maintaining a TeX distribution and keeping the files up to
+  date yourself, you may not want to see the installation warnings.
+
+  For that, run configure --disable-install-warnings, or set
+  enable_install_warnings=no in the environment.
+
+* `texi2any' depends on having a locale installed that is not "C", "C.UTF-8"
+   or "POSIX" in order to translate strings in its output, if @documentlanguage
+   appears in a document.  This is due to a limitation in the libc
+   "gettext" interface.
+
+* The texi2any program can use extension (XS) modules.  The configure
+  script will attempt to detect whether such modules can be built and
+  loaded on your installation.  If you want to disable the use of XS modules,
+  you can give the --disable-perl-xs flag to `configure'; likewise, to use
+  them without checking, give the --enable-perl-xs flag.
+
+* When `configure' is running in the tta/ subdirectory and XS modules
+  are used, instead of the standard CC, CFLAGS, LDFLAGS etc., it uses special
+  variables with a PERL_EXT_ prefix.  These are all listed in the output of
+  `configure --help'.  This is necessary because it is possible that the C
+  compiler being used to compile Perl extension modules and other texi2any C
+  codes is a different compiler to that used for the rest of the package.
+  (However, if you need to override these variables when running `make', use
+  the unprefixed variants, e.g. CFLAGS instead of PERL_EXT_CFLAGS.  Exception:
+  you cannot override CPPFLAGS this way, as gnulib uses this variable.)
+
+* After building the program, you can control the use of XS modules by
+  the Perl texi2any implementation with the `TEXINFO_XS' environment
+  variable, which may be useful for troubleshooting.
+  Set TEXINFO_XS=warn to print some information if loading XS modules
+  fails, TEXINFO_XS=debug to print some information as the modules are
+  looked for and loaded, TEXINFO_XS=omit to disable their use, or
+  TEXINFO_XS=required to force their use.
+
+  XS modules replacing perl code for the main processing steps can be
+  controlled more finely.  Three steps are distinguished: the parsing
+  step, the structure step for the determination of sectioning and node
+  structures, and the conversion step.  If the XS modules are not used
+  for one step, they cannot be used for any following steps.
+
+  If you want to use the XS modules but not the XS parser, you can
+  set the `TEXINFO_XS_PARSER' environment variable to 0.  If you use
+  the XS parser but do not want to use XS for the structure step, you
+  can set the `TEXINFO_XS_STRUCTURE' environment variable to 0.  If you
+  use the XS modules for the structure but do not want to use XS for the
+  conversion step, you can set the `TEXINFO_XS_CONVERT' environment
+  variable to 0.
+
+* Native code (in XS modules) get translations for strings to be put in
+  output files using libc gettext, using the LANGUAGE variable.  If the
+  gettext implementation (such as that on musl) does not support this
+  variable, this will not work and strings will not be translated.
+  However, if you pass the --enable-xs-perl-libintl flag to `configure',
+  an alternative translation method is activated where C code calls back
+  into the Perl interpreter to get translations, which does work.
+
+* The Info tree uses a file `dir' as its root node; the `dir-example'
+  file in this distribution is included as a possible starting point.
+  Use it, modify it, or ignore it just as you like.
+
+* You can create a file texinfo.cnf to be read by TeX when
+  processing Texinfo manuals.  For example, you might like to use
+  @afourpaper by default.  See the `Preparing for TeX' node in
+  the Texinfo manual for more details.  You don't have to create the
+  file if you have nothing to put in it.
+
+* Texinfo uses code from the Gnulib portability library.  For correct
+  localization of Gnulib strings, you may need to install a 'gnulib-l10n'
+  package.
+  + Documentation:
+    https://www.gnu.org/software/gnulib/manual/html_node/Localization.html
+  + Download:
+    https://ftp.gnu.org/gnu/gnulib/gnulib-l10n-*

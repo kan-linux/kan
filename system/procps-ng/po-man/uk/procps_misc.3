@@ -1,0 +1,206 @@
+.\"
+.\" Copyright (c) 2020-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2020-2024 Craig Small <csmall@dropbear.xyz>
+.\"
+.\" This manual is free software; you can redistribute it and/or
+.\" modify it under the terms of the GNU Lesser General Public
+.\" License as published by the Free Software Foundation; either
+.\" version 2.1 of the License, or (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH PROCPS_MISC 3 "6 липня 2024 року" procps\-ng 
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.nh
+.SH НАЗВА
+procps_misc — програмний інтерфейс до різноманітних даних у файловій системі
+/proc
+.SH "КОРОТКИЙ ОПИС"
+.nf
+\fB#include <libproc2/misc.h>\fP
+.PP
+Подробиці щодо платформи
+.RS 4
+.PP
+long         \fBprocps_cpu_count\fP (void);
+long         \fBprocps_hertz_get\fP (void);
+unsigned int \fBprocps_pid_length\fP (void);
+int          \fBprocps_linux_version\fP (void);
+.RE
+.PP
+Подробиці щодо середовища виконання
+.PP
+.RS 4
+int  \fB procps_container_uptime\fP (double *\fIuptime_secs\fP);
+int  \fB procps_loadavg\fP (double *\fIav1\fP, double *\fIav5\fP, double *\fIav15\fP);
+int  \fB procps_uptime\fP (double *\fIuptime_secs\fP, double *\fIidle_secs\fP);
+int  \fB procps_uptime_snprint\fP ( char *restrict \fIstr\fP, size_t \fIsize\fP, double \fIuptime_secs\fP, const int \fIpretty\fP);
+char *\fBprocps_uptime_sprint\fP (void);
+char *\fBprocps_uptime_sprint_short\fP (void);
+int   \fBprocps_users\fP (void);
+.RE
+.PP
+Подробиці щодо простору назв
+.PP
+.RS 4
+int       \fB  procps_ns_get_id\fP (const char *\fIname\fP);
+const char\fB *procps_ns_get_name\fP (int \fIid\fP);
+int       \fB  procps_ns_read_pid\fP (int \fIpid\fP, struct procps_ns *\fInsp\fP);
+.RE
+.PP
+Визначення назв масок
+.PP
+.RS 4
+int \fBprocps_sigmask_names\fP (char *const \fIstr\fP, size_t \fIsize\fP , const char *\fIsigmask\fP);
+int \fBprocps_capmask_names\fP (char *const \fIstr\fP, size_t \fIsize\fP,  const char *\fIcapmask\fP);
+.RE
+.PP
+.P
+Компонувати з \fI\-lproc2\fP.
+.SH ОПИС
+\fBprocps_cpu_count\fP() повертає кількість робочих процесорів як
+\fBsysconf(\fP\fI_SC_NPROCESSORS_ONLY\fP\fB)\fP або типове значення \fI1\fP.
+.P
+\fBprocps_hertz_get\fP() повертає кількість тактів годинника на секунду як
+\fBsysconf(\fP\fI_SC_CLK_TCK\fP\fB)\fP або типове значення \fI100\fP. Якщо поділити
+такти на це значення, буде отримано секунди.
+.P
+\fBprocps_pid_length\fP() повертає максимальну довжину рядка для PID у
+системі. Наприклад, якщо найбільше можливе значення PID — 123, довжиною буде
+3. Якщо файл \fI/proc/sys/kernel/pid_max\fP виявиться недоступним до читання,
+типовим значенням буде \fI5\fP.
+.P
+\fBprocps_linux_version\fP() повертає версію поточної системи Linux у форматі
+закодованого цілого числа. У системах, відмінних від Linux, із імітацією
+файлової системи proc ця функція повертає версію емуляції Linux. Версія
+складається з трьох додатних цілих чисел, які відповідають основній,
+проміжній частинам і частині модифікації. Передбачено вказані нижче макроси
+для кодування заданої версії Linux або окремого використання компонентів
+поточної версії.
+.RS 4
+.PP
+LINUX_VERSION(\ major\ ,\ minor\ ,\ patch\ )
+.PP
+LINUX_VERSION_MAJOR(\ ver\ )
+.PP
+LINUX_VERSION_MINOR(\ ver\ )
+.PP
+LINUX_VERSION_PATCH(\ ver\ )
+.RE
+.P
+\fBprocps_loadavg\fP() отримує дані щодо середнього навантаження на систему і
+записує середні значення за 1, 5 і 15 хвилин у місця, які вказано будь\-яким
+вказівником, який не є порожнім (\fINULL\fP).
+.P
+\fBprocps_container_uptime\fP() повертає час роботи контейнера у місце, яке
+задано вказівником, якщо його значенням не є \fINULL\fP. У поточній версії цей
+час визначається часом існування PID 1, який могло бути задано такою
+командою:
+.PP
+.in +4n
+.EX
+$ \fBps \-o etimes 1\fP
+ELAPSED
+12345
+.EE
+.in
+.PP
+У контейнері немає поняття бездіяльності, тому у
+\fBprocps_container_uptime\fP() немає цього параметра.
+.P
+\fBprocps_uptime\fP() повертає час роботи і/або бездіяльності у секундах у
+місця, які вказано будь\-яким вказівником, який не є порожнім
+(\fINULL\fP). Використання форматування \fBsprint\fP повертає рядок у зручному для
+читання форматі в одній із двох форм.
+.RS 4
+.PP
+ГГ:ХХ:СС up ГГ:ХХ, # users, load average: 1, 5, 15 MM averages
+.PP
+up ГГ, ХХ
+.RE
+.P
+\fBprocps_uptime_snprint\fP() використовує заданий буфер \fIstr\fP розміру \fIsize\fP
+для заповнення рядка часу виконання замість статично розміщеного
+буфера. Функції потрібне значення \fIuptime_secs\fP, яке може бути отримане з
+\fBprocps_uptime\fP() або \fBprocps_container_uptime\fP(), а прапорець \fIpretty\fP
+визначає, будуть виведені дані стандартними чи удосконаленим/скороченими.
+.P
+\fBprocps_users\fP() повертає кількість користувачів у системі. Це значення
+походить від \fBsd_get_sessions\fP(3) і є результатом підрахунку сеансів
+користувача, клас user\-early і user\-incomplete або нумерації за допомогою
+\fBgetutent\fP(3).
+.P
+\fBprocps_ns_get_id\fP() повертає цілочисельний ідентифікатор (enum
+namespace_type) простору назв для заданого простору назв \fIname\fP.
+.P
+\fBprocps_ns_get_name\fP() повертає назву простора назв для заданого \fIid\fP
+(enum namespace_type).
+.P
+\fBprocps_ns_read_pid\fP() повертає inode\-и для просторів назв із заданим
+процесом у структурі procps_ns на яку вказує \fInsp\fP. Ці inode\-и буде
+виведено у порядку, який визначається переліком namespace_type.
+.PP
+.RS 4
+.nf
+enum namespace_type {
+    PROCPS_NS_CGROUP,
+    PROCPS_NS_IPC,
+    PROCPS_NS_MNT,
+    PROCPS_NS_NET,
+    PROCPS_NS_PID,
+    PROCPS_NS_TIME,
+    PROCPS_NS_USER,
+    PROCPS_NS_UTS
+};
+.fi
+.RE
+.P
+\fBprocps_sigmask_names\fP() заповнює \fIstr\fP зручним для читання текстовим
+рядком довжиною до \fIsize\fP байтів набору сигналів у шістнадцятковій масці
+сигналів \fIsigmask\fP, див. \fBsignal\fP(7). Якщо довжина списку сигналів
+перевищить \fIsize\fP байтів, рядок буде обрізано і завершено
+\&'+'. Відповідальність за забезпечення правильного розміщення \fIstr\fP у
+принаймні \fIsize\fP байтів несе програма виклику.
+.P
+\fBprocps_capmask_names\fP() заповнює \fIstr\fP зручним для читання текстовим
+рядком довжиною до \fIsize\fP байтів набору можливостей у шістнадцятковій масці
+можливостей \fIsigmask\fP, див. \fBcapabilities\fP(7). Якщо довжина списку
+можливостей перевищить \fIsize\fP байтів, рядок буде обрізано і завершено
+\&'+'. Відповідальність за забезпечення правильного розміщення \fIstr\fP у
+принаймні \fIsize\fP байтів несе програма виклику.
+.P
+Для процесу, який немає можливостей або усі можливості, рядком буде "\-" і
+"full", відповідно.
+
+.SH "ПОВЕРНУТЕ ЗНАЧЕННЯ"
+.SS "Функції, які повертають «int» або «long»"
+На помилку вказуватиме від'ємне число, яке є завжди оберненим до якогось
+відомого значення з errno.h.
+.SS "Функції, які повертають \[oq]address\[cq]"
+На помилку вказуватиме повернутий NUL\-вказівник із повідомлення про причину
+у формальному значенні errno.
+.SH ФАЙЛИ
+.TP 
+\fI/proc/loadavg\fP
+Необроблені значення для середнього навантаження.
+.TP 
+\fI/proc/sys/kernel/osrelease\fP
+Містить версію випуску ядра Linux або файлової системи proc.
+.TP 
+\fI/proc/sys/kernel/pid_max\fP
+Містить значення, на якому відбувається зациклювання PID, на одиницю більше
+за максимальне значення PID.
+.TP 
+\fI/proc/uptime\fP
+Необроблені значення для часу роботи та часу бездіяльності системи.
+.TP 
+\fI/proc/\fPPID\fI/ns\fP
+містить набір просторів назв для певного \fIPID\fP.
+.SH "ТАКОЖ ПЕРЕГЛЯНЬТЕ"
+\fBprocps\fP(3), \fBprocps_pids\fP(3), \fBgetutent\fP(3), \fBsd_get_sessions\fP(3),
+\fBproc\fP(5), \fBcapabilities\fP(7), \fBsignal\fP(7).

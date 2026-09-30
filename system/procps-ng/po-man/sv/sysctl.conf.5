@@ -1,0 +1,82 @@
+.\"
+.\" Copyright (c) 2016-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2019-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1999      George Staikos <staikos@0wned.org>
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH SYSCTL.CONF 5 2025\-05\-29 procps\-ng 
+.SH NAMN
+sysctl.conf — Linuxkärnans konfigurationsparametrar
+.SH BESKRIVNING
+\fBsysctl.conf\fP är en uppsättning konfigurationsfiler som innehåller
+konfigurationsparametrar till Linuxkärnan att läsas och sättas av
+\fBsysctl\fP(8).
+.PP
+Denna manualsids beskriver konfigurationsfilerna för \fIprocps\fP \fBsysctl\fP. Om
+du använder \fBsystemd\-sysctl\fP(8), se \fBsysctl.d\fP(5) och notera att den inte
+kommer använda filen \fI\%/etc/\:\%sysctl\:\%.conf\fP.
+.SS Konfigurationsformat
+Varje rad i en fil som läses av \fIprocps\fP \fBsysctl\fP beskriver en
+kärnparameter på följande format.
+.P
+.RS
+.EX
+symbol = värde
+.EE
+.RE
+.P
+.P
+Det finns inget behov att använda citationstecken på \fIvärde\fP, även om
+värdet är en lista av saker.
+.P
+Tomma rader och rader som börjar med \[rq]\fB#\fP\[rq] eller \[rq]\fB;\fP\[rq]
+ignoreras.
+.P
+Om en rad börjar med ett ensamt \[rq]\-\[rq] kommer ett misslyckat försök att
+sätta värdet ignoreras.
+.SH FILER
+\fIprocps\fP \fBsysctl\fP läser, när det körs med flaggan \fB\%\-\-system\fP, filer
+från kataloger i den ordning som visas nedan.
+.P
+.RS
+.TP 
+\fI/etc/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/run/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/local/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/lib/sysctl.d/\fP*\fI.conf\fP
+.RE
+.P
+Slutligen läser \fIprocps\fP \fBsysctl\fP \fI\%/etc/\:\%sysctl\:\%.conf\fP. Denna fil
+används inte av \fBsystemd\-sysctl\fP, vilket betyder att några kärnparametrar
+inte sätts beroende på den implementation av \fBsysctl\fP som är installerad.
+.SH FEL
+Den maximala länden som stödjs för \fIvärdet\fP är 4096 tecken på grund av en
+begränsning hos \fI/proc\fP\-poster i Linuxkärnan.
+.SH EXEMPEL
+.EX
+#
+#
+kernel.domainname = example.com
+; Ett värde som innehåller ett melanrum skrivs till sysctl.
+kernel.modprobe = /sbin/mod probe
+# En lista af poster som värde
+net.ipv4.ip_local_reserved_ports=8080,9148
+.EE
+.SH "SE ÄVEN"
+\fBsysctl.d\fP(5), \fBsysctl\fP(8), \fBsystemd\-sysctl\fP(8)

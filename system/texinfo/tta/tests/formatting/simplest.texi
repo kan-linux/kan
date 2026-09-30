@@ -1,0 +1,12 @@
+\input texinfo @c -*-texinfo-*-
+
+@setfilename simplest.info
+
+@node Top
+@top top section
+
+@chapter Chapter
+
+This is a very simple texi manual @  <>.
+
+@bye

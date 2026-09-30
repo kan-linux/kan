@@ -1,0 +1,2543 @@
+# GNU wget2 Bahasa Melayu (Malay) (ms).
+# Copyright (C) 2023, 2024, 2025, 2026 Free Software Foundation, Inc.
+# This file is distributed under the same license as the wget2 package.
+# Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>, 2023, 2024, 2025, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wget2 2.2.1\n"
+"Report-Msgid-Bugs-To: bug-wget2@gnu.org\n"
+"POT-Creation-Date: 2026-09-16 18:48+0200\n"
+"PO-Revision-Date: 2026-09-19 21:03+0800\n"
+"Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
+"Language-Team: Malay <translation-team-ms@lists.sourceforge.net>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.9\n"
+
+#: lib/error.c:208
+#, fuzzy
+msgid "Unknown system error"
+msgstr "Ralat sistem yang tidak diketahui"
+
+#: lib/gai_strerror.c:57
+#, fuzzy
+msgid "Address family for hostname not supported"
+msgstr "alamat keluarga untuk nama nod tidak disokong"
+
+#: lib/gai_strerror.c:58
+#, fuzzy
+msgid "Temporary failure in name resolution"
+msgstr "kegagalan sementara di dalam resolusi nama"
+
+#: lib/gai_strerror.c:59
+#, fuzzy
+msgid "Bad value for ai_flags"
+msgstr "nilai tidak sah untuk 'ai_flags'"
+
+#: lib/gai_strerror.c:60
+#, fuzzy
+msgid "Non-recoverable failure in name resolution"
+msgstr "Ralat-tidak-dapat-pulih pada resolusi nama"
+
+#: lib/gai_strerror.c:61
+#, fuzzy
+msgid "ai_family not supported"
+msgstr "'ai_family' tidak disokong"
+
+#: lib/gai_strerror.c:62
+#, fuzzy
+msgid "Memory allocation failure"
+msgstr "Kegagalan perletakan memori"
+
+#: lib/gai_strerror.c:63
+#, fuzzy
+msgid "No address associated with hostname"
+msgstr "Nama hos atau alamat IP VNC"
+
+#: lib/gai_strerror.c:64
+#, fuzzy
+msgid "Name or service not known"
+msgstr "nama atau servis tidak diketahui"
+
+#: lib/gai_strerror.c:65
+#, fuzzy
+msgid "Servname not supported for ai_socktype"
+msgstr "nama pelayan tidak disokong untuk ai_socktype"
+
+#: lib/gai_strerror.c:66
+#, fuzzy
+msgid "ai_socktype not supported"
+msgstr "'ai_socktype' tidak disokong"
+
+#: lib/gai_strerror.c:67
+#, fuzzy
+msgid "System error"
+msgstr "Ralat sistem"
+
+#: lib/gai_strerror.c:68
+#, fuzzy
+msgid "Argument buffer too small"
+msgstr "Penimbal ouput terlalu kecil"
+
+#: lib/gai_strerror.c:70
+#, fuzzy
+msgid "Processing request in progress"
+msgstr "Pelayan melayani permintaan, sila tunggu..."
+
+#: lib/gai_strerror.c:71
+#, fuzzy
+msgid "Request canceled"
+msgstr "Permintaan dibatalkan."
+
+#: lib/gai_strerror.c:72
+#, fuzzy
+msgid "Request not canceled"
+msgstr "permintaan dibatalkan"
+
+#: lib/gai_strerror.c:73
+#, fuzzy
+msgid "All requests done"
+msgstr "Semua selesai!"
+
+#: lib/gai_strerror.c:74
+#, fuzzy
+msgid "Interrupted by a signal"
+msgstr "Fungsi telah dibatalkan."
+
+#: lib/gai_strerror.c:75
+#, fuzzy
+msgid "Parameter string not correctly encoded"
+msgstr "Dienkod Oleh"
+
+#: lib/gai_strerror.c:86 libwget/error.c:58
+#, fuzzy
+msgid "Unknown error"
+msgstr "Ralat tidak diketahui"
+
+#: lib/openat-die.c:38
+#, fuzzy, c-format
+msgid "unable to record current working directory"
+msgstr "tidak dapat merekodkan direktori kerja semasa"
+
+#: lib/openat-die.c:57
+#, fuzzy, c-format
+msgid "failed to return to initial working directory"
+msgstr "gagal untuk kembali ke direktori kerja pemulaan"
+
+#: lib/os2-spawn.c:51
+#, fuzzy, c-format
+msgid "_open_osfhandle failed"
+msgstr "Gagal membuka '%s' (%d)"
+
+#: lib/os2-spawn.c:88
+#, fuzzy, c-format
+msgid "cannot restore fd %d: dup2 failed"
+msgstr "Tidak dapat lepasi FD %d sebanyak dua kali"
+
+#: lib/regcomp.c:128 libwget/error.c:44
+#, fuzzy
+msgid "Success"
+msgstr "Berjaya"
+
+#: lib/regcomp.c:131
+#, fuzzy
+msgid "No match"
+msgstr "Tiada padanan"
+
+#: lib/regcomp.c:134
+#, fuzzy
+msgid "Invalid regular expression"
+msgstr "Regular expression tidak sah"
+
+#: lib/regcomp.c:137
+#, fuzzy
+msgid "Invalid collation character"
+msgstr "Aksara pengumpulsemakan tidak sah"
+
+#: lib/regcomp.c:140
+#, fuzzy
+msgid "Invalid character class name"
+msgstr "Nama kelas aksara tidak sah"
+
+#: lib/regcomp.c:143
+#, fuzzy
+msgid "Trailing backslash"
+msgstr "Slash dibelakang"
+
+#: lib/regcomp.c:146
+#, fuzzy
+msgid "Invalid back reference"
+msgstr "Rujukan belakang tidak sah"
+
+#: lib/regcomp.c:149
+#, fuzzy
+msgid "Unmatched [, [^, [:, [., or [="
+msgstr "[, [^, [:, [., atau [= tidak sepadan"
+
+#: lib/regcomp.c:152
+#, fuzzy
+msgid "Unmatched ( or \\("
+msgstr "( atau \\( tidak sepadan"
+
+#: lib/regcomp.c:155
+#, fuzzy
+msgid "Unmatched \\{"
+msgstr "\\{ tidak sepadan"
+
+#: lib/regcomp.c:158
+#, fuzzy
+msgid "Invalid content of \\{\\}"
+msgstr "Kandungan \\{\\} tidak sah"
+
+#: lib/regcomp.c:161
+#, fuzzy
+msgid "Invalid range end"
+msgstr "Julat akhir tidak sah"
+
+#: lib/regcomp.c:164
+#, fuzzy
+msgid "Memory exhausted"
+msgstr "Kehabisan memori"
+
+#: lib/regcomp.c:167
+#, fuzzy
+msgid "Invalid preceding regular expression"
+msgstr "Regular expression awalan tidak sah"
+
+#: lib/regcomp.c:170
+#, fuzzy
+msgid "Premature end of regular expression"
+msgstr "Regular expression tamat tiba-tiba"
+
+#: lib/regcomp.c:173
+#, fuzzy
+msgid "Regular expression too big"
+msgstr "Regular expression terlalu besar"
+
+#: lib/regcomp.c:176
+msgid "Unmatched ) or \\)"
+msgstr "Tiada padanan ) atau \\)"
+
+#: lib/regcomp.c:669
+msgid "No previous regular expression"
+msgstr "Tiada regular expression terdahulu"
+
+#: lib/spawn-pipe.c:218 lib/spawn-pipe.c:221
+#, c-format
+msgid "cannot create pipe"
+msgstr "tidak dapat mencipta paip"
+
+#: lib/spawn-pipe.c:601 lib/wait-process.c:324 lib/wait-process.c:395
+#, fuzzy, c-format
+msgid "%s subprocess failed"
+msgstr "Pelancar subproses gagal"
+
+#: lib/wait-process.c:265 lib/wait-process.c:297 lib/wait-process.c:356
+#, fuzzy, c-format
+msgid "%s subprocess"
+msgstr "Panggil ke subproses yang tidak sah."
+
+#: lib/wait-process.c:316 lib/wait-process.c:385
+#, fuzzy, c-format
+msgid "%s subprocess got fatal signal %d"
+msgstr "dapat isyarat %i (%s) - mengulanghidup\n"
+
+#: lib/xalloc-die.c:34
+msgid "memory exhausted"
+msgstr "kehabisan memori"
+
+#: libwget/cookie.c:416
+#, fuzzy, c-format
+msgid "Incomplete cookie entry: %s\n"
+msgstr "Pengikatan kunci (%s) tidak lengkap"
+
+#: libwget/cookie.c:450
+#, fuzzy
+msgid "Failed to read cookies\n"
+msgstr "Tiada kuki"
+
+#: libwget/cookie.c:511
+#, fuzzy, c-format
+msgid "Failed to write cookie file '%s'\n"
+msgstr "Gagal menulis fail kunci '%s'"
+
+#: libwget/cookie_parse.c:368
+#, fuzzy
+msgid "Cookie without name or assignment ignored\n"
+msgstr "nama simbol berulang bagi %s diabaikan"
+
+#: libwget/css.c:152
+#, fuzzy, c-format
+msgid "Unknown token after @charset: %d\n"
+msgstr ": set aksara tidak diketahui"
+
+#: libwget/css.c:194 libwget/io.c:353 libwget/xml.c:685
+#, c-format
+msgid "Failed to open %s\n"
+msgstr "Gagal untuk membuka %s\n"
+
+#: libwget/css_url.c:104
+#, fuzzy, c-format
+msgid "Cannot resolve relative URI '%s'\n"
+msgstr "Tidak dapat menghurai URI '%s'\n"
+
+#: libwget/decompressor.c:123
+#, fuzzy
+msgid "Failed to init gzip decompression\n"
+msgstr "Penyahmampatan gzip"
+
+#: libwget/decompressor.c:159
+msgid "Failed to re-init deflate/gzip decompression\n"
+msgstr ""
+
+#: libwget/decompressor.c:175
+#, fuzzy, c-format
+msgid "Failed to uncompress gzip stream (%d)\n"
+msgstr "gzip gagal, berkemungkinan cakera penuh."
+
+#: libwget/decompressor.c:184
+#, fuzzy, c-format
+msgid "Failed to close gzip stream (%d)\n"
+msgstr "Gagal menutup strim tmp"
+
+#: libwget/decompressor.c:193
+#, fuzzy
+msgid "Failed to init deflate decompression\n"
+msgstr "Gagal untuk init libxfconf: %s"
+
+#: libwget/decompressor.c:208
+#, fuzzy
+msgid "Failed to init LZMA decompression\n"
+msgstr "Penyahmampatan LZMA"
+
+#: libwget/decompressor.c:247
+#, fuzzy, c-format
+msgid "Failed to uncompress LZMA stream (%d)\n"
+msgstr "Gagal menutup strim tmp"
+
+#: libwget/decompressor.c:261
+#, fuzzy
+msgid "Failed to init Brotli decompression\n"
+msgstr "Gagal untuk init libxfconf: %s"
+
+#: libwget/decompressor.c:304
+#, fuzzy, c-format
+msgid "Failed to uncompress Brotli stream (%u): %s\n"
+msgstr "gagal mendapatkan nama untuk platform %u (%s)"
+
+#: libwget/decompressor.c:319
+#, fuzzy
+msgid "Failed to create Zstandard decompression\n"
+msgstr "Nyahmampatan paket rekod TLS telah gagal."
+
+#: libwget/decompressor.c:325
+#, fuzzy, c-format
+msgid "Failed to init Zstandard decompression: %s\n"
+msgstr "Gagal untuk init libxfconf: %s"
+
+#: libwget/decompressor.c:356
+#, fuzzy, c-format
+msgid "Failed to uncompress Zstandard stream: %s\n"
+msgstr "IDENT: stream_write() gagal: %s."
+
+#: libwget/decompressor.c:377
+#, fuzzy
+msgid "Failed to create lzip decompression\n"
+msgstr "Nyahmampatan gagal"
+
+#: libwget/decompressor.c:384
+#, fuzzy, c-format
+msgid "Failed to create lzip decompression: %d %s\n"
+msgstr "Gagal mencipta fungsi SQLite, kod ralat \"%d\": %s"
+
+#: libwget/decompressor.c:405
+#, fuzzy, c-format
+msgid "Failed to uncompress lzip stream: %d %s\n"
+msgstr "IDENT: stream_write() gagal: %s."
+
+#: libwget/decompressor.c:460
+#, fuzzy
+msgid "Failed to init bzip2 decompression\n"
+msgstr "bzip2 gagal, mungkin cakera sudah penuh."
+
+#: libwget/decompressor.c:499
+#, fuzzy, c-format
+msgid "Failed to uncompress bzip2 stream (%d)\n"
+msgstr "bzip2 gagal, mungkin cakera sudah penuh."
+
+#: libwget/dns.c:313
+#, fuzzy, c-format
+msgid "Failed to resolve '[%s]:%d': %s\n"
+msgstr "Gagal untuk menyelesai alamat '%s': %s\n"
+
+#: libwget/dns.c:315
+#, fuzzy, c-format
+msgid "Failed to resolve '%s:%d': %s\n"
+msgstr "Gagal untuk menyelesai alamat '%s': %s\n"
+
+#: libwget/dns.c:398
+#, fuzzy, c-format
+msgid "Failed to resolve '%s' (%s)\n"
+msgstr "Gagal untuk menyelesai alamat '%s': %s\n"
+
+#: libwget/encoding.c:112
+#, fuzzy, c-format
+msgid "Failed to transcode '%s' string into '%s' (%d)\n"
+msgstr "Rentetan “%s” bukanlah satu GUID D-Bus yang sah"
+
+#: libwget/encoding.c:124
+#, fuzzy, c-format
+msgid "Failed to prepare transcoding '%s' into '%s' (%d)\n"
+msgstr "Menyedia volum #%d bagi %s dan tekan return: "
+
+#: libwget/encoding.c:261
+#, fuzzy, c-format
+msgid "toASCII(%s) failed (%d): %s\n"
+msgstr "Gagal membuka '%s' (%d)"
+
+#: libwget/encoding.c:280
+#, fuzzy, c-format
+msgid "toASCII failed (%d): %s\n"
+msgstr "Gagal membuka '%s' (%d)"
+
+#: libwget/encoding.c:283
+#, fuzzy, c-format
+msgid "Invalid UTF-8 sequence not converted: '%s'\n"
+msgstr "Ralat kaji hurai: Turutan UTF-8 tidak sah"
+
+#: libwget/encoding.c:287
+#, fuzzy, c-format
+msgid "toASCII not available: '%s'\n"
+msgstr "Tiada nilai tersedia untuk \"%s/%s\""
+
+#: libwget/error.c:45
+#, fuzzy
+msgid "General error"
+msgstr "_Am"
+
+#: libwget/error.c:46
+msgid "No memory"
+msgstr "Tiada ingatan"
+
+#: libwget/error.c:47
+msgid "Invalid value"
+msgstr "Nilai tidak sah"
+
+#: libwget/error.c:48
+msgid "Timeout"
+msgstr "Masa tamat"
+
+#: libwget/error.c:49
+msgid "Connect error"
+msgstr "Ralat sambungan"
+
+#: libwget/error.c:50
+msgid "Handshake error"
+msgstr "Ralat jabat tangan"
+
+#: libwget/error.c:51
+#, fuzzy
+msgid "Certificate error"
+msgstr "Ralat dalam sijil."
+
+#: libwget/error.c:52
+msgid "libwget has been built without TLS support"
+msgstr ""
+
+#: libwget/error.c:53
+msgid "Failed to parse XML"
+msgstr "Gagal menghurai XML"
+
+#: libwget/error.c:54
+msgid "Failed to open file"
+msgstr "Gagal membuka fail"
+
+#: libwget/error.c:55
+#, fuzzy
+msgid "I/O error"
+msgstr "Pemindahan I/O"
+
+#: libwget/error.c:56
+#, fuzzy
+msgid "Unsupported function"
+msgstr "fungsi songsang tidak disokong"
+
+#: libwget/error.c:57
+msgid "Maximum XML depth of 1024 was reached"
+msgstr ""
+
+#: libwget/hash_printf.c:83
+#, fuzzy, c-format
+msgid "Failed to hash (%d)\n"
+msgstr "Semakan hash SHA-256 gagal"
+
+#: libwget/hash_printf.c:89
+#, fuzzy, c-format
+msgid "%s: Failed to malloc %zu bytes\n"
+msgstr "Gagal transmutasi %zu bait data dari %s ke %u"
+
+#: libwget/hashfile.c:92
+#, fuzzy, c-format
+msgid "Unknown hash type '%s'\n"
+msgstr "jenis fail tak diketahui %s\n"
+
+#: libwget/hashfile.c:794 libwget/hpkp_db.c:159
+#, fuzzy, c-format
+msgid "%s: Unexpected hash len %zu > %zu\n"
+msgstr "[%s (%s): %zu halaman pada %zu helaian]\n"
+
+#: libwget/hashfile.c:816
+#, fuzzy, c-format
+msgid "%s: Hash init failed for type '%s': %s\n"
+msgstr "Gagal untuk init libxfconf: %s"
+
+#: libwget/hashfile.c:822
+#, fuzzy, c-format
+msgid "%s: Hash update failed: %s\n"
+msgstr "Hash keselamatan: %(hash_value)s"
+
+#: libwget/hashfile.c:833
+#, fuzzy, c-format
+msgid "%s: Hash finalization failed: %s\n"
+msgstr "Hash keselamatan: %(hash_value)s"
+
+#: libwget/hashfile.c:838
+#, fuzzy, c-format
+msgid "%s: Failed to read %llu bytes\n"
+msgstr "Gagal membaca “%s”: %s\n"
+
+#: libwget/hpkp_db.c:311
+#, fuzzy, c-format
+msgid "HPKP: could not parse host line '%s'\n"
+msgstr "Tidak dapat hurai arahan baris '%s: %s"
+
+#: libwget/hpkp_db.c:317
+#, fuzzy, c-format
+msgid "HPKP: could not parse pin line '%s'\n"
+msgstr "Tidak dapat hurai arahan baris '%s: %s"
+
+#: libwget/hpkp_db.c:360
+#, fuzzy
+msgid "Failed to read HPKP data\n"
+msgstr "Gagal membaca data imej"
+
+#: libwget/hpkp_db.c:450
+#, fuzzy, c-format
+msgid "Failed to write HPKP file '%s'\n"
+msgstr "Gagal menulis fail %s"
+
+#: libwget/hsts.c:414 libwget/tls_session.c:339
+#, fuzzy, c-format
+msgid "Failed to parse HSTS line: '%s'\n"
+msgstr "Gagal menghurai pilihan baris perintah: %s\n"
+
+#: libwget/hsts.c:454
+#, fuzzy
+msgid "Failed to read HSTS data\n"
+msgstr "Gagal membaca data imej"
+
+#: libwget/hsts.c:517
+#, fuzzy, c-format
+msgid "Failed to write HSTS file '%s'\n"
+msgstr "Gagal menulis fail %s"
+
+#: libwget/http.c:190 libwget/http.c:200 libwget/http.c:209 libwget/http.c:218
+#, fuzzy, c-format
+msgid "%s: Unknown key %d (or value must not be an integer)\n"
+msgstr "Nilai data tridak diketahui \"%s\" pada baris %d. Diabaikan."
+
+#: libwget/http.c:323
+#, fuzzy, c-format
+msgid "Unsupported quality of protection '%s'.\n"
+msgstr "Format penyirian \"%s\" tidak disokong\n"
+
+#: libwget/http.c:334
+#, fuzzy, c-format
+msgid "Unsupported algorithm '%s'.\n"
+msgstr "Algoritma tanda tangan tidak disokong"
+
+#: libwget/http.c:426
+#, fuzzy, c-format
+msgid "Decompress failed [host: %s - resource: %s]\n"
+msgstr "Sumber pada \"%s\" gagal dinyahmampatkan"
+
+#: libwget/http.c:505
+#, fuzzy, c-format
+msgid "Proxy connection failed with: %s\n"
+msgstr "Sambungan proksi HTTP gagal: %i"
+
+#: libwget/http.c:705
+#, fuzzy
+msgid "Failed to create request buffer\n"
+msgstr "Cipta satu fail permintaan sijil."
+
+#: libwget/http.c:881 libwget/tls_session.c:381
+#, fuzzy, c-format
+msgid "Failed to allocate %zu bytes\n"
+msgstr "gagal memperuntuk penimbal imej bersaiz %u bait"
+
+#: libwget/http.c:983
+#, fuzzy, c-format
+msgid "Failed to allocate %zu bytes (%s)\n"
+msgstr "Gagal transmutasi %zu bait data dari %s ke %u"
+
+#: libwget/http.c:1008
+#, fuzzy, c-format
+msgid "Failed to convert chunk size '%.31s' (%s)\n"
+msgstr "[%s] gagal menukar %s dalam fungsi \"ftoax\". %s\n"
+
+#: libwget/http.c:1052
+#, fuzzy, c-format
+msgid "Chunk size overflow: %zX (%s)\n"
+msgstr "Melimpah. Cuba saiz perkataan yang lebih besar"
+
+#: libwget/http.c:1107
+#, fuzzy, c-format
+msgid "Expected end-of-chunk not found (%s)\n"
+msgstr "menjangka `ya' atau `tidak', tetapi menjumpai %s"
+
+#: libwget/http.c:1171
+#, fuzzy, c-format
+msgid "Failed to read %zd bytes (%d) (%s)\n"
+msgstr "Gagal menulis fail %s (%zd, errno=%d)\n"
+
+#: libwget/http.c:1177
+#, fuzzy, c-format
+msgid "Just got %zu of %zu bytes (%s)\n"
+msgstr "%s%zd %s,  %zu %s,  %zu %s"
+
+#: libwget/http.c:1182
+#, c-format
+msgid "Body too large: %zu instead of %zu bytes (%s)\n"
+msgstr ""
+
+#: libwget/http2.c:201
+#, fuzzy
+msgid "Failed to create HTTP2 callbacks\n"
+msgstr "Tidak dapat memperuntukkan callback"
+
+#: libwget/http2.c:210
+#, fuzzy, c-format
+msgid "Failed to create HTTP2 client session (%d)\n"
+msgstr "Gagal cipta lakaran kenit untuk halaman %d"
+
+#: libwget/http2.c:221
+#, c-format
+msgid "Failed to submit HTTP2 client settings (%d)\n"
+msgstr ""
+
+#: libwget/http2.c:241
+#, fuzzy, c-format
+msgid "Failed to terminate HTTP2 session (%d)\n"
+msgstr "Gagal menghentikan benang."
+
+#: libwget/http2.c:292
+#, fuzzy, c-format
+msgid "Failed to allocate nvs[%d]\n"
+msgstr "Gagal memperuntukan ingatan"
+
+#: libwget/http2.c:298
+#, fuzzy, c-format
+msgid "Failed to allocate resource[%zu]\n"
+msgstr "Gagal memperuntukan ingatan"
+
+#: libwget/http2.c:369
+#, fuzzy
+msgid "Failed to submit HTTP2 request\n"
+msgstr "Permintaan gagal, kod pulangan:"
+
+#: libwget/http_highlevel.c:45
+#, fuzzy, c-format
+msgid "Failed to fwrite %zu bytes of data (%d)\n"
+msgstr "Gagal transmutasi %zu bait data dari %s ke %u"
+
+#: libwget/http_highlevel.c:60
+#, fuzzy, c-format
+msgid "Failed to write %zu bytes of data (%d)\n"
+msgstr "Gagal transmutasi %zu bait data dari %s ke %u"
+
+#: libwget/http_highlevel.c:165
+#, fuzzy, c-format
+msgid "Unknown option %d\n"
+msgstr "Pilihan %.*s tidak diketahui"
+
+#: libwget/http_highlevel.c:175
+msgid "Error parsing URL\n"
+msgstr "Ralat menghurai URL\n"
+
+#: libwget/http_highlevel.c:182
+#, fuzzy
+msgid "Missing URL/URI\n"
+msgstr "URL '%.*s' tidak diikuti (URI asas tiada)\n"
+
+#: libwget/http_parse.c:925 libwget/http_parse.c:950
+#, fuzzy, c-format
+msgid "Failed to parse date '%s'\n"
+msgstr "Gagal menghantar %s: %s"
+
+#: libwget/http_parse.c:1337
+#, fuzzy
+msgid "HTTP response header not found\n"
+msgstr "Tidak dapat menghurai respons HTTP"
+
+#: libwget/init.c:137 src/options.c:3760
+#, fuzzy, c-format
+msgid "Failed to init DNS cache (%d)"
+msgstr "Gagal untuk init libxfconf: %s"
+
+#: libwget/init.c:172 libwget/init.c:246 libwget/init.c:271 libwget/init.c:286
+#, fuzzy, c-format
+msgid "%s: Unknown option %d"
+msgstr "Pilihan %.*s tidak diketahui"
+
+#: libwget/init.c:191
+#, fuzzy, c-format
+msgid "%s: Failed to init networking (%d)"
+msgstr "Gagal untuk init libxfconf: %s"
+
+#: libwget/init.c:229
+#, fuzzy, c-format
+msgid "%s: Failed to deinit networking (%d)"
+msgstr "Gagal menamakan semula %s ke %s (%d)"
+
+#: libwget/io.c:126
+#, fuzzy, c-format
+msgid "%s: Failed to read, error %d\n"
+msgstr "Gagal dengan ralat HTML %d: %s"
+
+#: libwget/io.c:346
+#, c-format
+msgid ""
+"WARNING: Size of %s changed from %lld to %lld while reading. This may lead "
+"to unwanted results !\n"
+msgstr ""
+
+#: libwget/io.c:349
+#, fuzzy, c-format
+msgid "Failed to fstat %s\n"
+msgstr "fstat gagal bagi '%s'"
+
+#: libwget/io.c:438
+#, fuzzy, c-format
+msgid "Failed to create '%s' (%d)\n"
+msgstr "Gagal mencipta fail %s"
+
+#: libwget/io.c:445
+#, fuzzy, c-format
+msgid "Failed to lock '%s' (%d)\n"
+msgstr "Gagal mengunci fail kunci '%s'"
+
+#: libwget/io.c:454
+#, fuzzy, c-format
+msgid "Failed to read open '%s' (%d)\n"
+msgstr "Gagal membuka '%s' (%d)\n"
+
+#: libwget/io.c:477
+#, fuzzy, c-format
+msgid "Failed to open tmpfile '%s' (%d)\n"
+msgstr "Gagal membuka '%s' (%d)\n"
+
+#: libwget/io.c:486
+#, fuzzy, c-format
+msgid "Failed to write open '%s' (%d)\n"
+msgstr "Gagal membuka '%s' (%d)\n"
+
+#: libwget/io.c:502
+#, fuzzy, c-format
+msgid "Failed to write/close '%s' (%d)\n"
+msgstr "Gagal menulis fail %s (%zd, errno=%d)\n"
+
+#: libwget/io.c:510
+#, fuzzy, c-format
+msgid "Failed to rename '%s' to '%s' (%d)\n"
+msgstr "Gagal menamakan semula %s ke %s (%d)"
+
+#: libwget/io.c:511
+#, fuzzy, c-format
+msgid "Take manually care for '%s'\n"
+msgstr "Dalam bulatan, ambil susur keluar %s"
+
+#: libwget/iri.c:648
+#, fuzzy
+msgid "Port number must be in the range 1..65535\n"
+msgstr ""
+"Ralat kaji hurai: Nombor terkeluar dari Julat (mesti kecil daripada  %1)"
+
+#: libwget/iri.c:682
+#, fuzzy, c-format
+msgid "Missing host/domain in URI '%s'\n"
+msgstr "URL '%.*s' tidak diikuti (URI asas tiada)\n"
+
+#: libwget/net.c:134
+#, fuzzy, c-format
+msgid "%s (hostname='%s', ip=%s, errno=%d)\n"
+msgstr "Buka %s gagal. Errno = %d, "
+
+#: libwget/net.c:141
+#, fuzzy, c-format
+msgid "%s (hostname='%s', errno=%d)\n"
+msgstr "Buka %s gagal. Errno = %d, "
+
+#: libwget/net.c:613 libwget/net.c:621
+#, fuzzy
+msgid "Failed to set socket to non-blocking\n"
+msgstr "Tak dapat menetapkan soket ke bukan-blok: %s\n"
+
+#: libwget/net.c:618
+#, fuzzy
+msgid "Failed to get socket flags\n"
+msgstr "Tak memperolehi flag soket: %s\n"
+
+#: libwget/net.c:635
+msgid "Failed to set socket option SO_SNDTIMEO\n"
+msgstr ""
+
+#: libwget/net.c:638
+#, fuzzy
+msgid "Failed to set socket option SO_RCVTIMEO\n"
+msgstr "Gagal mencipta  soket %s\n"
+
+#: libwget/net.c:646
+#, fuzzy
+msgid "Failed to set socket option REUSEADDR\n"
+msgstr "Gagal mencipta  soket %s\n"
+
+#: libwget/net.c:650
+#, fuzzy
+msgid "Failed to set socket option NODELAY\n"
+msgstr "Gagal mencipta  soket %s\n"
+
+#: libwget/net.c:655
+#, fuzzy
+msgid "Failed to set socket option BINDTODEVICE\n"
+msgstr "Gagal mencipta  soket %s\n"
+
+#: libwget/net.c:660
+#, fuzzy
+msgid "Unsupported socket option BINDTODEVICE\n"
+msgstr "Alamat soket tidak disokong"
+
+#: libwget/net.c:803
+#, fuzzy
+msgid "Failed to create socket"
+msgstr "Gagal mencipta  soket %s\n"
+
+#: libwget/net.c:816
+msgid "Failed to bind"
+msgstr "Gagal untuk mengikat"
+
+#: libwget/net.c:828 libwget/net.c:1007
+msgid "Failed to connect"
+msgstr "Gagal menyambung"
+
+#: libwget/net.c:941
+#, c-format
+msgid "Failed to read %zu bytes (hostname='%s', ip=%s, errno=%d)\n"
+msgstr ""
+
+#: libwget/net.c:1029
+#, c-format
+msgid "Failed to send %zu bytes (hostname='%s', ip=%s, errno=%d)\n"
+msgstr ""
+
+#: libwget/net.c:1071
+#, c-format
+msgid "%s: internal error: length mismatch %zu != %zd\n"
+msgstr ""
+
+#: libwget/metalink.c:136
+#, fuzzy, c-format
+msgid "Mirror scheme not supported: '%s'\n"
+msgstr "Skema Uri tidak disokong"
+
+#: libwget/metalink.c:335
+#, fuzzy
+msgid "Error in parsing XML"
+msgstr "Ralat menghurai XML: %s"
+
+#: libwget/ocsp.c:479
+#, fuzzy, c-format
+msgid "Failed to parse OCSP line: '%s'\n"
+msgstr "Gagal menghurai pilihan baris perintah: %s\n"
+
+#: libwget/ocsp.c:525
+#, fuzzy
+msgid "Failed to read OCSP hosts\n"
+msgstr "Gagal membaca “%s”: %s\n"
+
+#: libwget/ocsp.c:532
+#, fuzzy
+msgid "Failed to read OCSP fingerprints\n"
+msgstr "Gagal membaca lalai sistem. "
+
+#: libwget/ocsp.c:619
+#, fuzzy, c-format
+msgid "Failed to write to OCSP hosts to '%s'\n"
+msgstr "Gagal menulis fail \"%s\": write() gagal: %s"
+
+#: libwget/ocsp.c:626
+#, fuzzy, c-format
+msgid "Failed to write to OCSP fingerprints to '%s'\n"
+msgstr "Gagal menulis fail \"%s\": write() gagal: %s"
+
+#: libwget/pipe.c:85
+#, fuzzy, c-format
+msgid "Failed to create pipe for STDIN on %s\n"
+msgstr "Gagal mencipta saliran tanpanama"
+
+#: libwget/pipe.c:89
+#, fuzzy, c-format
+msgid "Failed to create pipe for STDOUT on %s\n"
+msgstr "Gagal mencipta saliran tanpanama"
+
+#: libwget/pipe.c:97
+#, fuzzy, c-format
+msgid "Failed to create pipe for STDERR on %s\n"
+msgstr "Gagal mencipta saliran tanpanama"
+
+#: libwget/pipe.c:115 libwget/pipe.c:125 libwget/pipe.c:136
+#, fuzzy, c-format
+msgid "Failed to dup2(%d,%d) (%d)\n"
+msgstr "Gagal pada mesej %d daripada %d"
+
+#: libwget/pipe.c:163
+#, c-format
+msgid "Failed to fork '%s'\n"
+msgstr "Gagal mencabang '%s'\n"
+
+#: libwget/ssl_gnutls.c:218 libwget/ssl_wolfssl.c:210
+#, c-format
+msgid "Unknown config key %d (or value must not be a string)\n"
+msgstr ""
+
+#: libwget/ssl_gnutls.c:252 libwget/ssl_wolfssl.c:244
+#, c-format
+msgid "Unknown config key %d (or value must not be an object)\n"
+msgstr ""
+
+#: libwget/ssl_gnutls.c:308 libwget/ssl_wolfssl.c:294
+#, c-format
+msgid "Unknown config key %d (or value must not be an integer)\n"
+msgstr ""
+
+#: libwget/ssl_gnutls.c:355
+#, fuzzy, c-format
+msgid "Certificate info [%u]:\n"
+msgstr "- Maklumat sijil:\n"
+
+#: libwget/ssl_gnutls.c:358
+#, c-format
+msgid "  Valid since: %s"
+msgstr "  Sah sejak: %s"
+
+#: libwget/ssl_gnutls.c:361
+#, c-format
+msgid "  Expires: %s"
+msgstr "  Tamat tempoh: %s"
+
+#: libwget/ssl_gnutls.c:368
+#, c-format
+msgid "  Fingerprint: %s\n"
+msgstr "  Cap jari: %s\n"
+
+#: libwget/ssl_gnutls.c:376
+#, fuzzy, c-format
+msgid "  Serial number: %s\n"
+msgstr "Nombor siri:"
+
+#: libwget/ssl_gnutls.c:381
+#, fuzzy, c-format
+msgid "  Public key: %s, %s (%u bits)\n"
+msgstr "\t\tKekunci awam (%d bit): "
+
+#: libwget/ssl_gnutls.c:386
+#, c-format
+msgid "  Version: #%d\n"
+msgstr "  Versi: #%d\n"
+
+#: libwget/ssl_gnutls.c:390
+#, c-format
+msgid "  DN: %s\n"
+msgstr "  DN: %s\n"
+
+#: libwget/ssl_gnutls.c:394
+#, c-format
+msgid "  Issuer's DN: %s\n"
+msgstr "  DN Pengeluar: %s\n"
+
+#: libwget/ssl_gnutls.c:398
+#, fuzzy, c-format
+msgid "  Issuer's OID: %s\n"
+msgstr "%s\t\t\tnamaLain OID: %.*s\n"
+
+#: libwget/ssl_gnutls.c:402
+#, fuzzy, c-format
+msgid "  Issuer's UID: %s\n"
+msgstr "  DN Pengeluar: %s\n"
+
+#: libwget/ssl_gnutls.c:414
+#, fuzzy, c-format
+msgid "  Unknown certificate type %d\n"
+msgstr "Jenis objek tak diketahui %d\n"
+
+#: libwget/ssl_gnutls.c:429 libwget/ssl_gnutls.c:495 libwget/ssl_gnutls.c:522
+msgid "----\n"
+msgstr "----\n"
+
+#: libwget/ssl_gnutls.c:437
+#, fuzzy
+msgid "TLS/IA session\n"
+msgstr "Pengesahan checksum fasa TLS/IA gagal"
+
+#: libwget/ssl_gnutls.c:442
+#, fuzzy, c-format
+msgid "SRP session with username %s\n"
+msgstr "Namapengguna SRP yang diberikan tidak sah."
+
+#: libwget/ssl_gnutls.c:450
+#, fuzzy, c-format
+msgid "PSK authentication. PSK hint '%s'\n"
+msgstr "Nama pengguna SRP/PSK tiada atau tidak diketahui"
+
+#: libwget/ssl_gnutls.c:455
+#, fuzzy, c-format
+msgid "PSK authentication. Connected as '%s'\n"
+msgstr "Pencetak '%s' mungkin tidak disambung."
+
+#: libwget/ssl_gnutls.c:465
+#, fuzzy
+msgid "Anonymous authentication.\n"
+msgstr "Log masuk sebagai ANONYMOUS"
+
+#: libwget/ssl_gnutls.c:489
+#, fuzzy
+msgid "Transport authentication failure\n"
+msgstr "Kegagalan pengesahihan sementara"
+
+#: libwget/ssl_gnutls.c:491
+#, fuzzy, c-format
+msgid "Unsupported credential type %d.\n"
+msgstr "Gagal salin nilainya tidak menyokong jenis %d."
+
+#: libwget/ssl_gnutls.c:498
+#, c-format
+msgid "Ephemeral DH using prime of %d bits\n"
+msgstr "Ephemeral DH menggunakan perdana %d bit.\n"
+
+#: libwget/ssl_gnutls.c:500
+#, fuzzy, c-format
+msgid "Ephemeral ECDH using curve %s\n"
+msgstr "Ephemeral DH menggunakan perdana %d bit.\n"
+
+#: libwget/ssl_gnutls.c:504
+#, fuzzy, c-format
+msgid "Key Exchange: %s\n"
+msgstr "teka-teki tukar"
+
+#: libwget/ssl_gnutls.c:508
+#, c-format
+msgid "Protocol: %s\n"
+msgstr "Protokol: %s\n"
+
+#: libwget/ssl_gnutls.c:512
+#, c-format
+msgid "Certificate Type: %s\n"
+msgstr "Jenis Sijil: %s\n"
+
+#: libwget/ssl_gnutls.c:516
+#, c-format
+msgid "Cipher: %s\n"
+msgstr "Cipher: %s\n"
+
+#: libwget/ssl_gnutls.c:520
+#, c-format
+msgid "MAC: %s\n"
+msgstr "MAC: %s\n"
+
+#: libwget/ssl_gnutls.c:876
+#, fuzzy, c-format
+msgid "Failed to import pubkey: %s\n"
+msgstr "Gagal mengimport sijil: %s"
+
+#: libwget/ssl_gnutls.c:883
+#, fuzzy, c-format
+msgid "Failed to export pubkey: %s\n"
+msgstr "Gagal mengeksport sijil"
+
+#: libwget/ssl_gnutls.c:932
+msgid "ERROR"
+msgstr "RALAT"
+
+#: libwget/ssl_gnutls.c:932
+msgid "WARNING"
+msgstr "AMARAN"
+
+#: libwget/ssl_gnutls.c:958
+#, fuzzy, c-format
+msgid "%s: Certificate verification error\n"
+msgstr "Ralat dalam pengesahan sijil."
+
+#: libwget/ssl_gnutls.c:1006
+#, fuzzy, c-format
+msgid "DANE verification print error for %s: %s\n"
+msgstr "Masukkan kelayakan untuk mencetak daripada %s."
+
+#: libwget/ssl_gnutls.c:1008
+#, fuzzy, c-format
+msgid "DANE verification failed for %s: %s\n"
+msgstr "Pengesahan kunci hos gagal"
+
+#: libwget/ssl_gnutls.c:1028
+#, fuzzy, c-format
+msgid "%s: Certificate must be X.509\n"
+msgstr "Autoriti Sijil X.509"
+
+#: libwget/ssl_gnutls.c:1033
+#, fuzzy, c-format
+msgid "%s: Error initializing X.509 certificate\n"
+msgstr ""
+"%s: Ralat ketika mengawalkan:\n"
+"%s"
+
+#: libwget/ssl_gnutls.c:1039
+#, fuzzy, c-format
+msgid "%s: No certificate was found!\n"
+msgstr "Tiada sijil dijumpai."
+
+#: libwget/ssl_gnutls.c:1044
+#, fuzzy, c-format
+msgid "%s: Failed to parse certificate: %s\n"
+msgstr "Tidak dapat menghurai sijil DER: %s"
+
+#: libwget/ssl_gnutls.c:1050
+#, fuzzy, c-format
+msgid "%s: Hostname mismatch or missing\n"
+msgstr "Tidak ada %s:"
+
+#: libwget/ssl_gnutls.c:1068
+#, fuzzy
+msgid "WARNING: The certificate's (stapled) OCSP status is invalid\n"
+msgstr "Tiada status sijil (OCSP)."
+
+#: libwget/ssl_gnutls.c:1074
+#, c-format
+msgid ""
+"WARNING: OCSP stapling is not supported by '%s', but OCSP validation has "
+"been requested.\n"
+msgstr ""
+
+#: libwget/ssl_gnutls.c:1075
+msgid ""
+"WARNING: This implies a privacy leak: the client sends the certificate "
+"serial ID over HTTP to the CA.\n"
+msgstr ""
+
+#: libwget/ssl_gnutls.c:1087
+#, fuzzy, c-format
+msgid "%s: Failed to parse certificate[%u]: %s\n"
+msgstr "Tidak dapat menghurai sijil DER: %s"
+
+#: libwget/ssl_gnutls.c:1092
+#, fuzzy, c-format
+msgid "%s: Pubkey pinning mismatch!\n"
+msgstr "versi modul tidak sepadan dalam `%s'"
+
+#: libwget/ssl_gnutls.c:1233
+msgid "GnuTLS requires the key and the cert to be of the same type.\n"
+msgstr ""
+
+#: libwget/ssl_gnutls.c:1237
+#, fuzzy
+msgid "No certificates or keys were found\n"
+msgstr "Maaf, tiada sebarang sijil ditemui dalam mesej ini."
+
+#: libwget/ssl_gnutls.c:1244
+#, fuzzy, c-format
+msgid "No CAs were found in '%s'\n"
+msgstr "Tiada tanda buku ditemui"
+
+#: libwget/ssl_gnutls.c:1309
+#, fuzzy, c-format
+msgid "Failed to allocate file name for cert '%s/%s'\n"
+msgstr "Tidak dapat memperuntuk %lu bait untuk membaca fail \"%s\""
+
+#: libwget/ssl_gnutls.c:1328
+#, fuzzy, c-format
+msgid "Failed to opendir %s\n"
+msgstr "opendir gagalkan '%s'"
+
+#: libwget/ssl_gnutls.c:1335
+#, fuzzy, c-format
+msgid "Failed to load CRL '%s': (%d)\n"
+msgstr "Gagal untuk memuatkan dokumen “%s”"
+
+#: libwget/ssl_gnutls.c:1345
+#, c-format
+msgid "GnuTLS: Unsupported default priority 'NULL': %s\n"
+msgstr ""
+
+#: libwget/ssl_gnutls.c:1366
+#, fuzzy, c-format
+msgid "GnuTLS: Unsupported priority string '%s': %s\n"
+msgstr "Kaedah pengesahihan untuk %s tidak disokong"
+
+#: libwget/ssl_gnutls.c:1605
+#, fuzzy, c-format
+msgid "GnuTLS: Failed to set priorities: %s\n"
+msgstr "Tiada atau keutamaan tidak mencukupi telah ditetapkan."
+
+#: libwget/ssl_gnutls.c:1636
+#, fuzzy
+msgid "WARNING: OCSP is not available in this version of GnuTLS.\n"
+msgstr "Jawapan OCSP yang diberikan tidak sepadan dengan sijil yang ada"
+
+#: libwget/ssl_gnutls.c:1696
+#, fuzzy, c-format
+msgid "GnuTLS: Failed to set session data: %s\n"
+msgstr "Gagal tetapkan data klipbod."
+
+#: libwget/ssl_wolfssl.c:639
+#, fuzzy
+msgid "Missing TLS method\n"
+msgstr "identiti EAP-TLS hilang"
+
+#: libwget/ssl_wolfssl.c:645
+#, fuzzy
+msgid "Failed to create WOLFSSL_CTX\n"
+msgstr "Gagal mencipta folder: %s"
+
+#: libwget/ssl_wolfssl.c:660
+#, fuzzy, c-format
+msgid "WolfSSL: Failed to set ciphers '%s'\n"
+msgstr "Gagal tetapkan aplikasi lalai untuk \"%s\""
+
+#: libwget/ssl_wolfssl.c:681
+#, fuzzy
+msgid "WolfSSL: Failed to enable OCSP\n"
+msgstr "Gagal tetapkan aplikasi lalai untuk \"%s\""
+
+#: libwget/ssl_wolfssl.c:688
+#, fuzzy
+msgid "WolfSSL: Failed to enable OCSP stapling\n"
+msgstr "Gagal membaca “%s”: %s\n"
+
+#: libwget/ssl_wolfssl.c:697
+#, fuzzy
+msgid "Failed to load system certs\n"
+msgstr "Gagal memuat sistem konfigurasi."
+
+#: libwget/ssl_wolfssl.c:723
+msgid "Skipped loading CA certs. SSL verification will likely fail.\n"
+msgstr ""
+
+#: libwget/ssl_wolfssl.c:729
+#, c-format
+msgid ""
+"Failed to load CA pem: %s or cert dir: %s, SSL verification will likely "
+"fail.\n"
+msgstr ""
+
+#: libwget/ssl_wolfssl.c:959
+#, fuzzy
+msgid "Failed to create WolfSSL session\n"
+msgstr "Gagal hibridkan sesi tidur"
+
+#: libwget/ssl_wolfssl.c:1102
+#, fuzzy, c-format
+msgid "failed to connect TLS (%d): %s\n"
+msgstr "Jabat tangan TLS gagal: %s"
+
+#: libwget/ssl_wolfssl.c:1108
+#, c-format
+msgid "cert verification result: %ld"
+msgstr ""
+
+#: libwget/ssl_openssl.c:246 libwget/ssl_openssl.c:286
+#: libwget/ssl_openssl.c:365
+#, c-format
+msgid ""
+"Unknown configuration key %d (maybe this config value should be of another "
+"type?)\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:414
+msgid ""
+"OpenSSL: TLS 1.3 is not supported by your OpenSSL version. Will use TLS 1.2 "
+"instead.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:424
+#, fuzzy, c-format
+msgid "OpenSSL: Invalid priority string '%s'\n"
+msgstr "Equation.parse() string tidak sah (%s)"
+
+#: libwget/ssl_openssl.c:486
+#, c-format
+msgid ""
+"OpenSSL: Could not load certificates from default paths. Falling back to "
+"'%s'."
+msgstr ""
+
+#: libwget/ssl_openssl.c:491
+#, c-format
+msgid "OpenSSL: No certificates could be loaded from directory '%s'\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:495
+#, c-format
+msgid "OpenSSL: Could not open directory '%s'. No certificates were loaded.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:686
+msgid "Could not get user data to verify stapled OCSP.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:698
+msgid "Got a stapled OCSP response, but could not parse it. Aborting.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:704
+#, fuzzy
+msgid "Could not get server's cert stack\n"
+msgstr "Tidak memperoleh maklumat bagi pelayan LDAP."
+
+#: libwget/ssl_openssl.c:716
+#, fuzzy
+msgid "Could not verify stapled OCSP response. Aborting.\n"
+msgstr "Penandatangan jawapan OCSP tidak dijumpai. "
+
+#: libwget/ssl_openssl.c:878
+msgid "ERROR: print_openssl_time: BIO_read failed\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:892
+#, fuzzy
+msgid "Could not get current time!\n"
+msgstr "Dapatkan masa dan tarikh semasa"
+
+#: libwget/ssl_openssl.c:901
+msgid "Could not compute time difference for thisUpd. Aborting.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:905
+msgid "*** OCSP response thisUpd is too old. Aborting.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:916
+msgid "Could not compute time difference for nextUpd. Aborting.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:921
+#, fuzzy
+msgid "*** OCSP next update is in the past!\n"
+msgstr "Durasi dalam saat sehingga kata kunci seterusnya kemas kini"
+
+#: libwget/ssl_openssl.c:951
+#, fuzzy
+msgid "Unsuccessful OCSP response\n"
+msgstr "Jawapan OCSP tidak sah"
+
+#: libwget/ssl_openssl.c:959
+#, fuzzy
+msgid "Could not verify OCSP certificate chain\n"
+msgstr "Tiada status sijil (OCSP)."
+
+#: libwget/ssl_openssl.c:965
+#, fuzzy
+msgid "Could not parse OCSP single response\n"
+msgstr "Penandatangan jawapan OCSP tidak dijumpai. "
+
+#: libwget/ssl_openssl.c:972
+#, fuzzy
+msgid "Could not obtain OCSP response status\n"
+msgstr "Penandatangan jawapan OCSP tidak dijumpai. "
+
+#: libwget/ssl_openssl.c:987
+msgid "Could not get 'thisUpd' from OCSP response. Cannot check time.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:1049
+#, fuzzy
+msgid "Could not obtain OCSP_BASICRESPONSE\n"
+msgstr "Penandatangan jawapan OCSP tidak dijumpai. "
+
+#: libwget/ssl_openssl.c:1055
+#, fuzzy
+msgid "OCSP nonce does not match\n"
+msgstr "Respons pelayan tidak sepadan"
+
+#: libwget/ssl_openssl.c:1200 libwget/ssl_openssl.c:1235
+#, c-format
+msgid "Could not compute certificate fingerprint for cert %u\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:1269
+#, fuzzy
+msgid "Certificate check disabled. Peer's certificate will NOT be checked.\n"
+msgstr ""
+"Sijil atau nama pengguna rakan telah berubah semasa jabat tangan semula."
+
+#: libwget/ssl_openssl.c:1275
+#, fuzzy
+msgid "OpenSSL: Could not obtain cert store\n"
+msgstr "Tidak boleh tambah kunci/sijil ke dalam stor, err_code: %i"
+
+#: libwget/ssl_openssl.c:1288
+#, fuzzy, c-format
+msgid "Could not load CRL from '%s' (%d)\n"
+msgstr "Tidak dapat muat skema dari %s: %s\n"
+
+#: libwget/ssl_openssl.c:1304
+#, fuzzy, c-format
+msgid "Could not load CA certificate from file '%s'\n"
+msgstr "Tidak dapat memuat data fail menu dari %s"
+
+#: libwget/ssl_openssl.c:1363
+#, fuzzy
+msgid "Could not initialize OpenSSL\n"
+msgstr "tak dapat memulakan pustaka %s"
+
+#: libwget/ssl_openssl.c:1414
+#, fuzzy
+msgid "OpenSSL: Could not parse cached session data.\n"
+msgstr "Tidak dapat menghurai data tidak sah atau rosak."
+
+#: libwget/ssl_openssl.c:1422
+#, fuzzy
+msgid "OpenSSL: Could not set session data.\n"
+msgstr "Set data baharu tidak ditemui"
+
+#: libwget/ssl_openssl.c:1637
+msgid ""
+"Host name check disabled. Server certificate's subject name will not be "
+"checked.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:1646
+#, fuzzy
+msgid "Could not set 'status_request' extension\n"
+msgstr "Tidak dapat menghantar permintaan gelintar"
+
+#: libwget/ssl_openssl.c:1652
+#, fuzzy
+msgid "SNI could not be sent"
+msgstr "Mel ini tidak boleh dihantar"
+
+#: libwget/ssl_openssl.c:1656
+#, fuzzy
+msgid "ALPN offering could not be sent"
+msgstr "Mesej tidak dapat dihantar"
+
+#: libwget/ssl_openssl.c:1664
+#, fuzzy
+msgid "Could not get cached TLS session"
+msgstr "Tidak memperoleh bas sesi:"
+
+#: libwget/ssl_openssl.c:1686
+#, fuzzy, c-format
+msgid "Could not complete TLS handshake: %s\n"
+msgstr "Ralat membuat jabat tangan TLS: %s"
+
+#: libwget/ssl_openssl.c:1704
+#, fuzzy
+msgid "Public key pinning mismatch\n"
+msgstr "Pilih Kunci Awam untuk %1"
+
+#: libwget/ssl_openssl.c:1723
+msgid "Aborting handshake. Could not verify OCSP chain.\n"
+msgstr ""
+
+#: libwget/ssl_openssl.c:1882
+#, fuzzy, c-format
+msgid "TLS read error: %s\n"
+msgstr "Ralat membaca TLS `%s': %s"
+
+#: libwget/ssl_openssl.c:1916
+#, fuzzy, c-format
+msgid "TLS write error: %s\n"
+msgstr "Ralat membaca TLS `%s': %s"
+
+#: libwget/tls_session.c:362
+#, fuzzy
+msgid "Failed to read TLS session data\n"
+msgstr "Gagal membaca data imej"
+
+#: libwget/tls_session.c:425
+#, fuzzy, c-format
+msgid "Failed to write TLS session file '%s'\n"
+msgstr "Gagal menulis fail \"%s\": write() gagal: %s"
+
+#: libwget/xml.c:668
+#, fuzzy, c-format
+msgid "Failed to allocate %zu bytes for XML parse buffer\n"
+msgstr "gagal memperuntuk penimbal imej bersaiz %u bait"
+
+#: src/bar.c:317
+msgid "Cannot create progress bar thread. Disabling progress bar.\n"
+msgstr ""
+
+#: src/dl.c:41
+#, fuzzy, c-format
+msgid "Piling up error '%s' over error '%s'"
+msgstr "Ralat mencari peranti blok untuk %s"
+
+#: src/gpgme.c:60
+#, fuzzy
+msgid "GPGME Failure\n"
+msgstr "GPGME: %s."
+
+#: src/gpgme.c:64
+#, fuzzy, c-format
+msgid "%s: Invalid signature\n"
+msgstr "Tandatangan ini tidak sah."
+
+#: src/gpgme.c:67
+#, fuzzy, c-format
+msgid "%s: Key %s expired\n"
+msgstr "Kunci ini luput pada: %s"
+
+#: src/gpgme.c:70
+#, fuzzy, c-format
+msgid "%s: Expired signature\n"
+msgstr "Tanda tangan luput."
+
+#: src/gpgme.c:73
+#, fuzzy, c-format
+msgid "%s: Key %s missing\n"
+msgstr "Tidak ada %s:"
+
+#: src/gpgme.c:76
+#, fuzzy, c-format
+msgid "%s: Unhandled failure\n"
+msgstr "Mesej ralat tidak dikendali: %s"
+
+#: src/gpgme.c:117
+msgid "Invalid signature, signature file must have a sig extension\n"
+msgstr ""
+
+#: src/gpgme.c:156
+#, fuzzy
+msgid "Failed to init gpgme context\n"
+msgstr "Gagal untuk init libxfconf: %s"
+
+#: src/gpgme.c:171
+#, fuzzy
+msgid "Couldn't specify gnupg homedir\n"
+msgstr "GnuPG: direktori gelang kunci lalai"
+
+#: src/gpgme.c:177
+#, fuzzy, c-format
+msgid "Couldn't canonicalize %s. (Does the path exist?)\n"
+msgstr "%s adalah laluan yang tidak sah. Fail tidak wujud."
+
+#: src/gpgme.c:186
+#, fuzzy
+msgid "Error during verification\n"
+msgstr "Ralat dalam pengesahan CRL."
+
+#: src/gpgme.c:194
+#, fuzzy
+msgid "GPGME verify failed!\n"
+msgstr "GPGME: gagal. %s."
+
+#: src/gpgme.c:273
+#, fuzzy, c-format
+msgid "Unsupported protocol type for content: %s\n"
+msgstr "Jenis HTTPSeekRequest %s tidak disokong"
+
+#: src/gpgme.c:281
+#, fuzzy
+msgid "Couldn't correct signature file!\n"
+msgstr "Fail tandatangan  tidak sah"
+
+#: src/gpgme.c:290
+#, fuzzy, c-format
+msgid "Failed to read file to verify sig: %s\n"
+msgstr "Gagal membaca fail \"%s\": %s"
+
+#: src/host.c:394 src/wget.c:1046
+#, fuzzy, c-format
+msgid "URL '%s' not followed (disallowed by robots.txt)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/job.c:183
+#, fuzzy, c-format
+msgid ""
+"Failed to truncate %s\n"
+" from %llu to %llu bytes\n"
+msgstr "Gagal transmutasi %zu bait data dari %s ke %u"
+
+#: src/job.c:203
+#, fuzzy, c-format
+msgid "Checksum OK for '%s'\n"
+msgstr "<b>Betulkan semak jumlah</b>, fail adalah ok."
+
+#: src/job.c:210
+#, fuzzy
+msgid "Failed to build checksum, assuming file to be OK\n"
+msgstr "<b>Betulkan semak jumlah</b>, fail adalah ok."
+
+#: src/job.c:215
+#, c-format
+msgid "Bad checksum for '%s'\n"
+msgstr ""
+
+#: src/job.c:233
+#, fuzzy, c-format
+msgid "Piece %d/%d not OK - requeuing\n"
+msgstr "Cakera OK, satu sektor teruk"
+
+#: src/options.c:298
+#, fuzzy, c-format
+msgid "Value out of range (0-65535): %s\n"
+msgstr "Niai \"%s\" di luar jangkauan"
+
+#: src/options.c:362
+#, fuzzy, c-format
+msgid "Invalid byte specifier: %s\n"
+msgstr "Pengspesifikasi penukaran tidak sah pada suffiks: %c"
+
+#: src/options.c:434
+#, fuzzy, c-format
+msgid "Ignoring invalid header: %s\n"
+msgstr "Pengepala dalam ikon tidak sah (%s)"
+
+#: src/options.c:443
+#, fuzzy, c-format
+msgid "No value in header (ignoring): %s\n"
+msgstr "Abaikan nilai \"%s\" kunci \"%s\"."
+
+#: src/options.c:687
+#, c-format
+msgid "Invalid value '%s'\n"
+msgstr "Nilai tidak sah '%s'\n"
+
+#: src/options.c:703
+#, fuzzy, c-format
+msgid "Invalid boolean value '%s'\n"
+msgstr "Nilai boolean tidak sah"
+
+#: src/options.c:736
+msgid "Missing timeout value\n"
+msgstr ""
+
+#: src/options.c:750
+#, fuzzy, c-format
+msgid "Invalid time specifier in '%s'\n"
+msgstr "Pengspesifikasi penukaran tidak sah pada suffiks: %c"
+
+#: src/options.c:780
+#, fuzzy, c-format
+msgid "Unknown cert type '%s'\n"
+msgstr "jenis fail tak diketahui %s\n"
+
+#: src/options.c:797
+#, fuzzy, c-format
+msgid "Unsupported regex type '%s'\n"
+msgstr "Jenis _MIME tidak disokong %s"
+
+#: src/options.c:807
+#, fuzzy
+msgid "Empty progress type\n"
+msgstr "Tupel kosong, jenis dan nilai “()”"
+
+#: src/options.c:836
+#, fuzzy, c-format
+msgid "Unknown dot style '%s', using default.\n"
+msgstr "jenis fail tak diketahui %s\n"
+
+#: src/options.c:842
+#, fuzzy, c-format
+msgid "Unknown progress type '%s'\n"
+msgstr "jenis repositori %s tidak diketahui"
+
+#: src/options.c:855
+#, fuzzy
+msgid "Missing restrict-file-name type\n"
+msgstr "Nama fail metalink tiada atau kosong\n"
+
+#: src/options.c:885
+#, fuzzy, c-format
+msgid "Unknown restrict-file-name type '%s'\n"
+msgstr "%s: Jenis fail tak dikenali; fail diabaikan"
+
+#: src/options.c:891
+msgid "Restrict file names to either 'unix' or 'windows'\n"
+msgstr ""
+
+#: src/options.c:896
+msgid "Restrict file names to either 'uppercase' or 'lowercase'\n"
+msgstr ""
+
+#: src/options.c:905
+msgid ""
+"    use [none]|[unix|windows],[lowercase|uppercase],[nocontrol][,ascii].\n"
+msgstr ""
+
+#: src/options.c:934
+#, fuzzy, c-format
+msgid "Unknown option '-n%c'\n"
+msgstr "Pilihan tidak diketahui '-%c'\n"
+
+#: src/options.c:954
+#, fuzzy, c-format
+msgid "Unknown address family '%s'\n"
+msgstr "Keluarga tidak diketahui telah dinyatakan"
+
+#: src/options.c:981
+#, fuzzy, c-format
+msgid "Unknown stats format '%s'\n"
+msgstr "%s: format fail %s tidak diketahui\n"
+
+#: src/options.c:1011 src/options.c:1029
+#, fuzzy, c-format
+msgid "Plugin '%s' failed to load: %s\n"
+msgstr "Gagal memuatkan pemalam %s: %s"
+
+#: src/options.c:1090 src/options.c:1110
+#, fuzzy
+msgid "Missing required type specifier\n"
+msgstr "Unsur %s yang diperlukan telah hilang"
+
+#: src/options.c:1094 src/options.c:1114
+#, fuzzy, c-format
+msgid "Invalid type specifier: %s\n"
+msgstr "Jenis tidak sah untuk <value>: \"%s\""
+
+#: src/options.c:1127
+msgid "no-verify-sig cannot take additional arguments\n"
+msgstr ""
+
+#: src/options.c:1137
+#, fuzzy, c-format
+msgid "Invalid option specifier: %s\n"
+msgstr "%s: pilihan tidak sah -- '%c'\n"
+
+#: src/options.c:1182
+#, fuzzy, c-format
+msgid "Compression type '%s' not supported\n"
+msgstr "Jenis imej '%s'tidak disokong"
+
+#: src/options.c:1185
+#, fuzzy, c-format
+msgid "Duplicate type '%s'"
+msgstr "Gandakan (%s/%s)!"
+
+#: src/options.c:1215
+#, fuzzy, c-format
+msgid "Lib for type %s not built"
+msgstr ""
+"Tidak boleh bertembung dengan nama jenis terbina dalam yang telah wujud."
+
+#: src/options.c:1247
+#, fuzzy, c-format
+msgid "Disallowed Value for --no-download-attr: %s\n"
+msgstr "Tidak boleh memasang %s kerana muat turun gagal"
+
+#: src/options.c:1256
+#, fuzzy, c-format
+msgid "Invalid value for --download-attr: %s\n"
+msgstr "Jenis tidak sah untuk <value>: \"%s\""
+
+#: src/options.c:2633 src/options.c:2668
+#, c-format
+msgid "Unknown option '%s'\n"
+msgstr "Pilihan '%s' tidak diketahui\n"
+
+#: src/options.c:2683
+#, c-format
+msgid "Option 'no-%s' doesn't allow an argument\n"
+msgstr "Pilihan 'no-%s' tidak membenarkan hujah\n"
+
+#: src/options.c:2687
+#, c-format
+msgid "Option '%s' doesn't allow an argument\n"
+msgstr "Pilihan '%s' tidak membenarkan hujah\n"
+
+#: src/options.c:2698
+#, fuzzy, c-format
+msgid "Missing argument for option '%s'\n"
+msgstr "Hujah hilang selepas '%s'"
+
+#: src/options.c:2764
+#, c-format
+msgid "Failed to parse: '%s'\n"
+msgstr "Gagal menghurai: '%s'\n"
+
+#: src/options.c:2826
+#, fuzzy, c-format
+msgid "Config file recursion detected in %s\n"
+msgstr "Rekursi dikesan"
+
+#: src/options.c:2861
+#, fuzzy, c-format
+msgid "Failed to open %s (%d): %s\n"
+msgstr "Gagal membuka '%s' (%d)"
+
+#: src/options.c:2925
+#, fuzzy, c-format
+msgid "Failed to parse last line in '%s'\n"
+msgstr "Gagal menghurai pilihan baris perintah: %s\n"
+
+#: src/options.c:3005
+#, fuzzy, c-format
+msgid "Missing argument(s) for option '-%c'\n"
+msgstr "%s: pilihan memerlukan hujah -- '%c'\n"
+
+#: src/options.c:3025
+#, c-format
+msgid "Unknown option '-%c'\n"
+msgstr "Pilihan tidak diketahui '-%c'\n"
+
+#: src/options.c:3056
+#, c-format
+msgid "Password for user \"%s\": "
+msgstr "Katalaluan untuk pengguna \"%s\": "
+
+#: src/options.c:3058
+msgid "Password: "
+msgstr "Katalaluan: "
+
+#: src/options.c:3079
+msgid "Cannot create pipe"
+msgstr "Tidak dapat mencipta paip"
+
+#: src/options.c:3085
+#, c-format
+msgid "Error initializing spawn file actions for use-askpass: %d"
+msgstr ""
+
+#: src/options.c:3096
+#, c-format
+msgid "Error setting spawn file actions for use-askpass: %d"
+msgstr ""
+
+#: src/options.c:3103
+#, fuzzy, c-format
+msgid "Error spawning %s: %d"
+msgstr "Ralat membiakkan baris perintah \"%s\": "
+
+#: src/options.c:3120
+#, fuzzy, c-format
+msgid "Error reading response from command \"%s %s\": %s\n"
+msgstr "Ralat membaca dari fail nonce “%s”: %s"
+
+#: src/options.c:3208
+#, c-format
+msgid "Failed to open %s"
+msgstr "Gagal untuk membuka %s"
+
+#: src/options.c:3246
+#, fuzzy, c-format
+msgid "~/.wget2rc is deprecated. Please move it to %s/wget2rc\n"
+msgstr "Fail \"%s\" telah wujud. Sila alihkan ianya keluar."
+
+#: src/options.c:3574
+#, fuzzy
+msgid "Failed to get current directory\n"
+msgstr "tidak dapat merekodkan direktori kerja semasa"
+
+#: src/options.c:3584
+#, fuzzy, c-format
+msgid "Failed to resolve directory prefix '%s' (%d, %s)\n"
+msgstr "Gagal untuk menyelesai alamat '%s': %s\n"
+
+#: src/options.c:3599
+#, fuzzy, c-format
+msgid "Failed to set http proxies %s\n"
+msgstr "Gagal dengan ralat HTML %d: %s"
+
+#: src/options.c:3603
+#, fuzzy, c-format
+msgid "Failed to set https proxies %s\n"
+msgstr "Gagal menetapkan UIList bagi fail %s — %s"
+
+#: src/options.c:3607
+#, fuzzy, c-format
+msgid "Failed to set proxy exceptions %s\n"
+msgstr "Gagal tetapkan aplikasi lalai untuk \"%s\""
+
+#: src/options.c:3633
+#, fuzzy, c-format
+msgid "Failed to load %s (%d)"
+msgstr "Gagal memuatkan %s: %s\n"
+
+#: src/options.c:3693
+msgid ""
+"Specifying both --start-pos and --continue is not recommended; --continue "
+"will be disabled"
+msgstr ""
+
+#: src/options.c:3699
+msgid "WARNING: timestamping does nothing in combination with -O"
+msgstr ""
+
+#: src/options.c:3703
+msgid "Can't timestamp and not clobber old files at the same time"
+msgstr ""
+
+#: src/options.c:3707
+msgid "WARNING: timestamping does nothing in combination with spider"
+msgstr ""
+
+#: src/options.c:3711
+msgid ""
+"WARNING: timestamping and chunk-size only work together without If-Modified-"
+"Since"
+msgstr ""
+
+#: src/options.c:3750
+#, fuzzy, c-format
+msgid "Failed to init networking (%d)"
+msgstr "Gagal untuk init libxfconf: %s"
+
+#: src/options.c:3755
+#, fuzzy, c-format
+msgid "Failed to init DNS (%d)"
+msgstr "Gagal untuk init GConf: %s\n"
+
+#: src/options.c:3773 src/options.c:3784 src/options.c:3795 src/options.c:3806
+#: src/options.c:3817
+#, c-format
+msgid "Failed to open '%s' (%d)"
+msgstr "Gagal membuka '%s' (%d)"
+
+#: src/options.c:4070
+#, c-format
+msgid "%s: Option not in order '%s' after '%s' (using opt_compare())\n"
+msgstr ""
+
+#: src/options.c:4079
+#, c-format
+msgid "%s: Option not in order '%s' after '%s' (using opt_compare_config())\n"
+msgstr ""
+
+#: src/options.c:4089
+#, c-format
+msgid "%s: Failed to find option '%s' (using opt_compare())\n"
+msgstr ""
+
+#: src/options.c:4099 src/options.c:4123
+#, c-format
+msgid "%s: Failed to find option '%s' (using opt_compare_config())\n"
+msgstr ""
+
+#: src/options.c:4148
+#, c-format
+msgid "%s: Failed to parse bool short option #%zu (=%d)\n"
+msgstr ""
+
+#: src/options.c:4174 src/options.c:4180
+#, c-format
+msgid "%s: Failed to parse bool long option #%zu (%d)\n"
+msgstr ""
+
+#: src/options.c:4223
+#, c-format
+msgid "%s: Failed to parse timeout short option #%zu (=%d)\n"
+msgstr ""
+
+#: src/options.c:4254
+#, c-format
+msgid "%s: Failed to parse timeout long option #%zu (%d)\n"
+msgstr ""
+
+#: src/options.c:4289
+#, fuzzy, c-format
+msgid "%s: Extra headers found in option #%zu\n"
+msgstr "Objek dengan ekstra \"%s\" tidak ditemui"
+
+#: src/options.c:4294
+#, fuzzy, c-format
+msgid "%s: Failed to parse header option #%zu\n"
+msgstr "Gagal menghurai kandungan \"%s\": %s"
+
+#: src/options.c:4317
+#, c-format
+msgid "%s: Accepted illegal header option #%zu\n"
+msgstr ""
+
+#: src/options.c:4345 src/options.c:4364
+#, c-format
+msgid "%s: Failed to parse string short option #%zu (=%s)\n"
+msgstr ""
+
+#: src/plugin.c:398
+#, fuzzy, c-format
+msgid "Plugin '%s' failed to load: %s"
+msgstr "Gagal memuatkan pemalam %s: %s"
+
+#: src/plugin.c:506
+#, c-format
+msgid "Options for %s:\n"
+msgstr "Pilihan untuk %s:\n"
+
+#: src/utils.c:55
+#, fuzzy, c-format
+msgid "Internal error: Unexpected relative path: '%s'\n"
+msgstr "Dalaman: mod %s aksara '%c' tidak dijangka dalam input"
+
+#: src/utils.c:88 src/utils.c:95
+#, fuzzy, c-format
+msgid "Failed to make directory '%s' (errno=%d)\n"
+msgstr "Gagal nyahpaut '%s' (errno=%d)\n"
+
+#: src/utils.c:93
+#, fuzzy, c-format
+msgid "Failed to rename '%s' (errno=%d)\n"
+msgstr "Gagal menamakan semula %s ke %s (errno=%d)\n"
+
+#: src/wget.c:650
+#, fuzzy, c-format
+msgid "HSTS in effect for [%s]:%hu\n"
+msgstr "K_ha"
+
+#: src/wget.c:652
+#, fuzzy, c-format
+msgid "HSTS in effect for %s:%hu\n"
+msgstr "K_ha"
+
+#: src/wget.c:707
+msgid "<redacted>"
+msgstr ""
+
+#: src/wget.c:730
+#, fuzzy, c-format
+msgid "Failed to parse URI '%s'\n"
+msgstr "Gagal menghurai URI Geo"
+
+#: src/wget.c:748
+#, fuzzy, c-format
+msgid "URI scheme not supported: '%s'\n"
+msgstr "Skema Uri tidak disokong"
+
+#: src/wget.c:893
+#, fuzzy
+msgid "Cannot resolve URI\n"
+msgstr "Tidak dapat menghurai URI '%s'\n"
+
+#: src/wget.c:899
+#, fuzzy, c-format
+msgid "URL '%s' not followed (max redirections exceeded)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/wget.c:909
+#, fuzzy, c-format
+msgid "URL '%s' not followed (plugin verdict)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/wget.c:923
+#, fuzzy, c-format
+msgid "URL '%s' not followed (unsupported scheme)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/wget.c:933
+#, fuzzy, c-format
+msgid "URL '%s' not followed (https-only requested)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/wget.c:950
+#, fuzzy
+msgid "missing ip/host/domain"
+msgstr "Alamat atau hos IP"
+
+#: src/wget.c:954
+#, fuzzy
+msgid "domain explicitly excluded"
+msgstr "Aplikasi diasing"
+
+#: src/wget.c:957
+#, fuzzy
+msgid "no host-spanning requested"
+msgstr "Rentang skrin"
+
+#: src/wget.c:963
+#, fuzzy, c-format
+msgid "URL '%s' not followed (%s)\n"
+msgstr "URL '%.*s' tidak diikuti (telah diketahui)\n"
+
+#: src/wget.c:997
+#, fuzzy, c-format
+msgid "URL '%s' not followed (parent ascending not allowed)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/wget.c:1020
+#, fuzzy, c-format
+msgid "URL '%s' not followed (reading from disk)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/wget.c:1023
+#, fuzzy, c-format
+msgid "URL '%s' not followed (file already exists)\n"
+msgstr "URL '%.*s' tidak diikuti (telah diketahui)\n"
+
+#: src/wget.c:1053
+#, fuzzy, c-format
+msgid "Failed to get '%s' from hosts\n"
+msgstr "Gagal mendapatkan media dari uri: %s"
+
+#: src/wget.c:1061
+#, fuzzy, c-format
+#| msgid "URL '%.*s' not followed (not matching sitemap location)\n"
+msgid "URL '%s' not followed (doesn't match accept pattern)\n"
+msgstr "URL '%.*s' tidak diikuti (tidak sepadan dengan lokasi peta laman)\n"
+
+#: src/wget.c:1068
+#, fuzzy, c-format
+msgid "URL '%s' not followed (matches reject pattern)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/wget.c:1073
+#, fuzzy, c-format
+msgid "URL '%s' not followed (path excluded)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/wget.c:1078
+#, fuzzy, c-format
+#| msgid "Enqueue %s\n"
+msgid "Enqueuing %s\n"
+msgstr "Giliran %s\n"
+
+#: src/wget.c:1247
+#, c-format
+msgid "Cannot resolve URI '%s'\n"
+msgstr "Tidak dapat menghurai URI '%s'\n"
+
+#: src/wget.c:1278
+#, c-format
+msgid "Failed to rename %s to %s (%d)"
+msgstr "Gagal menamakan semula %s ke %s (%d)"
+
+#: src/wget.c:1284
+#, c-format
+msgid "Failed to write open %s (%d)"
+msgstr "Gagal menulis buka %s (%d)"
+
+#: src/wget.c:1312
+#, c-format
+msgid "convert %s %s %s\n"
+msgstr "tukar %s %s %s\n"
+
+#: src/wget.c:1315
+#, c-format
+msgid "%s not found (%d)\n"
+msgstr "%s tidak ditemui (%d)\n"
+
+#: src/wget.c:1477 src/wget.c:1571
+#, c-format
+msgid "Failed to start downloader, error %d\n"
+msgstr "Gagal memulakan pemuat turun, ralat %d\n"
+
+#: src/wget.c:1500
+#, c-format
+msgid "Failed to open input file %s\n"
+msgstr "Gagal membuka fail input %s\n"
+
+#: src/wget.c:1505
+msgid "Nothing to do - goodbye\n"
+msgstr "Tiada apa-apa perlu dibuat - selamat tinggal\n"
+
+#: src/wget.c:1524
+msgid "Wget2 built without thread support. Disabling progress report\n"
+msgstr ""
+
+#: src/wget.c:1543
+#, c-format
+msgid "Failed to start progress report thread, error %d\n"
+msgstr "Gagal memulakan benang laporan kemajuan, ralat %d\n"
+
+#: src/wget.c:1578
+#, c-format
+msgid "Quota of %lld bytes reached - stopping.\n"
+msgstr "Kuota bagi %lld byte dicapai - menghentikan.\n"
+
+#: src/wget.c:1598
+#, c-format
+msgid "Failed to wait for downloader #%d (%d %d)\n"
+msgstr "Gagal menunggu pemuat turun #%d (%d %d)\n"
+
+#: src/wget.c:1605
+#, c-format
+msgid "Downloaded: %d files, %s bytes, %d redirects, %d errors\n"
+msgstr ""
+
+#: src/wget.c:1631
+msgid ""
+"--convert-links and --convert-file-only cannot be used together, error\n"
+msgstr ""
+
+#: src/wget.c:1647
+#, c-format
+msgid "Failed to wait for progress thread (%d %d)\n"
+msgstr "Gagal menunggu benang kemajuan (%d %d)\n"
+
+#: src/wget.c:1745
+#, c-format
+msgid "Failed to connect: %s\n"
+msgstr "Gagal menyambung: %s\n"
+
+#: src/wget.c:1973
+msgid "The file is already fully retrieved; nothing to do.\n"
+msgstr "Fail telah diambil sepenuhnya; tiada apa perlu dilakukan.\n"
+
+#: src/wget.c:2041
+#, c-format
+msgid "File '%s' not modified on server. Omitting download"
+msgstr "Fail '%s' tidak diubahsuai pada pelayan. Mengabaikan muat turun"
+
+#: src/wget.c:2078
+#, c-format
+msgid "Not scanning '%s' (known ETag)\n"
+msgstr "Tidak mengimbas '%s' (ETag diketahui)\n"
+
+#: src/wget.c:2125
+#, c-format
+msgid "The sizes do not match (local %lld, remote %zu) -- retrieving"
+msgstr ""
+
+#: src/wget.c:2319
+#, fuzzy, c-format
+#| msgid "File length %llu - remove job\n"
+msgid "File length %llu - removing job\n"
+msgstr "Panjang fail %llu - buang tugasan\n"
+
+#: src/wget.c:2321
+#, fuzzy
+#| msgid "No download mirrors found - remove job\n"
+msgid "No download mirrors found - removing job\n"
+msgstr "Tiada pelayan muat turun yang sesuai ditemui\n"
+
+#: src/wget.c:2323
+#, fuzzy
+#| msgid "Metalink file name is invalid, missing or empty - remove job\n"
+msgid "Metalink file name is invalid, missing or empty - removing job\n"
+msgstr "Nama fail metalink tidak sah, tiada atau kosong - buang tugasan\n"
+
+#: src/wget.c:2331
+msgid "Metalink validation failed: max tries reached - removing job\n"
+msgstr ""
+
+#: src/wget.c:2445
+msgid "Couldn't determine base file to delete for failed verification\n"
+msgstr ""
+
+#: src/wget.c:2449
+#, c-format
+msgid "Signature for file %s successfully verified\n"
+msgstr "Tandatangan untuk fail %s berjaya disahkan\n"
+
+#: src/wget.c:2465
+msgid "Should not have remaining extensions!\n"
+msgstr "Tidak sepatutnya mempunyai sambungan yang tinggal!\n"
+
+#: src/wget.c:2479
+msgid "File name for signature checking not assigned to job!\n"
+msgstr ""
+"Nama fail untuk pemeriksaan tandatangan tidak diberikan kepada tugasan!\n"
+
+#: src/wget.c:2481
+msgid "Cannot check the signature on a signature!\n"
+msgstr "Tidak dapat memeriksa tandatangan pada tandatangan!\n"
+
+#: src/wget.c:2722
+#, c-format
+msgid "Unhandled action %d\n"
+msgstr "Tindakan tidak ditangani %d\n"
+
+#: src/wget.c:2838
+#, c-format
+msgid "URL '%.*s' not followed (conversion failed)\n"
+msgstr "URL '%.*s' tidak diikuti (penukaran gagal)\n"
+
+#: src/wget.c:2846
+#, c-format
+msgid "Cannot resolve relative URI %.*s\n"
+msgstr "Tidak dapat menghuraikan URI relative %.*s\n"
+
+#: src/wget.c:2868
+msgid "set by user"
+msgstr "ditetapkan oleh pengguna"
+
+#: src/wget.c:2873 src/wget.c:2881 src/wget.c:2889
+msgid "set by BOM"
+msgstr "ditetapkan oleh BOM"
+
+#: src/wget.c:2895
+msgid "set by server response"
+msgstr "ditetapkan oleh jawapan pelayan"
+
+#: src/wget.c:2904
+#, c-format
+msgid "Convert non-ASCII encoding '%s' (%s) to UTF-8\n"
+msgstr "Tukar pengenkodan bukan ASCII '%s' (%s) kepada UTF-8\n"
+
+#: src/wget.c:2908
+#, c-format
+msgid "Link conversion disabled for '%s'\n"
+msgstr "Penukaran pautan dilumpuhkan untuk '%s'\n"
+
+#: src/wget.c:2911
+#, c-format
+msgid "Filename conversion disabled for '%s'\n"
+msgstr "Penukaran nama fail dilumpuhkan untuk '%s'\n"
+
+#: src/wget.c:2915
+#, c-format
+msgid "Failed to convert non-ASCII encoding '%s' (%s) to UTF-8, skip parsing\n"
+msgstr ""
+"Gagal menukar pengenkodan bukan ASCII '%s' (%s) kepada UTF-8, langkau "
+"penghuraian\n"
+
+#: src/wget.c:2928
+msgid "set by document"
+msgstr "ditetapkan oleh dokumen"
+
+#: src/wget.c:2931
+msgid "default, encoding not specified"
+msgstr "default, pengekodan tidak dinyatakan"
+
+#: src/wget.c:2935
+#, c-format
+msgid "URI content encoding = '%s' (%s)\n"
+msgstr "Pengenkodan kandungan URI = '%s' (%s)\n"
+
+#: src/wget.c:2943
+#, c-format
+msgid "BASE '%.*s' not usable (missing absolute base URI)\n"
+msgstr "BASE '%.*s' tidak boleh digunakan (URI asas mutlak tiada)\n"
+
+#: src/wget.c:2950
+#, c-format
+msgid "Cannot resolve BASE URI %.*s\n"
+msgstr "Tidak dapat menghuraikan URI BASE %.*s\n"
+
+#: src/wget.c:2960
+#, c-format
+msgid "URL '%.*s' not followed (action/formaction attribute)\n"
+msgstr "URL '%.*s' tidak diikuti (ciri tindakan/tindakan borang)\n"
+
+#: src/wget.c:2974
+#, c-format
+msgid "URL '%.*s' not followed (page requisites + level)\n"
+msgstr "URL '%.*s' tidak diikuti (syarat halaman + tahap)\n"
+
+#: src/wget.c:2985 src/wget.c:3195 src/wget.c:3340
+#, c-format
+msgid "URL '%.*s' not followed (missing base URI)\n"
+msgstr "URL '%.*s' tidak diikuti (URI asas tiada)\n"
+
+#: src/wget.c:3052 src/wget.c:3185
+#, c-format
+msgid "found %d url(s) (base=%s)\n"
+msgstr "menemui %d url (asas=%s)\n"
+
+#: src/wget.c:3059 src/wget.c:3163
+#, c-format
+msgid "URL '%.*s' not followed (not matching sitemap location)\n"
+msgstr "URL '%.*s' tidak diikuti (tidak sepadan dengan lokasi peta laman)\n"
+
+#: src/wget.c:3070 src/wget.c:3091 src/wget.c:3206
+#, c-format
+msgid "URL '%.*s' not followed (already known)\n"
+msgstr "URL '%.*s' tidak diikuti (telah diketahui)\n"
+
+#: src/wget.c:3078
+#, c-format
+msgid "found %d sitemap url(s) (base=%s)\n"
+msgstr "menemui %d url peta laman (asas=%s)\n"
+
+#: src/wget.c:3123
+#, c-format
+msgid "Can't scan '%s' because no libz support enabled at compile time\n"
+msgstr ""
+
+#: src/wget.c:3271
+#, c-format
+msgid "Invalid file length %llu\n"
+msgstr "Panjang fail tidak sah %llu\n"
+
+#: src/wget.c:3274
+msgid "No download mirrors found\n"
+msgstr "Tiada pelayan cermin muat turun dijumpai\n"
+
+#: src/wget.c:3277
+msgid "Metalink file name is missing or empty\n"
+msgstr "Nama fail metalink tiada atau kosong\n"
+
+#: src/wget.c:3326 src/wget.c:3354 src/wget.c:3378
+#, c-format
+msgid "URI content encoding = '%s'\n"
+msgstr "Pengenkodan kandungan URI = '%s'\n"
+
+#: src/wget.c:3456
+#, c-format
+msgid "Failed to set file date (%d)\n"
+msgstr "Gagal menetapkan tarikh fail (%d)\n"
+
+#: src/wget.c:3611
+#, fuzzy
+#| msgid "Failed to open input file %s\n"
+msgid "Failed to determine max length of file names"
+msgstr "Gagal membuka fail input %s\n"
+
+#: src/wget.c:3701
+#, c-format
+msgid "Failed to write to STDOUT (%td, errno=%d)\n"
+msgstr "Gagal menulis ke STDOUT (%td, errno=%d)\n"
+
+#: src/wget.c:3811
+#, c-format
+msgid "Failed to rename %s to %s (errno=%d)\n"
+msgstr "Gagal menamakan semula %s ke %s (errno=%d)\n"
+
+#: src/wget.c:3837 src/wget.c:3843
+#, c-format
+msgid "Failed to load partial content from '%s' (errno=%d)\n"
+msgstr ""
+
+#: src/wget.c:3852
+#, c-format
+msgid "Failed to unlink '%s' (errno=%d)\n"
+msgstr "Gagal nyahpaut '%s' (errno=%d)\n"
+
+#: src/wget.c:3873
+#, c-format
+msgid "Saving ']8;;file://%s%s\\%s]8;;\\'\n"
+msgstr "Menyimpan ']8;;file://%s%s\\%s]8;;\\'\n"
+
+#: src/wget.c:3877
+#, c-format
+msgid "Saving '%s'\n"
+msgstr "Menyimpan '%s'\n"
+
+#: src/wget.c:3883
+#, c-format
+msgid "Failed to write file %s (%zd, errno=%d)\n"
+msgstr "Gagal menulis fail %s (%zd, errno=%d)\n"
+
+#: src/wget.c:3892
+#, c-format
+msgid "File '%s' already there; not retrieving.\n"
+msgstr "Fail '%s' sudah ada; tidak mendapatkan semula.\n"
+
+#: src/wget.c:3898
+#, c-format
+msgid "Directory / file name clash - not saving '%s'\n"
+msgstr "Pertembungan direktori / nama fail - tidak menyimpan '%s'\n"
+
+#: src/wget.c:3900
+#, c-format
+msgid "Failed to open '%s' (%d)\n"
+msgstr "Gagal membuka '%s' (%d)\n"
+
+#: src/wget.c:3912
+#, c-format
+msgid "Failed to save extended attribute %s\n"
+msgstr "Gagal menyimpan atribut lanjutan %s\n"
+
+#: src/wget.c:3965 src/wget.c:4108
+#, c-format
+msgid ""
+"# got header %zu bytes:\n"
+"%s\n"
+msgstr ""
+"# mendapat pengepala %zu bytes:\n"
+"%s\n"
+
+#: src/wget.c:4182
+#, c-format
+msgid "Failed to open .netrc file '%s' (%d): %s\n"
+msgstr "Gagal membuka fail .netrc '%s' (%d): %s\n"
+
+#: src/wget.c:4553
+#, c-format
+msgid "Failed to fsync errno=%d\n"
+msgstr "Gagal untuk fsync errno=%d\n"
+
+#: src/wget.c:4860
+#, c-format
+msgid "Continuing in background, pid %lu.\n"
+msgstr "Meneruskan di belakang, pid %lu.\n"
+
+#: src/wget.c:4862 src/wget.c:4943
+#, c-format
+msgid "Output will be written to %s.\n"
+msgstr "Keluaran akan ditulis ke %s.\n"
+
+#: src/wget.c:4888
+msgid "fake_fork_child() failed\n"
+msgstr "fake_fork_child() gagal\n"
+
+#: src/wget.c:4896
+msgid "fake_fork() failed\n"
+msgstr "fake_fork() gagal\n"
+
+#: src/wget.c:4937
+#, c-format
+msgid "Failed to fork (%d)\n"
+msgstr "Gagal untuk mencabang (%d)\n"
+
+#: src/wget.c:4941
+#, c-format
+msgid "Continuing in background, pid %d.\n"
+msgstr "Meneruskan di belakang, pid %d.\n"
+
+#: src/wget.c:4951
+msgid "Failed to redirect stdin to /dev/null.\n"
+msgstr "Gagal mengubah hala stdin ke /dev/null.\n"
+
+#: src/wget.c:4953
+msgid "Failed to redirect stdout to /dev/null.\n"
+msgstr "Gagal mengubah hala stdout ke /dev/null.\n"
+
+#: src/wget.c:4955
+msgid "Failed to redirect stderr to /dev/null.\n"
+msgstr "Gagal mengubah hala stderr ke /dev/null.\n"
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate is not trusted.\n"
+#~ msgstr "Sijil tidak dipercayai."
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate has been revoked.\n"
+#~ msgstr "Sijil telah ditarik balik."
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate doesn't have a known issuer.\n"
+#~ msgstr "- DN Pengeluar Sijil: %s\n"
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate signer was not a CA.\n"
+#~ msgstr "%s\t\t\tPihak Berkuasa Sijil (CA): SALAH\n"
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate was signed using an insecure algorithm.\n"
+#~ msgstr "Algoritma sijil dianggap tidak selamat."
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate is not yet activated.\n"
+#~ msgstr "Sijil belum lagi diaktifkan."
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate has expired.\n"
+#~ msgstr "Sijil sudah tamat tempoh."
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate signature is invalid.\n"
+#~ msgstr "Tanda tangani mesej ini dengan Sijil Tanda Tangan S/MIME anda"
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate's owner does not match hostname '%s'.\n"
+#~ msgstr "Sijil tidak sepadan dengan nama hos jauh."
+
+#, fuzzy, c-format
+#~ msgid "%s: The certificate could not be verified (0x%X).\n"
+#~ msgstr "Vendor GPU anda tidak diketahui: %s (0x%X)"
+
+#, fuzzy, c-format
+#~ msgid "Progress type '%s' ignored. It is not implemented yet\n"
+#~ msgstr "ensure_credentials_sync tidak disegerakkan pada jenis %s"

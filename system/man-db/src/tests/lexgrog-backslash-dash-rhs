@@ -1,0 +1,22 @@
+#! /bin/sh
+
+# Test handling of \- in the right-hand side of a NAME section.
+
+: "${srcdir=.}"
+# shellcheck source-path=SCRIPTDIR
+. "$srcdir/testlib.sh"
+
+: "${LEXGROG=lexgrog}"
+
+init
+
+write_page lextest 1 "$tmpdir/usr/share/man/man1/lextest.1.gz" UTF-8 gz '' \
+	'lextest \- see lextest \-\-help'
+cat >"$tmpdir/3.exp" <<EOF
+$tmpdir/usr/share/man/man1/lextest.1.gz: "lextest - see lextest --help"
+EOF
+run $LEXGROG "$tmpdir/usr/share/man/man1/lextest.1.gz" >"$tmpdir/3.out"
+expect_files_equal 'multiple whatis definitions' \
+	"$tmpdir/3.exp" "$tmpdir/3.out"
+
+finish

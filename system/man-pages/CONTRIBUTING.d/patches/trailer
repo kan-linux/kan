@@ -1,0 +1,35 @@
+Name
+	patches/trailer - trailer of a patch description
+
+Description
+    Developer's Certificate of Origin
+	Sign your patch with "Signed-off-by:".  Read about the
+	"Developer's Certificate of Origin" at
+	<https://www.kernel.org/doc/Documentation/process/submitting-patches.rst>.
+	When appropriate, other tags documented in that file, such as
+	"Reported-by:", "Reviewed-by:", "Acked-by:", and "Suggested-by:"
+	can be added to the patch.  We use "Co-authored-by:" instead of
+	"Co-developed-by:".  Example:
+
+		Signed-off-by: Alejandro Colomar <alx@kernel.org>
+
+    Fixes
+	Add 'Fixes:' tags as necessary.  'Fixes:' trailer fields should
+	have the following format.
+
+		Fixes: abbrev-hash ([author-date,] commit-date; "subject")
+
+	where the author date is optional, and only included if it's
+	somehow important.  The commit date is often more important, as
+	it's sorted, and thus can be used to find (with a binary search)
+	a commit whose hash and subject may have collisions.  For
+	example:
+
+		Fixes: bb509e6f (2020-10-16; "kernel_lockdown.7: New page documenting the Kernel Lockdown feature")
+
+	See <CONTRIBUTING.d/git> for how to configure the alias.ref and
+	alias.ref2 git aliases.  The commit references can be produced
+	with them.
+
+		$ git ref bb509e6fc
+		bb509e6f (2020-10-16; "kernel_lockdown.7: New page documenting the Kernel Lockdown feature")

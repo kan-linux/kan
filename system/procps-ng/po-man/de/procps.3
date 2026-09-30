@@ -1,0 +1,179 @@
+.\"
+.\" Copyright (c) 2020-2026 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2020-2024 Craig Small <csmall@dropbear.xyz>
+.\"
+.\" This manual is free software; you can redistribute it and/or
+.\" modify it under the terms of the GNU Lesser General Public
+.\" License as published by the Free Software Foundation; either
+.\" version 2.1 of the License, or (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH PROCPS 3 2026\-03\-03 procps\-ng 
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.nh
+.SH BEZEICHNUNG
+procps – API für den Zugriff auf Informationen auf Systemebene im
+/proc\-Dateisystem
+.SH ÜBERSICHT
+In dieser Übersicht werden fünf verschiedene Schnittstellen dargestellt, die
+nach den Dateien benannt sind, auf die sie im Pseudodateisystem /proc
+zugreifen: \fBdiskstats\fP, \fBmeminfo\fP, \fBslabinfo\fP, \fBstat\fP und \fBvmstat\fP.
+.nf
+.RS +4
+#include <libproc2/\fBbenannte_Schnittstelle\fP.h>
+.P
+int\fB procps_new  \fP (struct info **\fIinfo\fP);
+int\fB procps_ref  \fP (struct info  *\fIinfo\fP);
+int\fB procps_unref\fP (struct info **\fIinfo\fP);
+.P
+struct result *\fBprocps_get\fP (
+    struct info *\fIInfo\fP,
+[   const char *\fIName\fP,      ]   nur \fBdiskstats\fP\-API
+    enum item \fIElement\fP);
+.P
+struct stack *\fBprocps_select\fP (
+    struct info *\fIInfo\fP,
+[   const char *\fIName\fP,      ]   nur \fBdiskstats\fP\-API
+    enum item *\fIElement\fP,
+    int \fInumitems\fP);
+.P
+struct reaped *\fBprocps_reap\fP (
+    struct info *\fIInfo\fP,
+[   enum reap_type \fIwas\fP,   ]   nur \fBstat\fP\-API
+    enum item *\fIElemente\fP,
+    int \fInumitems\fP);
+.P
+struct stack **\fBprocps_sort\fP (
+    struct info *\fIInfo\fP,
+    struct stack *\fIstacks\fP[],
+    int \fInumstacked\fP,
+    enum item \fIsortitem\fP,
+    enum sort_order \fIorder\fP);
+.fi
+.P
+Die oben genannten Funktionen und Strukturen sind generisch, aber das
+spezifische \fBnamed_interface\fP wäre auch Teil aller
+Bezeichner. Beispielsweise wäre \[oq]procps_new\[cq] tatsächlich
+\[oq]procps_\fBmeminfo\fP_new\[cq] und \[oq]info\[cq] wäre wirklich
+\[oq]\fBdiskstats\fP_info\[cq] usw.
+.P
+In jedem Header\-Dateinamen wird dasselbe \fBnamed_interface\fP mit dem
+angehängten Suffix \[oq].h\[cq] verwendet.
+.P
+Linken Sie mit der Option \fI\-lproc2\fP.
+.SH BESCHREIBUNG
+.SS Übersicht
+Im Mittelpunkt dieser Schnittstellen steht eine einfache
+\[oq]result\[cq]\-Struktur, die ein \[oq]item\[cq] plus seinen Wert
+widerspiegelt (in einer Union mit Standard\-C\-Sprachtypen als
+Mitgliedern). Alle \[oq]result\[cq]\-Strukturen werden automatisch von der
+Bibliothek zugewiesen und bereitgestellt.
+.P
+Durch die Angabe eines Arrays von \[oq]Elementen\[cq] können diese
+Strukturen als \[oq]Stapel\[cq] organisiert werden, wodurch potenziell viele
+Ergebnisse mit einem einzigen Funktionsaufruf erzielt werden. Somit kann ein
+\[oq]Stapel\[cq] als Datensatz variabler Länge betrachtet werden, dessen
+Inhalt und Reihenfolge ausschließlich vom Benutzer bestimmt werden.
+.P
+Jede Schnittstelle verfügt über zwei eindeutige Enumeratoren. Die Elemente
+\[oq]noop\[cq] und \[oq]extra\[cq] dienen zur Speicherung von
+Benutzerwerten. Sie werden nie von der Bibliothek gesetzt, aber das Ergebnis
+von \[oq]extra\[cq] wird bei jeder Bibliotheksinteraktion auf Null gesetzt.
+.P
+Die Headerdatei \fBnamed_interface\fP ist ein unverzichtbares Dokument während
+der Entwicklung Ihres Benutzerprogramms. Dort finden Sie die verfügbaren
+Elemente, deren Rückgabetyp (den Namen des Strukturelements
+\[oq]result\[cq]) und den Quellcode dieser Werte. Zusätzliche Enumeratoren
+und Strukturen sind dort ebenfalls dokumentiert.
+.P
+.SS Verwendung
+Das Folgende wäre eine typische Abfolge von Aufrufen dieser Schnittstellen.
+.P
+.nf
+1. \fBprocps_new()\fP
+2. \fBprocps_get()\fP, \fBprocps_select()\fP oder \fBprocps_reap()\fP
+3. \fBprocps_unref()\fP
+.fi
+.P
+Die Funktion \fBget\fP wird verwendet, um eine \[oq]result\[cq]\-Struktur für
+ein einzelnes \[oq]Element\[cq] abzurufen. Alternativ steht ein \fBGET\fP\-Makro
+zur Verfügung, wenn nur der Rückgabewert von Interesse ist.
+.P
+Die Funktion \fBselect\fP kann mehrere \[oq]result\[cq]\-Strukturen in einem
+einzigen \[oq]Stapel\[cq] abrufen.
+.P
+Für unvorhersehbare variable Ergebnisse exportieren die Schnittstellen
+\fBdiskstats\fP, \fBslabinfo\fP und \fBstat\fP eine \fBreap\fP\-Funktion. Diese dient zum
+Abrufen mehrerer \[oq]Stapel\[cq], die jeweils mehrere
+\[oq]result\[cq]\-Strukturen enthalten. Optional kann der Benutzer diese
+Ergebnisse \fBsortieren\fP.
+.P
+Um einen beliebigen \[oq]stack\[cq] zu nutzen und auf einzelne
+\[oq]result\[cq]\-Strukturen zuzugreifen, ist ein \fIrelative_enum\fP
+erforderlich, wie im Makro \fBVAL\fP in der Header\-Datei definiert. Solche
+Werte könnten fest codiert werden, z.B. 0 bis numitems\-1. In der Regel wird
+dieser Bedarf jedoch durch die Erstellung eigener Enumeratoren gedeckt, die
+der Reihenfolge des \[oq]items\[cq]\-Arrays entsprechen.
+.SS Einschränkungen
+Die Funktionen \fBnew\fP, \fBref\fP, \fBunref\fP, \fBget\fP und \fBselect\fP sind in allen
+fünf Schnittstellen verfügbar.
+.P
+Für die Funktionen \fBnew\fP und \fBunref\fP muss die Adresse eines
+\fIInfo\fP\-Strukturzeigers angegeben werden. Bei \fBnew\fP muss dieser auf NULL
+initialisiert worden sein. Bei \fBunref\fP wird er auf NULL zurückgesetzt, wenn
+der Referenzzähler Null erreicht.
+.P
+Bei der \fBdiskstats\fP\-Schnittstelle identifiziert ein \fIname\fP\-Parameter der
+Funktionen \fBget\fP und \fBselect\fP einen Datenträger\- oder Partitionsnamen.
+.P
+With the \fBslabinfo\fP interface, \fIselect\fP results are only meaningful with
+\[oq]SLABS\[cq] (plural) enumerators while \fIreap\fP results are only
+meaningful with \[oq]SLAB\[cq] (singular) enumerators.
+.P
+Für die \fBstat\fP\-Schnittstelle gibt ein \fIwhat\fP\-Parameter der
+\fBreap\fP\-Funktion an, ob Daten nur für CPUs oder sowohl für CPUs als auch für
+NUMA\-Knoten erfasst werden sollen.
+.P
+Bei Verwendung der Funktion \fBsort\fP wären die Parameter \fIstacks\fP und
+\fInumstacked\fP normalerweise diejenigen, die in der Struktur \[oq]reaped\[cq]
+zurückgegeben werden.
+.SH RÜCKGABEWERT
+.SS "Funktionen, die ein \[oq]int\[cq] zurückgeben"
+Ein Fehler wird durch eine negative Zahl angezeigt, die stets der Kehrwert
+eines bekannten errno.h\-Wertes ist.
+.P
+Ein Erfolg wird durch den Rückgabewert Null signalisiert. Die Funktionen
+\fBref\fP und \fBunref\fP geben jedoch die aktuelle Referenzanzahl der
+\fIinfo\fP\-Struktur zurück.
+.SS "Funktionen, die ein \[oq]address\[cq] zurückgeben"
+Ein Fehler wird durch einen NULL\-Rückgabezeiger angezeigt, wobei der Grund
+im formalen errno\-Wert zu finden ist.
+.P
+Der Erfolg wird durch einen Zeiger auf die genannte Struktur angezeigt.
+.SH FEHLERDIAGNOSE
+Zur Unterstützung der Programmentwicklung gibt es eine zweite Bestimmung,
+die dazu beitragen kann, sicherzustellen, dass die Mitgliedsreferenzen von
+\[oq]result\[cq] den Erwartungen der Bibliothek entsprechen. Sie setzt
+voraus, dass für den Zugriff auf den Wert von \[oq]result\[cq] ein in der
+Header\-Datei bereitgestelltes Makro verwendet wird.
+.P
+Diese Funktion kann über eine der folgenden Methoden aktiviert werden und
+etwaige Abweichungen werden in \fBstderr\fP geschrieben.
+.IP 1) 3
+Fügen Sie CFLAGS='\-DXTRA_PROCPS_DEBUG' zu allen anderen verwendeten
+\&./configure\-Optionen hinzu.
+.IP 2) 3
+Fügen Sie #include <libproc2/xtra\-procps\-debug.h> zu jedem Programm
+hinzu, das die benannte Schnittstelle enthält.
+.PP
+Diese Verifizierungsfunktion verursacht einen erheblichen Mehraufwand. Daher
+ist es wichtig, dass sie für einen Produktions\-/Release\-Build \fInicht\fP
+aktiviert wird.
+.SH "SIEHE AUCH"
+\fBprocps_misc\fP(3), \fBprocps_pids\fP(3), \fBproc\fP(5).

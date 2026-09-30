@@ -1,0 +1,45 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Hub-filter (-u/-U) combined with interface display (-i/-I).
+
+setup() {
+	: "${LSUSB_PY_BUILT:=$DIR/../lsusb.py}"
+	: "${LSUSB_PY_INSTALLED:=$(command -v lsusb.py || true)}"
+}
+
+@test "lsusb.py -Cui: built and installed output is identical" {
+	[ -n "$LSUSB_PY_INSTALLED" ]
+	"$LSUSB_PY_BUILT"     -Cui > "$TEST_TMP.built"     2>&1
+	"$LSUSB_PY_INSTALLED" -Cui > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb.py -CUi: built and installed output is identical" {
+	[ -n "$LSUSB_PY_INSTALLED" ]
+	"$LSUSB_PY_BUILT"     -CUi > "$TEST_TMP.built"     2>&1
+	"$LSUSB_PY_INSTALLED" -CUi > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb.py -CuI: built and installed output is identical" {
+	[ -n "$LSUSB_PY_INSTALLED" ]
+	"$LSUSB_PY_BUILT"     -CuI > "$TEST_TMP.built"     2>&1
+	"$LSUSB_PY_INSTALLED" -CuI > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb.py -CUI: built and installed output is identical" {
+	[ -n "$LSUSB_PY_INSTALLED" ]
+	"$LSUSB_PY_BUILT"     -CUI > "$TEST_TMP.built"     2>&1
+	"$LSUSB_PY_INSTALLED" -CUI > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb.py -CuU: -U subsumes -u" {
+	"$LSUSB_PY_BUILT" -CU  > "$TEST_TMP.one"  2>&1
+	"$LSUSB_PY_BUILT" -CuU > "$TEST_TMP.both" 2>&1
+	diff -u "$TEST_TMP.one" "$TEST_TMP.both"
+}

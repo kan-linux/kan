@@ -1,0 +1,182 @@
+@node Texinfo@asis{::}Convert@asis{::}Text
+@chapter Texinfo::Convert::Text
+
+@node Texinfo@asis{::}Convert@asis{::}Text NAME
+@section Texinfo::Convert::Text NAME
+
+Texinfo::Convert::Text - Convert Texinfo tree to simple text
+
+@node Texinfo@asis{::}Convert@asis{::}Text SYNOPSIS
+@section Texinfo::Convert::Text SYNOPSIS
+
+@verbatim
+  use Texinfo::Convert::Text qw(convert_to_text text_accents);
+
+  my $result = convert_to_text($tree);
+
+  my $accents_text = text_accents($accents, 'utf-8');
+
+  # using text conversion options set in $converter derived from
+  # Texinfo::Convert::Converter
+  my $text_options = $converter->{'convert_text_options'};
+
+  set_options_code($text_options);
+  my $result_with_converter = convert_to_text($tree, $text_options);
+  reset_options_code($text_options);
+@end verbatim
+
+@node Texinfo@asis{::}Convert@asis{::}Text NOTES
+@section Texinfo::Convert::Text NOTES
+
+The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
+Texinfo to other formats.  There is no promise of API stability.
+
+@node Texinfo@asis{::}Convert@asis{::}Text DESCRIPTION
+@section Texinfo::Convert::Text DESCRIPTION
+
+@code{Texinfo::Convert::Text} is a simple backend that converts a Texinfo tree
+to simple text.  It is used in converters, especially for file names.
+
+Converters derived from @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter} should have conversion
+text options preset associated to the @code{convert_text_options} key.
+
+The main function is @code{convert_to_text}.  The text conversion options
+can be modified with the @code{set_*} functions before calling @code{convert_to_text},
+and reset afterwards with the corresponding @code{reset_*} functions.
+
+@node Texinfo@asis{::}Convert@asis{::}Text METHODS
+@section Texinfo::Convert::Text METHODS
+
+@table @asis
+@item $result = convert_to_text($tree, $text_options)
+@anchor{Texinfo@asis{::}Convert@asis{::}Text $result = convert_to_text($tree@comma{} $text_options)}
+@cindex @code{convert_to_text}
+
+Convert a Texinfo tree to simple text.  @emph{$text_options} is a hash reference of
+options.
+
+The @code{ASCII_GLYPH}, @code{DEBUG}, @code{DOC_ENCODING_FOR_INPUT_FILE_NAME},
+@code{COMMAND_LINE_ENCODING},
+@code{NUMBER_SECTIONS}, @code{TEST}, @code{documentlanguage}, @code{INPUT_FILE_NAME_ENCODING},
+@code{LOCALE_ENCODING} and @code{INCLUDE_DIRECTORIES} options corresponding to
+customization variables may be set in @emph{$text_options}.
+
+The following options may also be set:
+
+@table @asis
+@item converter
+@anchor{Texinfo@asis{::}Convert@asis{::}Text converter}
+
+If a converter object is passed to the function, generated error
+messages are passed back to the converter.  See also
+@ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter}.
+
+@item enabled_encoding
+@anchor{Texinfo@asis{::}Convert@asis{::}Text enabled_encoding}
+
+If set, the value is considered to be the encoding name texinfo accented
+letters should be converted to.  In the default case, this option is set from
+the main program directly or through converters calling conversion to text if
+the @code{--enable-encoding} option, or the @code{ENABLE_ENCODING} customization
+variable is set.  For file names in HTML and LaTeX, and for DocBook or Texinfo
+XML, this variable should in general be set unless the output encoding is
+US-ASCII.
+
+@item expanded_formats
+@anchor{Texinfo@asis{::}Convert@asis{::}Text expanded_formats}
+
+A reference on a hash.  The keys should be format names (like @code{html},
+@code{tex}), and if the corresponding value is set, the format is expanded.
+
+@item set_case
+@anchor{Texinfo@asis{::}Convert@asis{::}Text set_case}
+
+If positive, the text is upper-cased, if negative, the text is lower-cased.
+
+@item sort_string
+@anchor{Texinfo@asis{::}Convert@asis{::}Text sort_string}
+
+A somehow internal option to convert to text more suitable for alphabetical
+sorting rather than presentation.
+
+@end table
+
+@item $result_accent_text = ascii_accent_fallback($converter, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case $converter)
+@anchor{Texinfo@asis{::}Convert@asis{::}Text $result_accent_text = ascii_accent_fallback($converter@comma{} $text@comma{} $accent_command@comma{} $index_in_stack@comma{} $accents_stack@comma{} $in_upper_case $converter)}
+@cindex @code{ascii_accent_fallback}
+
+@emph{$text} is the text appearing within an accent command.  @emph{$accent_command}
+should be a Texinfo tree element corresponding to an accent command taking
+an argument.  The function returns a transliteration of the accented
+character.  The @emph{$converter} argument is ignored, but needed for this
+function to be in argument of functions that need a fallback for accents
+conversion.  The remaining arguments are also ignored and similarly
+may be needed for this function to be in argument of functions that need a
+fallback for accents conversion.
+
+@item set_options_code($text_options)
+@anchor{Texinfo@asis{::}Convert@asis{::}Text set_options_code($text_options)}
+
+@item reset_options_code($text_options)
+@anchor{Texinfo@asis{::}Convert@asis{::}Text reset_options_code($text_options)}
+@cindex @code{set_options_code}
+@cindex @code{reset_options_code}
+
+@code{set_options_code} sets @emph{$text_options} to be in code style.
+(mostly @code{--}, @code{---}, @code{''} and @code{``} are kept as is).  @code{reset_options_code}
+undo the effect of @code{set_options_code}.
+
+@code{reset_options_code} should always be called after @code{set_options_code}.
+
+@item set_options_encoding($text_options, $encoding)
+@anchor{Texinfo@asis{::}Convert@asis{::}Text set_options_encoding($text_options@comma{} $encoding)}
+
+@item set_options_encoding_if_not_ascii($customization_information, $text_options)
+@anchor{Texinfo@asis{::}Convert@asis{::}Text set_options_encoding_if_not_ascii($customization_information@comma{} $text_options)}
+
+@item reset_options_encoding($text_options)
+@anchor{Texinfo@asis{::}Convert@asis{::}Text reset_options_encoding($text_options)}
+@cindex @code{set_options_encoding}
+@cindex @code{set_options_encoding_if_not_ascii}
+@cindex @code{reset_options_encoding}
+
+@code{set_options_encoding} sets @code{enabled_encoding} in @emph{$text_options}
+to @emph{$encoding}.  @code{set_options_encoding_if_not_ascii} sets @code{enabled_encoding}
+in @emph{$text_options} based on customization options associated to
+@emph{$customization_information}.  In that case, @code{enabled_encoding} is set unless
+the output encoding is US-ASCII even if @code{ENABLE_ENCODING} is not set.
+
+@code{reset_options_encoding} undo the effect of @code{set_options_encoding} and
+@code{set_options_encoding_if_not_ascii} and should always be called after these
+functions.
+
+@item $accents_text = text_accents($accents, $encoding, $set_case)
+@anchor{Texinfo@asis{::}Convert@asis{::}Text $accents_text = text_accents($accents@comma{} $encoding@comma{} $set_case)}
+@cindex @code{text_accents}
+
+@emph{$accents} is an accent command that may contain other nested accent
+commands.  The function will format the whole stack of nested accent
+commands and the innermost text.  If @emph{$encoding} is set, the formatted
+text is converted to this encoding as much as possible instead of being
+converted as simple ASCII.  If @emph{$set_case} is positive, the result
+is meant to be upper-cased, if it is negative, the result is to be
+lower-cased.
+
+@end table
+
+@node Texinfo@asis{::}Convert@asis{::}Text AUTHOR
+@section Texinfo::Convert::Text AUTHOR
+
+Patrice Dumas, <bug-texinfo@@gnu.org>
+
+@node Texinfo@asis{::}Convert@asis{::}Text COPYRIGHT AND LICENSE
+@section Texinfo::Convert::Text COPYRIGHT AND LICENSE
+
+Copyright 2010- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+

@@ -1,0 +1,68 @@
+# This file is part of GDBM.                                   -*- autoconf -*-
+# Copyright (C) 2025 Free Software Foundation, Inc.
+#
+# GDBM is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# GDBM is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GDBM. If not, see <http://www.gnu.org/licenses/>. */
+
+AT_SETUP([Coalesce])
+AT_KEYWORDS([coalesce])
+AT_DATA([input],
+[set open=newdb
+set blocksize=1024
+set coalesce
+open a.gdbm
+# Add records
+store 1 Quousque
+store 2 tandem
+store 3 abutere
+store 4 Catilina
+store 5 patientia
+store 6 nostra
+# First data block is located at 1024*3=3072
+# Addresses and lengths of the key-value pairs are:
+# 1 - 3072	9
+# 2 - 3081	7
+# 3 - 3088	8
+# 4 - 3096	9
+# 5 - 3105	10
+# 6 - 3115	7
+# Available space begins at 3122 and is 974 bytes long.
+bucket | sed -e '1,/^Avail count/d'
+# Deleting 2 and 4 leaves the following availability map:
+#  3081 7
+#  3096 9
+#  3122 974
+del 2
+del 4
+bucket | sed -e '1,/^Avail count/d' 
+# Deleting 3 leaves:
+#  3081 24
+#  3122 974
+del 3
+bucket | sed -e '1,/^Avail count/d' 
+])
+AT_CHECK([gdbmtool -f input
+],
+[0],
+[Address           size
+       3122      974
+Address           size
+       3081        7
+       3096        9
+       3122      974
+Address           size
+       3081       24
+       3122      974
+])
+AT_CLEANUP
+

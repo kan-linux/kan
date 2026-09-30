@@ -1,0 +1,136 @@
+.\"
+.\" Copyright (c) 2009-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2015-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2012-2013 Jaromir Capik <jcapik@redhat.com>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002-2004 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH W 1 2025\-11\-29 procps\-ng 
+.SH NAMN
+w — Visa vem som är inloggad och vad de gör.
+.SH SYNOPSIS
+\fBw\fP [\fIflagga\fP …] [\fIanvändare\fP]
+.SH BESKRIVNING
+\fBw\fP visar information om de användare som just nu är inloggade på maskinen
+och deras processer. Rubrikraden visar, i denna ordning, den aktuella tiden,
+hur länge systemet har kört, hur många användare som för tillfället är
+inloggade och systemets genomsnittslast under de senaste 1, 5 och 15
+minuterna.
+.PP
+Följande poster visas för varje användare: inloggningsnamn, tty\-namnet,
+fjärrvärden, inloggningstid, inaktiv tid, JCPU, PCPU och kommandoraden för
+deras aktuella process.
+.PP
+JCPU\-tiden är tiden som använts av alla processer kopplade till tty:n.  Det
+inkluderar inte tidigare bakgrundsjobb, men det inkluderar de för närvarande
+körande bakgrundsjobben.
+.PP
+PCPU\-tiden är tiden som används av den aktuella processen, med namnet i
+”vad”\-fältet.
+.SH FLAGGOR
+.TP 
+\fB\-c\fP, \fB\-\-container\fP
+visa behållarens uppetid istället för systemets uppetid i huvudet.
+.TP 
+\fB\-h\fP, \fB\-\-no\-header\fP
+Skriv inte ut huvudet.
+.TP 
+\fB\-u\fP, \fB\-\-no\-current\fP
+Ignorerar användarnamnet när programmet listar ut den aktuella processen och
+cpu\-tider. För att demonstrera detta, gör \fBsu\fP och gör \fBw\fP och \fBw \-u\fP.
+.TP 
+\fB\-s\fP, \fB\-\-short\fP
+Använd kort format.  Skriv inte ut inloggningstid, JCPU\- eller PCPU\-tider.
+.TP 
+\fB\-t\fP, \fB\-\-terminal\fP
+Vanligen kommer \fBw\fP använda antingen systemd:s sessionstabell eller
+utmp\-filen för att lokalisera användare. I \fIterminalläge\fP kommer \fBw\fP
+skanna terminalenheterna och lokalisera användarsessioner på det
+sättet. Detta är inte ett sant värde på antalet användare, till exempel
+kommer en användare med två xterm:ar att dyka upp två gånger, så att antalet
+användare i huvudet kommer vara annorlunda. För närvarande är
+terminalenheter som skannas \fI/dev/tty*\fP och \fI/dev/pts/*\fP.
+.TP 
+\fB\-f\fP, \fB\-\-from\fP
+Växla utskriften av fältet \fBfrån\fP (fjärrvärdsnamn).  Standard i utgåvan är
+att fältet \fBfrån\fP inte visas, men din systemadministratör eller
+distributionsansvarige kan ha kompilerat en version i vilken fältet \fBfrån\fP
+visas som standard.
+.TP 
+\fB\-\-help\fP
+Visa hjälptext och avsluta.
+.TP 
+\fB\-i\fP, \fB\-\-ip\-addr\fP
+Visa IP\-adresser istället för värdnamn för fältet \fBfrån\fP. Denna flagga
+fungerar bara på icke\-systemd\-plattformar eftersom libsystemde endast ger
+fjärrvärden.
+.TP 
+\fB\-p\fP, \fB\-\-pids\fP
+Visa pid för inloggningsprocessen/”vad”\-processen i fältet
+”vad”. Inloggningsprocessen kallas även för sessionsledare.
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+Visa versionsinformation.
+.TP 
+\fB\-o\fP, \fB\-\-old\-style\fP
+Gammaldags utmatning.  Skriver mellanslag för inaktiva tider mindre än en
+minut.
+.TP 
+\fBanvändare \fP
+Visa information endast om den angivna användaren.
+.SH MILJÖ
+.TP 
+\fBPROCPS_CONTAINER\fP
+Om $\fBPROCPS_CONTAINER\fP är satt beter sig \fBw\fP som om flaggan \fB\-\-container\fP
+gavs.
+.TP 
+\fBPROCPS_USERLEN\fP
+Åsidosätt standardbredden på kolumnen för användarnamn.  Standard är 8.
+.TP 
+\fBPROCPS_FROMLEN\fP
+Åsidosätt standardbredden på kolumnen från.  Standard är 16.
+.SH FILER
+.TP 
+\fI/var/run/utmp\fP
+information om vem som är inloggad för närvarande, endast för
+icke\-systemd\-värdar.
+.TP 
+\fI/proc\fP
+processinformation
+.TP 
+\fI/dev/tty*\fP , \fI/dev/pts/*\fP
+Terminalenhetsfiler som skannas i läget \fB\-\-terminal\fP.
+.SH FEL
+.PP
+När flaggan \fB\-\-terminal\fP används antar \fBw\fP att processer med en
+föräldra\-PID 0 eller 1 är \fBagetty\fP(8)\-processer och kommer inte visa
+dem. Detta kan leda till både positiva och negativa fel.
+.PP
+Inaktiv tid för användare i vissa sessioner, såsom X/Wayland\-sessioner,
+kommer vara felaktig. Flaggan \fB\-\-terminal\fP kommer visa den korrekta
+inaktiva tiden för terminalsessioner i X/Wayland.
+.PP
+På plattformar som använder \fBsystemd\fP(1) kommer flaggan \fB\-\-ip\-addr\fP
+ignoreras och från\-kolumnen kommer rapportera fjärrvärden antingen som ett
+värdnamn eller en IP\-adress.
+.SH "RAPPORTERA FEL"
+Skicka felrapporter till
+.MT procps@freelists.org
+.ME .
+Skicka synpunkter på översättningen till
+.MT tp\-sv@listor.tp\-sv.se
+.MT
+.SH "SE ÄVEN"
+\fBfree\fP(1), \fBloginctl\fP(1), \fBps\fP(1), \fBsystemd\fP(1), \fBtop\fP(1),
+\fBuptime\fP(1), \fBwho\fP(1), \fButmp\fP(5), \fBagetty\fP(8)

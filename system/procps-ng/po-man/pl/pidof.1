@@ -1,0 +1,71 @@
+.\"
+.\" Copyright (c) 2018-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2019-2023 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2013      Jaromir Capik <jcapik@redhat.com>
+.\" Copyright (c) 1998      Miquel van Smoorenburg
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH PIDOF 1 2023\-01\-16 procps\-ng 
+.SH NAZWA
+pidof \- znalezienie ID procesu działającego programu
+.SH SKŁADNIA
+\fBpidof\fP [\fB\-s\fP] [\fB\-c\fP] [\fB\-q\fP] [\fB\-w\fP] [\fB\-x\fP] [\fB\-o\fP
+\fIomitpid\fP[,.\|.\|.\&]] \&.\|.\|.\& [\fB\-t\fP] [\fB\-S\fP \fIseparator\fP] \fIprogram\fP
+\&.\|.\|.
+.SH OPIS
+\fBPidof\fP znajduje identyfikatory procesów (pidy) programów o podanych
+nazwach. Identyfikatory są wypisywane na standardowe wyjście.
+.SH OPCJE
+.IP \fB\-s\fP
+Pojedynczy strzał \- program zwróci tylko jeden \fIpid\fP.
+.IP \fB\-c\fP
+Zwracanie tylko identyfikatorów procesów działających w tym samym katalogu
+głównym. Ta opcja jest ignorowana dla użytkowników bez praw roota, ponieważ
+nie mają oni możliwości sprawdzenia katalogu głównego procesów, których nie
+są właścicielami.
+.IP \fB\-q\fP
+Tryb cichy \- pominięcie całego wyjścia i ustawienie tylko odpowiedniego
+statusu zakończenia.
+.IP \fB\-w\fP
+Pokazanie także procesów, które nie mają widocznej linii polecenia
+(np. wątków jądra).
+.IP \fB\-x\fP
+Także skrypty \- powoduje to, że program zwróci także identyfikatory procesów
+powłok uruchamiających skrypty o podanych nazwach.
+.IP "\fB\-o\fP \fIpomiń\-pid\fP"
+Pominięcie przez \fBpidof\fP procesów o podanych identyfikatorach. Można podać
+pid specjalny \fB%PPID\fP, aby określić proces rodzica programu \fBpidof\fP,
+innymi słowy powłokę lub skrypt go wywołujący.
+.IP \fB\-t\fP
+Pokazanie wszystkich identyfikatorów wątków zamiast pidów.
+.IP "\fB\-S\fP \fIseparator\fP"
+Używanie podanego \fIseparatora\fP między pidami. Używane tylko w przypadku
+wypisywania więcej niż jednego pidu dla programu. Opcja \fB\-d\fP jest aliasem
+dla tej opcji w celu zgodności z programem \fBpidof\fP z pakietu sysvinit.
+.SH "KOD WYJŚCIA"
+.TP 
+\fB0\fP
+Znaleziono przynajmniej jeden program o żądanej nazwie.
+.TP 
+\fB1\fP
+Nie znaleziono programu o żądanej nazwie.
+.SH BŁĘDY
+Podczas używania opcji \fB\-x\fP, \fBpidof\fP ma tylko prostą metodę wykrywania
+skryptów i pominie skrypty np. używające env. Ograniczenie to jest
+spowodowane tym, jak wyglądają skrypty w systemie plików proc.
+.SH "ZOBACZ TAKŻE"
+\fBpgrep\fP(1), \fBpkill\fP(1)
+.SH AUTOR
+.MT jcapik@redhat.com
+Jaromir Capik
+.ME

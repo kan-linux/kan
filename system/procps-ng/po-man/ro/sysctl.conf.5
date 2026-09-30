@@ -1,0 +1,84 @@
+.\"
+.\" Copyright (c) 2016-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2019-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1999      George Staikos <staikos@0wned.org>
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH SYSCTL.CONF 5 29.05.2025 procps\-ng 
+.SH NUME
+sysctl.conf \- parametrii de configurare ai nucleului Linux
+.SH DESCRIERE
+\fBsysctl.conf\fP este un set de fișiere de configurare care conțin parametrii
+de configurare ai nucleului Linux care urmează să fie citiți și definiți de
+\fBsysctl\fP(8).
+.PP
+Această pagină de manual descrie fișierele de configurare pentru \fIprocps\fP
+\fBsysctl\fP. Dacă utilizați \fBsystemd\-sysctl\fP(8), consultați \fBsysctl.d\fP(5) și
+rețineți că acesta nu va utiliza fișierul \fI\%/etc/\:\%sysctl\:\%.conf\fP.
+.SS "Formatul fișierelor de configurare"
+Fiecare linie a unui fișier citit de \fIprocps\fP \fBsysctl\fP descrie un
+parametru al nucleului în următorul format.
+.P
+.RS
+.EX
+element = valoare
+.EE
+.RE
+.P
+.P
+Nu este necesar să utilizați ghilimele pentru \fIvaloare\fP, chiar dacă
+valoarea este o listă de elemente.
+.P
+Liniile goale și liniile care încep cu „\[lq]\fB#\fP\[rq]” sau „\[lq]\fB;\fP\[rq]”
+sunt ignorate.
+.P
+Dacă o linie începe cu un singur „\fB\-\fP”, orice încercare de a definii
+valoarea care eșuează va fi ignorată.
+.SH FIȘIERE
+\fIprocps\fP \fBsysctl\fP, atunci când este rulat cu opțiunea \fB\%\-\-system\fP,
+citește fișierele din directoare în ordinea prezentată mai jos.
+.P
+.RS
+.TP 
+\fI/etc/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/run/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/local/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/lib/sysctl.d/\fP*\fI.conf\fP
+.RE
+.P
+În final, \fIprocps\fP \fBsysctl\fP citește \fI\%/etc/\:\%sysctl\:\%.conf\fP. Acest
+fișier nu este utilizat de \fBsystemd\-sysctl\fP, ceea ce înseamnă că unii
+parametri ai nucleului nu sunt definiți în funcție de implementarea lui
+\fBsysctl\fP care este instalată.
+.SH ERORI
+Lungimea maximă de linie acceptată a \fIvalorii\fP este de 4096 de caractere
+din cauza unei limitări a intrărilor \fI/proc\fP în nucleul Linux.
+.SH EXEMPLE
+.EX
+#
+#
+   kernel.domainname = example.com
+; O valoare care conține un spațiu este scrisă în sysctl.
+   kernel.modprobe = /sbin/mod probe
+
+# O listă cu elemente pentru valoare
+   net.ipv4.ip_local_reserved_ports=8080,9148
+.EE
+.SH "CONSULTAȚI ȘI"
+\fBsysctl.d\fP(5), \fBsysctl\fP(8), \fBsystemd\-sysctl\fP(8)

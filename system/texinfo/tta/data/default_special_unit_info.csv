@@ -1,0 +1,13 @@
+Special output unit associated information
+class: class name used in HTML attributes
+direction: global direction name linking to the special output unit
+order: index determining the sorting order of special output units
+file_string: file string portion prepended to the special output units file names
+target: target of the special element for example for id HTML attributes
+heading string: special output unit heading Texinfo code
+
+type|class|direction|order|file_string|target|heading string|
+contents|contents|Contents|30|_toc|SEC_Contents|Table of Contents|
+shortcontents|shortcontents|Overview|20|_ovr|SEC_Shortcontents|Short Table of Contents|
+footnotes|footnotes|Footnotes|10|_fot|SEC_Footnotes|Footnotes|
+about|about|About|40|_abt|SEC_About|About This Document|

@@ -1,0 +1,7 @@
+
+@macro enc
+eš Če.
+@end macro
+
+@enc{}
+

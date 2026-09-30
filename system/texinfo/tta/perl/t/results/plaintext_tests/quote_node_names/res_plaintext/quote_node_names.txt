@@ -1,0 +1,42 @@
+See the::caption and a word: normal node See the::caption: normal node
+
+   See the::caption and a word: blah:blah See the::caption: blah:blah
+
+   See the::caption and a word: blumpty.fump See the::caption:
+blumpty.fump.mrmrmrmmrmrmr
+
+   See blah:blah.
+
+   See secret,node.
+
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA See blah:blah.)
+
+   See (man_ual)x:y::z.
+
+   See (man_ual)x.y.z.
+
+   See label: (man_ual)pp:qq::rr.
+
+   See label: (man_ual)pp:qq.rr.
+
+   See label: (man:u.al)ext.
+
+   See label: (man:u.al)e:x.t.
+
+   See la:bel: (man:u.al)ext.
+
+1 blah:blah
+***********
+
+stuff here.
+
+2 blumpty.fump
+**************
+
+3 normal node
+*************
+
+4 secret,node
+*************
+
+stuff here.

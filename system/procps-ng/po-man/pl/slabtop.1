@@ -1,0 +1,125 @@
+.\"
+.\" Copyright (c) 2011-2023 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2013-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2004-2006 Albert Cahalan
+.\" Copyright (C) 2003      Chris Rivera
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU Lesser General Public License as
+.\" published by the Free Software Foundation; either version 2.1 of the
+.\" License, or (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH SLABTOP 1 2023\-12\-26 procps\-ng 
+.SH NAZWA
+slabtop \- wyświetlanie informacji jądra o pamięci podręcznej płyt w czasie
+rzeczywistym
+.SH SKŁADNIA
+\fBslabtop\fP [\fIoption\fP .\|.\|.]
+.SH OPIS
+\fBslabtop\fP wyświetla szczegółowe informacje o pamięci podręcznej płyt jądra
+w czasie rzeczywistym. Wyświetla listę największych pamięci podręcznych
+posortowaną wg jednego z wymienionych kryteriów. Wyświetla także nagłówek
+statystyk wypełniony informacjami o warstwie płyt.
+.SH OPCJE
+Zwykłe wywołanie programu \fBslabtop\fP nie wymaga żadnych opcji. Zachowanie
+można jednak dostrrajać przekazując jedną lub więcej z następujących flag:
+.TP 
+\fB\-d\fP, \fB\-\-delay\fP=\fIN\fP
+Odświeżanie widoku co każde \fIn\fP sekund. Domyślnie \fBslabtop\fP odświeża widok
+co trzy sekundy. Aby zakończyć program, należu nacisnąć \fBq\fP. Nie można tego
+łączyć z opcją \fB\-o\fP.
+.TP 
+\fB\-s\fP, \fB\-\-sort\fP=\fIS\fP
+Sort wg \fIS\fP, gdzie \fIS\fP jest jednym z kryteriów sortowania.
+.TP 
+\fB\-o\fP, \fB\-\-once\fP
+Jednokrotne wyświetlenie wyjścia i zakończenie.
+.TP 
+\fB\-\-human\fP
+Show slab sizes automatically scaled to shortest three digit unit and
+display the units of print out.  Following units are used.
+.sp
+.nf
+  B = bajty
+  Ki = kibibajty
+  Mi = mebibajty
+  Gi = gibibajty
+  Ti = tebibajty
+  Pi = pebibajty
+.fi
+.sp
+.TP 
+If this flag is not used, the slab sizes will be shown in KiB.
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+Wyświetlenie informacji o wersji i zakończenie.
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+Wyświetlenie informacji o sposobie użycia i zakończenie.
+.SH "KRYTERIA SORTOWANIA"
+Poniżej są wymienione poprawne kryteria sortowania, określające także, które
+"największe" pamięci podręczne płyt mają być wyświetlane. Domyślnym
+kryterium jest sortowanie po liczbie obiektów ("o").
+.PP
+Kryterium sortowania można także zmienić podczas działania programu
+\fBslabtop\fP przez naciśnięcie przypisanego znaku.
+.TS
+l l l.
+\fBznak\fP	\fBopis\fP	\fBnagłówek\fP
+a	liczba aktywnych obiektów	AKTYWNE
+b	obiektów na płytę	OB./PŁ.
+c	rozmiar pamięci podręcznej	ROZM.CACHE
+l	liczba płyt	PŁYTY
+v	liczba aktywnych płyt	N/D
+n	nazwa	NAZWA\:
+o	liczba obiektów	OB.
+p	stron na płytę	N/D
+s	rozmiar obiektu	ROZM.OB.
+u	wykorzystanie pamięci podręcznej	UŻ.
+.TE
+.SH POLECENIA
+\fBslabtop\fP przyjmuje w trakcie działania polecenia z klawiatury. Obsługiwane
+są wymienione poniżej; w przypadku liter, akceptowane są obie wielkości.
+.PP
+Akceptowane są także wszystkie poprawne znaki sortowania w celu zmiany
+kryterium \- więcej w sekcji \fBKRYTERIA SORTOWANIA\fP.
+.TP 
+\fB<SPACJA>\fP
+Odświeżenie ekranu.
+.TP 
+\fBQ\fP
+Zakończenie programu.
+.SH PLIKI
+.TP 
+\fI/proc/slabinfo\fP
+informacje o płytach
+.SH "ZOBACZ TAKŻE"
+\fBfree\fP(1), \fBps\fP(1), \fBtop\fP(1), \fBvmstat\fP(8).
+.SH UWAGI
+Obecnie program \fBslabtop\fP wymaga jądra 2.4 lub nowszego (w szczególności
+wersji 1.1 lub późniejszej \fI/proc/slabinfo\fP). Jądro 2.2 powinno być
+obsługiwane w przyszłości.
+.PP
+Nagłówek statystyk \fBslabtop\fP śledzi liczbę bajtów płyt będących w użyciu,
+nie mierzy pamięci fizycznej. Pole 'Slab' w pliku \fI/proc/meminfo\fP śledzi
+informacje o wykorzystanej pamięci fizycznej płyt.
+.PP
+Kolumna \fBROZM.CACHE\fP nie jest dokładne, jest to górny limit pamięci
+wykorzystywanej przez daną płytę. Kiedy system jest obciążony pamięciowo,
+może być zmieniana kolejność płyt, co oznacza, że "liczba stron na płytę"
+nie jest stała i może się zmniejszać.
+.SH AUTORZY
+Napisali Chris Rivera i Robert Love.
+.PP
+\fBslabtop\fP był zainspirowany skryptem perlowym \fBvmtop\fP Martina Bligha.
+.SH "ZGŁASZANIE BŁĘDÓW"
+Please send bug reports to
+.MT procps@freelists.org
+.ME .

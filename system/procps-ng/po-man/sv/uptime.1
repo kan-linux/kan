@@ -1,0 +1,77 @@
+.\"
+.\" Copyright (c) 2011-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002      Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH UPTIME 1 2024\-02\-08 procps\-ng 
+.SH NAMN
+uptime — Berätta hur länge systemet har kört.
+.SH SYNOPSIS
+\fBuptime\fP [\fIflagga\fP …]
+.SH BESKRIVNING
+\fBuptime\fP visar en rad med följande information.  Den aktuella tiden, hur
+länge systemet har kört, hur många användare som för tillfället är inloggade
+och systemets genomsnittslast under de senaste 1, 5 och 15 minuterna.
+.PP
+Detta är samma information som finns i huvudraden som visas av \fBw\fP(1).
+.PP
+Systemets genomsnittslast är det genomsnittliga antalet processer som
+antingen är i körbart eller ej avbrytbart tillstånd.  En process i körbart
+tillstånd använder antingen CPU:n eller väntar på att använda CPU:n.  En
+process i ej avbrytbart tillstånd väntar på någon I/O\-åtkomst, t.ex. väntar
+på disk.  Genomsnitten tas över de tre tidsintervallen.  Lastgenomsnitt är
+inte normaliserade för antalet CPU:er i ett system, så en genomsnittslast på
+1 betyder att ett system med en ensam CPU är belastat hela tiden medan på
+ett system med 4 CPU:er betyder det att det var inaktivt 75 % av tiden.
+.SH FLAGGOR
+.TP 
+\fB\-c\fP, \fB\-\-container\fP
+visa behållarens uppetid istället för systemets uppetid.
+.TP 
+\fB\-p\fP, \fB\-\-pretty\fP
+visa uppetiden i ett snyggt format
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+visa denna hjälptext
+.TP 
+\fB\-r\fP, \fB\-\-raw\fP
+Visa värden i rått format. Aktuell tid och uppetid visad i sekunder.
+.TP 
+\fB\-s\fP, \fB\-\-since\fP
+systemet är uppe sedan, på formatet åååå\-mm\-dd HH:MM:SS
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+visa versionsinformation och avsluta
+.SH MILJÖ
+.TP 
+\fBPROCPS_CONTAINER\fP
+Om $\fBPROCPS_CONTAINER\fP är satt beter sig \fBuptime\fP som om flaggan
+\fB\-\-container\fP gavs.
+.SH FILER
+.TP 
+\fI/var/run/utmp\fP
+information om vem som är inloggad för närvarande
+.TP 
+\fI/proc\fP
+processinformation
+.SH "SE ÄVEN"
+\fBps\fP(1), \fBtop\fP(1), \fButmp\fP(5), \fBw\fP(1)
+.SH "RAPPORTERA FEL"
+Skicka felrapporter till
+.MT procps@freelists.org
+.ME .
+Skicka synpunkter på översättningen till
+.MT tp\-sv@listor.tp\-sv.se
+.MT

@@ -1,0 +1,82 @@
+.\"
+.\" Copyright (c) 2016-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2019-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1999      George Staikos <staikos@0wned.org>
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH SYSCTL.CONF 5 "29 травня 2025 року" procps\-ng 
+.SH НАЗВА
+sysctl.conf \- параметри налаштовування ядра Linux
+.SH ОПИС
+\fBsysctl.conf\fP є набором файлів налаштувань, у яких містяться параметри
+налаштовування ядра Linux, які буде прочитано і встановлено \fBsysctl\fP(8).
+.PP
+На цій сторінці підручника описано файли налаштувань для \fBsysctl\fP з
+\fIprocps\fP. Якщо ви користуєтеся \fBsystemd\-sysctl\fP(8), зверніться до
+підручника з \fBsysctl.d\fP(5) і зауважте, що та програма не використовуватиме
+файл \fI\%/etc/\:\%sysctl\:\%.conf\fP.
+.SS "Формат налаштувань"
+Кожен рядок у файлі, який читає \fBsysctl\fP \fIprocps\fP, описує параметр ядра у
+наведеному нижче форматі.
+.P
+.RS
+.EX
+ключ = значення
+.EE
+.RE
+.P
+.P
+Немає потреби у використанні лапок для \fIзначення\fP, навіть якщо значення є
+списком записів.
+.P
+Порожні рядки та рядки, які починаються з \[lq]\fB#\fP\[rq] або \[lq]\fB;\fP\[rq],
+буде проігноровано.
+.P
+Якщо рядок починається з одинарного символу \[lq]\fB\-\fP\[rq], помилку при
+спробі встановлення значення буде проігноровано.
+.SH ФАЙЛИ
+\fBsysctl\fP з \fIprocps\fP , якщо програму запущено з параметром \fB\%\-\-system\fP,
+читає файли з каталогів у вказаному нижче порядку.
+.P
+.RS
+.TP 
+\fI/etc/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/run/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/local/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/lib/sysctl.d/\fP*\fI.conf\fP
+.RE
+.P
+Нарешті, \fBsysctl\fP \fIprocps\fP читає \fI\%/etc/\:\%sysctl\:\%.conf\fP. Цей файл
+не буде використано \fBsystemd\-sysctl\fP, тобто деякі параметри ядра не буде
+встановлено залежно від реалізації \fBsysctl\fP, яку встановлено.
+.SH ВАДИ
+Максимальною підтримуваною довжиною рядка \fIзначення»\fP є 4096 символів через
+обмеження на записи \fI/proc\fP у ядрі Linux.
+.SH ПРИКЛАДИ
+.EX
+#
+#
+kernel.domainname = example.com
+; Значення, що містить пробіл буде записано до sysctl.
+kernel.modprobe = /sbin/mod probe
+# Список записів для значення
+net.ipv4.ip_local_reserved_ports=8080,9148
+.EE
+.SH "ТАКОЖ ПЕРЕГЛЯНЬТЕ"
+\fBsysctl.d\fP(5), \fBsysctl\fP(8), \fBsystemd\-sysctl\fP(8)

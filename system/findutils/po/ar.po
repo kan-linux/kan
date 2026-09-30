@@ -1,0 +1,1725 @@
+# Translation of findutils to Arabic.
+# Copyright (C) 2026 Free Software Foundation, Inc.
+# This file is distributed under the same license as the findutils package.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU findutils 4.10.0.164\n"
+"Report-Msgid-Bugs-To: bug-findutils@gnu.org\n"
+"POT-Creation-Date: 2026-07-11 10:06+0100\n"
+"PO-Revision-Date: 2026-07-07 08:10+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: Arabic <(nothing)>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
+"&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 26.07.70\n"
+
+#: find/exec.c:121
+#, c-format
+msgid "Failed to save working directory in order to run a command on %s"
+msgstr "فشل حفظ دليل العمل من أجل تشغيل أمر على %s"
+
+#: find/exec.c:241
+#, c-format
+msgid "Cannot close standard input"
+msgstr "يتعذر إغلاق المدخلات القياسية"
+
+#: find/exec.c:273
+#, c-format
+msgid "Failed to change directory to %s"
+msgstr "فشل تغيير الدليل إلى %s"
+
+#: find/exec.c:277
+#, c-format
+msgid "Failed to change directory"
+msgstr "فشل تغيير الدليل"
+
+#. TRANSLATORS: fork is the name of a system call, and so it
+#. * doesn't necessarily require a translation.  But to make the
+#. * error message more easily understandable you might translate
+#. * this message as something like "cannot create a new process
+#. * because the system call 'fork' failed".
+#.
+#: find/exec.c:328 xargs/xargs.c:1370
+#, c-format
+msgid "cannot fork"
+msgstr "يتعذر إجراء تفريع (fork)"
+
+#: find/exec.c:360
+#, c-format
+msgid "error waiting for the command we executed for %s"
+msgstr "خطأ أثناء انتظار الأمر المنفّذ لأجل %s"
+
+#: find/exec.c:369
+#, c-format
+msgid "%s terminated by signal %d"
+msgstr "أنهى الإشارة %2$d عمل %1$s"
+
+#: find/fstype.c:236
+#, c-format
+msgid "Cannot read mounted file system list"
+msgstr "يتعذر قراءة قائمة أنظمة الملفات الموصولة"
+
+#. TRANSLATORS: The "unknown" here is a placeholder for the type of
+#. * a file system which we were not able to identify.  File system
+#. * names are typically short, so something like "file system of
+#. * unknown type" would be longer than ideal.
+#.
+#: find/fstype.c:271
+msgid "unknown"
+msgstr "مجهول"
+
+#: find/ftsfind.c:208
+#, c-format
+msgid ""
+"Symbolic link %s is part of a loop in the directory hierarchy; we have "
+"already visited the directory to which it points."
+msgstr ""
+"الرابط الرمزي %s جزء من حلقة تكرار في هيكلية الأدلة؛ سُبقت زيارة الدليل الذي "
+"يشير إليه."
+
+#: find/ftsfind.c:222
+#, c-format
+msgid ""
+"File system loop detected; the following directory is part of the cycle: %s"
+msgstr "اُكتشفت حلقة تكرار في نظام الملفات؛ الدليل التالي جزء من الحلقة: %s"
+
+#: find/ftsfind.c:374 find/util.c:261
+#, c-format
+msgid "WARNING: file %s appears to have mode 0000"
+msgstr "تحذير: يبدو أن الملف %s يمتلك الوضع 0000"
+
+#: find/ftsfind.c:492
+#, c-format
+msgid "cannot search %s"
+msgstr "يتعذر البحث في %s"
+
+#: find/ftsfind.c:538
+#, c-format
+msgid "failed to restore working directory after searching %s"
+msgstr "فشل استعادة دليل العمل بعد البحث في %s"
+
+#: find/ftsfind.c:565
+#, c-format
+msgid "extra operand %s"
+msgstr "معامل إضافي %s"
+
+#: find/ftsfind.c:567
+#, c-format
+msgid "file operands cannot be combined with -files0-from"
+msgstr "يتعذر دمج معاملات الملف مع -files0-from"
+
+#: find/ftsfind.c:578
+#, c-format
+msgid ""
+"when -ok or -okdir is in use, the option -files0-from cannot also read from "
+"standard input"
+msgstr ""
+"عند استخدام -ok أو -okdir، لا يمكن للخيار -files0-from القراءة أيضاً من "
+"المدخلات القياسية"
+
+#: find/ftsfind.c:580
+msgid "(standard input)"
+msgstr "(المدخلات القياسية)"
+
+#: find/ftsfind.c:589
+#, c-format
+msgid "cannot open %s for reading"
+msgstr "يتعذر فتح %s للقراءة"
+
+#: find/ftsfind.c:609
+#, c-format
+msgid ""
+"when -ok or -okdir is in use, the option -files0-from cannot also read from "
+"standard input, but the file (%s) used for -files0-from appears to refer to "
+"the same file as the standard input"
+msgstr ""
+"عند استخدام -ok أو -okdir، لا يمكن للخيار -files0-from القراءة أيضاً من "
+"المدخلات القياسية، ولكن يبدو أن الملف (%s) المستخدم لـ -files0-from يشير إلى "
+"نفس ملف المدخلات القياسية"
+
+#: find/ftsfind.c:651
+#, c-format
+msgid "%s: read error"
+msgstr "%s: خطأ في القراءة"
+
+#: find/ftsfind.c:678
+msgid "invalid zero-length file name"
+msgstr "اسم ملف صفري الطول غير صالح"
+
+#: find/ftsfind.c:702
+#, c-format
+msgid "error reading %s"
+msgstr "خطأ أثناء قراءة %s"
+
+#: find/ftsfind.c:737
+#, c-format
+msgid "Failed to initialize shared-file hash table"
+msgstr "فشل تهيئة جدول هاش الملفات المشتركة"
+
+#: find/ftsfind.c:752 locate/frcode.c:218 locate/locate.c:1564
+#: xargs/xargs.c:433
+#, c-format
+msgid "The atexit library function failed"
+msgstr "فشلت دالة المكتبة atexit"
+
+#: find/parser.c:440
+#, c-format
+msgid ""
+"The -delete action automatically turns on -depth, but -prune does nothing "
+"when -depth is in effect.  If you want to carry on anyway, just explicitly "
+"use the -depth option."
+msgstr ""
+"يُفعّل الإجراء -delete الخيار -depth آلياً، لكن -prune لا يفعل شيئاً عندما يكون "
+"-depth قيد التنفيذ. إذا أردت الاستمرار على أي حال، استخدم الخيار -depth "
+"صراحة."
+
+#: find/parser.c:598
+#, c-format
+msgid ""
+"warning: you have specified the global option %s after the argument %s, but "
+"global options are not positional, i.e., %s affects tests specified before "
+"it as well as those specified after it.  Please specify global options "
+"before other arguments."
+msgstr ""
+"تحذير: حددت الخيار العام %s بعد المعامل %s، لكن الخيارات العامة ليست موضعية، "
+"أي أن %s يؤثر على الاختبارات المحددة قبله وبعده. يرجى تحديد الخيارات العامة "
+"قبل المعاملات الأخرى."
+
+#: find/parser.c:658
+#, c-format
+msgid ""
+"warning: operator '%s' (with leading dash '-') will no longer be accepted in "
+"future findutils releases!"
+msgstr ""
+"تحذير: لن يُقبل العامل '%s' (المسبوق بشرطة '-') في إصدارات findutils "
+"المستقبلية!"
+
+#: find/parser.c:915
+#, c-format
+msgid ""
+"warning: the -d option is deprecated; please use -depth instead, because the "
+"latter is a POSIX-compliant feature."
+msgstr ""
+"تحذير: الخيار -d مهجور؛ يرجى استخدام -depth بدلاً منه، لأنه متوافق مع معايير "
+"POSIX."
+
+#: find/parser.c:1159
+#, c-format
+msgid "invalid group name or GID argument to -group: %s"
+msgstr "اسم مجموعة أو معامل GID غير صالح لـ -group: %s"
+
+#: find/parser.c:1232
+#, c-format
+msgid "basic correctness check of the fnmatch() library function failed."
+msgstr "فشل الفحص الأساسي لصحة دالة المكتبة fnmatch()."
+
+#: find/parser.c:1247
+#, c-format
+msgid ""
+"warning: %s matches against basenames only, but the given pattern contains a "
+"directory separator (%s), thus the expression will evaluate to false all the "
+"time.  Did you mean %s?"
+msgstr ""
+"تحذير: %s يطابق الأسماء الأساسية فقط، لكن النمط المعطى يحتوي على فاصل دليل "
+"(%s)، لذا ستكون نتيجة التعبير خاطئة دائماً. هل قصدت %s؟"
+
+#: find/parser.c:1361
+#, c-format
+msgid "Expected a positive decimal integer argument to %s, but got %s"
+msgstr "توقعنا معامل عدد صحيح عشري موجب لـ %s، لكن حصلنا على %s"
+
+#: find/parser.c:1520
+#, c-format
+msgid "This system does not provide a way to find the birth time of a file."
+msgstr "لا يوفر هذا النظام وسيلة للعثور على وقت إنشاء الملف."
+
+#: find/parser.c:1541
+#, c-format
+msgid "The %s test needs to be followed by an argument"
+msgstr "يجب أن يتبع الاختبار %s معامل"
+
+#: find/parser.c:1578
+#, c-format
+msgid "I cannot figure out how to interpret %s as a date or time"
+msgstr "يتعذر فهم كيفية تفسير %s كتاريخ أو وقت"
+
+#: find/parser.c:1595
+#, c-format
+msgid "Cannot obtain birth time of file %s"
+msgstr "يتعذر الحصول على وقت إنشاء الملف %s"
+
+#. TRANSLATORS: the first argument here (-%s) expands to the a test
+#. * which the user specified on the command line. The second is the
+#. * argument they gave for it.   These might be, for example:
+#. *
+#. * warning: -ipath foo/ will not match anything...
+#. * warning: -path z/q/ will not match anything...
+#.
+#: find/parser.c:1746
+#, c-format
+msgid "warning: -%s %s will not match anything because it ends with /."
+msgstr "تحذير: -%s %s لن يطابق أي شيء لأنه ينتهي بـ /."
+
+#. TRANSLATORS: "mode" here is used in the same sense as we use
+#. * for the "chmod" program.
+#.
+#: find/parser.c:1845
+#, c-format
+msgid "invalid file mode %s"
+msgstr "وضع ملف غير صالح %s"
+
+#: find/parser.c:1864
+#, c-format
+msgid ""
+"warning: you have specified a mode pattern %s (which is equivalent to /000). "
+"The meaning of -perm /000 was changed in 2007 to be consistent with -perm "
+"-000; that is, while it used to match no files, it now matches all files. "
+"This warning message will be removed in a future findutils release."
+msgstr ""
+"تحذير: لقد حددت نمط وضع %s (والذي يعادل /000). غُيِّر معنى -perm /000 في عام "
+"2007 ليصبح متسقاً مع -perm -000؛ أي أنه بعد أن كان لا يطابق أي ملف، أصبح "
+"يطابق كل الملفات. ستُزال رسالة التحذير هذه في إصدار مستقبلي من findutils."
+
+#: find/parser.c:2039
+#, c-format
+msgid "failed to compile regular expression '%s': %s"
+msgstr "فشل تجميع التعبير النمطي '%s': %s"
+
+#: find/parser.c:2069
+#, c-format
+msgid "invalid null argument to -size"
+msgstr "معامل فارغ غير صالح لـ -size"
+
+#: find/parser.c:2119
+#, c-format
+msgid "invalid -size type `%c'"
+msgstr "نوع -size غير صالح `%c'"
+
+#: find/parser.c:2129
+#, c-format
+msgid "Invalid argument `%s%s' to -size"
+msgstr "معامل غير صالح `%s%s' لـ -size"
+
+#: find/parser.c:2378
+#, c-format
+msgid "Invalid argument %s to -used"
+msgstr "معامل غير صالح %s لـ -used"
+
+#: find/parser.c:2411
+#, c-format
+msgid "invalid user name or UID argument to -user: %s"
+msgstr "اسم مستخدم أو معامل UID غير صالح لـ -user: %s"
+
+#: find/parser.c:2433
+#, c-format
+msgid "Features enabled: "
+msgstr "الميزات المفعلة: "
+
+#: find/parser.c:2479
+#, c-format
+msgid "invalid predicate -context: SELinux is not enabled."
+msgstr "دالة إسناد -context غير صالحة: SELinux غير مفعل."
+
+#: find/parser.c:2547
+#, c-format
+msgid "Arguments to %s should contain at least one letter"
+msgstr "يجب أن تحتوي معاملات %s على حرف واحد على الأقل"
+
+#: find/parser.c:2612
+#, c-format
+msgid ""
+"%s %c is not supported because symbolic links are not supported on the "
+"platform find was compiled on."
+msgstr ""
+"%s %c غير مدعوم لأن الروابط الرمزية غير مدعومة على المنصة التي جُمّع برنامج "
+"find عليها."
+
+#: find/parser.c:2624
+#, c-format
+msgid ""
+"%s %c is not supported because FIFOs are not supported on the platform find "
+"was compiled on."
+msgstr ""
+"%s %c غير مدعوم لأن ملفات FIFO غير مدعومة على المنصة التي جُمّع برنامج find "
+"عليها."
+
+#: find/parser.c:2636
+#, c-format
+msgid ""
+"%s %c is not supported because named sockets are not supported on the "
+"platform find was compiled on."
+msgstr ""
+"%s %c غير مدعوم لأن المقابس المسماة غير مدعومة على المنصة التي جُمّع برنامج "
+"find عليها."
+
+#: find/parser.c:2652
+#, c-format
+msgid ""
+"%s %c is not supported because Solaris doors are not supported on the "
+"platform find was compiled on."
+msgstr ""
+"%s %c غير مدعوم لأن Solaris doors غير مدعومة على المنصة التي جُمّع برنامج find "
+"عليها."
+
+#: find/parser.c:2660
+#, c-format
+msgid "Unknown argument to %s: %c"
+msgstr "معامل مجهول لـ %s: %c"
+
+#: find/parser.c:2668
+#, c-format
+msgid "Duplicate file type '%c' in the argument list to %s."
+msgstr "نوع ملف مكرر '%c' في قائمة معاملات %s."
+
+#: find/parser.c:2684
+#, c-format
+msgid "Must separate multiple arguments to %s using: ','"
+msgstr "يجب الفصل بين المعاملات المتعددة لـ %s باستخدام: ','"
+
+#: find/parser.c:2693
+#, c-format
+msgid ""
+"Last file type in list argument to %s is missing, i.e., list is ending on: "
+"','"
+msgstr ""
+"نوع الملف الأخير في قائمة معاملات %s مفقود، أي أن القائمة تنتهي بـ: ','"
+
+#: find/parser.c:2752
+#, c-format
+msgid ""
+"The current directory is included in the PATH environment variable, which is "
+"insecure in combination with the %s action of find.  Please remove the "
+"current directory from your $PATH (that is, remove \".\", doubled colons, or "
+"leading or trailing colons)"
+msgstr ""
+"الدليل الحالي مدرج في متغير البيئة PATH، وهذا غير آمن عند استخدامه مع "
+"الإجراء %s لبرنامج find. يرجى إزالة الدليل الحالي من $PATH (أي إزالة \".\" "
+"أو النقاط الرأسية المزدوجة أو البادئة أو اللاحقة)"
+
+#: find/parser.c:2764
+#, c-format
+msgid ""
+"The relative path %s is included in the PATH environment variable, which is "
+"insecure in combination with the %s action of find.  Please remove that "
+"entry from $PATH"
+msgstr ""
+"المسار النسبي %s مدرج في متغير البيئة PATH، وهذا غير آمن عند استخدامه مع "
+"الإجراء %s لبرنامج find. يرجى إزالة ذلك الإدخال من $PATH"
+
+#: find/parser.c:2883
+#, c-format
+msgid ""
+"You may not use {} within the utility name for -execdir and -okdir, because "
+"this is a potential security problem."
+msgstr ""
+"لا يجوز استخدام {} ضمن اسم الأداة لـ -execdir و -okdir، لأن هذا يمثل مشكلة "
+"أمنية محتملة."
+
+#: find/parser.c:2909
+#, c-format
+msgid "Only one instance of {} is supported with -exec%s ... +"
+msgstr "يُدعم مثيل واحد فقط من {} مع -exec%s ... +"
+
+#: find/parser.c:2919
+#, c-format
+msgid "In %s the %s must appear by itself, but you specified %s"
+msgstr "في %s يجب أن يظهر %s بمفرده، لكنك حددت %s"
+
+#: find/parser.c:2938
+#, c-format
+msgid "The environment is too large for exec()."
+msgstr "البيئة كبيرة جداً لـ exec()."
+
+#: find/parser.c:3048
+#, c-format
+msgid "invalid not-a-number argument: `%s'"
+msgstr "معامل ليس-عدداً غير صالح: `%s'"
+
+#: find/parser.c:3113
+#, c-format
+msgid "arithmetic overflow while converting %s days to a number of seconds"
+msgstr "طفح حسابي أثناء تحويل %s أيام إلى عدد من الثواني"
+
+#: find/parser.c:3137
+#, c-format
+msgid "arithmetic overflow when trying to calculate the end of today"
+msgstr "طفح حسابي عند محاولة حساب نهاية اليوم"
+
+#: find/parser.c:3287
+#, c-format
+msgid "non-numeric argument to %s: %s"
+msgstr "معامل غير عددي لـ %s: %s"
+
+#: find/parser.c:3306
+msgid "standard error"
+msgstr "الخطأ القياسي"
+
+#: find/parser.c:3311
+msgid "standard output"
+msgstr "المخرجات القياسية"
+
+#: find/pred.c:233
+#, c-format
+msgid "cannot delete %s"
+msgstr "يتعذر حذف %s"
+
+#: find/pred.c:605
+#, c-format
+msgid "WARNING: cannot determine birth time of file %s"
+msgstr "تحذير: يتعذر تحديد وقت إنشاء الملف %s"
+
+#: find/pred.c:653
+#, c-format
+msgid "< %s ... %s > ? "
+msgstr "< %s ... %s > ؟ "
+
+#: find/pred.c:655
+#, c-format
+msgid "Failed to write prompt for -ok"
+msgstr "فشل كتابة الموجه لـ -ok"
+
+#: find/pred.c:1131 find/print.c:1236
+#, c-format
+msgid "getfilecon failed: %s"
+msgstr "فشل getfilecon: %s"
+
+#: find/print.c:333
+#, c-format
+msgid "warning: escape `\\' followed by nothing at all"
+msgstr "تحذير: محرف الهروب `\\' لا يتبعه شيء"
+
+#: find/print.c:352
+#, c-format
+msgid "warning: unrecognized escape `\\%c'"
+msgstr "تحذير: تسلسل هروب غير معترف به `\\%c'"
+
+#: find/print.c:372 find/print.c:1258
+#, c-format
+msgid "error: %s at end of format string"
+msgstr "خطأ: %s في نهاية سلسلة التنسيق"
+
+#: find/print.c:396
+#, c-format
+msgid "error: the format directive `%%%c' is reserved for future use"
+msgstr "خطأ: توجيه التنسيق `%%%c' محجوز للاستخدام المستقبلي"
+
+#: find/print.c:404
+#, c-format
+msgid ""
+"warning: format directive `%%%c' should be followed by another character"
+msgstr "تحذير: توجيه التنسيق `%%%c' يجب أن يتبعه محرف آخر"
+
+#: find/print.c:412
+#, c-format
+msgid "warning: unrecognized format directive `%%%c'"
+msgstr "تحذير: توجيه تنسيق غير معترف به `%%%c'"
+
+#: find/tree.c:113 find/tree.c:118 find/tree.c:224 find/tree.c:263
+#, c-format
+msgid "invalid expression"
+msgstr "تعبير غير صالح"
+
+#: find/tree.c:124
+#, c-format
+msgid ""
+"invalid expression; you have used a binary operator '%s' with nothing before "
+"it."
+msgstr "تعبير غير صالح؛ استخدمت عاملاً ثنائياً '%s' دون شيء قبله."
+
+#: find/tree.c:133 find/tree.c:192
+#, c-format
+msgid ""
+"invalid expression: expected expression before closing parentheses '%s'."
+msgstr "تعبير غير صالح: توقعنا تعبيراً قبل قوس الإغلاق '%s'."
+
+#: find/tree.c:143
+#, c-format
+msgid "expected an expression between '%s' and ')'"
+msgstr "توقعنا تعبيراً بين '%s' و ')'"
+
+#: find/tree.c:153
+#, c-format
+msgid "expected an expression after '%s'"
+msgstr "توقعنا تعبيراً بعد '%s'"
+
+#: find/tree.c:158
+#, c-format
+msgid "invalid expression; you have too many ')'"
+msgstr "تعبير غير صالح؛ لديك الكثير من ')'"
+
+#: find/tree.c:181
+#, c-format
+msgid ""
+"invalid expression; expected to find a ')' but didn't see one. Perhaps you "
+"need an extra predicate after '%s'"
+msgstr ""
+"تعبير غير صالح؛ توقعنا وجود ')' لكن لم نجدها. ربما تحتاج إلى دالة إسناد "
+"إضافية بعد '%s'"
+
+#: find/tree.c:196
+#, c-format
+msgid "invalid expression; empty parentheses are not allowed."
+msgstr "تعبير غير صالح؛ الأقواس الفارغة غير مسموح بها."
+
+#: find/tree.c:202
+#, c-format
+msgid ""
+"invalid expression; I was expecting to find a ')' somewhere but did not see "
+"one."
+msgstr "تعبير غير صالح؛ توقعت وجود ')' في مكان ما لكن لم أجدها."
+
+#: find/tree.c:209
+#, c-format
+msgid "oops -- invalid expression type! This is probably a bug."
+msgstr "عذراً -- نوع تعبير غير صالح! هذا على الأرجح خلل برمجي."
+
+#: find/tree.c:281
+#, c-format
+msgid "oops -- invalid expression type (%d)!  This is probably a bug."
+msgstr "عذراً -- نوع تعبير غير صالح (%d)! هذا على الأرجح خلل برمجي."
+
+#: find/tree.c:837
+#, c-format
+msgid "oops -- invalid expression type!  This is probably a bug."
+msgstr "عذراً -- نوع تعبير غير صالح! هذا على الأرجح خلل برمجي."
+
+#: find/tree.c:1092
+#, c-format
+msgid "failed to sort the costlookup array"
+msgstr "فشل فرز مصفوفة costlookup"
+
+#: find/tree.c:1114
+#, c-format
+msgid ""
+"warning: there is no entry in the predicate evaluation cost table for "
+"predicate %s; please report this as a bug"
+msgstr ""
+"تحذير: لا يوجد إدخال في جدول تكلفة تقييم دالة الإسناد لدالة الإسناد %s؛ يرجى "
+"الإبلاغ عن هذا كخلل"
+
+#: find/tree.c:1288
+#, c-format
+msgid "paths must precede expression: `%s'"
+msgstr "يجب أن تسبق المسارات التعبير: `%s'"
+
+#: find/tree.c:1290
+#, c-format
+msgid "possible unquoted pattern after predicate `%s'?"
+msgstr "نمط محتمل غير محاط بعلامات اقتباس بعد دالة الإسناد `%s'؟"
+
+#: find/tree.c:1300
+#, c-format
+msgid "unknown predicate `%s'"
+msgstr "دالة إسناد مجهولة `%s'"
+
+#: find/tree.c:1320
+#, c-format
+msgid "invalid predicate `%s'"
+msgstr "دالة إسناد غير صالحة `%s'"
+
+#: find/tree.c:1324
+#, c-format
+msgid "invalid argument `%s' to `%s'"
+msgstr "معامل غير صالح `%s' لـ `%s'"
+
+#: find/tree.c:1331
+#, c-format
+msgid "missing argument to `%s'"
+msgstr "معامل مفقود لـ `%s'"
+
+#: find/tree.c:1407
+#, c-format
+msgid "you have too many ')'"
+msgstr "لديك الكثير من ')'"
+
+#: find/tree.c:1413
+#, c-format
+msgid "unexpected extra predicate '%s'"
+msgstr "دالة إسناد إضافية غير متوقعة '%s'"
+
+#: find/tree.c:1415
+#, c-format
+msgid "unexpected extra predicate"
+msgstr "دالة إسناد إضافية غير متوقعة"
+
+#: find/tree.c:1538
+#, c-format
+msgid "oops -- invalid default insertion of and!  This is probably a bug."
+msgstr "عذراً -- إدراج مبدئي غير صالح لـ and! هذا على الأرجح خلل برمجي."
+
+#: find/util.c:137
+msgid "Valid arguments for -D:\n"
+msgstr "معاملات صالحة لـ -D:\n"
+
+#: find/util.c:161 locate/frcode.c:138 locate/locate.c:1361 xargs/xargs.c:1767
+#, c-format
+msgid "Try '%s --help' for more information.\n"
+msgstr "جرب '%s --help' لمزيد من المعلومات.\n"
+
+#: find/util.c:167
+#, c-format
+msgid ""
+"Usage: %s [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] [expression]\n"
+msgstr ""
+"الاستخدام: %s [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] "
+"[expression]\n"
+
+#: find/util.c:171
+msgid ""
+"\n"
+"Default path is the current directory; default expression is -print.\n"
+"Expression may consist of: operators, options, tests, and actions.\n"
+msgstr ""
+"\n"
+"المسار المبدئي هو الدليل الحالي؛ التعبير المبدئي هو -print.\n"
+"قد يتكون التعبير من: عوامل، خيارات، اختبارات، وإجراءات.\n"
+
+#: find/util.c:174
+msgid ""
+"\n"
+"Operators (decreasing precedence; -and is implicit where no others are "
+"given):\n"
+"      ( EXPR )   ! EXPR   -not EXPR   EXPR1 -a EXPR2   EXPR1 -and EXPR2\n"
+"      EXPR1 -o EXPR2   EXPR1 -or EXPR2   EXPR1 , EXPR2\n"
+msgstr ""
+"\n"
+"العوامل (بترتيب أسبقية تنازلي؛ -and ضمني عند عدم إعطاء غيره):\n"
+"      ( EXPR )   ! EXPR   -not EXPR   EXPR1 -a EXPR2   EXPR1 -and EXPR2\n"
+"      EXPR1 -o EXPR2   EXPR1 -or EXPR2   EXPR1 , EXPR2\n"
+
+#: find/util.c:178
+msgid ""
+"\n"
+"Positional options (always true):\n"
+"      -daystart -follow -nowarn -regextype -warn\n"
+msgstr ""
+"\n"
+"خيارات موضعية (صحيحة دائماً):\n"
+"      -daystart -follow -nowarn -regextype -warn\n"
+
+#: find/util.c:181
+msgid ""
+"\n"
+"Normal options (always true, specified before other expressions):\n"
+"      -depth -files0-from FILE -maxdepth LEVELS -mindepth LEVELS\n"
+"      -mount -noleaf -xdev -ignore_readdir_race -noignore_readdir_race\n"
+msgstr ""
+"\n"
+"خيارات عادية (صحيحة دائماً، تحدد قبل التعبيرات الأخرى):\n"
+"      -depth -files0-from FILE -maxdepth LEVELS -mindepth LEVELS\n"
+"      -mount -noleaf -xdev -ignore_readdir_race -noignore_readdir_race\n"
+
+#: find/util.c:185
+msgid ""
+"\n"
+"Tests (N can be +N or -N or N):\n"
+"      -amin N -anewer FILE -atime N -cmin N -cnewer FILE -context CONTEXT\n"
+"      -ctime N -empty -false -fstype TYPE -gid N -group NAME -ilname "
+"PATTERN\n"
+"      -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN\n"
+"      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE\n"
+"      -newerXY REFERENCE -nouser -nogroup -path PATTERN -perm [-/]MODE\n"
+"      -regex PATTERN -readable -writable -executable\n"
+"      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N\n"
+"      -used N -user NAME -xtype [bcdpfls]\n"
+msgstr ""
+"\n"
+"اختبارات (N يمكن أن تكون +N أو -N أو N):\n"
+"      -amin N -anewer FILE -atime N -cmin N -cnewer FILE -context CONTEXT\n"
+"      -ctime N -empty -false -fstype TYPE -gid N -group NAME -ilname "
+"PATTERN\n"
+"      -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN\n"
+"      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE\n"
+"      -newerXY REFERENCE -nouser -nogroup -path PATTERN -perm [-/]MODE\n"
+"      -regex PATTERN -readable -writable -executable\n"
+"      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N\n"
+"      -used N -user NAME -xtype [bcdpfls]\n"
+
+#: find/util.c:195
+msgid ""
+"\n"
+"Actions:\n"
+"      -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print \n"
+"      -fprint0 FILE -fprint FILE -ls -fls FILE -prune -quit\n"
+"      -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ;\n"
+"      -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND ;\n"
+msgstr ""
+"\n"
+"إجراءات:\n"
+"      -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print \n"
+"      -fprint0 FILE -fprint FILE -ls -fls FILE -prune -quit\n"
+"      -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ;\n"
+"      -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND ;\n"
+
+#: find/util.c:202
+msgid ""
+"\n"
+"Other common options:\n"
+msgstr ""
+"\n"
+"خيارات شائعة أخرى:\n"
+
+#: find/util.c:204 xargs/xargs.c:1816
+msgid "      --help                   display this help and exit\n"
+msgstr "      --help                   اعرض هذا الدليل واخرج\n"
+
+#: find/util.c:205 xargs/xargs.c:1817
+msgid ""
+"      --version                output version information and exit\n"
+"\n"
+msgstr ""
+"      --version                أخرج معلومات الإصدار واخرج\n"
+"\n"
+
+#: find/util.c:207
+msgid ""
+"\n"
+"In -newerXY, XY stands for the combination [aBcm][aBcmt]; see find(1).\n"
+"\n"
+msgstr ""
+"\n"
+"في -newerXY، يرمز XY إلى التركيبة [aBcm][aBcmt]؛ راجع find(1).\n"
+"\n"
+
+#: find/util.c:212
+msgid ""
+"\n"
+"Use '-D help' for a description of the options, or see find(1).\n"
+"\n"
+msgstr ""
+"\n"
+"استخدم '-D help' لوصف الخيارات، أو راجع find(1).\n"
+"\n"
+
+#: find/util.c:481
+#, c-format
+msgid "Failed to save initial working directory %s"
+msgstr "فشل حفظ دليل العمل الأولي %s"
+
+#: find/util.c:486
+#, c-format
+msgid "Failed to save initial working directory"
+msgstr "فشل حفظ دليل العمل الأولي"
+
+#: find/util.c:506
+#, c-format
+msgid "Failed to restore initial working directory %s"
+msgstr "فشل استعادة دليل العمل الأولي %s"
+
+#: find/util.c:510
+#, c-format
+msgid "Failed to restore initial working directory"
+msgstr "فشل استعادة دليل العمل الأولي"
+
+#: find/util.c:848
+#, c-format
+msgid "Ignoring unrecognised debug flag %s"
+msgstr "تجاهل علامة تنقيح غير معترف بها %s"
+
+#: find/util.c:855
+#, c-format
+msgid "Empty argument to the -D option."
+msgstr "معامل فارغ لخيار -D."
+
+#: find/util.c:872
+#, c-format
+msgid "The -O option must be immediately followed by a decimal integer"
+msgstr "يجب أن يتبع خيار -O عدد صحيح عشري مباشرة"
+
+#: find/util.c:882 find/util.c:893
+#, c-format
+msgid "Please specify a decimal number immediately after -O"
+msgstr "يرجى تحديد رقم عشري مباشرة بعد -O"
+
+#: find/util.c:898 find/util.c:903
+#, c-format
+msgid "Invalid optimisation level %s"
+msgstr "مستوى تحسين غير صالح %s"
+
+#: find/util.c:911
+#, c-format
+msgid ""
+"Optimisation level %lu is too high.  If you want to find files very quickly, "
+"consider using GNU locate."
+msgstr ""
+"مستوى التحسين %lu عالٍ جداً. إذا أردت البحث عن الملفات بسرعة كبيرة، جرب "
+"استخدام GNU locate."
+
+#: find/util.c:957
+#, c-format
+msgid "Missing argument after the -D option."
+msgstr "معامل مفقود بعد خيار -D."
+
+#: find/util.c:1043
+#, c-format
+msgid ""
+"The environment variable FIND_BLOCK_SIZE is not supported, the only thing "
+"that affects the block size is the POSIXLY_CORRECT environment variable"
+msgstr ""
+"متغير البيئة FIND_BLOCK_SIZE غير مدعوم، الشيء الوحيد الذي يؤثر على حجم "
+"الكتلة هو متغير البيئة POSIXLY_CORRECT"
+
+#: lib/bugreports.c:28
+#, c-format
+msgid ""
+"Please see also the documentation at %s.\n"
+"You can report (and track progress on fixing) bugs in the \"%s\"\n"
+"program via the %s bug-reporting page at\n"
+"%s or, if\n"
+"you have no web access, by sending email to <%s>.\n"
+msgstr ""
+"يرجى مراجعة التوثيق في %s.\n"
+"يمكنك الإبلاغ عن الخلل (وتتبع التقدم في إصلاحه) في برنامج \"%s\"\n"
+"عبر صفحة الإبلاغ عن خلل %s في\n"
+"%s أو، إذا\n"
+"لم يكن لديك وصول للويب، عبر إرسال بريد إلكتروني إلى <%s>.\n"
+
+#: lib/buildcmd.c:143
+#, c-format
+msgid "command too long"
+msgstr "الأمر طويل جداً"
+
+#: lib/buildcmd.c:283
+#, c-format
+msgid "can't call exec() due to argument size restrictions"
+msgstr "يتعذر استدعاء exec() بسبب قيود حجم المعاملات"
+
+#: lib/buildcmd.c:349
+#, c-format
+msgid "cannot fit single argument within argument list size limit"
+msgstr "يتعذر احتواء معامل واحد ضمن حد حجم قائمة المعاملات"
+
+#: lib/buildcmd.c:357
+#, c-format
+msgid "argument list too long"
+msgstr "قائمة المعاملات طويلة جداً"
+
+#: lib/buildcmd.c:615
+#, c-format
+msgid "Environment variable %s is not set to a valid decimal number"
+msgstr "متغير البيئة %s لم يُضبط على رقم عشري صالح"
+
+#: lib/fdleak.c:390
+#, c-format
+msgid ""
+"File descriptor %d will leak; please report this as a bug, remembering to "
+"include a detailed description of the simplest way to reproduce this problem."
+msgstr ""
+"واصف الملف %d سيسرب؛ يرجى الإبلاغ عن هذا كخلل، مع تضمين وصف دقيق لأبسط طريقة "
+"لتكرار المشكلة."
+
+#. TRANSLATORS: This is a proper name.
+#: lib/findutils-version.c:50
+msgid "Eric B. Decker"
+msgstr "إريك ب. ديكر"
+
+#. TRANSLATORS: This is a proper name.
+#: lib/findutils-version.c:52
+msgid "James Youngman"
+msgstr "جيمس يونجمان"
+
+#. TRANSLATORS: This is a proper name.
+#: lib/findutils-version.c:54
+msgid "Bernhard Voelker"
+msgstr "Bernhard Voelker"
+
+#. TRANSLATORS: This is a proper name.
+#: lib/findutils-version.c:56
+msgid "Kevin Dalley"
+msgstr "كيفن دالي"
+
+#: lib/listfile.c:452
+#, c-format
+msgid "Failed to write output (at stage %d)"
+msgstr "فشل كتابة المخرجات (في المرحلة %d)"
+
+#: lib/regextype.c:97
+#, c-format
+msgid "Unknown regular expression type %s; valid types are %s."
+msgstr "نوع تعبير نمطي مجهول %s؛ الأنواع الصالحة هي %s."
+
+#: lib/safe-atoi.c:67
+#, c-format
+msgid "Unexpected suffix %s on %s"
+msgstr "لاحقة غير متوقعة %s في %s"
+
+#. TRANSLATORS: the argument here is the thing we actually got
+#. * instead of the integer we expected.
+#.
+#: lib/safe-atoi.c:76
+#, c-format
+msgid "Expected an integer: %s"
+msgstr "توقعنا عدداً صحيحاً: %s"
+
+#: locate/frcode.c:143
+#, c-format
+msgid "Usage: %s [-0 | --null] [--version] [--help]\n"
+msgstr "الاستخدام: %s [-0 | --null] [--version] [--help]\n"
+
+#: locate/frcode.c:165
+#, c-format
+msgid "You need to specify a security level as a decimal integer."
+msgstr "تحتاج لتحديد مستوى أمان كعدد صحيح عشري."
+
+#: locate/frcode.c:173
+#, c-format
+msgid "Security level %s is outside the convertible range."
+msgstr "مستوى الأمان %s خارج النطاق القابل للتحويل."
+
+#: locate/frcode.c:181
+#, c-format
+msgid "Security level %s has unexpected suffix %s."
+msgstr "مستوى الأمان %s له لاحقة غير متوقعة %s."
+
+#: locate/frcode.c:195
+#, c-format
+msgid "write error"
+msgstr "خطأ في الكتابة"
+
+#: locate/frcode.c:242
+#, c-format
+msgid "slocate security level %ld is unsupported."
+msgstr "مستوى أمان slocate %ld غير مدعوم."
+
+#: locate/frcode.c:261
+#, c-format
+msgid "no argument expected."
+msgstr "لا نتوقع معامل."
+
+#: locate/frcode.c:278
+#, c-format
+msgid "Failed to write to standard output"
+msgstr "فشل الكتابة إلى المخرجات القياسية"
+
+#: locate/frcode.c:287
+#, c-format
+msgid "The input file should end with the delimiter"
+msgstr "يجب أن ينتهي ملف المدخلات بالفاصل"
+
+#: locate/locate.c:110
+msgid "days"
+msgstr "أيام"
+
+#: locate/locate.c:158
+#, c-format
+msgid "The argument for option --max-database-age must not be empty"
+msgstr "يجب ألا يكون معامل الخيار --max-database-age فارغاً"
+
+#: locate/locate.c:174 locate/locate.c:181
+#, c-format
+msgid "Invalid argument %s for option --max-database-age"
+msgstr "معامل غير صالح %s لخيار --max-database-age"
+
+#: locate/locate.c:431
+#, c-format
+msgid "locate database %s contains a filename longer than locate can handle"
+msgstr ""
+"خبيئة قاعدة بيانات locate %s تحتوي على اسم ملف أطول مما يمكن لـ locate "
+"معالجته"
+
+#: locate/locate.c:542 locate/locate.c:561
+#, c-format
+msgid "locate database %s is corrupt or invalid"
+msgstr "خبيئة قاعدة بيانات locate %s تالفة أو غير صالحة"
+
+#: locate/locate.c:846
+#, c-format
+msgid "Database was last modified at %s.%09ld"
+msgstr "آخِر تعديل لقاعدة البيانات في %s.%09ld"
+
+#: locate/locate.c:854
+#, c-format
+msgid "Locate database size: %s byte\n"
+msgid_plural "Locate database size: %s bytes\n"
+msgstr[0] "حجم قاعدة بيانات Locate: %s بايت\n"
+msgstr[1] "حجم قاعدة بيانات Locate: بايت واحد\n"
+msgstr[2] "حجم قاعدة بيانات Locate: بايتان\n"
+msgstr[3] "حجم قاعدة بيانات Locate: %s بايتات\n"
+msgstr[4] "حجم قاعدة بيانات Locate: %s بايت\n"
+msgstr[5] "حجم قاعدة بيانات Locate: %s بايت\n"
+
+#: locate/locate.c:860
+#, c-format
+msgid "Matching Filenames: %s\n"
+msgstr "أسماء الملفات المطابقة: %s\n"
+
+#: locate/locate.c:861
+#, c-format
+msgid "All Filenames: %s\n"
+msgstr "كل أسماء الملفات: %s\n"
+
+#: locate/locate.c:867
+#, c-format
+msgid ""
+"File names have a cumulative length of %s bytes.\n"
+"Of those file names,\n"
+"\n"
+"\t%s contain whitespace, \n"
+"\t%s contain newline characters, \n"
+"\tand %s contain characters with the high bit set.\n"
+msgstr ""
+"أسماء الملفات لها طول تراكمي يبلغ %s بايت.\n"
+"من تلك الأسماء،\n"
+"\n"
+"\t%s تحتوي على مسافات بيضاء، \n"
+"\t%s تحتوي على محارف سطر جديد، \n"
+"\tو %s تحتوي على محارف مع تعيين البت العالي.\n"
+
+#: locate/locate.c:881
+#, c-format
+msgid ""
+"Some filenames may have been filtered out, so we cannot compute the "
+"compression ratio.\n"
+msgstr "قد صُفيت بعض أسماء الملفات، لذا يتعذر حساب نسبة الضغط.\n"
+
+#: locate/locate.c:894
+#, c-format
+msgid "Compression ratio %4.2f%% (higher is better)\n"
+msgstr "نسبة الضغط %4.2f%% (الأعلى أفضل)\n"
+
+#: locate/locate.c:901
+#, c-format
+msgid "Compression ratio is undefined\n"
+msgstr "نسبة الضغط غير محددة\n"
+
+#: locate/locate.c:956
+#, c-format
+msgid ""
+"locate database %s looks like an slocate database but it seems to have "
+"security level %c, which GNU findutils does not currently support"
+msgstr ""
+"قاعدة بيانات locate %s تبدو كقاعدة slocate لكنها بمستوى أمان %c، وهو ما لا "
+"تدعمه GNU findutils حالياً"
+
+#: locate/locate.c:1078
+#, c-format
+msgid ""
+"%s is an slocate database of unsupported security level %d; skipping it."
+msgstr "%s قاعدة بيانات slocate بمستوى أمان %d غير مدعوم؛ سيتم تخطيها."
+
+#: locate/locate.c:1095
+#, c-format
+msgid ""
+"You specified the -E option, but that option cannot be used with slocate-"
+"format databases with a non-zero security level.  No results will be "
+"generated for this database.\n"
+msgstr ""
+"حددت خيار -E، لكن لا يمكن استخدامه مع قواعد بيانات بتنسيق slocate ذات مستوى "
+"أمان غير صفري. لن تُنتج نتائج لهذه القاعدة.\n"
+
+#: locate/locate.c:1106
+#, c-format
+msgid "%s is an slocate database.  Turning on the '-e' option."
+msgstr "%s قاعدة بيانات slocate. تفعيل خيار '-e'."
+
+#: locate/locate.c:1144
+#, c-format
+msgid "Old-format locate database %s is too short to be valid"
+msgstr "قاعدة بيانات locate بالتنسيق القديم %s قصيرة جداً لتكون صالحة"
+
+#: locate/locate.c:1296
+#, c-format
+msgid "Database %s is in the %s format.\n"
+msgstr "قاعدة البيانات %s بتنسيق %s.\n"
+
+#: locate/locate.c:1323
+msgid "The database has little-endian machine-word encoding.\n"
+msgstr "قاعدة البيانات لها ترميز كلمة-آلة بنهاية صغيرة (little-endian).\n"
+
+#: locate/locate.c:1325
+msgid "The database has big-endian machine-word encoding.\n"
+msgstr "قاعدة البيانات لها ترميز كلمة-آلة بنهاية كبيرة (big-endian).\n"
+
+#: locate/locate.c:1338
+#, c-format
+msgid "The database machine-word encoding order is not obvious.\n"
+msgstr "ترتيب ترميز كلمة-آلة لقاعدة البيانات غير واضح.\n"
+
+#: locate/locate.c:1365
+#, c-format
+msgid ""
+"Usage: %s [-d path | --database=path] [-e | -E | --[non-]existing]\n"
+"      [-i | --ignore-case] [-w | --wholename] [-b | --basename] \n"
+"      [--limit=N | -l N] [-S | --statistics] [-0 | --null] [-c | --count]\n"
+"      [-P | -H | --nofollow] [-L | --follow] [-m | --mmap] [-s | --stdio]\n"
+"      [-A | --all] [-p | --print] [-r | --regex] [--regextype=TYPE]\n"
+"      [--max-database-age D] [--version] [--help]\n"
+"      pattern...\n"
+msgstr ""
+"الاستخدام: %s [-d path | --database=path] [-e | -E | --[non-]existing]\n"
+"      [-i | --ignore-case] [-w | --wholename] [-b | --basename] \n"
+"      [--limit=N | -l N] [-S | --statistics] [-0 | --null] [-c | --count]\n"
+"      [-P | -H | --nofollow] [-L | --follow] [-m | --mmap] [-s | --stdio]\n"
+"      [-A | --all] [-p | --print] [-r | --regex] [--regextype=TYPE]\n"
+"      [--max-database-age D] [--version] [--help]\n"
+"      نمط...\n"
+
+#: locate/locate.c:1431
+msgid "failed to drop group privileges"
+msgstr "فشل التخلي عن صلاحيات المجموعة"
+
+#: locate/locate.c:1449
+msgid "failed to drop setuid privileges"
+msgstr "فشل التخلي عن صلاحيات setuid"
+
+#: locate/locate.c:1463
+msgid "Failed to fully drop privileges"
+msgstr "فشل التخلي عن الصلاحيات بالكامل"
+
+#: locate/locate.c:1481
+msgid "failed to drop setgid privileges"
+msgstr "فشل التخلي عن صلاحيات setgid"
+
+#: locate/locate.c:1718
+#, c-format
+msgid "pattern argument expected"
+msgstr "نتوقع معامل نمط"
+
+#: locate/locate.c:1759
+#, c-format
+msgid "warning: the locate database can only be read from standard input once."
+msgstr ""
+"تحذير: يمكن قراءة قاعدة بيانات locate من المدخلات القياسية مرة واحدة فقط."
+
+#: locate/locate.c:1832
+#, c-format
+msgid "time system call failed"
+msgstr "فشل استدعاء نظام الوقت"
+
+#: locate/locate.c:1843
+#, c-format
+msgid "warning: database %s is more than %u %s old (actual age is %.1f %s)"
+msgstr "تحذير: قاعدة البيانات %s أقدم من %u %s (العمر الفعلي هو %.1f %s)"
+
+#: locate/word_io.c:75
+#, c-format
+msgid "WARNING: locate database %s was built with a different byte order"
+msgstr "تحذير: قاعدة بيانات locate %s بُنيت بترتيب بايتات مختلف"
+
+#: locate/word_io.c:121
+#, c-format
+msgid "unexpected end-of-file in %s"
+msgstr "نهاية ملف غير متوقعة في %s"
+
+#: locate/word_io.c:124
+#, c-format
+msgid "error reading a word from %s"
+msgstr "خطأ أثناء قراءة كلمة من %s"
+
+#: xargs/xargs.c:253
+#, c-format
+msgid "Invalid escape sequence %s in input delimiter specification."
+msgstr "تسلسل هروب غير صالح %s في مواصفات فاصل المدخلات."
+
+#: xargs/xargs.c:271
+#, c-format
+msgid ""
+"Invalid escape sequence %s in input delimiter specification; character "
+"values must not exceed %lx."
+msgstr ""
+"تسلسل هروب غير صالح %s في مواصفات فاصل المدخلات؛ يجب ألا تتجاوز قيم المحارف "
+"%lx."
+
+#: xargs/xargs.c:278
+#, c-format
+msgid ""
+"Invalid escape sequence %s in input delimiter specification; character "
+"values must not exceed %lo."
+msgstr ""
+"تسلسل هروب غير صالح %s في مواصفات فاصل المدخلات؛ يجب ألا تتجاوز قيم المحارف "
+"%lo."
+
+#: xargs/xargs.c:288
+#, c-format
+msgid ""
+"Invalid escape sequence %s in input delimiter specification; trailing "
+"characters %s not recognised."
+msgstr ""
+"تسلسل هروب غير صالح %s في مواصفات فاصل المدخلات؛ المحارف اللاحقة %s غير "
+"معترف بها."
+
+#: xargs/xargs.c:334
+#, c-format
+msgid ""
+"Invalid input delimiter specification %s: the delimiter must be either a "
+"single character or an escape sequence starting with \\."
+msgstr ""
+"مواصفات فاصل مدخلات غير صالحة %s: يجب أن يكون الفاصل إما محرفاً واحداً أو "
+"تسلسل هروب يبدأ بـ \\."
+
+#: xargs/xargs.c:353
+#, c-format
+msgid "environment is too large for exec"
+msgstr "البيئة كبيرة جداً لـ exec"
+
+#: xargs/xargs.c:390
+#, c-format
+msgid ""
+"warning: options %s and %s are mutually exclusive, ignoring previous %s value"
+msgstr "تحذير: الخياران %s و %s متعارضان، سيتم تجاهل قيمة %s السابقة"
+
+#: xargs/xargs.c:635
+#, c-format
+msgid "warning: value %ld for -s option is too large, using %ld instead"
+msgstr "تحذير: القيمة %ld لخيار -s كبيرة جداً، سيُستخدم %ld بدلاً منها"
+
+#: xargs/xargs.c:675
+#, c-format
+msgid ""
+"SIGUSR1 and SIGUSR2 are not both defined, so the -P option does nothing."
+msgstr "لم يُعرَّف كل من SIGUSR1 و SIGUSR2، لذا فإن الخيار -P لا يفعل شيئاً."
+
+#: xargs/xargs.c:692
+#, c-format
+msgid "option --%s may not be set to a value which includes `='"
+msgstr "الخيار --%s لا يجوز ضبطه على قيمة تتضمن `='"
+
+#: xargs/xargs.c:704
+#, c-format
+msgid "failed to unset environment variable %s"
+msgstr "فشل إلغاء ضبط متغير البيئة %s"
+
+#: xargs/xargs.c:718
+#, c-format
+msgid "warning: the -E option has no effect if -0 or -d is used.\n"
+msgstr "تحذير: خيار -E ليس له تأثير عند استخدام -0 أو -d.\n"
+
+#: xargs/xargs.c:744
+#, c-format
+msgid "Cannot set SIGUSR1 signal handler"
+msgstr "يتعذر ضبط معالج إشارة SIGUSR1"
+
+#: xargs/xargs.c:750
+#, c-format
+msgid "Cannot set SIGUSR2 signal handler"
+msgstr "يتعذر ضبط معالج إشارة SIGUSR2"
+
+#: xargs/xargs.c:766
+#, c-format
+msgid "Cannot open input file %s"
+msgstr "يتعذر فتح ملف المدخلات %s"
+
+#: xargs/xargs.c:785
+#, c-format
+msgid "Your environment variables take up %<PRIuMAX> bytes\n"
+msgstr "تستهلك متغيرات البيئة لديك %<PRIuMAX> بايت\n"
+
+#: xargs/xargs.c:788
+#, c-format
+msgid "POSIX upper limit on argument length (this system): %<PRIuMAX>\n"
+msgstr "حد POSIX الأقصى لطول المعامل (هذا النظام): %<PRIuMAX>\n"
+
+#: xargs/xargs.c:791
+#, c-format
+msgid ""
+"POSIX smallest allowable upper limit on argument length (all systems): "
+"%<PRIuMAX>\n"
+msgstr "أصغر حد أقصى مسموح به من POSIX لطول المعامل (كل الأنظمة): %<PRIuMAX>\n"
+
+#: xargs/xargs.c:794
+#, c-format
+msgid "Maximum length of command we could actually use: %<PRIuMAX>\n"
+msgstr "أقصى طول للأمر يمكننا استخدامه فعلياً: %<PRIuMAX>\n"
+
+#: xargs/xargs.c:797
+#, c-format
+msgid "Size of command buffer we are actually using: %<PRIuMAX>\n"
+msgstr "حجم ذاكرة التخزين المؤقت للأمر المستخدمة فعلياً: %<PRIuMAX>\n"
+
+#: xargs/xargs.c:800
+#, c-format
+msgid "Maximum parallelism (--max-procs must be no greater): %<PRIuMAX>\n"
+msgstr "أقصى توازٍ (يجب ألا يكون --max-procs أكبر من): %<PRIuMAX>\n"
+
+#: xargs/xargs.c:806
+#, c-format
+msgid ""
+"\n"
+"Execution of xargs will continue now, and it will try to read its input and "
+"run commands; if this is not what you wanted to happen, please type the end-"
+"of-file keystroke.\n"
+msgstr ""
+"\n"
+"سيستمر تنفيذ xargs الآن، وسيحاول قراءة مدخلاته وتشغيل الأوامر؛ إذا لم يكن "
+"هذا ما تريده، يرجى الضغط على مفتاح نهاية الملف.\n"
+
+#: xargs/xargs.c:814
+#, c-format
+msgid ""
+"Warning: %s will be run at least once.  If you do not want that to happen, "
+"then press the interrupt keystroke.\n"
+msgstr ""
+"تحذير: سيُشغل %s مرة واحدة على الأقل. إذا لم ترد ذلك، اضغط على مفتاح "
+"المقاطعة.\n"
+
+#: xargs/xargs.c:946 xargs/xargs.c:1042
+#, c-format
+msgid ""
+"unmatched %s quote; by default quotes are special to xargs unless you use "
+"the -0 option"
+msgstr ""
+"علامة اقتباس %s غير مطابقة؛ مبدئياً تعتبر علامات الاقتباس خاصة لـ xargs ما لم "
+"تستخدم خيار -0"
+
+#: xargs/xargs.c:948 xargs/xargs.c:1044
+msgid "double"
+msgstr "مزدوجة"
+
+#: xargs/xargs.c:948 xargs/xargs.c:1044
+msgid "single"
+msgstr "فردية"
+
+#: xargs/xargs.c:1063
+#, c-format
+msgid ""
+"WARNING: a NUL character occurred in the input.  It cannot be passed through "
+"in the argument list.  Did you mean to use the --null option?"
+msgstr ""
+"تحذير: ظهر محرف NUL في المدخلات. لا يمكن تمريره في قائمة المعاملات. هل قصدت "
+"استخدام خيار --null؟"
+
+#: xargs/xargs.c:1073 xargs/xargs.c:1140
+#, c-format
+msgid "argument line too long"
+msgstr "سطر المعاملات طويل جداً"
+
+#: xargs/xargs.c:1168 xargs/xargs.c:1192
+#, c-format
+msgid "Failed to write to standard error"
+msgstr "فشل الكتابة إلى الخطأ القياسي"
+
+#: xargs/xargs.c:1182
+#, c-format
+msgid "failed to open /dev/tty for reading"
+msgstr "فشل فتح /dev/tty للقراءة"
+
+#: xargs/xargs.c:1199
+#, c-format
+msgid "Failed to read from standard input"
+msgstr "فشل القراءة من المدخلات القياسية"
+
+#: xargs/xargs.c:1235
+#, c-format
+msgid "failed to set environment variable %s"
+msgstr "فشل ضبط متغير البيئة %s"
+
+#: xargs/xargs.c:1289
+#, c-format
+msgid "failed to redirect standard input of the child process"
+msgstr "فشل إعادة توجيه المدخلات القياسية للعملية الابنة"
+
+#. TRANSLATORS: The pipe being referred to is an
+#. * operating-system object for communicating between
+#. * processes (created by the "pipe" system call), not a
+#. * piece of plumbing.  These just happen to have the same
+#. * name in English.  Similarly, fork is also the name of a
+#. * specific system call (named by analogy to English idioms
+#. * such as "fork in the road") not a thing you might eat
+#. * with.
+#.
+#: xargs/xargs.c:1351
+#, c-format
+msgid "could not create pipe before fork"
+msgstr "يتعذر إنشاء أنبوب قبل التفريع"
+
+#: xargs/xargs.c:1405
+#, c-format
+msgid "failed to run command %s"
+msgstr "فشل تشغيل الأمر %s"
+
+#: xargs/xargs.c:1435
+#, c-format
+msgid ""
+"errno-buffer safe_read failed in xargs_do_exec (this is probably a bug, "
+"please report it)"
+msgstr ""
+"فشل safe_read لـ errno-buffer في xargs_do_exec (ربما هذا خلل، يرجى الإبلاغ "
+"عنه)"
+
+#: xargs/xargs.c:1566
+#, c-format
+msgid "error waiting for child process"
+msgstr "خطأ أثناء انتظار العملية الابنة"
+
+#: xargs/xargs.c:1599
+#, c-format
+msgid "WARNING: Lost track of %lu child processes"
+msgstr "تحذير: فقدان تتبع %lu من العمليات الأبناء"
+
+#: xargs/xargs.c:1627
+#, c-format
+msgid "%s: exited with status 255; aborting"
+msgstr "%s: خرجت بالحالة 255؛ إيقاف"
+
+#: xargs/xargs.c:1632
+#, c-format
+msgid "%s: stopped by signal %d"
+msgstr "%s: توقفت بسبب الإشارة %d"
+
+#: xargs/xargs.c:1638
+#, c-format
+msgid "%s: terminated by signal %d"
+msgstr "%s: أنهت عملها الإشارة %d"
+
+#: xargs/xargs.c:1736
+#, c-format
+msgid "%s: invalid number \"%s\" for -%c option\n"
+msgstr "%s: رقم غير صالح \"%s\" لخيار -%c\n"
+
+#: xargs/xargs.c:1743
+#, c-format
+msgid "%s: value %s for -%c option should be >= %ld\n"
+msgstr "%s: القيمة %s لخيار -%c يجب أن تكون >= %ld\n"
+
+#: xargs/xargs.c:1752
+#, c-format
+msgid "%s: value %s for -%c option should be <= %ld\n"
+msgstr "%s: القيمة %s لخيار -%c يجب أن تكون <= %ld\n"
+
+#: xargs/xargs.c:1772
+#, c-format
+msgid "Usage: %s [OPTION]... [COMMAND [INITIAL-ARGS]...]\n"
+msgstr "الاستخدام: %s [خيار]... [أمر [معاملات_مبدئية]...]\n"
+
+#: xargs/xargs.c:1777
+msgid ""
+"Run COMMAND with arguments INITIAL-ARGS and more arguments read from input.\n"
+"\n"
+msgstr ""
+"شغّل COMMAND مع المعاملات INITIAL-ARGS ومعاملات إضافية تُقرأ من المدخلات.\n"
+"\n"
+
+#: xargs/xargs.c:1779
+msgid ""
+"Mandatory and optional arguments to long options are also\n"
+"mandatory or optional for the corresponding short option.\n"
+msgstr ""
+"المعاملات الإجبارية والاختيارية للخيارات الطويلة هي أيضاً\n"
+"إجبارية أو اختيارية للخيارات القصيرة المقابلة.\n"
+
+#: xargs/xargs.c:1781
+msgid ""
+"  -0, --null                   items are separated by a null, not "
+"whitespace;\n"
+"                                 disables quote and backslash processing "
+"and\n"
+"                                 logical EOF processing\n"
+msgstr ""
+"  -0, --null                   تُفصل العناصر بـ null، وليس بمسافة بيضاء؛\n"
+"                                 يعطل معالجة الاقتباس والشرطة المائلة "
+"الخلفية\n"
+"                                 ومعالجة نهاية الملف المنطقية\n"
+
+#: xargs/xargs.c:1784
+msgid ""
+"  -a, --arg-file=FILE          read arguments from FILE, not standard input\n"
+msgstr ""
+"  -a, --arg-file=FILE          اقرأ المعاملات من FILE، وليس من المدخلات "
+"القياسية\n"
+
+#: xargs/xargs.c:1785
+msgid ""
+"  -d, --delimiter=CHARACTER    items in input stream are separated by "
+"CHARACTER,\n"
+"                                 not by whitespace; disables quote and "
+"backslash\n"
+"                                 processing and logical EOF processing\n"
+msgstr ""
+"  -d, --delimiter=CHARACTER    تُفصل العناصر في تدفق المدخلات بالمحرف "
+"CHARACTER،\n"
+"                                 وليس بمسافة بيضاء؛ يعطل معالجة الاقتباس "
+"والشرطة\n"
+"                                 المائلة الخلفية ومعالجة نهاية الملف "
+"المنطقية\n"
+
+#: xargs/xargs.c:1788
+msgid ""
+"  -E END                       set logical EOF string; if END occurs as a "
+"line\n"
+"                                 of input, the rest of the input is ignored\n"
+"                                 (ignored if -0 or -d was specified)\n"
+msgstr ""
+"  -E END                       اضبط سلسلة نهاية الملف المنطقية؛ إذا ظهرت END "
+"كسطر\n"
+"                                 مدخلات، سيُتجاهل باقي المدخلات\n"
+"                                 (يُتجاهل إذا حُدد -0 أو -d)\n"
+
+#: xargs/xargs.c:1791
+msgid ""
+"  -e, --eof[=END]              equivalent to -E END if END is specified;\n"
+"                                 otherwise, there is no end-of-file string\n"
+msgstr ""
+"  -e, --eof[=END]              يعادل -E END إذا حُددت END؛\n"
+"                                 خلاف ذلك، لا توجد سلسلة نهاية ملف\n"
+
+#: xargs/xargs.c:1793
+msgid "  -I R                         same as --replace=R\n"
+msgstr "  -I R                         مثل --replace=R\n"
+
+#: xargs/xargs.c:1794
+msgid ""
+"  -i, --replace[=R]            replace R in INITIAL-ARGS with names read\n"
+"                                 from standard input, split at newlines;\n"
+"                                 if R is unspecified, assume {}\n"
+msgstr ""
+"  -i, --replace[=R]            استبدل R في INITIAL-ARGS بالأسماء المقروءة\n"
+"                                 من المدخلات القياسية، مقسمة عند أسطر "
+"جديدة؛\n"
+"                                 إذا لم تُحدد R، افترض {}\n"
+
+#: xargs/xargs.c:1797
+msgid ""
+"  -L, --max-lines=MAX-LINES    use at most MAX-LINES non-blank input lines "
+"per\n"
+"                                 command line\n"
+msgstr ""
+"  -L, --max-lines=MAX-LINES    استخدم بحد أقصى MAX-LINES من الأسطر غير "
+"الفارغة\n"
+"                                 لكل سطر أمر\n"
+
+#: xargs/xargs.c:1799
+msgid ""
+"  -l[MAX-LINES]                similar to -L but defaults to at most one "
+"non-\n"
+"                                 blank input line if MAX-LINES is not "
+"specified\n"
+msgstr ""
+"  -l[MAX-LINES]                مشابه لـ -L لكنه يميل مبدئياً إلى سطر واحد "
+"غير\n"
+"                                 فارغ إذا لم تُحدد MAX-LINES\n"
+
+#: xargs/xargs.c:1801
+msgid ""
+"  -n, --max-args=MAX-ARGS      use at most MAX-ARGS arguments per command "
+"line\n"
+msgstr ""
+"  -n, --max-args=MAX-ARGS      استخدم بحد أقصى MAX-ARGS من المعاملات لكل سطر "
+"أمر\n"
+
+#: xargs/xargs.c:1802
+msgid ""
+"  -o, --open-tty               Reopen standard input as /dev/tty in the "
+"child\n"
+"                                 process before executing the command; "
+"useful to\n"
+"                                 run an interactive application.\n"
+msgstr ""
+"  -o, --open-tty               أعد فتح المدخلات القياسية كـ /dev/tty في "
+"العملية\n"
+"                                 الابنة قبل تنفيذ الأمر؛ مفيد لتشغيل\n"
+"                                 تطبيق تفاعلي.\n"
+
+#: xargs/xargs.c:1805
+msgid ""
+"  -P, --max-procs=MAX-PROCS    run at most MAX-PROCS processes at a time\n"
+msgstr ""
+"  -P, --max-procs=MAX-PROCS    شغّل بحد أقصى MAX-PROCS من العمليات في المرة "
+"الواحدة\n"
+
+#: xargs/xargs.c:1806
+msgid "  -p, --interactive            prompt before running commands\n"
+msgstr "  -p, --interactive            استخدم موجه قبل تشغيل الأوامر\n"
+
+#: xargs/xargs.c:1807
+msgid ""
+"      --process-slot-var=VAR   set environment variable VAR in child "
+"processes\n"
+msgstr ""
+"      --process-slot-var=VAR   اضبط متغير البيئة VAR في العمليات الأبناء\n"
+
+#: xargs/xargs.c:1808
+msgid ""
+"  -r, --no-run-if-empty        if there are no arguments, then do not run "
+"COMMAND;\n"
+"                                 if this option is not given, COMMAND will "
+"be\n"
+"                                 run at least once\n"
+msgstr ""
+"  -r, --no-run-if-empty        إذا لم تكن هناك معاملات، فلا تشغل COMMAND؛\n"
+"                                 إذا لم يُعط هذا الخيار، سيُشغل COMMAND\n"
+"                                 مرة واحدة على الأقل\n"
+
+#: xargs/xargs.c:1811
+msgid ""
+"  -s, --max-chars=MAX-CHARS    limit length of command line to MAX-CHARS\n"
+msgstr "  -s, --max-chars=MAX-CHARS    حدد طول سطر الأمر بـ MAX-CHARS\n"
+
+#: xargs/xargs.c:1812
+msgid "      --show-limits            show limits on command-line length\n"
+msgstr "      --show-limits            اعرض الحدود القصوى لطول سطر الأمر\n"
+
+#: xargs/xargs.c:1813
+msgid "  -t, --verbose                print commands before executing them\n"
+msgstr "  -t, --verbose                اطبع الأوامر قبل تنفيذها\n"
+
+#: xargs/xargs.c:1814
+msgid "  -x, --exit                   exit if the size (see -s) is exceeded\n"
+msgstr "  -x, --exit                   اخرج إذا تجاوز الحجم (انظر -s)\n"
+
+#: xargs/xargs.c:1818
+msgid ""
+"If COMMAND is omitted, the default is 'echo'.\n"
+"\n"
+msgstr ""
+"إذا أُغفِل الـ COMMAND، فإن المبدئي هو 'echo'.\n"
+"\n"
+
+#, c-format
+#~ msgid "error waiting for %s"
+#~ msgstr "خطأ أثناء انتظار %s"
+
+#~ msgid ""
+#~ "option -files0-from reading from standard input cannot be combined with "
+#~ "-ok, -okdir"
+#~ msgstr ""
+#~ "يتعذر دمج الخيار -files0-from عند القراءة من المدخلات القياسية مع -ok أو "
+#~ "-okdir"
+
+#~ msgid ""
+#~ "option -files0-from: standard input must not refer to the same file when "
+#~ "combined with -ok, -okdir"
+#~ msgstr ""
+#~ "الخيار -files0-from: يجب ألا تشير المدخلات القياسية إلى نفس الملف عند "
+#~ "دمجها مع -ok أو -okdir"
+
+#, c-format
+#~ msgid ""
+#~ "%s is not the name of an existing group and it does not look like a "
+#~ "numeric group ID because it has the unexpected suffix %s"
+#~ msgstr ""
+#~ "%s ليس اسماً لمجموعة موجودة ولا يبدو كمعرف مجموعة رقمي لأنه ينتهي باللاحقة "
+#~ "غير المتوقعة %s"
+
+#, c-format
+#~ msgid "%s is not the name of an existing group"
+#~ msgstr "%s ليس اسماً لمجموعة موجودة"
+
+#~ msgid "argument to -group is empty, but should be a group name"
+#~ msgstr "المعامل لـ -group فارغ، ويجب أن يكون اسم مجموعة"
+
+#~ msgid ""
+#~ "The -show-control-chars option takes a single argument which must be "
+#~ "'literal' or 'safe'"
+#~ msgstr ""
+#~ "الخيار -show-control-chars يأخذ معاملاً واحداً يجب أن يكون 'literal' أو "
+#~ "'safe'"
+
+#, c-format
+#~ msgid "%s is not the name of a known user"
+#~ msgstr "%s ليس اسماً لمستخدم معروف"
+
+#~ msgid "The argument to -user should not be empty"
+#~ msgstr "يجب ألا يكون معامل -user فارغاً"
+
+#, c-format
+#~ msgid ""
+#~ "read returned unexpected value %<PRIuMAX>; this is probably a bug, please "
+#~ "report it"
+#~ msgstr ""
+#~ "أعادت القراءة قيمة غير متوقعة %<PRIuMAX>؛ ربما هذا خلل، يرجى الإبلاغ عنه"

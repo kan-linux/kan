@@ -1,0 +1,105 @@
+.\"
+.\" Copyright (c) 2011-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002-2006 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH SKILL 1 2024\-08\-01 procps\-ng 
+.SH 名称
+skill, snice \- 发送信号或报告进程状态
+.SH 概述
+\fBskill\fP [\fI信号选项\fP] [\fI其他选项\fP .\|.\|.\&] \fI表达式\fP
+.P
+\fBsnice\fP [\fI新优先级\fP] [\fI选项\fP .\|.\|.\&] \fI表达式\fP
+.SH 描述
+这些工具已经过时且不可移植。命令的语法没有被明确定义。请考虑改用 \fBkillall\fP、\fBpkill\fP 和 \fBpgrep\fP 命令。
+.PP
+\fBskill\fP 的默认信号是 TERM。使用 \fB\-l\fP 或 \fB\-L\fP 列出可用的信号。特别有用的信号包括
+HUP、INT、KILL、STOP、CONT 和 0。可以用三种方式指定其他信号：\fB\-9\fP \fB\-SIGKILL\fP \fB\-KILL\fP。
+.PP
+\fBsnice\fP 的默认优先级是 +4 。优先级的范围是从 +20（最慢）到 \-20（最快）。只有具有管理权限的用户能指定负数优先级。
+.SH 选项
+.TP 
+\fB\-f\fP,\fB\ \-\-fast\fP
+快速模式。此选项尚未实现。
+.TP 
+\fB\-i\fP,\fB\ \-\-interactive\fP
+交互式使用。将请求您批准每项操作。
+.TP 
+\fB\-l\fP,\fB\ \-\-list\fP
+列出所有信号的名称。
+.TP 
+\fB\-L\fP,\fB\ \-\-table\fP
+用一个好看的表格列出所有信号的名称。
+.TP 
+\fB\-n\fP,\fB\ \-\-no\-action\fP
+不作行动；对将要发生的事件进行模拟，但不会真的影响系统。
+.TP 
+\fB\-v\fP,\fB\ \-\-verbose\fP
+冗长模式；解释正在进行的步骤。
+.TP 
+\fB\-w\fP,\fB\ \-\-warnings\fP
+启用警告。此选项尚未实现。
+.TP 
+\fB\-h\fP,\fB\ \-\-help\fP
+显示帮助文本并退出。
+.TP 
+\fB\-V\fP,\fB\ \-\-version\fP
+显示版本信息。
+.SH 进程选择选项
+选择标准可以是：终端、用户、pid、命令。可以使用以下选项确保解释的正确性。
+.TP 
+\fB\-t\fP\fI\ tty\fP,\ \fB\-\-tty\fP\fI\ tty\fP
+下个表达式是一个终端（tty 或 pty）。
+.TP 
+\fB\-u\fP\fI\ 用户\fP,\ \fB\-\-user\fP\fI\ 用户\fP
+下个表达式是一个用户名。
+.TP 
+\fB\-p\fP\fI\ pid\fP,\ \fB\-\-pid\fP\fI\ pid\fP
+下个表达式是一个进程 ID。
+.TP 
+\fB\-c\fP\fI\ 命令\fP,\ \fB\-\-command\fP\fI\ 命令\fP
+下个表达式是一个命令名。
+.TP 
+\fB\-\-ns\fP\fI\ pid\fP
+匹配和 pid 处于同一个命名空间的进程。
+.TP 
+\fB\-\-nslist\fP\fI\ ns\fP,\fI.\|.\|.\fP
+列出 \fB\-\-ns\fP 选项要考虑哪些命名空间。可用的命名空间有：ipc、mnt、net、pid、user、uts。
+.SH 信号
+信号的行为在 \fBsignal\fP(7) 手册页中进行了解释。
+.SH 示例
+.TP 
+\fBsnice \-c seti \-c crack +7\fP
+使 \fBseti\fP 和 \fBcrack\fP 命令的运行变慢。
+.TP 
+\fBskill \-KILL \-t /dev/pts/*\fP
+杀死 PTY 设备的用户。
+.TP 
+\fBskill \-STOP \-u viro \-u lm \-u davem\fP
+停止三个用户。
+.SH 参见
+\fBkill\fP(1), \fBkill\fP(2), \fBkillall\fP(1), \fBnice\fP(1), \fBpkill\fP(1),
+\fBrenice\fP(1), \fBsignal\fP(7)
+.SH 标准
+没有适用的标准。
+.SH 作者
+.MT albert@users.sf.net
+Albert Cahalan
+.ME
+在 1999 年编写了 Skill 和
+Snice，作为非自由版本的替代品。
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

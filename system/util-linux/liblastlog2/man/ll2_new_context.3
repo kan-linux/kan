@@ -1,0 +1,77 @@
+'\" t
+.\"     Title: ll2_new_context
+.\"    Author: [see the "AUTHOR(S)" section]
+.\" Generator: Asciidoctor 2.0.26
+.\"      Date: 2026-06-16
+.\"    Manual: Programmer's Manual
+.\"    Source: util-linux 2.42.2
+.\"  Language: English
+.\"
+.TH "LL2_NEW_CONTEXT" "3" "2026-06-16" "util\-linux 2.42.2" "Programmer\*(Aqs Manual"
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.ss \n[.ss] 0
+.nh
+.ad l
+.de URL
+\fI\\$2\fP <\\$1>\\$3
+..
+.als MTO URL
+.if \n[.g] \{\
+.  mso www.tmac
+.  am URL
+.    ad l
+.  .
+.  am MTO
+.    ad l
+.  .
+.  LINKSTYLE blue R < >
+.\}
+.SH "NAME"
+ll2_new_context \- Allocates context which defines the lastlog2 environment.
+.SH "SYNOPSIS"
+.sp
+\fB#include <lastlog2.h>\fP
+.sp
+*ll2_context * ll2_new_context(const char *\fIdb_path\fP);
+.SH "DESCRIPTION"
+.sp
+Defines lastlog2 context e.g. database file, which will be used for
+any other lastlog2 call. If \fIdb_path\fP is NULL, the default path defined
+in \fILL2_DEFAULT_DATABASE\fP will be taken.
+.sp
+.if n .RS 4
+.nf
+.fam C
+const\&   char *db_path = "/var/lib/lastlog/lastlog2.db";
+ll2_context *context = ll2_new_context(db_path);
+.fam
+.fi
+.if n .RE
+.SH "RETURN VALUE"
+.sp
+Returns context which will be used for all other lastlog2 library calls.
+This context should be released with \fIll2_unref_context\fP when it is not
+needed anymore.
+Returns NULL on an error.
+.SH "AUTHORS"
+.sp
+.MTO "kukuk\(atsuse.de" "Thorsten Kukuk" ""
+.SH "SEE ALSO"
+.sp
+\fBlastlog2\fP(3),
+\fBll2_unref_context\fP(3),
+\fBll2_read_all\fP(3),
+\fBll2_write_entry\fP(3),
+\fBll2_read_entry\fP(3),
+\fBll2_remove_entry\fP(3),
+\fBll2_update_login_time\fP(3),
+\fBll2_import_lastlog\fP(3)
+.SH "REPORTING BUGS"
+.sp
+For bug reports, use the \c
+.URL "https://github.com/util\-linux/util\-linux/issues" "issue tracker" "."
+.SH "AVAILABILITY"
+.sp
+The \fBliblastlog2\fP library is part of the util\-linux package since version 2.40. It can be downloaded from \c
+.URL "https://www.kernel.org/pub/linux/utils/util\-linux/" "Linux Kernel Archive" "."

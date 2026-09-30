@@ -1,0 +1,394 @@
+AT_BANNER([libkeymap unit tests])
+
+AT_SETUP([test 01 (parse charset from keymap)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test01])
+AT_CLEANUP
+
+AT_SETUP([test 02 (default charset without declarations)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test02])
+AT_CLEANUP
+
+AT_SETUP([test 03 (set context options and logging)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test03])
+AT_CLEANUP
+
+AT_SETUP([test 04 (free valid and null contexts)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test04])
+AT_CLEANUP
+
+AT_SETUP([test 05 (resolve key symbols and codes)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test05])
+AT_CLEANUP
+
+AT_SETUP([test 06 (read shifted key values)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test06])
+AT_CLEANUP
+
+AT_SETUP([test 07 (propagate key across all maps)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test07])
+AT_CLEANUP
+
+AT_SETUP([test 08 (read per-map alphabet entries)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test08])
+AT_CLEANUP
+
+AT_SETUP([test 09 (resolve include files from env path)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test09])
+AT_CLEANUP
+
+AT_SETUP([test 10 (iterate and delete functions)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test10])
+AT_CLEANUP
+
+AT_SETUP([test 11 (reject missing functions)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test11])
+AT_CLEANUP
+
+AT_SETUP([test 12 (add duplicate and large map indices)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test12])
+AT_CLEANUP
+
+AT_SETUP([test 13 (count maps in kmap info)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test13])
+AT_CLEANUP
+
+AT_SETUP([test 14 (accept out-of-range map and key indices)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test14])
+AT_CLEANUP
+
+AT_SETUP([test 15 (store regular keys and holes)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test15])
+AT_CLEANUP
+
+AT_SETUP([test 16 (roundtrip stored key value)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test16])
+AT_CLEANUP
+
+AT_SETUP([test 17 (add function strings)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test17])
+AT_CLEANUP
+
+AT_SETUP([test 18 (append many accent entries)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test18])
+AT_CLEANUP
+
+AT_SETUP([test 19 (render summary and symbol tables)])
+AT_KEYWORDS([libkeymap unittest])
+cp -f -- \
+	"$abs_srcdir/data/keymap0-summary.txt" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test19], [0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 20 (edit compose table entries)])
+AT_KEYWORDS([libkeymap unittest])
+cp -f -- \
+	"$abs_srcdir/data/keymap7-compose-as-usual.txt" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test20], [0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 21 (load accent table from kernel ioctl)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test21])
+AT_CLEANUP
+
+AT_SETUP([test 22 (load function strings from kernel ioctl)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test22])
+AT_CLEANUP
+
+AT_SETUP([test 23 (load keymap entries from kernel ioctl)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test23])
+AT_CLEANUP
+
+AT_SETUP([test 24 (load keymaps with manual clear fallback)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test24])
+AT_CLEANUP
+
+AT_SETUP([test 25 (switch keyboard mode during Unicode load)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test25])
+AT_CLEANUP
+
+AT_SETUP([test 26 (abort when Unicode mode switch fails)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test26])
+AT_CLEANUP
+
+AT_SETUP([test 27 (abort on KDSKBENT permission errors)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test27])
+AT_CLEANUP
+
+AT_SETUP([test 28 (abort on KDSKBENT I/O errors)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test28])
+AT_CLEANUP
+
+AT_SETUP([test 29 (load and clear function strings)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test29])
+AT_CLEANUP
+
+AT_SETUP([test 30 (load compose definitions through KDSKBDIACR)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test30])
+AT_CLEANUP
+
+AT_SETUP([test 31 (parse valid in-memory keymap definitions)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test31])
+AT_CLEANUP
+
+AT_SETUP([test 32 (reject invalid in-memory keymap definitions)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test32])
+AT_CLEANUP
+
+AT_SETUP([test 33 (render alt-is-meta maps)])
+AT_KEYWORDS([libkeymap unittest])
+cp -f -- \
+	"$abs_srcdir/data/alt-is-meta/alt-is-meta.output" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/helpers/libkeymap-showmaps $abs_srcdir/data/alt-is-meta/alt-is-meta.map],
+	[0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 34 (dump binary defkeymap)])
+AT_KEYWORDS([libkeymap unittest])
+AT_SKIP_IF([ test "$(arch)" != "x86_64" ])
+cp -f -- \
+	"$abs_srcdir/data/bkeymap-2.0.4/defkeymap.map.bin" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/helpers/libkeymap-bkeymap $abs_srcdir/../data/keymaps/i386/qwerty/defkeymap.map],
+	[0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 35 (generate keymap table source)])
+AT_KEYWORDS([libkeymap unittest])
+cp -f -- \
+	"$abs_srcdir/data/dumpkeys-mktable/defkeymap.c" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/helpers/libkeymap-mktable $abs_srcdir/../data/keymaps/i386/qwerty/defkeymap.map],
+	[0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 36 (dump full table in numeric mode)])
+AT_KEYWORDS([libkeymap unittest])
+suffix=
+case "$(arch)" in
+	ppc|ppc32|ppc32le|ppc64|ppc64le|ppc64*series)
+		suffix=".ppc"
+		;;
+esac
+cp -f -- \
+	"$abs_srcdir/data/dumpkeys-fulltable/ruwin_cplk-UTF-8.map$suffix" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/helpers/libkeymap-dumpkeys $abs_srcdir/data/dumpkeys-fulltable/ruwin_cplk-UTF-8.map FULL_TABLE TRUE],
+	[0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 37 (dump full table in default mode)])
+AT_KEYWORDS([libkeymap unittest])
+cp -f -- \
+	"$abs_srcdir/data/dumpkeys-fulltable/qwerty-layout.map" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/helpers/libkeymap-dumpkeys $abs_srcdir/data/dumpkeys-fulltable/qwerty-layout.map DEFAULT FALSE],
+	[0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 38 (dump full table as separate lines)])
+AT_KEYWORDS([libkeymap unittest])
+sed -n \
+	-e 's/#\(keymaps[[:space:]]\+\)/\1/p' \
+	"$abs_srcdir/data/dumpkeys-fulltable/ua-ws.map" > expout
+AT_CHECK([$abs_builddir/helpers/libkeymap-dumpkeys $abs_srcdir/data/dumpkeys-fulltable/ua-ws.map SEPARATE_LINES FALSE |
+	grep '^keymaps '
+],
+	[0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 39 (build binary keymap us.map)])
+AT_KEYWORDS([libkeymap unittest])
+AT_SKIP_IF([ test "$(arch)" != "x86_64" ])
+cp -f -- \
+	"$abs_srcdir/data/bkeymap-2.0.4/us.map.bin" \
+	expout
+UNITTEST_MEMCHECK([$abs_top_builddir/src/loadkeys -b "$abs_srcdir/data/keymaps/i386/qwerty/us.map"],
+	[0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 40 (build binary keymap pt-latin9.map)])
+AT_KEYWORDS([libkeymap unittest])
+AT_SKIP_IF([ test "$(arch)" != "x86_64" ])
+cp -f -- \
+	"$abs_srcdir/data/bkeymap-2.0.4/pt-latin9.map.bin" \
+	expout
+UNITTEST_MEMCHECK([$abs_top_builddir/src/loadkeys -b "$abs_srcdir/data/keymaps/i386/qwerty/pt-latin9.map"],
+	[0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 41 (build binary keymap cz.map)])
+AT_KEYWORDS([libkeymap unittest])
+AT_SKIP_IF([ test "$(arch)" != "x86_64" ])
+cp -f -- \
+	"$abs_srcdir/data/bkeymap-2.0.4/cz.map.bin" \
+	expout
+UNITTEST_MEMCHECK([$abs_top_builddir/src/loadkeys -b "$abs_srcdir/data/keymaps/i386/qwerty/cz.map"],
+	[0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 43 (dump keymaps in supported output formats)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test43])
+AT_CLEANUP
+
+AT_SETUP([test 44 (exercise helper and kernel-backed keymap paths)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test44])
+AT_CLEANUP
+
+AT_SETUP([test 45 (clamp Unicode compose load below MAX_DIACR)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test45])
+AT_CLEANUP
+
+AT_SETUP([test 50 (parse lexer-driven positive keymap edge cases)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test50])
+AT_CLEANUP
+
+AT_SETUP([test 51 (reject lexer-driven malformed keymap input)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test51])
+AT_CLEANUP
+
+AT_SETUP([test 52 (resolve include files across override and symlink cases)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test52])
+AT_CLEANUP
+
+AT_SETUP([test 53 (round-trip parse and canonical dump representative keymaps)])
+AT_KEYWORDS([libkeymap unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test53])
+AT_CLEANUP
+
+AT_SETUP([test 54 (convert XKB layouts to kernel tables)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test54" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test54])
+AT_CLEANUP
+
+AT_SETUP([test 55 (select compose rules by sequence and kernel form)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test55" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test55])
+AT_CLEANUP
+
+AT_SETUP([test 56 (dump converted XKB us,ru keymap)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test56" ])
+cp -f -- \
+	"$abs_srcdir/data/xkb/us-ru-caps.dump" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test56], [0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 57 (dump converted XKB us intl keymap with compose)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test57" ])
+cp -f -- \
+	"$abs_srcdir/data/xkb/us-intl-compose.dump" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test57], [0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 58 (dump converted XKB cz keymap with compose)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test58" ])
+cp -f -- \
+	"$abs_srcdir/data/xkb/cz-compose.dump" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test58], [0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 59 (dump converted XKB de keymap with compose)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test59" ])
+cp -f -- \
+	"$abs_srcdir/data/xkb/de-compose.dump" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test59], [0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 60 (dump converted XKB gr keymap with compose)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test60" ])
+cp -f -- \
+	"$abs_srcdir/data/xkb/gr-compose.dump" \
+	expout
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test60], [0], [expout])
+AT_CLEANUP
+
+AT_SETUP([test 61 (xkb conversion without compose table)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test61" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test61])
+AT_CLEANUP
+
+AT_SETUP([test 62 (xkb key fallback across groups)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test62" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test62])
+AT_CLEANUP
+
+AT_SETUP([test 63 (xkb Cyrillic aliases covered by Unicode fallback)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test63" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test63])
+AT_CLEANUP
+
+AT_SETUP([test 64 (xkb Serbian aliases covered by Unicode fallback)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test64" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test64])
+AT_CLEANUP
+
+AT_SETUP([test 65 (use first keysym from multi-symbol XKB levels)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test65" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test65])
+AT_CLEANUP
+
+AT_SETUP([test 66 (legacy CTRL+ALT XKB type keeps VT switching canonical)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test66" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test66])
+AT_CLEANUP
+
+AT_SETUP([test 67 (stress four distinct XKB layouts in one keymap)])
+AT_KEYWORDS([libkeymap unittest xkb])
+AT_SKIP_IF([ test ! -x "$abs_builddir/libkeymap/libkeymap-test67" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkeymap/libkeymap-test67])
+AT_CLEANUP

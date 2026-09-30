@@ -1,0 +1,41 @@
+#pragma once
+
+#include "common/FFstrbuf.h"
+#include "common/FFlist.h"
+
+typedef struct FFPlatformSysinfo {
+    FFstrbuf name;
+    FFstrbuf release;
+    FFstrbuf version;
+    FFstrbuf architecture;
+    uint32_t pageSize;
+} FFPlatformSysinfo;
+
+typedef struct FFPlatform {
+    FFstrbuf homeDir;  // Trailing slash included
+    FFstrbuf cacheDir; // Trailing slash included
+    FFlist configDirs; // List of FFstrbuf, trailing slash included
+    FFlist dataDirs;   // List of FFstrbuf, trailing slash included
+    FFstrbuf exePath;  // The real path of current exe (empty if unavailable)
+    FFstrbuf cwd;      // Trailing slash included
+
+    uint32_t pid;
+#ifndef _WIN32
+    uint32_t uid;
+#else
+    FFstrbuf sid;
+#endif
+    FFstrbuf userName;
+    FFstrbuf fullUserName;
+    FFstrbuf hostName;
+    FFstrbuf userShell;
+
+    FFPlatformSysinfo sysinfo;
+
+#if _WIN32
+    uint32_t initCP; // The code page used by the console when the program started
+#endif
+} FFPlatform;
+
+void ffPlatformInit(FFPlatform* platform);
+void ffPlatformDestroy(FFPlatform* platform);

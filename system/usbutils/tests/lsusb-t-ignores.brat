@@ -1,0 +1,37 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# -t branches into lsusb_t() before -s / -d / -D are consulted, so the
+# tree output should be byte-identical regardless of any selector.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+	: "${LSUSB_INSTALLED:=$(command -v lsusb || true)}"
+}
+
+@test "lsusb -t -s 999:999: matches bare -t" {
+	"$LSUSB_BUILT" -t            > "$TEST_TMP.bare" 2>&1
+	"$LSUSB_BUILT" -t -s 999:999 > "$TEST_TMP.s"    2>&1
+	diff -u "$TEST_TMP.bare" "$TEST_TMP.s"
+}
+
+@test "lsusb -t -d ffff:ffff: matches bare -t" {
+	"$LSUSB_BUILT" -t              > "$TEST_TMP.bare" 2>&1
+	"$LSUSB_BUILT" -t -d ffff:ffff > "$TEST_TMP.d"    2>&1
+	diff -u "$TEST_TMP.bare" "$TEST_TMP.d"
+}
+
+@test "lsusb -t -D /dev/null: matches bare -t" {
+	"$LSUSB_BUILT" -t              > "$TEST_TMP.bare" 2>&1
+	"$LSUSB_BUILT" -t -D /dev/null > "$TEST_TMP.D"    2>&1
+	diff -u "$TEST_TMP.bare" "$TEST_TMP.D"
+}
+
+@test "lsusb -tv -s/-d/-D: built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -tv -s 999:999 -d ffff:ffff -D /dev/null > "$TEST_TMP.built"     2>&1
+	"$LSUSB_INSTALLED" -tv -s 999:999 -d ffff:ffff -D /dev/null > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}

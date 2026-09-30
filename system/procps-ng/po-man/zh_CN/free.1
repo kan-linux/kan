@@ -1,0 +1,146 @@
+.\"
+.\" Copyright (c) 2011-2023 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2013-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002-2003 Albert Cahalan
+.\" Copyright (c) 1993      Matt Welsh <mdw@sunsite.unc.edu>
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH FREE 1 2023\-05\-02 procps\-ng 
+.SH 名称
+free \- 显示系统中空闲内存和已用内存的总量
+.SH 概述
+\fBfree\fP [\fI选项\fP .\|.\|.]
+.SH 描述
+\fBfree\fP 显示系统中空闲和已用的物理内存和交换内存的总量，以及内核使用的缓冲区和缓存的大小。这些信息通过解析 /proc/meminfo
+获得。可以显示的列有：
+.TP 
+\fB总计\fP
+可使用的内存总量（/proc/meminfo 中的 MemTotal 和
+SwapTotal）。这包括物理内存和交换内存，减去被保留的空间和内核二进制代码占用的空间。
+.TP 
+\fB已用\fP
+已用或不可用的内存（计算方式为 \fB总计\fP \- \fB可用\fP）
+.TP 
+\fB空闲\fP
+未使用的内存（/proc/meminfo 中的 MemFree 和 SwapFree）
+.TP 
+\fB共享\fP
+这部分内存（大多）由 tmpfs 使用（/proc/meminfo 中的 Shmem）
+.TP 
+\fB缓冲\fP
+内核缓冲区使用的内存（/proc/meminfo 中的 Buffers）
+.TP 
+\fB缓存\fP
+页缓存和 slab 使用的内存（/proc/meminfo 中的 Cached 和 SReclaimable）
+.TP 
+\fB缓冲/缓存\fP
+\fB缓冲\fP 和 \fB缓存\fP 的和
+.TP 
+\fB可用\fP
+估计有多少内存可用于启动新应用程序，而无需交换。与 \fB缓存\fP 或 \fB空闲\fP 字段提供的数据不同，该字段考虑了页缓存，也考虑了并非所有可回收的内存
+slab 都会被回收，因为有正在使用的项目（/proc/meminfo 中的 MemAvailable，在内核 3.14 上可用，在内核 2.6.27+
+上可模拟得到，否则与 \fB空闲\fP 相同）
+.SH 选项
+.TP 
+\fB\-b\fP, \fB\-\-bytes\fP
+使用字节显示内存大小。
+.TP 
+\fB\-k\fP, \fB\-\-kibi\fP
+使用 KiB 显示内存大小。此为默认选项。
+.TP 
+\fB\-m\fP, \fB\-\-mebi\fP
+使用 MiB 显示内存大小。
+.TP 
+\fB\-g\fP, \fB\-\-gibi\fP
+使用 GiB 显示内存大小。
+.TP 
+\fB\-\-tebi\fP
+使用 TiB 显示内存大小。
+.TP 
+\fB\-\-pebi\fP
+使用 PiB 显示内存大小。
+.TP 
+\fB\-\-kilo\fP
+使用千字节显示内存大小。隐含启用 \-\-si。
+.TP 
+\fB\-\-mega\fP
+使用兆字节显示内存大小。隐含启用 \-\-si。
+.TP 
+\fB\-\-giga\fP
+使用吉字节显示内存大小。隐含启用 \-\-si。
+.TP 
+\fB\-\-tera\fP
+使用太字节显示内存大小。隐含启用 \-\-si。
+.TP 
+\fB\-\-peta\fP
+使用拍字节显示内存大小。隐含启用 \-\-si。
+.TP 
+\fB\-h\fP, \fB\-\-human\fP
+自动缩放所有输出字段的单位，使得最少显示三位数字，并显示单位。使用以下单位。
+.sp
+.nf
+  B = 字节
+  Ki = KiB (kibibyte)
+  Mi = MiB (mebibyte)
+  Gi = GiB (gibibyte)
+  Ti = TiB (tebibyte)
+  Pi = PiB (pebibyte)
+.fi
+.sp
+如果没有显示单位，并且您有 EiB 以上的 RAM 或交换，则数字是以 TiB 为单位，并且各个列可能不能和表头对齐。
+.TP 
+\fB\-w\fP, \fB\-\-wide\fP
+切换到宽模式。宽模式生成的行长度超过 80 个字符。在此模式下，\fB缓冲\fP 和 \fB缓存\fP 在两个单独的列中显示。
+.TP 
+\fB\-c\fP, \fB\-\-count\fP \fIN\fP
+重复输出结果 \fIN\fP 次。需要同时使用 \fB\-s\fP 选项。
+.TP 
+\fB\-l\fP, \fB\-\-lohi\fP
+显示详细的低位内存和高位内存统计。
+.TP 
+\fB\-L\fP, \fB\-\-line\fP
+在一行内显示输出，经常和 \fB\-s\fP 选项同时使用，来重复显示内存统计信息。
+.TP 
+\fB\-s\fP, \fB\-\-seconds\fP \fI延迟\fP
+连续地显示结果，每 \fI延迟\fP 秒一次。实际上， \fI延迟\fP 可以是任何的浮点数，小数点可以用 "." 或 ","。使用了 \fBusleep\fP(3)
+以支持微秒精度的延迟。
+.TP 
+\fB\-\-si\fP
+使用千字节、兆字节、吉字节等（1000 的幂），而不是 KiB、MiB、GiB（1024 的幂）。
+.TP 
+\fB\-t\fP, \fB\-\-total\fP
+增加一行，显示各列的总计。
+.TP 
+\fB\-v\fP, \fB\-\-committed\fP
+增加一行，显示内存分配 (commit) 限制和已分配/未分配的内存量。该行的 \fB总计\fP 列将显示内存分配限制。此行在禁用了内存超分配
+(overcommit) 的情况下有意义。在启用内存超分配的系统中，\fB空闲\fP 值可能暂时显示为负数。这并非
+bug，而是超分配机制的正常表现，表示系统承诺的内存总量已超过其虚拟地址空间总量。负值反映了系统内存超分配的程度。
+.TP 
+\fB\-\-help\fP
+显示帮助。
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+显示版本信息。
+.SH 文件
+.TP 
+/proc/meminfo
+内存信息
+.SH 错误
+\fB共享\fP 列的值在 2.6.32 之前的内核中不可用，会被显示为零。
+.P
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。
+.SH 参见
+\fBps\fP(1), \fBslabtop\fP(1), \fBtop\fP(1), \fBvmstat\fP(8).

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tests</title>
+
+<meta name="description" content="Tests">
+<meta name="keywords" content="Tests">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+pre.displaymath {font-style: italic; font-family: serif; display: flex; justify-content: center}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},       // do not skip pre
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+  tex: {
+    processEscapes: false,      // do not use \$ to produce a literal dollar sign
+    processEnvironments: false, // do not process \begin{xxx}...\end{xxx} outside math mode
+    processRefs: false,         // do not process \ref{...} outside of math mode
+    displayMath: [             // start/end delimiter pairs for display math
+      ['\\[', '\\]']
+    ],
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+
+<body class="tex2jax_ignore">
+<div class="top-level-extent" id="Top">
+<h1 class="top" id="Tests"><span>Tests<a class="copiable-link" href="#Tests"> &para;</a></span></h1>
+
+<p>Now tex on the same line 
+$$ \chi^2 = \sum_{i=1}^N
+          \left(y_i - (a + b x_i)
+	  \over \sigma_i\right)^2 $$
+		    
+
+Some text one the line following @end tex
+</p>
+<p>LaTeX block
+</p>
+<p>Now tex on the following line, valid fot tex (with @end tex on a line).
+
+tex \TeX 
+</p>
+<p>Same that @html (but empty following line not ignored).
+</p>
+<p>Test of @math
+Here some <em class="math tex2jax_process">\({x^i}\over{\tan y}\)</em>.
+</p>
+<p>Maths with protected \:
+<em class="math tex2jax_process">\(a \backslash{} b\)</em>.
+</p>
+<p>Maths with code @-command:
+</p>
+<p><em class="math tex2jax_process">\(\mathtt{math code} a < b\)</em>
+</p>
+<p>Maths with code @-command and braces:
+</p>
+<p><em class="math tex2jax_process">\(\underline{\mathtt{math \hbox{ code }}} \sum_{i}{\underline{\mathit{eff}}}\)</em>
+</p>
+<p>Maths with @-sup
+</p>
+<p><em class="math tex2jax_process">\(\sum_{i} f(x)^{2}\)</em>
+</p>
+<p>@\ outside of math
+</p>
+<p>\
+</p>
+<p>Displaymath
+</p><pre class="displaymath tex2jax_process">\[-- f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+\]</pre>
+</div>
+
+
+<a href="js_licenses.html" rel="jslicense"><small>JavaScript license information</small></a>
+</body>
+</html>

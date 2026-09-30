@@ -1,0 +1,45 @@
+# also used in t/*.t.
+split_nocopying_split_dev_null split_nocopying.texi --info --split-size 1 -o /dev/null
+simplest_test_css simplest.texi --html --no-split --css-include file.css
+
+# already tested in t/*.t.  Here check the command line, for -D
+defcondx_Dbar defxcond.texi --html -D 'bar 1' --no-split
+defcondx_Ubar defxcond.texi --html --no-split
+
+# check that command line overrides document.  texi2html style is more
+# interesting to check language change
+documentlanguage_cmdline documentlanguage.texi --html -c TEXI2HTML=1 --no-split --document-language=fr
+
+# already tested in t/*.t, but here want to have a result with
+# accented characters in error messages
+cpp_lines ../../perl/t/input_files/cpp_lines.texi --html --no-split -c MESSAGE_ENCODING=UTF-8 -c DOC_ENCODING_FOR_INPUT_FILE_NAME=1
+
+# the same tests are in t/*.t to test through code
+no_content no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">'
+no_content_separate no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION separate_element'
+no_content_do_contents_separate no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION separate_element' -c 'contents 1'
+no_content_do_contents no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'contents 1'
+no_content_inline no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION inline'
+no_content_do_contents_inline no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">' -c 'CONTENTS_OUTPUT_LOCATION inline' -c 'contents 1'
+
+# Same input file also tested in t/converters_tests.t.  It is interesting to
+# have automatic tree transformations tested here too.
+indices_in_begin_tables_lists indices_in_begin_tables_lists.texi --html --no-split -c 'USE_NODES 0'
+indices_in_begin_tables_lists_latex indices_in_begin_tables_lists.texi --latex
+
+# Same file also tested in t/converters_tests.t.  Here we test customization
+# of raw text output, as this output is not customized in t/*.t tests.
+formatting_customizations_input_raw_text ../../perl/t/input_files/formatting_customizations_input.texi -c TEXINFO_OUTPUT_FORMAT=rawtext -c NUMBER_SECTIONS=0 -c ASCII_GLYPH=1 --enable-encoding
+
+# tests of the tree using the same input file are also in t/transformations.t
+# but it is interesting to have automatic tree transformations tested here too.
+index_entries_relate_to_item index_entries_relate_to_item.texi --html --no-split
+
+info_extension_warning foo.info
+
+# test JS_WEBLABELS_FILE set to a file already output as part of the manual
+# formatting.
+js_license_reuse_output_file split_nocopying.texi --html -c JS_WEBLABELS_FILE=Ch1.html -c INFO_JS_DIR=js
+
+# test --macro-expand with the same name as output file.
+reuse_macro_expand_file simplest.texi --macro-expand=@OUT_DIR@simplest.info

@@ -1,0 +1,137 @@
+.\"
+.\" Copyright (c) 2009-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2015-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2012-2013 Jaromir Capik <jcapik@redhat.com>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002-2004 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH W 1 29.11.2025 procps\-ng 
+.SH NUME
+w \- Afișează cine este conectat și ce face fiecare.
+.SH REZUMAT
+\fBw\fP [\fIopțiune\fP .\|.\|.\&] [\fIutilizator\fP]
+.SH DESCRIERE
+\fBw\fP afișează informații despre utilizatorii aflați în prezent conectați la
+mașină și despre procesele acestora.  Antetul arată, în această ordine, ora
+curentă, de cât timp funcționează sistemul, câți utilizatori sunt conectați
+în prezent și mediile de încărcare a sistemului pentru ultimele 1, 5 și 15
+minute.
+.PP
+Următoarele intrări sunt afișate pentru fiecare utilizator: numele de
+conectare, numele tty, gazda la distanță, timpul de conectare, timpul de
+inactivitate, JCPU, PCPU și linia de comandă a procesului curent.
+.PP
+Timpul JCPU este timpul folosit de toate procesele atașate la tty.  Nu
+include lucrările din fundal anterioare, dar include lucrările din fundal
+care rulează în prezent.
+.PP
+Timpul PCPU este timpul utilizat de procesul curent, numit în câmpul „ce”.
+.SH OPȚIUNI
+.TP 
+\fB\-c\fP, \fB\-\-container\fP
+afișează în antet timpul de funcționare al containerului în loc de timpul de
+funcționare al sistemului.
+.TP 
+\fB\-h\fP, \fB\-\-no\-header\fP
+Nu afișează antetul.
+.TP 
+\fB\-u\fP, \fB\-\-no\-current\fP
+Ignoră numele de utilizator în timp ce determină procesul curent și timpii
+CPU.  Pentru a demonstra acest lucru, executați comanda \fBsu\fP și apoi
+comanda \fBw\fP și comanda \fBw \-u\fP.
+.TP 
+\fB\-s\fP, \fB\-\-short\fP
+Utilizează formatul scurt.  Nu afișează ora de conectare, timpii JCPU sau
+PCPU.
+.TP 
+\fB\-t\fP, \fB\-\-terminal\fP
+De obicei, \fBw\fP va utiliza fie tabelul de sesiuni systemd, fie fișierul utmp
+pentru a localiza utilizatorii.  În modul \fIterminal\fP, \fBw\fP va scana
+dispozitivele terminale și va localiza sesiunile utilizatorilor în acest
+mod. Aceasta nu este o numărătoare reală a utilizatorilor, de exemplu un
+utilizator cu două xterm\-uri va apărea de două ori, astfel încât numărul de
+utilizatori din antet va fi diferit. În prezent, dispozitivele terminale
+scanate sunt \fI/dev/tty*\fP și \fI/dev/pts/*\fP.
+.TP 
+\fB\-f\fP, \fB\-\-from\fP
+Comută afișarea/neafișarea câmpului \fBdin\fP (numele gazdei de la distanță).
+Valoarea implicită, așa cum a fost lansată, este ca câmpul \fBdin\fP să nu fie
+afișat, deși administratorul de sistem sau întreținătorul distribuției poate
+să fi compilat o versiune în care câmpul \fBdin\fP este afișat implicit.
+.TP 
+\fB\-\-help\fP
+Afișează acest mesaj de ajutor.
+.TP 
+\fB\-i\fP, \fB\-\-ip\-addr\fP
+Afișează adresa IP în locul numelui de gazdă pentru câmpul \fBfrom\fP. Această
+opțiune funcționează numai pe platforme non\-systemd, deoarece libsystemd
+furnizează numai gazda la distanță.
+.TP 
+\fB\-p\fP, \fB\-\-pids\fP
+Afișează pid\-ul procesului de autentificare sau al procesului „what” în
+câmpul „what”. Procesul de autentificare («login») este denumit și lider de
+sesiune.
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+Afișați informațiile despre versiune.
+.TP 
+\fB\-o\fP, \fB\-\-old\-style\fP
+Afișare în stil vechi.  Imprimă spațiu liber pentru timpi de inactivitate
+mai mici de un minut.
+.TP 
+\fButilizator\fP
+Afișează informații numai despre utilizatorul specificat.
+.SH "VARIABILE DE MEDIU"
+.TP 
+\fBPROCPS_CONTAINER\fP
+Dacă $\fBPROCPS_CONTAINER\fP este activat, atunci \fBw\fP se comportă ca și cum ar
+fi fost dată opțiunea \fB\-\-container\fP.
+.TP 
+\fBPROCPS_USERLEN\fP
+Suprascrie lățimea implicită a coloanei numelui de „utilizator”.  Valoarea
+implicită este 8.
+.TP 
+\fBPROCPS_FROMLEN\fP
+Suprascrie lățimea implicită a coloanei „din”.  Valoarea implicită este 16.
+.SH FIȘIERE
+.TP 
+\fI/var/run/utmp\fP
+informații despre cine este conectat în prezent, doar pentru gazdele
+non\-systemd.
+.TP 
+\fI/proc\fP
+informații despre procese
+.TP 
+\fI/dev/tty*\fP , \fI/dev/pts/*\fP
+Fișiere ale dispozitivelor de terminal scanate în modul \fB\-\-terminal\fP.
+.SH ERORI
+.PP
+When using \fB\-\-terminal\fP option, \fBw\fP assumes processes with a parent PID of
+0 or 1 are \fBagetty\fP(8)  processes and will not display them. This is prone
+to both false positive and negative errors.
+.PP
+Timpul de inactivitate pentru utilizatorii anumitor sesiuni, cum ar fi
+sesiunile X/Wayland, va fi incorect. Opțiunea \fB\-\-terminal\fP va afișa timpii
+de inactivitate corecti pentru sesiunile terminalului pe X/Wayland.
+.PP
+Pe platformele care utilizează \fBsystemd\fP(1)  opțiunea \fB\-\-ip\-addr\fP va fi
+ignorată, iar coloana „from” va raporta gazda la distanță fie ca nume de
+gazdă, fie ca adresă IP.
+.SH "RAPORTAREA ERORILOR"
+Trimiteți rapoartele de eroare la
+.MT procps@freelists.org
+.ME .
+.SH "CONSULTAȚI ȘI"
+\fBfree\fP(1), \fBloginctl\fP(1), \fBps\fP(1), \fBsystemd\fP(1), \fBtop\fP(1),
+\fBuptime\fP(1), \fBwho\fP(1), \fButmp\fP(5), \fBagetty\fP(8)

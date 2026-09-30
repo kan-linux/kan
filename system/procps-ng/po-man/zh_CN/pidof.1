@@ -1,0 +1,60 @@
+.\"
+.\" Copyright (c) 2018-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2019-2023 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2013      Jaromir Capik <jcapik@redhat.com>
+.\" Copyright (c) 1998      Miquel van Smoorenburg
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH PIDOF 1 2023\-01\-16 procps\-ng 
+.SH 名称
+pidof \- 获取正在运行的程序的进程 ID
+.SH 概述
+\fBpidof\fP [\fB\-s\fP] [\fB\-c\fP] [\fB\-q\fP] [\fB\-w\fP] [\fB\-x\fP] [\fB\-o\fP
+\fI忽略pid\fP[,.\|.\|.\&]] \&.\|.\|.\& [\fB\-t\fP] [\fB\-S\fP \fI分隔符\fP] \fI程序\fP .\|.\|.
+.SH 描述
+\fBPidof\fP 获取指定程序的进程 ID (pid)。它将这些 id 打印到标准输出。
+.SH 选项
+.IP \fB\-s\fP
+单次执行 \- 让程序仅返回一个 \fIpid\fP。
+.IP \fB\-c\fP
+仅返回在同一根目录下运行的进程 ID。对于非 root 用户，此选项将被忽略，因为他们无法检查不属于他们的进程的当前根目录。
+.IP \fB\-q\fP
+安静模式，禁止所有输出，仅设置相应的退出状态。
+.IP \fB\-w\fP
+也显示没有可见命令行的进程（例如内核工作线程）。
+.IP \fB\-x\fP
+也包括脚本 \- 这会导致程序也返回运行指定脚本的 shell 的进程 ID。
+.IP "\fB\-o\fP \fI忽略pid\fP"
+让 \fBpidof\fP 忽略具有该进程 ID 的进程。可使用特殊的 pid \fB%PPID\fP 来表示 \fBpidof\fP 程序的父进程，即调用它的
+shell 或 shell 脚本。
+.IP \fB\-t\fP
+显示所有线程 ID 而不是 PID。
+.IP "\fB\-S\fP \fI分隔符\fP"
+使用 \fI分隔符\fP 作为 pid 之间的分隔符。仅当程序打印多个 pid 时才使用。\fB\-d\fP 选项是此选项的别名，以保持和 sysvinit
+\fBpidof\fP 的兼容性。
+.SH 退出状态
+.TP 
+\fB0\fP
+至少找到了一个具有所请求的名称的程序。
+.TP 
+\fB1\fP
+没有找到具有所请求的名称的程序。
+.SH 错误
+当使用 \fB\-x\fP 选项时，\fBpidof\fP 检测脚本的方法较为简单，而且会错过一些脚本，比如使用 env 的脚本。此限制是由于脚本在 proc
+文件系统中的表示方式导致的。
+.SH 参见
+\fBpgrep\fP(1), \fBpkill\fP(1)
+.SH 作者
+.MT jcapik@redhat.com
+Jaromir Capik
+.ME

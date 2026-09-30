@@ -1,0 +1,986 @@
+# Pesan bahasa indonesia untuk man-db
+# Copyright (C) 2008 Colin Watson (msgids)
+# This file is distributed under the same license as the man-db package.
+# Arif E. Nugroho <arif_endro@yahoo.com>, 2008-2014.
+# Andika Triwidada <andika@gmail.com>, 2022, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: man-db 2.13.1-pre1\n"
+"Report-Msgid-Bugs-To: Colin Watson <cjwatson@debian.org>\n"
+"POT-Creation-Date: 2025-05-02 13:43+0100\n"
+"PO-Revision-Date: 2025-04-22 18:34+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.5\n"
+
+#: lib/filenames.c:50 src/straycats.c:129 src/straycats.c:149
+#, c-format
+msgid "warning: %s: ignoring bogus filename"
+msgstr "peringatan: %s: mengabaikan nama berkas palsu"
+
+#: lib/pathsearch.c:82 lib/pathsearch.c:132 src/manp.c:1165
+#, c-format
+msgid "can't determine current directory"
+msgstr "tak bisa menentukan direktori kini"
+
+#: lib/security.c:80
+#, c-format
+msgid "can't set effective uid"
+msgstr "tak bisa menata uid efektif"
+
+#: lib/security.c:120
+#, c-format
+msgid "the setuid man user \"%s\" does not exist"
+msgstr "setuid pengguna man \"%s\" tidak ada"
+
+#: lib/xregcomp.c:50
+#, c-format
+msgid "fatal: regex `%s': %s"
+msgstr "fatal: regex '%s': %s"
+
+#: libdb/db_delete.c:108
+#, c-format
+msgid "multi key %s does not exist"
+msgstr "multi kunci %s tidak ada"
+
+#: libdb/db_lookup.c:81
+#, c-format
+msgid "can't lock index cache %s"
+msgstr "tak bisa mengunci singgahan indeks %s"
+
+#: libdb/db_lookup.c:88
+#, c-format
+msgid "index cache %s corrupt"
+msgstr "singgahan indeks %s rusak"
+
+#: libdb/db_lookup.c:94
+#, c-format
+msgid "cannot replace key %s"
+msgstr "tak bisa menggantikan kunci %s"
+
+#: libdb/db_lookup.c:170 libdb/db_lookup.c:181
+#, c-format
+msgid "only %d field in content"
+msgid_plural "only %d fields in content"
+msgstr[0] "hanya %d bidang dalam isi"
+
+#: libdb/db_lookup.c:353
+#, c-format
+msgid "bad fetch on multi key %s"
+msgstr "pengambilan buruk di multi kunci %s"
+
+#: libdb/db_lookup.c:432 src/whatis.c:709
+#, c-format
+msgid "Database %s corrupted; rebuild with mandb --create"
+msgstr "Basis data %s terkorupsi; membangun ulang dengan mandb --create"
+
+#: libdb/db_ver.c:56
+#, c-format
+msgid "warning: %s has no version identifier\n"
+msgstr "peringatan: %s tidak memiliki pengidentifikasi versi\n"
+
+#: libdb/db_ver.c:60
+#, c-format
+msgid "warning: %s is version %s, expecting %s\n"
+msgstr "peringatan: %s adalah versi %s, mengharapkan %s\n"
+
+#: libdb/db_ver.c:82
+#, c-format
+msgid "fatal: unable to insert version identifier into %s"
+msgstr "fatal: tidak bisa menyisipkan pengidentifikasi versi ke dalam %s"
+
+#: src/accessdb.c:62
+msgid "[MAN DATABASE]"
+msgstr "[MAN BASIS_DATA]"
+
+#: src/accessdb.c:63
+#, c-format
+msgid "The man database defaults to %s%s."
+msgstr "Basis data man baku ke %s%s."
+
+#: src/accessdb.c:66 src/catman.c:105 src/globbing_test.c:61
+#: src/lexgrog_test.c:79 src/man.c:277 src/man-recode.c:116
+#: src/manconv_main.c:100 src/mandb.c:112 src/manpath.c:66 src/whatis.c:127
+#: src/zsoelim_main.c:72
+msgid "emit debugging messages"
+msgstr "keluarkan pesan pengawakutuan"
+
+#: src/accessdb.c:138
+#, c-format
+msgid "can't open %s for reading"
+msgstr "tak bisa membuka %s untuk pembacaan"
+
+#: src/catman.c:102
+msgid "[SECTION...]"
+msgstr "[BAGIAN...]"
+
+#: src/catman.c:106 src/man.c:306 src/whatis.c:141
+msgid "PATH"
+msgstr "PATH"
+
+#: src/catman.c:107 src/man.c:307 src/whatis.c:142
+msgid "set search path for manual pages to PATH"
+msgstr "menata path pencarian untuk halaman buku panduan ke PATH"
+
+#: src/catman.c:108 src/man.c:275 src/mandb.c:124 src/manpath.c:68
+#: src/whatis.c:145
+msgid "FILE"
+msgstr "BERKAS"
+
+#: src/catman.c:109 src/man.c:276 src/mandb.c:125 src/manpath.c:69
+#: src/whatis.c:146
+msgid "use this user configuration file"
+msgstr "gunakan berkas konfigurasi pengguna ini"
+
+#: src/catman.c:200
+#, c-format
+msgid "man command failed with exit status %d"
+msgstr "perintah man gagal dengan status keluar %d"
+
+#: src/catman.c:276
+#, c-format
+msgid "NULL content for key: %s"
+msgstr "isi NULL untuk kunci: %s"
+
+#: src/catman.c:297
+#, c-format
+msgid ""
+"\n"
+"Updating cat files for section %s of man hierarchy %s\n"
+msgstr ""
+"\n"
+"Memperbarui berkas cat untuk bagian %s dari hirarki %s\n"
+
+#: src/catman.c:350
+#, c-format
+msgid "cannot write within %s"
+msgstr "tidak dapat menulis di dalam %s"
+
+#: src/catman.c:417
+#, c-format
+msgid "cannot read database %s"
+msgstr "tidak dapat membaca basis data %s"
+
+#: src/catman.c:433
+#, c-format
+msgid "unable to update %s"
+msgstr "tidak dapat memperbarui %s"
+
+#: src/check_mandirs.c:109
+#, c-format
+msgid "warning: %s/man%s/%s.%s*: competing extensions"
+msgstr "peringatan: %s/man%s/%s.%s*: ekstensi bersaing"
+
+#: src/check_mandirs.c:136
+#, c-format
+msgid "can't update index cache %s"
+msgstr "tak bisa memperbarui singgahan indeks %s"
+
+#: src/check_mandirs.c:229
+#, c-format
+msgid "warning: %s: bad symlink or ROFF `.so' request"
+msgstr "peringatan: %s: symlink atau permintaan '.so' ROFF yang buruk"
+
+#: src/check_mandirs.c:296
+#, c-format
+msgid "warning: %s: ignoring empty file"
+msgstr "peringatan: %s: mengabaikan berkas kosong"
+
+#: src/check_mandirs.c:300 src/straycats.c:267
+#, c-format
+msgid "warning: %s: whatis parse for %s(%s) failed"
+msgstr "peringatan: %s: penguraian whatis untuk %s(%s) gagal"
+
+#: src/check_mandirs.c:329 src/check_mandirs.c:505 src/mandb.c:952
+#: src/straycats.c:91 src/straycats.c:296 src/ult_src.c:99
+#, c-format
+msgid "can't search directory %s"
+msgstr "tak bisa mencari direktori %s"
+
+#: src/check_mandirs.c:378 src/man.c:1762
+#, c-format
+msgid "can't chown %s"
+msgstr "tak bisa chown %s"
+
+#: src/check_mandirs.c:398 src/check_mandirs.c:423
+#, c-format
+msgid "warning: cannot create catdir %s"
+msgstr "peringatan: tidak dapat membuat catdir %s"
+
+#: src/check_mandirs.c:461 src/man.c:1775 src/mandb.c:232
+#, c-format
+msgid "can't chmod %s"
+msgstr "tak bisa chmod %s"
+
+#: src/check_mandirs.c:510
+#, c-format
+msgid "can't change to directory %s"
+msgstr "tak bisa berpindah ke direktori %s"
+
+#: src/check_mandirs.c:558
+#, c-format
+msgid "can't create index cache %s"
+msgstr "tak bisa membuat singgahan indeks %s"
+
+#: src/check_mandirs.c:581
+#, c-format
+msgid "Updating index cache for path `%s/%s'. Wait..."
+msgstr "Memperbarui singgahan indeks untuk path '%s/%s'. Tunggu..."
+
+#: src/check_mandirs.c:608 src/check_mandirs.c:665
+msgid "done.\n"
+msgstr "selesai.\n"
+
+#: src/check_mandirs.c:936
+#, c-format
+msgid "Purging old database entries in %s...\n"
+msgstr "Menghapus masukan basis data lama dalam %s...\n"
+
+#: src/descriptions_store.c:62
+#, c-format
+msgid "warning: failed to store entry for %s(%s)"
+msgstr "peringatan: gagal untuk menyimpan entri bagi %s(%s)"
+
+#: src/globbing_test.c:58
+msgid "PATH SECTION NAME"
+msgstr "PATH BAGIAN NAMA"
+
+#: src/globbing_test.c:62 src/man.c:311
+msgid "EXTENSION"
+msgstr "EKSTENSI"
+
+#: src/globbing_test.c:63 src/man.c:312
+msgid "limit search to extension type EXTENSION"
+msgstr "batasi pencarian ke tipe ekstensi EKSTENSI"
+
+#: src/globbing_test.c:65 src/man.c:314
+msgid "look for pages case-insensitively (default)"
+msgstr "cari halaman tanpa membedakan besar kecil huruf (baku)"
+
+#: src/globbing_test.c:66 src/man.c:315
+msgid "look for pages case-sensitively"
+msgstr "cari halaman dengan membedakan besar kecil huruf"
+
+#: src/globbing_test.c:67
+msgid "interpret page name as a regex"
+msgstr "intepretasikan nama halaman sebagai sebuah regex"
+
+#: src/globbing_test.c:68
+msgid "the page name contains wildcards"
+msgstr "nama halaman berisi wildcard"
+
+#: src/lexgrog.l:724
+#, c-format
+msgid "warning: whatis for %s exceeds %d byte, truncating."
+msgid_plural "warning: whatis for %s exceeds %d bytes, truncating."
+msgstr[0] "peringatan: whatis untuk %s melebihi %d byte, memotong."
+
+#: src/lexgrog.l:886 src/man.c:2363 src/man.c:2445 src/man.c:2541
+#: src/man-recode.c:180 src/man-recode.c:205 src/manconv_main.c:162
+#: src/straycats.c:209 src/ult_src.c:158 src/zsoelim.l:532
+#, c-format
+msgid "can't open %s"
+msgstr "tak bisa membuka %s"
+
+#: src/lexgrog_test.c:75 src/zsoelim_main.c:69
+msgid "FILE..."
+msgstr "BERKAS..."
+
+#: src/lexgrog_test.c:76
+msgid "The defaults are --man and --whatis."
+msgstr "Baku adalah --man dan --whatis."
+
+#: src/lexgrog_test.c:80
+msgid "parse as man page"
+msgstr "uraikan sebagai halaman man"
+
+#: src/lexgrog_test.c:81
+msgid "parse as cat page"
+msgstr "uraikan sebagai halaman cat"
+
+#: src/lexgrog_test.c:82
+msgid "show whatis information"
+msgstr "tampilkan informasi whatis"
+
+#: src/lexgrog_test.c:84
+msgid "show guessed series of preprocessing filters"
+msgstr "tampilkan urutan terkaan dari penyaring praproses"
+
+#: src/lexgrog_test.c:85 src/man.c:298 src/man.c:336
+msgid "ENCODING"
+msgstr "PENGKODEAN"
+
+#: src/lexgrog_test.c:86 src/man.c:337
+msgid "use selected output encoding"
+msgstr "gunakan pengkodean keluaran yang dipilih"
+
+#: src/lexgrog_test.c:129 src/man.c:573 src/man.c:581
+#, c-format
+msgid "%s: incompatible options"
+msgstr "%s: opsi-opsi tidak kompatibel"
+
+#: src/man.c:173 src/man-recode.c:237
+#, c-format
+msgid "command exited with status %d: %s"
+msgstr "perintah keluar dengan status %d: %s"
+
+#: src/man.c:257
+msgid "[SECTION] PAGE..."
+msgstr "[BAGIAN] HALAMAN..."
+
+#: src/man.c:279
+msgid "reset all options to their default values"
+msgstr "tata ulang semua pilihan ke nilai bakunya"
+
+#: src/man.c:280
+msgid "WARNINGS"
+msgstr "PERINGATAN"
+
+#: src/man.c:282
+msgid "enable warnings from groff"
+msgstr "fungsikan peringatan dari groff"
+
+#: src/man.c:284
+msgid "Main modes of operation:"
+msgstr "Mode operasi utama:"
+
+#: src/man.c:285
+msgid "equivalent to whatis"
+msgstr "sama dengan whatis"
+
+#: src/man.c:286
+msgid "equivalent to apropos"
+msgstr "sama dengan apropos"
+
+#: src/man.c:287
+msgid "search for text in all pages"
+msgstr "cari teks dalam seluruh halaman"
+
+#: src/man.c:288
+msgid "print physical location of man page(s)"
+msgstr "cetak lokasi fisik dari halaman man"
+
+#: src/man.c:292
+msgid "print physical location of cat file(s)"
+msgstr "cetak lokasi fisik dari halaman cat"
+
+#: src/man.c:295
+msgid "interpret PAGE argument(s) as local filename(s)"
+msgstr "interpretasikan argumen HALAMAN sebagai nama berkas lokal"
+
+#: src/man.c:297
+msgid "used by catman to reformat out of date cat pages"
+msgstr ""
+"digunakan oleh catman untuk memformat ulang halaman cat yang kedaluwarsa"
+
+#: src/man.c:299
+msgid "output source page encoded in ENCODING"
+msgstr "keluaran sumber halaman dikodekan dalam PENGKODEAN"
+
+#: src/man.c:301
+msgid "Finding manual pages:"
+msgstr "Mencari halaman manual:"
+
+#: src/man.c:302 src/whatis.c:143
+msgid "LOCALE"
+msgstr "LOKAL"
+
+#: src/man.c:303
+msgid "define the locale for this particular man search"
+msgstr "definisikan lokal untuk pencarian man ini"
+
+#: src/man.c:304 src/manpath.c:70 src/whatis.c:139
+msgid "SYSTEM"
+msgstr "SISTEM"
+
+#: src/man.c:305 src/manpath.c:71 src/whatis.c:140
+msgid "use manual pages from other systems"
+msgstr "gunakan halaman manual dari sistem lain"
+
+#: src/man.c:308 src/whatis.c:136
+msgid "LIST"
+msgstr "DAFTAR"
+
+#: src/man.c:309
+msgid "use colon separated section list"
+msgstr "gunakan daftar bagian dipisahkan oleh titik dua"
+
+#: src/man.c:316
+msgid "show all pages matching regex"
+msgstr "tampilkan seluruh halaman yang cocok dengan regex"
+
+#: src/man.c:318
+msgid "show all pages matching wildcard"
+msgstr "tampilkan seluruh halaman yang cocok dengan wildcard"
+
+#: src/man.c:320
+msgid "make --regex and --wildcard match page names only, not descriptions"
+msgstr ""
+"buat --regex dan --wildcard hanya cocok dengan nama halaman saja, bukan "
+"deskripsi"
+
+#: src/man.c:323
+msgid "find all matching manual pages"
+msgstr "cari seluruh halaman buku panduan yang cocok"
+
+#: src/man.c:324
+msgid "force a cache consistency check"
+msgstr "paksa sebuah pemeriksaan konsistensi singgahan"
+
+#: src/man.c:326
+msgid "don't try subpages, e.g. 'man foo bar' => 'man foo-bar'"
+msgstr "jangan coba sub halaman, mis. 'man foo bar' => 'man foo-bar'"
+
+#: src/man.c:329
+msgid "Controlling formatted output:"
+msgstr "Mengendalikan keluaran terformat:"
+
+#: src/man.c:330
+msgid "PAGER"
+msgstr "PAGER"
+
+#: src/man.c:331
+msgid "use program PAGER to display output"
+msgstr "gunakan aplikasi PAGER untuk menampilkan keluaran"
+
+#: src/man.c:332 src/man.c:344
+msgid "STRING"
+msgstr "STRING"
+
+#: src/man.c:333
+msgid "provide the `less' pager with a prompt"
+msgstr "sediakan pager 'less' dengan sebuah prompt"
+
+#: src/man.c:335
+msgid "display ASCII translation of certain latin1 chars"
+msgstr "tampilkan terjemahan ASCII dari beberapa karakter latin1"
+
+#: src/man.c:339
+msgid "turn off hyphenation"
+msgstr "matikan penyambungan kata memakai tanda hubung"
+
+#: src/man.c:342
+msgid "turn off justification"
+msgstr "matikan perataan"
+
+#: src/man.c:345
+msgid ""
+"STRING indicates which preprocessors to run:\n"
+"e - [n]eqn, p - pic, t - tbl,\n"
+"g - grap, r - refer, v - vgrind"
+msgstr ""
+"STRING mengindikasikan preprosesor mana untuk dijalankan:\n"
+"e - [n]eqn, p - pic, t - tbl,\n"
+"g - grap, r - refer, v - vgrind"
+
+#: src/man.c:349
+#, c-format
+msgid "use %s to format pages"
+msgstr "gunakan %s untuk memformat halaman"
+
+#: src/man.c:350
+msgid "DEVICE"
+msgstr "PERANGKAT"
+
+#: src/man.c:351
+#, c-format
+msgid "use %s with selected device"
+msgstr "gunakan %s dengan perangkat yang dipilih"
+
+#: src/man.c:352
+msgid "BROWSER"
+msgstr "PERAMBAN"
+
+#: src/man.c:354
+#, c-format
+msgid "use %s or BROWSER to display HTML output"
+msgstr "gunakan %s atau PERAMBAN untuk menampilkan keluaran HTML"
+
+#: src/man.c:355
+msgid "RESOLUTION"
+msgstr "RESOLUSI"
+
+#: src/man.c:357
+msgid ""
+"use groff and display through gxditview (X11):\n"
+"-X = -TX75, -X100 = -TX100, -X100-12 = -TX100-12"
+msgstr ""
+"gunakan groff dan tampilkan melalui gxditview (X11):\n"
+"-X = -TX75, -X100 = -TX100, -X100-12 = -TX100-12"
+
+#: src/man.c:360
+msgid "use groff and force it to produce ditroff"
+msgstr "gunakan groff dan paksa itu untuk menghasilkan ditroff"
+
+#: src/man.c:631 src/man.c:772
+#, c-format
+msgid "No manual entry for %s\n"
+msgstr "Tidak ada entri buku panduan untuk %s\n"
+
+#: src/man.c:634
+#, c-format
+msgid "(Alternatively, what manual page do you want from section %s?)\n"
+msgstr ""
+"(Secara alternatif, halaman buku panduan mana yang Anda inginkan dari bagian "
+"%s?)\n"
+
+#: src/man.c:638
+msgid "What manual page do you want?\n"
+msgstr "Halaman buku panduan mana yang Anda inginkan?\n"
+
+#: src/man.c:639
+msgid "For example, try 'man man'.\n"
+msgstr "Misalnya, coba 'man man'.\n"
+
+#: src/man.c:769
+#, c-format
+msgid "No manual entry for %s in section %s\n"
+msgstr "Tidak ada entri buku panduan untuk %s dalam bagian %s\n"
+
+#: src/man.c:778
+#, c-format
+msgid "See '%s' for help when manual pages are not available.\n"
+msgstr "Lihat '%s' untuk bantuan ketika halaman manual tidak tersedia.\n"
+
+#: src/man.c:1397
+#, c-format
+msgid "ignoring unknown preprocessor `%c'"
+msgstr "mengabaikan preprosesor tidak dikenal '%c'"
+
+#: src/man.c:1787 src/man-recode.c:246 src/mandb.c:223
+#, c-format
+msgid "can't rename %s to %s"
+msgstr "tak bisa mengubah nama %s menjadi %s"
+
+#: src/man.c:1804
+#, c-format
+msgid "can't set times on %s"
+msgstr "tak bisa menata waktu pada %s"
+
+#: src/man.c:1813 src/man.c:1850
+#, c-format
+msgid "can't unlink %s"
+msgstr "tak bisa unlink %s"
+
+#: src/man.c:1879
+#, c-format
+msgid "can't create temporary cat for %s"
+msgstr "tak bisa membuat cat sementara untuk %s"
+
+#: src/man.c:1994
+#, c-format
+msgid "can't create temporary directory"
+msgstr "tak bisa membuat direktori sementara"
+
+#: src/man.c:2005 src/man-recode.c:212
+#, c-format
+msgid "can't open temporary file %s"
+msgstr "tak bisa membuka berkas sementara %s"
+
+#: src/man.c:2035 src/man.c:2066
+#, c-format
+msgid "can't remove directory %s"
+msgstr "tak bisa menghapus direktori %s"
+
+#: src/man.c:2196
+#, c-format
+msgid "--Man-- next: %s [ view (return) | skip (Ctrl-D) | quit (Ctrl-C) ]\n"
+msgstr ""
+"--Man-- selanjutnya: %s [ lihat (return) | lewat (Ctrl-D) | keluar (Ctrl-"
+"C) ]\n"
+
+#: src/man.c:2488
+#, c-format
+msgid ""
+"\n"
+"cannot write to %s in catman mode"
+msgstr ""
+"\n"
+"tidak dapat menulis ke %s dalam mode catman"
+
+#: src/man.c:2567
+#, c-format
+msgid "Can't convert %s to cat name"
+msgstr "Tak bisa mengonversi %s ke nama cat"
+
+#: src/man.c:3338
+#, c-format
+msgid "%s: relying on whatis refs is deprecated\n"
+msgstr "%s: mengandalkan ke referensi whatis sudah usang\n"
+
+#: src/man.c:3481 src/man.c:4341
+#, c-format
+msgid "mandb command failed with exit status %d"
+msgstr "perintah mandb gagal dengan status keluar %d"
+
+#: src/man.c:3680
+#, c-format
+msgid "internal error: candidate type %d out of range"
+msgstr "galat internal: tipe kandidat %d di luar dari jangkauan"
+
+#: src/man.c:4284
+msgid " Manual page "
+msgstr " Halaman buku panduan "
+
+#: src/man-recode.c:108
+msgid "-t CODE {--suffix SUFFIX | --in-place} FILENAME..."
+msgstr "-t KODE {--suffix AKHIRAN | --in-place} NAMABERKAS..."
+
+#: src/man-recode.c:111 src/manconv_main.c:99
+msgid "CODE"
+msgstr "KODE"
+
+#: src/man-recode.c:111 src/manconv_main.c:99
+msgid "encoding for output"
+msgstr "pengkodean untuk keluaran"
+
+#: src/man-recode.c:112
+msgid "SUFFIX"
+msgstr "AKHIRAN"
+
+#: src/man-recode.c:113
+msgid "suffix to append to output file name"
+msgstr "akhiran untuk ditambahkan ke nama berkas keluaran"
+
+#: src/man-recode.c:115
+msgid "overwrite input files in place"
+msgstr "menimpa berkas masukan di tempat"
+
+#: src/man-recode.c:117 src/manconv_main.c:101 src/manpath.c:67
+msgid "produce fewer warnings"
+msgstr "menghasilkan peringatan lebih sedikit"
+
+#: src/man-recode.c:151 src/manconv_main.c:134
+#, c-format
+msgid "must specify an output encoding"
+msgstr "harus menspesifikasikan sebuah pengkodean keluaran"
+
+#: src/man-recode.c:155
+#, c-format
+msgid "must use either --suffix or --in-place"
+msgstr "harus menggunakan --suffix atau --in-place"
+
+#: src/man-recode.c:159
+#, c-format
+msgid "--suffix and --in-place are mutually exclusive"
+msgstr "--suffix dan --in-place saling eksklusif"
+
+#: src/man-recode.c:252 src/mandb.c:216
+#, c-format
+msgid "can't remove %s"
+msgstr "tak bisa menghapus %s"
+
+#: src/manconv.c:239
+#, c-format
+msgid "can't write to standard output"
+msgstr "tak bisa menulis ke keluaran standar"
+
+#: src/manconv.c:467
+msgid "iconv: incomplete character at end of buffer"
+msgstr "iconv: karakter tidak lengkap di akhir dari penyangga"
+
+#: src/manconv_main.c:94
+msgid "[-f CODE[:...]] -t CODE [FILENAME]"
+msgstr "-f KODE[:...] -t KODE [NAMABERKAS]"
+
+#: src/manconv_main.c:97
+msgid "CODE[:...]"
+msgstr "KODE[:...]"
+
+#: src/manconv_main.c:98
+msgid "possible encodings of original text"
+msgstr "pengkodean yang memungkinkan dari teks asli"
+
+#: src/mandb.c:109
+msgid "[MANPATH]"
+msgstr "[PATH_MAN]"
+
+#: src/mandb.c:113
+msgid "work quietly, except for 'bogus' warning"
+msgstr "bekerja secara senyap, kecuali untuk peringatan 'palsu'"
+
+#: src/mandb.c:115
+msgid "don't look for or add stray cats to the dbs"
+msgstr "jangan mencari atau menambahkan cat tercecer ke basis data"
+
+#: src/mandb.c:117
+msgid "don't purge obsolete entries from the dbs"
+msgstr "jangan menghapus entri usang dari basis data"
+
+#: src/mandb.c:118
+msgid "produce user databases only"
+msgstr "hanya menghasilkan basis data pengguna"
+
+#: src/mandb.c:120
+msgid "create dbs from scratch, rather than updating"
+msgstr "membuat basis data dari awal, daripada memperbaruinya"
+
+#: src/mandb.c:121
+msgid "check manual pages for correctness"
+msgstr "memeriksa halaman buku panduan untuk kebenarannya"
+
+#: src/mandb.c:122
+msgid "FILENAME"
+msgstr "NAMA_BERKAS"
+
+#: src/mandb.c:123
+msgid "update just the entry for this filename"
+msgstr "perbarui hanya entri untuk nama berkas ini"
+
+#: src/mandb.c:280
+#, c-format
+msgid "can't write to %s"
+msgstr "tak bisa menulis ke %s"
+
+#: src/mandb.c:285
+#, c-format
+msgid "can't read from %s"
+msgstr "tak bisa membaca dari %s"
+
+#: src/mandb.c:614
+#, c-format
+msgid "Processing manual pages under %s...\n"
+msgstr "Memroses halaman buku panduan di bawah %s...\n"
+
+#: src/mandb.c:733 src/mandb.c:761
+#, c-format
+msgid "Removing obsolete cat directory %s...\n"
+msgstr "Menghapus direktori cat usang %s...\n"
+
+#: src/mandb.c:896
+#, c-format
+msgid ""
+"Only the '%s' user can create or update system-wide databases; acting as if "
+"the --user-db option was used.\n"
+msgstr ""
+"Hanya pengguna '%s' dapat membuat atau memperbarui basis data seluruh "
+"sistem; beraksi seolah opsi --user-db dipakai.\n"
+
+#: src/mandb.c:919
+#, c-format
+msgid "warning: no MANDB_MAP directives in %s, using your manpath"
+msgstr ""
+"peringatan: tidak ada direktif MANDB_MAP dalam %s, menggunakan manpath Anda"
+
+#: src/mandb.c:988
+#, c-format
+msgid "%d man subdirectory contained newer manual pages.\n"
+msgid_plural "%d man subdirectories contained newer manual pages.\n"
+msgstr[0] "%d sub direktori man berisi halaman buku panduan yang lebih baru.\n"
+
+#: src/mandb.c:994
+#, c-format
+msgid "%d manual page was added.\n"
+msgid_plural "%d manual pages were added.\n"
+msgstr[0] "%d halaman buku panduan ditambahkan.\n"
+
+#: src/mandb.c:998
+#, c-format
+msgid "%d stray cat was added.\n"
+msgid_plural "%d stray cats were added.\n"
+msgstr[0] "%d cat tercecer telah ditambahkan.\n"
+
+#: src/mandb.c:1003
+#, c-format
+msgid "%d old database entry was purged.\n"
+msgid_plural "%d old database entries were purged.\n"
+msgstr[0] "%d entri basis data lama telah dihapus.\n"
+
+#: src/mandb.c:1022
+#, c-format
+msgid "No databases created."
+msgstr "Tidak ada basis data yang dibuat."
+
+#: src/manp.c:325
+#, c-format
+msgid "can't make sense of the manpath configuration file %s"
+msgstr "tak bisa memahami berkas konfigurasi manpath %s"
+
+#: src/manp.c:331
+#, c-format
+msgid "warning: %s"
+msgstr "peringatan: %s"
+
+#: src/manp.c:337
+#, c-format
+msgid "warning: %s isn't a directory"
+msgstr "peringatan: %s bukan sebuah direktori"
+
+#: src/manp.c:666
+#, c-format
+msgid "warning: $PATH not set"
+msgstr "peringatan: $PATH tidak ditata"
+
+#: src/manp.c:673
+#, c-format
+msgid "warning: empty $PATH"
+msgstr "peringatan: $PATH kosong"
+
+#: src/manp.c:701
+#, c-format
+msgid "warning: $MANPATH set, prepending %s"
+msgstr "peringatan: $MANPATH ditata, menambah awalan %s"
+
+#: src/manp.c:712
+#, c-format
+msgid "warning: $MANPATH set, appending %s"
+msgstr "peringatan: $MANPATH ditata, mengimbuhi %s"
+
+#: src/manp.c:724
+#, c-format
+msgid "warning: $MANPATH set, inserting %s"
+msgstr "peringatan: $MANPATH ditata, menyisipkan %s"
+
+#: src/manp.c:738
+#, c-format
+msgid "warning: $MANPATH set, ignoring %s"
+msgstr "peringatan: $MANPATH ditata, mengabaikan %s"
+
+#: src/manp.c:801
+#, c-format
+msgid "can't parse directory list `%s'"
+msgstr "tak bisa mengurai daftar direktori '%s'"
+
+#: src/manp.c:857
+#, c-format
+msgid "can't open the manpath configuration file %s"
+msgstr "tak bisa membuka berkas konfigurasi manpath %s"
+
+#: src/manp.c:893
+#, c-format
+msgid "warning: mandatory directory %s doesn't exist"
+msgstr "peringatan: direktori wajib %s tidak ada"
+
+#: src/manp.c:1351
+#, c-format
+msgid "warning: %s does not begin with %s"
+msgstr "peringatan: %s tidak dimulai dengan %s"
+
+#: src/manpath.c:64
+msgid "show relative catpaths"
+msgstr "tampilkan catpath relatif"
+
+#: src/manpath.c:65
+msgid "show the entire global manpath"
+msgstr "tampilkan seluruh manpath global"
+
+#: src/manpath.c:128
+#, c-format
+msgid "warning: no global manpaths set in config file %s"
+msgstr ""
+"peringatan: tidak ada manpath global yang ditata dalam berkas konfigurasi %s"
+
+#: src/straycats.c:301
+#, c-format
+msgid "Checking for stray cats under %s...\n"
+msgstr "Memeriksa cat tercecer di bawah %s...\n"
+
+#: src/ult_src.c:74
+#, c-format
+msgid "warning: %s is a dangling symlink"
+msgstr "peringatan: %s adalah sebuah symlink yang menggantung"
+
+#: src/ult_src.c:77 src/ult_src.c:272 src/ult_src.c:372
+#, c-format
+msgid "can't resolve %s"
+msgstr "tak bisa mengurai %s"
+
+#: src/ult_src.c:430
+#, c-format
+msgid "%s is self referencing"
+msgstr "%s mengacu ke dirinya sendiri"
+
+#: src/whatis.c:122
+msgid "KEYWORD..."
+msgstr "KATA_KUNCI..."
+
+#: src/whatis.c:124
+msgid "The --regex option is enabled by default."
+msgstr "Opsi --regex difungsikan secara baku."
+
+#: src/whatis.c:128
+msgid "print verbose warning messages"
+msgstr "cetak pesan peringatan rinci"
+
+#: src/whatis.c:129
+msgid "interpret each keyword as a regex"
+msgstr "intepretasikan setiap kata kunci sebagai sebuah regex"
+
+#: src/whatis.c:131
+msgid "search each keyword for exact match"
+msgstr "cari setiap kata kunci untuk pencocokan eksak"
+
+#: src/whatis.c:132
+msgid "the keyword(s) contain wildcards"
+msgstr "kata kunci berisi wildcard"
+
+#: src/whatis.c:134
+msgid "require all keywords to match"
+msgstr "membutuhkan semua kata kunci agar cocok"
+
+#: src/whatis.c:135
+msgid "do not trim output to terminal width"
+msgstr "jangan pangkas keluaran ke lebar terminal"
+
+#: src/whatis.c:137
+msgid "search only these sections (colon-separated)"
+msgstr "hanya cari di bagian ini (dipisah titik dua)"
+
+#: src/whatis.c:144
+msgid "define the locale for this search"
+msgstr "definisikan lokal untuk pencarian ini"
+
+#: src/whatis.c:241
+#, c-format
+msgid "%s what?\n"
+msgstr "%s apa?\n"
+
+#: src/whatis.c:386 src/whatis.c:404
+#, c-format
+msgid "warning: %s contains a pointer loop"
+msgstr "peringatan: %s berisi sebuah pengulangan penunjuk"
+
+#: src/whatis.c:398 src/whatis.c:405
+msgid "(unknown subject)"
+msgstr "(subjek tidak diketahui)"
+
+#: src/whatis.c:834
+#, c-format
+msgid "%s: nothing appropriate.\n"
+msgstr "%s: tidak ada yang sesuai.\n"
+
+#: src/zsoelim.l:186
+#, c-format
+msgid "%s:%d: .so requests nested too deeply or are recursive"
+msgstr "%s:%d: permintaan .so berlapis terlalu dalam atau rekursif"
+
+#: src/zsoelim.l:201
+#, c-format
+msgid "%s:%d: warning: failed .so request"
+msgstr "%s:%d: peringatan: permintaan .so gagal"
+
+#: src/zsoelim.l:223
+#, c-format
+msgid "%s:%d: warning: newline in .so request, ignoring"
+msgstr "%s:%d: peringatan: baris baru dalam permintaan .so, diabaikan"
+
+#: src/zsoelim.l:293
+#, c-format
+msgid "%s:%d: warning: newline in .lf request, ignoring"
+msgstr "%s:%d: peringatan: baris baru dalam permintaan .lf, diabaikan"
+
+#: src/zsoelim.l:333
+#, c-format
+msgid "%s:%d: unterminated quote in roff request"
+msgstr "%s:%d: kutip tak diakhiri dalam permintaan roff"
+
+#: src/zsoelim_main.c:73
+msgid "compatibility switch (ignored)"
+msgstr "pengalih kompabilitas (diabaikan)"

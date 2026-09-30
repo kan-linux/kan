@@ -1,0 +1,34 @@
+use strict;
+
+sub convert_comment_command($$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+
+  if (defined($command->{'contents'})
+      and defined($command->{'contents'}->[0]->{'contents'})) {
+    return $self->xml_comment(' '.
+             $command->{'contents'}->[0]->{'contents'}->[0]->{'text'});
+  } else {
+    return '';
+  }
+}
+
+texinfo_register_command_formatting('c', \&convert_comment_command);
+texinfo_register_command_formatting('comment', \&convert_comment_command);
+
+sub convert_ignore_command($$$$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+  my $args = shift;
+  my $content = shift;
+
+  $content = '' if (!defined($content));
+
+  return $self->xml_comment(" $content\n");
+}
+
+texinfo_register_command_formatting('ignore', \&convert_ignore_command);

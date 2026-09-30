@@ -1,0 +1,450 @@
+@node Texinfo@asis{::}Common
+@chapter Texinfo::Common
+
+@node Texinfo@asis{::}Common NAME
+@section Texinfo::Common NAME
+
+Texinfo::Common - Texinfo modules common data and miscellaneous methods
+
+@node Texinfo@asis{::}Common SYNOPSIS
+@section Texinfo::Common SYNOPSIS
+
+@verbatim
+  use Texinfo::Common;
+
+
+  my @commands_to_collect = ('math');
+  my $collected_commands
+    = Texinfo::Common::collect_commands_in_tree($document_root,
+                                             \@commands_to_collect);
+
+  my $package_version
+    = Texinfo::Common::get_build_constant('PACKAGE_AND_VERSION');
+@end verbatim
+
+@node Texinfo@asis{::}Common NOTES
+@section Texinfo::Common NOTES
+
+The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
+Texinfo to other formats.  There is no promise of API stability.
+
+@node Texinfo@asis{::}Common DESCRIPTION
+@section Texinfo::Common DESCRIPTION
+
+Texinfo::Common holds hashes with miscellaneous information and some
+hashes with information on Texinfo @@-commands, as well as miscellaneous
+methods.
+
+@node Texinfo@asis{::}Common MISC INFORMATION
+@section MISC INFORMATION
+
+Values defined for a Texinfo build independently of any document or
+output format are available by calling @code{get_build_constant}:
+
+@table @asis
+@item $value = get_build_constant($name)
+@anchor{Texinfo@asis{::}Common $value = get_build_constant($name)}
+
+The following build constants are available:
+
+@table @asis
+@item PACKAGE
+@anchor{Texinfo@asis{::}Common PACKAGE}
+
+@item PACKAGE_CONFIG
+@anchor{Texinfo@asis{::}Common PACKAGE_CONFIG}
+
+@item PACKAGE_AND_VERSION
+@anchor{Texinfo@asis{::}Common PACKAGE_AND_VERSION}
+
+@item PACKAGE_AND_VERSION_CONFIG
+@anchor{Texinfo@asis{::}Common PACKAGE_AND_VERSION_CONFIG}
+
+@item PACKAGE_NAME
+@anchor{Texinfo@asis{::}Common PACKAGE_NAME}
+
+@item PACKAGE_NAME_CONFIG
+@anchor{Texinfo@asis{::}Common PACKAGE_NAME_CONFIG}
+
+@item PACKAGE_VERSION
+@anchor{Texinfo@asis{::}Common PACKAGE_VERSION}
+
+@item PACKAGE_VERSION_CONFIG
+@anchor{Texinfo@asis{::}Common PACKAGE_VERSION_CONFIG}
+
+@item PACKAGE_URL
+@anchor{Texinfo@asis{::}Common PACKAGE_URL}
+
+@item PACKAGE_URL_CONFIG
+@anchor{Texinfo@asis{::}Common PACKAGE_URL_CONFIG}
+
+Texinfo package name and versions.  Values of build constants without
+@code{_CONFIG} appended are set by configure.  For each variable set by
+configure there is another one with @code{_CONFIG} appended
+to the name set to the same value, to match the name of the macros set in
+C.  So, for example @code{PACKAGE_VERSION_CONFIG} value is the same as
+@code{PACKAGE_VERSION}, set to the @code{PACKAGE_VERSION} value set by configure.
+
+@end table
+
+@end table
+
+Hashes are defined as @code{our} variables, and are therefore available
+outside of the module.
+
+@table @asis
+@item %document_settable_at_commands
+@anchor{Texinfo@asis{::}Common %document_settable_at_commands}
+
+Keys are customization options corresponding to @@-commands.  For example
+@code{frenchspacing} or @code{footnotestyle}.
+
+@item %null_device_file
+@anchor{Texinfo@asis{::}Common %null_device_file}
+
+Keys are null devices names, such as @code{/dev/null} or @code{NUL}.
+
+@item %texinfo_output_formats
+@anchor{Texinfo@asis{::}Common %texinfo_output_formats}
+@cindex @code{%texinfo_output_formats}
+
+Cannonical output formats that have associated conditionals.  In
+practice corresponds to @code{format_raw} @code{%block_commands} plus @code{info}
+and @code{plaintext}.
+
+@end table
+
+@node Texinfo@asis{::}Common @@-COMMAND INFORMATION
+@section @@-COMMAND INFORMATION
+
+Hashes are defined as @code{our} variables, and are therefore available
+outside of the module.
+
+The key of the hashes are @@-command names without the @@.  The
+following hashes are available:
+
+@table @asis
+@item %all_commands
+@anchor{Texinfo@asis{::}Common %all_commands}
+@cindex @code{%all_commands}
+
+All the @@-commands.
+
+@item %def_aliases
+@anchor{Texinfo@asis{::}Common %def_aliases}
+
+@item %def_no_var_arg_commands
+@anchor{Texinfo@asis{::}Common %def_no_var_arg_commands}
+@cindex @code{%def_aliases}
+@cindex @code{%def_no_var_arg_commands}
+
+@code{%def_aliases} associates an aliased command to the original command, for
+example @code{defun} is associated to @code{deffn}.
+
+@code{%def_no_var_arg_commands} associates a definition command name with
+a true value if the @emph{argument} on the definition command line can contain
+non-metasyntactic variables.  For instance, it is true for @code{deftypevr}
+but false for @code{defun}, since @code{@@defun} @emph{argument} is supposed to contain
+metasyntactic variables only.
+
+@item %small_block_associated_command
+@anchor{Texinfo@asis{::}Common %small_block_associated_command}
+@cindex @code{%small_block_associated_command}
+
+Associate small command like @code{smallexample} to the regular command
+@code{example}.
+
+@end table
+
+@node Texinfo@asis{::}Common METHODS
+@section Texinfo::Common METHODS
+
+Two methods are exported in the default case for Texinfo modules messages
+translation in the Uniforum gettext framework, @code{__} and @code{__p}.
+
+The Texinfo tree and Texinfo tree elements used in argument of some functions
+are documented in @ref{Texinfo@asis{::}Parser TEXINFO TREE}.  When customization
+information is needed, an object that defines @code{set_conf} and/or @code{get_conf} is
+expected, for example a converter inheriting from
+@code{Texinfo::Convert::Converter}, see @ref{Texinfo@asis{::}Convert@asis{::}Converter Getting and
+setting customization variables}.
+
+@table @asis
+@item $translated_string = __($msgid)
+@anchor{Texinfo@asis{::}Common $translated_string = __($msgid)}
+
+@item $translated_string = __p($msgctxt, $msgid)
+@anchor{Texinfo@asis{::}Common $translated_string = __p($msgctxt@comma{} $msgid)}
+
+Returns the @emph{$msgid} string translated in the Texinfo messages text domain.
+@code{__p} can be used instead of @code{__} to pass a @emph{$msgctxt} context string to
+provide translators with information on the string context when the string is
+short or if the translation could depend on the context. @code{__} corresponds to
+the @code{gettext} function and @code{__p} to the @code{pgettext} function.
+
+It is not advised to use those functions in user-defined code.  It is not
+practical either, as the translatable strings marked by @code{__} or @code{__p} need to
+be collected and added to the Texinfo messages domain.  This facility could
+only be used in user-defined code with translatable strings already present in
+the domain anyway.  In fact, these functions are documented mainly because they
+are automatically exported.
+
+See @url{https://metacpan.org/pod/Locale::Messages, Locale::Messages},
+@url{https://www.gnu.org/software/gettext/manual/html_node/gettext.html, @code{gettext} C interface},
+@url{https://www.gnu.org/software/gettext/manual/html_node/Perl.html, Perl in GNU Gettext}.
+For translation of strings in output, see @ref{Texinfo@asis{::}Translations NAME,, Texinfo::Translations}.
+
+@item collect_commands_in_tree($tree, $commands_list)
+@anchor{Texinfo@asis{::}Common collect_commands_in_tree($tree@comma{} $commands_list)}
+@cindex @code{collect_commands_in_tree}
+
+Returns a hash reference with keys @@-commands names specified
+in the @emph{$commands_list} array reference and values arrays of
+tree elements corresponding to those @@-command found in @emph{$tree}
+by traversing the tree.
+
+@item collect_commands_list_in_tree($tree, $commands_list)
+@anchor{Texinfo@asis{::}Common collect_commands_list_in_tree($tree@comma{} $commands_list)}
+@cindex @code{collect_commands_list_in_tree}
+
+Return a list reference containing the tree elements corresponding
+to the @@-commands names specified in the @emph{$commands_list} found
+in @emph{$tree} by traversing the tree.  The order of the @@-commands
+should be kept.
+
+@item $encoding_name = associated_processing_encoding($element)
+@anchor{Texinfo@asis{::}Common $encoding_name = associated_processing_encoding($element)}
+@cindex @code{associated_processing_encoding}
+
+Returns the encoding name that can be used for decoding derived
+from the encoding that was set where @emph{$element} appeared.
+
+@item $result = element_is_inline($element, $check_current)
+@anchor{Texinfo@asis{::}Common $result = element_is_inline($element@comma{} $check_current)}
+@cindex @code{element_is_inline}
+
+Return true if the element passed in argument is in running text
+context.  If the optional @emph{$check_current} argument is set,
+check the element itself, in addition to the parent context.
+
+@item ($encoded_file_name, $encoding) = encode_file_name($file_name, $input_encoding)
+@anchor{Texinfo@asis{::}Common ($encoded_file_name@comma{} $encoding) = encode_file_name($file_name@comma{} $input_encoding)}
+
+Encode the @emph{$file_name} text string to a binary string @emph{$encoded_file_name}
+based on @emph{$input_encoding}.  Also returns the @emph{$encoding} name actually
+used which may have undergone some normalization.  This function is mostly
+a wrapper around @url{https://metacpan.org/pod/Encode#encode, Encode Encode::encode} which avoids calling the module if not
+needed.  Do nothing if @emph{$input_encoding} is @code{undef}.
+
+@item $text = enumerate_item_representation($specification, $number)
+@anchor{Texinfo@asis{::}Common $text = enumerate_item_representation($specification@comma{} $number)}
+@cindex @code{enumerate_item_representation}
+
+This function returns the number or letter correponding to item
+number @emph{$number} for an @code{@@enumerate} specification @emph{$specification},
+appearing on an @code{@@enumerate} line.  For example
+
+@verbatim
+  enumerate_item_representation('c', 3)
+@end verbatim
+
+is @code{e}.
+
+@item ($contents_element, \@@accent_commands) = find_innermost_accent_contents($element)
+@anchor{Texinfo@asis{::}Common ($contents_element@comma{} \@@accent_commands) = find_innermost_accent_contents($element)}
+@cindex @code{find_innermost_accent_contents}
+
+@emph{$element} should be an accent command Texinfo tree element.  Returns
+an element containing the innermost accent @@-command contents,
+normally a text element with one or two letter, and an array reference
+containing the accent commands nested in @emph{$element} (including
+@emph{$element}).  If there is no argument at all for the accent command,
+@emph{$contents_element} is @code{undef}.
+
+@item $command = find_parent_root_command($object, $tree_element)
+@anchor{Texinfo@asis{::}Common $command = find_parent_root_command($object@comma{} $tree_element)}
+@cindex @code{find_parent_root_command}
+
+Find the parent root command (sectioning command or node) of a tree element.
+The @emph{$object} argument is optional, its @code{global_commands} field is used
+to continue through @code{@@insertcopying} if in a @code{@@copying}.
+
+@item $entry_content_element = index_content_element($element, $prefer_reference_element)
+@anchor{Texinfo@asis{::}Common $entry_content_element = index_content_element($element@comma{} $prefer_reference_element)}
+
+Return a Texinfo tree element corresponding to the content of the index
+entry associated to @emph{$element}.  If @emph{$prefer_reference_element} is set,
+prefer an untranslated element.  If the element is an index command like
+@code{@@cindex} or an @code{@@ftable} @code{@@item}, the content element is the argument
+of the command.  If the element is a definition line, the index entry
+element is based on the name and class.
+
+@item $encoding = input_file_name_encoding($name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
+@anchor{Texinfo@asis{::}Common $encoding = input_file_name_encoding($name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{} $document@comma{} $input_file_encoding)}
+@cindex @code{input_file_encoding}
+
+Returns the encoding assumed for input file names.
+@emph{$name_encoding} is used as encoding name if defined. If
+@emph{$doc_encoding_for_input_file_name} is set, the encoding is based on the input
+file content encoding, otherwise @emph{$locale_encoding} is used.  The @emph{$document}
+argument is an optional Texinfo parsed document used to get the input document
+content encoding.  The @emph{$input_file_encoding} argument is optional, it will be
+used in priority if the the encoding is based on the input file encoding.  If
+@emph{$input_file_encoding} is not given, it is recommended to pass @emph{$document},
+otherwise there is no way to determine the input document content encoding.
+
+@item $result = is_content_empty($tree, $do_not_ignore_index_entries)
+@anchor{Texinfo@asis{::}Common $result = is_content_empty($tree@comma{} $do_not_ignore_index_entries)}
+@cindex @code{is_content_empty}
+
+Return true if the @emph{$tree} has content that could be formatted.
+@emph{$do_not_ignore_index_entries} is optional.  If set, index entries
+are considered to be formatted.
+
+@item $file = locate_include_file($customization_information, $file_path)
+@anchor{Texinfo@asis{::}Common $file = locate_include_file($customization_information@comma{} $file_path)}
+@cindex @code{locate_include_file}
+
+Locate @emph{$file_path}.  If @emph{$file_path} is an absolute path or has @code{.}
+or @code{..} in the path directories it is checked that the path exists and is a
+file.  Otherwise, the file name in @emph{$file_path} is located in include
+directories also used to find texinfo files included in Texinfo documents.
+@emph{$file_path} should be a binary string.  @code{undef} is returned if the file was
+not found, otherwise the file found is returned as a binary string.
+
+@item ($index_entry, $index_info) = lookup_index_entry($index_entry_info, $indices_information)
+@anchor{Texinfo@asis{::}Common ($index_entry@comma{} $index_info) = lookup_index_entry($index_entry_info@comma{} $indices_information)}
+
+Returns an @emph{$index_entry} hash based on the @emph{$index_entry_info} and
+@emph{$indices_information}.  Also returns the @emph{$index_info} hash with information on
+the index associated to the index entry.  @emph{$index_entry_info} should be
+an array reference with an index name as first element and the index entry number
+in that index (1-based) as second element.  In general, the @emph{$index_entry_info}
+is an @ref{Texinfo@asis{::}Parser index_entry,, @code{extra} @emph{index_entry}} associated to an element.
+
+The @emph{$index_entry} hash is described in @ref{Texinfo@asis{::}Document index_entries}.  The
+@emph{$index_info} hash is described in @ref{Texinfo@asis{::}Document $indices_information = $document->indices_information(),, @code{Texinfo::Document::indices_information}}.
+
+@item $normalized_name = normalize_top_node_name($node_string)
+@anchor{Texinfo@asis{::}Common $normalized_name = normalize_top_node_name($node_string)}
+@cindex @code{normalize_top_node_name}
+
+Normalize the node name string given in argument, by normalizing
+Top node case.
+
+@item $result = replace_remove_list_element($array, $element, $replacement)
+@anchor{Texinfo@asis{::}Common $result = replace_remove_list_element($array@comma{} $element@comma{} $replacement)}
+
+Remove first occurence of @emph{$element} in the array reference @emph{$array}.
+If the optional @emph{$replacement} argument is given, replace the @emph{$element}
+by @emph{$replacement}.  Return the removed element, or @code{undef} if not found.
+
+@item $level = section_level($section)
+@anchor{Texinfo@asis{::}Common $level = section_level($section)}
+@cindex @code{section_level}
+
+Return numbered level of the tree sectioning element @emph{$section}, as modified by
+raise/lowersections.
+
+@item $element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)
+@anchor{Texinfo@asis{::}Common $element = set_global_document_command($customization_information@comma{} $global_commands_information@comma{} $cmdname@comma{} $command_location)}
+@cindex @code{set_global_document_command}
+
+Set the Texinfo customization variable corresponding to @emph{$cmdname} in
+@emph{$customization_information}.  The @emph{$global_commands_information} should
+contain information about global commands in a Texinfo document, typically obtained
+from a parsed document @ref{Texinfo@asis{::}Document $commands = global_commands_information($document),, $document->global_commands_information()}.
+@emph{$command_location} specifies where in the document the value should be taken from,
+for commands that may appear more than once. The possibilities are:
+
+@table @asis
+@item last
+@anchor{Texinfo@asis{::}Common last}
+
+Set to the last value for the command.
+
+@item preamble
+@anchor{Texinfo@asis{::}Common preamble}
+
+Set sequentially to the values in the Texinfo preamble.
+
+@item preamble_or_first
+@anchor{Texinfo@asis{::}Common preamble_or_first}
+
+Set to the first value of the command if the first command is not
+in the Texinfo preamble, else set as with @emph{preamble},
+sequentially to the values in the Texinfo preamble.
+
+@end table
+
+The @emph{$element} returned is the last element that was used to set the
+customization value, or @code{undef} if no customization value was found.
+
+Notice that the only effect of this function is to set a customization
+variable value, no @@-command side effects are run, no associated customization
+variables are set.
+
+@item $status = set_informative_command_value($customization_information, $element)
+@anchor{Texinfo@asis{::}Common $status = set_informative_command_value($customization_information@comma{} $element)}
+@cindex @code{set_informative_command_value}
+
+Set the Texinfo customization option corresponding to the tree element
+@emph{$element}.  The command associated to the tree element should be
+a command that sets some information, such as @code{@@documentlanguage},
+@code{@@contents} or @code{@@footnotestyle} for example.  Return true if the command
+argument was found and the customization variable was set.
+
+@item set_output_encoding($customization_information, $document)
+@anchor{Texinfo@asis{::}Common set_output_encoding($customization_information@comma{} $document)}
+@cindex @code{set_output_encoding}
+
+If not already set, set @code{OUTPUT_ENCODING_NAME} based on input file
+encoding.
+
+@item $split_contents = split_custom_heading_command_contents($element)
+@anchor{Texinfo@asis{::}Common $split_contents = split_custom_heading_command_contents($element)}
+@cindex @code{split_custom_heading_command_contents}
+
+Split the @emph{$element} contents at @code{@@|} in at max three parts.
+Return an element containing the split parts in contents, or @code{undef} if
+the @emph{$element} has no useful content.  The input @emph{$element}
+is supposed to be the argument line element of
+@code{%Texinfo::Commands::heading_spec_commands} commands such as @code{@@everyheading}.
+
+@item $status = valid_customization_option($name)
+@anchor{Texinfo@asis{::}Common $status = valid_customization_option($name)}
+@cindex @code{valid_option}
+
+Return true if the @emph{$name} is a known customization option.
+
+@item $status = valid_tree_transformation($name)
+@anchor{Texinfo@asis{::}Common $status = valid_tree_transformation($name)}
+@cindex @code{valid_tree_transformation}
+
+Return true if the @emph{$name} is a known tree transformation name
+that may be passed with @code{TREE_TRANSFORMATIONS} to modify a Texinfo
+tree.
+
+@end table
+
+@node Texinfo@asis{::}Common SEE ALSO
+@section Texinfo::Common SEE ALSO
+
+@ref{Texinfo@asis{::}Parser NAME,, Texinfo::Parser}, @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter} and @ref{Texinfo@asis{::}Report NAME,, Texinfo::Report}.
+
+@node Texinfo@asis{::}Common AUTHOR
+@section Texinfo::Common AUTHOR
+
+Patrice Dumas, <bug-texinfo@@gnu.org>
+
+@node Texinfo@asis{::}Common COPYRIGHT AND LICENSE
+@section Texinfo::Common COPYRIGHT AND LICENSE
+
+Copyright 2010- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+

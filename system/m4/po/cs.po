@@ -1,0 +1,1397 @@
+# Czech translation of the GNU m4.
+# Copyright (C) 1998 Free Software Foundation, Inc.
+# This file is distributed under the same license as the m4 package.
+# Jiří Pavlovský <pavlovsk@ff.cuni.cz>, 1998-2001.
+# Petr Písař <petr.pisar@atlas.cz>, 2025.
+#
+# diversion → odložený výstup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: m4 1.4.19.60\n"
+"Report-Msgid-Bugs-To: bug-m4@gnu.org\n"
+"POT-Creation-Date: 2026-02-06 13:55-0600\n"
+"PO-Revision-Date: 2025-05-19 07:36+02:00\n"
+"Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
+"Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+
+#: lib/clean-temp.c:230
+#, c-format
+msgid "cannot find a temporary directory, try setting $TMPDIR"
+msgstr "dočasný adresář nelze vytvořit, zkuste nastavit proměnou TMPDIR"
+
+#: lib/clean-temp.c:245
+#, c-format
+msgid "cannot create a temporary directory using template \"%s\""
+msgstr "dočasný adresář nelze vytvořit za pomocí šablony „%s“"
+
+#: lib/clean-temp.c:364
+#, c-format
+msgid "cannot remove temporary directory %s"
+msgstr "dočasný adresář %s nelze odstranit"
+
+#: lib/closein.c:99
+msgid "error closing file"
+msgstr "chyba během uzavírání souboru"
+
+#: lib/closeout.c:121
+msgid "write error"
+msgstr "chyba při zápisu"
+
+#: lib/c-stack.c:190
+msgid "program error"
+msgstr "chyba programu"
+
+#: lib/c-stack.c:191
+msgid "stack overflow"
+msgstr "přetečení zásobníku"
+
+#: lib/clean-temp-simple.c:266
+#, c-format
+msgid "cannot remove temporary file %s"
+msgstr "dočasný soubor %s nelze odstranit"
+
+#: lib/error.c:208
+msgid "Unknown system error"
+msgstr "Neznámá systémová chyba"
+
+#: lib/execute.c:378 lib/spawn-pipe.c:597 lib/wait-process.c:325
+#: lib/wait-process.c:396
+#, c-format
+msgid "%s subprocess failed"
+msgstr "podproces %s selhal"
+
+#: lib/getopt.c:283
+#, c-format
+msgid "%s: option '%s%s' is ambiguous\n"
+msgstr "%s: přepínač „%s%s“ není jednoznačný\n"
+
+#: lib/getopt.c:289
+#, c-format
+msgid "%s: option '%s%s' is ambiguous; possibilities:"
+msgstr "%s: přepínač „%s%s“ není jednoznačný: možnosti:"
+
+#: lib/getopt.c:323
+#, c-format
+msgid "%s: unrecognized option '%s%s'\n"
+msgstr "%s: nerozpoznaný přepínač „%s%s“\n"
+
+#: lib/getopt.c:349
+#, c-format
+msgid "%s: option '%s%s' doesn't allow an argument\n"
+msgstr "%s: přepínač „%s%s“ musí být zadán bez argumentu\n"
+
+#: lib/getopt.c:364
+#, c-format
+msgid "%s: option '%s%s' requires an argument\n"
+msgstr "%s: přepínač „%s%s“ vyžaduje argument\n"
+
+#: lib/getopt.c:624
+#, c-format
+msgid "%s: invalid option -- '%c'\n"
+msgstr "%s: neznámý přepínač – „%c“\n"
+
+#: lib/getopt.c:639 lib/getopt.c:685
+#, c-format
+msgid "%s: option requires an argument -- '%c'\n"
+msgstr "%s: přepínač vyžaduje argument – „%c“\n"
+
+#: lib/obstack.c:351 lib/obstack.c:353 lib/xalloc-die.c:34
+msgid "memory exhausted"
+msgstr "paměť vyčerpána"
+
+#: lib/openat-die.c:38
+#, c-format
+msgid "unable to record current working directory"
+msgstr "nelze zaznamenat aktuální pracovní adresář"
+
+#: lib/openat-die.c:57
+#, c-format
+msgid "failed to return to initial working directory"
+msgstr "návrat do prvotního pracovního adresáře se nezdařil"
+
+#: lib/os2-spawn.c:51
+#, c-format
+msgid "_open_osfhandle failed"
+msgstr "funkce _open_osfhandle selhala"
+
+#: lib/os2-spawn.c:88
+#, c-format
+msgid "cannot restore fd %d: dup2 failed"
+msgstr "deskriptor souboru %d nelze obnovit: volání dup2 selhalo"
+
+#. TRANSLATORS:
+#. Get translations for open and closing quotation marks.
+#. The message catalog should translate "`" to a left
+#. quotation mark suitable for the locale, and similarly for
+#. "'".  For example, a French Unicode local should translate
+#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), respectively.
+#.
+#. If the catalog has no translation, we will try to
+#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
+#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
+#. current locale is not Unicode, locale_quoting_style
+#. will quote 'like this', and clocale_quoting_style will
+#. quote "like this".  You should always include translations
+#. for "`" and "'" even if U+2018 and U+2019 are appropriate
+#. for your locale.
+#.
+#. If you don't know what to put here, please see
+#. <https://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
+#. and use glyphs suitable for your language.
+#: lib/quotearg.c:357
+msgid "`"
+msgstr "„"
+
+#: lib/quotearg.c:358
+msgid "'"
+msgstr "“"
+
+#: lib/regcomp.c:122
+msgid "Success"
+msgstr "Úspěch"
+
+#: lib/regcomp.c:125
+msgid "No match"
+msgstr "Shoda nenalezena"
+
+# , c-format
+#: lib/regcomp.c:128
+msgid "Invalid regular expression"
+msgstr "Špatný regulární výraz"
+
+#: lib/regcomp.c:131
+msgid "Invalid collation character"
+msgstr "Chybný srovnávací znak"
+
+#: lib/regcomp.c:134
+msgid "Invalid character class name"
+msgstr "Chybná třída znaků"
+
+#: lib/regcomp.c:137
+msgid "Trailing backslash"
+msgstr "Nadbytečné zpětné lomítko"
+
+#: lib/regcomp.c:140
+msgid "Invalid back reference"
+msgstr "Chybný zpětný odkaz"
+
+#: lib/regcomp.c:143
+msgid "Unmatched [, [^, [:, [., or [="
+msgstr "Nepárový [, [^, [:, [. nebo [="
+
+#: lib/regcomp.c:146
+msgid "Unmatched ( or \\("
+msgstr "Chybí uzavírající znak pro ( či \\("
+
+#: lib/regcomp.c:149
+msgid "Unmatched \\{"
+msgstr "Chybí uzavírající znak pro \\{"
+
+#: lib/regcomp.c:152
+msgid "Invalid content of \\{\\}"
+msgstr "Chybný obsah \\{\\} výrazu"
+
+#: lib/regcomp.c:155
+msgid "Invalid range end"
+msgstr "Chybná specifikace intervalu"
+
+#: lib/regcomp.c:158
+msgid "Memory exhausted"
+msgstr "Paměť vyčerpána"
+
+# , c-format
+#: lib/regcomp.c:161
+msgid "Invalid preceding regular expression"
+msgstr "Chybný předchozí regulární výraz"
+
+#: lib/regcomp.c:164
+msgid "Premature end of regular expression"
+msgstr "Předčasný konec regulárního výrazu"
+
+# , c-format
+#: lib/regcomp.c:167
+msgid "Regular expression too big"
+msgstr "Příliš veliký regulární výraz"
+
+#: lib/regcomp.c:170
+msgid "Unmatched ) or \\)"
+msgstr "Chybí otevírající znak pro \\)"
+
+# , c-format
+#: lib/regcomp.c:650
+msgid "No previous regular expression"
+msgstr "Chybí předchozí regulární výraz"
+
+#: lib/siglist.h:31
+msgid "Hangup"
+msgstr "Odpojen terminál (SIGHUP)"
+
+#: lib/siglist.h:34
+msgid "Interrupt"
+msgstr "Přerušení (SIGINT)"
+
+#: lib/siglist.h:37
+msgid "Quit"
+msgstr "Konec (SIGQUIT)"
+
+#: lib/siglist.h:40
+msgid "Illegal instruction"
+msgstr "Nedovolená instrukce (SIGILL)"
+
+#: lib/siglist.h:43
+msgid "Trace/breakpoint trap"
+msgstr "Trasovací/ladící past (SIGTRAP)"
+
+#: lib/siglist.h:46
+msgid "Aborted"
+msgstr "Neúspěšně ukončen (SIGABRT)"
+
+#: lib/siglist.h:49
+msgid "Floating point exception"
+msgstr "Výjimka v pohyblivé řádové čárce (SIGFPE)"
+
+#: lib/siglist.h:52
+msgid "Killed"
+msgstr "Zabit (SIGKILL)"
+
+#: lib/siglist.h:55
+msgid "Bus error"
+msgstr "Chyba na sběrnici (neplatná adresa) (SIGBUS)"
+
+#: lib/siglist.h:58
+msgid "Segmentation fault"
+msgstr "Neoprávněný přístup do paměti (SIGSEGV)"
+
+#: lib/siglist.h:61
+msgid "Broken pipe"
+msgstr "Roura přerušena (SIGPIPE)"
+
+#: lib/siglist.h:64
+msgid "Alarm clock"
+msgstr "Budík (SIGALRM)"
+
+#: lib/siglist.h:67
+msgid "Terminated"
+msgstr "Ukončen (SIGTERM)"
+
+# Urgentní stav V/V?
+#: lib/siglist.h:70
+msgid "Urgent I/O condition"
+msgstr "Naléhavá V/V situace (SIGURG)"
+
+#: lib/siglist.h:73
+msgid "Stopped (signal)"
+msgstr "Pozastaven (SIGSTOP)"
+
+#: lib/siglist.h:76
+msgid "Stopped"
+msgstr "Pozastaven (SIGTSTP)"
+
+#: lib/siglist.h:79
+msgid "Continued"
+msgstr "Je pokračováno (SIGCONT)"
+
+#: lib/siglist.h:82
+msgid "Child exited"
+msgstr "Potomek skončil (SIGCHLD)"
+
+#: lib/siglist.h:85
+msgid "Stopped (tty input)"
+msgstr "Pozastaven (vstup TTY) (SIGTTIN)"
+
+#: lib/siglist.h:88
+msgid "Stopped (tty output)"
+msgstr "Pozastaven (výstup TTY) (SIGTTOU)"
+
+#: lib/siglist.h:91
+msgid "I/O possible"
+msgstr "Vstup/Výstup možný (SIGIO)"
+
+#: lib/siglist.h:94
+msgid "CPU time limit exceeded"
+msgstr "Překročen časový limit pro procesor (SIGXCPU)"
+
+#: lib/siglist.h:97
+msgid "File size limit exceeded"
+msgstr "Překročen limit délky souboru (SIGXFS2)"
+
+#: lib/siglist.h:100
+msgid "Virtual timer expired"
+msgstr "Virtuální časovač vypršel (SIGVTALRM)"
+
+#: lib/siglist.h:103
+msgid "Profiling timer expired"
+msgstr "Profilovací časovač vypršel (SIGPROF)"
+
+#: lib/siglist.h:106
+msgid "Window changed"
+msgstr "Okno se změnilo (SIGWINCH)"
+
+#: lib/siglist.h:109
+msgid "User defined signal 1"
+msgstr "Uživatelem definovaný signál 1 (SIGUSR1)"
+
+#: lib/siglist.h:112
+msgid "User defined signal 2"
+msgstr "Uživatelem definovaný signál 2 (SIGUSR2)"
+
+#: lib/siglist.h:117
+msgid "EMT trap"
+msgstr "EMT past (SIGEMT)"
+
+#: lib/siglist.h:120
+msgid "Bad system call"
+msgstr "Chybné volání systému (SIGSYS)"
+
+#: lib/siglist.h:123
+msgid "Stack fault"
+msgstr "Porušen zásobník (SIGSTKFLT)"
+
+#: lib/siglist.h:126
+msgid "Information request"
+msgstr "Žádost o informaci (SIGINFO)"
+
+#: lib/siglist.h:128
+msgid "Power failure"
+msgstr "Výpadek napájení (SIGPWR)"
+
+#: lib/siglist.h:131
+msgid "Resource lost"
+msgstr "Prostředek byl ztracen (SIGLOST)"
+
+#: lib/spawn-pipe.c:218 lib/spawn-pipe.c:221
+#, c-format
+msgid "cannot create pipe"
+msgstr "rouru nelze vytvořit"
+
+#: lib/strsignal.c:114
+#, c-format
+msgid "Real-time signal %d"
+msgstr "Signál reálného času %d"
+
+#: lib/strsignal.c:118
+#, c-format
+msgid "Unknown signal %d"
+msgstr "Neznámý signál %d"
+
+#: lib/version-etc.c:73
+#, c-format
+msgid "Packaged by %s (%s)\n"
+msgstr "Zabaleno kým: %s (%s)\n"
+
+#: lib/version-etc.c:76
+#, c-format
+msgid "Packaged by %s\n"
+msgstr "Zabaleno kým: %s\n"
+
+#. TRANSLATORS: Translate "(C)" to the copyright symbol
+#. (C-in-a-circle), if this symbol is available in the user's
+#. locale.  Otherwise, do not translate "(C)"; leave it as-is.
+#: lib/version-etc.c:83
+msgid "(C)"
+msgstr "©"
+
+#. TRANSLATORS: The %s placeholder is the web address of the GPL license.
+#: lib/version-etc.c:88
+#, c-format
+msgid ""
+"License GPLv3+: GNU GPL version 3 or later <%s>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Licence GPLv3+: GNU GPL verze 3 nebo novější\n"
+"<%s>.\n"
+"Toto je volné programové vybavení: máte právo jej měnit a dále šířit.\n"
+"Není zde ŽÁDNÁ ZÁRUKA, jak jen zákon dovoluje.\n"
+
+#. TRANSLATORS: %s denotes an author name.
+#: lib/version-etc.c:105
+#, c-format
+msgid "Written by %s.\n"
+msgstr "Napsal(a) %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:109
+#, c-format
+msgid "Written by %s and %s.\n"
+msgstr "Napsali(y) %s a %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:113
+#, c-format
+msgid "Written by %s, %s, and %s.\n"
+msgstr "Napsali(y) %s, %s a %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:120
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"Napsali(y) %s, %s, %s\n"
+"a %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:127
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"Napsali(y) %s, %s, %s,\n"
+"%s a %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:134
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, and %s.\n"
+msgstr ""
+"Napsali(y) %s, %s, %s,\n"
+"%s, %s a %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:142
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, and %s.\n"
+msgstr ""
+"Napsali(y) %s, %s, %s,\n"
+"%s, %s, %s a %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:150
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"Napsali(y) %s, %s, %s,\n"
+"%s, %s, %s, %s\n"
+"a %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:159
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"Napsali(y) %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s a %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:170
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, %s, and others.\n"
+msgstr ""
+"Napsali(y) %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, %s a další.\n"
+
+#. TRANSLATORS: The placeholder indicates the bug-reporting address
+#. for this package.  Please add _another line_ saying
+#. "Report translation bugs to <...>\n" with the address for translation
+#. bugs (typically your translation team's web or email address).
+#: lib/version-etc.c:248
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr ""
+"Chyby v programu oznamujte (anglicky) na adresu: <%s>\n"
+"Připomínky k překladu na adresu: <translation-team-"
+"cs@lists.sourceforge.net>\n"
+
+#: lib/version-etc.c:250
+#, c-format
+msgid "Report %s bugs to: %s\n"
+msgstr "Chyby distributora %s oznamujte (anglicky) na adresu: <%s>\n"
+
+#: lib/version-etc.c:254 lib/version-etc.c:256
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "Domovská stránka programu %s: <%s>\n"
+
+#: lib/version-etc.c:259
+#, c-format
+msgid "General help using GNU software: <%s>\n"
+msgstr "Obecná pomoc s používáním GNU softwaru: <%s>\n"
+
+#: lib/wait-process.c:266 lib/wait-process.c:298 lib/wait-process.c:357
+#, c-format
+msgid "%s subprocess"
+msgstr "podproces %s"
+
+#: lib/wait-process.c:317 lib/wait-process.c:386
+#, c-format
+msgid "%s subprocess got fatal signal %d"
+msgstr "podproces %s byl ukončen signálem %d"
+
+#: lib/xprintf.c:47 lib/xprintf.c:68
+#, c-format
+msgid "cannot perform formatted output"
+msgstr "výstup nelze naformátovat"
+
+#: src/builtin.c:264
+#, c-format
+msgid "--warn-macro-sequence: bad regular expression `%s': %s"
+msgstr "--warn-macro-sequence: špatný regulární výraz „%s“: %s"
+
+#: src/builtin.c:298
+#, c-format
+msgid "truncating macro `%s' definition to INT_MAX bytes"
+msgstr "definice makra „%s“ zkrácena na INT_MAX bajtů"
+
+#: src/builtin.c:333
+#, c-format
+msgid "Warning: definition of `%s' contains sequence `%s'"
+msgstr "Pozor: definice „%s“ obsahuje posloupnost „%s“"
+
+#: src/builtin.c:340
+#, c-format
+msgid "error checking --warn-macro-sequence for macro `%s'"
+msgstr "chyba při kontrole --warn-macro-sequence makra „%s“"
+
+# , c-format
+#: src/builtin.c:401
+#, c-format
+msgid "Warning: too few arguments to builtin `%s'"
+msgstr "Pozor: příliš málo argumentů pro vestavěné makro „%s“"
+
+#: src/builtin.c:407
+#, c-format
+msgid "Warning: excess arguments to builtin `%s' ignored"
+msgstr "Pozor: přebytečné argumenty pro vestavěné makro „%s“ byly ignorovány"
+
+#: src/builtin.c:428 src/builtin.c:1155
+#, c-format
+msgid "empty string treated as 0 in builtin `%s'"
+msgstr "vestavěné makro „%s“ zpracovalo prázdný řetězec jako 0"
+
+#: src/builtin.c:438 src/builtin.c:1285
+#, c-format
+msgid "non-numeric argument to builtin `%s'"
+msgstr "nečíselný argument pro vestavěné makro „%s“"
+
+#: src/builtin.c:444
+#, c-format
+msgid "leading whitespace ignored in builtin `%s'"
+msgstr "vestavěné makro „%s“ ignorovalo úvodní bílé znaky"
+
+#: src/builtin.c:448
+#, c-format
+msgid "numeric overflow detected in builtin `%s'"
+msgstr "zjištěno přetečení čísla ve vestavěném makru „%s“"
+
+#: src/builtin.c:566 src/builtin.c:829 src/builtin.c:870
+#, c-format
+msgid "Warning: %s: invalid macro name ignored"
+msgstr "Pozor: %s: neplatný název makra ignorován"
+
+#: src/builtin.c:765 src/builtin.c:877
+#, c-format
+msgid "undefined macro `%s'"
+msgstr "nedefinované makro „%s“"
+
+#: src/builtin.c:836
+#, c-format
+msgid "undefined builtin `%s'"
+msgstr "nedefinované vestavěné makro „%s“"
+
+#: src/builtin.c:928 src/builtin.c:2260
+#, c-format
+msgid "builtin `%s' requested by frozen file is not supported"
+msgstr "vestavěné makro „%s“ požadované zmrazeným souborem není podporováno"
+
+# , c-format
+#: src/builtin.c:932
+#, c-format
+msgid "Warning: cannot concatenate builtin `%s'"
+msgstr "Pozor: vestavěné makro „%s“ nelze zřetězit"
+
+#: src/builtin.c:1003 src/builtin.c:1053 src/builtin.c:1066 src/builtin.c:1101
+#, c-format
+msgid "cannot run command `%s'"
+msgstr "příkaz „%s“ nelze spustit"
+
+#: src/builtin.c:1089
+msgid "cannot read pipe"
+msgstr "z roury nelze číst"
+
+#: src/builtin.c:1140
+#, c-format
+msgid "radix %d in builtin `%s' out of range"
+msgstr "číselný základ %d ve vestavěném příkazu „%s“ je mimo meze"
+
+#: src/builtin.c:1149
+#, c-format
+msgid "negative width to builtin `%s'"
+msgstr "záporná šířka ve vestavěném makru „%s“"
+
+#: src/builtin.c:1294
+#, c-format
+msgid "error undiverting `%s'"
+msgstr "chyba při návratu odklonění (undivert) „%s“"
+
+#: src/builtin.c:1298
+#, c-format
+msgid "cannot undivert `%s'"
+msgstr "odklonění „%s“ nelze navrátit (undivert)"
+
+#: src/builtin.c:1408 src/freeze.c:115 src/m4.c:382
+#, c-format
+msgid "cannot open `%s'"
+msgstr "„%s“ nelze otevřít"
+
+#: src/builtin.c:1471
+#, c-format
+msgid "%s: cannot create tempfile `%s'"
+msgstr "%s: dočasný soubor „%s“ nelze vytvořit"
+
+#: src/builtin.c:1507
+msgid "recommend using mkstemp instead"
+msgstr "doporučuje se raději použít mkstemp"
+
+#: src/builtin.c:1600
+#, c-format
+msgid "exit status out of range: `%d'"
+msgstr "návratový kód je mimo meze: „%d“"
+
+#: src/builtin.c:1726
+#, c-format
+msgid "Debugmode: bad debug flags: `%s'"
+msgstr "Ladící režim: špatné ladicí volby: „%s“"
+
+#: src/builtin.c:1767 src/m4.c:633 src/m4.c:700
+#, c-format
+msgid "cannot set debug file `%s'"
+msgstr "ladicí soubor „%s“ nelze nastavit"
+
+#: src/builtin.c:2034
+msgid "Warning: \\0 will disappear, use \\& instead in replacements"
+msgstr "Pozor: \\0 zmizí, při nahrazování použijte \\&"
+
+#: src/builtin.c:2057
+#, c-format
+msgid "Warning: sub-expression %d not present"
+msgstr "Pozor: podvýraz %d není přítomen"
+
+#: src/builtin.c:2066
+msgid "Warning: trailing \\ ignored in replacement"
+msgstr "Pozor: závěrečné \\ s v nahrazeních ignoruje"
+
+#: src/builtin.c:2132
+#, c-format
+msgid "bad regular expression: `%s': %s"
+msgstr "špatný regulární výraz: „%s“: %s"
+
+#: src/builtin.c:2144 src/builtin.c:2214
+#, c-format
+msgid "error matching regular expression `%s'"
+msgstr "chyba při porovnávání regulárního výrazu „%s“"
+
+#: src/builtin.c:2192 src/input.c:795
+#, c-format
+msgid "bad regular expression `%s': %s"
+msgstr "špatný regulární výraz „%s“: %s"
+
+#: src/debug.c:136 src/debug.c:157
+msgid "error writing to debug stream"
+msgstr "chyba při psaní na ladicí výstup"
+
+#: src/eval.c:485
+msgid "Warning: recommend ==, not =, for equality operator"
+msgstr "Pozor: pro operátor rovnosti se doporučuje ==, nikoliv ="
+
+#: src/eval.c:569
+#, c-format
+msgid "bad expression in eval (missing right parenthesis): %s"
+msgstr "špatný výraz v makru eval (chybí pravá závorka): %s"
+
+#: src/eval.c:574
+#, c-format
+msgid "bad expression in eval: %s"
+msgstr "Špatný výraz v makru eval: %s"
+
+#: src/eval.c:579
+#, c-format
+msgid "bad expression in eval (bad input): %s"
+msgstr "špatný výraz v makru eval (špatný vstup): %s"
+
+#: src/eval.c:584
+#, c-format
+msgid "bad expression in eval (excess input): %s"
+msgstr "špatný výraz v makru eval (nadbytečný vstup): %s"
+
+#: src/eval.c:588
+#, fuzzy, c-format
+msgid "invalid number in eval: %s"
+msgstr "neplatný operátor v makru eval: %s"
+
+#: src/eval.c:592
+#, c-format
+msgid "invalid operator in eval: %s"
+msgstr "neplatný operátor v makru eval: %s"
+
+#: src/eval.c:597
+#, c-format
+msgid "divide by zero in eval: %s"
+msgstr "dělení nulou v makru eval: %s"
+
+#: src/eval.c:601
+#, c-format
+msgid "modulo by zero in eval: %s"
+msgstr "modulo nulou v makru eval: %s"
+
+#: src/eval.c:605
+#, c-format
+msgid "negative exponent in eval: %s"
+msgstr "záporný mocnitel v makru eval: %s"
+
+#: src/format.c:39 src/format.c:63 src/format.c:87
+msgid "empty string treated as 0"
+msgstr "prázdný řetězec se zpracovává jako 0"
+
+#: src/format.c:45 src/format.c:69 src/format.c:93
+#, c-format
+msgid "non-numeric argument %s"
+msgstr "nečíselný argument %s"
+
+#: src/format.c:47 src/format.c:71 src/format.c:95
+msgid "leading whitespace ignored"
+msgstr "úvodní bílé místo bylo ignorováno"
+
+#: src/format.c:49 src/format.c:73 src/format.c:97
+msgid "numeric overflow detected"
+msgstr "zjištěno přetečení čísla"
+
+#: src/format.c:309
+#, c-format
+msgid "Warning: unrecognized specifier in `%s'"
+msgstr "Pozor: neznámý formátovací znak v „%s“"
+
+#: src/freeze.c:157
+msgid "unable to create frozen state"
+msgstr "zmrazený stav nelze vytvořit"
+
+#: src/freeze.c:168
+msgid "expecting line feed in frozen file"
+msgstr "ve zmrazeném souboru se očekává znak LF (posun řádku)"
+
+#: src/freeze.c:170
+#, c-format
+msgid "expecting character `%c' in frozen file"
+msgstr "ve zmrazeném souboru se očekává znak „%c“"
+
+#: src/freeze.c:216
+msgid "integer overflow in frozen file"
+msgstr "přetečení čísla ve zmrazeném souboru"
+
+#: src/freeze.c:258
+msgid "premature end of frozen file"
+msgstr "předčasný konec zmrazeného souboru"
+
+#: src/freeze.c:271
+#, c-format
+msgid "cannot open %s"
+msgstr "%s nelze otevřít"
+
+#: src/freeze.c:286
+#, c-format
+msgid "frozen file version %d greater than max supported of 1"
+msgstr "verze %d zmrazeného souboru je větší než maximální podporovaná 1"
+
+#: src/freeze.c:289
+msgid "ill-formed frozen file, version directive expected"
+msgstr "chybně utvořený zmrazený soubor, očekávána direktiva s verzí"
+
+#: src/freeze.c:298
+msgid "ill-formed frozen file"
+msgstr "chybně utvořený zmrazený soubor"
+
+#: src/freeze.c:387
+msgid "unable to read frozen state"
+msgstr "zmrazený stav nelze načíst"
+
+#: src/input.c:359
+msgid "read error"
+msgstr "chyba při čtení"
+
+#: src/input.c:366
+msgid "error reading file"
+msgstr "chyba při čtení souboru"
+
+#: src/input.c:590
+msgid "Warning: end of file treated as newline"
+msgstr "Pozor: konec souboru se považuje za znak nového řádku"
+
+#: src/input.c:899
+msgid "ERROR: end of file in comment"
+msgstr "CHYBA: konec souboru v komentáři"
+
+#: src/input.c:1023
+msgid "ERROR: end of file in string"
+msgstr "CHYBA: konec souboru v řetězci"
+
+#. TRANSLATORS: This is a non-ASCII name: The first name is (with
+#. Unicode escapes) "Ren\u00e9" or (with HTML entities) "Ren&eacute;".
+#. This is a proper name. See the gettext manual, section Names.
+#: src/m4.c:41
+msgid "Rene' Seindal"
+msgstr "René Seindal"
+
+#: src/m4.c:207
+#, c-format
+msgid "Try `%s --help' for more information."
+msgstr "Podrobnosti získáte příkazem „%s --help“."
+
+#: src/m4.c:213
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]...\n"
+msgstr "Použití: %s [PŘEPÍNAČ]… [SOUBOR]…\n"
+
+#: src/m4.c:214
+msgid ""
+"Process macros in FILEs.  If no FILE or if FILE is `-', standard input\n"
+"is read.\n"
+msgstr ""
+"Zpracuje makra v SOUBORECH. Jestliže SOUBOR není zadán, nebo je „-“,\n"
+"pak je čten standardní vstup.\n"
+
+#: src/m4.c:219
+msgid ""
+"Mandatory or optional arguments to long options are mandatory or optional\n"
+"for short options too.\n"
+msgstr ""
+"Argumenty požadované nebo volitelné dlouhými přepínači jsou také požadovány\n"
+"nebo volitelné jejich krátkými formami.\n"
+
+#: src/m4.c:224
+msgid ""
+"Operation modes:\n"
+"      --help                   display this help and exit\n"
+"      --version                output version information and exit\n"
+msgstr ""
+"Chování programu:\n"
+"      --help                   vypíše tuto nápovědu a skončí\n"
+"      --version                vypíše údaje o verzi a skončí\n"
+
+#: src/m4.c:229
+msgid ""
+"  -E, --fatal-warnings         once: warnings become errors, twice: stop\n"
+"                                 execution at first error\n"
+"  -i, --interactive            unbuffer output, ignore interrupts\n"
+"  -P, --prefix-builtins        force a `m4_' prefix to all builtins\n"
+"  -Q, --quiet, --silent        suppress some warnings for builtins\n"
+msgstr ""
+"  -E, --fatal-warnings         jednou: upozornění se stanou chybami,\n"
+"                               dvakrát: skončí při první chybě\n"
+"  -i, --interactive            okamžitý výstup, ignoruje pokusy o přerušení\n"
+"  -P, --prefix-builtins        všechna vestavěná makra budou mít předponu "
+"„m4_“\n"
+"  -Q, --quiet, --silent        potlačí některá upozornění týkající se\n"
+"                               vestavěných maker\n"
+
+#: src/m4.c:236
+#, c-format
+msgid ""
+"      --warn-macro-sequence[=REGEXP]\n"
+"                               warn if macro definition matches REGEXP,\n"
+"                                 default %s\n"
+msgstr ""
+"      --warn-macro-sequence[=REGULÁRNÍ_VÝRAZ]\n"
+"                               upozorní, když definice makra odpovídá\n"
+"                               REGULÁRNÍMU_VÝRAZU, výchozí je %s\n"
+
+#: src/m4.c:242
+msgid "  -W, --word-regexp=REGEXP     use REGEXP for macro name syntax\n"
+msgstr ""
+"  -W, --word-regexp=REGULÁRNÍ_VÝRAZ\n"
+"                               syntaxe jmen maker bude určena pomocí\n"
+"                               REGULÁRNÍHO_VÝRAZU\n"
+
+#: src/m4.c:247
+msgid ""
+"Preprocessor features:\n"
+"  -D, --define=NAME[=VALUE]    define NAME as having VALUE, or empty\n"
+"  -I, --include=DIRECTORY      append DIRECTORY to include path\n"
+"  -s, --synclines              generate `#line NUM \"FILE\"' lines\n"
+"  -U, --undefine=NAME          undefine NAME\n"
+msgstr ""
+"Nastavení preprocesoru:\n"
+"  -D, --define=NÁZEV[=HODNOTA] definuje NÁZEV jako makro mající HODNOTU,\n"
+"                               může být i prázdná\n"
+"  -I, --include=ADRESÁŘ        přidá ADRESÁŘ do vyhledávací cesty\n"
+"  -s, --synclines              vytváří řádky tvaru „#line ČÍSLO \"SOUBOR\"“\n"
+"  -U, --undefine=NÁZEV         zruší makro NÁZEV\n"
+
+#: src/m4.c:255
+#, c-format
+msgid ""
+"Limits control:\n"
+"  -g, --gnu                    override -G to re-enable GNU extensions\n"
+"  -G, --traditional            suppress all GNU extensions\n"
+"  -H, --hashsize=PRIME         set symbol lookup hash table size [%d]\n"
+"  -L, --nesting-limit=NUMBER   change nesting limit, 0 for unlimited [%d]\n"
+msgstr ""
+"Nastavení limitů:\n"
+"  -g, --gnu                    přebije -G a znovu zapne rozšíření GNU\n"
+"  -G, --traditional            vypne všechna rozšíření GNU\n"
+"  -H, --hashsize=PRVOČÍSLO     nastaví velikost hašovací tabulky pro\n"
+"                               vyhledávání symbolů [%d]\n"
+"  -L, --nesting-limit=ČÍSLO    nastaví limit pro zanoření, 0 znamená\n"
+"                               neomezeno [%d]\n"
+
+#: src/m4.c:263
+msgid ""
+"Frozen state files:\n"
+"  -F, --freeze-state=FILE      produce a frozen state on FILE at end\n"
+"  -R, --reload-state=FILE      reload a frozen state from FILE at start\n"
+msgstr ""
+"Soubory se zmrazeným stavem:\n"
+"  -F, --freeze-state=SOUBOR    při ukončení uloží zmrazený stav do SOUBORU\n"
+"  -R, --reload-state=SOUBOR    při startu načte zmrazený stav ze SOUBORU\n"
+
+#: src/m4.c:269
+msgid ""
+"Debugging:\n"
+"  -d, --debug[=FLAGS]          set debug level (no FLAGS implies `aeq')\n"
+"      --debugfile[=FILE]       redirect debug and trace output to FILE\n"
+"                                 (default stderr, discard if empty string)\n"
+"  -l, --arglength=NUM          restrict macro tracing size\n"
+"  -t, --trace=NAME             trace NAME when it is defined\n"
+msgstr ""
+"Ladění:\n"
+"  -d, --debug=[VOLBY]          nastaví úroveň ladění (žádné VOLBY\n"
+"                               znamenají „aeq“)\n"
+"      --debugfile[=SOUBOR]     přesměruje ladicí a sledovací výstup do "
+"SOUBORU\n"
+"                               (výchozí je standardní chybový výstup, "
+"prázdný\n"
+"                               řetězec znamená zahazovat výstup)\n"
+"  -l, --arglength=POČET        reguluje počet výstupních informací\n"
+"                               ze sledování maker\n"
+"  -t, --trace=NÁZEV            sleduje makro NÁZEV, je-li definováno\n"
+
+#: src/m4.c:278
+msgid ""
+"FLAGS is any of:\n"
+"  a   show actual arguments\n"
+"  c   show before collect, after collect and after call\n"
+"  e   show expansion\n"
+"  f   say current input file name\n"
+"  i   show changes in input files\n"
+msgstr ""
+"VOLBOU může být cokoliv z:\n"
+"  a   vypíše aktuální argumenty\n"
+"  c   vypíše hodnoty před a po vyhodnocení argumentů a po volání makra\n"
+"  e   vypíše expanzi\n"
+"  f   bude vypisovat název vstupního souboru\n"
+"  i   ukáže změny ve vstupních souborech\n"
+
+#: src/m4.c:286
+msgid ""
+"  l   say current input line number\n"
+"  p   show results of path searches\n"
+"  q   quote values as necessary, with a or e flag\n"
+"  t   trace for all macro calls, not only traceon'ed\n"
+"  x   add a unique macro call id, useful with c flag\n"
+"  V   shorthand for all of the above flags\n"
+msgstr ""
+"  l   bude vypisovat číslo vstupního řádku\n"
+"  p   ukáže výsledky hledaní v cestách\n"
+"  q   dle potřeby uzavře hodnoty mezi apostrofy, s volbami a nebo e\n"
+"  t   sleduje všechna volání maker, nejenom ta určená pomocí traceon\n"
+"  x   přidá jedinečný identifikátor volání makra, užitečné s volbou c\n"
+"  V   zkratka pro všechny výše uvedené volby\n"
+
+#: src/m4.c:295
+msgid ""
+"If defined, the environment variable `M4PATH' is a colon-separated list\n"
+"of directories included after any specified by `-I'.\n"
+msgstr ""
+"Je-li definována, proměnná prostředí „M4PATH“ je dvojtečkou oddělený seznam\n"
+"adresářů, z kterých se bude načítat po všech cestách zadaných přepínačem "
+"-I.\n"
+
+#: src/m4.c:300
+msgid ""
+"Exit status is 0 for success, 1 for failure, 63 for frozen file version\n"
+"mismatch, or whatever value was passed to the m4exit macro.\n"
+msgstr ""
+"Návratový kód je 0 pro úspěch, 1 pro selhání, 63 pro neodpovídající verzi\n"
+"zmrazeného souboru, nebo jakákoliv hodnota předaná makru m4exit.\n"
+
+#: src/m4.c:443
+#, c-format
+msgid "internal error detected; please report this bug to <%s>"
+msgstr "zjištěna vnitřní chyba; tuto chybu, prosím, nahlaste anglicky na <%s>"
+
+#: src/m4.c:497
+#, c-format
+msgid "warning: `m4 -%c' may be removed in a future release"
+msgstr "pozor: volání „m4 -%c“ může být odstraněno v následující verzi"
+
+#: src/m4.c:504
+#, c-format
+msgid "warning: `m4 %s' is deprecated"
+msgstr "pozor: volání „m4 %s“ je zastaralé"
+
+#: src/m4.c:580
+#, c-format
+msgid "bad debug flags: `%s'"
+msgstr "špatné ladící volby: „%s“"
+
+#: src/m4.c:586
+#, c-format
+msgid "warning: `m4 -e' is deprecated, use `-i' instead"
+msgstr "pozor: volání „m4 -e'“ je zastaralé, použijte „-i“"
+
+# TODO: This does not fit well into "cannot set debug file `%s'" message.
+#: src/m4.c:701
+msgid "stderr"
+msgstr "standardní chybový výstup"
+
+# , c-format
+#: src/macro.c:178 src/macro.c:225
+#, fuzzy
+msgid "Warning: cannot concatenate builtin tokens"
+msgstr "Pozor: vestavěné makro „%s“ nelze zřetězit"
+
+#: src/macro.c:205
+msgid "ERROR: end of file in argument list"
+msgstr "CHYBA: konec souboru v seznamu argumentů"
+
+#: src/macro.c:348
+#, c-format
+msgid "recursion limit of %d exceeded, use -L<N> to change it"
+msgstr "překročen limit pro rekurzi %d, změňte jej pomocí -L<N>"
+
+#: src/output.c:178 src/output.c:933 src/output.c:936
+msgid "cannot clean temporary file for diversion"
+msgstr "dočasný soubor pro uložení odloženého výstupu nelze uklidit"
+
+#: src/output.c:230 src/output.c:239 src/output.c:273 src/output.c:370
+msgid "cannot create temporary file for diversion"
+msgstr "dočasný soubor pro uložení odloženého výstupu nelze vytvořit"
+
+#: src/output.c:258 src/output.c:265 src/output.c:277
+msgid "cannot seek within diversion"
+msgstr "v souboru s odloženým výstupem se nelze pohybovat"
+
+#: src/output.c:350 src/output.c:363 src/output.c:512 src/output.c:768
+msgid "cannot close temporary file for diversion"
+msgstr "dočasný soubor pro uložení odloženého výstupu nelze uzavřít"
+
+#: src/output.c:484
+msgid "ERROR: cannot flush diversion to temporary file"
+msgstr "CHYBA: odložený výstup nelze vypsat do dočasného souboru"
+
+#: src/output.c:579
+msgid "ERROR: copying inserted file"
+msgstr "CHYBA: při kopírování vloženého souboru"
+
+#: src/output.c:851
+msgid "error reading inserted file"
+msgstr "chyba při čtení vloženého souboru"
+
+#: src/output.c:1018
+msgid "cannot stat diversion"
+msgstr "chyba při volání funkce stat pro soubor obsahující odložený výstup"
+
+#: src/output.c:1022
+msgid "diversion too large"
+msgstr "odložený výstup je příliš veliký"
+
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: přepínač „%s“ není jednoznačný\n"
+
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: přepínač „--%s“ musí být zadán bez argumentu\n"
+
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: přepínač „%c%s“ musí být zadán bez argumentu\n"
+
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: přepínač „%s“ vyžaduje argument\n"
+
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: neznámý přepínač `--%s'\n"
+
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: neznámý přepínač -- %c\n"
+
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: neznámý přepínač -- %c\n"
+
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: přepínač vyžaduje argument -- %c\n"
+
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: přepínač `-W %s' není jednoznačný\n"
+
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: přepínač ` -W %s' musí být zadán bez argumentu\n"
+
+#~ msgid "Unmatched [ or [^"
+#~ msgstr "Chybí uzavírající znak pro [ či [^"
+
+#~ msgid "INTERNAL ERROR: Bad token data type in define_macro ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný typ tokenu v define_macro ()"
+
+#~ msgid "Undefined name %s"
+#~ msgstr "Jméno %s není definováno"
+
+#~ msgid "INTERNAL ERROR: Builtin not found in builtin table!"
+#~ msgstr ""
+#~ "VNITŘNÍ CHYBA: Vestavěné makro nenalezeno v tabulce vestavěných maker!"
+
+#~ msgid "INTERNAL ERROR: Bad token data type in m4_dumpdef ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný typ tokenu v m4_dumpdef ()"
+
+#~ msgid "INTERNAL ERROR: Bad symbol type in m4_defn ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný typ symbolu v m4_defn ()"
+
+#~ msgid "Radix in eval out of range (radix = %d)"
+#~ msgstr "Základ v makru eval je mimo rozsah (základ = %d)"
+
+#~ msgid "Undefined syntax code %c"
+#~ msgstr "Syntaktický kód %c není definován"
+
+#~ msgid "Cannot open %s"
+#~ msgstr "%s nelze otevřít"
+
+#~ msgid "Cannot set error file: %s"
+#~ msgstr "Chybový soubor %s nelze použít"
+
+#~ msgid "INTERNAL ERROR: Builtin not found in builtin table! (trace_pre ())"
+#~ msgstr ""
+#~ "VNITŘNÍ CHYBA: vestavěné makro nenalezeno v tabulce vestavěných maker\n"
+#~ "(trace_pre ())!"
+
+#~ msgid "INTERNAL ERROR: Bad token data type (trace_pre ())"
+#~ msgstr "VNITŘNÍ CHYBA: špatný typ tokenu (trace_pre ())"
+
+#~ msgid "INTERNAL ERROR: Bad error code in evaluate ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný chybový kód v evaluate ()"
+
+#~ msgid "INTERNAL ERROR: Bad comparison operator in cmp_term ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný operátor porovnání v cmp_term ()"
+
+#~ msgid "INTERNAL ERROR: Bad shift operator in shift_term ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný operátor posunu v shift_term ()"
+
+#~ msgid "INTERNAL ERROR: Bad operator in mult_term ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný operátor v mult_term ()"
+
+#~ msgid "INTERNAL ERROR: Built-in not found in builtin table!"
+#~ msgstr ""
+#~ "VNITŘNÍ CHYBA: Vestavěné makro nenalezeno v tabulce vestavěných maker!"
+
+#~ msgid "INTERNAL ERROR: Bad token data type in freeze_one_symbol ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný typ tokenu ve freeze_one_symbol ()"
+
+#~ msgid "`%s' from frozen file not found in builtin table!"
+#~ msgstr "„%s“ ze zmrazeného souboru nenalezeno v tabulce vestavěných maker!"
+
+#~ msgid "Input reverted to %s, line %d"
+#~ msgstr "Vstup čten z %s, řádku %d"
+
+#~ msgid "Input read from %s"
+#~ msgstr "Vstup čten z %s"
+
+#~ msgid "INTERNAL ERROR: Recursive push_string!"
+#~ msgstr "VNITŘNÍ CHYBA: rekurzivní push_string!"
+
+#~ msgid "INTERNAL ERROR: Bad call to init_macro_token ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatné volání init_macro_token ()"
+
+#~ msgid "INTERNAL ERROR: Input stack botch in next_char ()"
+#~ msgstr "VNITŘNÍ CHYBA: chyba vstupního zásobníku v next_char ()"
+
+#~ msgid "INTERNAL ERROR: Input stack botch in peek_input ()"
+#~ msgstr "VNITŘNÍ CHYBA: chyba vstupního zásobníku v peek_input ()"
+
+#~ msgid "NONE"
+#~ msgstr "ŽÁDNÝ"
+
+#~ msgid "ERROR: Stack overflow.  (Infinite define recursion?)"
+#~ msgstr "CHYBA: Přetečení zásobníku. (nekonečná rekurze makra define?)"
+
+#~ msgid ""
+#~ "Mandatory or optional arguments to long options are mandatory or "
+#~ "optional\n"
+#~ "for short options too.\n"
+#~ "\n"
+#~ "Operation modes:\n"
+#~ "      --help                   display this help and exit\n"
+#~ "      --version                output version information and exit\n"
+#~ "  -e, --interactive            unbuffer output, ignore interrupts\n"
+#~ "  -E, --fatal-warnings         stop execution after first warning\n"
+#~ "  -Q, --quiet, --silent        suppress some warnings for builtins\n"
+#~ "  -P, --prefix-builtins        force a `m4_' prefix to all builtins\n"
+#~ msgstr ""
+#~ "Povinné či volitelné argumenty pro dlouhé přepínače jsou povinné "
+#~ "respektive\n"
+#~ "volitelné i pro odpovídající přepínače krátké.\n"
+#~ "\n"
+#~ "Chování programu:\n"
+#~ "      --help                      vypíše tuto nápovědu a skončí\n"
+#~ "      --version                   vypíše označení verze a skončí\n"
+#~ "  -e, --interactive               nebufferovaný výstup, ignoruje "
+#~ "přerušení\n"
+#~ "  -E, --fatal-warnings            skončí po prvním varování\n"
+#~ "  -Q, --quiet, --silent           potlačí některá varování týkající se\n"
+#~ "                                  vestavěných maker\n"
+#~ "  -P, --prefix-builtins           všechna vestavěná makra budou mít "
+#~ "prefix `m4_'\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "Dynamic loading features:\n"
+#~ "  -m, --module-directory=DIRECTORY  add DIRECTORY to the module search "
+#~ "path\n"
+#~ "  -M, --load-module=MODULE          load dynamic MODULE from M4MODPATH\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Nastavení dynamického zavádění modulů:\n"
+#~ "  -m, --module-directory=ADRESÁŘ  přidá ADRESÁŘ k seznamu adresářů s "
+#~ "moduly\n"
+#~ "  -M, --load-module=MODUL         zavede dynamické MODUL z M4MODPATH\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "FLAGS is any of:\n"
+#~ "  t   trace for all macro calls, not only traceon'ed\n"
+#~ "  a   show actual arguments\n"
+#~ "  e   show expansion\n"
+#~ "  q   quote values as necessary, with a or e flag\n"
+#~ "  c   show before collect, after collect and after call\n"
+#~ "  x   add a unique macro call id, useful with c flag\n"
+#~ "  f   say current input file name\n"
+#~ "  l   say current input line number\n"
+#~ "  p   show results of path searches\n"
+#~ "  i   show changes in input files\n"
+#~ "  V   shorthand for all of the above flags\n"
+#~ msgstr ""
+#~ "\n"
+#~ "VOLBOU může být cokoliv z:\n"
+#~ "  t   sleduje všechna makra, nejenom ta určená pomocí traceon\n"
+#~ "  a   vypíše aktuální argumenty\n"
+#~ "  e   vypíše expanzi\n"
+#~ "  q   dle potřeby uzavře hodnoty mezi apostrofy, s volbami a nebo e\n"
+#~ "  c   vypíše hodnoty před a po vyhodnocení argumentů a po volání makra\n"
+#~ "  x   bude vypisovat jedinečné ID volání makra, užitečné s volbou c\n"
+#~ "  f   bude vypisovat název vstupního souboru\n"
+#~ "  l   bude vypisovat číslo vstupního řádku\n"
+#~ "  p   vypíše informace o nalezení zadaného souboru\n"
+#~ "  i   vypíše informace o každé změně vstupního souboru\n"
+#~ "  V   zkratka pro všechny výše uvedené volby\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "Report bugs to <bug-m4@gnu.org>.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Chyby v programu oznamujte na adrese <bug-m4@gnu.org> (anglicky).\n"
+#~ "Připomínky k překladu zasílejte na adresu <cs@li.org> (česky).\n"
+
+#~ msgid "ERROR: failed to add search directory `%s'"
+#~ msgstr "CHYBA: „%s“ nelze přidat k seznamu prohledávaných adresářů"
+
+#~ msgid "ERROR: failed to add search directory `%s': %s"
+#~ msgstr "CHYBA: „%s“ nelze přidat k seznamu prohledávaných adresářů: %s"
+
+#~ msgid " (options:"
+#~ msgstr " (přeloženo s volbami:"
+
+#~ msgid "INTERNAL ERROR: Bad code in deferred arguments"
+#~ msgstr "VNITŘNÍ CHYBA: špatný kód v odložených argumentech"
+
+#~ msgid "INTERNAL ERROR: Bad token type in expand_token ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný typ tokenu v expand_token ()"
+
+#~ msgid "INTERNAL ERROR: Bad token type in expand_argument ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný typ tokenu v expand_argument ()"
+
+#~ msgid "INTERNAL ERROR: Bad symbol type in call_macro ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný typ symbolu v call_macro ()"
+
+#~ msgid "ERROR: failed to initialise modules: %s"
+#~ msgstr "CHYBA: moduly nelze inicializovat: %s"
+
+# , c-format
+#~ msgid "ERROR: cannot find module: `%s'"
+#~ msgstr "CHYBA: modul „%s“ nelze nalézt"
+
+# , c-format
+#~ msgid "ERROR: cannot find module: `%s': %s"
+#~ msgstr "CHYBA: modul „%s“ nelze nalézt: %s"
+
+# , c-format
+#~ msgid "ERROR: cannot close modules"
+#~ msgstr "CHYBA: moduly nelze uzavřít"
+
+#~ msgid "ERROR: cannot cannot close modules: %s"
+#~ msgstr "CHYBA: moduly nelze uzavřít: %s"
+
+#~ msgid "ERROR: cannot close module: `%s'"
+#~ msgstr "CHYBA: modul nelze uzavřít: „%s“"
+
+#~ msgid "ERROR: cannot cannot close module: `%s': %s"
+#~ msgstr "CHYBA: modul nelze uzavřít: „%s“: %s"
+
+# , c-format
+#~ msgid "Path search for `%s' found `%s'"
+#~ msgstr "Hledán soubor „%s“, nalezen soubor „%s“"
+
+#~ msgid "VMEM limit exceeded?\n"
+#~ msgstr "Překročen VMEM limit?\n"
+
+#~ msgid ""
+#~ "Memory bounds violation detected (SIGSEGV).  Either a stack overflow\n"
+#~ "occurred, or there is a bug in "
+#~ msgstr ""
+#~ "Neoprávněný přístup do paměti (SIGSEGV). Jedná se buď o přetečení "
+#~ "zásobníku,\n"
+#~ "nebo o chybu "
+
+#~ msgid ".  Check for possible infinite recursion.\n"
+#~ msgstr ".  Prověřte, zda se nejedná o nekonečnou rekurzi.\n"
+
+#~ msgid "INTERNAL ERROR: Illegal mode to symbol_lookup ()"
+#~ msgstr "VNITŘNÍ CHYBA: špatný mód pro symbol_lookup ()"
+
+# , c-format
+#~ msgid "Name `%s' is unknown\n"
+#~ msgstr "Jméno „%s“ není známo\n"

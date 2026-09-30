@@ -1,0 +1,951 @@
+# Belarusian messages for GNU sed.
+# Copyright (C) 2022, 2023, 2024 Free Software Foundation, Inc.
+# This file is distributed under the same license as the sed package.
+#
+# Viachaslau Khalikin <viachaslau.vinegret@outlook.com>, 2022, 2023, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU sed 4.8.44\n"
+"Report-Msgid-Bugs-To: bug-gnu-utils@gnu.org\n"
+"POT-Creation-Date: 2026-04-21 07:55-0700\n"
+"PO-Revision-Date: 2024-09-06 05:25+0300\n"
+"Last-Translator: Viachaslau Khalikin <viachaslau.vinegret@outlook.com>\n"
+"Language-Team: Belarusian <debian-l10n-belarusian@lists.debian.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Emacs 29.4, po mode 2.28\n"
+
+#: lib/copy-acl.c:55
+#, c-format
+msgid "preserving permissions for %s"
+msgstr "захаваньне дазволаў для %s"
+
+#: lib/dfa.c:905
+msgid "unbalanced ["
+msgstr "неўраўнаважаная ["
+
+#: lib/dfa.c:1026
+msgid "invalid character class"
+msgstr "няправільная кляса сымбаляў"
+
+#: lib/dfa.c:1154
+msgid "character class syntax is [[:space:]], not [:space:]"
+msgstr "сынтаксіс клясы сымбаляў [[:space:]], а не [:space:]"
+
+#: lib/dfa.c:1229
+msgid "unfinished \\ escape"
+msgstr "незавершаная \\ экраніруючая пасьлядоўнасьць"
+
+#: lib/dfa.c:1339
+msgid "? at start of expression"
+msgstr "? на пачатку выразу"
+
+#: lib/dfa.c:1351
+msgid "* at start of expression"
+msgstr "* на пачатку выразу"
+
+#: lib/dfa.c:1365
+msgid "+ at start of expression"
+msgstr "+ на пачатку выразу"
+
+#: lib/dfa.c:1420
+msgid "{...} at start of expression"
+msgstr "{...} на пачатку выразу"
+
+#: lib/dfa.c:1423
+msgid "invalid content of \\{\\}"
+msgstr "няправільнае зьмесьціва ў \\{\\}"
+
+#: lib/dfa.c:1425
+msgid "regular expression too big"
+msgstr "занадта вялікі рэгулярны выраз"
+
+#: lib/dfa.c:1575
+msgid "stray \\ before unprintable character"
+msgstr "залішні \\ перад недрукаваным сымбалем"
+
+#: lib/dfa.c:1577
+msgid "stray \\ before white space"
+msgstr "залішні \\ перад прагалам"
+
+#: lib/dfa.c:1588
+#, fuzzy, c-format
+msgid "stray \\ before %s"
+msgstr "залішні \\ перад %lc"
+
+#: lib/dfa.c:1589 lib/dfa.c:1592
+msgid "stray \\"
+msgstr "залішні \\"
+
+#: lib/dfa.c:1943
+msgid "unbalanced ("
+msgstr "неўраўнаважаная ("
+
+#: lib/dfa.c:2062
+msgid "no syntax specified"
+msgstr "сынтаксіс нявызначаны"
+
+#: lib/dfa.c:2073
+msgid "unbalanced )"
+msgstr "неўраўнаважаная )"
+
+#: lib/error.c:208
+msgid "Unknown system error"
+msgstr "Невядомая сыстэмная памылка"
+
+#: lib/getopt.c:283
+#, c-format
+msgid "%s: option '%s%s' is ambiguous\n"
+msgstr ""
+
+#: lib/getopt.c:289
+#, c-format
+msgid "%s: option '%s%s' is ambiguous; possibilities:"
+msgstr ""
+
+#: lib/getopt.c:323
+#, c-format
+msgid "%s: unrecognized option '%s%s'\n"
+msgstr ""
+
+#: lib/getopt.c:349
+#, c-format
+msgid "%s: option '%s%s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/getopt.c:364
+#, c-format
+msgid "%s: option '%s%s' requires an argument\n"
+msgstr ""
+
+#: lib/getopt.c:624
+#, c-format
+msgid "%s: invalid option -- '%c'\n"
+msgstr ""
+
+#: lib/getopt.c:639 lib/getopt.c:685
+#, c-format
+msgid "%s: option requires an argument -- '%c'\n"
+msgstr ""
+
+#: lib/obstack.c:351 lib/obstack.c:353 lib/xalloc-die.c:34
+msgid "memory exhausted"
+msgstr "памяць вычарпаная"
+
+#. TRANSLATORS:
+#. Get translations for open and closing quotation marks.
+#. The message catalog should translate "`" to a left
+#. quotation mark suitable for the locale, and similarly for
+#. "'".  For example, a French Unicode local should translate
+#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), respectively.
+#.
+#. If the catalog has no translation, we will try to
+#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
+#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
+#. current locale is not Unicode, locale_quoting_style
+#. will quote 'like this', and clocale_quoting_style will
+#. quote "like this".  You should always include translations
+#. for "`" and "'" even if U+2018 and U+2019 are appropriate
+#. for your locale.
+#.
+#. If you don't know what to put here, please see
+#. <https://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
+#. and use glyphs suitable for your language.
+#: lib/quotearg.c:357
+msgid "`"
+msgstr "«"
+
+#: lib/quotearg.c:358
+msgid "'"
+msgstr "»"
+
+#: lib/regcomp.c:122
+msgid "Success"
+msgstr "Посьпех"
+
+#: lib/regcomp.c:125
+msgid "No match"
+msgstr "Няма супадзеньняў"
+
+#: lib/regcomp.c:128
+msgid "Invalid regular expression"
+msgstr "Памылковы рэгулярны выраз"
+
+#: lib/regcomp.c:131
+msgid "Invalid collation character"
+msgstr "Няправільны знак параўнаньня"
+
+#: lib/regcomp.c:134
+msgid "Invalid character class name"
+msgstr "Няправільная назва клясы сымбаляў"
+
+#: lib/regcomp.c:137
+msgid "Trailing backslash"
+msgstr "Канчатковая адваротная косая рыска"
+
+#: lib/regcomp.c:140
+msgid "Invalid back reference"
+msgstr "Памылковая зваротная спасылка"
+
+#: lib/regcomp.c:143
+msgid "Unmatched [, [^, [:, [., or [="
+msgstr "Несупастаўляльны [, [^, [:, [., ці [="
+
+#: lib/regcomp.c:146
+msgid "Unmatched ( or \\("
+msgstr "Несупастаўляльны ( ці \\("
+
+#: lib/regcomp.c:149
+msgid "Unmatched \\{"
+msgstr "Несупастаўляльны \\{"
+
+#: lib/regcomp.c:152
+msgid "Invalid content of \\{\\}"
+msgstr "Няправільнае зьмесьціва ў \\{\\}"
+
+#: lib/regcomp.c:155
+msgid "Invalid range end"
+msgstr "Няправільны канец дыяпазону"
+
+#: lib/regcomp.c:158
+msgid "Memory exhausted"
+msgstr "Памяць вычарпаная"
+
+#: lib/regcomp.c:161
+msgid "Invalid preceding regular expression"
+msgstr "Памылковы папярэдні рэгулярны выраз"
+
+#: lib/regcomp.c:164
+msgid "Premature end of regular expression"
+msgstr "Заўчаснае завяршэньне рэгулярнага выразу"
+
+#: lib/regcomp.c:167
+msgid "Regular expression too big"
+msgstr "Рэгулярны выраз занадта вялікі"
+
+#: lib/regcomp.c:170
+msgid "Unmatched ) or \\)"
+msgstr "Несупастаўляльны ) ці \\)"
+
+#: lib/regcomp.c:650
+msgid "No previous regular expression"
+msgstr "Няма папярэдняга рэгулярнага выраза"
+
+#: lib/set-acl.c:46
+#, c-format
+msgid "setting permissions for %s"
+msgstr "ўстаноўка правоў доступу для %s"
+
+#: lib/version-etc.c:73
+#, c-format
+msgid "Packaged by %s (%s)\n"
+msgstr "Пакавальнік: %s (%s)\n"
+
+#: lib/version-etc.c:76
+#, c-format
+msgid "Packaged by %s\n"
+msgstr "Пакавальнік: %s\n"
+
+#. TRANSLATORS: Translate "(C)" to the copyright symbol
+#. (C-in-a-circle), if this symbol is available in the user's
+#. locale.  Otherwise, do not translate "(C)"; leave it as-is.
+#: lib/version-etc.c:83
+msgid "(C)"
+msgstr "©"
+
+#. TRANSLATORS: The %s placeholder is the web address of the GPL license.
+#: lib/version-etc.c:88
+#, c-format
+msgid ""
+"License GPLv3+: GNU GPL version 3 or later <%s>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Ліцэнзія GPLv3+: GNU GPL вэрсіі 3 або навей <%s>.\n"
+"Гэта свабоднае праграмнае забесьпячэньне: вы можаце вольна зьмяняць і "
+"распаўсюджваць яго.\n"
+"Няма НІЯКІХ ГАРАНТЫЙ у межах дзеючага заканадаўства.\n"
+
+#. TRANSLATORS: %s denotes an author name.
+#: lib/version-etc.c:105
+#, c-format
+msgid "Written by %s.\n"
+msgstr "Аўтар: %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:109
+#, c-format
+msgid "Written by %s and %s.\n"
+msgstr "Аўтары: %s і %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#: lib/version-etc.c:113
+#, c-format
+msgid "Written by %s, %s, and %s.\n"
+msgstr "Аўтары: %s, %s і %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:120
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"Аўтары: %s, %s, %s\n"
+"і %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:127
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"Аўтары: %s, %s, %s,\n"
+"%s і %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:134
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, and %s.\n"
+msgstr ""
+"Аўтары: %s, %s, %s,\n"
+"%s, %s і %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:142
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, and %s.\n"
+msgstr ""
+"Аўтары: %s, %s, %s,\n"
+"%s, %s, %s і %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:150
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"and %s.\n"
+msgstr ""
+"Аўтары: %s, %s, %s,\n"
+"%s, %s, %s, %s\n"
+"і %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:159
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, and %s.\n"
+msgstr ""
+"Аўтары: %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s і %s.\n"
+
+#. TRANSLATORS: Each %s denotes an author name.
+#. You can use line breaks, estimating that each author name occupies
+#. ca. 16 screen columns and that a screen line has ca. 80 columns.
+#: lib/version-etc.c:170
+#, c-format
+msgid ""
+"Written by %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, %s, and others.\n"
+msgstr ""
+"Аўтары: %s, %s, %s,\n"
+"%s, %s, %s, %s,\n"
+"%s, %s і іншыя.\n"
+
+#. TRANSLATORS: The placeholder indicates the bug-reporting address
+#. for this package.  Please add _another line_ saying
+#. "Report translation bugs to <...>\n" with the address for translation
+#. bugs (typically your translation team's web or email address).
+#: lib/version-etc.c:248
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr ""
+"Паведамляйце пра памылкі на: %s\n"
+"Паведамляйце пра памылкі перакладу на: debian-l10n-"
+"belarusian@lists.debian.org\n"
+
+#: lib/version-etc.c:250
+#, c-format
+msgid "Report %s bugs to: %s\n"
+msgstr "Паведамляйце пра памылкі ў %s на: %s\n"
+
+#: lib/version-etc.c:254 lib/version-etc.c:256
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "Хатняя старонка %s: <%s>\n"
+
+#: lib/version-etc.c:259
+#, c-format
+msgid "General help using GNU software: <%s>\n"
+msgstr ""
+"Агульная даведка па выкарыстаньні праграмнага забесьпячэньня GNU: <%s>\n"
+
+#: sed/compile.c:121
+#, fuzzy, c-format
+msgid "%s: file %s line %jd: "
+msgstr "%s: файл %s радок %lu: %s\n"
+
+#: sed/compile.c:124
+#, fuzzy, c-format
+msgid "%s: -e expression #%d, char %td: "
+msgstr "%s: -e выраз #%lu, літара %lu: %s\n"
+
+#: sed/compile.c:215
+#, c-format
+msgid "extra characters after command"
+msgstr "залішнія сымбалі пасьля каманды"
+
+#: sed/compile.c:290 sed/compile.c:1034 sed/compile.c:1179
+#, c-format
+msgid "e/r/w commands disabled in sandbox mode"
+msgstr "каманды e/r/w адключаны ў рэжыме пясочніцы"
+
+#: sed/compile.c:320 sed/compile.c:1128
+#, c-format
+msgid "missing filename in r/R/w/W commands"
+msgstr ""
+
+#: sed/compile.c:457
+#, c-format
+msgid "delimiter character is not a single-byte character"
+msgstr "знак разьмежавальніка не зьяўляецца аднабайтавым"
+
+#: sed/compile.c:491
+#, c-format
+msgid "%s: warning: using \"\\%c\" in the 's' command is not portable\n"
+msgstr ""
+
+#: sed/compile.c:531 sed/compile.c:538 sed/compile.c:544 sed/compile.c:588
+#, fuzzy, c-format
+msgid "unknown option to 's'"
+msgstr "невядомая опцыя да «s»"
+
+#: sed/compile.c:550
+#, fuzzy, c-format
+msgid "multiple 'p' options to 's' command"
+msgstr "зашмат опцыяў «p» да каманды «s»"
+
+#: sed/compile.c:556
+#, fuzzy, c-format
+msgid "multiple 'g' options to 's' command"
+msgstr "зашмат опцыяў «g» да каманды «s»"
+
+#: sed/compile.c:567
+#, fuzzy, c-format
+msgid "multiple number options to 's' command"
+msgstr "зашмат лікавых опцыяў да каманды «s»"
+
+#: sed/compile.c:570
+#, fuzzy, c-format
+msgid "number option to 's' command may not be zero"
+msgstr "лікавая опцыя да каманды «s» ня можа быць нулём"
+
+#: sed/compile.c:839
+#, c-format
+msgid "unterminated address regex"
+msgstr "незавершаны рэгулярны выраз адрасу"
+
+#: sed/compile.c:939
+#, c-format
+msgid "invalid usage of +N or ~N as first address"
+msgstr "няправільнае выкарыстаньне +N або ~N у якасьці першага адрасу"
+
+#: sed/compile.c:946
+#, fuzzy, c-format
+msgid "unexpected ','"
+msgstr "нечаканая «,»"
+
+#: sed/compile.c:957
+#, c-format
+msgid "invalid usage of line address 0"
+msgstr "няправільнае выкарыстаньне радка адрасу 0"
+
+#: sed/compile.c:964
+#, fuzzy, c-format
+msgid "multiple '!'s"
+msgstr "некалькі «!»"
+
+#: sed/compile.c:974 sed/compile.c:1293
+#, fuzzy, c-format
+msgid "unknown command: '%c'"
+msgstr "невядомая каманда: «%c»"
+
+#: sed/compile.c:980 sed/compile.c:1090
+#, c-format
+msgid "command only uses one address"
+msgstr "каманда выкарыстоўвае толькі адзін адрас"
+
+#: sed/compile.c:988
+#, c-format
+msgid "comments don't accept any addresses"
+msgstr "камэнтары не прымаюць ніякіх адрасоў"
+
+#: sed/compile.c:1008
+#, c-format
+msgid "expected newer version of sed"
+msgstr "чакалася найноўшая вэрсія sed"
+
+#: sed/compile.c:1022
+#, fuzzy, c-format
+msgid "unexpected '}'"
+msgstr "нечаканая «}»"
+
+#: sed/compile.c:1024
+#, fuzzy, c-format
+msgid "'}' doesn't want any addresses"
+msgstr "«}» не патрабуе аніякіх адрасоў"
+
+#: sed/compile.c:1052 sed/compile.c:1059
+#, fuzzy, c-format
+msgid "expected \\ after 'a', 'c' or 'i'"
+msgstr "чакалася \\ пасьля «a», «c» ці «i»"
+
+#: sed/compile.c:1069
+#, c-format
+msgid ": doesn't want any addresses"
+msgstr ": не патрабуе аніякіх адрасоў"
+
+#: sed/compile.c:1073
+#, c-format
+msgid "\":\" lacks a label"
+msgstr "«:» ня мае меткі"
+
+#: sed/compile.c:1164 sed/compile.c:1166
+#, fuzzy, c-format
+msgid "unterminated 's' command"
+msgstr "незавершаная каманда «s»"
+
+#: sed/compile.c:1192 sed/compile.c:1197
+#, fuzzy, c-format
+msgid "unterminated 'y' command"
+msgstr "незавершаная каманда «y»"
+
+#: sed/compile.c:1235 sed/compile.c:1259 sed/compile.c:1270
+#, fuzzy, c-format
+msgid "'y' command strings have different lengths"
+msgstr "радкі для каманды «y» маюць розную даўжыню"
+
+#: sed/compile.c:1289
+#, c-format
+msgid "missing command"
+msgstr "адсутнічае каманда"
+
+#: sed/compile.c:1301
+#, c-format
+msgid "incomplete command"
+msgstr "няпоўная каманда"
+
+#: sed/compile.c:1381
+#, c-format
+msgid "recursive escaping after \\c not allowed"
+msgstr "рэкурсіўнае экранаваньне пасьля \\c не дазваляецца"
+
+#: sed/compile.c:1524
+#, fuzzy, c-format
+msgid "unmatched '{'"
+msgstr "несупастаўляльны «{»"
+
+#: sed/compile.c:1550
+#, fuzzy, c-format
+msgid "can't find label for jump to '%s'"
+msgstr "немагчыма знайсьці метку для пераходу да «%s»"
+
+#: sed/execute.c:252 sed/execute.c:269
+#, c-format
+msgid "case conversion produced an invalid character"
+msgstr "пераўтварэньне рэгістра дало несапраўдны знак"
+
+#: sed/execute.c:568
+#, c-format
+msgid "%s: can't read %s: %s\n"
+msgstr "%s: немагчыма прачытаць %s: %s\n"
+
+#: sed/execute.c:594
+#, c-format
+msgid "couldn't edit %s: is a terminal"
+msgstr "не ўдалося зьмяніць %s: гэта тэрмінал"
+
+#: sed/execute.c:599
+#, c-format
+msgid "couldn't edit %s: not a regular file"
+msgstr "не ўдалося зьмяніць %s: гэта не звычайны файл"
+
+#: sed/execute.c:610
+#, fuzzy, c-format
+msgid "%s: warning: failed to set default file creation context to %s: %s\n"
+msgstr ""
+"%s: папярэджаньне: не атрымалася задаць тыпавы кантэкст стварэньня файла ў "
+"%s: %s"
+
+#: sed/execute.c:618
+#, fuzzy, c-format
+msgid "%s: warning: failed to get security context of %s: %s\n"
+msgstr "%s: папярэджаньне: не атрымалася набыць кантэкст бясьпекі %s: %s"
+
+#: sed/execute.c:636 sed/utils.c:220
+#, c-format
+msgid "couldn't open temporary file %s: %s"
+msgstr "не ўдалося адкрыць часовы файл %s: %s"
+
+#: sed/execute.c:752
+#, c-format
+msgid "line number overflow"
+msgstr ""
+
+#: sed/execute.c:1177 sed/execute.c:1371
+msgid "error in subprocess"
+msgstr "памылка ў падпрацэсе"
+
+#: sed/execute.c:1179
+#, fuzzy
+msgid "option 'e' not supported"
+msgstr "опцыя «e» не падтрымліваецца"
+
+#: sed/execute.c:1352
+#, fuzzy
+msgid "'e' command not supported"
+msgstr "каманда «e» не падтрымліваецца"
+
+#: sed/execute.c:1673
+msgid "no input files"
+msgstr "няма ўваходных файлаў"
+
+#: sed/regexp.c:115
+#, fuzzy, c-format
+msgid "invalid reference \\%d on 's' command's RHS"
+msgstr "несапраўдная спасылка \\%d на RHS каманды «s»"
+
+#: sed/regexp.c:145
+#, c-format
+msgid "cannot specify modifiers on empty regexp"
+msgstr ""
+
+#: sed/regexp.c:174
+#, c-format
+msgid "no previous regular expression"
+msgstr "няма папярэдняга рэгулярнага выразу"
+
+#: sed/regexp.c:181
+#, fuzzy
+msgid "regex input buffer length overflow"
+msgstr "даўжыня ўваходнага буфэра рэгулярнага выразу большая за INT_MAX"
+
+#: sed/sed.c:38
+msgid "Jay Fenlason"
+msgstr "Jay Fenlason"
+
+#: sed/sed.c:39
+msgid "Tom Lord"
+msgstr "Tom Lord"
+
+#: sed/sed.c:40
+msgid "Ken Pizzini"
+msgstr "Ken Pizzini"
+
+#: sed/sed.c:41
+msgid "Paolo Bonzini"
+msgstr "Paolo Bonzini"
+
+#: sed/sed.c:42
+msgid "Jim Meyering"
+msgstr "Jim Meyering"
+
+#: sed/sed.c:43
+msgid "Assaf Gordon"
+msgstr "Assaf Gordon"
+
+#: sed/sed.c:104
+#, c-format
+msgid ""
+"GNU sed home page: <https://www.gnu.org/software/sed/>.\n"
+"General help using GNU software: <https://www.gnu.org/gethelp/>.\n"
+msgstr ""
+"Хатняя старонка GNU sed: <https://www.gnu.org/software/sed/>.\n"
+"Агульная даведка па выкарыстаньні праграмнага забесьпячэньня GNU: <https://"
+"www.gnu.org/gethelp/>.\n"
+
+#: sed/sed.c:110
+#, c-format
+msgid "E-mail bug reports to: <%s>.\n"
+msgstr "Паведамленьні пра памылкі дасылайце на: <%s>.\n"
+
+#: sed/sed.c:118
+msgid "This sed program was built with SELinux support."
+msgstr "Гэтая вэрсія праграмы sed была сабрана з падтрымкай SELinux."
+
+#: sed/sed.c:120
+msgid "SELinux is enabled on this system."
+msgstr "SELinux уключаны на гэтай сыстэме."
+
+#: sed/sed.c:122
+msgid "SELinux is disabled on this system."
+msgstr "SELinux адключаны на гэтай сыстэме."
+
+#: sed/sed.c:124
+msgid "This sed program was built without SELinux support."
+msgstr "Гэтая вэрсія праграмы sed была сабрана без падтрымкі SELinux."
+
+#: sed/sed.c:134
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... {script-only-if-no-other-script} [input-file]...\n"
+"\n"
+msgstr ""
+"Выкарыстаньне: %s [ОПЦЫЯ]... {толькі-скрыпт-калі-няма-іншага-скрыпту} "
+"[уваходны-файл]...\n"
+"\n"
+
+#: sed/sed.c:138
+#, c-format
+msgid ""
+"  -n, --quiet, --silent\n"
+"                 suppress automatic printing of pattern space\n"
+msgstr ""
+"  -n, --quiet, --silent\n"
+"                 заглушаць аўтаматычнае друкаваньне прасторы ўзору\n"
+
+#: sed/sed.c:140
+#, c-format
+msgid ""
+"      --debug\n"
+"                 annotate program execution\n"
+msgstr ""
+"      --debug\n"
+"                 анатаваць выкананьне праграмы\n"
+
+#: sed/sed.c:142
+#, c-format
+msgid ""
+"  -e script, --expression=script\n"
+"                 add the script to the commands to be executed\n"
+msgstr ""
+"  -e script, --expression=скрыпт\n"
+"                 дадаць скрыпт да камандаў на выкананьне\n"
+
+#: sed/sed.c:144
+#, c-format
+msgid ""
+"  -f script-file, --file=script-file\n"
+"                 add the contents of script-file to the commands to be "
+"executed\n"
+msgstr ""
+"  -f script-file, --file=файл-скрыпт\n"
+"                 дадаць зьмест файла-скрыпту да камандаў на выкананьне\n"
+
+#: sed/sed.c:148
+#, c-format
+msgid ""
+"  --follow-symlinks\n"
+"                 follow symlinks when processing in place\n"
+msgstr ""
+"  --follow-symlinks\n"
+"                 пераходзіць па сымбалічным спасылкам пры апрацоўцы на "
+"месцы\n"
+
+#: sed/sed.c:151
+#, c-format
+msgid ""
+"  -i[SUFFIX], --in-place[=SUFFIX]\n"
+"                 edit files in place (makes backup if SUFFIX supplied)\n"
+msgstr ""
+"  -i[СУФІКС], --in-place[=СУФІКС]\n"
+"                 рэдагаваць файлы на месцы (стварае рэзэрвовую копію, калі "
+"перададзены СУФІКС)\n"
+
+#: sed/sed.c:154
+#, c-format
+msgid ""
+"  -b, --binary\n"
+"                 open files in binary mode (CR+LFs are not processed "
+"specially)\n"
+msgstr ""
+"  -b, --binary\n"
+"                 адкрыць файлы ў двайковым рэжыме (CR+LF пэўна не "
+"апрацоўваюцца)\n"
+
+#: sed/sed.c:158
+#, fuzzy, c-format
+msgid ""
+"  -l N, --line-length=N\n"
+"                 specify the desired line-wrap length for the 'l' command\n"
+msgstr ""
+"  -l N, --line-length=N\n"
+"                 задаць патрэбную даўжыню пераносу радкоў для каманды «l»\n"
+
+#: sed/sed.c:160
+#, c-format
+msgid ""
+"  --posix\n"
+"                 disable all GNU extensions.\n"
+msgstr ""
+"  --posix\n"
+"                 адключыць усе пашырэньні GNU.\n"
+
+#: sed/sed.c:162
+#, c-format
+msgid ""
+"  -E, -r, --regexp-extended\n"
+"                 use extended regular expressions in the script\n"
+"                 (for portability use POSIX -E).\n"
+msgstr ""
+"  -E, -r, --regexp-extended\n"
+"                 выкарыстоўваць пашыраныя рэгулярныя выразы ў скрыпце\n"
+"                 (для партатыўнасьці ужывайце POSIX -E).\n"
+
+#: sed/sed.c:165
+#, c-format
+msgid ""
+"  -s, --separate\n"
+"                 consider files as separate rather than as a single,\n"
+"                 continuous long stream.\n"
+msgstr ""
+"  -s, --separate\n"
+"                 разглядваць файлы паасобку замест аднаго\n"
+"                 доўгага працяглага патоку.\n"
+
+#: sed/sed.c:168
+#, c-format
+msgid ""
+"      --sandbox\n"
+"                 operate in sandbox mode (disable e/r/w commands).\n"
+msgstr ""
+"      --sandbox\n"
+"                 працаваць у рэжыме пясочніцы (адключае каманды e/r/w).\n"
+
+#: sed/sed.c:170
+#, c-format
+msgid ""
+"  -u, --unbuffered\n"
+"                 load minimal amounts of data from the input files and "
+"flush\n"
+"                 the output buffers more often\n"
+msgstr ""
+"  -u, --unbuffered\n"
+"                 загружаць мінімальны аб'ём даных з уваходных файлаў ды\n"
+"                 часьцей скідваць выходныя буфэры\n"
+
+#: sed/sed.c:173
+#, c-format
+msgid ""
+"  -z, --null-data\n"
+"                 separate lines by NUL characters\n"
+msgstr ""
+"  -z, --null-data\n"
+"                 разьдзяляць радкі сымбалямі NUL\n"
+
+#: sed/sed.c:175
+#, c-format
+msgid "      --help     display this help and exit\n"
+msgstr "      --help     адлюстраваць гэтую даведку ды выйсьці\n"
+
+#: sed/sed.c:176
+#, c-format
+msgid "      --version  output version information and exit\n"
+msgstr "      --version  вывесьці зьвесткі пра вэрсію ды выйсьці\n"
+
+#: sed/sed.c:177
+#, c-format
+msgid ""
+"\n"
+"If no -e, --expression, -f, or --file option is given, then the first\n"
+"non-option argument is taken as the sed script to interpret.  All\n"
+"remaining arguments are names of input files; if no input files are\n"
+"specified, then the standard input is read.\n"
+"\n"
+msgstr ""
+"\n"
+"Калі ня вызначана опцыя -e, --expression, -f, або --file, тады\n"
+"ў якасьці інтэрпрэтаванага сцэнару sed будзе ўзяты першы свабодны\n"
+"аргумэнт.  Усе астатнія аргумэнты будуць зьяўляцца назвамі уваходных\n"
+"файлаў; калі ўваходныя файлы ня вызначаныя, тады будзе чытацца\n"
+"стандартны ўвод.\n"
+"\n"
+
+#: sed/sed.c:371
+msgid "failed to set binary mode on STDIN"
+msgstr "не атрымалася ўстанавіць двайковы рэжым да STDIN"
+
+#: sed/sed.c:373
+msgid "failed to set binary mode on STDOUT"
+msgstr "не атрымалася ўстанавіць двайковы рэжым да STDOUT"
+
+#: sed/utils.c:129
+#, c-format
+msgid "couldn't open file %s: %s"
+msgstr "не ўдалося адкрыць файл %s: %s"
+
+#: sed/utils.c:148
+#, c-format
+msgid "couldn't attach to %s: %s"
+msgstr "не ўдалося замацаваць да %s: %s"
+
+#: sed/utils.c:212
+#, c-format
+msgid "failed to set binary mode on '%s'"
+msgstr "не атрымалася ўстанавіць двайковы рэжым да «%s»"
+
+#: sed/utils.c:233
+#, fuzzy, c-format
+msgid "couldn't write %jd item to %s: %s"
+msgid_plural "couldn't write %jd items to %s: %s"
+msgstr[0] "не ўдалося запісаць %llu элемэнт да %s: %s"
+msgstr[1] "не ўдалося запісаць %llu элемэнта да %s: %s"
+msgstr[2] "не ўдалося запісаць %llu элемэнтаў да %s: %s"
+
+#: sed/utils.c:245 sed/utils.c:258
+#, c-format
+msgid "read error on %s: %s"
+msgstr "памылка чытаньня %s: %s"
+
+#: sed/utils.c:254
+#, fuzzy, c-format
+msgid "read error on %s"
+msgstr "памылка чытаньня %s: %s"
+
+#: sed/utils.c:357
+#, c-format
+msgid "couldn't readlink %s: %s"
+msgstr "не ўдалося выканаць readlink %s: %s"
+
+#: sed/utils.c:360
+#, c-format
+msgid "couldn't follow symlink %s: %s"
+msgstr "не ўдалося перайсьці па сымбалічнай спасылцы %s: %s"
+
+#: sed/utils.c:407
+#, fuzzy, c-format
+msgid "cannot rename %s to %s: %s"
+msgstr "немагчыма зьмяніць назву %s: %s"
+
+#~ msgid "write error"
+#~ msgstr "памылка запісу"

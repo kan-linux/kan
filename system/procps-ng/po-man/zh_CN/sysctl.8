@@ -1,0 +1,157 @@
+.\"
+.\" Copyright (c) 2011-2024 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2013-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2004-2006 Albert Cahalan
+.\" Copyright (c) 1999      George Staikos <staikos@0wned.org>
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH SYSCTL 8 2024\-07\-19 procps\-ng 
+.SH 名称
+sysctl \- 在运行时配置内核参数
+.SH 概述
+\fBsysctl\fP [\fI选项\fP .\|.\|.\&] \fI变量\fP[\fB=\fP\fI值\fP] .\|.\|.
+.P
+\fBsysctl \-p\fP \fI文件或正则\fP .\|.\|.
+.SH 描述
+\fBsysctl\fP 用于在运行时修改内核参数。可用的参数列在 \fI/proc/sys/\fP 下。在 Linux 中支持 \fBsysctl\fP 需要
+procfs。您可以使用 \fBsysctl\fP 来读取和写入 sysctl 数据。
+.SH 参数
+.TP 
+\fI变量\fP
+要读取的键的名称。一个例子是 kernel.ostype。也可以使用 "/" 分隔符来代替 "."。
+.TP 
+\fI变量\fP=\fI值\fP
+要设置键，请使用 \fI变量\fP=\fI值\fP 的形式，其中 \fI变量\fP 是键，\fI值\fP 是要设置的值。如果该值包含能被 shell
+解析的引号或字符，则可能需要将该值括在双引号中。
+.TP 
+\fB\-n\fP, \fB\-\-values\fP
+使用此选项可在打印值时不打印键的名称。
+.TP 
+\fB\-e\fP, \fB\-\-ignore\fP
+使用此选项可以忽略有关未知的键的错误。
+.TP 
+\fB\-N\fP, \fB\-\-names\fP
+使用此选项仅打印名称。此选项对于具有可编程的自动补全功能的 shell 可能很有用。
+.TP 
+\fB\-q\fP, \fB\-\-quiet\fP
+使用此选项阻止将已设置的值显示在标准输出。
+.TP 
+\fB\-w\fP, \fB\-\-write\fP
+强制所有参数为写入参数，如果无法以这种方式解析它们，则输出一个错误。
+.TP 
+\fB\-p\fP[\fI文件\fP], \fB\-\-load\fP[=\fI文件\fP]
+从指定的文件加载 \fBsysctl\fP 设置，如果没有指定，则加载 \fI/etc/sysctl.conf\fP。指定 \-
+作为文件名意味着从标准输入读取数据。使用此选项意味着 \fBsysctl\fP 的参数是文件，按照指定的顺序读取。文件参数可以是正则表达式。
+.TP 
+\fB\-a\fP, \fB\-\-all\fP
+显示当前可用的所有值，但已弃用的参数和禁止使用的参数除外。
+.TP 
+\fB\-\-deprecated\fP
+使用 \fB\-\-all\fP 选项列出所有值时，同时包括已弃用的参数。
+.TP 
+\fB\-b\fP, \fB\-\-binary\fP
+打印值时不打印换行。
+.TP 
+\fB\-\-system\fP
+从所有系统配置文件中加载设置。请参阅下面的 \fB系统文件优先级\fP 一节。
+.TP 
+\fB\-r\fP, \fB\-\-pattern\fP \fI模式\fP
+仅应用与 \fI模式\fP 匹配的设置。\fI模式\fP 使用扩展正则表达式语法。
+.TP 
+\fB\-A\fP
+\fB\-a\fP 的别名
+.TP 
+\fB\-d\fP
+\fB\-h\fP 的别名
+.TP 
+\fB\-f\fP
+\fB\-p\fP 的别名
+.TP 
+\fB\-X\fP
+\fB\-a\fP 的别名
+.TP 
+\fB\-o\fP
+什么也不做，为了保持与 BSD 的兼容性而设立。
+.TP 
+\fB\-x\fP
+什么也不做，为了保持与 BSD 的兼容性而设立。
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+显示帮助文本并退出。
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+显示版本信息并退出。
+.SH 文件
+.TS
+Li.
+/proc/sys
+/etc/sysctl.d/*.conf
+/run/sysctl.d/*.conf
+/usr/local/lib/sysctl.d/*.conf
+/usr/lib/sysctl.d/*.conf
+/lib/sysctl.d/*.conf
+/etc/sysctl.conf
+.TE
+.SH 备注
+.SS 系统文件优先级
+当使用 \fB\-\-system\fP 选项时，\fBsysctl\fP
+将从以下目录按照列表给出的顺序从上到下读取文件。一旦加载了给定文件名的文件，后续目录中的任何同名文件都将被忽略。
+.P
+.TS
+Li.
+/etc/sysctl.d/*.conf
+/run/sysctl.d/*.conf
+/usr/local/lib/sysctl.d/*.conf
+/usr/lib/sysctl.d/*.conf
+/lib/sysctl.d/*.conf
+.TE
+.P
+所有配置文件将按字典序排序，无论它们位于哪个目录。配置文件可以被完全替换（通过在更高优先级的目录中放置同名的新配置文件）或部分替换（通过使用排序在更后面的配置文件）。
+.P
+文件 \fI/etc/sysctl.conf\fP 将最后读取，也就是说它可以替代/覆盖上面列出的目录中的较靠前的文件设置的参数。
+
+.SS 已弃用的参数
+\fBbase_reachable_time\fP 和 \fBretrans_time\fP 已弃用。\fBsysctl\fP
+命令不允许更改这些参数的值。坚持使用已弃用的内核接口的用户应通过其他方式将值推送到 \fB/proc\fP 文件系统。例如：
+.PP
+echo 256 > /proc/sys/net/ipv6/neigh/eth0/base_reachable_time
+
+.SS 禁止使用的参数
+一些内核参数不应该被读取，因为会产生副作用。\fBsysctl\fP 的 \fB\-\-all\fP 选项会跳过这些参数。
+.TP 
+\fBstat_refresh\fP
+这个参数不返回任何值，但会刷新各个 CPU 的 VM 统计信息。
+
+.SH 示例
+/sbin/sysctl \-a
+.br
+/sbin/sysctl \-n kernel.hostname
+.br
+/sbin/sysctl \-w kernel.domainname="example.com"
+.br
+/sbin/sysctl \-p/etc/sysctl.conf
+.br
+/sbin/sysctl \-a \-\-pattern forward
+.br
+/sbin/sysctl \-a \-\-pattern forward$
+.br
+/sbin/sysctl \-a \-\-pattern 'net.ipv4.conf.(eth|wlan)0.arp'
+.br
+/sbin/sysctl \-\-pattern '\[char94]net.ipv6' \-\-system
+.SH 参见
+\fBproc\fP(5), \fBsysctl.conf\fP(5), \fBregex\fP(7)
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

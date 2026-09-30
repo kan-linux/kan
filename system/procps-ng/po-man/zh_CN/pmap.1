@@ -1,0 +1,92 @@
+.\"
+.\" Copyright (c) 2011-2023 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2013      Jaromir Capik <jcapik@redhat.com>
+.\" Copyright (c) 1998-2002 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\" (The preceding line is a note to broken versions of man to tell
+.\" them to pre-process this man page with tbl)
+.\" Man page for pmap.
+.\" Licensed under version 2 of the GNU General Public License.
+.\" Written by Albert Cahalan.
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH PMAP 1 2020\-06\-04 procps\-ng 
+.SH 名称
+pmap \- 输出进程的内存映射
+.SH 概述
+\fBpmap\fP [\fI选项\fP .\|.\|.\&] \fIpid\fP .\|.\|.
+.SH 描述
+\fBpmap\fP 命令输出一个或多个进程的内存映射。
+.SH 选项
+.TP 
+\fB\-x\fP, \fB\-\-extended\fP
+显示扩展输出格式。
+.TP 
+\fB\-d\fP, \fB\-\-device\fP
+显示设备输出格式。
+.TP 
+\fB\-q\fP, \fB\-\-quiet\fP
+不显示某些表头和表尾行。
+.TP 
+\fB\-A\fP, \fB\-\-range\fP \fI低\fP[,\fI高\fP]
+将结果限制在给定的 \fI低\fP 和 \fI高\fP 之间的地址范围内。请注意， \fI低\fP 和 \fI高\fP 两个参数是用逗号分隔的单个字符串。 \fI高\fP 可以省略。
+.TP 
+\fB\-X\fP
+显示比 \fB\-x\fP 选项更多的详细信息。警告：格式会随着 \fI/proc/PID/smaps\fP 发生变化
+.TP 
+\fB\-XX\fP
+显示内核提供的所有信息
+.TP 
+\fB\-p\fP, \fB\-\-show\-path\fP
+在映射列中显示文件的完整路径
+.TP 
+\fB\-k\fP, \fB\-\-use\-kernel\-name\fP
+如果可用，使用内核提供的名称，而不是 "[ anon ]"
+.TP 
+\fB\-c\fP, \fB\-\-read\-rc\fP
+读取默认配置
+.TP 
+\fB\-C\fP, \fB\-\-read\-rc\-from\fP \fI文件\fP
+从 \fI文件\fP 读取配置
+.TP 
+\fB\-n\fP, \fB\-\-create\-rc\fP
+创建新的默认配置
+.TP 
+\fB\-N\fP, \fB\-\-create\-rc\-to\fP \fI文件\fP
+创建新的配置到 \fI文件\fP
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+显示帮助文本并退出。
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+显示版本信息并退出。
+.SH 退出状态
+.PP
+.TP 
+\fB0\fP
+成功。
+.TP 
+\fB1\fP
+失败。
+.TP 
+\fB42\fP
+没有找到所请求的所有进程。
+.SH 参见
+\fBps\fP(1), \fBpgrep\fP(1)
+.SH 标准
+没有适用的标准，但 \fBpmap\fP 看起来非常像 SunOS 命令。
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

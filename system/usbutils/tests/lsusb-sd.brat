@@ -1,0 +1,38 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# -s and -d together; selecting the first listed device by both bus/devnum
+# and vid:pid should yield exactly that device.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+	: "${LSUSB_INSTALLED:=$(command -v lsusb || true)}"
+	# "Bus 001 Device 001: ID 1d6b:0002 Linux Foundation ..."
+	set -- $("$LSUSB_BUILT" | head -n1)
+	[ $# -ge 6 ]
+	bus=$2
+	dev=${4%:}
+	vid_pid=$6
+}
+
+@test "lsusb -s bus:dev -d vid:pid: built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -s "$bus:$dev" -d "$vid_pid" > "$TEST_TMP.built"     2>&1
+	"$LSUSB_INSTALLED" -s "$bus:$dev" -d "$vid_pid" > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb -v -s bus:dev -d vid:pid: built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -v -s "$bus:$dev" -d "$vid_pid" > "$TEST_TMP.built"     2>&1
+	"$LSUSB_INSTALLED" -v -s "$bus:$dev" -d "$vid_pid" > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb -s bus:dev -d 0000:0000: filters intersect (no match)" {
+	run "$LSUSB_BUILT" -s "$bus:$dev" -d 0000:0000
+	[ $status -eq 1 ]
+	[ ! -s "$stdout" ]
+}

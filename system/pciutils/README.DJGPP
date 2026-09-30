@@ -1,0 +1,33 @@
+DJGPP is a software development suite for Intel i386 PCs running DOS operating
+systems. Compiled binaries for DJGPP by gcc can be run on FreeDOS system.
+
+https://www.delorie.com/djgpp/
+https://www.freedos.org/
+
+DJGPP port of pciutils supports only direct hardware access methods.
+Currently available methods are: intel-conf1, intel-conf2 and ecam.
+More details about particular access method and caveats are described in
+the pcilib(8) manual page. Method ecam can access PCI Express registers.
+
+To compile this port, run following command:
+
+  make CROSS_COMPILE=i386-pc-msdosdjgpp- HOST=i386-djgpp DNS=no ZLIB=no IDSDIR="" COMPAT_GETOPT=yes
+
+This will produce statically linked pcituils exe binaries and static
+libpci.a library. Building of dynamic shared library is not supported.
+
+Ensure that i386-pc-msdosdjgpp-gcc cross compiler is in the PATH env.
+
+For optimizing executable sizes, following make options may be useful:
+
+  OPT="-Os -fomit-frame-pointer -ffunction-sections -fdata-sections"
+  LDFLAGS="-Os -fomit-frame-pointer -s -Wl,--gc-sections"
+
+Please note that for running these pciutils executables (like for any other DJPP
+binaries) it is needed to have installed DPMI server software on target system.
+The preferred one by DJGPP project is CWSDPMI but any other should work too
+(e.g. Windows-integrated or HX DPMI). CWSDPMI project is at address:
+https://sandmann.dotster.com/cwsdpmi/
+
+Pre-built DJGPP pcituils binaries are available at:
+https://mj.ucw.cz/download/linux/pci/windows/

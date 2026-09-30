@@ -1,0 +1,30 @@
+extern "C" {
+#include "bluetooth.h"
+#include "common/io.h"
+}
+
+#include <bluetooth/LocalDevice.h>
+
+const char* ffDetectBluetooth([[maybe_unused]] FFBluetoothOptions* options, FFlist* devices /* FFBluetoothResult */) {
+    using namespace Bluetooth;
+    FF_SUPPRESS_IO();
+
+    LocalDevice* dev = LocalDevice::GetLocalDevice();
+    if (!dev) {
+        return nullptr;
+    }
+
+    BString devClass;
+    dev->GetDeviceClass().DumpDeviceClass(devClass);
+
+    FFBluetoothResult* device = FF_LIST_ADD(FFBluetoothResult, *devices);
+    ffStrbufInitS(&device->name, dev->GetFriendlyName());
+    ffStrbufInitS(&device->address, bdaddrUtils::ToString(dev->GetBluetoothAddress()).String());
+    ffStrbufInitS(&device->type, devClass.String());
+    device->battery = 0;
+    device->connected = true;
+
+    // TODO: more devices?
+
+    return nullptr;
+}

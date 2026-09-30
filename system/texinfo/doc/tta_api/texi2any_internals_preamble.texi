@@ -1,0 +1,22 @@
+\input texinfo
+
+@c this is needed by old automake versions < 1.6.2, that are still used
+@c in some platforms in 2024
+@setfilename texi2any_internals.info
+
+@settitle Texinfo modules documentation
+
+@dircategory Texinfo documentation system
+@direntry
+* texi2any modules: (texi2any_internals).
+                                Texinfo Perl modules used in texi2any
+@end direntry
+
+@shorttitlepage Texinfo modules documentation
+@headings on
+
+@contents
+
+@node Top
+@top Texinfo modules documentation
+

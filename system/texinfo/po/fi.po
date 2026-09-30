@@ -1,0 +1,5045 @@
+# Finnish translations for texinfo package.
+# Copyright (C) 2018 Free Software Foundation, Inc.
+# This file is distributed under the same license as the texinfo package.
+# Tommi Nieminen <translator@legisign.org>, 2018-2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU texinfo 7.2.91\n"
+"Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
+"POT-Creation-Date: 2026-03-02 17:08+0000\n"
+"PO-Revision-Date: 2026-02-14 10:12+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.6\n"
+
+#: info/dir.c:63
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr ""
+"Solmuun käytetyt hakemistotiedostot\n"
+"\n"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
+msgid "Move forward a character"
+msgstr "Siirry merkki eteenpäin"
+
+#: info/echo-area.c:309 info/session-cmd.c:437
+msgid "Move backward a character"
+msgstr "Siirry merkki taaksepäin"
+
+#: info/echo-area.c:335
+msgid "Move to the start of this line"
+msgstr "Siirry tämän rivin alkuun"
+
+#: info/echo-area.c:340
+msgid "Move to the end of this line"
+msgstr "Siirry tämän rivin loppuun"
+
+#: info/echo-area.c:348 info/session-cmd.c:452
+msgid "Move forward a word"
+msgstr "Siirry sana eteenpäin"
+
+#: info/echo-area.c:388 info/session-cmd.c:466
+msgid "Move backward a word"
+msgstr "Siirry sana taaksepäin"
+
+#: info/echo-area.c:428
+msgid "Delete the character under the cursor"
+msgstr "Poista kohdistimen alainen merkki"
+
+#: info/echo-area.c:448
+msgid "Delete the character behind the cursor"
+msgstr "Poista kohdistimen alainen merkki"
+
+#: info/echo-area.c:475
+msgid "Cancel or quit operation"
+msgstr "Peru tai lopeta toiminto"
+
+#: info/echo-area.c:490
+msgid "Accept (or force completion of) this line"
+msgstr "Hyväksy tämä rivi (tai pakota sen lopetus)"
+
+#: info/echo-area.c:495
+msgid "Insert next character verbatim"
+msgstr "Lisää seuraava merkki sellaisenaan"
+
+#: info/echo-area.c:527
+msgid "Insert a TAB character"
+msgstr "Lisää sarkainmerkki"
+
+#: info/echo-area.c:579
+msgid "Transpose characters at point"
+msgstr "Vaihda pisteen kohdalla merkit keskenään"
+
+#: info/echo-area.c:648
+msgid "Yank back the contents of the last kill"
+msgstr "Palauta viimeisimmän leikkeen sisältö"
+
+#: info/echo-area.c:655
+msgid "Kill ring is empty"
+msgstr "Leikkausrengas on tyhjä"
+
+#: info/echo-area.c:668
+msgid "Yank back a previous kill"
+msgstr "Palauta viimeisin leike"
+
+#: info/echo-area.c:701
+msgid "Kill to the end of the line"
+msgstr "Leikkaa rivin loppuun"
+
+#: info/echo-area.c:714
+msgid "Kill to the beginning of the line"
+msgstr "Leikkaa rivin alkuun"
+
+#: info/echo-area.c:726
+msgid "Kill the word following the cursor"
+msgstr "Leikkaa kohdistinta seuraava sana"
+
+#: info/echo-area.c:746
+msgid "Kill the word preceding the cursor"
+msgstr "Leikkaa kohdistinta edeltävä sana"
+
+#: info/echo-area.c:978 info/echo-area.c:1037
+msgid "No completions"
+msgstr "Ei täydennyksiä"
+
+#: info/echo-area.c:980
+msgid "Not complete"
+msgstr "Ei täydellinen"
+
+#: info/echo-area.c:1030
+msgid "List possible completions"
+msgstr "Luettele mahdolliset täydennykset"
+
+#: info/echo-area.c:1041
+msgid "Sole completion"
+msgstr "Ainoa täydennys"
+
+#: info/echo-area.c:1050
+#, c-format
+msgid "%d completion:\n"
+msgid_plural "%d completions:\n"
+msgstr[0] "%d täydennys:\n"
+msgstr[1] "%d täydennystä:\n"
+
+#: info/echo-area.c:1168
+msgid "Insert completion"
+msgstr "Lisää täydennys"
+
+#: info/echo-area.c:1274
+#, c-format
+msgid "Building completions..."
+msgstr "Koostetaan täydennyksiä..."
+
+#: info/echo-area.c:1400
+msgid "Scroll the completions window"
+msgstr "Vieritä täydennysikkunaa"
+
+#: info/filesys.c:86
+#, c-format
+msgid "looking for file \"%s\""
+msgstr "etsitään tiedostoa \"%s\""
+
+#: info/filesys.c:149
+#, c-format
+msgid "looking for file %s in %s"
+msgstr "etsitään tiedostoa %s kohteesta %s"
+
+#: info/filesys.c:197 info/filesys.c:217
+#, c-format
+msgid "found file %s"
+msgstr "löytyi tiedosto %s"
+
+#: info/footnotes.c:231
+#, c-format
+msgid "Footnotes could not be displayed"
+msgstr "Alaviitteitä ei voi näyttää"
+
+#: info/footnotes.c:251
+msgid "Show the footnotes associated with this node in another window"
+msgstr "Tässä tähän solmuun toisessa ikkunassa yhdistetyt alaviitteet"
+
+#: info/footnotes.c:268
+msgid "No footnotes in this node"
+msgstr "Tässä solmussa ei ole alaviitteitä"
+
+#: info/footnotes.h:24
+msgid "---------- Footnotes ----------"
+msgstr "--------- Alaviitteet ---------"
+
+#: info/indices.c:144 info/indices.c:985
+#, c-format
+msgid "Finding index entries..."
+msgstr "Etsitään hakemistotietueita..."
+
+#: info/indices.c:247
+msgid "Look up a string in the index for this file"
+msgstr "Etsi merkkijonoa tiedoston hakemistosta"
+
+#: info/indices.c:259
+#, c-format
+msgid "No indices found"
+msgstr "Hakemistoja ei löytynyt"
+
+#: info/indices.c:263
+msgid "Index entry: "
+msgstr "Hakemistotietue: "
+
+#: info/indices.c:366 info/indices.c:991
+#, c-format
+msgid "No indices found."
+msgstr "Hakemistoja ei löytynyt."
+
+#: info/indices.c:482
+#, c-format
+msgid "Found '%s' in %s. ('\\[next-index-match]' tries to find next.)"
+msgstr ""
+"Löytyi ”%s” kohteesta %s. (”\\[next-index-match]” koettaa löytää seuraavan.)"
+
+#: info/indices.c:492
+msgid ""
+"Go to the next matching index item from the last '\\[index-search]' command"
+msgstr ""
+"Siirry seuraavaan sopivaan hakemistokohtaan viimeisimmästä ”\\[index-"
+"search]”-komennosta"
+
+#: info/indices.c:503
+#, c-format
+msgid "No previous index search string"
+msgstr "Ei aiempaa indeksihakujonoa"
+
+#: info/indices.c:521
+#, c-format
+msgid "No more index entries containing '%s'"
+msgstr "Ei hakemistokohtia, jotka sisältäisivät ”%s”."
+
+#: info/indices.c:522
+#, c-format
+msgid "No index entries containing '%s'"
+msgstr "Ei hakemistokohtia, jotka sisältäisivät ”%s”."
+
+#: info/indices.c:694
+#, c-format
+msgid "Scanning indices of '%s'..."
+msgstr "”%s”: etsitään hakemistoja..."
+
+#: info/indices.c:754
+msgid "Grovel all known info file's indices for a string and build a menu"
+msgstr ""
+"Kokoa kaikkien tunnettujen tiedostojen hakemistot merkkijonoksi ja rakenna "
+"valikko"
+
+#: info/indices.c:762 info/indices.c:764
+#, fuzzy
+msgid "Index apropos"
+msgstr "Hakemisto"
+
+#: info/indices.c:806
+#, c-format
+msgid "Index entries containing '%s':\n"
+msgstr "Indeksitietueet, jotka sisältävät \"%s\":\n"
+
+#: info/indices.c:926
+#, c-format
+msgid ""
+"Virtual Index\n"
+"*************\n"
+"\n"
+"Index entries that match '%s':\n"
+msgstr ""
+"Virtuaali-indeksi\n"
+"*****************\n"
+"\n"
+"Hakua \"%s\" vastaavat indeksitietueet:\n"
+
+#: info/indices.c:973
+msgid "List all matches of a string in the index"
+msgstr "Luettele kaikki merkkijonon osumat indeksistä"
+
+#: info/indices.c:997 info/indices.c:999
+msgid "Index topic"
+msgstr "Hakemistoaihe"
+
+#: info/indices.c:1024
+#, c-format
+msgid "No index entries containing '%s'."
+msgstr "Ei indeksejä, jotka sisältäisivät \"%s\"."
+
+#: info/indices.h:41
+#, c-format
+msgid "No available info files have '%s' in their indices"
+msgstr ""
+"Merkkijonoa \"%s\" ei löydy saatavilla olevien info-tiedostojen indekseistä"
+
+#: info/info.c:320 info/session-cmd.c:1968
+#, c-format
+msgid "No menu item '%s' in node '%s'"
+msgstr "Ei valikkokohtaa \"%s\" solmussa \"%s\""
+
+#: info/info.c:476 info/info.c:1255
+#, c-format
+msgid "Cannot find node '%s'"
+msgstr "Solmua ”%s” ei löydy"
+
+#: info/info.c:498
+#, c-format
+msgid "No program name given"
+msgstr "Ohjelman nimeä ei ole annettu"
+
+#: info/info.c:689
+#, c-format
+msgid "invalid number: %s\n"
+msgstr "virheellinen luku: %s\n"
+
+#: info/info.c:905
+#, c-format
+msgid "malformed variable assignment: %s"
+msgstr "väärin muotoiltu muuttujan asetus: %s"
+
+#: info/info.c:912 info/infokey.c:566
+#, c-format
+msgid "%s: no such variable"
+msgstr "%s: ei sellaista muuttujaa"
+
+#: info/info.c:918 info/infokey.c:568
+#, c-format
+msgid "value %s is not valid for variable %s"
+msgstr "arvo %s ei kelpaa muuttujalle %s"
+
+#: info/info.c:930
+#, c-format
+msgid "Try --help for more information.\n"
+msgstr "Lisätietoa voi saada valitsimella --help\n"
+
+#: info/info.c:949 install-info/install-info.c:2281
+#, c-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Tekijänoikeudet (C) %s Free Software Foundation, Inc.\n"
+"Lisenssi GPLv3+: GNU GPL:n versio 3 tai myöhempi <https://gnu.org/licenses/"
+"gpl.html>\n"
+"Tämä on vapaata ohjelmistoa: voit vapaasti muuttaa tai jakaa sitä "
+"eteenpäin.\n"
+"TAKUUTA ei ole, siinä määrin kuin laki tämän sallii.\n"
+
+#: info/info.c:1126
+#, c-format
+msgid "no index entries found for '%s'\n"
+msgstr "hakemistokohtia ei löytynyt: ”%s”\n"
+
+#: info/info.c:1169
+#, c-format
+msgid ""
+"Usage: %s [OPTION]... [MENU-ITEM...]\n"
+"\n"
+"Read documentation in Info format.\n"
+msgstr ""
+"Käyttö: %s [VALITSIN]... [VALIKKOKOHTA...]\n"
+"\n"
+"Lue ohjeita info-muodossa.\n"
+
+#: info/info.c:1176
+msgid "Frequently-used options:"
+msgstr "Usein käytetyt valitsimet:"
+
+#: info/info.c:1177
+msgid "  -a, --all                    use all matching manuals"
+msgstr "  -a, --all                    käytä kaikkia täsmääviä käsikirjoja"
+
+#: info/info.c:1178
+msgid ""
+"  -k, --apropos=STRING         look up STRING in all indices of all manuals"
+msgstr ""
+"  -k, --apropos=JONO           etsi JONOa kaikkien käsikirjojen kaikista "
+"indekseistä"
+
+#: info/info.c:1179
+msgid "  -d, --directory=DIR          add DIR to INFOPATH"
+msgstr "  -d, --directory=HAK          lisää HAK INFOPATHiin"
+
+#: info/info.c:1180
+msgid "  -f, --file=MANUAL            specify Info manual to visit"
+msgstr "  -f, --file=KIRJA             määritä näytettävä Info-käsikirja"
+
+#: info/info.c:1181
+msgid "  -h, --help                   display this help and exit"
+msgstr "  -h, --help                   näytä tämä ohje ja lopeta"
+
+#: info/info.c:1182
+msgid "      --index-search=STRING    go to node pointed by index entry STRING"
+msgstr ""
+"      --index-search=JONO      siirry indeksitietueen JONO osoittamaan "
+"solmuun"
+
+#: info/info.c:1183
+msgid "  -n, --node=NODENAME          specify nodes in first visited Info file"
+msgstr ""
+"  -n, --node=SOLMU            määritä ensin näytetyn Info-tiedoston solmut"
+
+#: info/info.c:1184
+msgid "  -o, --output=FILE            output selected nodes to FILE"
+msgstr "  -o, --output=TSTO            tulosta valitut solmut TSTOon"
+
+#: info/info.c:1187
+msgid "  -b, --speech-friendly        be friendly to speech synthesizers"
+msgstr "  -b, --speech-friendly        helpota puhesyntetisaattorien työtä"
+
+#: info/info.c:1190
+msgid "      --subnodes               recursively output menu items"
+msgstr "      --subnodes               tulosta valikkokohdat rekursiivisesti"
+
+#: info/info.c:1191
+msgid "  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR"
+msgstr "  -v, --variable MUUTT=ARVO    anna ARVO Info-muuttujalle MUUTT"
+
+#: info/info.c:1192
+msgid "      --version                display version information and exit"
+msgstr "      --version                näytä versiotiedot ja lopeta"
+
+#: info/info.c:1193
+msgid "  -w, --where, --location      print physical location of Info file"
+msgstr ""
+"  -w, --where, --location      tulosta Info-tiedoston fyysinen sijainti"
+
+#: info/info.c:1197
+msgid ""
+"The first non-option argument, if present, is the menu entry to start from;\n"
+"it is searched for in all 'dir' files along INFOPATH.\n"
+"If it is not present, info merges all 'dir' files and shows the result.\n"
+"Any remaining arguments are treated as the names of menu\n"
+"items relative to the initial node visited."
+msgstr ""
+"Ensimmäinen ei-valitsin, jos mitään, on valikkokohta, josta aloitetaan;\n"
+"sitä etsitään kaikista INFOPATHin hakemistotiedostoista.\n"
+"Ellei sitä anneta, info yhdistää kaikki hakemistotiedostot ja näyttää "
+"tuloksen.\n"
+"Loppuargumentit tulkitaan valikkokohtien nimiksi suhteessa\n"
+"ensimmäiseen näytettyyn solmuun."
+
+#: info/info.c:1204
+msgid "For a summary of key bindings, type H within Info."
+msgstr "Näppäinsidosyhteenvedon saa Infossa komennolla H."
+
+#: info/info.c:1207
+msgid " Examples:"
+msgstr " Esimerkkejä:"
+
+#: info/info.c:1208
+msgid "  info                         show top-level dir menu"
+msgstr "  info                         näytä ylimmän tason hakemistovalikko"
+
+#: info/info.c:1209
+msgid "  info info-stnd               show the manual for this Info program"
+msgstr "  info info-stnd               näytä tämän Info-ohjelman käsikirja"
+
+#: info/info.c:1210
+msgid "  info emacs                   start at emacs node from top-level dir"
+msgstr ""
+"  info emacs                   aloita ylimmän tason hakemiston emacs-solmusta"
+
+#: info/info.c:1211
+msgid ""
+"  info emacs buffers           select buffers menu entry in emacs manual"
+msgstr ""
+"  info emacs buffers           valitse emacs-käsikirjasta buffers-valikko"
+
+#: info/info.c:1212
+msgid "  info emacs -n Files          start at Files node within emacs manual"
+msgstr ""
+"  info emacs -n Files          käynnistä emacs-käsikirjan Files-solmusta"
+
+#: info/info.c:1213
+msgid "  info '(emacs)Files'          alternative way to start at Files node"
+msgstr ""
+"  info '(emacs)Files'          vaihtoehtoinen tapa käynnistää Files-solmusta"
+
+#: info/info.c:1214
+msgid ""
+"  info --subnodes -o out.txt emacs\n"
+"                               dump entire emacs manual to out.txt"
+msgstr ""
+"  info --subnodes -o ulos.txt emacs\n"
+"                               tulosta koko Emacs-käsikirja ulos.txt:hen"
+
+#: info/info.c:1216
+msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
+msgstr ""
+"  info -f ./foo.info           näytä tiedosto ./foo.info tutkimatta kansiota"
+
+#: info/info.c:1256
+#, c-format
+msgid "Cannot find node '(%s)%s'"
+msgstr "Solmua ei löydy: \"(%s)%s\""
+
+#: info/info.c:1257
+msgid "Point doesn't appear within this window's node!"
+msgstr ""
+
+#: info/info.c:1258
+msgid "No menu in this node"
+msgstr "Tässä solmussa ei ole valikkoa"
+
+#: info/info.c:1259
+msgid "No cross references in this node"
+msgstr "Tässä solmussa ei ole ristiviittauksia"
+
+#: info/info.c:1260
+msgid "Only one window"
+msgstr "Vain yksi ikkuna"
+
+#: info/info.c:1261
+msgid "Resulting window would be too small"
+msgstr "Ikkuna olisi liian pieni"
+
+#: info/infodoc.c:40
+msgid "Basic Info command keys\n"
+msgstr "Infon peruskomentonäppäimet\n"
+
+#: info/infodoc.c:42
+msgid "\\%-10[quit-help]  Close this help window.\n"
+msgstr "\\%-10[quit-help]  Sulje tämä ohjeikkuna.\n"
+
+#: info/infodoc.c:43
+msgid "\\%-10[quit]  Quit Info altogether.\n"
+msgstr "\\%-10[quit]  Lopeta Info kokonaan.\n"
+
+#: info/infodoc.c:44
+msgid "\\%-10[get-info-help-node]  Invoke the Info tutorial.\n"
+msgstr "\\%-10[get-info-help-node]  Siirry Infon opastukseen.\n"
+
+#: info/infodoc.c:46
+msgid "\\%-10[prev-line]  Move up one line.\n"
+msgstr "\\%-10[prev-line]  Siirry rivi ylemmäs.\n"
+
+#: info/infodoc.c:47
+msgid "\\%-10[next-line]  Move down one line.\n"
+msgstr "\\%-10[next-line]  Siirrä rivi alemmas.\n"
+
+#: info/infodoc.c:48
+msgid "\\%-10[scroll-backward]  Scroll backward one screenful.\n"
+msgstr "\\%-10[scroll-backward]  Vieritä näytön verran taaksepäin.\n"
+
+#: info/infodoc.c:49
+msgid "\\%-10[scroll-forward]  Scroll forward one screenful.\n"
+msgstr "\\%-10[scroll-forward]  Vieritä näytön verran eteenpäin.\n"
+
+#: info/infodoc.c:50
+msgid "\\%-10[beginning-of-node]  Go to the beginning of this node.\n"
+msgstr "\\%-10[beginning-of-node]  Siirry tämän solmun alkuun.\n"
+
+#: info/infodoc.c:51
+msgid "\\%-10[end-of-node]  Go to the end of this node.\n"
+msgstr "\\%-10[end-of-node]  Siirry tämän solmun loppuun.\n"
+
+#: info/infodoc.c:53
+msgid "\\%-10[move-to-next-xref]  Skip to the next hypertext link.\n"
+msgstr "\\%-10[move-to-next-xref]  Hyppää seuraavaan hypertekstilinkkiin.\n"
+
+#: info/infodoc.c:54
+msgid ""
+"\\%-10[select-reference-this-line]  Follow the hypertext link under the "
+"cursor.\n"
+msgstr ""
+"\\%-10[select-reference-this-line]  Seuraa kohdistimen alla olevaa "
+"hypertekstilinkkiä.\n"
+
+#: info/infodoc.c:55
+msgid "\\%-10[history-node]  Go back to the last node seen in this window.\n"
+msgstr ""
+"\\%-10[history-node]  Siirry tässä ikkunassa viimeksi nähtyyn solmuun.\n"
+
+#: info/infodoc.c:57
+msgid "\\%-10[global-prev-node]  Go to the previous node in the document.\n"
+msgstr "\\%-10[global-prev-node]  Siirry tiedoston edelliseen solmuun.\n"
+
+#: info/infodoc.c:58
+msgid "\\%-10[global-next-node]  Go to the next node in the document.\n"
+msgstr "\\%-10[global-next-node]  Siirry tiedoston seuraavaan solmuun.\n"
+
+#: info/infodoc.c:59
+msgid "\\%-10[prev-node]  Go to the previous node on this level.\n"
+msgstr "\\%-10[prev-node]  Siirry edelliseen tämän tason solmuun.\n"
+
+#: info/infodoc.c:60
+msgid "\\%-10[next-node]  Go to the next node on this level.\n"
+msgstr "\\%-10[next-node]  Siirry seuraavaan tämän tason solmuun.\n"
+
+#: info/infodoc.c:61
+msgid "\\%-10[up-node]  Go up one level.\n"
+msgstr "\\%-10[up-node]  Nouse taso ylemmäs.\n"
+
+#: info/infodoc.c:62
+msgid "\\%-10[top-node]  Go to the top node of this document.\n"
+msgstr "\\%-10[top-node]  Siirry tämän asiakirjan ylimpään solmuun.\n"
+
+#: info/infodoc.c:63
+msgid "\\%-10[dir-node]  Go to the main 'directory' node.\n"
+msgstr "\\%-10[dir-node]  Siirry päähakemistosolmuun.\n"
+
+#: info/infodoc.c:65
+msgid "1...9       Pick the first...ninth item in this node's menu.\n"
+msgstr "1...9       Valitse solmun valikon ensimmäinen...yhdeksäs kohta.\n"
+
+#: info/infodoc.c:66
+msgid "\\%-10[last-menu-item]  Pick the last item in this node's menu.\n"
+msgstr ""
+"\\%-10[last-menu-item]  Valitse tämän solmun valikon viimeisin kohta.\n"
+
+#: info/infodoc.c:67
+msgid "\\%-10[menu-item]  Pick a menu item specified by name.\n"
+msgstr "\\%-10[menu-item]  Valitse nimen määrittämä valikkokohta.\n"
+
+#: info/infodoc.c:68
+msgid "\\%-10[xref-item]  Follow a cross reference specified by name.\n"
+msgstr "\\%-10[xref-item]  Seuraa nimen määrittämää viittausta.\n"
+
+#: info/infodoc.c:69
+msgid "\\%-10[goto-node]  Go to a node specified by name.\n"
+msgstr "\\%-10[goto-node]  Siirry nimettyyn solmuun.\n"
+
+#: info/infodoc.c:71
+msgid "\\%-10[search]  Search forward for a specified string.\n"
+msgstr "\\%-10[search]  Etsi edestäpäin annettua merkkijonoa.\n"
+
+#: info/infodoc.c:72
+msgid "\\%-10[search-previous]  Search for previous occurrence.\n"
+msgstr "\\%-10[search-previous]  Etsi aiempaa esiintymää.\n"
+
+#: info/infodoc.c:73
+msgid "\\%-10[search-next]  Search for next occurrence.\n"
+msgstr "\\%-10[search-next]  Etsi seuraava esiintymä.\n"
+
+#: info/infodoc.c:74
+msgid ""
+"\\%-10[index-search]  Search for a specified string in the index, and\n"
+"              select the node referenced by the first entry found.\n"
+msgstr ""
+"\\%-10[hakemistohaku] Etsi hakemistosta annettua merkkijonoa ja valitse\n"
+"              ensimmäisen löytyneen tietueen osoittama solmu.\n"
+
+#: info/infodoc.c:76
+msgid "\\%-10[virtual-index]  Synthesize menu of matching index entries.\n"
+msgstr ""
+
+#: info/infodoc.c:78
+msgid "\\%-10[abort-key]  Cancel the current operation.\n"
+msgstr "\\%-10[abort-key]  Peru nykyinen toiminto.\n"
+
+#: info/infodoc.c:198
+#, c-format
+msgid "This is GNU Info version %s.  "
+msgstr "Tämä on GNU Infon versio %s. "
+
+#: info/infodoc.c:199
+msgid "The current search path is:\n"
+msgstr "Nykyinen hakupolku on:\n"
+
+#: info/infodoc.c:204
+msgid ""
+"Commands available in Info windows:\n"
+"\n"
+msgstr ""
+"Info-ikkunoissa käytettävissä olevat komennot:\n"
+"\n"
+
+#: info/infodoc.c:207
+msgid ""
+"Commands available in the echo area:\n"
+"\n"
+msgstr ""
+"Kaiutusalueella käytettävissä olevat komennot:\n"
+"\n"
+
+#: info/infodoc.c:227
+#, c-format
+msgid ""
+"The following commands can only be invoked via %s:\n"
+"\n"
+msgstr ""
+"Seuraavia komentoja voi kutsua vain %s:\n"
+"\n"
+
+#: info/infodoc.c:232
+msgid ""
+"The following commands cannot be invoked at all:\n"
+"\n"
+msgstr ""
+"Seuraavia komentoja ei voi kutsua lainkaan:\n"
+"\n"
+
+#: info/infodoc.c:249
+msgid ""
+"Variables:\n"
+"\n"
+msgstr ""
+"Muuttujat:\n"
+"\n"
+
+#: info/infodoc.c:305
+msgid "Not enough room for a help window, please delete a window"
+msgstr "Tila ei riitä ohjeikkunalle: poista ikkuna"
+
+#: info/infodoc.c:348
+msgid "Display help message"
+msgstr "Näytä ohjeviesti"
+
+#: info/infodoc.c:361
+msgid "Visit Info node '(info)Help'"
+msgstr "Käy Info-solmussa ”(info)Help”"
+
+#: info/infodoc.c:464
+msgid "Print documentation for KEY"
+msgstr "Tulosta ohje AVAIMELLE"
+
+#: info/infodoc.c:475
+#, c-format
+msgid "Describe key: %s"
+msgstr "Kuvaa avain: %s"
+
+#: info/infodoc.c:486 info/infodoc.c:523
+#, c-format
+msgid "%s is undefined"
+msgstr "%s on määrittelemättä"
+
+#: info/infodoc.c:826
+msgid "Show what to type to execute a given command"
+msgstr "Näytä mitä kirjoittaa annetun komennon suorittamiseksi"
+
+#: info/infodoc.c:830
+msgid "Where is command: "
+msgstr "Missä on komento: "
+
+#: info/infodoc.c:852
+#, fuzzy, c-format
+msgid "'%s' is not on any keys"
+msgstr "Infon peruskomentonäppäimet\n"
+
+#: info/infodoc.c:858
+#, c-format
+msgid "%s can only be invoked via %s"
+msgstr "%s: vain %s voi kutsua"
+
+#: info/infodoc.c:862
+#, fuzzy, c-format
+msgid "%s can be invoked via %s"
+msgstr ""
+"Kirjoittaneet %s, %s, %s,\n"
+"%s, %s ja %s.\n"
+
+#: info/infodoc.c:867
+#, c-format
+msgid "There is no function named '%s'"
+msgstr "Funktiota nimeltä ”%s” ei ole"
+
+#: info/infomap.c:590
+#, c-format
+msgid "could not open init file %s"
+msgstr "alustustiedostoa %s ei voi avata"
+
+#: info/infokey.c:229
+#, c-format
+msgid "key sequence too long"
+msgstr "liian pitkä näppäinjono"
+
+#: info/infokey.c:307
+#, c-format
+msgid "missing key sequence"
+msgstr "näppäinjono puuttuu"
+
+#: info/infokey.c:385
+#, c-format
+msgid "NUL character (\\000) not permitted"
+msgstr "NUL-merkki (\\000) ei ole sallittu"
+
+#: info/infokey.c:391
+#, c-format
+msgid "invalid octal sequence for byte value (\\%o)"
+msgstr "virheellinen oktaalijono tavuarvolle (\\%o)"
+
+#: info/infokey.c:423
+#, c-format
+msgid "NUL character (^%c) not permitted"
+msgstr "NUL-merkki (^%c) ei ole sallittu"
+
+#: info/infokey.c:446
+#, c-format
+msgid "missing action name"
+msgstr "toiminnon nimi puuttuu"
+
+#: info/infokey.c:464
+#, c-format
+msgid "cannot bind key sequence to menu-digit"
+msgstr ""
+
+#: info/infokey.c:488
+#, c-format
+msgid "unknown action `%s'"
+msgstr "tuntematon toiminto \"%s\""
+
+#: info/infokey.c:511
+#, c-format
+msgid "action name too long"
+msgstr "liian pitkä toiminnon nimi"
+
+#: info/infokey.c:524
+#, c-format
+msgid "extra characters following action `%s'"
+msgstr "toimintoa seuraa ylimääräisiä merkkejä: ”%s”"
+
+#: info/infokey.c:535
+#, c-format
+msgid "missing variable name"
+msgstr "muuttujan nimi puuttuu"
+
+#: info/infokey.c:544
+#, c-format
+msgid "missing `=' immediately after variable name"
+msgstr "muuttujan nimeä ei seuraa välittömästi ”=”"
+
+#: info/infokey.c:551
+#, c-format
+msgid "variable name too long"
+msgstr "liian pitkä muuttujan nimi"
+
+#: info/infokey.c:575
+#, c-format
+msgid "value too long"
+msgstr "liian pitkä arvo"
+
+#: info/infokey.c:621
+#, c-format
+msgid "\"%s\", line %u: "
+msgstr "\"%s\", rivi %u: "
+
+#: info/m-x.c:64
+msgid "Read the name of an Info command and describe it"
+msgstr "Lue Info-komennon nimi ja kuvaa se"
+
+#: info/m-x.c:68
+msgid "Describe command: "
+msgstr "Kuvaa komento: "
+
+#: info/m-x.c:89
+#, fuzzy
+msgid "Read a command name in the echo area and execute it"
+msgstr "”echo-area”-komentoa ei voi suorittaa tässä"
+
+#: info/m-x.c:132
+#, c-format
+msgid "Cannot execute an 'echo-area' command here"
+msgstr "”echo-area”-komentoa ei voi suorittaa tässä"
+
+#: info/m-x.c:146
+msgid "Set the height of the displayed window"
+msgstr "Aseta näytetyn ikkunan korkeus"
+
+#: info/m-x.c:159
+#, c-format
+msgid "Set screen height to (%d): "
+msgstr "Aseta ikkunan korkeudeksi (%d): "
+
+#: info/makedoc.c:120
+#, c-format
+msgid ""
+"   Source files groveled to make this file include:\n"
+"\n"
+msgstr ""
+"   Tämän tiedoston koostamiseksi tutkittuja lähdetiedostoja:\n"
+"\n"
+
+#: info/makedoc.c:343
+#, c-format
+msgid "Couldn't manipulate the file %s.\n"
+msgstr "Ei voida käsitellä tiedostoa %s.\n"
+
+#: info/nodemenu.c:33
+msgid ""
+"  (File)Node                        Lines   Size   Containing File\n"
+"  ----------                        -----   ----   ---------------"
+msgstr ""
+"  (Tsto)Solmu                       riviä   koko   tiedostossa\n"
+"  ----------                        -----   ----   ---------------"
+
+#: info/nodemenu.c:185
+msgid ""
+"Here is the menu of nodes you have recently visited.\n"
+"Select one from this menu, or use '\\[history-node]' in another window.\n"
+msgstr ""
+"Tässä on valikko äskettäin katsomistasi solmuista.\n"
+"Valitse valikosta jokin tai käytä toisessa ikkunassa ”\\[history-node]”.\n"
+
+#: info/nodemenu.c:208
+msgid "Make a window containing a menu of all of the currently visited nodes"
+msgstr ""
+"Tee ikkuna, joka sisältää valikon kaikista äskettäin tarkastelluista "
+"solmuista"
+
+#: info/nodemenu.c:253
+msgid "Select a node which has been previously visited in a visible window"
+msgstr "Valitse näkyvässä ikkunassa aiemmin tarkasteltu solmu"
+
+#: info/nodemenu.c:260
+msgid "Select visited node: "
+msgstr "Valitse tarkasteltu solmu: "
+
+#: info/nodemenu.c:278
+#, c-format
+msgid "The reference disappeared! (%s)."
+msgstr "Viite katosi! (%s)."
+
+#: info/pcterm.c:223
+#, c-format
+msgid "Terminal cannot be initialized: %s\n"
+msgstr "Päätettä ei voida alustaa: %s\n"
+
+#: info/scan.c:736
+#, c-format
+msgid "Error converting file character encoding"
+msgstr "Virhe muunnettaessa tiedoston merkistökoodausta"
+
+#: info/search.c:203
+#, c-format
+msgid "regexp error: %s"
+msgstr "sääntölausekevirhe: %s"
+
+#: info/session.c:134
+msgid "Cannot find a window!"
+msgstr "Ikkunaa ei löydy!"
+
+#. TRANSLATORS: Try to keep this message (when "expanded") at most 79
+#. characters; anything after the 79th character will not actually be
+#. displayed on an 80-column terminal.
+#: info/session.c:178
+#, c-format
+msgid ""
+"Welcome to Info version %s.  Type \\[get-help-window] for help, \\[get-info-"
+"help-node] for tutorial."
+msgstr ""
+"Tervetuloa Infon versioon %s. Ohje: \\[get-help-window], opastus: \\[get-"
+"info-help-node]."
+
+#: info/session.c:301
+#, c-format
+msgid "Terminal type '%s' is not smart enough to run Info"
+msgstr "Tyypin \"%s\" pääte ei ole tarpeeksi älykäs Infolle"
+
+#: info/session.c:1029
+#, c-format
+msgid "Unknown command (%s)"
+msgstr "Tuntematon komento (%s)"
+
+#: info/session.c:1032
+#, c-format
+msgid "\"%s\" is invalid"
+msgstr "\"%s\" on virheellinen"
+
+#: info/session.c:1033
+#, c-format
+msgid "'%s' is invalid"
+msgstr "\"%s\" on virheellinen"
+
+#: info/session.c:1374
+msgid "Quit"
+msgstr "Lopeta"
+
+#: info/session.c:1453
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Tulostiedostoa ”%s” ei voi luoda"
+
+#: info/session.c:1479
+#, c-format
+msgid "error writing to %s: %s"
+msgstr "virhe kirjoitettaessa kohteeseen %s: %s"
+
+#: info/session.c:1488
+#, c-format
+msgid "closing %s"
+msgstr "suljetaan %s"
+
+#: info/session.c:1528
+#, c-format
+msgid "writing node %s..."
+msgstr "kirjoitetaan solmua %s..."
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Näytä kaikki osuvat tiedostot"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Ei tiedostoindeksiä"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Siirry alemmas seuraavalle riville"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Siirry ylemmäs edelliselle riville"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Siirrä kohdistin ikkunan määräriville"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Siirry rivin loppuun"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Siirry rivin alkuun"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Siirry solmun alkuun"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Siirry solmun loppuun"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Vieritä ikkunaa eteenpäin"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Vieritä ikkunaa taaksepäin"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Vieritä ikkunaa eteenpäin ja aseta ikkunan oletuskoko"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Vieritä ikkunaa taaksepäin ja aseta ikkunan oletuskoko"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Vieritä ikkunaa eteenpäin samassa solmussa pysyen"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Vieritä ikkunaa taaksepäin samassa solmussa pysyen"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Vieritä ikkunaa eteenpäin samassa solmussa pysyen ja aseta ikkunan oletuskoko"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Vieritä ikkunaa taaksepäin samassa solmussa pysyen ja aseta ikkunan "
+"oletuskoko"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Vieritä alas riveittäin"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Vieritä ylös riveittäin"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Vieritä alas puoli näytöllistä"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Vieritä ylös puoli näytöllistä"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Vieritä toista ikkunaa"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Vieritä toista ikkunaa taaksepäin"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Valitse seuraava ikkuna"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Valitse edellinen ikkuna"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Jaa nykyinen ikkuna"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Poista nykyinen ikkuna"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Viimeistä ikkunaa ei voi poistaa"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Pysyvää ikkunaa ei voi poistaa"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Poista kaikki muut ikkunat"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Suurenna (tai pienennä) tätä ikkunaa"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Jaa näyttöpinta-ala näkyvien ikkunoiden kesken"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Vaihda nykyisessä ikkunassa rivityksen tilaa"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Valitse tämä valikkokohta"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Valikossa ei ole %d kohdetta"
+msgstr[1] "Valikossa ei ole %d kohdetta"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Valitse tämän solmun valikon viimeinen kohde"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Valikkokohta (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Valikkokohta: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Seuraa viitettä (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Seuraa viitettä: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "Viite katosi! (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Lue valikkokohta ja valitse sen solmu"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "Lue alaviite tai viittaus ja valitse sen solmu"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Siirry tämän solmun valikon alkuun"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Käy niin monessa valikkokohdassa kerralla kuin mahdollista"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Siirry edelliseen ristiviittaukseen"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Siirry seuraavaan ristiviittaukseen"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Valitse tällä rivillä oleva viittaus tai valikkokohta"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Solmussa ”%s” ei ole valikkoa"
+
+#: info/session-cmd.c:1993
+#, fuzzy, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "%s-solmua ”%s” ei löytynyt"
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Lue hakemistosta alkaen luettelo valikoista ja seuraa niitä"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Seuraa valikoita: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Tässä solmussa ei ole \"%s\"-osoitinta"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Valitse Seuraava-solmu"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Valitse Edellinen-solmu"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Valitse Ylös-solmu"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Valitse tiedoston viimeinen solmu"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Ikkunassa ei ole lisäsolmuja"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Valitse tiedoston ensimmäinen solmu"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Olet jo solmun viimeisellä sivulla"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Asiakirjassa ei ole useampia solmuja"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Olet jo solmun ensimmäisellä sivulla"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Ei tälle solmulle tässä tiedostossa: \"Edell” tai ”Ylös”"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Siirry eteen- tai alaspäin solmurakenteessa"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Siirrä taakse- tai ylöspäin solmurakenteessa"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Lue solmun nimi ja valitse se"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Siirry solmuun: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Etsi ohjelman käynnistyksen kuvaava solmu"
+
+#: info/session-cmd.c:2717
+#, fuzzy, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "%s-solmua ”%s” ei löytynyt"
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Lue ja valitse man-sivuviittaus"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Nouda man-sivu: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Valitse tiedoston solmu ”Top”"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Valitse solmu ”(dir)”"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Näytä näytetyn solmun koko tiedostonimi"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Valitse viimeksi valittu solmu"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Historiassa ei ole aiempia solmuja"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Lue tiedoston nimi ja valitse se"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Etsi tiedosto: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Ei löydy: \"%s\""
+
+#: info/session-cmd.c:2862
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Putkita solmun sisältö INFO_PRINT_COMMANDin kautta"
+
+#: info/session-cmd.c:2890
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Ei voida avata putkea komennolle \"%s\""
+
+#: info/session-cmd.c:2895
+#, c-format
+msgid "printing node %s..."
+msgstr "tulostetaan solmua %s..."
+
+#: info/session-cmd.c:2903
+#, fuzzy, c-format
+msgid "finished printing node %s"
+msgstr "%s-solmua ”%s” ei löytynyt"
+
+#: info/session-cmd.c:2930
+#, fuzzy
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Hauissa käytetään säännöllisiä lausekkeita"
+
+#: info/session-cmd.c:2934
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Hauissa käytetään säännöllisiä lausekkeita"
+
+#: info/session-cmd.c:2935
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Hauissa käytetään merkkijonoliteraaleja"
+
+#: info/session-cmd.c:3138
+msgid "Search continued from the end of the document"
+msgstr "Hakua jatkettiin asiakirjan lopusta"
+
+#: info/session-cmd.c:3143
+msgid "Search continued from the beginning of the document"
+msgstr "Hakua jatkettiin asiakirjan alusta"
+
+#: info/session-cmd.c:3160
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Etsitään alitiedostoa %s..."
+
+#: info/session-cmd.c:3200 info/session-cmd.c:3469 info/session-cmd.c:3582
+#, c-format
+msgid "Search failed"
+msgstr "Haku epäonnistui"
+
+#: info/session-cmd.c:3220
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
+msgid "Regexp search"
+msgstr "Sääntölausekehaku"
+
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
+msgid "Search"
+msgstr "Etsi"
+
+#: info/session-cmd.c:3222 info/session-cmd.c:3228
+msgid " case-sensitively"
+msgstr ""
+
+#: info/session-cmd.c:3223 info/session-cmd.c:3229
+msgid " backward"
+msgstr " taaksepäin"
+
+#: info/session-cmd.c:3226
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3246
+msgid "Search string too short"
+msgstr "Liian lyhyt hakujono"
+
+#: info/session-cmd.c:3440
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "Palataan viimeisimpään osumaan kohteesta %s"
+
+#: info/session-cmd.c:3469 info/session-cmd.c:3582
+#, c-format
+msgid "No more matches"
+msgstr "Ei enempää osumia"
+
+#: info/session-cmd.c:3609
+msgid "Search this node and subnodes for a string"
+msgstr "Etsi merkkijonoa tästä solmusta alisolmuineen"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3616
+#, fuzzy, c-format
+msgid "Search under %s: "
+msgstr "\\%-10[search-previous]  Etsi aiempaa esiintymää.\n"
+
+#: info/session-cmd.c:3631
+msgid "Go to next match in Info sub-tree"
+msgstr "Siirry seuraavaan osumaan Info-alipuussa"
+
+#: info/session-cmd.c:3635 info/session-cmd.c:3647
+#, c-format
+msgid "No active search"
+msgstr "Ei aktiivista hakua"
+
+#: info/session-cmd.c:3643
+msgid "Go to previous match in Info sub-tree"
+msgstr "Siirry Infon alipuun edelliseen osumaan"
+
+#: info/session-cmd.c:3656
+#, fuzzy
+msgid "Read a string and search for it case-sensitively"
+msgstr "Lue merkkijono ja etsi sitä taaksepäin"
+
+#: info/session-cmd.c:3661
+msgid "Read a string and search for it"
+msgstr "Lue merkkijono ja etsi sitä"
+
+#: info/session-cmd.c:3667
+msgid "Read a string and search backward for it"
+msgstr "Lue merkkijono ja etsi sitä taaksepäin"
+
+#: info/session-cmd.c:3675
+msgid "Repeat last search in the same direction"
+msgstr "Toisto viimeisin haku samaan suuntaan"
+
+#: info/session-cmd.c:3689 info/session-cmd.c:3740
+msgid "No previous search string"
+msgstr "Ei aiempaa hakujonoa"
+
+#: info/session-cmd.c:3726
+msgid "Repeat last search in the reverse direction"
+msgstr "Toista viimeisin haku käänteissuuntaan"
+
+#: info/session-cmd.c:3779
+msgid "Clear displayed search matches"
+msgstr "Tyhjennä näytetyt osumat"
+
+#: info/session-cmd.c:3795 info/session-cmd.c:3801
+msgid "Search interactively for a string as you type it"
+msgstr "Hae merkkijonoa vuorovaikutteisesti kirjoittaessasi"
+
+#: info/session-cmd.c:3921
+#, fuzzy
+msgid "Regexp I-search backward: "
+msgstr "\\%-10[search-previous]  Etsi aiempaa esiintymää.\n"
+
+#: info/session-cmd.c:3922
+#, fuzzy
+msgid "I-search backward: "
+msgstr "\\%-10[search-previous]  Etsi aiempaa esiintymää.\n"
+
+#: info/session-cmd.c:3924
+#, fuzzy
+msgid "Regexp I-search: "
+msgstr "\\%-10[search-previous]  Etsi aiempaa esiintymää.\n"
+
+#: info/session-cmd.c:3925
+msgid "I-search: "
+msgstr "I-haku: "
+
+#: info/session-cmd.c:3950 info/session-cmd.c:3953
+msgid "Failing "
+msgstr "Epäonnistuu "
+
+#: info/session-cmd.c:4320
+msgid "Cancel current operation"
+msgstr "Peru nykyinen toimenpide"
+
+#: info/session-cmd.c:4326
+msgid "Display version of Info being run"
+msgstr "Näytä suoritettavan Infon versio"
+
+#: info/session-cmd.c:4328
+#, c-format
+msgid "GNU Info version %s"
+msgstr "GNU Infon versio %s"
+
+#: info/session-cmd.c:4333
+msgid "Redraw the display"
+msgstr "Piirrä näyttö uudelleen"
+
+#: info/session-cmd.c:4370
+msgid "Quit using Info"
+msgstr "Lopeta Infon käyttö"
+
+#: info/session-cmd.c:4386
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Suorita tämän näppäimen pienaakkosmuunnelmaan kytketty komento"
+
+#: info/session-cmd.c:4391
+msgid "Add this digit to the current numeric argument"
+msgstr "Lisää tämä numero nykyiseen numeeriseen argumenttiin"
+
+#: info/session-cmd.c:4398
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Käynnistä (tai kerro 4:llä) nykyinen numeerinen argumentti"
+
+#: info/variables.c:70
+msgid "When \"On\", footnotes appear and disappear automatically"
+msgstr "Kun käytössä, alaviitteet näytetään ja piilotetaan automaattisesti"
+
+#: info/variables.c:74
+msgid "When \"On\", creating or deleting a window resizes other windows"
+msgstr "Kun käytössä, ikkunan luominen tai poistaminen vaikuttaa muiden kokoon"
+
+#: info/variables.c:78
+msgid "When \"On\", flash the screen instead of ringing the bell"
+msgstr "Kun käytössä, näyttöä välkytetään kellon soiton sijaan"
+
+#: info/variables.c:82
+msgid "When \"On\", errors cause the bell to ring"
+msgstr "Kun käytössä, virheet aiheuttavat kellon soiton"
+
+#: info/variables.c:86
+msgid "When \"On\", Info garbage collects files which had to be uncompressed"
+msgstr ""
+"Kun käytössä, Info kerää roskat tiedostoista, joiden pakkaus täytyi purkaa"
+
+#: info/variables.c:90
+msgid "When \"On\", the portion of the matched search string is highlighted"
+msgstr "Kun käytössä, osa täsmäävästä merkkijonosta korostetaan"
+
+#: info/variables.c:94
+msgid "Controls what happens when scrolling is requested at the end of a node"
+msgstr "Asettaa mitä tapahtuu yritettäessä vierittää solmun lopun ohi"
+
+#: info/variables.c:99
+msgid "Same as scroll-behaviour"
+msgstr "Kuten vierityskäyttäytyminen"
+
+#: info/variables.c:103
+msgid "The number lines to scroll when the cursor moves out of the window"
+msgstr "Montako riviä vierittää kohdistimen siirryttyä pois ikkunasta"
+
+#: info/variables.c:107
+msgid "Controls whether scroll-behavior affects cursor movement commands"
+msgstr ""
+"Asettaa miten vieritystoiminta vaikuttaa kohdistinta liikuttaviin komentoihin"
+
+#: info/variables.c:111
+msgid "When \"On\", Info accepts and displays ISO Latin characters"
+msgstr "Kun käytössä, Info hyväksyy ja näyttää ISO Latin -merkit"
+
+#: info/variables.c:115
+msgid ""
+"What to do when a scrolling command is issued at the end of the last node"
+msgstr "Mitä tehdä, kun vierityskomento annetaan viimeisen solmun lopussa"
+
+#: info/variables.c:120
+msgid "Minimal length of a search string"
+msgstr "Hakujonon vähimmäispituus"
+
+#: info/variables.c:124
+msgid "Skip current window when searching"
+msgstr "Ohita nykyinen ikkuna etsittäessä"
+
+#: info/variables.c:128
+msgid "Exclude default directories from file search path"
+msgstr "Ohita oletuskansiot tiedostonhakupolusta"
+
+#: info/variables.c:132
+msgid "Hide some Info file syntax in the text of nodes"
+msgstr "Piilota osa Info-syntaksista solmujen tekstistä"
+
+#: info/variables.c:136
+msgid ""
+"Length of time in milliseconds to wait for the next byte in a sequence "
+"indicating that a key has been pressed"
+msgstr ""
+"Aika millisekunteina, joka odotetaan seuraavan näppäimen painallusta "
+"osoittavan sekvenssin seuraavaa tavua"
+
+#: info/variables.c:140
+msgid "Method to use to track mouse events"
+msgstr "Hiiritapahtumien jäljitystapa"
+
+#: info/variables.c:144
+msgid "How to follow a cross-reference"
+msgstr "Ristiviitteiden seuraamistapa"
+
+#: info/variables.c:148
+msgid "Highlight search matches"
+msgstr "Korosta haun osumat"
+
+#: info/variables.c:152
+msgid "Styles for links"
+msgstr "Linkkien tyylit"
+
+#: info/variables.c:156
+msgid "Styles for active links"
+msgstr "Aktiivisten linkkien tyylit"
+
+#: info/variables.c:160
+msgid "Styles for search matches"
+msgstr "Hakuosumien tyylit"
+
+#: info/variables.c:164
+msgid "How to print the information line at the start of a node"
+msgstr "Miten tulostaa solmun alun tietorivi"
+
+#: info/variables.c:168
+msgid "Always pass through non-ASCII UTF-8 bytes in files to terminal"
+msgstr "Välitä aina tiedostojen ASCIIhin kuulumattomat UTF-8-tavut päätteelle"
+
+#: info/variables.c:282
+msgid "Explain the use of a variable"
+msgstr "Selitä muuttujan käyttö"
+
+#: info/variables.c:288
+msgid "Describe variable: "
+msgstr "Kuvaa muuttuja: "
+
+#: info/variables.c:297
+msgid "Set the value of an Info variable"
+msgstr "Aseta Info-muuttujan arvo"
+
+#: info/variables.c:304
+msgid "Set variable: "
+msgstr "Aseta muuttuja: "
+
+#: info/variables.c:320
+#, c-format
+msgid "Set %s to value (%d): "
+msgstr "Aseta %s arvoon (%d): "
+
+#: info/variables.c:361
+#, c-format
+msgid "Set %s to value (%s): "
+msgstr "Aseta %s arvoon (%s): "
+
+#: info/window.c:924
+msgid "-----Info: (), lines ----, "
+msgstr "-----Info: (), rivit ----, "
+
+#: install-info/install-info.c:302
+#, c-format
+msgid "%s: empty file"
+msgstr "%s: tyhjä tiedosto"
+
+#: install-info/install-info.c:304
+#, fuzzy, c-format
+msgid "%s for %s"
+msgstr ""
+"Kirjoittaneet %s, %s, %s,\n"
+"%s ja %s.\n"
+
+#: install-info/install-info.c:506
+#, c-format
+msgid "\tTry `%s --help' for a complete list of options.\n"
+msgstr "\tTäydellisen valitsinluettelon saat komennolla \"%s --help\".\n"
+
+#: install-info/install-info.c:514
+#, c-format
+msgid "Usage: %s [OPTION]... [INFO-FILE [DIR-FILE]]\n"
+msgstr "Käyttö: %s [VALITSIN]... [INFOTSTO [KANSIOTSTO]]\n"
+
+#: install-info/install-info.c:516
+msgid "Add or remove entries in INFO-FILE from the Info directory DIR-FILE."
+msgstr "Lisää tai poista kohtia INFOTSTOn Info-hakemistosta HAKTSTO."
+
+#: install-info/install-info.c:517
+msgid ""
+"INFO-FILE and DIR-FILE are required unless the --info-file\n"
+"or --dir-file (or --info-dir) options are given, respectively."
+msgstr ""
+"INFOTSTO ja HAKTSTO vaaditaan, ellei --info-file- tai\n"
+"--dir-file- (tai --info-dir-) -valitsimia ole annettu."
+
+#: install-info/install-info.c:521
+msgid ""
+"Options:\n"
+" --add-once          add only to first matching section, not all.\n"
+" --align=COL         start description of new entries at column COL.\n"
+" --calign=COL        format second and subsequent description lines to\n"
+"                       start at column COL."
+msgstr ""
+"Valitsimet:\n"
+" --add-once          lisää vain ensimmäinen osuva osio, ei kaikkia.\n"
+" --align=SAR         aloita uusien kohtien kuvauksen sarakkeesta SAR.\n"
+" --calign=SAR        muotoile toisesta kuvausrivistä alkaen rivit\n"
+"                       alkamaan sarakkeesta SAR."
+
+#: install-info/install-info.c:528
+msgid ""
+" --debug             report what is being done.\n"
+" --delete            delete existing entries for INFO-FILE from DIR-FILE;\n"
+"                      don't insert any new entries.\n"
+" --defsection=TEXT   like --section, but only use TEXT if no sections\n"
+"                      are present in INFO-FILE (replacing "
+"\"Miscellaneous\").\n"
+" --description=TEXT  the description of the entry is TEXT; used with\n"
+"                      the --name option to become synonymous with the\n"
+"                      --entry option.\n"
+" --dir-file=NAME     specify file name of Info directory file;\n"
+"                      equivalent to using the DIR-FILE argument.\n"
+" --dry-run           same as --test."
+msgstr ""
+" --debug             kerro mitä tehdään.\n"
+" --delete            poista olemassa olevat INFOTSTOn kohdat HAKTSTOSTA;\n"
+"                      älä lisää uusia kohtia.\n"
+" --defsection=TEKSTI  kuten --section, mutta käyttää TEKSTIä, ellei\n"
+"                      INFOTSTOssa ole osioita (ja korvaa ”Sekalaiset”).\n"
+" --description=TEKSTI kohdan kuvaus on TEKSTI; käytetään yhdessä --name-\n"
+"                      valitsimen kanssa, jolloin merkitsee samaa kuin\n"
+"                      --entry-valitsin.\n"
+" --dir-file=NIMI     määritä Info-hakemistotiedoston nimi; sama kuin\n"
+"                      käyttäisi HAKTSTO-parametria.\n"
+" --dry-run           sama kuin --test."
+
+#: install-info/install-info.c:541
+msgid ""
+" --entry=TEXT        insert TEXT as an Info directory entry,\n"
+"                      overriding any corresponding entry from DIR-FILE.\n"
+"                      TEXT is written as an Info menu item line followed\n"
+"                       by zero or more extra lines starting with "
+"whitespace.\n"
+"                      If you specify more than one entry, all are added.\n"
+"                      If you don't specify any entries, they are determined\n"
+"                       from information in the Info file itself."
+msgstr ""
+" --entry=TEKSTI      lisää TEKSTI Infon hakemistotietueeksi ja\n"
+"                      ohita mahdollinen vastaava tietue HAK-TSTOsta.\n"
+"                      TEKSTI kirjoitetaan Info-valikkoriviksi, jota seuraa\n"
+"                       nollasta useampaan tyhjemerkkiriviä.\n"
+"                      Jos annetaan useampi tietue, kaikki lisätään.\n"
+"                      Ellei tietueita anna, ne määritetään\n"
+"                       Info-tiedoston itsensä sisällöstä."
+
+#: install-info/install-info.c:550
+msgid ""
+" --help              display this help and exit.\n"
+" --info-dir=DIR      same as --dir-file=DIR/dir.\n"
+" --info-file=FILE    specify Info file to install in the directory;\n"
+"                      equivalent to using the INFO-FILE argument.\n"
+" --item=TEXT         same as --entry=TEXT.\n"
+" --keep-old          do not replace entries, or remove empty sections."
+msgstr ""
+" --help              näytä tämä ohje ja lopeta.\n"
+" --info-dir=HAK      sama kuin --dir-file=HAK/hak.\n"
+" --info-file=TSTO    määritä hakemistoon asennettava Info-tiedosto;\n"
+"                      vastaa INFO-FILE-argumentin käyttämistä.\n"
+" --item=TEKSTI       sama kuin --entry=TEKSTI.\n"
+" --keep-old          älä korvaa tietueita tai poista tyhjiä osioita."
+
+#: install-info/install-info.c:558
+msgid ""
+" --maxwidth, --max-width=COL  wrap description at column COL.\n"
+" --menuentry=TEXT    same as --name=TEXT.\n"
+" --name=TEXT         the name of the entry is TEXT; used with --description\n"
+"                      to become synonymous with the --entry option.\n"
+" --no-indent         do not format new entries in the DIR file.\n"
+" --quiet             suppress warnings."
+msgstr ""
+" --maxwidth, --max-width=SAR  rivitä kuvaus sarakkeesta SAR.\n"
+" --menuentry=TEKSTI  sama kuin --name=TEKSTI.\n"
+" --name=TEKSTI       tietueen nimi on TEKSTI; käytetään --description-\n"
+"                      valitsimen kanssa samassa merkityksessä kuin --entry.\n"
+" --no-indent         älä muotoile HAK-tiedoston uusia tietueita.\n"
+" --quiet             vaienna varoitukset."
+
+#: install-info/install-info.c:566
+msgid ""
+" --regex=R           put this file's entries in all sections that match the\n"
+"                      regular expression R (ignoring case).\n"
+" --remove            same as --delete.\n"
+" --remove-exactly    only remove if the info file name matches exactly;\n"
+"                      suffixes such as .info and .gz are not ignored.\n"
+" --section=SEC       put entries in section SEC of the directory.\n"
+"                      If you specify more than one section, all the entries\n"
+"                       are added in each of the sections.\n"
+"                      If you don't specify any sections, they are "
+"determined\n"
+"                       from information in the Info file itself;\n"
+"                       if nothing is available there, the --defsection\n"
+"                       value is used; if that is not specified, the\n"
+"                       final default is \"Miscellaneous\".\n"
+" --section R SEC     equivalent to --regex=R --section=SEC --add-once."
+msgstr ""
+" --regex=R           anna kaikista osioista tämän tiedoston tietueet, jotka "
+"vastaavat\n"
+"                      säännöllistä lauseketta R (kirjaintasosta "
+"riippumatta).\n"
+" --remove            sama kuin --delete.\n"
+" --remove-exactly    poista vain, jos Info-tiedoston nimi täsmää "
+"tarkalleen;\n"
+"                      päätteitä kuten .info tai .gz ei sivuuteta.\n"
+" --section=OSIO      anna hakemiston osion OSIO tietueet.\n"
+"                      Jos useampi kuin yksi osio on annettu, kunkin osion\n"
+"                       kaikki tietueet lisätään.\n"
+"                      Ellei osioita anneta ne määritetään Info-tiedoston\n"
+"                       itsensä tiedoista;\n"
+"                       ellei siellä ole mitään, käytetään --defsection-"
+"arvoa\n"
+"                       ellei sitä ole määritetty, lopullinen oletus on\n"
+"                       ”Miscellaneous”.\n"
+" --section R OSIO    sama kuin --regex=R --section=OSIO --add-once."
+
+#: install-info/install-info.c:582
+msgid ""
+" --silent            suppress warnings.\n"
+" --test              suppress updating of DIR-FILE.\n"
+" --version           display version information and exit."
+msgstr ""
+" --silent            piilota varoitukset.\n"
+" --test              älä päivitä DIR-FILEä.\n"
+" --version           näytä versiotiedot ja lopeta."
+
+#: install-info/install-info.c:589 Pod-Simple-Texinfo/pod2texi.pl:193
+#: tta/perl/texi2any.pl:1180 tta/C/texi2any.c:2135
+msgid ""
+"Email bug reports to bug-texinfo@gnu.org,\n"
+"general questions and discussion to help-texinfo@gnu.org.\n"
+"Texinfo home page: https://www.gnu.org/software/texinfo/"
+msgstr ""
+"Lähetä vikailmoitukset sähköpostitse: bug-texinfo@gnu.org,\n"
+"yleiset kysymykset ja keskustelu: help-texinfo@gnu.org.\n"
+"Texinfon kotisivu: https://www.gnu.org/software/texinfo/"
+
+#: install-info/install-info.c:615
+#, c-format
+msgid ""
+"This is the file .../info/dir, which contains the\n"
+"topmost node of the Info hierarchy, called (dir)Top.\n"
+"The first time you invoke Info you start off looking at this node.\n"
+"%c\n"
+"%s\tThis is the top of the INFO tree\n"
+"\n"
+"  This (the Directory node) gives a menu of major topics.\n"
+"  Typing \"q\" exits, \"H\" lists all Info commands, \"d\" returns here,\n"
+"  \"h\" gives a primer for first-timers,\n"
+"  \"mEmacs<Return>\" visits the Emacs manual, etc.\n"
+"\n"
+"  In Emacs, you can click mouse button 2 on a menu item or cross reference\n"
+"  to select it.\n"
+"\n"
+"%s\n"
+msgstr ""
+"Tämä on .../info/dir-tiedosto, joka sisältää Info-\n"
+"hierarkian ylimmän solmun, (dir)Top. Käynnistettäessä\n"
+"Info ensi kertaa tullaan tähän solmuun.\n"
+"%c\n"
+"%s\tTämä on INFO-puun huippu\n"
+"\n"
+"\n"
+"  Tämä (hakemistosolmu) näyttää pääaiheiden valikon.\n"
+"  ”q” lopettaa, ”H” luettelee kaikki Info-komennot, ”d” palaa\n"
+"  tähän, ”h” näyttää ensikertalaisopasteen,\n"
+"  ”mEmacs<Return>” siirtyy Emacs-käsikirjaan jne.\n"
+"\n"
+"  Emacsissa voi valita valikkokohdan tai viittauksen napsauttamalla\n"
+"  hiiren kakkospainiketta.\n"
+"\n"
+"%s\n"
+
+#: install-info/install-info.c:639
+#, fuzzy, c-format
+msgid "%s: could not read (%s) and could not create (%s)"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: install-info/install-info.c:1184 install-info/install-info.c:1226
+#, c-format
+msgid "START-INFO-DIR-ENTRY without matching END-INFO-DIR-ENTRY"
+msgstr ""
+
+#: install-info/install-info.c:1221
+#, c-format
+msgid "END-INFO-DIR-ENTRY without matching START-INFO-DIR-ENTRY"
+msgstr ""
+
+#: install-info/install-info.c:2106 install-info/install-info.c:2116
+#, fuzzy, c-format
+msgid "%s: already have dir file: %s\n"
+msgstr "Luetaan fonttitiedostoa %s"
+
+#: install-info/install-info.c:2212
+#, c-format
+msgid "%s: Specify the Info file only once.\n"
+msgstr "%s: Anna Info-tiedosto vain kerran.\n"
+
+#: install-info/install-info.c:2245
+#, c-format
+msgid "Extra regular expression specified, ignoring `%s'"
+msgstr "Annettu ylimääräinen säännöllinen lauseke, ”%s” sivuutetaan"
+
+#: install-info/install-info.c:2257
+#, c-format
+msgid "Error in regular expression `%s': %s"
+msgstr "Virhe sääntölausekkeessa \"%s\": %s"
+
+#: install-info/install-info.c:2319
+#, c-format
+msgid "excess command line argument `%s'"
+msgstr "ylimääräinen komentoriviparametri ”%s”"
+
+#: install-info/install-info.c:2323
+#, c-format
+msgid "No input file specified; try --help for more information."
+msgstr "Syötetiedostoa ei annettu: --help antaa lisäohjeita."
+
+#: install-info/install-info.c:2325
+#, c-format
+msgid "No dir file specified; try --help for more information."
+msgstr "Hakemistotiedostoa ei annettu: --help saattaa auttaa."
+
+#: install-info/install-info.c:2346
+#, c-format
+msgid "Could not read %s."
+msgstr "Ei voida lukea: %s."
+
+#: install-info/install-info.c:2493
+#, fuzzy, c-format
+msgid "no info dir entry in `%s'"
+msgstr "  info                         näytä ylimmän tason hakemistovalikko"
+
+#: install-info/install-info.c:2741
+#, fuzzy, c-format
+msgid "no entries found for `%s'; nothing deleted"
+msgstr "Ei löydetty mitään tallennettavaa"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:159
+msgid "Usage: pod2texi [OPTION]... POD..."
+msgstr "Käyttö: pod2texi [VALITSIN]... POD..."
+
+#: Pod-Simple-Texinfo/pod2texi.pl:161
+msgid ""
+"Translate Perl Pod documentation file(s) to Texinfo.  There are two\n"
+"basic modes of operation.  First, by default, each Pod is translated to\n"
+"a standalone Texinfo manual.\n"
+"\n"
+"Second, if --base-level is set higher than 0, each Pod is translated\n"
+"to a file suitable for @include, and one more file with a main menu\n"
+"and all the @include is generated."
+msgstr ""
+"Käännä Perlin pod-ohjetiedosto(t) Texinfoksi. Perustoimintatapoja on\n"
+"kaksi. Oletusarvoisesti ensin kukin pod käännetään itsenäiseksi\n"
+"Texinfo-ohjeeksi.\n"
+"\n"
+"Jos taas --base-level on asetettu yli 0:ksi, kukin pod käännetään\n"
+"muotoon, joka sopii @includelle, minkä jälkeen luodaan vielä yksi\n"
+"tiedosto, jossa on päävalikko ja kaikki @includet."
+
+#: Pod-Simple-Texinfo/pod2texi.pl:169
+msgid ""
+"Options:\n"
+"    --appendix-sections     use appendix-like sections"
+msgstr ""
+"Valitsimet:\n"
+"    --appendix-sections     käytä liitteen kaltaisia osioita"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:171
+msgid "    --base-level=NUM|NAME   level of the head1 commands; default 0"
+msgstr "    --base-level=N|NIMI     head1-komentojen taso; oletus 0"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:172
+msgid "    --debug=NUM             set debugging level"
+msgstr "    --debug=LUKU            aseta vianjäljitystaso"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:173
+msgid ""
+"    --generate-setfilename  generate @setfilename for standalone\n"
+"                              manuals"
+msgstr ""
+"    --generate-setfilename  tuota @setfilename itsenäisille\n"
+"                              käsikirjoille"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:175
+#, fuzzy
+msgid "    --headings-as-sections  no structuring command for sections"
+msgstr "    --unnumbered-sections   älä numeroi osioita"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:176
+msgid "    --help                  display this help and exit"
+msgstr "    --help                  näytä tämä ohje ja lopeta"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:177
+msgid "    --no-fill-section-gaps  do not fill sectioning gaps"
+msgstr "    --no-fill-section-gaps  älä täytä osioinnin aukkoja"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:178
+msgid "    --no-section-nodes      use anchors for sections instead of nodes"
+msgstr "    --no-section-nodes      käytä osioille ankkureita solmujen sijaan"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:179
+msgid "    --menus                 generate node menus"
+msgstr "    --menus                 luo solmuvalikot"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:180
+msgid ""
+"    --outdir=NAME           output included files in NAME;\n"
+"                              defaults to --subdir"
+msgstr ""
+"    --outdir=NIMI           tulosteeseen sisältyy tiedostoja NIMESTÄ;\n"
+"                              oletus on --subdir"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:182
+msgid ""
+"    --output=NAME           output to NAME for the first or main manual\n"
+"                              instead of standard output"
+msgstr ""
+"    --output=NIMI           tulosta ensimmäinen tai pääkäsikirja NIMEEN\n"
+"                              vakiotulosvirran sijaan"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:184
+#, fuzzy
+#| msgid "    --preamble=STR          insert STR as beginning boilerplate"
+msgid ""
+"    --preamble=STR          insert STR as beginning boilerplate;\n"
+"                              defaults to a minimal Texinfo document "
+"beginning"
+msgstr "    --preamble=JONO         insert STR as beginning boilerplate"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:186
+#, fuzzy
+#| msgid "    --top                   top for the main manual"
+msgid "    --setfilename           @setfilename for the main manual"
+msgstr "    --top                   pääohjeen alku"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:187
+#, fuzzy
+#| msgid ""
+#| "    --subdir=NAME           put files included in the main manual in NAME"
+msgid "    --subdir=NAME           include files from NAME in the main manual"
+msgstr ""
+"    --subdir=NIMI           vie pääoppaaseen sisällytetyt tiedostot kansioon "
+"NIMI"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:188
+msgid "    --top                   top for the main manual"
+msgstr "    --top                   pääohjeen alku"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:189
+msgid "    --unnumbered-sections   do not number sections"
+msgstr "    --unnumbered-sections   älä numeroi osioita"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:190
+msgid "    --version               display version information and exit"
+msgstr "    --version               näytä versiotiedot ja lopeta"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:219 tta/perl/texi2any.pl:1194
+#: tta/C/texi2any.c:1684
+#, c-format, perl-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law."
+msgstr ""
+"Tekijänoikeudet © %s Free Software Foundation, Inc.\n"
+"Lisenssi GPLv3+: GNU GPL:n versio 3 tai myöhempi <https://gnu.org/licenses/"
+"gpl.html>\n"
+"Tämä on vapaata ohjelmistoa: voit vapaasti muuttaa tai jakaa sitä "
+"eteenpäin.\n"
+"TAKUUTA ei ole, siinä määrin kuin laki tämän sallii."
+
+#: Pod-Simple-Texinfo/pod2texi.pl:230
+#, perl-format
+msgid "%s: wrong argument for --base-level"
+msgstr "%s: virheellinen --base-level-argumentti"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:259
+#, perl-format
+msgid "%s: could not create directory %s: %s"
+msgstr "%s: ei voitu luoda kansiota %s: %s"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:273
+#, perl-format
+msgid "%s: missing file argument"
+msgstr "%s: tiedostoargumentti puuttuu"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:274 tta/perl/texi2any.pl:1726
+#: tta/C/texi2any.c:2549
+#, c-format, perl-format
+msgid "Try `%s --help' for more information."
+msgstr "Lisätietoa saa komennolla ”%s --help”."
+
+#: Pod-Simple-Texinfo/pod2texi.pl:300
+#, perl-format
+msgid "%s: warning: %s without content"
+msgstr "%s: varoitus: %s vailla sisältöä"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:315
+#, perl-format
+msgid "%s: same manual name `%s' for different files: %s and %s"
+msgstr "%s: eri tiedostoilla sama käsikirjan nimi ”%s”: %s ja %s"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:536 Pod-Simple-Texinfo/pod2texi.pl:644
+#: tta/perl/texi2any.pl:2229 tta/perl/texi2any.pl:2348
+#, fuzzy, perl-format
+#| msgid "%s: could not open %s for writing: %s\n"
+msgid "%s: could not open %s for writing: %s"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:582
+#, fuzzy, perl-format
+#| msgid "%s: could not open %s: %s\n"
+msgid "%s: could not open %s: %s"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:595 Pod-Simple-Texinfo/pod2texi.pl:693
+#: tta/perl/texi2any.pl:2182 tta/perl/texi2any.pl:2402
+#: tta/C/convert/texinfo.c:786
+#, fuzzy, c-format, perl-format
+#| msgid "%s: error on closing %s: %s\n"
+msgid "%s: error on closing %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:601
+#, fuzzy, perl-format
+#| msgid "%s: ignoring %s without content\n"
+msgid "%s: removing %s as input file %s has no content"
+msgstr "syötetiedosto %s: tarkoititko %s?"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:630
+#, fuzzy, perl-format
+#| msgid "%s: obsolete variable %s\n"
+msgid "%s: rename %s failed: %s"
+msgstr "%s : lohkon varaaminen epäonnistui\n"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:699
+#, fuzzy, perl-format
+#| msgid "%s: error on closing stdout: %s\n"
+msgid "%s: error on closing stdout: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/Texinfo/Common.pm:475 tta/C/parsetexi/end_line.c:1488
+#, c-format, perl-format
+msgid "%s is not a valid language code"
+msgstr "%s ei ole kelvollinen kielikoodi"
+
+#: tta/perl/Texinfo/Common.pm:480 tta/C/parsetexi/end_line.c:1494
+#, c-format, perl-format
+msgid "%s is not a valid region code"
+msgstr "%s ei ole kelvollinen aluekoodi"
+
+#: tta/perl/Texinfo/Config.pm:171 tta/perl/texi2any.pl:635
+#, fuzzy, perl-format
+#| msgid "%s: error on closing %s: %s\n"
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "Varoitus"
+
+#: tta/perl/Texinfo/Config.pm:179
+#, fuzzy, perl-format
+msgctxt "program name: error_message"
+msgid "%s: %s"
+msgstr ""
+"Kirjoittaneet %s, %s, %s,\n"
+"%s ja %s.\n"
+
+#: tta/perl/Texinfo/Config.pm:201
+#, perl-format
+msgid "error parsing %s: %s"
+msgstr "jäsennysvirhe: %s: %s"
+
+#: tta/perl/Texinfo/Config.pm:205 tta/C/convert/convert_html.c:2730
+#, c-format, perl-format
+msgid "error reading %s: %s"
+msgstr "lukuvirhe: %s: %s"
+
+#: tta/perl/Texinfo/Config.pm:226
+#, fuzzy, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+"Kirjoittaneet %s, %s, %s,\n"
+"%s ja %s.\n"
+
+#: tta/perl/Texinfo/Config.pm:232
+#, fuzzy, perl-format
+#| msgid "%s: error on closing %s: %s\n"
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "Varoitus"
+
+#: tta/perl/Texinfo/Config.pm:270
+#, perl-format
+msgid "obsolete option: %s"
+msgstr "vanhentunut valitsin: %s"
+
+#: tta/perl/Texinfo/Config.pm:294
+#, perl-format
+msgid "%s: unknown variable %s"
+msgstr "%s: tuntematon muuttuja %s"
+
+#: tta/perl/Texinfo/Config.pm:317
+#, fuzzy, perl-format
+#| msgid "%s: unknown variable %s"
+msgid "unknown variable from command line: %s"
+msgstr "tuntematon mukautusmuuttuja: %s"
+
+#: tta/perl/Texinfo/Config.pm:640 tta/perl/Texinfo/Config.pm:681
+#: tta/perl/Texinfo/Config.pm:699 tta/perl/Texinfo/Config.pm:725
+#: tta/perl/Texinfo/Config.pm:750
+#, fuzzy, perl-format
+#| msgid "%s: unknown variable %s"
+msgid "%s: unknown formatting context %s"
+msgstr "tuntematon mukautusmuuttuja: %s"
+
+#: tta/perl/Texinfo/Config.pm:870
+#, fuzzy, perl-format
+#| msgid "unknown tree transformation %s"
+msgid "%s: unknown special element information type %s"
+msgstr "tex4ht.pm: tuntematon @latex-muunnostyyppi: %s"
+
+#: tta/perl/Texinfo/Document.pm:689 tta/C/main/targets.c:158
+#: tta/C/parsetexi/labels.c:122
+#, c-format, perl-format
+msgid "@%s `%s' previously defined"
+msgstr "@%s ”%s” määritelty aiemmin"
+
+#: tta/perl/Texinfo/Document.pm:695 tta/C/main/targets.c:164
+#: tta/C/parsetexi/labels.c:128
+#, c-format, perl-format
+msgid "here is the previous definition as @%s"
+msgstr "tässä on aiempi määritelmä muodossa @%s"
+
+#: tta/perl/Texinfo/Convert/Converter.pm:425
+#: tta/perl/Texinfo/Convert/HTML.pm:12200
+#: tta/perl/Texinfo/Convert/HTML.pm:13262
+#: tta/perl/Texinfo/Convert/HTML.pm:13532 tta/perl/Texinfo/Convert/Info.pm:429
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1181
+#: tta/perl/Texinfo/Convert/Plaintext.pm:784
+#: tta/perl/Texinfo/Convert/Plaintext.pm:839
+#: tta/perl/Texinfo/Convert/Text.pm:1116 tta/perl/Texinfo/Example/IXIN.pm:358
+#: tta/perl/texi2any.pl:1875 tta/perl/texi2any.pl:1958
+#: tta/perl/texi2any.pl:2095 tta/C/convert/converter.c:726
+#: tta/C/convert/convert_html.c:2082 tta/C/convert/convert_html.c:2523
+#: tta/C/convert/rawtext_converter_api.c:232
+#, c-format, perl-format
+msgid "could not open %s for writing: %s"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: tta/perl/Texinfo/Convert/Converter.pm:451
+#: tta/perl/Texinfo/Convert/HTML.pm:12195
+#: tta/perl/Texinfo/Convert/HTML.pm:13285 tta/perl/Texinfo/Convert/Info.pm:235
+#: tta/perl/Texinfo/Convert/Info.pm:267 tta/perl/Texinfo/Convert/Info.pm:322
+#: tta/perl/Texinfo/Convert/Info.pm:400 tta/perl/Texinfo/Convert/LaTeX.pm:1267
+#: tta/perl/Texinfo/Convert/Plaintext.pm:812
+#: tta/perl/Texinfo/Convert/Plaintext.pm:860
+#: tta/perl/Texinfo/Convert/Text.pm:1145 tta/perl/Texinfo/Example/IXIN.pm:1040
+#: tta/perl/Texinfo/ParserNonXS.pm:2687 tta/C/convert/converter.c:796
+#: tta/C/convert/convert_html.c:2147 tta/C/convert/convert_html.c:2562
+#: tta/C/convert/rawtext_converter_api.c:269 tta/C/parsetexi/input.c:353
+#, c-format, perl-format
+msgid "error on closing %s: %s"
+msgstr "virhe suljettaessa: %s: %s"
+
+#: tta/perl/Texinfo/Convert/Converter.pm:760
+#: tta/perl/Texinfo/Convert/Converter.pm:776
+#: tta/perl/Texinfo/Convert/Converter.pm:797
+#, perl-format
+msgid "unknown customization variable: %s"
+msgstr "tuntematon mukautusmuuttuja: %s"
+
+#: tta/perl/Texinfo/Convert/Converter.pm:1181
+#: tta/perl/Texinfo/Convert/Text.pm:1070 tta/perl/Texinfo/Convert/Text.pm:1092
+#: tta/C/convert/converter.c:1048
+#, c-format, perl-format
+msgid "could not create directory `%s': %s"
+msgstr "ei voitu luoda kansiota ”%s”: %s"
+
+#: tta/perl/Texinfo/Convert/Converter.pm:1643
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
+#, perl-format
+msgid "error on closing image text file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/Texinfo/Convert/Converter.pm:1652
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
+#, perl-format
+msgid "@image file `%s' unreadable: %s"
+msgstr "@image-tiedostoa ”%s” ei voi lukea: %s"
+
+#: tta/perl/Texinfo/Convert/DocBook.pm:1528
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1626
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1624
+#, perl-format
+msgid "@image file `%s' not found, using `%s'"
+msgstr "@image-tiedostoa ”%s” ei löytynyt, käytetään ”%s”"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:404
+#: tta/C/convert/html_prepare_converter.c:739
+#, fuzzy, c-format, perl-format
+msgid "not setting an unknown direction: %s"
+msgstr "tuntematon mukautusmuuttuja: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:3673 tta/perl/ext/epub3.pm:287
+#: tta/C/convert/format_html.c:6741
+#, c-format, perl-format
+msgid "@image file `%s' (for HTML) not found, using `%s'"
+msgstr "@image-tiedostoa ”%s” (HTML:lle) ei löytynyt, käytetään ”%s”"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:4814 tta/C/convert/format_html.c:8303
+#, c-format, perl-format
+msgid "raw format %s is not converted"
+msgstr "raakamuotoa %s ei muunneta"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:6499 tta/C/convert/format_html.c:10706
+#, c-format, perl-format
+msgid "entry for index `%s' for @printindex %s outside of any node"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/HTML.pm:6530 tta/C/convert/format_html.c:10746
+#, c-format, perl-format
+msgid "entry for index `%s' for @printindex %s outside of any section"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/HTML.pm:8491
+#: tta/C/convert/html_prepare_converter.c:1009
+#, c-format, perl-format
+msgid "could not open html refs config file %s: %s"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/HTML.pm:8520
+#: tta/C/convert/html_prepare_converter.c:1119
+#, c-format, perl-format
+msgid "missing type"
+msgstr "tyyppi puuttuu"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:8524
+#: tta/C/convert/html_prepare_converter.c:1130
+#, c-format, perl-format
+msgid "unrecognized type: %s"
+msgstr "tuntematon tyyppi: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:8562
+#: tta/C/convert/html_prepare_converter.c:1229
+#, fuzzy, c-format, perl-format
+msgid "error on closing html refs config file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:8588
+#: tta/C/convert/html_prepare_converter.c:1270
+#, fuzzy, c-format, perl-format
+#| msgid "could not read init file %s"
+msgid "could not find html refs config file %s"
+msgstr "alustustiedostoa %s ei voitu lukea"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:8707 tta/perl/texi2any.pl:657
+#: tta/C/convert/html_prepare_converter.c:1507
+#, c-format, perl-format
+msgid "%s directory is deprecated. Use %s instead"
+msgstr "%s-hakemisto on vanhentunut. Käytä sen sijaan: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:9135
+#, fuzzy, perl-format
+msgid "Unknown file and id setting function: %s"
+msgstr "Tuntematon tiedostojärjestelmätyyppi ”%s”."
+
+#: tta/perl/Texinfo/Convert/HTML.pm:9153
+#, fuzzy, perl-format
+#| msgid "unknown action `%s'"
+msgid "Unknown formatting function: %s"
+msgstr "tuntematon mukautusmuuttuja: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:9612
+#: tta/C/convert/html_prepare_converter.c:1795
+#, c-format, perl-format
+msgid "string not closed in css file"
+msgstr "merkkijonoa ei päätetty CSS-tiedostossa"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:9614
+#: tta/C/convert/html_prepare_converter.c:1803
+#, c-format, perl-format
+msgid "--css-include ended in comment"
+msgstr "--css-include päättyi kommenttiin"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:9616
+#: tta/C/convert/html_prepare_converter.c:1811
+#, c-format, perl-format
+msgid "@import not finished in css file"
+msgstr "CSS-tiedoston @import ei pääty"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:9652
+#: tta/C/convert/html_prepare_converter.c:1863
+#, c-format, perl-format
+msgid "CSS file %s not found"
+msgstr "CSS-tiedostoa %s ei löytynyt"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:9664
+#: tta/C/convert/html_prepare_converter.c:1885
+#, fuzzy, c-format, perl-format
+msgid "could not open --include-file %s: %s"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:9682
+#, perl-format
+msgid "error on closing CSS file %s: %s"
+msgstr "virhe suljettaessa CSS-tiedostoa %s: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:9884
+#: tta/C/convert/html_prepare_converter.c:4900
+#, c-format, perl-format
+msgid "user-defined node file name not set for `%s'"
+msgstr "käyttäjän määrittämän solmutiedoston nimeä ei asetettu: ”%s”"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:10209
+#: tta/C/convert/html_prepare_converter.c:6136
+#, fuzzy, c-format, perl-format
+msgid "resetting %s file path %s to %s"
+msgstr "@image-tiedostoa ”%s” ei voi lukea: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:10213
+#: tta/C/convert/html_prepare_converter.c:6146
+#, c-format, perl-format
+msgid "resetting %s file path from a relative path to %s"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/HTML.pm:10217
+#: tta/C/convert/html_prepare_converter.c:6155
+#, c-format, perl-format
+msgid "resetting %s file path from %s to a relative path"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/HTML.pm:10807
+#: tta/C/convert/html_prepare_converter.c:5526
+#, c-format, perl-format
+msgid "could not find %s node `%s'"
+msgstr "%s-solmua ”%s” ei löytynyt"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:11077 tta/C/convert/format_html.c:838
+#, c-format, perl-format
+msgid "do not set %s suffix in reference for manual `%s'"
+msgstr "älä aseta %s-päätettä käsikirjaviitteeseen ”%s”"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:11114
+#: tta/perl/Texinfo/Convert/HTML.pm:11120 tta/C/convert/format_html.c:887
+#: tta/C/convert/format_html.c:898
+#, fuzzy, c-format, perl-format
+#| msgid "no htmlxref.cnf entry found for `%s'"
+msgid "no HTML cross-references entry found for `%s'"
+msgstr "htmlxref.cnf-tietuetta ei löytynyt kohteelle ”%s”"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:11622 tta/C/convert/format_html.c:4053
+#, c-format, perl-format
+msgid "%s not meaningful for non-split output"
+msgstr "%s ei ole mielekäs jakamattomassa tulosteessa"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:12139 tta/C/convert/convert_html.c:2607
+#, c-format, perl-format
+msgid ""
+"cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
+"web labels file"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/HTML.pm:12186 tta/C/convert/convert_html.c:2631
+#, c-format, perl-format
+msgid "overwriting output file with js licences: %s"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/HTML.pm:12909 tta/C/convert/convert_html.c:819
+#, c-format, perl-format
+msgid "handler %d of stage %s priority %s: non-numeric status"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:831
+#, c-format, perl-format
+msgid "handler %d of stage %s priority %s failed"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/HTML.pm:12964
+#, fuzzy, perl-format
+#| msgid "error on closing %s: %s"
+msgid "error on copying %s into %s"
+msgstr "Virhe avattaessa: %s: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:12973 tta/C/convert/convert_html.c:2852
+#, fuzzy, c-format, perl-format
+#| msgid "error on closing %s: %s"
+msgid "error on creating empty %s: %s"
+msgstr "Virhe avattaessa: %s: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:12978 tta/C/convert/convert_html.c:2864
+#, fuzzy, c-format, perl-format
+#| msgid "error on closing %s: %s"
+msgid "error on closing empty %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13089
+#: tta/perl/Texinfo/Convert/HTML.pm:13093 tta/C/convert/convert_html.c:1106
+#: tta/C/convert/convert_html.c:1111
+#, c-format, perl-format
+msgid "must specify a title with a title command or @top"
+msgstr "otsikko on annettava otsikkokomennolla tai @topilla"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13373 tta/C/convert/convert_html.c:3064
+#, fuzzy, c-format, perl-format
+msgid "@%s `%s' file %s for redirection exists"
+msgstr "Luetaan fonttitiedostoa %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13391 tta/C/convert/convert_html.c:3079
+#, c-format, perl-format
+msgid "conflict with whole document file"
+msgstr "ristiriita koko tiedoston kanssa"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13394 tta/C/convert/convert_html.c:3082
+#, c-format, perl-format
+msgid "conflict with Top file"
+msgstr "ristiriita Top-tiedoston kanssa"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13397 tta/C/convert/convert_html.c:3085
+#, c-format, perl-format
+msgid "conflict with user-defined file"
+msgstr "ristiriita käyttäjän määrittämän tiedoston kanssa"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13400 tta/C/convert/convert_html.c:3088
+#, c-format, perl-format
+msgid "conflict with unknown node file"
+msgstr "ristiriita tuntemattoman solmutiedoston kanssa"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13403 tta/C/convert/convert_html.c:3092
+#, c-format, perl-format
+msgid "conflict with file without known source"
+msgstr "ristiriita tiedoston kanssa, jolla ei ole tunnettua lähdettä"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13411 tta/C/convert/convert_html.c:3106
+#, fuzzy, c-format, perl-format
+msgctxt "conflict of redirection file with file based on node name"
+msgid "conflict with @%s `%s' file"
+msgstr "Luetaan fonttitiedostoa %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13423 tta/C/convert/convert_html.c:3122
+#, fuzzy, c-format, perl-format
+msgid "conflict with @%s `%s' redirection file"
+msgstr "Luetaan fonttitiedostoa %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13437 tta/C/convert/convert_html.c:3142
+#, fuzzy, c-format, perl-format
+msgctxt "conflict of redirection file with file based on section name"
+msgid "conflict with @%s `%s' file"
+msgstr "Luetaan fonttitiedostoa %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13450 tta/C/convert/convert_html.c:3155
+#, fuzzy, c-format, perl-format
+msgid "conflict with %s special element"
+msgstr "jäsennysvirhe: %s: %s"
+
+#: tta/perl/Texinfo/Convert/HTML.pm:13540
+#, fuzzy, perl-format
+msgid "error on closing redirection node file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/Texinfo/Convert/Info.pm:168 tta/perl/Texinfo/Convert/Info.pm:171
+#, perl-format
+msgid "document without nodes"
+msgstr "solmuton asiakirja"
+
+#: tta/perl/Texinfo/Convert/Info.pm:210 tta/perl/Texinfo/Convert/Info.pm:213
+#, perl-format
+msgid "document without Top node"
+msgstr "tiedosto ilman Top-solmua"
+
+#: tta/perl/Texinfo/Convert/Info.pm:246
+#, fuzzy, perl-format
+msgid "rename %s failed: %s"
+msgstr "%s : lohkon varaaminen epäonnistui\n"
+
+#: tta/perl/Texinfo/Convert/Info.pm:364
+#, fuzzy, perl-format
+msgid "@%s output more than once: %s"
+msgstr "Laitteella %s ei voi olla kuin yksi laajennettu osio."
+
+#: tta/perl/Texinfo/Convert/Info.pm:538
+#, fuzzy, perl-format
+msgid "@%s outside of any node"
+msgstr "%s-solmua ”%s” ei löytynyt"
+
+#: tta/perl/Texinfo/Convert/Info.pm:667
+#, fuzzy, perl-format
+msgid "@%s cross-reference name should not contain `:'"
+msgstr "@%s-solmun nimessä tulisi olla ”%s”"
+
+#: tta/perl/Texinfo/Convert/Info.pm:738
+#, perl-format
+msgid "@%s node name should not contain `%s'"
+msgstr "@%s-solmun nimessä tulisi olla ”%s”"
+
+#: tta/perl/Texinfo/Convert/Info.pm:808
+#, perl-format
+msgid "`.' or `,' must follow @xref, not %s"
+msgstr "@xrefiä tulee seurata \".\" tai \",\", ei %s"
+
+#: tta/perl/Texinfo/Convert/Info.pm:812
+msgid "`.' or `,' must follow @xref"
+msgstr "@xrefiä tulee seurata ”.” tai ”,”"
+
+#: tta/perl/Texinfo/Convert/Info.pm:864
+#, fuzzy, perl-format
+msgid "@node name should not contain `,': %s"
+msgstr "”{node_name}” tiedostossa @file{{manual}}"
+
+#: tta/perl/Texinfo/Convert/Info.pm:905
+#, fuzzy, perl-format
+msgid "@node %s name should not contain `,': %s"
+msgstr "@%s: nimi puuttuu"
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3429
+#, perl-format
+msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
+msgstr "(LaTeXin) \\verb-erotinta ”%s” käytetty tekstiin ”%s”"
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3469
+#, fuzzy, perl-format
+#| msgid "@image file `%s' (for HTML) not found, using `%s'"
+msgid "@image file `%s' (for LaTeX) not found"
+msgstr "@image-tiedostoa ”%s” ei voi lukea: %s"
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: could not open %s: %s"
+msgid "math to images: could not open %s: %s"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5086
+#, perl-format
+msgid "math to images: chdir %s failed: %s"
+msgstr "matematiikka kuviksi: chdir %s epäonnistui: %s"
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
+#, perl-format
+msgid "math to images: output file missing: %s"
+msgstr "matematiikka kuviksi: tulostiedosto puuttuu: %s"
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5120
+#, perl-format
+msgid "math to images: command failed: %s"
+msgstr "matematiikka kuviksi: komento epäonnistui: %s"
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5125
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: could not open %s: %s"
+msgid "math to images: closing communication failed: %s: %s"
+msgstr "tex4ht.pm: chdir %s epäonnistui: %s"
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5141
+#, perl-format
+msgid "math to images: dvi file missing: %s"
+msgstr "matematiikka kuviksi: DVI-tiedosto puuttuu: %s"
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5156
+#, fuzzy, perl-format
+msgid "math to images: system `%s' failed: %d\n"
+msgstr "Osio %d on %s, mutta tiedostojärjestelmä on %s."
+
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5163
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: unable to return to initial directory: %s"
+msgid "math to images: unable to return to initial directory: %s"
+msgstr "tex4ht.pm: ei voi palauttaa alkukansiota: %s"
+
+#: tta/perl/Texinfo/Convert/Plaintext.pm:707
+#, fuzzy, perl-format
+msgid "%s: output incompatible with split"
+msgstr "%s ei ole mielekäs jakamattomassa tulosteessa"
+
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2044
+#, perl-format
+msgid "Index entry in @%s with : produces invalid Info: %s"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2086
+#: tta/perl/Texinfo/ParserNonXS.pm:3660 tta/C/parsetexi/indices.c:319
+#, c-format, perl-format
+msgid "entry for index `%s' outside of any node"
+msgstr ""
+
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2102
+#, fuzzy, perl-format
+#| msgid "@%s node name should not contain `%s'"
+msgid "node name with index entries should not contain `%s'"
+msgstr "@%s-solmun nimessä tulisi olla ”%s”"
+
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2402
+#, perl-format
+msgid "could not find @image file `%s.txt' nor alternate text"
+msgstr "@image-tiedostoa tai vaihtoehtoista tekstiä ei löydy: ”%s.txt”"
+
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3134
+msgid ""
+"@strong{Note...} produces a spurious cross-reference in Info; reword to "
+"avoid that"
+msgstr ""
+"@strong{Note...} tuottaa Infoon harhaanjohtavan viittauksen; vältä tämä "
+"muuttamalla sanamuotoa"
+
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4121
+#, perl-format
+msgid "menu entry node name should not contain `%s'"
+msgstr "valikkotietueen solmun nimessä ei saa olla ”%s”"
+
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4132
+msgid "menu entry node name should not contain `:'"
+msgstr "valikkotietueen solmun nimessä ei saa olla ”:”"
+
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4167
+msgid "menu entry name should not contain `:'"
+msgstr "valikkotietueen nimessä ei saa olla ”:”"
+
+#: tta/perl/Texinfo/Convert/Utils.pm:537
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:658
+#, c-format, perl-format
+msgid "could not read %s: %s"
+msgstr "ei voida lukea: %s: %s"
+
+#: tta/perl/Texinfo/Convert/Utils.pm:559
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:703
+#, fuzzy, c-format, perl-format
+msgid "error on closing @verbatiminclude file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/Texinfo/Convert/Utils.pm:566
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3892 tta/C/main/convert_utils.c:715
+#, c-format, perl-format
+msgid "@%s: could not find %s"
+msgstr "@%s: ei löydy: %s"
+
+#: tta/perl/Texinfo/Indices.pm:342 tta/C/main/manipulate_indices.c:484
+#, c-format, perl-format
+msgid "empty index key in @%s"
+msgstr "tyhjä indeksiavain: @%s"
+
+#: tta/perl/Texinfo/Indices.pm:366
+#, fuzzy, perl-format
+#| msgid "empty index key in @%s"
+msgid "empty index sub entry %d key in @%s"
+msgstr "tyhjä indeksiavain: @%s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:980 tta/C/parsetexi/api.c:163
+#, c-format, perl-format
+msgid "could not open %s: %s"
+msgstr "ei voitu avata: %s: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1266 tta/C/parsetexi/parser.c:421
+#, c-format, perl-format
+msgid "multiple %s (@%s)"
+msgstr "useampi %s (@%s)"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1269 tta/perl/Texinfo/Structuring.pm:631
+#: tta/C/parsetexi/parser.c:424 tta/C/structuring_transfo/structuring.c:955
+#, c-format, perl-format
+msgid "multiple @%s"
+msgstr "toistuva @%s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1409 tta/perl/Texinfo/ParserNonXS.pm:4550
+#: tta/perl/Texinfo/ParserNonXS.pm:4590 tta/C/parsetexi/end_line.c:1064
+#: tta/C/parsetexi/end_line.c:1100 tta/C/parsetexi/macro.c:159
+#, c-format, perl-format
+msgid "@%s requires a name"
+msgstr "@%s vaatii nimen"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1416 tta/perl/Texinfo/ParserNonXS.pm:4594
+#: tta/perl/Texinfo/ParserNonXS.pm:8150 tta/perl/Texinfo/ParserNonXS.pm:8163
+#: tta/perl/Texinfo/ParserNonXS.pm:8177 tta/C/parsetexi/end_line.c:1104
+#: tta/C/parsetexi/macro.c:167
+#, fuzzy, c-format, perl-format
+msgid "bad name for @%s"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1437 tta/C/parsetexi/macro.c:240
+#, fuzzy, c-format, perl-format
+msgid "bad or empty @%s formal argument: %s"
+msgstr "virheellinen argumentti %s valitsimelle %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1447 tta/C/parsetexi/macro.c:267
+#, fuzzy, c-format, perl-format
+msgid "bad syntax for @%s argument: %s"
+msgstr "Virheellinen syntaksi sijainneille: ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1592 tta/C/parsetexi/close.c:88
+#, c-format, perl-format
+msgid "@end %s seen before @%s closing brace"
+msgstr "@end %s nähty ennen @%s:n päättävää aaltosuljetta"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1596 tta/C/parsetexi/close.c:93
+#, fuzzy, c-format, perl-format
+msgid "@%s seen before @%s closing brace"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1600 tta/perl/Texinfo/ParserNonXS.pm:2836
+#: tta/perl/Texinfo/ParserNonXS.pm:2945 tta/C/parsetexi/close.c:98
+#: tta/C/parsetexi/macro.c:351 tta/C/parsetexi/macro.c:512
+#, c-format, perl-format
+msgid "@%s missing closing brace"
+msgstr "@%s: sulkeva aaltosulje puuttuu"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1604 tta/C/parsetexi/close.c:104
+#, c-format, perl-format
+msgid "@%s missing closing delimiter sequence: %s}"
+msgstr "@%s: sulkeva erotinsarja puuttuu: %s}"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1851 tta/C/parsetexi/multitable.c:77
+#, c-format, perl-format
+msgid "@itemx should not begin @%s"
+msgstr "@itemx ei tulisi alkaa @%s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:1998 tta/C/parsetexi/multitable.c:214
+#, c-format
+msgid "@itemx must follow @item"
+msgstr "@itemx:n tulee seurata @itemiä"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2160 tta/C/parsetexi/close.c:347
+#, c-format, perl-format
+msgid "@%s has text but no @item"
+msgstr "@%s sisältää tekstiä muttei @item’ia"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2216 tta/C/parsetexi/close.c:411
+#, c-format, perl-format
+msgid "`@end' expected `%s', but saw `%s'"
+msgstr "”@end” odotti jonoa ”%s” mutta sai ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2220 tta/C/parsetexi/close.c:417
+#, fuzzy, c-format, perl-format
+msgid "@%s seen before @end %s"
+msgstr "%s: --footnote-style-argumentin oltava ”separate” tai ”end”, ei ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2224 tta/C/parsetexi/close.c:424
+#, c-format, perl-format
+msgid "no matching `@end %s'"
+msgstr "pariton ”@end %s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2248 tta/perl/Texinfo/ParserNonXS.pm:2259
+#: tta/perl/Texinfo/ParserNonXS.pm:6687 tta/C/parsetexi/close.c:451
+#: tta/C/parsetexi/close.c:461 tta/C/parsetexi/separator.c:233
+#, c-format, perl-format
+msgid "misplaced {"
+msgstr "{ virheellisessä paikkaa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2294 tta/perl/Texinfo/ParserNonXS.pm:4491
+#: tta/perl/Texinfo/ParserNonXS.pm:4885 tta/perl/Texinfo/ParserNonXS.pm:7504
+#: tta/perl/Texinfo/ParserNonXS.pm:7593 tta/perl/Texinfo/ParserNonXS.pm:7630
+#: tta/C/parsetexi/close.c:512 tta/C/parsetexi/end_line.c:985
+#: tta/C/parsetexi/end_line.c:1978 tta/C/parsetexi/parser.c:2105
+#: tta/C/parsetexi/parser.c:2222 tta/C/parsetexi/parser.c:2272
+#, c-format, perl-format
+msgid "@%s expected braces"
+msgstr "@%s odottaa aaltosulkeita"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2350
+#, perl-format
+msgid "unmatched `%c%s'"
+msgstr "pariton \"%c%s\""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2779 tta/C/parsetexi/macro.c:379
+#, c-format, perl-format
+msgid "use %s instead of %s in macro arg"
+msgstr "käytä %s äläkä %s makroargumentissa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2813 tta/C/parsetexi/macro.c:433
+#, c-format, perl-format
+msgid "macro `%s' called with too many args"
+msgstr "makroa ”%s” kutsuttu liian monin argumentein"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:2847 tta/C/parsetexi/macro.c:449
+#, c-format, perl-format
+msgid "macro `%s' declared without argument called with an argument"
+msgstr "argumenteitta esiteltyä makroa ”%s” kutsuttu argumentein"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:3040 tta/C/parsetexi/macro.c:713
+#, c-format, perl-format
+msgid "\\ in @%s expansion followed `%s' instead of parameter name or \\"
+msgstr ""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:3827 tta/perl/Texinfo/ParserNonXS.pm:4052
+#: tta/perl/Texinfo/ParserNonXS.pm:8230 tta/C/parsetexi/end_line.c:134
+#: tta/C/parsetexi/end_line.c:1257 tta/C/parsetexi/end_line.c:1611
+#, c-format, perl-format
+msgid "@%s missing argument"
+msgstr "@%s vaatii argumentin"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:3841 tta/C/parsetexi/end_line.c:1275
+#, c-format, perl-format
+msgid "unknown @end %s"
+msgstr "tuntematon @end %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:3859 tta/perl/Texinfo/ParserNonXS.pm:3988
+#: tta/perl/Texinfo/ParserNonXS.pm:4505 tta/perl/Texinfo/ParserNonXS.pm:8376
+#: tta/perl/Texinfo/ParserNonXS.pm:8414 tta/perl/Texinfo/ParserNonXS.pm:8448
+#: tta/perl/Texinfo/ParserNonXS.pm:8557 tta/C/parsetexi/end_line.c:391
+#: tta/C/parsetexi/end_line.c:469 tta/C/parsetexi/end_line.c:1003
+#: tta/C/parsetexi/end_line.c:1525
+#, fuzzy, c-format, perl-format
+msgid "bad argument to @%s: %s"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:3887
+#, fuzzy, perl-format
+msgid "@%s: could not open %s: %s"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:3918 tta/C/parsetexi/end_line.c:1370
+#, c-format, perl-format
+msgid "bad encoding name `%s'"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:3924 tta/C/parsetexi/end_line.c:1405
+#, fuzzy, c-format, perl-format
+msgid "encoding `%s' is not a canonical texinfo encoding"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:3955 tta/C/parsetexi/end_line.c:1472
+#, c-format, perl-format
+msgid "unhandled encoding name `%s'"
+msgstr "käsittelemätön koodauksen nimi ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4016 tta/perl/Texinfo/ParserNonXS.pm:6738
+#: tta/C/parsetexi/end_line.c:1569 tta/C/parsetexi/separator.c:305
+#, fuzzy, c-format, perl-format
+msgid "empty argument in @%s"
+msgstr "virheellinen argumentti %s valitsimelle %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4119 tta/perl/Texinfo/ParserNonXS.pm:4126
+#: tta/C/parsetexi/end_line.c:1702 tta/C/parsetexi/end_line.c:1711
+#, c-format, perl-format
+msgid "ignoring multiple @%s"
+msgstr "sivuutetaan toistuva @%s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4180
+#, perl-format
+msgid "@%s after the first element"
+msgstr "@%s ensimmäisen alkion jälkeen"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4189
+#, perl-format
+msgid "@%s only meaningful on a @multitable line"
+msgstr "@%s on mielekäs vain @multitable-rivillä"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4231
+#, fuzzy, perl-format
+msgid "@node precedes @%s, but parts may not be associated with nodes"
+msgstr "@node ennen @part’ia mutta osia ei voi yhdistää solmuihin"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4269 tta/C/parsetexi/end_line.c:794
+#, c-format, perl-format
+msgid "missing category for @%s"
+msgstr "luokka puuttuu: @%s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4328 tta/C/parsetexi/end_line.c:788
+#, c-format, perl-format
+msgid "missing name for @%s"
+msgstr "@%s: nimi puuttuu"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4410 tta/perl/Texinfo/ParserNonXS.pm:4535
+#: tta/C/parsetexi/end_line.c:888 tta/C/parsetexi/end_line.c:1042
+#, c-format, perl-format
+msgid "unexpected argument on @%s line: %s"
+msgstr "@%s: odottamaton argumentti rivillä: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4421 tta/C/parsetexi/end_line.c:898
+#, c-format
+msgid "empty multitable"
+msgstr ""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4456 tta/perl/Texinfo/ParserNonXS.pm:8236
+#: tta/C/parsetexi/end_line.c:141 tta/C/parsetexi/end_line.c:938
+#, fuzzy, c-format, perl-format
+msgid "superfluous argument to @%s"
+msgstr "virheellinen argumentti %s valitsimelle %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4462 tta/perl/Texinfo/ParserNonXS.pm:8272
+#: tta/C/parsetexi/end_line.c:951
+#, fuzzy, c-format, perl-format
+msgid "bad argument to @%s"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4477 tta/C/parsetexi/end_line.c:972
+#, fuzzy, c-format, perl-format
+msgid "accent command `@%s' not allowed as @%s argument"
+msgstr "@%s: odottamaton argumentti rivillä: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4509 tta/C/parsetexi/end_line.c:1009
+#, c-format, perl-format
+msgid "missing @%s argument"
+msgstr "@%s-argumentti puuttuu"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4517 tta/C/parsetexi/end_line.c:1018
+#, c-format, perl-format
+msgid "command @%s not accepting argument in brace should not be on @%s line"
+msgstr ""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4960 tta/C/parsetexi/labels.c:62
+#, fuzzy, c-format, perl-format
+msgid "syntax for an external node used for `%s'"
+msgstr "Virheellinen syntaksi sijainneille: ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4971 tta/C/parsetexi/labels.c:72
+#, c-format, perl-format
+msgid "empty node name after expansion `%s'"
+msgstr "tyhjä solmun nimi, kun ”%s” oli lavennettu"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5012 tta/C/parsetexi/menus.c:59
+#, fuzzy, c-format, perl-format
+msgid "empty menu entry name in `%s'"
+msgstr "@%s: nimi puuttuu"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5021 tta/C/parsetexi/menus.c:74
+#, c-format
+msgid "empty node name in menu entry"
+msgstr "tyhjä solmun nimi valikkotietueessa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5219 tta/C/parsetexi/parser.c:1394
+#, fuzzy, c-format, perl-format
+msgid "@%s should not appear in @%s"
+msgstr ""
+"Kirjoittaneet %s, %s, %s,\n"
+"%s, %s ja %s.\n"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5230 tta/C/parsetexi/parser.c:1408
+#, fuzzy, c-format, perl-format
+msgid "@%s should not appear anywhere inside caption"
+msgstr "@%s tulisi esiintyä vain matematiikkakontekstissa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5247 tta/C/parsetexi/parser.c:1462
+#, fuzzy, c-format, perl-format
+msgid "@%s should not appear anywhere inside @%s"
+msgstr "@%s tulisi esiintyä vain matematiikkakontekstissa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5273 tta/C/parsetexi/parser.c:1477
+#, fuzzy, c-format, perl-format
+msgid "@%s should not appear on @%s line"
+msgstr "@%s: odottamaton argumentti rivillä: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5287 tta/C/parsetexi/parser.c:1491
+#, fuzzy, c-format, perl-format
+msgid "@%s should not appear in @%s block"
+msgstr "%s : lohkon varaaminen epäonnistui\n"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5341 tta/C/parsetexi/macro.c:834
+#, c-format, perl-format
+msgid ""
+"macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; "
+"current value %d)"
+msgstr ""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5352 tta/C/parsetexi/macro.c:824
+#, c-format, perl-format
+msgid "recursive call of macro %s is not allowed; use @rmacro if needed"
+msgstr ""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5394 tta/C/parsetexi/macro.c:872
+#, c-format, perl-format
+msgid ""
+"@%s defined with zero or more than one argument should be invoked with {}"
+msgstr ""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5707 tta/C/parsetexi/handle_commands.c:434
+#, fuzzy, c-format, perl-format
+msgid "@%s should only appear in heading or footing"
+msgstr "@%s tulisi esiintyä vain matematiikkakontekstissa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5714
+#, perl-format
+msgid "@%s should only appear in math context"
+msgstr "@%s tulisi esiintyä vain matematiikkakontekstissa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5751 tta/perl/Texinfo/ParserNonXS.pm:5759
+#: tta/C/parsetexi/handle_commands.c:486 tta/C/parsetexi/handle_commands.c:495
+#, fuzzy, c-format, perl-format
+msgid "@%s not meaningful inside `@%s' block"
+msgstr "%s : ei voitu kirjoittaa lohkoa %d\n"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5766 tta/C/parsetexi/handle_commands.c:511
+#, fuzzy, c-format, perl-format
+msgid "@%s in empty multitable"
+msgstr "jäsennysvirhe: %s: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5772 tta/C/parsetexi/handle_commands.c:519
+#, c-format
+msgid "@tab before @item"
+msgstr "@tab ennen @item’ia"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5775 tta/C/parsetexi/handle_commands.c:523
+#, c-format, perl-format
+msgid "too many columns in multitable item (max %d)"
+msgstr ""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5812 tta/C/parsetexi/handle_commands.c:565
+#, fuzzy, c-format
+msgid "ignoring @tab outside of multitable"
+msgstr "Osio ei voi olla levyn ulkopuolella!"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5816 tta/perl/Texinfo/ParserNonXS.pm:6158
+#: tta/C/parsetexi/handle_commands.c:570 tta/C/parsetexi/handle_commands.c:1000
+#, c-format, perl-format
+msgid "@%s outside of table or list"
+msgstr "@%s taulukon tai luetelman ulkopuolella"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5828 tta/C/parsetexi/handle_commands.c:585
+#, c-format, perl-format
+msgid "@%s is useless inside of a paragraph"
+msgstr "@%s on merkityksetön kappaleen sisällä"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:5998 tta/C/parsetexi/handle_commands.c:806
+#, c-format, perl-format
+msgid "@%s not allowed inside `@copying' block"
+msgstr "@%s ei ole sallittu ”@copying”-lohkossa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6091 tta/perl/Texinfo/ParserNonXS.pm:6103
+#: tta/perl/Texinfo/ParserNonXS.pm:8197 tta/C/parsetexi/handle_commands.c:389
+#: tta/C/parsetexi/handle_commands.c:915 tta/C/parsetexi/handle_commands.c:929
+#, fuzzy, c-format, perl-format
+msgid "remaining argument on @%s line: %s"
+msgstr "@%s: odottamaton argumentti rivillä: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6172 tta/C/parsetexi/handle_commands.c:1026
+#, c-format
+msgid "multiple node @nodedescription"
+msgstr "usean solmun @nodedescription"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6178 tta/C/parsetexi/handle_commands.c:1031
+#, fuzzy, c-format
+msgid "@nodedescription outside of any node"
+msgstr "({file}){node}"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6185 tta/perl/Texinfo/ParserNonXS.pm:6506
+#: tta/C/parsetexi/handle_commands.c:1445
+#, fuzzy, c-format, perl-format
+#| msgid "@%s should only appear in math context"
+msgid "@%s should only appear in an index entry"
+msgstr "@%s tulisi esiintyä vain matematiikkakontekstissa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6201 tta/C/parsetexi/handle_commands.c:1058
+#, c-format
+msgid "no more than two levels of index subentry are allowed"
+msgstr "indeksialitietueille ei sallita yli kahta tasoa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6244 tta/C/parsetexi/handle_commands.c:1142
+#, fuzzy, c-format, perl-format
+msgid "must be after `@%s' to use `@%s'"
+msgstr "%s: --footnote-style-argumentin oltava ”separate” tai ”end”, ei ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6297 tta/C/parsetexi/handle_commands.c:1195
+#, fuzzy, c-format
+#| msgid ""
+#| "@author not meaningful outside `@titlepage' and `@quotation' environments"
+msgid ""
+"@author not meaningful outside `@titlepage', `@documentinfo' and "
+"`@quotation' environments"
+msgstr ""
+"@author ei ole mielekäs ”@titlepage”- ja ”@quotation”-ympäristöjen "
+"ulkopuolella"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6301 tta/C/parsetexi/handle_commands.c:1199
+#, c-format
+msgid "@dircategory after first node"
+msgstr "@dircategory ensimmäisen solmun jälkeen"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6412 tta/C/parsetexi/handle_commands.c:1337
+#, c-format
+msgid "@direntry after first node"
+msgstr "@direntry ensimmäisen solmun jälkeen"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6423 tta/C/parsetexi/handle_commands.c:1342
+#, c-format
+msgid "@menu in invalid context"
+msgstr "@menu virheellisessä kontekstissa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6436 tta/C/parsetexi/handle_commands.c:1363
+#, c-format
+msgid "multiple node @nodedescriptionblock"
+msgstr "usean solmun @nodedescriptionblock"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6442 tta/C/parsetexi/handle_commands.c:1368
+#, fuzzy, c-format
+msgid "@nodedescriptionblock outside of any node"
+msgstr "({file}){node}"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6561 tta/C/parsetexi/separator.c:87
+#, c-format
+msgid "@verb without associated character"
+msgstr "@verb ilman siihen kytkettyä merkkiä"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6582 tta/C/parsetexi/separator.c:122
+#, c-format, perl-format
+msgid "@%s is not meaningful outside `@float' environment"
+msgstr "@%s ei ole mielekäs ”@float”-ympäristön ulkopuolella"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6586 tta/C/parsetexi/separator.c:127
+#, c-format, perl-format
+msgid "@%s should be right below `@float'"
+msgstr "@%s:n tulisi olla heti ”@float’in” alla"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6771 tta/C/parsetexi/separator.c:335
+#, c-format, perl-format
+msgid "command @%s missing a node or external manual argument"
+msgstr "komennolta @%s puuttuu solmu tai ulkoinen manuaalinen argumentti"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6796 tta/C/parsetexi/separator.c:391
+#, c-format, perl-format
+msgid "in @%s empty cross reference name after expansion `%s'"
+msgstr ""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6806 tta/C/parsetexi/separator.c:410
+#, c-format, perl-format
+msgid "in @%s empty cross reference title after expansion `%s'"
+msgstr ""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6817 tta/C/parsetexi/separator.c:424
+#, c-format
+msgid "@image missing filename argument"
+msgstr "@image: tiedostonimiparametri puuttuu"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6832 tta/perl/Texinfo/ParserNonXS.pm:7624
+#: tta/C/parsetexi/parser.c:2264 tta/C/parsetexi/separator.c:441
+#, c-format, perl-format
+msgid "@dotless expects `i' or `j' as argument, not `%s'"
+msgstr "@dotless odottaa parametriksi ”i” tai ”j”, ei ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6842 tta/C/parsetexi/separator.c:453
+#, c-format, perl-format
+msgid "@%s missing first argument"
+msgstr "@%s: ensimmäinen parametri puuttuu"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6858 tta/C/parsetexi/separator.c:475
+#, c-format
+msgid "no argument specified for @U"
+msgstr "@U:lle ei ole annettu parametria"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6861 tta/C/parsetexi/separator.c:483
+#, c-format, perl-format
+msgid "non-hex digits in argument for @U: %s"
+msgstr "ei-heksalukuja parametrina @U:lle: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6866 tta/C/parsetexi/separator.c:488
+#, c-format, perl-format
+msgid "fewer than four hex digits in argument for @U: %s"
+msgstr "alle neljä heksalukua parametrina @U:lle: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6883 tta/C/parsetexi/separator.c:504
+#, c-format, perl-format
+msgid "argument for @U exceeds Unicode maximum 0x10FFFF: %s"
+msgstr "@U:n parametri on Unicoden enimmäisarvoa 0x10FFFF suurempi: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6894 tta/C/parsetexi/separator.c:519
+#, c-format, perl-format
+msgid "command @%s does not accept arguments"
+msgstr "komento @%s ei ota parametreja"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:6929 tta/C/parsetexi/separator.c:571
+#, c-format, perl-format
+msgid "misplaced }"
+msgstr "} virheellisessä paikkaa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7151 tta/perl/Texinfo/ParserNonXS.pm:7241
+#: tta/perl/Texinfo/ParserNonXS.pm:8041 tta/C/parsetexi/parser.c:1521
+#: tta/C/parsetexi/parser.c:1674 tta/C/parsetexi/parser.c:2773
+#, c-format, perl-format
+msgid "expected @end %s"
+msgstr "odotettiin @end %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7171 tta/perl/Texinfo/ParserNonXS.pm:7259
+#: tta/C/parsetexi/parser.c:1579 tta/C/parsetexi/parser.c:1712
+#, c-format, perl-format
+msgid "@end %s should only appear at the beginning of a line"
+msgstr "@end %s:n tulisi esiintyä vain rivin alussa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7178 tta/C/parsetexi/parser.c:1595
+#, c-format, perl-format
+msgid "macro `%s' previously defined"
+msgstr "makro \"%s\" on aiemmin määritelty"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7181 tta/C/parsetexi/parser.c:1598
+#, fuzzy, c-format, perl-format
+msgid "here is the previous definition of `%s'"
+msgstr "Edellinen solmu"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7188 tta/C/parsetexi/parser.c:1605
+#, fuzzy, c-format, perl-format
+msgid "redefining Texinfo language command: @%s"
+msgstr "  %s --xml foo.texi                kirjoita Texinfo XML:nä"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7392 tta/C/parsetexi/parser.c:1947
+#, c-format
+msgid "unexpected @"
+msgstr "odottamaton @"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7446 tta/C/parsetexi/parser.c:2028
+#, c-format, perl-format
+msgid ""
+"value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; "
+"current value %d)"
+msgstr ""
+"liian syvään sisäkkäistetty arvo (ohita asettamalla MAX_MACRO_CALL_NESTING, "
+"nykyinen arvo %d)"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7517 tta/C/parsetexi/parser.c:2140
+#, c-format, perl-format
+msgid "unknown command `%s'"
+msgstr "tuntematon komento \"%s\""
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7552 tta/C/parsetexi/parser.c:2173
+#, c-format, perl-format
+msgid "command `@%s' must not be followed by new line"
+msgstr "komentoa ”@%s” ei saa seurata uusi rivi"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7661 tta/C/parsetexi/parser.c:2343
+#, c-format, perl-format
+msgid "undefined flag: %s"
+msgstr "määrittelemätön lippu: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7680 tta/C/parsetexi/parser.c:2383
+#, fuzzy, c-format, perl-format
+msgid "bad syntax for @%s"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7688 tta/C/parsetexi/parser.c:2393
+#, c-format, perl-format
+msgid "@%s is obsolete"
+msgstr "@%s on vanhentunut"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7712 tta/C/parsetexi/parser.c:2421
+#, fuzzy, c-format, perl-format
+msgid "@%s should only appear at the beginning of a line"
+msgstr "@%s tulisi esiintyä vain matematiikkakontekstissa"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:7861 tta/C/parsetexi/parser.c:2573
+#, c-format
+msgid "superfluous arguments for node"
+msgstr "ylimääräisiä parametreja solmulle"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8147 tta/C/parsetexi/handle_commands.c:262
+#, c-format
+msgid "@set requires a name"
+msgstr "@set vaatii nimen"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8160 tta/C/parsetexi/handle_commands.c:296
+#, c-format
+msgid "@clear requires a name"
+msgstr "@clear vaatii nimen"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8174 tta/C/parsetexi/handle_commands.c:326
+#, c-format
+msgid "@unmacro requires a name"
+msgstr "@unmacro vaatii nimen"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8203 tta/C/parsetexi/handle_commands.c:398
+#, c-format, perl-format
+msgid "@clickstyle should only accept an @-command as argument, not `%s'"
+msgstr "@clickstyle hyväksyy argumentiksi vain @-komennon, ei ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8253 tta/C/parsetexi/end_line.c:197
+#, fuzzy, c-format, perl-format
+msgid "environment command %s as argument to @alias"
+msgstr "@%s: odottamaton argumentti rivillä: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8262 tta/C/parsetexi/end_line.c:205
+#, c-format, perl-format
+msgid "recursive alias definition of %s through %s ignored"
+msgstr "rekursiivinen aliasmääritelmä %s – %s sivuutetaan"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8289 tta/C/parsetexi/end_line.c:276
+#, fuzzy, c-format, perl-format
+msgid "cannot redefine with @definfoenclose: %s"
+msgstr "Fonttitiedostoa ei voi kirjoittaa: %m"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8313 tta/C/parsetexi/end_line.c:299
+#, fuzzy, c-format, perl-format
+msgid "bad argument to @definfoenclose"
+msgstr "etsitään huonoja lohkoja"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8319 tta/C/parsetexi/end_line.c:310
+#, c-format
+msgid "empty @columnfractions"
+msgstr "tyhjä @columnfractions"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8327 tta/C/parsetexi/end_line.c:330
+#, c-format, perl-format
+msgid "column fraction not a number: %s"
+msgstr "sarakeosuus ei ole luku: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8336 tta/C/parsetexi/end_line.c:350
+#, c-format, perl-format
+msgid "@sp arg must be numeric, not `%s'"
+msgstr "@sp-argumentin oltava numeerinen, ei ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8348 tta/C/parsetexi/end_line.c:396
+#, c-format, perl-format
+msgid "reserved index name %s"
+msgstr "varattu indeksinimi %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8389 tta/C/parsetexi/end_line.c:437
+#, fuzzy, c-format, perl-format
+msgid "unknown source index in @%s: %s"
+msgstr "tuntematon mukautusmuuttuja: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8392 tta/C/parsetexi/end_line.c:440
+#, fuzzy, c-format, perl-format
+msgid "unknown destination index in @%s: %s"
+msgstr "tuntematon mukautusmuuttuja: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8408 tta/C/parsetexi/end_line.c:460
+#, c-format, perl-format
+msgid "@%s leads to a merging of %s in itself, ignoring"
+msgstr "@%s johtaisi siihen, että %s sulautuisi itseensä, sivuutetaan"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8425 tta/C/parsetexi/end_line.c:488
+#, fuzzy, c-format, perl-format
+msgid "unknown index `%s' in @printindex"
+msgstr "tuntematon mukautusmuuttuja: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8433 tta/C/parsetexi/end_line.c:495
+#, c-format, perl-format
+msgid "printing an index `%s' merged in another one, `%s'"
+msgstr "hakemiston ”%s” tuloste sulautuu toiseen, ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8441 tta/C/parsetexi/end_line.c:501
+#, c-format, perl-format
+msgid "printindex before document beginning: @printindex %s"
+msgstr "printindex ennen asiakirjan alkua: @printindex %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8455 tta/C/parsetexi/end_line.c:534
+#, c-format, perl-format
+msgid "Only @fonttextsize 10 or 11 is supported, not `%s'"
+msgstr "Vain @fonttextsize 10 tai 11 ovat tuettuja, ei ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8463 tta/C/parsetexi/end_line.c:545
+#, fuzzy, c-format, perl-format
+msgid "@footnotestyle arg must be `separate' or `end', not `%s'"
+msgstr "%s: --footnote-style-argumentin oltava ”separate” tai ”end”, ei ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8471 tta/C/parsetexi/end_line.c:557
+#, fuzzy, c-format, perl-format
+msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
+msgstr "%s: --footnote-style-argumentin oltava ”separate” tai ”end”, ei ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8479 tta/C/parsetexi/end_line.c:568
+#, fuzzy, c-format, perl-format
+msgid "bad argument to @need: %s"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8489 tta/perl/Texinfo/ParserNonXS.pm:8494
+#: tta/C/parsetexi/end_line.c:578
+#, fuzzy, c-format, perl-format
+msgid "@paragraphindent arg must be numeric/`none'/`asis', not `%s'"
+msgstr "%s: --paragraph-indent-argumentin oltava luku/”none”/”asis”, ei ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8502 tta/C/parsetexi/end_line.c:589
+#, fuzzy, c-format, perl-format
+msgid "@firstparagraphindent arg must be `none' or `insert', not `%s'"
+msgstr "%s: --paragraph-indent-argumentin oltava luku/”none”/”asis”, ei ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8512 tta/C/parsetexi/end_line.c:599
+#, fuzzy, c-format, perl-format
+msgid "@exampleindent arg must be numeric/`asis', not `%s'"
+msgstr "%s: --paragraph-indent-argumentin oltava luku/”none”/”asis”, ei ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8524 tta/C/parsetexi/end_line.c:615
+#, c-format, perl-format
+msgid "expected @%s on or off, not `%s'"
+msgstr "@%s vaatii ”on” tai ”off”, ei ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8533 tta/C/parsetexi/end_line.c:635
+#, c-format, perl-format
+msgid "@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"
+msgstr ""
+"@kbdinputstyle-argumentin tulee olla ”code”/”example”/”distinct”, ei ”%s”"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8541 tta/C/parsetexi/end_line.c:647
+#, fuzzy, c-format, perl-format
+msgid "@allowcodebreaks arg must be `true' or `false', not `%s'"
+msgstr "%s: --footnote-style-argumentin oltava ”separate” tai ”end”, ei ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8549 tta/C/parsetexi/end_line.c:659
+#, fuzzy, c-format, perl-format
+msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
+msgstr "%s: --paragraph-indent-argumentin oltava luku/”none”/”asis”, ei ”%s”."
+
+#: tta/perl/Texinfo/ParserNonXS.pm:8567 tta/C/parsetexi/end_line.c:522
+#, fuzzy, c-format, perl-format
+msgid "@%s arg must be `top' or `bottom', not `%s'"
+msgstr "%s: --footnote-style-argumentin oltava ”separate” tai ”end”, ei ”%s”."
+
+#: tta/perl/Texinfo/Report.pm:80 tta/C/main/errors.c:104
+#, c-format, perl-format
+msgctxt "Texinfo source file warning in macro"
+msgid "warning: %s (possibly involving @%s)"
+msgstr "varoitus: %s (mahdollisesti myös @%s)"
+
+#: tta/perl/Texinfo/Report.pm:84 tta/C/main/errors.c:111
+#, c-format, perl-format
+msgctxt "Texinfo source file error in macro"
+msgid "%s (possibly involving @%s)"
+msgstr "%s (mahdollisesti myös @%s)"
+
+#: tta/perl/Texinfo/Report.pm:90 tta/C/main/errors.c:131
+#, c-format, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s"
+msgstr "varoitus: %s"
+
+#: tta/perl/Texinfo/Report.pm:144 tta/C/main/errors.c:205
+#, c-format, perl-format
+msgctxt "whole document warning"
+msgid "%s: warning: %s"
+msgstr "%s: varoitus: %s"
+
+#: tta/perl/Texinfo/Report.pm:152 tta/C/main/errors.c:225
+#, c-format, perl-format
+msgctxt "whole document warning"
+msgid "warning: %s"
+msgstr "varoitus: %s"
+
+#: tta/perl/Texinfo/Structuring.pm:182
+#: tta/C/structuring_transfo/structuring.c:152
+#, c-format, perl-format
+msgid "raising the section level of @%s which is too low"
+msgstr "korotetaan @%s:n osiotasoa, joka on liian pieni"
+
+#: tta/perl/Texinfo/Structuring.pm:235
+#: tta/C/structuring_transfo/structuring.c:234
+#, fuzzy, c-format, perl-format
+msgid "no chapter-level command before @%s"
+msgstr "komentoa ”@%s” ei saa seurata uusi rivi"
+
+#: tta/perl/Texinfo/Structuring.pm:240
+#: tta/C/structuring_transfo/structuring.c:241
+#, c-format, perl-format
+msgid "lowering the section level of @%s appearing after a lower element"
+msgstr ""
+"lasketaan @%s:n osiotasoa, joka esiintyy heti alemman tason alkion jälkeen"
+
+#: tta/perl/Texinfo/Structuring.pm:360
+#: tta/C/structuring_transfo/structuring.c:412
+#, fuzzy, c-format, perl-format
+msgid "no sectioning command associated with @%s"
+msgstr "komentoa ”@%s” ei saa seurata uusi rivi"
+
+#: tta/perl/Texinfo/Structuring.pm:391
+#: tta/C/structuring_transfo/structuring.c:437
+#, c-format, perl-format
+msgid "@%s not empty"
+msgstr "@%s ei ole tyhjä"
+
+#: tta/perl/Texinfo/Structuring.pm:416 tta/perl/Texinfo/Structuring.pm:1616
+#: tta/C/structuring_transfo/structuring.c:460
+#: tta/C/structuring_transfo/structuring.c:2003
+#, c-format, perl-format
+msgid "@%s reference to nonexistent node `%s'"
+msgstr "@%s: viittaus puuttuvaan solmuun ”%s”"
+
+#: tta/perl/Texinfo/Structuring.pm:424
+#: tta/C/structuring_transfo/structuring.c:474
+#, c-format, perl-format
+msgid "@%s entry node name `%s' different from %s name `%s'"
+msgstr ""
+
+#: tta/perl/Texinfo/Structuring.pm:581
+#: tta/C/structuring_transfo/structuring.c:868
+#, c-format, perl-format
+msgid "node `%s' unreferenced"
+msgstr "solmuun ”%s” ei viittauksia"
+
+#: tta/perl/Texinfo/Structuring.pm:592
+#: tta/C/structuring_transfo/structuring.c:885
+#, fuzzy, c-format, perl-format
+#| msgid "node `%s' unreferenced"
+msgid "node `%s' not in menu"
+msgstr "%s-solmua ”%s” ei löytynyt"
+
+#: tta/perl/Texinfo/Structuring.pm:803
+#: tta/C/structuring_transfo/structuring.c:1236
+#, fuzzy, c-format, perl-format
+msgid "node `%s' in menu in `%s' but not under it in sectioning"
+msgstr "%s-solmua ”%s” ei löytynyt"
+
+#: tta/perl/Texinfo/Structuring.pm:810
+#: tta/C/structuring_transfo/structuring.c:1258
+#, fuzzy, c-format, perl-format
+msgid "node `%s' in menu in `%s' but under `%s' in sectioning"
+msgstr "%s-solmua ”%s” ei löytynyt"
+
+#: tta/perl/Texinfo/Structuring.pm:891
+#: tta/C/structuring_transfo/structuring.c:1378
+#, fuzzy, c-format, perl-format
+#| msgid "node `%s' unreferenced"
+msgid "node `%s' in menu where `%s' expected"
+msgstr "%s: arvo ”%s” virheellinen %c-valitsimelle (lukua odotetaan)"
+
+#: tta/perl/Texinfo/Structuring.pm:898
+#: tta/C/structuring_transfo/structuring.c:1391
+#, c-format, perl-format
+msgid "unexpected node `%s' in menu"
+msgstr "odottamaton solmu ”%s” valikossa"
+
+#: tta/perl/Texinfo/Structuring.pm:1000
+#: tta/C/structuring_transfo/structuring.c:1534
+#, c-format, perl-format
+msgid "node `%s' lacks menu item for `%s' but is above it in sectioning"
+msgstr "solmulta ”%s” puuttuu valikkokohta ”%s”, joka on osioinnissa sen yllä"
+
+#: tta/perl/Texinfo/Structuring.pm:1043 tta/perl/Texinfo/Structuring.pm:1063
+#: tta/perl/Texinfo/Structuring.pm:1079
+#: tta/C/structuring_transfo/structuring.c:1606
+#: tta/C/structuring_transfo/structuring.c:1636
+#: tta/C/structuring_transfo/structuring.c:1661
+#, fuzzy, c-format, perl-format
+msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
+msgstr ""
+"Kirjoittaneet %s, %s, %s,\n"
+"%s, %s ja %s.\n"
+
+#: tta/perl/Texinfo/Structuring.pm:1255
+#: tta/C/structuring_transfo/structuring.c:1900
+#, c-format, perl-format
+msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
+msgstr ""
+
+#: tta/perl/Texinfo/Structuring.pm:1266
+#: tta/C/structuring_transfo/structuring.c:1921
+#, fuzzy, c-format, perl-format
+msgid "%s reference to nonexistent `%s'"
+msgstr "jäsennysvirhe: %s: %s"
+
+#: tta/perl/Texinfo/Structuring.pm:1628
+#: tta/C/structuring_transfo/structuring.c:2023
+#, fuzzy, c-format, perl-format
+msgid "@%s to `%s', different from %s name `%s'"
+msgstr ""
+"Kirjoittaneet %s, %s, %s,\n"
+"%s, %s ja %s.\n"
+
+#: tta/perl/Texinfo/Structuring.pm:2203
+#: tta/C/structuring_transfo/structuring.c:2576
+#, c-format, perl-format
+msgid "node `%s' appears in its own menus"
+msgstr "solmu ”%s” esiintyy omissa valikoissaan"
+
+#: tta/perl/Texinfo/Transformations.pm:946
+#: tta/C/structuring_transfo/transformations.c:1508
+#, c-format, perl-format
+msgid "could not protect hash character in @%s"
+msgstr ""
+
+#: tta/perl/Texinfo/Translations.pm:179 tta/C/main/translations.c:198
+msgid "Cannot switch to a locale compatible with document strings translations"
+msgstr ""
+"Asiakirjan merkkijonokäännöksiä vastaavaan maa-asetukseen ei voida vaihtaa"
+
+#: tta/perl/Texinfo/Translations.pm:185 tta/C/main/translations.c:208
+msgid "Cannot find a locale compatible with document strings translations"
+msgstr "Asiakirjan merkkijonokäännöksiä vastaavaa maa-asetusta ei löydy"
+
+#: tta/perl/init/chm.pm:227 tta/perl/init/chm.pm:316 tta/perl/init/chm.pm:401
+#, perl-format
+msgid "chm.pm: could not open %s for writing: %s\n"
+msgstr "chm.pm: ei voitu avata tiedostoa %s kirjoitettavaksi: %s\n"
+
+#: tta/perl/init/chm.pm:300 tta/perl/init/chm.pm:385 tta/perl/init/chm.pm:457
+#, perl-format
+msgid "chm.pm: error on closing %s: %s"
+msgstr "chm.pm: virhe suljettaessa tiedostoa %s: %s"
+
+#: tta/perl/ext/epub3.pm:319
+#, perl-format
+msgid "@image file `%s' can not be copied"
+msgstr "@image-tiedostoa ”%s” ei voitu kopioida"
+
+#: tta/perl/ext/epub3.pm:331
+#, perl-format
+msgid "could not create images directory `%s': %s"
+msgstr "ei voitu luoda kuvahakemistoa ”%s”: %s"
+
+#: tta/perl/ext/epub3.pm:351
+#, perl-format
+msgid "could not copy `%s' to `%s': %s"
+msgstr "ei voitu kopioida ”%s” → ”%s”: %s"
+
+#: tta/perl/ext/epub3.pm:430
+#, perl-format
+msgid "error removing directory: %s: %s"
+msgstr "virhe poistettaessa hakemistoa: %s: %s"
+
+#: tta/perl/ext/epub3.pm:435
+#, perl-format
+msgid "error removing directory: %s: unlinking %s: %s"
+msgstr "virhe poistettaessa hakemistoa: %s: poistettaessa linkkiä %s: %s"
+
+#: tta/perl/ext/epub3.pm:479
+#, perl-format
+msgid "Archive::Zip is required for EPUB file output"
+msgstr "Archive::Zip vaaditaan EPUB-tiedostotulosteeseen"
+
+#: tta/perl/ext/epub3.pm:570
+#, fuzzy, perl-format
+#| msgid "error writing to %s: %s"
+msgid "error creating directory: %s: %s"
+msgstr "Virhe avattaessa: %s: %s"
+
+#: tta/perl/ext/epub3.pm:575
+#, fuzzy, perl-format
+msgid "error creating directory: %s: creating %s: %s"
+msgstr "Virhe avattaessa: %s: %s"
+
+#: tta/perl/ext/epub3.pm:612
+#, perl-format
+msgid "epub: no filename output"
+msgstr "epub: ei tulostiedostonimeä"
+
+#: tta/perl/ext/epub3.pm:623
+#, fuzzy, perl-format
+#| msgid "could not create directory `%s': %s"
+msgid "could not create meta informations directory `%s': %s"
+msgstr "ei voitu luoda kansiota ”%s”: %s"
+
+#: tta/perl/ext/epub3.pm:637 tta/perl/ext/epub3.pm:678
+#: tta/perl/ext/epub3.pm:711 tta/perl/ext/epub3.pm:846
+#, fuzzy, perl-format
+#| msgid "chm.pm: could not open %s for writing: %s\n"
+msgid "epub3.pm: could not open %s for writing: %s\n"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: tta/perl/ext/epub3.pm:662 tta/perl/ext/epub3.pm:690
+#: tta/perl/ext/epub3.pm:802 tta/perl/ext/epub3.pm:1013
+#, fuzzy, perl-format
+#| msgid "chm.pm: error on closing %s: %s"
+msgid "epub3.pm: error on closing %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/ext/epub3.pm:965
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: chdir %s failed: %s"
+msgid "epub3.pm: readdir %s error: %s"
+msgstr "Virhe avattaessa: %s: %s"
+
+#: tta/perl/ext/epub3.pm:1033 tta/perl/ext/epub3.pm:1042
+#: tta/perl/ext/epub3.pm:1055
+#, perl-format
+msgid "epub3.pm: error adding %s to archive"
+msgstr "epub3.pm: virhe lisättäessä arkistoon: %s"
+
+#: tta/perl/ext/epub3.pm:1064
+#, perl-format
+msgid "epub3.pm: error writing archive %s"
+msgstr "epub3.pm: virhe kirjoitettaessa arkistoa %s"
+
+#: tta/perl/ext/highlight_syntax.pm:140 tta/perl/ext/highlight_syntax.pm:415
+#, perl-format
+msgid "%s: %s"
+msgstr "%s: %s"
+
+#: tta/perl/ext/highlight_syntax.pm:176 tta/perl/ext/highlight_syntax.pm:194
+#, fuzzy, perl-format
+#| msgid "%s is not a valid language code"
+msgid "%s: %s: cannot parse language line"
+msgstr "@%s: odottamaton argumentti rivillä: %s"
+
+#: tta/perl/ext/highlight_syntax.pm:205
+#, fuzzy, perl-format
+#| msgid "%s is not a valid language code"
+msgid "%s: no highlighted language found"
+msgstr "Laitteita ei löytynyt"
+
+#: tta/perl/ext/highlight_syntax.pm:425
+#, fuzzy, perl-format
+#| msgid "%s: error on closing stdout: %s\n"
+msgid "%s: error closing input: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/ext/highlight_syntax.pm:436
+#, fuzzy, perl-format
+#| msgid "%s: error on closing stdout: %s\n"
+msgid "%s: error closing output: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/ext/highlight_syntax.pm:441
+#, fuzzy, perl-format
+#| msgid "%s: error on closing %s: %s\n"
+msgid "%s: error closing errors: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/ext/highlight_syntax.pm:449
+#, fuzzy, perl-format
+#| msgid "%s: error on closing %s: %s\n"
+msgid "%s: errors: %s"
+msgstr ""
+"Kirjoittaneet %s, %s, %s\n"
+"ja %s.\n"
+
+#: tta/perl/ext/highlight_syntax.pm:453
+#, perl-format
+msgid "  %s"
+msgstr "  %s"
+
+#: tta/perl/ext/highlight_syntax.pm:501
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: could not open %s: %s"
+msgid "highlight_syntax.pm: could not make directory %s: %s"
+msgstr "%s: ei voitu avata: %s: %s\n"
+
+#: tta/perl/ext/highlight_syntax.pm:526 tta/perl/ext/highlight_syntax.pm:598
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: could not open %s: %s"
+msgid "highlight_syntax.pm: could not open %s: %s"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: tta/perl/ext/highlight_syntax.pm:558 tta/perl/ext/highlight_syntax.pm:654
+#, perl-format
+msgid "highlight_syntax.pm: error on closing %s: %s"
+msgstr "highlight_syntax.pm: virhe suljettaessa: %s: %s"
+
+#: tta/perl/ext/highlight_syntax.pm:587
+#, perl-format
+msgid "highlight_syntax.pm: command did not succeed: %s"
+msgstr "highlight_syntax.pm: komento ei onnistunut: %s"
+
+#: tta/perl/ext/highlight_syntax.pm:633
+#, perl-format
+msgid ""
+"highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
+"+1"
+msgstr "highlight_syntax.pm: %s: %d erotinta: odotettiin %d, osasten määrä +1"
+
+#: tta/perl/ext/highlight_syntax.pm:640
+#, perl-format
+msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
+msgstr "highlight_syntax.pm: %s: kohteen @%s lopussa %d ei löytynyt"
+
+#: tta/perl/ext/highlight_syntax.pm:649
+#, fuzzy, perl-format
+#| msgid ""
+#| "tex4ht.pm: processing retrieved %d items in HTML; expected %d, the number "
+#| "of items found in the document for @%s"
+msgid "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"
+msgstr ""
+"tex4ht.pm: käsittely palautti %d HTML-tietuetta. Odotettiin %d, mikä on "
+"tietueiden määrä tiedostossa kohteelle @%s"
+
+#: tta/perl/ext/highlight_syntax.pm:711
+#, perl-format
+msgid "highlight_syntax.pm: output has HTML item for @%s but no language %s"
+msgstr ""
+
+#: tta/perl/ext/highlight_syntax.pm:807
+#, perl-format
+msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
+msgstr ""
+
+#: tta/perl/ext/latex2html.pm:119
+#, perl-format
+msgid "l2h: could not open latex file %s for writing: %s"
+msgstr "l2h: ei voitu avata LaTeX-tiedostoa %s kirjoitettavaksi: %s"
+
+#: tta/perl/ext/latex2html.pm:151
+#, fuzzy, perl-format
+msgid "l2h: error on closing latex file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/ext/latex2html.pm:381
+#, fuzzy, perl-format
+msgid "latex2html.pm: processing produced %d items in HTML; expected %d"
+msgstr ""
+"tex4ht.pm: käsittely palautti %d HTML-tietuetta. Odotettiin %d, mikä on "
+"tietueiden määrä tiedostossa kohteelle @%s"
+
+#: tta/perl/ext/latex2html.pm:419
+#, perl-format
+msgid "l2h: L2H_TMP directory contains a dot"
+msgstr "l2h: L2H_TMP-kansion nimessä on piste"
+
+#: tta/perl/ext/latex2html.pm:425
+#, perl-format
+msgid "l2h: current directory contains a dot"
+msgstr "l2h: nykyisen kansion nimessä on piste"
+
+#: tta/perl/ext/latex2html.pm:432
+#, fuzzy, perl-format
+#| msgid "l2h: command did not succeed: %s"
+msgid "l2h: command not set"
+msgstr ""
+"\n"
+"Komentohistoria:\n"
+
+#: tta/perl/ext/latex2html.pm:490
+#, perl-format
+msgid "l2h: command did not succeed: %s"
+msgstr "l2h: komento ei onnistunut: %s"
+
+#: tta/perl/ext/latex2html.pm:525
+#, perl-format
+msgid "l2h: could not open %s: %s"
+msgstr "l2h: ei voida avata %s: %s"
+
+#: tta/perl/ext/latex2html.pm:557
+#, perl-format
+msgid "latex2html.pm: end of @%s text %d not found"
+msgstr ""
+
+#: tta/perl/ext/latex2html.pm:565
+#, fuzzy, perl-format
+msgid "l2h: error on closing html file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/ext/latex2html.pm:640
+#, perl-format
+msgid "l2h: could not extract the fragment %d for @%s, text %d, from HTML"
+msgstr ""
+
+#: tta/perl/ext/latex2html.pm:707
+#, fuzzy, perl-format
+#| msgid "l2h: could not open %s: %s"
+msgid "l2h: could not unlink file %s: %s"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: tta/perl/ext/latex2html.pm:745
+#, fuzzy, perl-format
+#| msgid "l2h: could not open %s: %s"
+msgid "l2h: could not compile %s: %s"
+msgstr "%s-solmua ”%s” ei löytynyt"
+
+#: tta/perl/ext/latex2html.pm:750
+#, perl-format
+msgid "l2h: could not load %s: %s"
+msgstr "l2h: ei voitu ladata %s: %s"
+
+#: tta/perl/ext/latex2html.pm:754
+#, perl-format
+msgid "l2h: error loading %s"
+msgstr "l2h: virhe ladattaessa: %s"
+
+#: tta/perl/ext/latex2html.pm:774
+#, perl-format
+msgid "l2h: could not open %s for writing: %s"
+msgstr "l2h: ei voida avata kirjoitettavaksi: %s: %s"
+
+#: tta/perl/ext/latex2html.pm:805
+#, fuzzy, perl-format
+msgid "l2h: error on closing cache file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/ext/tex4ht.pm:95
+#, perl-format
+msgid "tex4ht.pm: unknown conversion type for math: %s"
+msgstr "tex4ht.pm: tuntematon matematiikan muunnostyyppi: %s"
+
+#: tta/perl/ext/tex4ht.pm:104
+#, perl-format
+msgid "tex4ht.pm: unknown conversion type for @tex: %s"
+msgstr "tex4ht.pm: tuntematon @tex-muunnostyyppi: %s"
+
+#: tta/perl/ext/tex4ht.pm:113
+#, perl-format
+msgid "tex4ht.pm: unknown conversion type for @latex: %s"
+msgstr "tex4ht.pm: tuntematon @latex-muunnostyyppi: %s"
+
+#: tta/perl/ext/tex4ht.pm:223 tta/perl/ext/tex4ht.pm:405
+#, perl-format
+msgid "tex4ht.pm: could not open %s: %s"
+msgstr "tex4ht.pm: ei voitu avata tiedostoa %s: %s"
+
+#: tta/perl/ext/tex4ht.pm:304
+#, fuzzy, perl-format
+#| msgid "chm.pm: error on closing %s: %s"
+msgid "tex4ht.pm: error on closing %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/ext/tex4ht.pm:331
+#, perl-format
+msgid "tex4ht.pm: chdir %s failed: %s"
+msgstr "tex4ht.pm: chdir %s epäonnistui: %s"
+
+#: tta/perl/ext/tex4ht.pm:345
+#, perl-format
+msgid "tex4ht.pm: unable to return to initial directory: %s"
+msgstr "tex4ht.pm: ei voi palauttaa alkukansiota: %s"
+
+#: tta/perl/ext/tex4ht.pm:359
+#, perl-format
+msgid "tex4ht.pm: output file missing: %s"
+msgstr "tex4ht.pm: tulostiedosto puuttuu: %s"
+
+#: tta/perl/ext/tex4ht.pm:387
+#, perl-format
+msgid "tex4ht.pm: command failed: %s"
+msgstr "tex4ht.pm: komento epäonnistui: %s"
+
+#: tta/perl/ext/tex4ht.pm:392
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: could not open %s: %s"
+msgid "tex4ht.pm: closing communication failed: %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/ext/tex4ht.pm:441
+#, perl-format
+msgid "tex4ht.pm: end of %s item %d for @%s not found"
+msgstr ""
+
+#: tta/perl/ext/tex4ht.pm:450
+#, fuzzy, perl-format
+msgid ""
+"tex4ht.pm: processing produced %d items in HTML; expected %d for format %s"
+msgstr ""
+"tex4ht.pm: käsittely palautti %d HTML-tietuetta. Odotettiin %d, mikä on "
+"tietueiden määrä tiedostossa kohteelle @%s"
+
+#: tta/perl/ext/tex4ht.pm:485
+#, perl-format
+msgid "tex4ht.pm: output has no HTML item for @%s %s"
+msgstr ""
+
+#: tta/perl/ext/tex4ht.pm:502
+#, perl-format
+msgid "tex4ht.pm: output counter UNDEF; expected %d for @%s"
+msgstr ""
+
+#: tta/perl/ext/tex4ht.pm:506
+#, fuzzy, perl-format
+msgid "tex4ht.pm: no expected items in the document for @%s"
+msgstr "tex4ht.pm: tuntematon @latex-muunnostyyppi: %s"
+
+#: tta/perl/ext/tex4ht.pm:513
+#, fuzzy, perl-format
+#| msgid ""
+#| "tex4ht.pm: processing retrieved %d items in HTML; expected %d, the number "
+#| "of items found in the document for @%s"
+msgid "tex4ht.pm: processing retrieved %d items in HTML; collected %d for @%s"
+msgstr ""
+"tex4ht.pm: käsittely palautti %d HTML-tietuetta. Odotettiin %d, mikä on "
+"tietueiden määrä tiedostossa kohteelle @%s"
+
+#: tta/perl/texi2any.pl:674
+#, perl-format
+msgid "could not read init file %s"
+msgstr "alustustiedostoa %s ei voitu lukea"
+
+#: tta/perl/texi2any.pl:697
+#, perl-format
+msgid "could not read extension file %s"
+msgstr "laajennustiedostoa %s ei voitu lukea"
+
+#: tta/perl/texi2any.pl:983
+#, perl-format
+msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1041 tta/C/texi2any.c:1862
+#, c-format, perl-format
+msgid "Usage: %s [OPTION]... TEXINFO-FILE..."
+msgstr "Käyttö: %s [VALITSIN]... TEXINFOTSTO..."
+
+#: tta/perl/texi2any.pl:1044 tta/C/texi2any.c:1871
+#, fuzzy
+#| msgid ""
+#| "Translate Texinfo source documentation to various other formats, by "
+#| "default\n"
+#| "Info files suitable for reading online with Emacs or standalone GNU "
+#| "Info.\n"
+#| "\n"
+#| "This program is commonly installed as both `makeinfo' and `texi2any';\n"
+#| "the behavior is identical, and does not depend on the installed name.\n"
+msgid ""
+"Translate Texinfo source documentation to various other formats, by default\n"
+"Info files suitable for reading online with Emacs or standalone GNU Info.\n"
+"\n"
+"This program is commonly installed as both `makeinfo' and `texi2any';\n"
+"the behavior is identical, and does not depend on the installed name."
+msgstr ""
+"Käännä Texinfon lähdedokumentaatio muihin muotoihin, oletuksena Info-,\n"
+"tiedostoksi, joka sopii lukemiseen Emacsilla tai itsenäisellä GNU Infolla.\n"
+"\n"
+"Ohjelma asennetaan tavallisesti sekä nimellä ”makeinfo” että ”texi2any”.\n"
+"Ohjelmat toimivat asennusnimistään riippumatta samoin.\n"
+
+#: tta/perl/texi2any.pl:1050 tta/C/texi2any.c:1877
+msgid "General options:"
+msgstr "Yleisvalitsimet:"
+
+#: tta/perl/texi2any.pl:1051 tta/C/texi2any.c:1880
+msgid ""
+"      --document-language=STR locale to use in translating Texinfo keywords\n"
+"                                for the output document (default C)"
+msgstr ""
+"      --document-language=JONO  Texinfo-avainsanojen käännettäessä "
+"käytettävä\n"
+"                                maa-asetus tulostiedostossa (oletus C)"
+
+#: tta/perl/texi2any.pl:1053 tta/C/texi2any.c:1884
+#, c-format, perl-format
+msgid "      --error-limit=NUM       quit after NUM errors (default %d)"
+msgstr "      --error-limit=N         lopeta N virheen jälkeen (oletus %d)"
+
+#: tta/perl/texi2any.pl:1055 tta/C/texi2any.c:1888
+msgid "      --force                 preserve output even if errors"
+msgstr "      --force                 säilytä virheellinenkin tuloste"
+
+#: tta/perl/texi2any.pl:1056 tta/C/texi2any.c:1891
+msgid "      --help                  display this help and exit"
+msgstr "      --help                  näytä tämä ohje ja lopeta"
+
+#: tta/perl/texi2any.pl:1057 tta/C/texi2any.c:1894
+msgid "      --no-validate           suppress node cross-reference validation"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1058 tta/C/texi2any.c:1897
+msgid "      --no-warn               suppress warnings (but not errors)"
+msgstr "      --no-warn               estä varoitukset (muttei virheitä)"
+
+#: tta/perl/texi2any.pl:1059 tta/C/texi2any.c:1900
+msgid ""
+"      --conf-dir=DIR          search also for initialization files in DIR"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1060 tta/C/texi2any.c:1903
+msgid "      --init-file=FILE        load FILE to modify the default behavior"
+msgstr "      --init-file=TSTO        muuta oletustoimintaa lataamalla TSTO"
+
+#: tta/perl/texi2any.pl:1061 tta/C/texi2any.c:1906
+msgid ""
+"  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
+"                                to value VAL"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1063 tta/C/texi2any.c:1910
+msgid "      --trace-includes        print names of included files"
+msgstr ""
+"      --trace-includes        tulosta sisällytettyjen tiedostojen nimet"
+
+#: tta/perl/texi2any.pl:1064 tta/C/texi2any.c:1913
+msgid "  -v, --verbose               explain what is being done"
+msgstr "  -v, --verbose               kerro mitä tapahtuu"
+
+#: tta/perl/texi2any.pl:1065 tta/C/texi2any.c:1916
+msgid "      --version               display version information and exit"
+msgstr "      --version               näytä versiotiedot ja lopeta"
+
+#: tta/perl/texi2any.pl:1067 tta/C/texi2any.c:1922
+msgid "Output format selection (default is to produce Info):"
+msgstr "Tulosmuodon valinta (oletus on tuottaa Infoa):"
+
+#: tta/perl/texi2any.pl:1068 tta/C/texi2any.c:1925
+msgid "      --docbook               output Docbook XML"
+msgstr "      --docbook               tulosta Docbook XML:ää"
+
+#: tta/perl/texi2any.pl:1069 tta/C/texi2any.c:1928
+msgid "      --html                  output HTML"
+msgstr "      --html                  tulosta HTML:nä"
+
+#: tta/perl/texi2any.pl:1070 tta/C/texi2any.c:1931
+msgid "      --epub3                 output EPUB 3"
+msgstr "      --epub3                 tulosta EPUB 3:na"
+
+#: tta/perl/texi2any.pl:1071 tta/C/texi2any.c:1934
+msgid "      --latex                 output LaTeX"
+msgstr "      --latex                 tulosta LaTeXina"
+
+#: tta/perl/texi2any.pl:1072 tta/C/texi2any.c:1937
+msgid "      --plaintext             output plain text rather than Info"
+msgstr "      --plaintext             tulosta raakatekstiä Infon sijaan"
+
+#: tta/perl/texi2any.pl:1073 tta/C/texi2any.c:1940
+msgid "      --xml                   output Texinfo XML"
+msgstr "      --xml                   tulosta Texinfo XML:nä"
+
+#: tta/perl/texi2any.pl:1074 tta/C/texi2any.c:1943
+msgid ""
+"      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
+"                                after checking validity of TEXINFO-FILE"
+msgstr ""
+"      --dvi, --dvipdf, --ps, --pdf  luo annettu tuloste kutsumalla "
+"texi2dvi:tä\n"
+"                                TEXINFO-FILEn kelvollisuuden tarkistuksen "
+"jälkeen"
+
+#: tta/perl/texi2any.pl:1078 tta/C/texi2any.c:1947
+msgid "General output options:"
+msgstr "Yleiset tulosvalinnat:"
+
+#: tta/perl/texi2any.pl:1080 tta/C/texi2any.c:1950
+msgid ""
+"  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
+"                                ignoring any @setfilename"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1083 tta/C/texi2any.c:1954
+msgid ""
+"      --no-headers            suppress node separators, Node: lines, and "
+"menus\n"
+"                                from Info output (thus producing plain "
+"text)\n"
+"                                or from HTML (thus producing shorter "
+"output).\n"
+"                                Also, if producing Info, write to\n"
+"                                standard output by default."
+msgstr ""
+
+#: tta/perl/texi2any.pl:1089 tta/C/texi2any.c:1961
+msgid ""
+"      --no-split              suppress any splitting of the output;\n"
+"                                generate only one output file"
+msgstr ""
+"      --no-split              estä tulosteen minkäänlainen jakaminen;\n"
+"                                tuota vain yksi tulostiedosto"
+
+#: tta/perl/texi2any.pl:1092 tta/C/texi2any.c:1965
+msgid ""
+"      --[no-]number-sections  output chapter and sectioning numbers;\n"
+"                                default is on"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1095 tta/C/texi2any.c:1969
+msgid ""
+"      --[no-]number-footnotes  number footnotes sequentially; default is on"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1097 tta/C/texi2any.c:1972
+msgid ""
+"  -o, --output=DEST           output to DEST.\n"
+"                                With split output, create DEST as a "
+"directory\n"
+"                                and put the output files there.\n"
+"                                With non-split output, if DEST is already\n"
+"                                a directory or ends with a /,\n"
+"                                put the output file there.\n"
+"                                Otherwise, DEST names the output file."
+msgstr ""
+"  -o, --output=KOHDE          tulosta KOHTEESEEN.\n"
+"                                Jaetulle tulosteelle luo KOHDE kansioksi ja\n"
+"                                sijoita kaikki tulostiedostot sinne.\n"
+"                                Jakamattomalle tulosteelle jos KOHDE on jo\n"
+"                                hakemisto tai päättyy /,\n"
+"                                sijoita kaikki tulostiedostot sinne.\n"
+"                                Muulloin KOHDE nimeää tulostiedoston."
+
+#: tta/perl/texi2any.pl:1105 tta/C/texi2any.c:1981
+msgid ""
+"      --disable-encoding      do not output accented and special characters\n"
+"                                in Info and plain text output based on "
+"document\n"
+"                                encoding"
+msgstr ""
+"      --disable-encoding      älä tulosta tarkkeellisia tai erikoismerkkejä\n"
+"                                tiedostokoodaukseen perustuvaan Info- tai\n"
+"                                raakatekstitulosteeseen"
+
+#: tta/perl/texi2any.pl:1109 tta/C/texi2any.c:1986
+msgid "      --enable-encoding       override --disable-encoding (default)"
+msgstr "      --enable-encoding       sivuuta --disable-encoding (oletus)"
+
+#: tta/perl/texi2any.pl:1111 tta/C/texi2any.c:1989
+#, perl-format
+msgid "Options for Info and plain text:"
+msgstr "Info- ja raakatekstivalinnat:"
+
+#: tta/perl/texi2any.pl:1113 tta/C/texi2any.c:1992
+#, c-format, perl-format
+msgid ""
+"      --fill-column=NUM       break Info lines at NUM columns (default %d)"
+msgstr "      --fill-column=N         jaa Info-rivit sarakkeesta N (oletus %d)"
+
+#: tta/perl/texi2any.pl:1115 tta/C/texi2any.c:1996
+#, perl-format
+msgid ""
+"      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
+"                                `separate' to put them in their own node;\n"
+"                                `end' to put them at the end of the node, "
+"in\n"
+"                                which they are defined (this is the default)"
+msgstr ""
+"      --footnote-style=TYYLI  tulosta Infon alaviitteet TYYLIN mukaisesti:\n"
+"                                ”separate” sijoittaa ne omaan solmuunsa;\n"
+"                                ”end” sen solmun loppuun, jossa ne on\n"
+"                                määritelty (tämä on oletus)"
+
+#: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:2006
+#, c-format, perl-format
+msgid ""
+"      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
+"%d).\n"
+"                                If VAL is `none', do not indent; if VAL is\n"
+"                                `asis', preserve existing indentation."
+msgstr ""
+
+#: tta/perl/texi2any.pl:1124 tta/C/texi2any.c:2012
+#, c-format, perl-format
+msgid "      --split-size=NUM        split Info files at size NUM (default %d)"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1130 tta/C/texi2any.c:2016
+msgid "Options for HTML:"
+msgstr "HTML-valitsimet:"
+
+#: tta/perl/texi2any.pl:1131 tta/C/texi2any.c:2019
+msgid ""
+"      --css-include=FILE      include FILE in HTML <style> output;\n"
+"                                read stdin if FILE is -"
+msgstr ""
+"      --css-include=TSTO      sisällytä TSTO HTML:n <style>-tulosteeseen;\n"
+"                                lue vakiosyötettä, jos TSTO on -"
+
+#: tta/perl/texi2any.pl:1133 tta/C/texi2any.c:2023
+msgid "      --css-ref=URL           generate CSS reference to URL"
+msgstr "      --css-ref=URL           luo CSS-viite URLiin"
+
+#: tta/perl/texi2any.pl:1134 tta/C/texi2any.c:2026
+msgid "      --internal-links=FILE   produce list of internal links in FILE"
+msgstr "      --internal-links=TSTO   tuota sisäisten linkkien luettelo TSTOON"
+
+#: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:2029
+msgid ""
+"      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n"
+"                                `section' or `node'"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1137 tta/C/texi2any.c:2033
+msgid ""
+"      --transliterate-file-names  use file names in ASCII transliteration"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1138 tta/C/texi2any.c:2036
+msgid ""
+"      --node-files            produce redirection files for nodes and\n"
+"                                anchors; default is set only if split"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1141 tta/C/texi2any.c:2040
+msgid "Options for DVI/PS/PDF:"
+msgstr "DVI/PS/PDF-valitsimet:"
+
+#: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:2043
+msgid "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated"
+msgstr "      --Xopt=VAL              välitä VAL texi2dvi:lle; voi toistaa"
+
+#: tta/perl/texi2any.pl:1144 tta/C/texi2any.c:2046
+msgid "Input file options:"
+msgstr "Syötetiedostovalitsimet:"
+
+#: tta/perl/texi2any.pl:1145 tta/C/texi2any.c:2049
+msgid " -D VAR                       define the variable VAR, as with @set"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1146 tta/C/texi2any.c:2052
+msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1147 tta/C/texi2any.c:2055
+msgid " -I DIR                       append DIR to the @include search path"
+msgstr " -I HAK                       lisää HAK @include-hakupolun loppuun"
+
+#: tta/perl/texi2any.pl:1148 tta/C/texi2any.c:2058
+msgid " -P DIR                       prepend DIR to the @include search path"
+msgstr " -P HAK                       lisää HAK @include-hakupolun alkuun"
+
+#: tta/perl/texi2any.pl:1149 tta/C/texi2any.c:2061
+msgid " -U VAR                       undefine the variable VAR, as with @clear"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1151 tta/C/texi2any.c:2065
+msgid "Conditional processing in input:"
+msgstr "Ehdollinen syötekäsittely:"
+
+#: tta/perl/texi2any.pl:1152 tta/C/texi2any.c:2068
+msgid "      --ifdocbook       process @ifdocbook and @docbook"
+msgstr "      --ifdocbook       käsittele @ifdocbook ja @docbook"
+
+#: tta/perl/texi2any.pl:1153 tta/C/texi2any.c:2071
+msgid "      --ifhtml          process @ifhtml and @html"
+msgstr "      --ifhtml          käsittele @ifhtml ja @html"
+
+#: tta/perl/texi2any.pl:1154 tta/C/texi2any.c:2074
+msgid "      --ifinfo          process @ifinfo"
+msgstr "      --ifinfo          käsittele @ifinfo"
+
+#: tta/perl/texi2any.pl:1155 tta/C/texi2any.c:2077
+msgid "      --iflatex         process @iflatex and @latex"
+msgstr "      --iflatex         käsittele @iflatex ja @latex"
+
+#: tta/perl/texi2any.pl:1156 tta/C/texi2any.c:2080
+msgid "      --ifplaintext     process @ifplaintext"
+msgstr "      --ifplaintext     käsittele @ifplaintext"
+
+#: tta/perl/texi2any.pl:1157 tta/C/texi2any.c:2083
+msgid "      --iftex           process @iftex and @tex"
+msgstr "      --iftex           käsittele @iftex ja @tex"
+
+#: tta/perl/texi2any.pl:1158 tta/C/texi2any.c:2086
+msgid "      --ifxml           process @ifxml and @xml"
+msgstr "      --ifxml           käsittele @ifxml ja @xml"
+
+#: tta/perl/texi2any.pl:1160 tta/C/texi2any.c:2092
+msgid ""
+"  By default, an --ifFORMAT setting is on only when the output format\n"
+"  is FORMAT; for example, --ifhtml is on when outputting HTML.\n"
+"  Also, when --ifFORMAT is on, @ifnotFORMAT text is not processed."
+msgstr ""
+
+#: tta/perl/texi2any.pl:1164 tta/C/texi2any.c:2099
+msgid ""
+"  Each --ifFORMAT option may be prefixed with `--no-' to negate it;\n"
+"  for example, --no-ifhtml means not to process @ifhtml or @html text,\n"
+"  and to process @ifnothtml text."
+msgstr ""
+
+#: tta/perl/texi2any.pl:1168 tta/C/texi2any.c:2104
+msgid "Examples:"
+msgstr "Esimerkkejä:"
+
+#: tta/perl/texi2any.pl:1169 tta/C/texi2any.c:2107
+#, fuzzy, c-format, perl-format
+#| msgid "    --top                   top for the main manual"
+msgid "  %s foo.texi                      write Info"
+msgstr "  %s --html foo.texi               kirjoita HTML:nä"
+
+#: tta/perl/texi2any.pl:1170 tta/C/texi2any.c:2110
+#, c-format, perl-format
+msgid "  %s --html foo.texi               write HTML"
+msgstr "  %s --html foo.texi               kirjoita HTML:nä"
+
+#: tta/perl/texi2any.pl:1171 tta/C/texi2any.c:2113
+#, c-format, perl-format
+msgid "  %s --xml foo.texi                write Texinfo XML"
+msgstr "  %s --xml foo.texi                kirjoita Texinfo XML:nä"
+
+#: tta/perl/texi2any.pl:1172 tta/C/texi2any.c:2116
+#, c-format, perl-format
+msgid "  %s --docbook foo.texi            write Docbook XML"
+msgstr "  %s --docbook foo.texi            kirjoita Docbook XML:nä"
+
+#: tta/perl/texi2any.pl:1173 tta/C/texi2any.c:2119
+#, c-format, perl-format
+msgid "  %s --plaintext foo.texi          write plain text to standard output"
+msgstr ""
+"  %s --plaintext foo.texi          kirjoita raakatekstinä vakiotulosvirtaan"
+
+#: tta/perl/texi2any.pl:1174 tta/C/texi2any.c:2122
+#, c-format, perl-format
+msgid "  %s --pdf foo.texi                write PDF using texi2dvi"
+msgstr "  %s --pdf foo.texi                kirjoita PDF:nä texi2dvi:llä"
+
+#: tta/perl/texi2any.pl:1176 tta/C/texi2any.c:2126
+#, c-format, perl-format
+msgid "  %s --html --no-headers foo.texi  write html without node lines, menus"
+msgstr ""
+"  %s --html --no-headers foo.texi  kirjoita HTML:nä solmuriveittä ja "
+"valikoitta"
+
+#: tta/perl/texi2any.pl:1177 tta/C/texi2any.c:2129
+#, fuzzy, c-format, perl-format
+msgid "  %s --number-sections foo.texi    write Info with numbered sections"
+msgstr "    --unnumbered-sections   älä numeroi osioita"
+
+#: tta/perl/texi2any.pl:1178 tta/C/texi2any.c:2132
+#, c-format, perl-format
+msgid "  %s --no-split foo.texi           write one Info file however big"
+msgstr ""
+"  %s --no-split foo.texi           kirjoita koosta riippumatta yksi Info-"
+"tiedosto"
+
+#: tta/perl/texi2any.pl:1221 tta/C/texi2any.c:1713
+#, c-format, perl-format
+msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
+msgstr "%s: --footnote-style-argumentin oltava ”separate” tai ”end”, ei ”%s”."
+
+#: tta/perl/texi2any.pl:1228
+#, perl-format
+msgid "%s is not a valid split possibility"
+msgstr "%s ei ole kelvollinen jakovaihtoehto"
+
+#: tta/perl/texi2any.pl:1343
+#, fuzzy, perl-format
+msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
+msgstr "%s: --paragraph-indent-argumentin oltava luku/”none”/”asis”, ei ”%s”."
+
+#: tta/perl/texi2any.pl:1531
+#, perl-format
+msgid "overwriting file: %s"
+msgstr "korvataan tiedosto: %s"
+
+#: tta/perl/texi2any.pl:1581
+#, perl-format
+msgid "unknown tree transformation %s"
+msgstr "tuntematon puumuunnos %s"
+
+#: tta/perl/texi2any.pl:1607
+#, fuzzy, perl-format
+msgid "ignoring splitting for converted format %s (for %s)"
+msgstr "sivuutetaan toistuva @%s"
+
+#: tta/perl/texi2any.pl:1611
+#, fuzzy, perl-format
+msgid "ignoring splitting for format %s"
+msgstr "Ei-tuettu levymuoto"
+
+#: tta/perl/texi2any.pl:1627 tta/C/texi2any.c:2342
+#, c-format, perl-format
+msgid "%s: when generating %s, only one input FILE may be specified with -o"
+msgstr ""
+
+#: tta/perl/texi2any.pl:1631
+msgid "--Xopt option without printed output"
+msgstr "--Xopt-valitsin ilman tulostetta"
+
+#: tta/perl/texi2any.pl:1648
+#, perl-format
+msgid "error loading %s: %s"
+msgstr "virhe ladattaessa: %s: %s"
+
+#: tta/perl/texi2any.pl:1725 tta/C/texi2any.c:2541
+#, c-format, perl-format
+msgid "%s: missing file argument."
+msgstr "%s: tiedostoargumentti puuttuu."
+
+#: tta/perl/texi2any.pl:1760
+#, perl-format
+msgid "input file %s; did you mean %s?"
+msgstr "syötetiedosto %s: tarkoititko %s?"
+
+#: tta/perl/texi2any.pl:1880
+#, fuzzy, perl-format
+msgid "error on closing tree dump file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/texi2any.pl:1947
+#, fuzzy, perl-format
+msgid "error on closing macro expand file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/texi2any.pl:2101
+#, fuzzy, perl-format
+msgid "error on closing structure dump file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/texi2any.pl:2218
+#, fuzzy, perl-format
+msgid "%s: error on closing internal links file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/texi2any.pl:2336
+#, fuzzy, perl-format
+msgid "%s: error on closing elements size file %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/C/texi2any.c:923
+#, c-format
+msgid "%s: value \"%s\" invalid for option %s (number expected)"
+msgstr "%s: arvo ”%s” virheellinen %s-valitsimelle (lukua odotetaan)"
+
+#: tta/C/texi2any.c:927
+#, c-format
+msgid "%s: value \"%s\" invalid for option %c (number expected)"
+msgstr "%s: arvo ”%s” virheellinen %c-valitsimelle (lukua odotetaan)"
+
+#: tta/C/texi2any.c:1741
+#, c-format
+msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
+msgstr "%s: --paragraph-indent-argumentin oltava luku/”none”/”asis”, ei ”%s”."
+
+#: tta/C/convert/convert_html.c:2414
+#, c-format
+msgid "%s: %zu registered opened sections not closed"
+msgstr ""
+
+#: tta/C/convert/convert_html.c:2424
+#, fuzzy, c-format
+#| msgid "reserved index name %s"
+msgid "%zu registered inline contents: %s"
+msgstr "varattu indeksinimi %s"
+
+#: tta/C/convert/convert_html.c:2441
+#, fuzzy, c-format
+msgid "left inline content associated to %s: '%s'"
+msgstr "ympäristökomento %s parametrina komennolle @%s"
+
+#: tta/C/convert/convert_html.c:2448
+#, c-format
+msgid "left inline content of %p: '%s'"
+msgstr ""
+
+#: tta/C/convert/convert_html.c:2453
+#, fuzzy, c-format
+msgid "left inline content associated: '%s'"
+msgstr "ympäristökomento %s parametrina komennolle @%s"
+
+#: tta/C/convert/convert_html.c:2462
+#, c-format
+msgid "%zu pending footnotes"
+msgstr "%zu odottavaa alaviitettä"
+
+#: tta/C/convert/convert_html.c:2688
+#, fuzzy, c-format
+msgid "error while opening %s for reading: %s"
+msgstr "lukuvirhe: %s: %s"
+
+#: tta/C/convert/convert_html.c:2698
+#, fuzzy, c-format
+msgid "cannot open %s for writing: %s"
+msgstr "ei voitu avata tiedostoa %s kirjoitettavaksi: %s"
+
+#: tta/C/convert/convert_html.c:2716
+#, c-format
+msgid "error writing %s: %s"
+msgstr "virhe kirjoitettaessa %s: %s"
+
+#: tta/C/convert/convert_html.c:2742
+#, c-format
+msgid "error closing %s: %s"
+msgstr "virhe suljettaessa: %s: %s"
+
+#: tta/C/convert/html_prepare_converter.c:1912
+#, c-format
+msgid "error on closing CSS file  %s: %s"
+msgstr "virhe suljettaessa CSS-tiedostoa %s: %s"
+
+#: tta/C/convert/texinfo.c:798
+#, fuzzy, c-format
+#| msgid "%s: error on closing %s: %s\n"
+msgid "%s: error on closing io %s: %s"
+msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/C/main/manipulate_indices.c:535
+#, fuzzy, c-format
+#| msgid "empty index key in @%s"
+msgid "empty index sub entry %zu key in @%s"
+msgstr "tyhjä indeksiavain: @%s"
+
+#: tta/C/main/manipulate_indices.c:631
+#, fuzzy, c-format
+msgid "collation locale not found: %s"
+msgstr "Laitteita ei löytynyt"
+
+#: tta/C/parsetexi/close.c:544
+#, c-format
+msgid "unmatched `@end %s'"
+msgstr "pariton ”@end %s”"
+
+#: tta/C/parsetexi/end_line.c:230
+#, fuzzy, c-format
+msgid "bad argument to @alias"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/C/parsetexi/end_line.c:480
+#, fuzzy, c-format
+msgid "bad argument to @printindex: %s"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/C/parsetexi/end_line.c:672
+#, fuzzy, c-format
+msgid "bad argument to @headings: %s"
+msgstr "tuntematon koodausnimi ”%s”"
+
+#: tta/C/parsetexi/end_line.c:1295
+#, c-format
+msgid "bad argument to @end: %s"
+msgstr "virheellinen parametri @end’ille: %s"
+
+#: tta/C/parsetexi/end_line.c:1314
+#, c-format
+msgid "@include: could not find %s"
+msgstr "@include: ei löydy: %s"
+
+#: tta/C/parsetexi/end_line.c:1324
+#, c-format
+msgid "@include: could not open %s: %s"
+msgstr "@include: ei voitu avata: %s: %s"
+
+#: tta/C/parsetexi/end_line.c:1777
+#, c-format
+msgid "@setfilename after the first element"
+msgstr "@setfilename ensimmäisen alkion jälkeen"
+
+#: tta/C/parsetexi/end_line.c:1784
+#, c-format
+msgid "@columnfractions only meaningful on a @multitable line"
+msgstr "@columnfractions on mielekäs vain @multitable-rivillä"
+
+#: tta/C/parsetexi/end_line.c:1824
+#, fuzzy, c-format
+msgid "@part should not be associated with @top"
+msgstr "Osa: {part_title}"
+
+#: tta/C/parsetexi/end_line.c:1837
+#, c-format
+msgid "@node precedes @part, but parts may not be associated with nodes"
+msgstr "@node ennen @part’ia mutta osia ei voi yhdistää solmuihin"
+
+#: tta/C/parsetexi/handle_commands.c:265
+#, c-format
+msgid "bad name for @set"
+msgstr "huono nimi @setille"
+
+#: tta/C/parsetexi/handle_commands.c:300
+#, c-format
+msgid "bad name for @clear"
+msgstr "huono nimi @clearille"
+
+#: tta/C/parsetexi/handle_commands.c:329
+#, c-format
+msgid "bad name for @unmacro"
+msgstr "huono nimi @unmacrolle"
+
+#: tta/C/parsetexi/handle_commands.c:442
+#, c-format
+msgid "@\\ should only appear in math context"
+msgstr "@\\ voi esiintyä vain matematiikkakontekstissa"
+
+#: tta/C/parsetexi/handle_commands.c:448
+#, c-format
+msgid "@ should not occur at end of argument to line command"
+msgstr ""
+
+#: tta/C/parsetexi/handle_commands.c:1042
+#, c-format
+msgid "@subentry should only occur in an index entry"
+msgstr "@subentry voi esiintyä vain indeksitietueessa"
+
+#: tta/C/parsetexi/macro.c:220
+#, c-format
+msgid "bad or empty @%s formal argument: "
+msgstr "virheellinen tai tyhjä muodollinen @%s-parametri: "
+
+#~ msgid "Unknown system error"
+#~ msgstr "Tuntematon järjestelmävirhe"
+
+#, c-format
+#~ msgid "%s: option '%s%s' is ambiguous\n"
+#~ msgstr "%s: valitsin \"%s%s\" on moniselitteinen\n"
+
+#, c-format
+#~ msgid "%s: option '%s%s' is ambiguous; possibilities:"
+#~ msgstr "%s: valitsin \"%s%s\" on moniselitteinen; mahdollisuudet:"
+
+#, c-format
+#~ msgid "%s: unrecognized option '%s%s'\n"
+#~ msgstr "%s: tuntematon valitsin \"%s%s\"\n"
+
+#, c-format
+#~ msgid "%s: option '%s%s' doesn't allow an argument\n"
+#~ msgstr "%s: valitsin \"%s%s\" ei salli parametria\n"
+
+#, c-format
+#~ msgid "%s: option '%s%s' requires an argument\n"
+#~ msgstr "%s: valitsin \"%s%s\" vaatii parametrin\n"
+
+#, c-format
+#~ msgid "%s: invalid option -- '%c'\n"
+#~ msgstr "%s: virheellinen valitsin -- \"%c\"\n"
+
+#, c-format
+#~ msgid "%s: option requires an argument -- '%c'\n"
+#~ msgstr "%s: valitsin vaatii parametrin -- \"%c\"\n"
+
+#~ msgid "Success"
+#~ msgstr "Onnistui"
+
+#~ msgid "No match"
+#~ msgstr "Ei osumia"
+
+#~ msgid "Invalid regular expression"
+#~ msgstr "Virheellinen säännöllinen lauseke"
+
+#~ msgid "Invalid collation character"
+#~ msgstr "Virheellinen merkkiluokan nimi"
+
+#~ msgid "Invalid character class name"
+#~ msgstr "Virheellinen merkkiluokan nimi"
+
+#~ msgid "Trailing backslash"
+#~ msgstr "Ylimääräinen kenoviiva"
+
+#~ msgid "Invalid back reference"
+#~ msgstr "Virheellinen takaisinviittaus"
+
+#~ msgid "Unmatched [, [^, [:, [., or [="
+#~ msgstr "Pariton [, [^, [:, [. tai [="
+
+#~ msgid "Unmatched ( or \\("
+#~ msgstr "Pariton ( tai \\("
+
+#~ msgid "Unmatched \\{"
+#~ msgstr "Pariton \\{"
+
+#~ msgid "Invalid content of \\{\\}"
+#~ msgstr "Viallinen \\{\\}-sisältö"
+
+#~ msgid "Invalid range end"
+#~ msgstr "Virheellinen alueen loppu"
+
+#~ msgid "Memory exhausted"
+#~ msgstr "Muisti lopussa"
+
+#~ msgid "Invalid preceding regular expression"
+#~ msgstr "Virheellinen edeltävä säännöllinen lauseke"
+
+#~ msgid "Premature end of regular expression"
+#~ msgstr "Säännöllinen lauseke päättyy ennenaikaisesti"
+
+#~ msgid "Regular expression too big"
+#~ msgstr "Liian suuri säännöllinen lauseke"
+
+#~ msgid "Unmatched ) or \\)"
+#~ msgstr "Parion ) tai \\)"
+
+#~ msgid "No previous regular expression"
+#~ msgstr "Ei aiempaa säännöllistä lauseketta"
+
+#~ msgid "memory exhausted"
+#~ msgstr "muisti lopussa"
+
+#~ msgid ""
+#~ "Frequently-used options:\n"
+#~ "  -a, --all                    use all matching manuals\n"
+#~ "  -k, --apropos=STRING         look up STRING in all indices of all "
+#~ "manuals\n"
+#~ "  -d, --directory=DIR          add DIR to INFOPATH\n"
+#~ "  -f, --file=MANUAL            specify Info manual to visit"
+#~ msgstr ""
+#~ "Yleisesti käytettyjä valitsimia:\n"
+#~ "  -a,  --all                   käytä kaikki sopivia ohjeita\n"
+#~ "  -k,  --apropos=JONO          etsi JONOa kaikkien ohjeiden kaikista "
+#~ "indekseistä\n"
+#~ "  -d,  --directory=KANSIO      lisää KANSIO INFOPATHiin\n"
+#~ "  -f,  --file=OHJE             määritä tarkasteltava Info-ohjesivu"
+
+#~ msgid ""
+#~ "  -h, --help                   display this help and exit\n"
+#~ "      --index-search=STRING    go to node pointed by index entry STRING\n"
+#~ "  -n, --node=NODENAME          specify nodes in first visited Info file\n"
+#~ "  -o, --output=FILE            output selected nodes to FILE"
+#~ msgstr ""
+#~ "  -h,  --help                  näytä tämä ohje ja lopeta\n"
+#~ "       --index-search=JONO     siirry indeksitietueen JONO osoittamaan "
+#~ "solmuun\n"
+#~ "  -n,  --node=SOLMU            määritä ensin tarkastellun Info-tiedoston "
+#~ "solmut\n"
+#~ "  -o,  --output=TIEDOSTO       tulosta valitut solmut TIEDOSTOon"
+
+#~ msgid "  -O, --show-options, --usage  go to command-line options node"
+#~ msgstr "  -O, --show-options, --usage  siirry komentorivivalitsinsolmuun"
+
+#~ msgid ""
+#~ "      --subnodes               recursively output menu items\n"
+#~ "  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR\n"
+#~ "      --version                display version information and exit\n"
+#~ "  -w, --where, --location      print physical location of Info file"
+#~ msgstr ""
+#~ "      --subnodes               tulosta valikkokohdat rekursiivisesti\n"
+#~ "  -v, --variable MUUT=ARVO     anna Info-muuttujalle MUUT arvo ARVO\n"
+#~ "      --version                näytä versiotiedot ja lopeta\n"
+#~ "  -w, --where, --location      tulosta Info-tiedoston fyysinen sijainti"
+
+#~ msgid ""
+#~ "\n"
+#~ "Examples:\n"
+#~ "  info                         show top-level dir menu\n"
+#~ "  info info-stnd               show the manual for this Info program\n"
+#~ "  info emacs                   start at emacs node from top-level dir\n"
+#~ "  info emacs buffers           select buffers menu entry in emacs manual\n"
+#~ "  info emacs -n Files          start at Files node within emacs manual\n"
+#~ "  info '(emacs)Files'          alternative way to start at Files node\n"
+#~ "  info --show-options emacs    start at node with emacs' command line "
+#~ "options\n"
+#~ "  info --subnodes -o out.txt emacs\n"
+#~ "                               dump entire emacs manual to out.txt\n"
+#~ "  info -f ./foo.info           show file ./foo.info, not searching dir"
+#~ msgstr ""
+#~ "\n"
+#~ "Esimerkkejä:\n"
+#~ "  info                         näytä ylimmän tason hakemiston valikko\n"
+#~ "  info info-stnd               näytä tämän Info-ohjelman käsikirja\n"
+#~ "  info emacs                   aloita ylimmän tason hakemiston emacs-"
+#~ "solmusta\n"
+#~ "  info emacs buffers           valitse emacs-oppaan Buffers-"
+#~ "valikkotietue\n"
+#~ "  info emacs -n Files          aloita emacs-oppaan Files-solmusta\n"
+#~ "  info '(emacs)Files'          vaihtoehtoinen tapa aloittaa Files-"
+#~ "solmusta\n"
+#~ "  info --show-options emacs    aloita emacsin "
+#~ "komentorivivalitsinsolmusta\n"
+#~ "  info --subnodes -o emacs.txt emacs\n"
+#~ "                               tulosta koko emacs-opas tiedostoon "
+#~ "emacs.txt\n"
+#~ "  info -f ./foo.info           näytä tiedosto ./foo.info etsimättä "
+#~ "hakemistosta"
+
+#, c-format
+#~ msgid "Unknown Info command '%c'; try '?' for help"
+#~ msgstr "Tuntematon Info-komento ”%c”: katso ohje ?-komennolla"
+
+#, fuzzy, perl-format
+#~ msgid "error on closing TOC frame file %s: %s"
+#~ msgstr "virhe suljettaessa CSS-tiedostoa %s: %s"
+
+#, fuzzy, perl-format
+#~ msgid "%s already exists but is not a directory"
+#~ msgstr "%s: ei voitu luoda kansiota %s: %s"
+
+#, perl-format
+#~ msgid "@%s node name should not contain `:'"
+#~ msgstr "@%s-solmun nimessä ei saa olla ”:”"
+
+#, perl-format
+#~ msgid "%c%s requires a name"
+#~ msgstr "%c%s vaatii nimen"
+
+#, perl-format
+#~ msgid "%c%s missing closing brace"
+#~ msgstr "%c%s – sulkeva aaltosulje puuttuu"
+
+#, perl-format
+#~ msgid "no matching `%cend %s'"
+#~ msgstr "vastaava ”%cend %s” puuttuu"
+
+#, perl-format
+#~ msgid "misplaced %c"
+#~ msgstr "%c väärässä paikkaa"
+
+#, fuzzy, perl-format
+#~ msgid "%s requires an argument: the formatter for %citem"
+#~ msgstr "%s: valitsin \"%s%s\" vaatii parametrin\n"
+
+#, fuzzy, perl-format
+#~ msgid "superfluous argument to @%s %s: %s"
+#~ msgstr "%s: valitsin \"%s%s\" vaatii parametrin\n"
+
+#, fuzzy, perl-format
+#~ msgid "@%s without associated character"
+#~ msgstr "@verb ilman siihen kytkettyä merkkiä"
+
+#, fuzzy, c-format, perl-format
+#~ msgid "accent command `@%s' must not be followed by whitespace"
+#~ msgstr "aksenttikomentoa \"@%s\" ei saa seurata uusi rivi"
+
+#, perl-format
+#~ msgid "%c%s expects `i' or `j' as argument, not `%s'"
+#~ msgstr "%c%s odottaa parametriksi ”i” tai ”j”, ei ”%s”"
+
+#~ msgid "bad syntax for @value"
+#~ msgstr "virheellinen syntaksi: @value"
+
+#, perl-format
+#~ msgid "%c%s is obsolete."
+#~ msgstr "%c%s on vanhentunut."
+
+#, perl-format
+#~ msgid "%c%s is obsolete; %s"
+#~ msgstr "%c%s on vanhentunut; %s"
+
+#, perl-format
+#~ msgid "@%s not allowed inside `@%s' block"
+#~ msgstr "@%s ei ole sallittu ”@%s”-lohkossa"
+
+#, fuzzy, perl-format
+#~ msgid ""
+#~ "@%s not meaningful outside `@titlepage' and `@quotation' environments"
+#~ msgstr ""
+#~ "@author ei ole mielekäs ”@titlepage”- ja ”@quotation”-ympäristöjen "
+#~ "ulkopuolella"
+
+#, fuzzy, c-format, perl-format
+#~ msgid "region %s inside region %s is not allowed"
+#~ msgstr "%s ei ole kelvollinen aluekoodi"
+
+#, perl-format
+#~ msgid "environment command %s as argument to @%s"
+#~ msgstr "ympäristökomento %s parametrina komennolle @%s"
+
+#, perl-format
+#~ msgid "empty @%s"
+#~ msgstr "tyhjä @%s"
+
+#, perl-format
+#~ msgid "Only @%s 10 or 11 is supported, not `%s'"
+#~ msgstr "Vain @%s 10 tai 11 ovat tuettuja, ei ”%s”"
+
+#, fuzzy, perl-format
+#~ msgid "node %s for `%s' is `%s' in sectioning but not in menu"
+#~ msgstr "Ei valikkokohtaa \"%s\" solmussa \"%s\""
+
+#, perl-format
+#~ msgid "l2h: image has invalid extension: %s"
+#~ msgstr "l2h: kuvalla on virheellinen pääte: %s"
+
+#, perl-format
+#~ msgid "l2h: rename %s as %s failed: %s"
+#~ msgstr "l2h: nimen %s muuttaminen muotoon %s epäonnistui: %s"
+
+#, fuzzy, perl-format
+#~ msgid "highlight_syntax.pm: command failed: %s"
+#~ msgstr "tex4ht.pm: komento epäonnistui: %s"
+
+#, perl-format
+#~ msgid "%s: unknown variable %s\n"
+#~ msgstr "%s: tuntematon muuttuja %s\n"
+
+#, fuzzy, perl-format
+#~ msgid "could not open %s for writing: %s\n"
+#~ msgstr "%s: ei voitu avata tiedostoa %s kirjoitettavaksi: %s\n"
+
+#, c-format
+#~ msgid "%s requires an argument: the formatter for @item"
+#~ msgstr "%s vaatii parametrin: millä @item muotoillaan"
+
+#~ msgid "unmatched `@end'"
+#~ msgstr "pariton ”@end”"
+
+#, c-format
+#~ msgid "superfluous argument to @end %s: %s"
+#~ msgstr "ylimääräinen parametri @end %s:lle: %s"
+
+#, c-format
+#~ msgid "@%s not meaningful inside @%s block"
+#~ msgstr "@%s ei ole mielekäs @%s-lohkossa"
+
+#, c-format
+#~ msgid "@dotless expects `i' or `j' as argument, not `%c'"
+#~ msgstr "@dotless odottaa parametriksi ”i” tai ”j”, ei ”%c”"
+
+#, c-format
+#~ msgid "@%s is obsolete; %s"
+#~ msgstr "@%s on vanhentunut; %s"
+
+#~ msgid "empty node name"
+#~ msgstr "tyhjä solmun nimi"
+
+#~ msgid "@%s seen before first @node"
+#~ msgstr "@%s ennen ensimmäistä @nodea"
+
+#~ msgid "can't open %s: %s"
+#~ msgstr "ei voida avata %s: %s"
+
+#~ msgid "debugging output diverted to \"%s\""
+#~ msgstr "vianpaikannustuloste ohjattu: \"%s\""
+
+#~ msgid "recursion is always allowed"
+#~ msgstr "rekursio sallitaan aina"

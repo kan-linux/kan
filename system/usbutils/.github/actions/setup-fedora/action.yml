@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Emil Velikov <emil.l.velikov@gmail.com>
+# SPDX-FileCopyrightText: 2024 Lucas De Marchi <lucas.de.marchi@gmail.com>
+#
+# SPDX-License-Identifier: LGPL-2.1-or-later
+
+name: 'setup Fedora'
+description: 'Setup a Fedora container for running CI'
+runs:
+  using: 'composite'
+  steps:
+    - name: Install dependencies
+      shell: bash
+      run: |
+        dnf update -y
+        dnf install -y \
+          clang \
+          gcc \
+          git \
+          kernel-devel \
+          libudev-devel \
+          libusb1-devel \
+          meson

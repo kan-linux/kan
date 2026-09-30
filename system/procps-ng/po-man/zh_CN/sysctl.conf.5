@@ -1,0 +1,72 @@
+.\"
+.\" Copyright (c) 2016-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2019-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1999      George Staikos <staikos@0wned.org>
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH SYSCTL.CONF 5 2025\-05\-29 procps\-ng 
+.SH 名称
+sysctl.conf \- Linux 内核配置参数
+.SH 描述
+\fBsysctl.conf\fP 是一组含有 Linux 内核配置参数的文件的集合，可以被 \fBsysctl\fP(8) 读取，并用于设置内核配置参数。
+.PP
+本手册页描述的是 \fIprocps\fP \fBsysctl\fP 的配置文件。如果您使用的是 \fBsystemd\-sysctl\fP(8)，请查看
+\fBsysctl.d\fP(5)，并请注意它不会使用文件 \fI\%/etc/\:\%sysctl\:\%.conf\fP。
+.SS 配置文件格式
+\fIprocps\fP \fBsysctl\fP 读取的文件的每一行使用以下格式来描述内核参数。
+.P
+.RS
+.EX
+记号 = 值
+.EE
+.RE
+.P
+.P
+即使值是一个项目列表，也不需要给 \fI值\fP 加引号。
+.P
+空白行和以 "\fB#\fP" 或 "\fB;\fP" 开头的行会被忽略。
+.P
+如果一行以一个 "\fB\-\fP" 开头，则尝试设置此值时出现的错误将被忽略。
+.SH 文件
+当使用 \fB\%\-\-system\fP 选项运行时，\fIprocps\fP \fBsysctl\fP 将按下列顺序读取目录中的文件。
+.P
+.RS
+.TP 
+\fI/etc/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/run/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/local/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/usr/lib/sysctl.d/\fP*\fI.conf\fP
+.TQ
+\fI/lib/sysctl.d/\fP*\fI.conf\fP
+.RE
+.P
+最后，\fIprocps\fP \fBsysctl\fP 将读取 \fI\%/etc/\:\%sysctl\:\%.conf\fP。\fBsystemd\-sysctl\fP
+不读取这个文件，也就是说，根据已安装的 \fBsysctl\fP 实现的不同，有些内核参数将不会被设置。
+.SH 错误
+由于 Linux 内核中 \fI/proc\fP 条目长度的限制，\fI值\fP 支持的最大长度为 4096 个字符。
+.SH 示例
+.EX
+#
+#
+kernel.domainname = example.com
+; 含有空格的值也会被写入 sysctl。
+kernel.modprobe = /sbin/mod probe
+# 值是一个项目列表
+net.ipv4.ip_local_reserved_ports=8080,9148
+.EE
+.SH 参见
+\fBsysctl.d\fP(5), \fBsysctl\fP(8), \fBsystemd\-sysctl\fP(8)

@@ -1,0 +1,58 @@
+\input texinfo @c -*-texinfo-*-
+
+@node Top
+@top top
+
+@node chapter
+@chapter châp
+
+Texinfo
+@example texinfo
+@code{texinfo}
+@@code@{protécted@}
+@end example
+
+C++
+@example c
+// Your First C++ Program
+
+#include <iostream>
+
+int main() @{
+    std::cout << "Hello Wörld!";
+    return 0;
+@}
+@end example
+
+perl
+@example perl
+my $list = ['ça', 'bôù', 'é', '@'e @ogonek{a} @euro{} @equiv{}'];
+sub do ($) @{
+  my $arg = shift;
+  return $arg + 4;
+@}
+@end example
+
+@c with another argument
+@example perl, titi
+my @@SECTION_BUTTONS =
+  (
+   \&singular_banner,
+   'Back', 'Forward',   'FastBack', 'FastForward',
+   'Up', 'Top', 'Contents', 'Index', 'About'
+  );
+
+texinfo_set_from_init_file ('SECTION_BUTTONS', \@@SECTION_BUTTONS);
+@end example
+
+No argument
+@example
+texinfo_set_from_init_file('NO_CSS', 1);
+@end example
+
+Unknown language
+@example unknown
+unknown language
+@end example
+
+@bye

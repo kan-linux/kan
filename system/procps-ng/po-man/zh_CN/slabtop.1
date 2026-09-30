@@ -1,0 +1,110 @@
+.\"
+.\" Copyright (c) 2011-2023 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2013-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2004-2006 Albert Cahalan
+.\" Copyright (C) 2003      Chris Rivera
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU Lesser General Public License as
+.\" published by the Free Software Foundation; either version 2.1 of the
+.\" License, or (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH SLABTOP 1 2023\-12\-26 procps\-ng 
+.SH 名称
+slabtop \- 实时显示内核 slab 缓存信息
+.SH 概述
+\fBslabtop\fP [\fI选项\fP .\|.\|.]
+.SH 描述
+\fBslabtop\fP 实时显示详细的内核 slab
+缓存信息。它会显示最值得注意的缓存的列表，按照此处列出的排序标准之一进行排序。它还会显示一个含有统计信息的头部，包含 slab 层的信息。
+.SH 选项
+正常调用 \fBslabtop\fP 不需要任何选项。但是，可以通过指定以下一个或多个标志来微调程序的行为：
+.TP 
+\fB\-d\fP, \fB\-\-delay\fP=\fIN\fP
+每隔 \fIn\fP 秒刷新一次显示。默认情况下，\fBslabtop\fP 每三秒刷新一次显示。要退出程序，请按 \fBq\fP。此选项不能与 \fB\-o\fP
+选项同时使用。
+.TP 
+\fB\-s\fP, \fB\-\-sort\fP=\fIS\fP
+按 \fIS\fP 排序，其中 \fIS\fP 是排序标准中的一个。
+.TP 
+\fB\-o\fP, \fB\-\-once\fP
+显示输出一次然后退出。
+.TP 
+\fB\-\-human\fP
+自动缩放所有 slab 大小的单位，使得最少显示三位数字，并显示单位。使用以下单位。
+.sp
+.nf
+  B = 字节
+  Ki = KiB (kibibyte)
+  Mi = MiB (mebibyte)
+  Gi = GiB (gibibyte)
+  Ti = TiB (tebibyte)
+  Pi = PiB (pebibyte)
+.fi
+.sp
+.TP 
+如果不使用此标志，则 slab 大小的单位将是 KiB。
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+显示版本信息并退出。
+.TP 
+\fB\-h\fP, \fB\-\-help\fP
+显示用法信息并退出。
+.SH 排序标准
+以下是用来对各个 slab 缓存进行排序的有效的排序标准，从而确定要显示的 "最值得注意的" 缓存。默认排序标准是按对象数量 ("o") 排序。
+.PP
+当 \fBslabtop\fP 正在运行时，也可以通过按下对应的字母来更改排序标准。
+.TS
+l l l.
+\fB字母\fP	\fB描述\fP	\fB表头\fP
+a	活动对象的数量	活动
+b	每个 slab 包含的对象数量	对象/SLAB
+c	缓存大小	缓存大小
+l	slab 的数量	SLABS
+v	活动 slab 的数量	不适用
+n	名称	名称\:
+o	对象数量	对象
+p	每个 slab 包含的页数	不适用
+s	对象大小	对象大小
+u	缓存使用率	使用
+.TE
+.SH 命令
+\fBslabtop\fP 在使用过程中接受来自用户键盘的命令。支持以下命令。如果命令是字母，大小写都可以接受。
+.PP
+所有有效的排序字母也能被接受，以更改排序例程的行为。请参阅 \fB排序标准\fP 一节。
+.TP 
+\fB<空格>\fP
+刷新屏幕。
+.TP 
+\fBQ\fP
+退出程序。
+.SH 文件
+.TP 
+\fI/proc/slabinfo\fP
+slab 信息
+.SH 参见
+\fBfree\fP(1), \fBps\fP(1), \fBtop\fP(1), \fBvmstat\fP(8)
+.SH 备注
+目前，\fBslabtop\fP 需要 2.4 或更高版本的内核（具体来说，1.1 或更高版本的 \fI/proc/slabinfo\fP）。将来应该会支持内核
+2.2。
+.PP
+\fBslabtop\fP 的统计信息头部跟踪的是正在使用的 slab 的字节数，而不是测量物理内存。\fI/proc/meminfo\fP 文件中的 "Slab"
+字段跟踪有关已用的 slab 物理内存的信息。
+.PP
+\fB缓存大小\fP 列并不准确，它是特定 slab 使用的内存上限。当使用 slub 的系统（最常见的情况）处于高内存压力下时，会出现 slab
+顺序回退，这意味着 "每个 slab 的页数" 不是恒定的并且可能会减少。
+.SH 作者
+由 Chris Rivera 和 Robert Love 编写。
+.PP
+\fBslabtop\fP 的灵感来自 Martin Bligh 的 perl 脚本 \fBvmtop\fP。
+.SH 报告错误
+请将错误报告发送到
+.MT procps@freelists.org
+.ME 。

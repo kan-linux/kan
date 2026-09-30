@@ -1,0 +1,11 @@
+*.a
+*.o
+*.so
+*.exe
+*.[0-9]
+lspci
+setpci
+example
+update-pciids
+pci.ids.gz
+pcilmr

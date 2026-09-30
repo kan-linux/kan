@@ -1,0 +1,3 @@
+partial xkb_symbols "custom" {
+	key <CAPS> { [ XF86Fn ] };
+};

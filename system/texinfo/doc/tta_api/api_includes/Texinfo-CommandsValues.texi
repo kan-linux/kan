@@ -1,0 +1,83 @@
+@node Texinfo@asis{::}CommandsValues
+@chapter Texinfo::CommandsValues
+
+@node Texinfo@asis{::}CommandsValues NAME
+@section Texinfo::CommandsValues NAME
+
+Texinfo::CommandsValues - Associations of information to Texinfo @@-commands
+
+@node Texinfo@asis{::}CommandsValues SYNOPSIS
+@section Texinfo::CommandsValues SYNOPSIS
+
+@verbatim
+  use Texinfo::CommandsValues;
+
+  my $command_text = $Texinfo::CommandsValues::nobrace_symbol_text{'@'};
+@end verbatim
+
+@node Texinfo@asis{::}CommandsValues NOTES
+@section Texinfo::CommandsValues NOTES
+
+The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
+Texinfo to other formats.  There is no promise of API stability.
+
+@node Texinfo@asis{::}CommandsValues DESCRIPTION
+@section Texinfo::CommandsValues DESCRIPTION
+
+Texinfo::CommandsValues holds hashes with information on @@-commands.
+Only hashes relevant for conversion of @@-commands are documented.
+
+@node Texinfo@asis{::}CommandsValues @@-COMMAND ASSOCIATED INFORMATION
+@section @@-COMMAND ASSOCIATED INFORMATION
+
+Hashes are defined as @code{our} variables, and are therefore available
+outside of the module.
+
+@table @asis
+@item %nobrace_symbol_text
+@anchor{Texinfo@asis{::}CommandsValues %nobrace_symbol_text}
+@cindex @code{%nobrace_symbol_text}
+
+Values are ASCII representation of single character non-alphabetical commands
+without brace such as @code{*} or @code{:}.  The value may be an empty string.
+
+@item %text_brace_no_arg_commands
+@anchor{Texinfo@asis{::}CommandsValues %text_brace_no_arg_commands}
+@cindex @code{%text_brace_no_arg_commands}
+
+Values are ASCII representation of commands with empty braces such as
+@code{atchar}, @code{LaTeX}, @code{arrow}, @code{quoteleft} or @code{AA}.
+
+@item %unicode_diacritics
+@anchor{Texinfo@asis{::}CommandsValues %unicode_diacritics}
+@cindex @code{%unicode_diacritics}
+
+Keys are Texinfo accent commands, such as @code{'} or @code{ogonek}.  Values are
+strings of hexadecimal numbers representing the Unicode codepoint of the
+diacritic associated to the accent command.  A diacritic is a zero-length
+character that should be combined with adjacent characters to have the whole
+interpreted as an accented character.
+
+@end table
+
+@node Texinfo@asis{::}CommandsValues SEE ALSO
+@section Texinfo::CommandsValues SEE ALSO
+
+@ref{Texinfo@asis{::}Commands NAME,, Texinfo::Commands}.  @ref{Texinfo@asis{::}Convert@asis{::}Unicode NAME,, Texinfo::Convert::Unicode}.
+
+@node Texinfo@asis{::}CommandsValues AUTHOR
+@section Texinfo::CommandsValues AUTHOR
+
+Patrice Dumas, <pertusus@@free.fr>
+
+@node Texinfo@asis{::}CommandsValues COPYRIGHT AND LICENSE
+@section Texinfo::CommandsValues COPYRIGHT AND LICENSE
+
+Copyright 2010- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+

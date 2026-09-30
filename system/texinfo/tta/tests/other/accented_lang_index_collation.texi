@@ -1,0 +1,35 @@
+\input texinfo @c -*-texinfo-*-
+
+@documentlanguage lù取ng
+
+@node Top
+@top top
+
+@node Chapter
+@chapter chap
+
+@cindex cdab
+@cindex e
+@cindex c e
+@cindex c d ! a-b
+@cindex @'e
+@cindex z
+@cindex ö
+
+@printindex cp
+
+@node Indices
+@appendix Indices
+
+@documentlanguage fr
+
+@printindex cp
+
+@node Redo index
+@appendix Redo index
+
+@documentlanguage lù取ng
+
+@printindex cp
+
+@bye

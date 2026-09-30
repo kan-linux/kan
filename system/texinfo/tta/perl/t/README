@@ -1,0 +1,143 @@
+tta/perl/t/README
+
+  Copyright 2010-2026 Free Software Foundation, Inc.
+
+  Copying and distribution of this README file, with or without
+  modification, are permitted in any medium without royalty provided the
+  copyright notice and this notice are preserved.
+
+Files anywhere within the tta/perl/t subdirectory which have no
+other copyright notice are hereby placed in the public domain.
+
+See also the tests in the tta/tests directory.
+
+See tta/README for the Perl module requirements for running these
+tests.
+
+These tests are run by "make check" under tta/perl.  (The test files are
+listed in tta/perl/Makefile.tres, which is a generated file.)
+
+When running the tests after a git pull, if getting failures, re-run
+make to ensure XS modules are rebuilt.
+
+A single .t test file can be run on its own with
+
+  perl -w t/03coverage_braces.t
+
+Another way, which works when doing an out-of-source build, is
+
+  make check TESTS=t/03coverage_braces.t
+
+Another way to run a test out-source is:
+
+  s=../../../tta/perl
+  tb=..
+  srcdir=$s t2a_builddir=$tb perl -w $s/t/02coverage.t commands
+
+where s is the path to the srcdir and tb is the path to the tta build dir.
+This allows you to run specific sub-tests, here the sub-test with name
+"commands".
+
+Most test files use a testing infrastructure from t/test_utils.pl.
+The run_all function from that file runs the tests that have been
+specified.
+
+
+In that case the reference output files for the test of a test category
+$test_category.t file are in t/results/$test_category/.  For example, if
+after running "make check" test-suite.log contains a line like:
+
+FAIL: t/03coverage_braces.t 324 - test_image converted html
+
+you can see the difference between the expected and actual output with
+
+  diff t/results/coverage_braces/test_image.pl{,.new}
+
+(Any number at the start of the name of the test, like "03" in this
+example, is removed.)
+
+When making changes that you expect will change the parse tree but not
+change any of the output or structure, one way to check this would be to run
+"make check" and then "grep -a FAIL test-suite.log | grep -a -v 'tree$'".
+To check only output, but not the structure, you could use
+"grep -a FAIL test-suite.log | grep -a -v '\(floats\|tree\|nodes list\|sections list\|sectioning root\|headings list\)$'"
+
+The tests output on STDERR are not checked, it is possible to look
+for spurious output on STDERR in addition to the header and
+information after "make check" with:
+
+ grep -v -e '^ok [0-9]\+' -e '^PASS:' -e '^SKIP:' -e '1\.\.[0-9]\+$' t/*.log
+
+Another way to check test results is to regenerate the reference test
+results (see below), and then run "git diff t".
+
+To review all the differences for one of the *.t test files, you can do:
+
+  for f in t/results/coverage_braces/*.pl; do echo --------; echo \
+  Differences in $f; diff $f{,.new}; done | less
+
+For some tests, as well as a .pl file as usual in results/*/, actual
+output files are generated.  For those tests, there are directories with
+reference test results (with names prefixed with res_), and directories
+with the obtained results (with names prefixed with out_).  For example,
+many of the tests whose results are in the 'results/indices' directory
+follow this format.  (The same convention is used by the test suite in
+../tests.)
+
+
+The reference files are regenerated with the -g option given to the .t
+file, as in
+
+  perl -w t/03coverage_braces.t -g
+
+To regenerate specific tests reference files, the test names should be
+given as an argument.  For example, to just regenerate the reference
+files for the "test_image" test within t/03.coverage_braces.t, run
+
+  perl -w t/03coverage_braces.t -g test_image
+
+Another way to overwrite the reference test results with the obtained
+results from the last test run when not actual output file are generated
+is to use a command like
+
+  for f in t/results/*/*.pl.new ; do cp ${f%.new} $f ; done
+
+
+Some tests under this directory use input files in the 'input_files'
+subdirectory.  When adding a test that uses an input file, add its path
+to tta/perl/Makefile.am.
+
+Customization files from the tta/perl/init and tta/perl/t/init directories can
+be used in tests.
+
+
+Tests can be managed using the script in ../maintain/all_tests.sh.  For
+example, "../maintain/all_tests.sh generate" regenerates all of the
+reference test results (run from the upper-level directory), and
+"../maintain/all_tests.sh diff" makes a diff of all resulting files
+against references.
+
+From the tta/perl directory, you can also create Texinfo files corresponding to
+tests in t_texis/$test_category/ by running something along the lines of:
+
+  perl -w t/60macro.t -c
+
+to create a Texinfo file for each of the tests in t/60macro.t, or for
+specific tests, here arg_body_expansion_order:
+
+  perl -w t/60macro.t -c arg_body_expansion_order
+
+With -c, there will be a warning if there is a Top node but no @chapter
+nor equivalent @-commands nor a node which names starts by chap.  This
+is because in some output formats, such as LaTeX, Top node content is not
+output, so it is possible to have useless tests for such output formats.  If
+there is no @chapter nor equivalent @-commands but there are nodes to stop the
+Top node to get a useful test, prepend their name by 'chap' such that they are
+recognized as chapter-like nodes.  Also note that it is not a problem if some
+tests cause this warning, as long as it is on purpose.
+
+The output files will be created with -o, in t/output_files/$test_category/
+
+When adding Perl (sub)tests under t/, also run
+../maintain/regenerate_file_lists.pl to regenerate Makefile.tres, or a
+"plan" (aka results file) will be missing at distcheck.

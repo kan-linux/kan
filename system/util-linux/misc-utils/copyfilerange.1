@@ -1,0 +1,120 @@
+'\" t
+.\"     Title: copyfilerange
+.\"    Author: [see the "AUTHOR(S)" section]
+.\" Generator: Asciidoctor 2.0.26
+.\"      Date: 2026-06-16
+.\"    Manual: User Commands
+.\"    Source: util-linux 2.42.2
+.\"  Language: English
+.\"
+.TH "COPYFILERANGE" "1" "2026-06-16" "util\-linux 2.42.2" "User Commands"
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.ss \n[.ss] 0
+.nh
+.ad l
+.de URL
+\fI\\$2\fP <\\$1>\\$3
+..
+.als MTO URL
+.if \n[.g] \{\
+.  mso www.tmac
+.  am URL
+.    ad l
+.  .
+.  am MTO
+.    ad l
+.  .
+.  LINKSTYLE blue R < >
+.\}
+.SH "NAME"
+copyfilerange \- copy range(s) from source to destination file
+.SH "SYNOPSIS"
+.sp
+\fBcopyfilerange\fP [options] \fIsource\fP \fIdestination\fP \fIrange\fP.\|.\|.
+.SH "DESCRIPTION"
+.sp
+The \fBcopyfilerange\fP command copies byte ranges from source to destination file.
+It is a wrapper around the \fBcopy_file_range\fP(2) system call.
+.sp
+The command can be used to create files with unallocated gaps (sparse files)
+and/or with shared blocks between multiple files (reflinks).
+.sp
+Each \fIrange\fP is of the form \fIsource_offset\fP\fB:\fP\fIdestination_offset\fP\fB:\fP\fIlength\fP,
+with all values in bytes. If \fIlength\fP is 0, then as much data as is available is
+copied. Multiple ranges may be supplied.
+.sp
+When one or both of the offsets are omitted, the operation uses the last\-used
+file location, starting with 0.
+.SH "OPTIONS"
+.sp
+\fB\-r\fP, \fB\-\-ranges\fP \fIfile\fP
+.RS 4
+Read range(s) separated by newlines from this \fIfile\fP.
+.RE
+.sp
+\fB\-v\fP, \fB\-\-verbose\fP
+.RS 4
+Verbose output of the copied ranges.
+.RE
+.sp
+\fB\-h\fP, \fB\-\-help\fP
+.RS 4
+Display help text and exit.
+.RE
+.sp
+\fB\-V\fP, \fB\-\-version\fP
+.RS 4
+Display version and exit.
+.RE
+.SH "EXIT STATUS"
+.sp
+\fB0\fP
+.RS 4
+success
+.RE
+.sp
+\fB1\fP
+.RS 4
+unspecified failure
+.RE
+.SH "NOTES"
+.sp
+The \fBcopy_file_range\fP(2) system call has some serious caveats: the source and destination files must use the same filesystem type, and some virtual filesystems (like procfs) won\(cqt work. \fBcopy_file_range\fP(2) will use reflinks when the filesystem supports this. To use reflinks, the file range most often needs to align with the filesystem block size on both the source and destination file.
+.SH "AUTHORS"
+.sp
+.MTO "dick\(atmrns.nl" "Dick Marinus" ""
+.SH "EXAMPLES"
+.sp
+.if n .RS 4
+.nf
+.fam C
+copyfilerange original\-file reflink ::
+
+copyfilerange original\-file first\-block ::4096
+
+copyfilerange original\-file even\-blocks \-r <(seq 0 8192 40960|awk \*(Aq{print $1"::4096"}\*(Aq)
+
+copyfilerange original\-file sparse\-file 0:1M:1
+
+copyfilerange original\-file split\-first\-mb ::1M
+
+copyfilerange original\-file split\-remainder 1M::
+
+copyfilerange split\-first\-mb join ::
+
+copyfilerange split\-remainder join :1M:
+.fam
+.fi
+.if n .RE
+.SH "SEE ALSO"
+.sp
+\fBcopy_file_range\fP(2)
+.SH "REPORTING BUGS"
+.sp
+For bug reports, use the \c
+.URL "https://github.com/util\-linux/util\-linux/issues" "issue tracker" "."
+.SH "AVAILABILITY"
+.sp
+The \fBcopyfilerange\fP command is part of the util\-linux package which can be downloaded from \c
+.URL "https://www.kernel.org/pub/linux/utils/util\-linux/" "Linux Kernel Archive" "."

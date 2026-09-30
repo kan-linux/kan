@@ -1,0 +1,134 @@
+.\"
+.\" Copyright (c) 2009-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2015-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2012-2013 Jaromir Capik <jcapik@redhat.com>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 2002-2004 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH W 1 "29. November 2025" procps\-ng 
+.SH BEZEICHNUNG
+w \- anzeigen, welche Benutzer angemeldet sind und was sie machen.
+.SH ÜBERSICHT
+\fBw\fP [\fIOption\fP .\|.\|.\&] [\fIBenutzer\fP]
+.SH BESCHREIBUNG
+\fBw\fP zeigt Informationen über die gerade angemeldeten Benutzer und ihre
+Prozesse an. Die Kopfzeile enthält in dieser Reihenfolge die aktuelle Zeit,
+die Laufzeit des Systems, wie viele Benutzer gerade angemeldet sind und die
+durchschnittliche Systemlast der letzten 1, 5 und 15 Minuten.
+.PP
+Die folgenden Daten werden für jeden Benutzer angezeigt: Der Anmeldename,
+der TTY\-Name, der ferne Rechner, die Anmeldezeit, die Leerlaufzeit, JCPU,
+PCPU und die Befehlszeile des laufenden Prozesses.
+.PP
+Die JCPU\-Zeit ist die Zeit, die von allen Prozessen genutzt wurde, die zu
+dem jeweiligen Terminal gehören. Sie enthält keine abgeschlossenen
+Hintergrund\-Aufträge, jedoch die derzeit laufenden Hintergrund\-Aufträge.
+.PP
+Die PCPU\-Zeit ist die Zeit, die vom derzeit laufenden Prozess bisher genutzt
+wurde und im Feld »what« benannt ist.
+.SH OPTIONEN
+.TP 
+\fB\-c\fP, \fB\-\-container\fP
+zeigt die Container\- anstatt der System\-Betriebszeit in der Kopfzeile an.
+.TP 
+\fB\-h\fP, \fB\-\-no\-header\fP
+gibt keine Kopfzeile aus.
+.TP 
+\fB\-u\fP, \fB\-\-no\-current\fP
+ignoriert den Benutzernamen, während der aktuelle Prozess und die CPU\-Zeiten
+ermittelt werden. Probieren Sie die Option aus, indem Sie zunächst \fBsu\fP,
+danach \fBw\fP und \fBw \-u\fP eingeben.
+.TP 
+\fB\-s\fP, \fB\-\-short\fP
+verwendet das Kurzformat. Die Anmeldezeit, die JCPU\- und die PCPU\-Zeit
+werden nicht ausgegeben.
+.TP 
+\fB\-t\fP, \fB\-\-terminal\fP
+Normalerweise verwendet \fBw\fP entweder die systemd\-Sitzungstabelle oder die
+utmp\-Datei, um Benutzer zu finden. Im \fITerminalmodus\fP scannt \fBw\fP die
+Terminalgeräte und findet so die Benutzersitzungen. Dies ist keine exakte
+Benutzerzählung; beispielsweise wird ein Benutzer mit zwei xterms zweimal
+angezeigt, sodass die Benutzeranzahl im Header unterschiedlich ist. Aktuell
+werden die Terminalgeräte \fI/dev/tty*\fP und \fI/dev/pts/*\fP gescannt.
+.TP 
+\fB\-f\fP, \fB\-\-from\fP
+schaltet die Anzeige des \fBfrom\fP\-Feldes (ferner Rechnername) ein oder
+aus. Standardmäßig wird das \fBfrom\fP\-Feld nicht angezeigt. Allerdings könnte
+Ihr Systemadministrator oder Ihr Distributor eine Version kompiliert haben,
+in der das \fBfrom\fP\-Feld standardmäßig angezeigt wird.
+.TP 
+\fB\-\-help\fP
+zeigt einen Hilfetext an und beendet das Programm.
+.TP 
+\fB\-i\fP, \fB\-\-ip\-addr\fP
+zeigt für das Feld \fBfrom\fP die IP\-Adresse anstelle des Rechnernamens
+an. Diese Option funktioniert nur auf Nicht\-Systemd\-Plattformen, da
+libsystemd lediglich den Remote\-Rechner bereitstellt.
+.TP 
+\fB\-p\fP, \fB\-\-pids\fP
+zeigt die PID des Anmeldeprozesses/des »Was«\-Prozesses im »Was«\-Feld an. Der
+Anmeldeprozess wird auch der »Sitzungsleiter« genannt.
+.TP 
+\fB\-V\fP, \fB\-\-version\fP
+zeigt Versionsinformationen an.
+.TP 
+\fB\-o\fP, \fB\-\-old\-style\fP
+aktiviert die Ausgabe im alten Stil. Für Leerlaufzeiten unter einer Minute
+werden Leerräume ausgegeben.
+.TP 
+\fBBenutzer \fP
+zeigt Informationen nur für den angegebenen Benutzer an.
+.SH UMGEBUNGSVARIABLEN
+.TP 
+\fBPROCPS_CONTAINER\fP
+Falls $\fBPROCPS_CONTAINER\fP gesetzt ist, verhält sich \fBw\fP so, als ob die
+Option \fB\-\-container\fP angegeben wurde.
+.TP 
+\fBPROCPS_USERLEN\fP
+setzt die vorgegebene Breite der USER\-Spalte außer Kraft. Standardmäßig 8.
+.TP 
+\fBPROCPS_FROMLEN\fP
+setzt die vorgegebene Breite der From\-Spalte außer Kraft. Standardmäßig 16.
+.SH DATEIEN
+.TP 
+\fI/var/run/utmp\fP
+Informationen darüber, wer aktuell angemeldet ist, jedoch nur für Rechner
+ohne Systemd.
+.TP 
+\fI/proc\fP
+Prozessinformation
+.TP 
+\fI/dev/tty*\fP , \fI/dev/pts/*\fP
+Terminalgerätedateien, die im \fB\-\-terminal\fP\-Modus gescannt wurden.
+.SH FEHLER
+.PP
+When using \fB\-\-terminal\fP option, \fBw\fP assumes processes with a parent PID of
+0 or 1 are \fBagetty\fP(8)  processes and will not display them. This is prone
+to both false positive and negative errors.
+.PP
+Die Leerlaufzeiten für Benutzer in bestimmten Sitzungen, wie
+z.B. X/Wayland\-Sitzungen, werden falsch angezeigt. Die Option \fB\-\-terminal\fP
+zeigt die korrekten Leerlaufzeiten für Terminal\-Sitzungen unter X/Wayland
+an.
+.PP
+Auf Plattformen, die \fBsystemd\fP(1) verwenden, wird die Option \fB\-\-ip\-addr\fP
+ignoriert. Die Spalte „from“ gibt den Remote\-Rechner entweder als
+Rechnernamen oder als IP\-Adresse an.
+.SH "FEHLER MELDEN"
+Bitte schicken Sie Fehlermeldungen (auf Englisch) an
+.MT procps@freelists.org
+.ME .
+.SH "SIEHE AUCH"
+\fBfree\fP(1), \fBloginctl\fP(1), \fBps\fP(1), \fBsystemd\fP(1), \fBtop\fP(1),
+\fBuptime\fP(1), \fBwho\fP(1), \fButmp\fP(5), \fBagetty\fP(8)

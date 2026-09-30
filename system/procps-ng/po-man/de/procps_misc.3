@@ -1,0 +1,209 @@
+.\"
+.\" Copyright (c) 2020-2024 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2020-2024 Craig Small <csmall@dropbear.xyz>
+.\"
+.\" This manual is free software; you can redistribute it and/or
+.\" modify it under the terms of the GNU Lesser General Public
+.\" License as published by the Free Software Foundation; either
+.\" version 2.1 of the License, or (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH PROCPS_MISC 3 "6. Juli 2024" procps\-ng 
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.nh
+.SH BEZEICHNUNG
+procps_misc – API für diverse Informationen im /proc\-Dateisystem
+.SH ÜBERSICHT
+.nf
+\fB#include <libproc2/misc.h>\fP
+.PP
+Platform Particulars
+.RS 4
+.PP
+long         \fBprocps_cpu_count\fP (void);
+long         \fBprocps_hertz_get\fP (void);
+unsigned int \fBprocps_pid_length\fP (void);
+int          \fBprocps_linux_version\fP (void);
+.RE
+.PP
+Runtime Particulars
+.PP
+.RS 4
+int  \fB procps_container_uptime\fP (double *\fIuptime_secs\fP);
+int  \fB procps_loadavg\fP (double *\fIav1\fP, double *\fIav5\fP, double *\fIav15\fP);
+int  \fB procps_uptime\fP (double *\fIuptime_secs\fP, double *\fIidle_secs\fP);
+int  \fB procps_uptime_snprint\fP ( char *restrict \fIstr\fP, size_t \fIsize\fP, double \fIuptime_secs\fP, const int \fIpretty\fP);
+char *\fBprocps_uptime_sprint\fP (void);
+char *\fBprocps_uptime_sprint_short\fP (void);
+int   \fBprocps_users\fP (void);
+.RE
+.PP
+Namespace Particulars
+.PP
+.RS 4
+int       \fB  procps_ns_get_id\fP (const char *\fIname\fP);
+const char\fB *procps_ns_get_name\fP (int \fIid\fP);
+int       \fB  procps_ns_read_pid\fP (int \fIpid\fP, struct procps_ns *\fInsp\fP);
+.RE
+.PP
+Mask Name Resolving
+.PP
+.RS 4
+int \fBprocps_sigmask_names\fP (char *const \fIstr\fP, size_t \fIsize\fP , const char *\fIsigmask\fP);
+int \fBprocps_capmask_names\fP (char *const \fIstr\fP, size_t \fIsize\fP,  const char *\fIcapmask\fP);
+.RE
+.PP
+.P
+Linken Sie mit der Option \fI\-lproc2\fP.
+.SH BESCHREIBUNG
+\fBprocps_cpu_count\fP() gibt die Anzahl der aktuell online befindlichen CPUs
+zurück, entweder als \fBsysconf(\fP\fI_SC_NPROCESSORS_ONLY\fP\fB)\fP oder als
+angenommenes \fI1\fP.
+.P
+\fBprocps_hertz_get\fP() gibt die Anzahl der Taktzyklen pro Sekunde
+als\fBsysconf(\fP\fI_SC_CLK_TCK\fP\fB)\fP oder ein angenommenes \fI100\fP zurück. Die
+Division der Taktzyklen durch diesenWert ergibt die Sekunden.
+.P
+\fBprocps_pid_length\fP() gibt die maximale Zeichenkettenlänge für eine PID auf
+dem System zurück. Wenn beispielsweise der größte mögliche PID\-Wert 123
+wäre, wäre die Länge 3. Falls die Datei \fI/proc/sys/kernel/pid_max\fP nicht
+lesbar ist, wird der Wert \fI5\fP angenommen.
+.P
+\fBprocps_linux_version\fP() gibt die aktuelle Linux\-Version als kodierte
+Ganzzahl zurück. Auf Nicht\-Linux\-Systemen mit einem emulierten
+proc\-Dateisystem gibt diese Funktion stattdessen die Version der
+Linux\-Emulation zurück. Die Version besteht aus drei positiven Ganzzahlen,
+die die Haupt\-, Neben\- und Patch\-Version darstellen. Die folgenden Makros
+dienen der Kodierung einer gegebenen Linux\-Version oder der Trennung der
+Komponenten der aktuellen Version.
+.RS 4
+.PP
+LINUX_VERSION(\ Haupt\ ,\ Neben\ ,\ Patch\ )
+.PP
+LINUX_VERSION_MAJOR(\ Version\ )
+.PP
+LINUX_VERSION_MINOR(\ Version\ )
+.PP
+LINUX_VERSION_PATCH(\ Version\ )
+.RE
+.P
+\fBprocps_loadavg\fP() ruft die durchschnittliche Systemlast ab und speichert
+die 1\-, 5\- und 15\-Minuten\-Durchschnittswerte an den durch einen beliebigen
+Zeiger, der nicht \fINULL\fP ist, angegebenen Speicherorten.
+.P
+\fBprocps_container_uptime\fP() gibt die Laufzeit eines Containers an der durch
+den Zeiger angegebenen Adresse zurück, sofern dieser nicht \fINULL\fP
+ist. Diese wird aktuell durch die verstrichene Zeit von Prozess\-ID 1
+bestimmt, die mit folgendem Befehl angegeben werden kann:
+.PP
+.in +4n
+.EX
+$ \fBps \-o etimes 1\fP
+ELAPSED
+12345
+.EE
+.in
+.PP
+In einem Container gibt es kein Konzept von Leerlaufzeit, daher hat
+\fBprocps_container_uptime\fP() diesen Parameter nicht.
+.P
+\fBprocps_uptime\fP() gibt die Betriebszeit und/oder die Leerlaufzeit in
+Sekunden an den durch einen beliebigen Zeiger (nicht \fINULL\fP) angegebenen
+Speicherorten zurück. Die Varianten von \fBsprint\fP geben eine lesbare
+Zeichenkette in einem von zwei Formaten zurück.
+.RS 4
+.PP
+HH:MM:SS up HH:MM, # users, load average: 1, 5, 15 MM averages
+.PP
+up HH, MM
+.RE
+.P
+\fBprocps_uptime_snprint\fP() verwendet den angegebenen Puffer \fIstr\fP der Länge
+\fIsize\fP, um die Betriebszeitzeichenkette anstelle eines statisch
+zugewiesenen Puffers zu füllen. Die Funktion benötigt den Wert
+\fIuptime_secs\fP, der von \fBprocps_uptime\fP() oder \fBprocps_container_uptime\fP()
+abgerufen werden kann, sowie den Schalter \fIpretty\fP, das festlegt, ob die
+Ausgabe standardmäßig oder formatiert/kurz ist.
+.P
+\fBprocps_users\fP() gibt die Anzahl der Benutzer im System zurück. Dieser Wert
+stammt von \fBsd_get_sessions\fP(3) und wird durch Zählen der Sitzungen der
+Klassen user, user\-early und user\-incomplete oder durch Aufzählung mit
+\fBgetutent\fP(3) ermittelt.
+.P
+\fBprocps_ns_get_id\fP() gibt die ganzzahlige ID (enum namespace_type) des
+Namensraums für den gegebenen Namensraum \fIname\fP zurück.
+.P
+\fBprocps_ns_get_name\fP() gibt den Namen des Namensraums für die gegebene\fIid\fP
+(enum namespace_type) zurück.
+.P
+\fBprocps_ns_read_pid\fP() gibt die Inodes für die Namensräume des angegebenen
+Prozesses in der procps_ns\-Struktur zurück, auf die \fInsp\fP zeigt. Diese
+Inodes erscheinen in der durch den Enumerationstyp namespace_type
+festgelegten Reihenfolge.
+.PP
+.RS 4
+.nf
+enum namespace_type {
+    PROCPS_NS_CGROUP,
+    PROCPS_NS_IPC,
+    PROCPS_NS_MNT,
+    PROCPS_NS_NET,
+    PROCPS_NS_PID,
+    PROCPS_NS_TIME,
+    PROCPS_NS_USER,
+    PROCPS_NS_UTS
+};
+.fi
+.RE
+.P
+\fBprocps_sigmask_names\fP() füllt \fIstr\fP mit einer lesbaren Zeichenkette von
+bis zu \fIsize\fP Bytes der in der hexadezimalen Signalmaske \fIsigmask\fP
+festgelegten Signale (siehe \fBsignal\fP(7)). Falls die Liste der Signale
+\fIsize\fP Bytes überschreitet, wird die Zeichenkette abgeschnitten und mit
+einem »+« abgeschlossen. Es obliegt dem aufrufenden Programm,
+sicherzustellen, dass \fIstr\fP korrekt mit mindestens \fIsize\fP Bytes zugewiesen
+wird.
+.P
+\fBprocps_capmask_names\fP()  Fills \fIstr\fP with a human\-readable text string of
+up to \fIsize\fP bytes of the capabilities set in the hexadecimal capability
+mask \fIcapmask\fP, see \fBcapabilities\fP(7).  If the list of capabilities
+exceeds \fIsize\fP bytes, the string will be truncated and will end with a
+\&'+'. It is up to the calling program to ensure that \fIstr\fP is correctly
+allocated with at least \fIsize\fP bytes.
+.P
+Für einen Prozess ohne bzw. mit allen Capabilities lautet die Zeichenkette
+entsprechend »\-« bzw. »full«.
+
+.SH RÜCKGABEWERT
+.SS "Funktionen, die ein \[oq]int\[cq] oder \[oq]long\[cq] zurückgeben"
+Ein Fehler wird durch eine negative Zahl angezeigt, die stets der Kehrwert
+eines bekannten errno.h\-Wertes ist.
+.SS "Funktionen, die ein \[oq]address\[cq] zurückgeben"
+Ein Fehler wird durch einen NULL\-Rückgabezeiger angezeigt, wobei der Grund
+im formalen errno\-Wert zu finden ist.
+.SH DATEIEN
+.TP 
+\fI/proc/loadavg\fP
+Die Rohwerte für die durchschnittliche Last.
+.TP 
+\fI/proc/sys/kernel/osrelease\fP
+Enthält die Release\-Version des Linux\-Kernels oder des proc\-Dateisystems.
+.TP 
+\fI/proc/sys/kernel/pid_max\fP
+Enthält den Wert, bei dem die PIDs umlaufen, der um eins größer ist als der
+maximale PID\-Wert.
+.TP 
+\fI/proc/uptime\fP
+Die Rohwerte für Systembetriebszeit und Leerlaufzeit.
+.TP 
+\fI/proc/\fPPID\fI/ns\fP
+enthält die Menge der Namensräume für eine bestimmte \fIPID\fP.
+.SH "SIEHE AUCH"
+\fBprocps\fP(3), \fBprocps_pids\fP(3), \fBgetutent\fP(3), \fBsd_get_sessions\fP(3),
+\fBproc\fP(5), \fBcapabilities\fP(7), \fBsignal\fP(7).

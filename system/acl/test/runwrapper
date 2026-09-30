@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cleanup() {
+	# remove the temporary location
+	rm -rf "$TESTLOOKUP"
+}
+
+if [ -e ".libs/libtestlookup.so" ]; then
+	# copy the preloaded library to a temporary directory because
+	# the original location might not be accessible by other users
+	export TESTLOOKUP="$(mktemp -d)"
+	chmod 0755 "$TESTLOOKUP"
+	cp -L .libs/libtestlookup.so "$TESTLOOKUP/libtestlookup.so"
+	cp "${srcdir:-.}/test/test.passwd" "$TESTLOOKUP/passwd"
+	cp "${srcdir:-.}/test/test.group" "$TESTLOOKUP/group"
+	export LD_PRELOAD="$TESTLOOKUP/libtestlookup.so"
+	trap cleanup EXIT
+fi
+
+"${srcdir:-.}/test/run" "$@"

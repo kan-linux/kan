@@ -1,0 +1,32 @@
+#! /bin/sh
+
+# mandb stores the mtime for a symlink target as the mtime of the target
+# file, not the mtime of the symlink.
+
+: "${srcdir=.}"
+# shellcheck source-path=SCRIPTDIR
+. "$srcdir/testlib.sh"
+
+: "${MANDB=mandb}"
+: "${ACCESSDB=accessdb}"
+
+init
+fake_config /usr/share/man
+MANPATH="$tmpdir/usr/share/man"
+export MANPATH
+db_ext="$(db_ext)"
+
+write_page test 1 "$tmpdir/usr/share/man/man1/test.1.gz" \
+	UTF-8 gz t 'test \- test(1)'
+./fspause
+ln -s test.1.gz "$tmpdir/usr/share/man/man1/test-link.1.gz"
+run $MANDB -C "$tmpdir/manpath.config" -u -q "$tmpdir/usr/share/man"
+cat >"$tmpdir/1.exp" <<EOF
+test -> "- 1 1 $(./get-mtime "$tmpdir/usr/share/man/man1/test.1.gz" | sed 's/\.0*\([0-9]\)/ \1/') A - - gz test(1)"
+test-link -> "- 1 1 $(./get-mtime "$tmpdir/usr/share/man/man1/test-link.1.gz" | sed 's/\.0*\([0-9]\)/ \1/') B - - gz test(1)"
+EOF
+run $ACCESSDB "$tmpdir/usr/share/man/index$db_ext" | \
+	grep -v '^\$' >"$tmpdir/1.out"
+expect_files_equal 'correct mtimes' "$tmpdir/1.exp" "$tmpdir/1.out"
+
+finish

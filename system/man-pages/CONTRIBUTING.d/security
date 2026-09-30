@@ -1,0 +1,10 @@
+Name
+	Security - instructions for reporting security incidents
+
+Description
+	We prefer open discussion of issues, including security
+	incidents, but if you need to discuss anything containing
+	sensitive information, send encrypted mail to the maintainer.
+
+		To: Alejandro Colomar <alx@kernel.org>
+		GPG Fingerprint: A9348594CE31283A826FBDD8D57633D441E25BB5

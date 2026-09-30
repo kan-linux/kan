@@ -1,0 +1,545 @@
+.TH "libwget-vector" 3 "Version 2.3.0" "wget2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+libwget-vector \- Vector functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "wget_vector * \fBwget_vector_create\fP (int max, wget_vector_compare_fn *cmp)"
+.br
+.ti -1c
+.RI "void \fBwget_vector_set_resize_factor\fP (wget_vector *v, float factor)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_insert\fP (wget_vector *v, const void *elem, int pos)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_insert_sorted\fP (wget_vector *v, const void *elem)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_add_memdup\fP (wget_vector *v, const void *elem, size_t size)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_add\fP (wget_vector *v, const void *elem)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_add_vprintf\fP (wget_vector *v, const char *fmt, va_list args)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_add_printf\fP (wget_vector *v, const char *fmt,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_replace\fP (wget_vector *v, const void *elem, int pos)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_remove\fP (wget_vector *v, int pos)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_remove_nofree\fP (wget_vector *v, int pos)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_move\fP (wget_vector *v, int old_pos, int new_pos)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_swap\fP (wget_vector *v, int pos1, int pos2)"
+.br
+.ti -1c
+.RI "void \fBwget_vector_free\fP (wget_vector **v)"
+.br
+.ti -1c
+.RI "void \fBwget_vector_clear\fP (wget_vector *v)"
+.br
+.ti -1c
+.RI "void \fBwget_vector_clear_nofree\fP (wget_vector *v)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_size\fP (const wget_vector *v)"
+.br
+.ti -1c
+.RI "void * \fBwget_vector_get\fP (const wget_vector *v, int pos)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_browse\fP (const wget_vector *v, wget_vector_browse_fn *browse, void *ctx)"
+.br
+.ti -1c
+.RI "void \fBwget_vector_setcmpfunc\fP (wget_vector *v, wget_vector_compare_fn *cmp)"
+.br
+.ti -1c
+.RI "void \fBwget_vector_set_destructor\fP (wget_vector *v, wget_vector_destructor *destructor)"
+.br
+.ti -1c
+.RI "void \fBwget_vector_sort\fP (wget_vector *v)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_find\fP (const wget_vector *v, const void *elem)"
+.br
+.ti -1c
+.RI "bool \fBwget_vector_contains\fP (const wget_vector *v, const void *elem)"
+.br
+.ti -1c
+.RI "int \fBwget_vector_findext\fP (const wget_vector *v, int start, int direction, wget_vector_find_fn *find)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions to realize vectors (growable arrays)\&. 
+.SH "Function Documentation"
+.PP 
+.SS "wget_vector * wget_vector_create (int max, wget_vector_compare_fn * cmp)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImax\fP Initial number of pre-allocated entries\&. 
+.br
+\fIcmp\fP Comparison function for sorting/finding/sorted insertion or NULL\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+New vector instance
+.RE
+.PP
+Create a new vector instance, to be free'd after use with \fBwget_vector_free()\fP\&. 
+.SS "void wget_vector_set_resize_factor (wget_vector * v, float factor)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector 
+.br
+\fIfactor\fP Vector growth factor
+.RE
+.PP
+Set the factor for resizing the vector when it is full\&.
+
+.PP
+The new size is 'factor * oldsize'\&. If the new size is less or equal the old size, the involved insertion function will return an error and the internal state of the vector will not change\&.
+
+.PP
+Default is 2\&. 
+.SS "int wget_vector_insert (wget_vector * v, const void * elem, int pos)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector where \fRelem\fP is inserted into 
+.br
+\fIelem\fP Element to insert into \fRv\fP 
+.br
+\fIpos\fP Position to insert \fRelem\fP at 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of inserted element (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Insert \fRelem\fP of at index \fRpos\fP\&.
+
+.PP
+\fRelem\fP is \fInot\fP cloned, the vector takes 'ownership' of the element\&.
+
+.PP
+An error is returned if \fRv\fP is NULL or \fRpos\fP is out of range (< 0 or > # of entries)\&. 
+.SS "int wget_vector_insert_sorted (wget_vector * v, const void * elem)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector where \fRelem\fP is inserted into 
+.br
+\fIelem\fP Element to insert into \fRv\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of inserted element (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Insert \fRelem\fP of at a position that keeps the sort order of the elements\&. If the vector has no comparison function, \fRelem\fP will be inserted as the last element\&. If the elements in the vector are not sorted, they will be sorted after returning from this function\&.
+
+.PP
+\fRelem\fP is \fInot\fP cloned, the vector takes 'ownership' of the element\&.
+
+.PP
+An error is returned if \fRv\fP is NULL\&. 
+.SS "int wget_vector_add_memdup (wget_vector * v, const void * elem, size_t size)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector where \fRelem\fP is appended to 
+.br
+\fIelem\fP Element to append to a \fRv\fP 
+.br
+\fIsize\fP Size of \fRelem\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of inserted element (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Append \fRelem\fP of given \fRsize\fP to vector \fRv\fP\&.
+
+.PP
+\fRelem\fP is cloned / copied (shallow)\&.
+
+.PP
+An error is returned if \fRv\fP is NULL\&. 
+.SS "int wget_vector_add (wget_vector * v, const void * elem)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector where \fRelem\fP is appended to 
+.br
+\fIelem\fP Element to append to a \fRv\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of inserted element (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Append \fRelem\fP to vector \fRv\fP\&.
+
+.PP
+\fRelem\fP is \fInot\fP cloned, the vector takes 'ownership' of the element\&.
+
+.PP
+An error is returned if \fRv\fP is NULL\&. 
+.SS "int wget_vector_add_vprintf (wget_vector * v, const char * fmt, va_list args)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector where \fRs\fP is appended to 
+.br
+\fIfmt\fP Printf-like format string 
+.br
+\fIargs\fP Arguments for the \fRfmt\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of appended element (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Construct string in a printf-like manner and append it as an element to vector \fRv\fP\&.
+
+.PP
+An error is returned if \fRv\fP or \fRfmt\fP is NULL\&. 
+.SS "int wget_vector_add_printf (wget_vector * v, const char * fmt,  \&.\&.\&.)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector where \fRs\fP is appended to 
+.br
+\fIfmt\fP Printf-like format string 
+.br
+\fI\&.\&.\&.\fP Arguments for the \fRfmt\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of appended element (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Construct string in a printf-like manner and append it as an element to vector \fRv\fP\&.
+
+.PP
+An error is returned if \fRv\fP or \fRfmt\fP is NULL\&. 
+.SS "int wget_vector_replace (wget_vector * v, const void * elem, int pos)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector where \fRelem\fP is inserted 
+.br
+\fIelem\fP Element to insert into \fRv\fP 
+.br
+\fIpos\fP Position to insert \fRelem\fP at 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of inserted element (same as \fRpos\fP) (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Replace the element at position \fRpos\fP with \fRelem\fP\&. If the vector has an element destructor function, this is called\&. The old element is free'd\&.
+
+.PP
+\fRelem\fP is \fInot\fP cloned, the vector takes 'ownership' of the element\&.
+
+.PP
+An error is returned if \fRv\fP is NULL or \fRpos\fP is out of range (< 0 or > # of entries)\&. 
+.SS "int wget_vector_remove (wget_vector * v, int pos)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector to remove an element from 
+.br
+\fIpos\fP Position of element to remove 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of appended element (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Remove the element at position \fRpos\fP\&. If the vector has an element destructor function, this is called\&. The element is free'd\&.
+
+.PP
+An error is returned if \fRv\fP is NULL or \fRpos\fP is out of range (< 0 or > # of entries)\&. 
+.SS "int wget_vector_remove_nofree (wget_vector * v, int pos)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector to remove an element from 
+.br
+\fIpos\fP Position of element to remove 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of removed element (same as \fRpos\fP) (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Remove the element at position \fRpos\fP\&. No element destructor function is called, the element is not free'd\&.
+
+.PP
+An error is returned if \fRv\fP is NULL or \fRpos\fP is out of range (< 0 or > # of entries)\&. 
+.SS "int wget_vector_move (wget_vector * v, int old_pos, int new_pos)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector to act on 
+.br
+\fIold_pos\fP Position to move element from 
+.br
+\fInew_pos\fP Position to move element to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of new position (same as \fRnew_pos\fP) (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Move the element at position \fRold_pos\fP to \fRnew_pos\fP\&.
+
+.PP
+Other elements may change the position\&.
+
+.PP
+An error is returned if \fRv\fP is NULL or either \fRold_pos\fP or \fRnew_pos\fP is out of range (< 0 or > # of entries)\&. 
+.SS "int wget_vector_swap (wget_vector * v, int pos1, int pos2)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector to act on 
+.br
+\fIpos1\fP Position of element one 
+.br
+\fIpos2\fP Position of element two 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of second position (same as \fRpos2\fP) (>= 0) or WGET_E_* on error (< 0)
+.RE
+.PP
+Swap the two elements at position \fRpos1\fP and \fRpos2\fP\&.
+
+.PP
+An error is returned if \fRv\fP is NULL or either \fRpos1\fP or \fRpos2\fP is out of range (< 0 or > # of entries)\&. 
+.SS "void wget_vector_free (wget_vector ** v)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector to be free'd
+.RE
+.PP
+Free the vector \fRv\fP and it's contents\&.
+
+.PP
+For each element the destructor function is called and the element free'd thereafter\&. Then the vector itself is free'd and set to NULL\&. 
+.SS "void wget_vector_clear (wget_vector * v)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector to be cleared
+.RE
+.PP
+Free all elements of the vector \fRv\fP but not the vector itself\&.
+
+.PP
+For each element the destructor function is called and the element free'd thereafter\&. The vector is then empty and can be reused\&. 
+.SS "void wget_vector_clear_nofree (wget_vector * v)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector to be cleared
+.RE
+.PP
+Remove all elements of the vector \fRv\fP without free'ing them\&. The caller is responsible to care for the elements\&.
+
+.PP
+The vector is then empty and can be reused\&. 
+.SS "int wget_vector_size (const wget_vector * v)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of elements in the vector \fRv\fP 
+.RE
+.PP
+Retrieve the number of elements of the vector \fRv\fP\&. If \fRv\fP is NULL, 0 is returned\&. 
+.SS "void * wget_vector_get (const wget_vector * v, int pos)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector 
+.br
+\fIpos\fP Position of element to retrieve 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The element at position \fRpos\fP or NULL on error
+.RE
+.PP
+Retrieve the element at position \fRpos\fP\&.
+
+.PP
+NULL is returned if \fRv\fP is NULL or \fRpos\fP is out of range (< 0 or > # of entries)\&. 
+.SS "int wget_vector_browse (const wget_vector * v, wget_vector_browse_fn * browse, void * ctx)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector 
+.br
+\fIbrowse\fP Function to be called for each element of \fRv\fP 
+.br
+\fIctx\fP Context variable use as param to \fRbrowse\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Return value of the last call to \fRbrowse\fP 
+.RE
+.PP
+Call function \fRbrowse\fP for each element of vector \fRv\fP or until \fRbrowse\fP returns a value not equal to zero\&.
+
+.PP
+\fRbrowse\fP is called with \fRctx\fP and the pointer to the current element\&.
+
+.PP
+The return value of the last call to \fRbrowse\fP is returned or 0 if \fRv\fP is NULL\&. 
+.SS "void wget_vector_setcmpfunc (wget_vector * v, wget_vector_compare_fn * cmp)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector 
+.br
+\fIcmp\fP Function to compare elements
+.RE
+.PP
+Set the compare function used by \fBwget_vector_sort()\fP\&. 
+.SS "void wget_vector_set_destructor (wget_vector * v, wget_vector_destructor * destructor)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector 
+.br
+\fIdestructor\fP Function to be called for element destruction
+.RE
+.PP
+Set the destructor function that is called for each element to be removed\&. It should not free the element (pointer) itself\&. 
+.SS "void wget_vector_sort (wget_vector * v)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector
+.RE
+.PP
+Sort the elements in vector \fRv\fP using the compare function\&. Do nothing if \fRv\fP is NULL or the compare function is not set\&. 
+.SS "int wget_vector_find (const wget_vector * v, const void * elem)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector 
+.br
+\fIelem\fP Element to search for 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of the found element, WGET_E_UNKNOWN if not found or WGET_E_INVALID if v was NULL or there was no comparison function set
+.RE
+.PP
+Searches for the given element using the compare function of the vector\&. 
+.SS "bool wget_vector_contains (const wget_vector * v, const void * elem)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector 
+.br
+\fIelem\fP Element to check for 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if element exists, else false
+.RE
+.PP
+Checks whether the element \fRelem\fP exists or not\&. 
+.SS "int wget_vector_findext (const wget_vector * v, int start, int direction, wget_vector_find_fn * find)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP Vector 
+.br
+\fIstart\fP Index to start search from 
+.br
+\fIdirection\fP Direction of search 
+.br
+\fIfind\fP Function to be called for each element 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Index of the found element, WGET_E_UNKNOWN if not found or WGET_E_INVALID if v was NULL or there was no comparison function set
+.RE
+.PP
+Call \fRfind\fP for each element starting at \fRstart\fP\&. If \fRfind\fP returns 0 the current index is returned\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wget2 from the source code\&.

@@ -1,0 +1,45 @@
+@SECTION_BUTTONS = ();
+
+my @directions = ('Up', 'Forward', 'Back', 'Next',
+                        'Prev', 'FastForward', 'FastBack', 'This', 'NodeUp',
+                        'NodePrev', 'NodeNext', 'NodeForward', 'NodeBack');
+
+my @all_directions = @directions;
+
+if (texinfo_get_conf('SPLIT')) {
+  foreach my $direction (@directions) {
+    push @all_directions, 'FirstInFile'.$direction;
+  }
+}
+
+texinfo_register_text_direction('Bar');
+texinfo_register_direction_string_info('Bar', 'text', '|', undef, 'normal');
+
+foreach my $direction (@all_directions) {
+    my $direction_node = "node-".$direction;
+    my $direction_href = "href-".$direction;
+    my $direction_name = "name-".$direction;
+    texinfo_register_text_direction($direction_node);
+    texinfo_register_text_direction($direction_href);
+    texinfo_register_text_direction($direction_name);
+    texinfo_register_direction_string_info($direction_node, 'text',
+                                           $direction_node, undef, 'normal');
+    texinfo_register_direction_string_info($direction_href, 'text',
+                                           $direction_href, undef, 'normal');
+    texinfo_register_direction_string_info($direction_name, 'text',
+                                           $direction_name, undef, 'normal');
+
+    push @SECTION_BUTTONS, 'Bar', $direction_node, [$direction, '-> node'],
+                                 $direction_href, [$direction, '-> href'],
+                                 $direction_name, [$direction, '-> text'], 'Bar';
+}
+
+@MISC_BUTTONS = @SECTION_BUTTONS;
+@TOP_BUTTONS = @SECTION_BUTTONS;
+
+texinfo_set_from_init_file('MISC_BUTTONS', \@MISC_BUTTONS);
+texinfo_set_from_init_file('SECTION_BUTTONS', \@SECTION_BUTTONS);
+texinfo_set_from_init_file('TOP_BUTTONS', \@TOP_BUTTONS);
+
+1;
+

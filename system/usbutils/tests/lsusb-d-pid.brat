@@ -1,0 +1,32 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# -d :pid filters by product id only (vendor stays -1 / wildcard).
+# Use the first attached device's product id so at least one line
+# matches.
+
+setup() {
+	: "${LSUSB_BUILT:=$DIR/../build/lsusb}"
+	: "${LSUSB_INSTALLED:=$(command -v lsusb || true)}"
+	# "Bus 001 Device 001: ID 1d6b:0002 Linux Foundation ..."
+	set -- $("$LSUSB_BUILT" | head -n1)
+	[ $# -ge 6 ]
+	pid=${6#*:}
+}
+
+@test "lsusb -d :pid: built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -d ":$pid" | sort > "$TEST_TMP.built"
+	"$LSUSB_INSTALLED" -d ":$pid" | sort > "$TEST_TMP.installed"
+	[ -s "$TEST_TMP.built" ]
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb -v -d :pid: built and installed output is identical" {
+	[ -n "$LSUSB_INSTALLED" ]
+	"$LSUSB_BUILT"     -v -d ":$pid" > "$TEST_TMP.built"     2>&1
+	"$LSUSB_INSTALLED" -v -d ":$pid" > "$TEST_TMP.installed" 2>&1
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}

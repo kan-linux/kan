@@ -1,0 +1,35 @@
+#!/bin/sh
+# SPDX-FileCopyrightText: 2026 Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Argument-parsing error paths.
+
+setup() {
+	: "${LSUSB_PY_BUILT:=$DIR/../lsusb.py}"
+	: "${LSUSB_PY_INSTALLED:=$(command -v lsusb.py || true)}"
+}
+
+@test "lsusb.py -X: unknown option gives non-zero exit" {
+	run "$LSUSB_PY_BUILT" -X
+	[ $status -ne 0 ]
+}
+
+@test "lsusb.py -X: built and installed error output is identical" {
+	[ -n "$LSUSB_PY_INSTALLED" ]
+	"$LSUSB_PY_BUILT"     -X > "$TEST_TMP.built"     2>&1 || true
+	"$LSUSB_PY_INSTALLED" -X > "$TEST_TMP.installed" 2>&1 || true
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}
+
+@test "lsusb.py -f: missing argument gives non-zero exit" {
+	run "$LSUSB_PY_BUILT" -f
+	[ $status -ne 0 ]
+}
+
+@test "lsusb.py stray positional: built and installed handling is identical" {
+	[ -n "$LSUSB_PY_INSTALLED" ]
+	"$LSUSB_PY_BUILT"     stray > "$TEST_TMP.built"     2>&1 || true
+	"$LSUSB_PY_INSTALLED" stray > "$TEST_TMP.installed" 2>&1 || true
+	diff -u "$TEST_TMP.installed" "$TEST_TMP.built"
+}

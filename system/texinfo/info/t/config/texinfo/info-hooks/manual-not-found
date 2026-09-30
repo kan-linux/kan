@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# We need to include this dummy hook to stop the test suite trying to
+# run an installed hook.
+
+exit 1

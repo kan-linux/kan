@@ -1,0 +1,3 @@
+d /var/cache/man 0755 @cache_top_owner@ @cache_top_owner@ a:1w
+x /var/cache/man/index*
+x /var/cache/man/*/index*

@@ -1,0 +1,55 @@
+Todo list and notes for texi2any/tta/swig
+
+  Copyright 2025-2026 Free Software Foundation.
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+
+Missing from the SWIG interface
+===============================
+
+Access to index sorted by letter
+Iteration over attributes names to discover element attributes.
+Changing source marks.
+
+Could be used in the documentation of the SWIG interface
+========================================================
+
+set_document_options: set novalidate, documentlanguage
+(and OUTPUT_ENCODING_NAME and possibly other based on OPTIONS_LIST
+arguments, but there is no interface for OPTIONS_LIST).  Not sure that
+it is a good thing to document OUTPUT_ENCODING_NAME, as it could be confusing
+as the encoding of output is always UTF-8.
+
+For Perl, SWIG generated code builds an SV from a string using sv_setpvn.
+According to documentation, this means:
+copy a string into the SV sv, making sure it is "SvPOK_only".
+SvPOK_only tells an SV that it is a string and disables all other OK bits.
+Will also turn off the UTF-8 status.
+
+The strings returned should therefore be considered as byte strings by Perl.
+They are also always UTF-8 encoded as the C code converts all the strings
+in the tree to UTF-8.  In Perl code it therefore should be possible to convert 
+to characters by calling:
+$result = Encode::decode('UTF-8', $strings_from_tree);
+
+Also note that, although it may change, it is possible for Texinfo
+document encoding US-ASCII to be interpreted as ISO-8859-1 for non-ASCII
+characters.  This could be relevant in particular when one wants to convert
+to the input encoding.  In that case, if the input encoding name is US-ASCII
+it could be safer to actually convert to ISO-8859-1.
+
+Misc
+====
+
+Example of code to test some functions:
+
+element = skip_to_cmdname(reader, 'node')
+
+element = skip_to_cmdname(reader, 'cindex')
+index_entry = Texinfo.element_index_entry (document, element)
+index_info = Texinfo.index_entry_index (document, index_entry)
+
+

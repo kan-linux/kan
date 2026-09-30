@@ -1,0 +1,23 @@
+[files]
+extend-exclude = [
+    ".git/",
+    "misc/codespell-allowlist.txt",
+    "src/third_party/",
+]
+ignore-hidden = false
+
+[default]
+extend-ignore-re = [
+    " -ot ",
+    "/FoN\\.",
+    "[/-]Fo\\b",
+    "Andrew Stubbs",
+    "clang-analyzer-optin",
+    "pn\\d",
+    "seve\\\\nth",
+    "tar -caf",
+    "thi\\\\\\\\rd",
+]
+
+[default.extend-words]
+"hda" = "hda"

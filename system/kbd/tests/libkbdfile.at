@@ -1,0 +1,27 @@
+AT_BANNER([libkbdfile unit tests])
+
+AT_SETUP([test 01 (create and free kbdfile object)])
+AT_KEYWORDS([libkbdfile unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkbdfile/libkbdfile-test01])
+AT_CLEANUP
+
+AT_SETUP([test 02 (resolve keymap paths across suffix and layout variants)])
+AT_KEYWORDS([libkbdfile unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkbdfile/libkbdfile-test02])
+AT_CLEANUP
+
+AT_SETUP([test 03 (open direct and compressed files through libkbdfile)])
+AT_KEYWORDS([libkbdfile unittest])
+AT_SKIP_IF([ test "$(arch)" = "ppc64el" ])
+UNITTEST_MEMCHECK([$abs_builddir/libkbdfile/libkbdfile-test03])
+AT_CLEANUP
+
+AT_SETUP([test 04 (set and get logging context state)])
+AT_KEYWORDS([libkbdfile unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkbdfile/libkbdfile-test14])
+AT_CLEANUP
+
+AT_SETUP([test 05 (load shared library symbols lazily)])
+AT_KEYWORDS([libkbdfile unittest])
+UNITTEST_MEMCHECK([$abs_builddir/libkbdfile/libkbdfile-test16])
+AT_CLEANUP

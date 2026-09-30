@@ -1,0 +1,23 @@
+\input texinfo @c -*-texinfo-*-
+
+@node Top
+@top Not monolithic
+
+Not monolitic manual@footnote{my footnote}.
+
+@cindex top
+
+@menu
+* chapter::
+@end menu
+
+@node chapter
+@chapter Chapter
+
+Chapter.
+
+@contents
+@shortcontents
+
+@printindex cp
+@bye

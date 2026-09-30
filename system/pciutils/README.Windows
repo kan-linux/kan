@@ -1,0 +1,70 @@
+Since 2.1.99-test5, pciutils should also be compilable on Windows. Thanks
+to Alexander Stock for contributing the port.
+
+Updated after version 2.2.6 to compile again, and with MinGW, even (only?)
+cross-compiling. (Hopefully it works with MSVC too.)
+
+For simple listing PCI devices in system via win32-cfgmgr32 access method
+which provides only basic information and emulated config space, there is no
+special requirement. To list PCI resources on Windows 8 and higher versions,
+it is necessary to have architecture-native version (e.g. AMD64 version on
+AMD64 systems).
+
+For config space access there are different windows specific access methods:
+- win32-kldbg - Kernel Local Debugging Driver kldbgdrv.sys
+- win32-sysdbg - NT SysDbg interface
+- intel-conf1 - Direct hardware access via Intel configuration mechanism 1
+
+The default access method is win32-cfgmgr32 and by default it tries to use
+one of the above config access access method to provide as much as possible
+information to application. More details about particular access method and
+caveats are described in the pcilib(8) manual page.
+
+The default access method for config space is win32-kldbg. It uses Microsoft's
+Kernel Local Debugging Driver kldbgdrv.sys. This driver is not part of the
+Windows system but is part of the Microsoft WinDbg tool. It is required to
+have kldbgdrv.sys driver installed in the system32 directory or to have
+windbg.exe or kd.exe binary in PATH. kldbgdrv.sys driver has some restrictions.
+Process needs to have Debug privilege and Windows system has to be booted with
+Debugging option. Debugging option can be enabled by calling (takes effect
+after next boot): bcdedit /debug on
+
+Download links for WinDbg 6.12.2.633 standalone installer from Microsoft:
+https://download.microsoft.com/download/A/6/A/A6AC035D-DA3F-4F0C-ADA4-37C8E5D34E3D/setup/WinSDKDebuggingTools_amd64/dbg_amd64.msi
+https://download.microsoft.com/download/A/6/A/A6AC035D-DA3F-4F0C-ADA4-37C8E5D34E3D/setup/WinSDKDebuggingTools/dbg_x86.msi
+
+To access config space via intel-conf1 access method on NT-based systems via
+NT ProcessUserModeIOPL system call, it is required to have SeTcbPrivilege
+(Act as part of the operating system privilege), which can be enabled in User
+Accounts settings (take effect after next login). By default this privilege is
+not enabled for any non-system user. Or alternatively it is required to be in
+local Administrators group and on Windows 2000 SP4 or higher systems to have
+SeImpersonatePrivilege (Impersonate a client after authentication privilege)
+which is by default enabled for all local Administrators accounts. There is no
+special requirement for DOS-based systems. 64-bit systems do not have to allow
+users to access config space even with SeTcbPrivilege.
+
+To compile this port, run following command:
+
+  make CROSS_COMPILE=i586-mingw32msvc- HOST=i586-windows ZLIB=no IDSDIR=""
+
+To build 64-bit version, run:
+
+  make CROSS_COMPILE=x86_64-w64-mingw32- HOST=x86_64-windows ZLIB=no IDSDIR=""
+
+Sometimes compilation may fail due to broken or missing getopt implementation.
+In this case try to compile with additional make option: COMPAT_GETOPT=yes
+
+Building of shared DLL library libpci3.dll is supported too but needs to be
+manually enabled by make option: SHARED=yes
+
+This DLL library libpci3.dll has versioned symbols with stable ordinal numbers
+which provides backward and forward compatibility. Every symbol in DLL library
+has '@LIBPCI_3.<version>' suffix to achieve it. For linking application to
+libpci3.dll it is possible to generate import library from libpci3.def file.
+Such import library will provide import symbol names without versioned suffix
+as an alias for the latest symbol version, which matches function name in pci.h
+header file. The alias is resolved by the linker at linking time, so the final
+application binary would always reference only versioned symbol. DLL library
+libpci3.dll does not provide unversioned symbols, so for using GetProcAddress()
+or dlsym() it is needed to specify full versioned symbol name.

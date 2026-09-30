@@ -1,0 +1,1395 @@
+.\"
+.\" Copyright (c) 2004-2025 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2011-2023 Jim Warner <james.warner@comcast.net>
+.\" Copyright (c) 2011-2012 Sami Kerola <kerolasa@iki.fi>
+.\" Copyright (c) 1998-2003 Albert Cahalan
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\"
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH PS 1 2025\-04\-23 procps\-ng 
+.\"
+.\" Ragged-right text.
+.na
+.\" Disable hyphenation.
+.nh
+.SH 名称
+ps \- 输出当前进程的快照。
+.SH 概述
+\fBps\fP [\fI选项\fP .\|.\|.]
+.SH 描述
+\fBps\fP 显示关于选定的活动进程的信息。如果您想要随时更新选择标准和所显示的信息，请改用 \fBtop\fP。
+.P
+此版本的 \fBps\fP 接受多种选项。
+.TP  4n
+\[bu]
+Unix 选项，可以分组列出，并且前面必须有短横线 "\-"。
+.TP 
+\[bu]
+BSD 选项，可以分组列出，并且不能加上短横线。
+.TP 
+\[bu]
+GNU 长选项，前面有两个短横线 "\-\-"。
+.PP
+不同类型的选项可以自由组合，但也有可能会出现冲突。由于此 \fBps\fP 兼容许多标准和 \fBps\fP 实现，因此存在一些功能相同的同义选项。
+.P
+默认情况下，\fBps\fP 选择与当前用户具有相同有效用户 ID (euid=EUID) 并与调用者关联到同一终端的所有进程。它显示进程 ID
+(pid=PID)、与进程关联的终端 (tname=TTY)、[DD\-]hh:mm:ss 格式的累计 CPU 时间 (time=TIME)
+以及可执行文件名称 (ucmd=CMD) 。默认情况下，不对输出进行排序。
+.P
+使用 BSD 风格选项会将进程状态 (stat=STAT) 添加到默认显示，并显示命令参数 (args=COMMAND)
+而不是可执行文件名称。您可以使用 \fBPS_FORMAT\fP 环境变量覆盖它。使用 BSD 风格的选项还将更改进程选择标准，以包括您拥有的其他终端
+(TTY) 上的进程；或者，也可以描述为选择所有进程，除了其他用户拥有的或不处于终端上的进程。之后我们说两个选项 "相同"
+时，指的是不考虑上述区别，因此 \fB\-M\fP 会被视为与 \fBZ\fP 相同，等等。
+.P
+除了在下面另行说明的情况以外，进程选择选项是加性的。默认选择的进程会被丢弃，然后将所选进程添加到要显示的进程集合中。因此，如果进程满足任一给定的选择标准，就会显示该进程。
+.SH 示例
+.TP  3
+要使用标准语法查看系统上的每个进程：
+\fBps\ \-e\fP
+.br
+\fBps\ \-ef\fP
+.br
+\fBps\ \-eF\fP
+.br
+\fBps\ \-ely\fP
+.TP 
+要使用 BSD 语法查看系统上的每个进程：
+\fBps\ ax\fP
+.br
+\fBps\ axu\fP
+.TP 
+要打印进程树：
+\fBps\ \-ejH\fP
+.br
+\fBps\ axjf\fP
+.TP 
+要获得关于线程的信息：
+\fBps\ \-eLf\fP
+.br
+\fBps\ axms\fP
+.TP 
+要获得安全信息：
+\fBps\ \-eo euser,ruser,suser,fuser,f,comm,label\fP
+.br
+\fBps\ axZ\fP
+.br
+\fBps\ \-eM\fP
+.TP 
+要以用户格式查看以 root 身份（真实和有效 ID）运行的每个进程：
+\fBps\ \-U\ root\ \-u\ root\ u\fP
+.TP 
+要使用用户定义的格式查看所有进程：
+\fBps\ \-eo\ pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm\fP
+.br
+\fBps\ axo\ stat,euid,ruid,tty,tpgid,sess,pgrp,ppid,pid,pcpu,comm\fP
+.br
+\fBps\ \-Ao\ pid,tt,user,fname,tmout,f,wchan\fP
+.TP 
+仅打印 syslogd 的进程 ID：
+\fBps\ \-C\ syslogd\ \-o\ pid=\fP
+.TP 
+仅打印 PID 为 42 的进程名称：
+\fBps\ \-q\ 42\ \-o\ comm=\fP
+.SH 简单的进程选择
+.TP 
+\fBa\fP
+解除 BSD 风格中的 "仅你自己的" 限制，该限制在使用某些 BSD 风格（不带 "\-"）的选项，或 \fBps\fP 特色设置为类似 BSD
+时，会被应用于所有进程的集合。以这种方式选择的进程集合会与通过其他方式选择的进程集合相加。另一种描述是，此选项使 \fBps\fP 列出所有带有终端
+(tty) 的进程，或者，当与 \fBx\fP 选项同时使用时，列出所有进程。
+.TP 
+\fB\-A\fP
+选择所有进程。与 \fB\-e\fP 相同。
+.TP 
+\fB\-a\fP
+选择除了会话头领（参见 \fIgetsid\fP(2)）和没有关联到终端的进程以外的所有进程。
+.TP 
+\fB\-d\fP
+选择除了会话头领以外的所有进程。
+.TP 
+\fB\-\-deselect\fP
+选择除了满足指定条件的进程以外的所有进程（反向选择）。与 \fB\-N\fP 相同。
+.TP 
+\fB\-e\fP
+.\" Current "g" behavior: add in the session leaders, which would
+.\" be excluded in the sunos4 personality. Supposed "g" behavior:
+.\" add in the group leaders -- at least according to the SunOS 4
+.\" man page on the FreeBSD site. Uh oh. I think I had tested SunOS
+.\" though, so maybe the code is correct.
+选择所有进程。与 \fB\-A\fP 相同。
+.TP 
+\fBg\fP
+真的选择所有进程，甚至包括会话头领。该标志已过时，并且可能在未来版本中停止使用。通常来说 \fBa\fP 标志会隐含启用该选项，而且该选项仅在设置为
+sunos4 特色时才有用。
+.TP 
+\fB\-N\fP
+选择除了满足指定条件的进程以外的所有进程（反向选择）。与 \fB\-\-deselect\fP 相同。
+.TP 
+\fBT\fP
+选择关联到此终端的所有进程。与不带参数的 \fBt\fP 选项相同。
+.TP 
+\fBr\fP
+将选择限制为仅包含正在运行的进程。
+.TP 
+\fBx\fP
+解除 BSD 风格中的 "必须有 tty" 限制，该限制在使用某些 BSD 风格（不带 "\-"）的选项，或 \fBps\fP 特色设置为类似 BSD
+时，会被应用于所有进程的集合。以这种方式选择的进程集合会与通过其他方式选择的进程集合相加。另一种描述是，此选项使 \fBps\fP 列出您拥有（与 \fBps\fP
+具有相同的 EUID）的所有进程，或者，当与 \fBa\fP 选项同时使用时，列出所有进程。
+.SH 通过列表选择进程
+这些选项接受单个参数，格式是以空格或逗号分隔的列表。这些选项可以多次使用。例如：\fBps\ \-p\ "1\ 2"\ \-p\ 3,4\fP
+.TP 
+\fI123\fP
+与 \fB\-\-pid\ \fP\fI123\fP 相同。
+.TP 
++\fI123\fP
+与 \fB\-\-sid\ \fP\fI123\fP 相同。
+.TP 
+\-\fI123\fP
+按照进程组 ID (PGID) 进行选择。
+.TP 
+\fB\-C\fP\fI\ 命令列表\fP
+按照命令名称进行选择。这将选择可执行文件名称位于给定的 \fI命令列表\fP 中的进程。注意：命令名称和命令行是不同的。以前版本的 procps
+和内核将命令名称截断为 15 个字符。现在两者的限制都已不再存在。如果您依赖于仅和 15 个字符进行匹配，则可能不再能得到匹配项。
+.TP 
+\fB\-G\fP\fI\ 组列表\fP
+按照真实组 ID (RGID) 或名称进行选择。这将选择真实组名称或 ID 在 \fI组列表\fP 中的进程。真实的组 ID 表示创建进程的用户所属的组，参见
+\fIgetgid\fP(2)。
+.TP 
+\fB\-g\fP\fI\ 组列表\fP
+按照会话或有效组名称进行选择。许多标准都指定了按照会话进行选择，但按照有效组进行选择是其他几个操作系统在逻辑上的行为。当列表完全是数字时（就像会话那样），此版本的
+\fBps\fP 将按会话进行选择。仅当还指定了某些组名称时，才能使用组 ID。请参阅 \fB\-s\fP 和 \fB\-\-group\fP 选项。
+.TP 
+\fB\-\-Group\fP\fI\ 组列表\fP
+按照真实组 ID (RGID) 或名称进行选择。与 \fB\-G\fP 相同。
+.TP 
+\fB\-\-group\fP\fI\ 组列表\fP
+按照有效组 ID (EGID) 或名称进行选择。这将选择有效组名称或 ID 在 \fI组列表\fP 中的进程。有效组 ID
+意味着进程将使用这个组的权限进行文件访问（请参阅 \fIgetegid\fP(2)）。\fB\-g\fP 选项通常是 \fB\-\-group\fP 的替代选项。
+.TP 
+\fBp\fP\fI\ pid列表\fP
+按照进程 ID 进行选择。与 \fB\-p\fP 和 \fB\-\-pid\fP 相同。
+.TP 
+\fB\-p\fP\fI\ pid列表\fP
+按照 PID 进行选择。这将选择进程 ID 位于 \fIpid列表\fP 中的进程。与 \fBp\fP 和 \fB\-\-pid\fP 相同。
+.TP 
+\fB\-\-pid\fP\fI\ pid列表\fP
+按照进程\ ID 进行选择。与 \fB\-p\fP 和 \fBp\fP 相同。
+.TP 
+\fB\-\-ppid\fP\fI\ pid列表\fP
+按照父进程 ID 进行选择。这将选择父进程 ID 位于 \fIpid列表\fP 中的进程。也就是说，这将选择 \fIpid列表\fP 中列出的进程的子进程。
+.TP 
+\fBq\fP\fI\ pid列表\fP
+按照进程 ID 进行选择（快速模式）。与 \fB\-q\fP 和 \fB\-\-quick\-pid\fP 相同。
+.TP 
+\fB\-q\fP\fI\ pid列表\fP
+按照 PID 进行选择（快速模式）。这将选择进程 ID 位于 \fIpid列表\fP 中的进程。使用此选项时，\fBps\fP 仅读取 \fIpid列表\fP 中列出的
+pid 的必要信息，并且不应用其他筛选规则。 pid 的顺序将被保留且不进行排序。此模式下不允许再添加选择选项、排序选项和森林类型的列表显示。与
+\fBq\fP 和 \fB\-\-quick\-pid\fP 相同。
+.TP 
+\fB\-\-quick\-pid\fP\fI\ pid列表\fP
+按照进程 ID 进行选择（快速模式）。与 \fB\-q\fP 和 \fBq\fP 相同。
+.TP 
+\fB\-s\fP\fI\ 会话列表\fP
+按照会话 ID 进行选择。这将选择会话 ID 位于 \fI会话列表\fP 中的进程。
+.TP 
+\fB\-\-sid\fP\fI\ 会话列表\fP
+按照会话 ID 进行选择。与 \fB\-s\fP 相同。
+.TP 
+\fBt\fP\fI\ tty列表\fP
+按照 tty 进行选择。与 \fB\-t\fP 和 \fB\-\-tty\fP 几乎相同，但当 \fItty列表\fP 为空时，这个选项可以返回与 \fBps\fP 关联的终端。使用
+\fBT\fP 选项被认为是比使用带有空 \fItty列表\fP 的 \fBt\fP 选项更干净的做法。
+.TP 
+\fB\-t\fP\fI\ tty列表\fP
+按照 tty 进行选择。这将选择与 \fItty列表\fP
+中给定的终端关联的进程。终端（tty，或文本输出屏幕）可以用多种形式指定：/dev/ttyS1、ttyS1、S1。单纯的 "\-"
+可用于选择未依附于任何终端的进程。
+.TP 
+\fB\-\-tty\fP\fI\ tty列表\fP
+按照终端进行选择。与 \fB\-t\fP 和 \fBt\fP 相同。
+.TP 
+\fBU\fP\fI\ 用户列表\fP
+按照有效用户 ID (EUID) 或名称进行选择。这将选择有效用户名称或 ID 位于 \fI用户列表\fP 中的进程。有效用户 ID
+意味着进程将使用这个用户的权限进行文件访问（请参阅 \fIgeteuid\fP(2)）。与 \fB\-u\fP 和 \fB\-\-user\fP 相同。
+.TP 
+\fB\-U\fP\fI\ 用户列表\fP
+按照真实用户 ID (RUID) 或名称进行选择。这将选择真实用户名称或 ID 位于 \fI用户列表\fP 中的进程。真实用户 ID
+表示创建进程的用户，请参见 \fIgetuid\fP(2)。
+.TP 
+\fB\-u\fP\fI\ 用户列表\fP
+按照有效用户 ID (EUID) 或名称进行选择。这将选择有效用户名称或 ID 位于 \fI用户列表\fP 中的进程。
+.P
+有效用户 ID 意味着进程将使用这个用户的权限进行文件访问（请参阅 \fIgeteuid\fP(2)）。与 \fBU\fP 和 \fB\-\-user\fP 相同。
+.TP 
+\fB\-\-User\fP\fI\ 用户列表\fP
+按照真实用户 ID (RUID) 或名称进行选择。与 \fB\-U\fP 相同。
+.TP 
+\fB\-\-user\fP\fI\ 用户列表\fP
+按照有效用户 ID (EUID) 或名称进行选择。与 \fB\-u\fP 和 \fBU\fP 相同。
+.SH 输出格式控制
+这些选项用于选择 \fBps\fP 显示的信息。输出可能依特色而发生改变。描述的末尾的括号中的选项是等效的格式串。
+.TP 
+\fB\-c\fP
+为 \fB\-l\fP 选项显示不同的调度器信息。(\fB\-O cls,pri\fP).
+.TP 
+\fB\-\-context\fP
+显示安全上下文格式（用于 SELinux）。(\fB\-o pid,context,cmd\fP).
+.TP 
+\fB\-f\fP
+显示完整格式的列表。此选项可以与许多其他 Unix 风格选项组合使用，来添加其他列。此选项还会打印命令的参数。与 \fB\-L\fP 同时使用时，将添加
+NLWP（线程数）和 LWP（线程 ID）列。请参阅 \fBc\fP 选项、格式关键字 \fBargs\fP 和格式关键字 \fBcomm\fP。(\fB\-o uid,pid,ppid,c,stime,tty,time,cmd\fP).
+.TP 
+\fB\-F\fP
+更加完整的格式。参见 \fB\-f\fP 选项，因为 \fB\-F\fP 隐含启用该选项。(\fB\-o uid,pid,ppid,c,sz,rss,psr,stime,tty,time,cmd\fP).
+.TP 
+\fB\-\-format\fP\fI\ 格式\fP
+用户定义的格式。与 \fB\-o\fP 和 \fBo\fP 相同。
+.TP 
+\fBj\fP
+BSD 任务控制格式。(\fB\-o ppid,pid,pgid,sid,tty,tpgid,stat,uid,time,cmd a\fP)
+.TP 
+\fB\-j\fP
+任务格式。(\fB\-o pid,pgid,sid,tty,time,ucmd\fP)
+.TP 
+\fBl\fP
+显示 BSD 长格式。(\fB\-o f,uid,pid,ppid,pri,ni,vsz,rss,wchan,stat,tty,time,cmd a\fP)
+.TP 
+\fB\-l\fP
+长格式。\fB\-y\fP 选项和此选项同时使用时通常很有用。(\fB\-o f,uid,pid,ppid,c,pri,ni,addr,sz,wchan,tty,time,ucmd\fP)
+.TP 
+\fB\-M\fP
+添加一列安全数据。与 \fBZ\fP 相同（用于 SELinux）。(\fB\-o context,pid,tty,time,ucmd\fP)
+.TP 
+\fBO\fP\fI\ 格式\fP
+是预加载（重载）了的 \fBo\fP。BSD 风格的 \fBO\fP 选项的行为可以和
+\fB\-O\fP（用户定义的输出格式，预定义一些常用字段）一样，也可以用于指定排序顺序。我们使用了一些启发式算法来确定此选项的行为。为了能确保获得所需的行为（排序还是格式化），请以其他方式指定选项（例如使用
+\fB\-O\fP 或 \fB\-\-sort\fP）。当用作格式化选项时，它与 \fB\-O\fP 相同，但具有 BSD 特色。
+.TP 
+\fB\-O\fP\fI\ 格式\fP
+类似 \fB\-o\fP，但预加载了一些默认的列。与 \fB\-o\ pid,\:\fP\fI格式\fP\fB,\:state,\:tname,\:time,\:command\fP 或 \fB\-o\ pid,\:\fP\fI格式\fP\fB,\:tname,\:time,\:cmd\fP 相同，见下文的 \fB\-o\fP。
+.TP 
+\fBo\fP\fI\ 格式\fP
+指定用户定义的格式。与 \fB\-o\fP 和 \fB\-\-format\fP 相同。
+.TP 
+\fB\-o\fP\fI\ 格式\fP
+用户定义的格式。\fI格式\fP 是单个参数，其格式是以空格或逗号分隔的列表，它提供了一种指定各个输出列的方法。可以识别的关键字参见下面的
+\fB标准格式说明符\fP 一节。可以根据需要重命名列标题 (\fBps \-o pid,\:ruser=RealUser \-o comm=Command\fP)。如果所有列标题均为空 (\fBps \-o pid= \-o comm=\fP)，则不会输出表头。如果列标题过宽，列宽将根据需要进行增加；这一特性可以用于增加列宽，例如 WCHAN (\fBps \-o pid,\:wchan=\:WIDE\-\:WCHAN\-\:COLUMN \-o comm\fP)。也提供显式的宽度控制 (\fBps opid,\:wchan:42,\:cmd\fP)。\fBps \-o pid=X,\:comm=Y\fP 的行为依特色而发生变化；输出可以是名为
+"X,\:comm=Y" 的一列或名为 "X" 和 "Y" 的两列。如有疑问，请使用多个 \fB\-o\fP 选项。使用 \fBPS_FORMAT\fP
+环境变量来根据需要指定默认值；DefSysV 和 DefBSD 是两个宏，可以用于选择默认的 Unix 或 BSD 列。
+.TP 
+\fB\-P\fP
+增加一列，显示 \fBpsr\fP。(\fB\-o pid,psr,s,tty,time,ucmd\fP)
+.TP 
+\fBs\fP
+显示信号格式。(\fB\-o uid,pid,pending,blocked,ignored,caught,stat,tty,bsdtime,cmd a\fP)
+.TP 
+\fBu\fP
+显示面向用户的格式。(\fB\-o user,pid,pcpu,pmem,vsz,rss,tty,stat,start_time,bsdtime,args a\fP)
+.TP 
+\fBv\fP
+显示虚拟内存格式。(\fB\-o pid,tty,stat,bsdtime,majflt,trs,drs,rss,pmem,args a\fP)
+.TP 
+\fBX\fP
+寄存器格式。(\fB \-o pid,stackp,esp,eip,tmout,alarm,stat,tty,bsdtime,args a\fP)
+.TP 
+\fB\-y\fP
+不要显示标志；显示 rss 而不是 addr。此选项仅能和 \fB\-l\fP 同时使用。
+.TP 
+\fBZ\fP
+添加一列安全数据。与 \fB\-M\fP 相同（用于 SELinux）。
+.SH 输出修饰符
+.TP 
+\fBc\fP
+显示真实的命令名称。该名称是从可执行文件名导出的，而不是从 argv 值导出的。因此不会显示命令参数及对其的任何修改。该选项实际上将 \fBargs\fP
+格式关键字转换为 \fBcomm\fP 格式关键字；它对于 \fB\-f\fP 格式选项和各种 BSD 风格格式选项很有用，这些选项通常都显示命令参数。请参阅
+\fB\-f\fP 选项、格式关键字 \fBargs\fP 和格式关键字 \fBcomm\fP。
+.TP 
+\fB\-\-cols\fP\fI\ n\fP
+设置屏幕宽度。
+.TP 
+\fB\-\-columns\fP\fI\ n\fP
+设置屏幕宽度。
+.TP 
+\fB\-\-cumulative\fP
+包括一些已死亡的子进程的数据（作为总和显示在父进程中）。
+.TP 
+\fB\-D\fP\fI\ 格式\fP
+将 \fBlstart\fP 字段的日期格式设置为 \fI格式\fP。此格式由 \fBstrftime\fP(3) 进行解析，最长应不超过 24 个字符，以免列错位。
+.TP 
+\fB\-\-date\-format\fP\fI\ 格式\fP
+与 \fB\-D\fP 相同。
+.TP 
+\fB\-\-delimiter\fP\fI\ 分隔符\fP
+将列之间的分隔符设置为 \fI分隔符\fP，而不是可变长度的空格。必须是单个字符。
+.TP 
+\fBe\fP
+在命令后显示环境变量。
+.TP 
+\fBf\fP
+用 ASCII 字符艺术显示进程的层次结构（森林）。
+.TP 
+\fB\-\-forest\fP
+用 ASCII 字符艺术显示进程树。
+.TP 
+\fBh\fP
+没有表头。（或者，使用 BSD 特色时，每个屏幕显示一个表头）。\fBh\fP 选项有一个问题。标准 BSD \fBps\fP
+使用此选项时会在每页输出上打印表头，但较旧的 Linux \fBps\fP 使用此选项时则完全禁用表头。此版本的 \fBps\fP 遵循 Linux
+用法，不打印表头，除非选择了 BSD 特色，而在这种情况下，它会在每页输出上打印表头。无论当前使用了什么特色，您都可以使用长选项
+\fB\-\-headers\fP 和 \fB\-\-no\-headers\fP 选项，分别表示在每页打印表头和完全禁用表头。
+.TP 
+\fB\-H\fP
+显示进程的层次结构（森林）。
+.TP 
+\fB\-\-headers\fP
+重复显示表头行，每页输出显示一次。
+.TP 
+\fBk\fP\fI\ 说明符\fP
+指定排序顺序。排序语法为 [\fB+\fP|\fB\-\fP]\fI键\/.RB [,[ + | \- ].IR 键 [,.\|.\|.]].\fP 从 \fB标准格式说明符\fP
+一节中选择一个多字母的键。"+" 是可选的，因为默认方向是按照数字或字典序升序。与 \fB\-\-sort\fP 相同。
+.RS 8
+.IP
+示例：
+.br
+\fBps jaxkuid,\-ppid,+pid\fP
+.br
+\fBps axk comm o comm,args\fP
+.br
+\fBps kstart_time \-ef\fP
+.RE
+.TP 
+\fB\-\-lines\fP\fI\ n\fP
+设置屏幕高度。
+.TP 
+\fBn\fP
+对于 WCHAN 和 USER，显示数字输出（包括各种类型的 UID 和 GID）。
+.TP 
+\fB\-\-no\-headers\fP
+完全不打印表头行。\fB\-\-no\-heading\fP 是此选项的别名。
+.TP 
+\fBO\fP\fI\ 顺序\fP
+排序顺序（重载）。BSD 风格的 \fBO\fP 选项的行为可以和
+\fB\-O\fP（用户定义的输出格式，预定义一些常用字段）一样，也可以用于指定排序顺序。我们使用了一些启发式算法来确定此选项的行为。为了能确保获得所需的行为（排序还是格式化），请以其他方式指定选项（例如使用
+\fB\-O\fP 或 \fB\-\-sort\fP）。
+.IP
+对于排序，过时的 BSD 风格的 \fBO\fP 选项语法为
+\fBO\fP[\fB+\fP|\fB\-\fP]\fI键1\fP[,[\fB+\fP|\fB\-\fP]\fI键2\fP[,.\|.\|.]]。它根据下面的 \fB过时的排序键\fP
+一节中描述的单字母短键 \fI键1\fP,\fI键2\fP, .\|.\|." 的序列指定的多级排序来对进程列表进行排序。"+"
+当前是可选的，仅重新强调排序键的默认方向，但可能有助于区分 \fBO\fP（排序）与 \fBO\fP（格式）。"\-" 仅反转后面紧跟着的键的方向。
+.TP 
+\fB\-\-rows\fP\fI\ n\fP
+设置屏幕高度。
+.TP 
+\fBS\fP
+将死亡的子进程的一些信息，例如 CPU 使用情况，加到其父进程的信息中。这对于检查通过让父进程反复 fork
+出生命周期很短的子进程来完成工作的系统很有用。
+.TP 
+\fB\-\-sort\fP\fI\ 说明符\fP
+指定排序顺序。排序语法为 [\fI+\fP|\fI\-\fP]\fI键\fP[,[\fB+\fP|\fB\-\fP]\fI键\fP[,.\|.\|.]]。从 \fB标准格式说明符\fP
+一节中选择一个多字母的键。"+" 是可选的，因为默认方向是按照数字或字典序升序。与 \fBk\fP 相同。例如： \fBps jax \-\-sort=\:uid,\:\-ppid,\:+pid\fP
+.TP 
+\fB\-\-signames\fP
+使用信号名称的缩写显示信号掩码，并扩展列的宽度。如果列宽无法显示所有信号，则该列将以加号 "\fI+\fP" 结尾。仅带有短横线 "\-" 的列表示没有信号。
+.TP 
+\fBw\fP
+宽版输出。使用该选项两次表示无限宽度。
+.TP 
+\fB\-w\fP
+宽版输出。使用该选项两次表示无限宽度。
+.TP 
+\fB\-\-width\fP\fI\ n\fP
+设置屏幕宽度。
+.SH 线程显示
+.TP 
+\fBH\fP
+像进程一样显示线程。
+.TP 
+\fB\-L\fP
+显示线程，如有可能，显示 LWP 和 NLWP 列。
+.TP 
+\fBm\fP
+在进程之后显示线程。
+.TP 
+\fB\-m\fP
+在进程之后显示线程。
+.TP 
+\fB\-T\fP
+显示线程，如有可能，显示 SPID 列。
+.SH 其他信息
+.TP 
+\fB\-\-help\fP\fI\ 节\fP
+打印帮助消息。\fI节\fP 参数可以是 \fIs\fPimple、\fIl\fPist、\fIo\fPutput、\fIt\fPhreads、\fIm\fPisc 或 \fIa\fPll
+之一。参数可以缩写为带下划线的字母之一，也就是：s\^|\^l\^|\^o\^|\^t\^|\^m\^|\^a。
+.TP 
+\fB\-\-info\fP
+打印调试信息。
+.TP 
+\fBL\fP
+打印所有格式说明符。
+.TP 
+\fBV\fP
+打印 procps\-ng 的版本。
+.TP 
+\fB\-V\fP
+打印 procps\-ng 的版本。
+.TP 
+\fB\-\-version\fP
+打印 procps\-ng 的版本。
+.SH 备注
+此 \fBps\fP 通过读取 /proc 中的虚拟文件来工作。此 \fBps\fP 不需要 setuid kmem 或任何其他特权即可运行。不要授予此 \fBps\fP
+任何特殊权限。
+.PP
+CPU 使用率目前表示为进程整个生命周期内处于运行状态的时间的百分比。这种算法并不理想，并且它也不符合 \fBps\fP 在其他方面所遵守的标准。CPU
+使用率加起来不太可能正好是 100%。
+.PP
+SIZE 和 RSS 字段不计算进程的某些部分，包括页表、内核栈、struct thread_info 和 struct
+task_struct。这些至少占 20\ KiB 的驻留内存。SIZE 是进程的虚拟大小（代码+\:数据+\:堆栈）。
+.PP
+标记为 <defunct> 的进程是死亡的进程（所谓的
+"僵尸进程"），它们之所以保留，是因为它们的父进程没有正确销毁它们。如果父进程退出，这些进程将被 \fIinit\fP(8) 销毁。
+.PP
+如果用户名的长度大于显示的列的宽度，则用户名将被截断。请参阅 \fB\-o\fP 和 \fB\-O\fP 格式选项来自定义长度。
+.PP
+不建议使用 \fBps \-aux\fP 等命令选项，因为它会混淆两种不同的标准。根据 POSIX 和 Unix 标准，上述命令要求显示带有 TTY
+的所有进程（通常是用户正在运行的命令）以及名为 \fIx\fP 的用户拥有的所有进程。如果该用户不存在，则 \fBps\fP 将假定您的真正意思是 "\fBps\fP
+\fIaux\fP"。
+.SH 进程标志
+下面这些值的总和将显示在 "F" 列中，该列由 \fBflags\fP 输出说明符启用：
+.PP
+.RS 8
+.TS
+R4 L.
+1	已由 fork 产生，但未执行 exec
+4	使用了超级用户权限
+.TE
+.RE
+.SH 进程状态代码
+以下是 \fBs\fP、\fBstat\fP 和 \fBstate\fP 输出说明符（表头为 "STAT" 或 "S"）显示的各种值，用于描述进程的状态：
+.PP
+.RS 8
+.TS
+R4 L.
+D	不可中断睡眠（通常为 I/O）
+I	空闲的内核线程
+R	正在运行或可运行（位于运行队列）
+S	T{
+可中断睡眠（等待事件完成）
+T}
+T	被任务控制信号停止
+t	在追踪过程中被调试器停止
+W	正在换页（自 Linux 2.6 起无效）
+X	已死亡（不应出现）
+Z	T{
+已不存在的（"僵尸"）进程，已终止但未被其父进程收割
+T}
+.TE
+.RE
+.PP
+对于 BSD 格式，当使用 \fBstat\fP 关键字时，可能会显示其他字符：
+.PP
+.RS 8
+.TS
+R4 L.
+<	高优先级（对其他用户不 nice）
+N	低优先级（对其他用户 nice）
+L	T{
+拥有已锁定到内存中的页面（用于实时和自定义 I/O）
+T}
+s	是会话头领
+l	T{
+是多线程的（使用 CLONE_THREAD，就像 NPTL pthreads 那样）
+T}
++	在前台进程组中
+.TE
+.RE
+.SH 过时的排序键
+这些键由 BSD 风格的 \fBO\fP 选项使用（当它用于排序时）。GNU \fB\-\-sort\fP 选项不使用这些键，而是使用下面 \fB标准排序说明符\fP
+一节中描述的说明符。请注意，排序中使用的值是 \fBps\fP 使用的内部值，而不是某些输出格式字段中使用的 "经过处理的" 值（例如，按照 tty
+排序将按设备编号排序，而不是根据显示的终端名称排序） 。如果要对 "经过处理的" 值进行排序，请将 \fBps\fP 的输出通过管道发送给
+\fBsort\fP(1) 命令。
+.TS
+Lb Lb Lb
+L  L  Lx.
+键	长名称	描述
+_
+c	cmd	可执行文件的简单名称
+C	pcpu	CPU 利用率
+f	flags	长格式的 F 字段中的标志
+g	pgrp	进程组 ID
+G	tpgid	控制 tty 的进程组 ID
+j	cutime	累计用户时间
+J	cstime	累计系统时间
+k	utime	用户时间
+m	min_flt	次要缺页的次数
+M	maj_flt	主要缺页的次数
+n	cmin_flt	次要缺页的累计次数
+N	cmaj_flt	主要缺页的累计次数
+o	session	会话 ID
+p	pid	进程 ID
+P	ppid	父进程 ID
+r	rss	驻留集大小
+R	resident	驻留页面数
+s	size	内存大小，单位为 KiB
+S	share	共享页面数
+t	tty	控制 tty 的设备号
+T	start_time	进程启动的时间
+U	uid	用户 ID 号
+u	user	用户名
+v	vsize	总 VM 大小 (KiB)
+y	priority	内核调度优先级
+.\"K	stime	system time (conflict, system vs. start time)
+.TE
+.SH "AIX 格式描述符"
+此 \fBps\fP 支持 AIX 格式描述符，其工作方式有点类似于 \fIprintf\fP(1) 和 \fIprintf\fP(3) 的格式化代码。\fB标准\fP
+代码将在下一节中描述。
+.TS
+Lb Lb Lb
+L  L  L .
+代码	标准	表头
+_
+%C	pcpu	%CPU
+%G	group	GROUP
+%P	ppid	PPID
+%U	user	USER
+%a	args	COMMAND
+%c	comm	COMMAND
+%g	rgroup	RGROUP
+%n	nice	NI
+%p	pid	PID
+%r	pgid	PGID
+%t	etime	ELAPSED
+%u	ruser	RUSER
+%x	time	TIME
+%y	tty	TTY
+%z	vsz	VSZ
+.TE
+.SH 标准格式说明符
+以下是可用于控制输出格式（也就是用于选项 \fB\-o\fP），或使用 GNU 风格的 \fB\-\-sort\fP 选项对所选进程进行排序的各种关键字。
+.PP
+例如：\fBps \-eo pid,\:user,\:args \-\-sort user\fP
+.PP
+此版本的 \fBps\fP 尝试识别 \fBps\fP 其他实现中使用的大多数关键字。
+.PP
+以下用户定义的格式说明符可能包含空格：\fBargs\fP、\fBcmd\fP、\fBcomm\fP、\fBcommand\fP、\fBfname\fP、\fBucmd\fP、\fBucomm\fP、\fBlstart\fP、\fBbsdstart\fP、\fBstart\fP。
+.PP
+某些关键字可能不能用于排序。
+.PP
+.TS
+Lb Lb Lbx
+Lb Lb L  .
+代码	表头	描述
+_
+%cpu	%CPU	T{
+进程的 cpu 利用率，格式为 "##.#"。目前的计算方式是使用的 CPU 时间除以进程已运行的时间 (cputime/realtime)，以百分比表示。除非您运气好，否则加起来不会是 100%。（别名 \fBpcpu\fP）。
+T}
+
+%mem	%MEM	T{
+进程驻留集大小与机器的物理内存的比值，以百分比表示。（别名 \fBpmem\fP）。
+T}
+
+ag_id	AGID	T{
+与进程关联的自动组标识符，它与 CFS 调度器配合，提高交互式桌面的性能。
+T}
+
+ag_nice	AGNI	T{
+自动组的 nice 值，影响该组中所有进程的调度。
+T}
+
+args	COMMAND	T{
+以字符串表示的命令及其所有参数。可能会显示对参数的修改。列的内容可能包含空格。标记为 <defunct> 的进程是 "部分死亡" 的，等待被其父进程完全销毁。有时进程参数不可用；发生这种情况时，\fBps\fP 将把可执行文件名打印在方括号中。（别名 \fBcmd\fP、\fBcommand\fP）。另请参见 \fBcomm\fP 格式关键字、\fB\-f\fP 选项和 \fBc\fP 选项。
+.sp \n[PD]u
+当被指定于末尾时，该列将扩展到显示区域的边缘。如果 \fBps\fP 无法确定显示宽度，例如当输出被重定向（通过管道发送）到文件或另一个命令时，输出宽度是未定义的（可能是 80，无限制，由 \fBTERM\fP 变量指定，等等）。在这种情况下，可以使用 \fBCOLUMNS\fP 环境变量来精确指定宽度，也可以使用 \fB\-\-cols\fP、\fB\-\-columns\fP 或 \fB\-\-width\fP 选项来覆盖这个环境变量。\fBw\fP 或 \fB\-w\fP 选项也可用于调整宽度。
+T}
+
+blocked	BLOCKED	T{
+被阻塞的信号的掩码，参见 \fIsignal\fP(7)。根据字段的宽度，将显示十六进制格式的 32 位或 64 位掩码，除非使用了 \fB\-\-signames\fP 选项。（别名 \fBsig_block\fP、\fBsigmask\fP）。
+T}
+
+bsdstart	START	T{
+命令开始的时间。如果该进程是在不到 24 小时前启动的，则输出格式为 "\ HH:MM"，否则为 " Mmm:SS"（其中 Mmm 是月份的三个字母）。另请参见 \fBlstart\fP、\fB\ start\fP、\fB\ start_time\fP 和 \fB\ stime\fP。
+T}
+
+bsdtime	TIME	T{
+累计 CPU 时间，用户 + 系统。显示格式通常为 "MMM:SS"，但如果进程使用的 CPU 时间超过 999 分钟，则可能被右移。
+T}
+
+c	C	T{
+处理器利用率。目前，它是进程生命周期内使用量百分比的整数值。（参见 \fB%cpu\fP）。
+T}
+
+caught	CAUGHT	T{
+被捕获的信号的掩码，参见 \fIsignal\fP(7)。根据字段的宽度，将显示十六进制格式的 32 或 64 位掩码，除非使用 \fB\-\-signames\fP 选项。（别名 \fBsig_catch\fP、\fBsigcatch\fP）。
+T}
+
+cgname	CGNAME	T{
+显示进程所属的控制组的名称。
+T}
+
+cgroup	CGROUP	T{
+显示进程所属的控制组。
+T}
+
+cgroupns	CGROUPNS	T{
+用来描述进程所属命名空间的唯一 inode 编号。请参阅 \fInamespaces\fP(7)。
+T}
+
+class	CLS	T{
+进程的调度类。（别名 \fBpolicy\fP、\fBcls\fP）。字段的可能值为：
+.sp \n[PD]u
+.in +9n
+\-	未报告
+.br
+TS	SCHED_OTHER
+.br
+FF	SCHED_FIFO
+.br
+RR	SCHED_RR
+.br
+B	SCHED_BATCH
+.br
+ISO	SCHED_ISO
+.br
+IDL	SCHED_IDLE
+.br
+DLN	SCHED_DEADLINE
+.br
+?	未知值
+.in
+T}
+
+cls	CLS	T{
+进程的调度类。（别名 \fBpolicy\fP、\fBcls\fP）。字段的可能值为：
+.sp \n[PD]u
+.in +9n
+\-	未报告
+.br
+TS	SCHED_OTHER
+.br
+FF	SCHED_FIFO
+.br
+RR	SCHED_RR
+.br
+B	SCHED_BATCH
+.br
+ISO	SCHED_ISO
+.br
+IDL	SCHED_IDLE
+.br
+DLN	SCHED_DEADLINE
+.br
+?	未知值
+.in
+T}
+
+cmd	CMD	T{
+请参阅 \fBargs\fP。（别名 \fBargs\fP、\fBcommand\fP）。
+T}
+
+comm	COMMAND	T{
+命令名称（仅包含可执行文件名称）。此列中的输出可能包含空格。（别名 \fBucmd\fP、\fBucomm\fP）。另请参见 \fBargs\fP 格式关键字、\fB\-f\fP 选项和 \fBc\fP 选项。
+.sp \n[PD]u
+当被指定于末尾时，该列将扩展到显示区域的边缘。如果 \fBps\fP 无法确定显示宽度，例如当输出被重定向（通过管道发送）到文件或另一个命令时，输出宽度是未定义的（可能是 80，无限制，由 \fBTERM\fP 变量确定，等等）。在这种情况下，可以使用 \fBCOLUMNS\fP 环境变量或 \fB\-\-cols\fP 选项来精确指定宽度。 \fBw\fP\ 或 \fB\ \-w\fP 选项也可用于调整宽度。
+T}
+
+command	COMMAND	T{
+请参阅 \fBargs\fP。（别名 \fBargs\fP、\fBcommand\fP）。
+T}
+
+cp	CP	T{
+按毫（千分之一）显示的 CPU 使用率。（参见 \fB%cpu\fP）。
+T}
+
+CPU	CPU	T{
+参见 \fBpsr\fP。（别名 \fBcpuid\fP、\fBlastcpu\fP、\fBpsr\fP）。
+T}
+
+cpuid	CPUID	T{
+参见 \fBpsr\fP。（别名 \fBcpu\fP、\fBlastcpu\fP、\fBpsr\fP）。
+T}
+
+cputime	TIME	T{
+累计 CPU 时间，"[DD\-]hh:mm:ss" 格式。（别名 \fBtime\fP）。
+T}
+
+cputimes	TIME	T{
+累计 CPU 时间，以秒为单位（别名 \fBtimes\fP)。
+T}
+
+cuc	%CUC	T{
+进程的 CPU 利用率，包括已死亡的子进程，使用扩展的 "##.###" 格式。（另请参见 \fB%cpu\fP、\fBc\fP、\fBcp\fP、\fBcuu\fP、\fBpcpu\fP）。
+T}
+
+cuu	%CUU	T{
+进程的 CPU 利用率，使用扩展的 "##.###" 格式。（另请参见 \fB%cpu\fP、\fBc\fP、\fBcp\fP、\fBcuc\fP、\fBpcpu\fP）。
+T}
+
+docker	DOCKER	T{
+正在运行任务的 docker 容器的 id 的缩写。如果进程未在容器内运行，则会显示短横线 ("\-")。
+T}
+
+drs	DRS	T{
+数据驻留集大小，被进程 \fI保留\fP 的私有内存数量。也叫做 DATA。此类内存可能尚未映射到 \fBrss\fP，但将始终包含在 \fBvsz\fP 数量中。
+T}
+
+egid	EGID	T{
+进程的有效组 ID 编号（十进制整数）。（别名 \fBgid\fP）。
+T}
+
+egroup	EGROUP	T{
+进程的有效组 ID。如果可以获得文本组 ID（组名）并且字段宽度允许，则将表示为文本组 ID，否则将表示为十进制数字。（别名 \fBgroup\fP）。
+T}
+
+eip	EIP	T{
+指令指针 (instruction pointer)。从内核 4.9.xx 开始，除非任务正在退出或被核心转储，否则此字段将被清零。
+T}
+
+esp	ESP	T{
+栈指针。从内核 4.9.xx 开始，除非任务正在退出或被核心转储，否则此字段将被清零。
+T}
+
+etime	ELAPSED	T{
+自进程启动以来经过的时间，格式为 [[DD\-]hh:]mm:ss。
+T}
+
+etimes	ELAPSED	T{
+自进程启动以来经过的时间，以秒计。
+T}
+
+environ	ENVIRON	T{
+进程的环境变量。
+T}
+euid	EUID	T{
+有效用户 ID（别名 \fBuid\fP）。
+T}
+
+euser	EUSER	T{
+有效用户名称。如果可以获得文本用户 ID（用户名）并且字段宽度允许，则将表示为文本用户 ID，否则将表示为十进制数字。可使用 \fBn\fP 选项强制使用十进制表示形式。（别名 \fBuname\fP、\fBuser\fP）。
+T}
+
+exe	EXE	T{
+可执行文件的路径。如果无法通过 \fBcmd\fP、\fBcomm\fP 或 \fBargs\fP 格式选项打印路径，则它非常有用。
+T}
+
+f	F	T{
+与进程相关的标志。请参阅 \fB进程标志\fP 一节。（别名 \fBflag\fP、\fBflags\fP）。
+T}
+
+fds	FDS	T{
+打开的文件描述符的总数。
+T}
+
+fgid	FGID	T{
+文件系统访问组\ ID。（别名 \fBfsgid\fP）。
+T}
+
+fgroup	FGROUP	T{
+文件系统访问组 ID。如果可以获得文本组 ID（组名）并且字段宽度允许，则将表示为文本组 ID，否则将表示为十进制数字。（别名 \fBfsgroup\fP）。
+T}
+
+flag	F	T{
+参见 \fBf\fP。（别名 \fBf\fP、\fBflags\fP）。
+T}
+
+flags	F	T{
+参见 \fBf\fP。（别名 \fBf\fP、\fBflag\fP）。
+T}
+
+fname	COMMAND	T{
+进程可执行文件的基本名称的前 8 个字节。此列中的输出可能包含空格。
+T}
+
+fuid	FUID	T{
+文件系统访问用户 ID。（别名 \fBfsuid\fP）。
+T}
+
+fuser	FUSER	T{
+文件系统访问用户 ID。如果可以获得文本用户 ID（用户名）并且字段宽度允许，则将表示为文本用户 ID，否则将表示为十进制数字。
+T}
+
+gid	GID	T{
+参见 \fBegid\fP。（别名 \fBegid\fP）。
+T}
+
+group	GROUP	T{
+参见 \fBegroup\fP。（别名 \fBegroup\fP）。
+T}
+
+htprv	HTPRV	T{
+基于 hugetlbfs 页面的虚拟内存的数量。这个数量不计入 \fBrss\fP 和 \fBpss\fP 格式选项内。
+T}
+
+htshr	HTSHR	T{
+基于 hugetlbfs 页面的共享内存的数量。这个数量不计入 \fBrss\fP 和 \fBpss\fP 格式选项内。
+T}
+
+ignored	IGNORED	T{
+被忽略的信号的掩码，参见 \fIsignal\fP(7)。根据字段的宽度，将显示十六进制格式的 32 或 64 位掩码，除非使用了 \fB\-\-signames\fP 选项。（别名 \fBsig_ignore\fP、\fBsigignore\fP）。
+T}
+
+ipcns	IPCNS	T{
+用来描述进程所属命名空间的唯一 inode 编号。请参阅 \fInamespaces\fP(7)。
+T}
+
+label	LABEL	T{
+安全标签，最常用于 SELinux 上下文数据。用于高安全性系统上的 \fI强制访问控制\fP ("MAC")。
+T}
+
+lastcpu	C	T{
+参见 \fBpsr\fP。（别名 \fBcpu\fP、\fBcpuid\fP、\fBpsr\fP）。
+T}
+
+lstart	STARTED	T{
+命令开始的时间。除非通过 \fB\-D\fP 选项进行更改，否则其格式为 "DDD mmm HH:MM:SS YYY"。
+T}
+
+lsession	SESSION	T{
+如果启用了 systemd 支持，则显示进程的登录会话标识符。
+T}
+
+luid	LUID	T{
+显示与进程关联的登录 ID。
+T}
+
+lwp	LWP	T{
+可分派实体的轻量级进程（线程）ID（别名 \fBspid\fP、\fB\ tid\fP）。请参阅 \fBtid\fP 了解更多信息。
+T}
+
+lxc	LXC	T{
+正在运行任务的 lxc 容器的名称。如果进程未在容器内运行，则会显示短横线 ("\-")。
+T}
+
+machine	MACHINE	T{
+如果已启用 systemd 支持，则对于已分配给 VM 或容器的进程，显示机器名。
+T}
+
+maj_flt	MAJFLT	T{
+此进程发生的主要缺页的数量。
+T}
+
+min_flt	MINFLT	T{
+此进程发生的次要缺页的数量。
+T}
+
+mntns	MNTNS	T{
+用来描述进程所属命名空间的唯一 inode 编号。请参阅 \fInamespaces\fP(7)。
+T}
+
+netns	NETNS	T{
+用来描述进程所属命名空间的唯一 inode 编号。请参阅 \fInamespaces\fP(7)。
+T}
+
+ni	NI	T{
+nice 值。范围从 19（对其他进程最友好）到 \-20（最不友好），请参阅 \fInice\fP(1)。（别名 \fBnice\fP）。
+T}
+
+nice	NI	T{
+参见 \fBni\fP。（别名 \fBni\fP）。
+T}
+
+nlwp	NLWP	T{
+进程的 LWP（线程）数量。（别名 \fBthcount\fP）。
+T}
+
+numa	NUMA	T{
+与最近使用的处理器关联的节点。\fI\-1\fP 表示 NUMA 信息不可用。
+T}
+
+nwchan	WCHAN	T{
+进程睡眠时位于的内核函数的地址（如果需要内核函数名称，请使用 \fBwchan\fP）。
+T}
+
+oom	OOM	T{
+OOM 分数。该值的范围是 0 到 +1000，用于在内存耗尽时选择要终止的任务。
+T}
+
+oomadj	OOMADJ	T{
+OOM 调整因子。该值会被加到当前 OOM 分数中，然后确定内存耗尽时要终止哪个任务。
+T}
+
+ouid	OWNER	T{
+如果已启用 systemd 支持，则显示进程会话所有者的 Unix 用户标识符。
+T}
+
+pcap	PCAP	T{
+进程的已允许的能力，以十六进制掩码表示。参见 \fIcapabilities\fP(7)。
+T}
+
+pcaps	PCAPS	T{
+进程的已允许的能力，以能力名称字符串表示。参见 \fIcapabilities\fP(7)。
+T}
+
+pcpu	%CPU	T{
+参见 \fB%cpu\fP。（别名 \fB%cpu\fP）。
+T}
+
+pending	PENDING	T{
+待处理信号的掩码。参见 \fIsignal\fP(7)。进程上待处理的信号与单个线程上待处理的信号不同。使用 \fBm\fP 选项或 \fB\-m\fP 选项查看两者。根据字段的宽度，将显示十六进制格式的 32 或 64 位掩码，除非使用了 \fB\-\-signames\fP 选项。（别名 \fBsig\fP）。
+T}
+
+pgid	PGID	T{
+进程组 ID，等价于进程组头领的进程 ID。（别名 \fBpgrp\fP）。
+T}
+
+pgrp	PGRP	T{
+参见 \fBpgid\fP。（别名 \fBpgid\fP）。
+T}
+
+pid	PID	T{
+一个表示进程 ID 的数字（别名 \fBtgid\fP）。
+T}
+
+pidns	PIDNS	T{
+用来描述进程所属命名空间的唯一 inode 编号。请参阅 \fInamespaces\fP(7)。
+T}
+
+pmem	%MEM	T{
+参见 \fB%mem\fP。（别名 \fB%mem\fP）。
+T}
+
+policy	POL	T{
+进程的调度类。（别名 \fBclass\fP、\fBcls\fP）。可能的值有：
+.sp \n[PD]u
+.in +9n
+\-	未报告
+.br
+TS	SCHED_OTHER
+.br
+FF	SCHED_FIFO
+.br
+RR	SCHED_RR
+.br
+B	SCHED_BATCH
+.br
+ISO	SCHED_ISO
+.br
+IDL	SCHED_IDLE
+.br
+DLN	SCHED_DEADLINE
+.br
+?	未知值
+.in
+T}
+
+ppid	PPID	T{
+父进程 ID。
+T}
+
+pri	PRI	T{
+进程的优先级。数字越大意味着优先级越高。
+T}
+
+psr	PSR	T{
+最后执行此进程的处理器。(别名 \fBcpu\fP、\fBcpuid\fP、\fBlastcpu\fP)
+T}
+
+pss	PSS	T{
+比例共享大小。等于非交换的物理内存，再加上共享内存（平摊到使用它的所有任务上）。
+T}
+
+rbytes	RBYTES	T{
+此进程的实际行为导致的从存储层获取的字节数。
+T}
+
+rchars	RCHARS	T{
+此任务导致从存储中读取的字节数。
+T}
+
+rgid	RGID	T{
+真实组 ID。
+T}
+
+rgroup	RGROUP	T{
+真实组名称。如果可以获得文本组 ID（组名）并且字段宽度允许，则将显示文本组 ID，否则将显示十进制数字。
+T}
+
+rops	ROPS	T{
+读 I/O 操作的数量\[em]也就是 \fBread\fP(2) 和 \fBpread\fP(2) 等系统调用的数量。
+T}
+
+rss	RSS	T{
+驻留集大小，即任务已使用的非交换物理内存（以 KiB 为单位）。（别名 \fBrssize\fP、\fBrsz\fP）。
+T}
+
+rssize	RSS	T{
+参见 \fBrss\fP。（别名 \fBrss\fP、\fBrsz\fP）。
+T}
+
+rsz	RSZ	T{
+参见 \fBrss\fP。（别名 \fBrss\fP、\fBrssize\fP）。
+T}
+
+rtprio	RTPRIO	T{
+实时优先级。
+T}
+
+ruid	RUID	T{
+真实用户 ID。
+T}
+
+ruser	RUSER	T{
+真实用户 ID。如果可以获得文本用户 ID（用户名）并且字段宽度允许，则将表示为文本用户 ID，否则将表示为十进制数字。
+T}
+
+s	S	T{
+用最简方式显示进程状态（一个字符）。不同值的含义，请参阅 \fB进程状态代码\fP 一节。如果您想显示额外信息，请参阅 \fBstat\fP。（别名 \fBstate\fP）。
+T}
+
+sched	SCH	T{
+进程的调度策略。策略 SCHED_OTHER (SCHED_NORMAL), SCHED_FIFO, SCHED_RR, SCHED_BATCH, SCHED_ISO, SCHED_IDLE 和 SCHED_DEADLINE 分别显示为 0, 1, 2, 3, 4, 5 和 6。
+T}
+
+seat	SEAT	T{
+如果已启用 systemd 支持，则显示与分配给特定工作场所的所有硬件设备关联的标识符。
+T}
+
+sess	SESS	T{
+会话 ID，等价于会话头领的进程 ID。（别名 \fBsession\fP、\fBsid\fP）。
+T}
+
+sgi_p	P	T{
+当前正在执行该进程的处理器。如果进程当前不处于 "运行中" 或 "可运行" 状态，则显示 "*"。
+T}
+
+sgid	SGID	T{
+保存组 ID。（别名 \fBsvgid\fP）。
+T}
+
+sgroup	SGROUP	T{
+保存组名称。如果可以获得文本组 ID（组名）并且字段宽度允许，则将显示文本组 ID，否则将显示十进制数字。
+T}
+
+sid	SID	T{
+参见 \fBsess\fP。（别名 \fBsess\fP、\fBsession\fP）。
+T}
+
+sig	PENDING	T{
+参见 \fBpending\fP。（别名 \fBpending\fP、\fBsig_pend\fP）。
+T}
+
+sigcatch	CAUGHT	T{
+参见 \fBcaught\fP。（别名 \fBcaught\fP、\fBsig_catch\fP）。
+T}
+
+sigignore	IGNORED	T{
+参见 \fBignored\fP。（别名 \fBignored\fP、\fBsig_ignore\fP）。
+T}
+
+sigmask	BLOCKED	T{
+参见 \fBblocked\fP。（别名 \fBblocked\fP、\fBsig_block\fP）。
+T}
+
+size	SIZE	T{
+假设进程弄脏所有可写页面然后被换出，所需要的大致的交换空间量。这个数字非常粗略！
+T}
+
+slice	SLICE	T{
+如果已启用 systemd 支持，则显示进程所属的切片单元 (slice unit)。
+T}
+
+spid	SPID	T{
+参见 \fBlwp\fP。（别名 \fBlwp\fP、\fBtid\fP）。
+T}
+
+stackp	STACKP	T{
+进程的栈的底部（起始位置）的地址。
+T}
+
+start	STARTED	T{
+命令开始的时间。如果该进程是在不到 24 小时前启动的，则输出格式为 "HH:MM:SS"，否则为 "\ \ Mmm\ dd"（其中 Mmm 是三个字母的月份名称）。另请参见 \fBbsdstart\fP、\fBstart\fP、\fBstart_time\fP 和 \fBstime\fP。
+T}
+
+start_time	START	T{
+进程开始的时间或日期。如果进程不是在调用 \fBps\fP 的同一年启动，则仅显示年份，如果不是在同一天启动，则显示 "MmmDD"，否则显示 "HH:MM"。另请参见 \fBbsdstart\fP、\fBstart\fP、\fBlstart\fP 和 \fBstime\fP。
+T}
+
+stat	STAT	T{
+多个字符的进程状态。请参阅 \fB进程状态代码\fP 一节了解不同值的含义。如果您只想显示第一个字符，请参见 \fBs\fP 和 \fBstate\fP。
+T}
+
+state	S	T{
+参见 \fBs\fP。（别名 \fBs\fP）。
+T}
+
+stime	STIME	T{
+参见 \fBstart_time\fP。
+（别名 \fBstart_time\fP）。
+T}
+
+suid	SUID	T{
+保存用户 ID。（别名 \fBsvuid\fP）。
+T}
+
+supgid	SUPGID	T{
+增补组的组 ID（如果有的话）。请参阅 \fBgetgroups\fP(2)。
+T}
+
+supgrp	SUPGRP	T{
+增补组的组名称（如果有的话）。请参阅 \fBgetgroups\fP(2)。
+T}
+
+suser	SUSER	T{
+保存用户名。如果可以获得文本用户 ID（用户名）并且字段宽度允许，则将表示为文本用户 ID，否则将表示为十进制数字。（别名 \fBsvuser\fP）。
+T}
+
+svgid	SVGID	T{
+参见 \fBsgid\fP。（别名 \fBsgid\fP）。
+T}
+
+svuid	SVUID	T{
+参见 \fBsuid\fP。（别名 \fBsuid\fP）。
+T}
+
+sz	SZ	T{
+进程核心映像的大小，以物理页的数量表示。这包括文本、数据和栈的空间。目前不包括设备映射；这在将来可能发生变化。请参阅 \fBvsz\fP 和 \fBrss\fP。
+T}
+
+tgid	TGID	T{
+表示任务所属的线程组的数字（别名 \fBpid\fP）。它是线程组头领的进程 ID。
+T}
+
+thcount	THCNT	T{
+参见 \fBnlwp\fP。（别名 \fBnlwp\fP）。进程拥有的内核线程数。
+T}
+
+tid	TID	T{
+表示可分派实体的唯一编号（别名 \fBspid\fP、\fBtid\fP）。该值也可能显示为：进程 ID (pid)；进程组 ID (pgrp)；会话头领的会话 ID (sid)；线程组头领的线程组 ID (tgid)；以及进程组头领的 tty 进程组 ID (tpgid)。
+T}
+
+time	TIME	T{
+累计CPU 时间，"[DD\-]HH:MM:SS" 格式。（别名 \fBcputime\fP）。
+T}
+
+timens	TIMENS	T{
+用来描述进程所属命名空间的唯一 inode 编号。请参阅 \fInamespaces\fP(7)。
+T}
+
+times	TIME	T{
+累计 CPU 时间（以秒为单位）（别名 \fBcputimes\fP）。
+T}
+
+tname	TTY	T{
+控制 tty（终端）。（别名 \fBtt\fP、\fBtty\fP）。
+T}
+
+tpgid	TPGID	T{
+进程连接到的 tty（终端）上的前台进程组的 ID，如果进程未连接到 tty，则为 \-1。
+T}
+
+trs	TRS	T{
+文本驻留集大小，用于可执行代码的物理内存量。
+T}
+
+tt	TT	T{
+控制 tty（终端）。（别名 \fBtname\fP、\fBtty\fP）。
+T}
+
+tty	TT	T{
+控制 tty（终端）。（别名 \fBtname\fP、\fBtt\fP）。
+T}
+
+ucmd	CMD	T{
+参见 \fBcomm\fP。（别名 \fBcomm\fP、\fBucomm\fP）。
+T}
+
+ucomm	COMMAND	T{
+参见 \fBcomm\fP。（别名 \fBcomm\fP、\fBucmd\fP）。
+T}
+
+uid	UID	T{
+参见 \fBeuid\fP。（别名 \fBeuid\fP）。
+T}
+
+uname	USER	T{
+参见 \fBeuser\fP。（别名 \fBeuser\fP、\fBuser\fP）。
+T}
+
+unit	UNIT	T{
+如果已启用 systemd 支持，则显示进程所属的单元。
+T}
+
+user	USER	T{
+参见 \fBeuser\fP。（别名 \fBeuser\fP、\fBuname\fP）。
+T}
+
+userns	USERNS	T{
+用来描述进程所属命名空间的唯一 inode 编号。请参阅 \fInamespaces\fP(7)。
+T}
+
+uss	USS	T{
+唯一集大小，不与另一个任务共享的非交换物理内存的大小。
+T}
+
+utsns	UTSNS	T{
+用来描述进程所属命名空间的唯一 inode 编号。请参阅 \fInamespaces\fP(7)。
+T}
+
+uunit	UUNIT	T{
+如果已启用 systemd 支持，则显示进程所属的用户单元。
+T}
+
+vsize	VSZ	T{
+参见 \fBvsz\fP。（别名 \fBvsz\fP）。
+T}
+
+vsz	VSZ	T{
+进程的虚拟内存大小，以 KiB（1024 字节）为单位。目前不包括设备映射； 这在将来可能会发生变化。（别名 \fBvsize\fP）。
+T}
+
+wbytes	WBYTES	T{
+此进程导致的发送到存储层的字节数。
+T}
+
+wcbytes	WCBYTES	T{
+取消的写入字节数。
+T}
+
+wchan	WCHAN	T{
+进程休眠时位于的内核函数的名称。
+T}
+
+wchars	WCHARS	T{
+此任务已导致或应导致写入磁盘的字节数。
+T}
+
+wops	WOPS	T{
+写 I/O 操作的数量\[em]即 \fBwrite\fP(2) 和 \fBpwrite\fP(2) 等系统调用的数量。
+T}
+
+.TE
+.SH 环境变量
+以下环境变量可以影响 \fBps\fP：
+.TP  3
+\fBCOLUMNS\fP
+覆盖默认显示宽度。
+.TP 
+\fBLINES\fP
+覆盖默认显示高度。
+.TP 
+\fBPS_PERSONALITY\fP
+设置为以下值之一：posix、old、linux、bsd、sun、digital.\|.\|.\&（请参阅下面的 \fB特色\fP 一节）。
+.TP 
+\fBCMD_ENV\fP
+设置为以下值之一：posix、old、linux、bsd、sun、digital.\|.\|.\&（请参阅下面的 \fB特色\fP 一节）。
+.TP 
+\fBI_WANT_A_BROKEN_PS\fP
+强制使用过时的命令行解释方式。
+.TP 
+\fBLC_TIME\fP
+日期格式。
+.TP 
+\fBLIBPROC_HIDE_KERNEL\fP
+将其设置为任意值，以隐藏通常在使用 \fB\-e\fP 选项时显示的内核线程。这等价于选定 \fB\-\-ppid 2 \-p 2 \-\-deselect\fP。在 BSD
+模式下也可以使用。
+.TP 
+\fBPS_COLORS\fP
+当前不支持。
+.TP 
+\fBPS_FORMAT\fP
+覆盖默认输出格式。您可以将其设置为 \fB\-o\fP 选项使用的格式字符串。值 \fBDefSysV\fP 和 \fBDefBSD\fP 特别有用。
+.TP 
+\fBPOSIXLY_CORRECT\fP
+不要找借口忽略一些不好的 "特性"。
+.TP 
+\fBPOSIX2\fP
+当设置为 "on" 时，等同于 \fBPOSIXLY_CORRECT\fP。
+.TP 
+\fBUNIX95\fP
+不要找借口忽略一些不好的 "特性"。
+.TP 
+\fB_XPG\fP
+取消 \fBCMD_ENV\fP=\fIirix\fP 的不标准行为。
+.PP
+一般来说，设置这些变量是糟糕的想法。一个例外是 \fBCMD_ENV\fP 或 \fBPS_PERSONALITY\fP，对于普通系统，可以将其设置为
+Linux。如果没有这个设置，\fBps\fP 就会遵循 Unix98 标准中无用和糟糕的部分。
+.SH 特色
+.TS
+L	Lx.
+390	类似 OS/390 OpenEdition \fBps\fP
+aix	类似 AIX \fBps\fP
+bsd	类似 FreeBSD \fBps\fP（非常不标准）
+compaq	类似 Digital Unix \fBps\fP
+debian	类似旧的 Debian \fBps\fP
+digital	类似 Tru64（曾经是 Digital\ Unix、曾经是 OSF/1）\fBps\fP
+gnu	类似旧的 Debian \fBps\fP
+hp	类似 HP\-UX \fBps\fP
+hpux	类似 HP\-UX \fBps\fP
+irix	类似 Irix \fBps\fP
+linux	***** \fB推荐\fP *****
+old	类似原版的 Linux \fBps\fP（非常不标准）
+os390	类似 OS/390 Open Edition \fBps\fP
+posix	标准
+s390	类似 OS/390 Open Edition \fBps\fP
+sco	类似 SCO \fBps\fP
+sgi	类似 Irix \fBps\fP
+solaris2	类似 Solaris 2+ (SunOS 5) \fBps\fP
+sunos4	T{
+类似 SunOS 4 (Solaris 1) \fBps\fP（非常不标准）
+T}
+svr4	标准
+sysv	标准
+tru64	类似 Tru64（曾经是 Digital Unix、曾经是 OSF/1）\fBps\fP
+unix	标准
+unix95	标准
+unix98	标准
+.TE
+.SH 错误
+字段 \fBbsdstart\fP 和 \fBstart\fP 显示的月份名称缩写仅支持英文。字段 \fBlstart\fP 和 \fBstime\fP
+将使用已配置的区域设置显示月份名称缩写，但由于不同语言的月份缩写和日期名称的长度不同，可能会超出列宽。
+.SH 参见
+\fBpgrep\fP(1), \fBpstree\fP(1), \fBtop\fP(1), \fBstrftime\fP(3), \fBproc\fP(5),
+\fBcapabilities\fP(7).
+
+.SH 标准
+此 \fBps\fP 符合以下标准。
+.TP  4n
+\[bu]
+Single Unix Specification，第 2 版
+.TP  4n
+\[bu]
+The Open Group Technical Standard Base Specifications，第 6 期
+.TP  4n
+\[bu]
+IEEE Std 1003.1，2004 版
+.TP  4n
+\[bu]
+X/Open System Interfaces Extension [UP\ XSI]
+.TP  4n
+\[bu]
+ISO/IEC 9945:2003
+.SH 作者
+\fBps\fP 最初由
+.MT lankeste@\:fwi.\:uva.\:nl
+Branko Lankester
+.ME
+编写。
+.MT johnsonm@\:redhat.\:com
+Michael K.\& Johnson
+.ME
+对其进行了重大重写，以使用 proc
+文件系统，并在此过程中修改了一些东西。
+.MT mjshield@\:nyx.\:cs.\:du.\:edu
+Michael Shields
+.ME
+添加了 pid 列表功能。
+.MT cblake@\:bbn.\:com
+Charles Blake
+.ME
+添加了多级排序、dirent 风格的库、设备名称到编号 mmap 数据库、直接在 Syetem.map
+上进行的近似二分查找，以及许多代码和文档清理工作。 David Mossberger\-Tang 为 psupdate 编写了通用 BFD
+支持。
+.MT albert@\:users.\:sf.\:net
+Albert Cahalan
+.ME
+重写了 ps 以实现对 Unix98
+和 BSD 的全面支持，并针对过时的和外来的语法进行了一些不太干净的代码修改。
+.PP
+请将错误报告发送到
+.MT procps@\:freelists.\:org
+.ME 。
+不需要也不建议订阅。
