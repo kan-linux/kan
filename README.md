@@ -57,7 +57,10 @@ That repository hosts prebuilt rootfs and ISO images, screenshots and user guide
 ## Tips
 
 If this project gains over 1000 GitHub stars, I will release the full source code, the users will be able to **build a Wayland desktop distribution similar to Omarchy directly from this single repository**.
+
 Alternatively, you may use **the prebuilt rootfs** available at [https://github.com/kan-linux/iso](https://github.com/kan-linux/iso) for customization, then generate your own Wayland desktop distribution comparable to Omarchy.
+
+You may also use this repository as the foundation, with the help of powerful AI tools, to retrace my workflow and work through the same challenges, and build an Omarchy-style Linux desktop distribution from source code.
 
 
 ## Acknowledgements
