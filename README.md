@@ -39,11 +39,25 @@ Kan-Linux(or KanLinux) is progressively ported and verified across multiple hard
 - x86-64 laptop devices
 - aarch64 laptop devices(Snapdraon on Linux)
 
+## How to fetch codes
+
+```bash
+
+git clone --recurse-submodules https://github.com/kan-linux/kan.git
+
+```
+
 
 ## Screenshots and How to use
-Please refer to https://github.com/kan-linux/iso. 
+Please refer to https://github.com/kan-linux/iso.
 
 That repository hosts prebuilt rootfs and ISO images, screenshots and user guides, while this main repository contains only source code.
+
+
+## Tips
+
+If this project gains over 1000 GitHub stars, I will release the full source code. Users will be able to build a Wayland desktop distribution similar to Omarchy directly from this single repository.
+Alternatively, you may use our prebuilt rootfs available at [https://github.com/kan-linux/iso](https://github.com/kan-linux/iso) for customization, then generate your own Wayland desktop distribution comparable to Omarchy.
 
 
 ## Acknowledgements
