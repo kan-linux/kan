@@ -47,6 +47,30 @@ Kan Linux 逐步适配虚拟化环境与主流硬件平台，覆盖日常开发�
 - x86-64 笔记本
 - aarch64 笔记本(Snapdraon on Linux)
 
+## 如何下载代码
+
+```bash
+
+git clone --recurse-submodules https://github.com/kan-linux/kan.git
+
+```
+
+## 截图与使用说明
+
+
+详见：[https://github.com/kan-linux/iso](https://github.com/kan-linux/iso)
+
+该仓库存放预编译 rootfs、ISO 镜像、截图以及用户使用指南；本主仓库仅包含源代码。
+
+
+## 提示
+
+如果本项目 GitHub Star 数量突破 1000，我将会放出完整源码，用户可以直接基于这个单一仓库，编译构建一套类似 Omarchy 的 Wayland 桌面发行版。
+
+除此之外，你也可以使用 [https://github.com/kan-linux/iso](https://github.com/kan-linux/iso) 提供的预编译 rootfs 进行二次定制，生成属于你自己、和 Omarchy 风格相近的 Wayland 桌面发行版。
+
+你同样可以以本仓库为基础，借助强大的 AI 工具，复现我的开发流程、攻克同类难题，从源码构建一套 Omarchy 风格的 Linux 桌面发行版。
+
 
 ## 致谢
 - 感谢 [Omarchy Linux](https://github.com/omacom/omarchy) 带来的启发
