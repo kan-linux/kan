@@ -29,6 +29,7 @@
 - Omarchy targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**.
 - Kan‑Linux targets distribution builders, providing a neutral Wayland underlying graphics platform. Its core goals are **controllability, auditability, modularity and reproducible builds**, and **visual polish is not a project objective**.
 - Kan‑Linux draws inspiration from Omarchy’s Quickshell, using it only as an **optional upper-layer desktop example** to demonstrate that the base platform can host modern, visually striking Wayland interfaces. Quickshell and its dependency Qt are not part of the base platform itself. If Qt + Quickshell are disabled or removed, the entire system and graphics infrastructure remains fully functional and independent.
+- Omarchy is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
 
 ## Roadmap
 
