@@ -33,12 +33,13 @@
 
 ## Roadmap
 
-Kan-Linux(or KanLinux) is progressively ported and verified across multiple hardware and virtual platforms:
+- PoC via QEMU virtual machine (stage-1, done)
+- Add greeter and full desktop environment in QEMU virtual machine (stage-2.1)
+- Add AI-Agent within the desktop environment in QEMU virtual machine (stage-2.2)
+- Enable Kan-Linux to run on physical x86-64 desktop PCs (stage-2.3)
+- Enable Kan-Linux to run on physical x86-64 laptops (stage-2.4)
+- AArch64 laptops (Snapdragon on Linux) (stage-3)
 
-- QEMU virtual machine
-- x86-64 desktop devices
-- x86-64 laptop devices
-- aarch64 laptop devices(Snapdraon on Linux)
 
 ## How to fetch codes
 
