@@ -38,15 +38,15 @@
 - Kan‑Linux 借鉴 Omarchy 的 Quickshell，仅将其作为**可选上层桌面示例**，用于演示底座能够承载现代炫酷的 Wayland 界面。Quickshell 及其依赖的 Qt 不属于底座本体；关闭或移除 Qt + Quickshell，整套系统与图形基础设施依然完整独立可用。
 - Omarchy 基于上游 Arch Linux 发行版构建，而 Kan-Linux 完全从零搭建，**不依赖任何上游 Linux 发行版**，工作量与难度更大。
 
+
 ## 路线图
-
-Kan Linux 逐步适配虚拟化环境与主流硬件平台，覆盖日常开发与桌面使用场景：
-
-- QEMU 虚拟机环境
-- x86-64 台式机
-- x86-64 笔记本
-- aarch64 笔记本(Snapdraon on Linux)
-
+- 在 QEMU 虚拟机中完成概念验证（stage-1，已完成）
+- 在 QEMU 虚拟机中增加登录管理器与完整桌面环境（stage-2.1）
+- 在 QEMU 虚拟机的桌面环境中内置AI智能代理（stage-2.2）
+- 支持 Kan-Linux 在实体 x86-64 台式机运行（stage-2.3）
+- 支持 Kan-Linux 在实体 x86-64 笔记本运行（stage-2.4）
+- AArch64 笔记本（Snapdragon Linux 平台）（stage-3）
+  
 ## 如何下载代码
 
 ```bash
