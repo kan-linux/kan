@@ -24,7 +24,7 @@
    <strong>Français</strong> 
 </p>
 
-**Kan-Linux** (ou KanLinux) est une distribution Linux **simple**, **construite depuis les sources**, **orientée agent**. Le nom **Kan(勘)** tire son origine des *Instructions pour une vie pratique* de Wang Yangming (voir Wikipédia), et incarne la philosophie de dépasser les obscurités techniques pour revenir à la simplicité originelle du système. Le nom **Kan(勘)** signifie également *voir à travers les illusions et revenir à la simplicité*.
+**Kan-Linux** (ou KanLinux) est une distribution Linux **simple**, **construite depuis les sources**, **orientée agent**. Le nom **Kan(勘)** tire son origine des *Instructions pour une vie pratique* de [Wang Yangming](https://fr.wikipedia.org/wiki/Wang_Yangming), et incarne la philosophie de dépasser les obscurités techniques pour revenir à la simplicité originelle du système. Le nom **Kan(勘)** signifie également *voir à travers les illusions et revenir à la simplicité*.
 
 ## Principes de conception
 - Simplicité — Supprimer les couches d’encapsulation trop complexes et la suringénierie, en suivant la philosophie fondamentale de [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). Ne dépend d’aucune distribution Linux existante.
