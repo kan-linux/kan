@@ -92,7 +92,7 @@ If you use kan-linux in your work, please cite:
 ```bibtex
 @misc{kan-linux2026,
   title     = {Kan-Linux: an Agent-First modern Linux distro built from scratch},
-  author    = { Jeff Zhou and MiMo-V2.5-Pro },
+  author    = { kan-linux authors and MiMo-V2.5-Pro },
   year      = {2026},
   publisher = {GitHub},
   url       = {https://github.com/kan-linux/kan}
