@@ -82,7 +82,7 @@ Si vous utilisez kan-linux dans vos travaux, veuillez citer :
 ```bibtex
 @misc{kan-linux2026,
   title     = {Kan-Linux : une distribution Linux moderne orientée agent, construite depuis les sources},
-  author    = { Jeff Zhou et MiMo-V2.5-Pro },
+  author    = { kan-linux authors et MiMo-V2.5-Pro },
   year      = {2026},
   publisher = {GitHub},
   url       = {https://github.com/kan-linux/kan}
