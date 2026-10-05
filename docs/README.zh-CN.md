@@ -43,10 +43,10 @@
 - **Agent First \& 原生 AI 安全审计流水线** — 面向智能代理设计，支持 AI Agent 自主编译部署、组件安装、系统自查与问题修复。Kan-Linux 将大模型源码级安全审计（GLM-5.3 及同等级模型）设为编译前的强制准入关卡。将安全防护从「二进制后置扫描」升级为**源码前置准入审计**。
 
 
-## 与 Omarchy 的区别
+## 与 Omarchy 的区别与联系
 - Omarchy 面向终端用户，主打开箱即用的成品桌面系统，**视觉炫酷是其核心目标之一**。
 - Kan‑Linux 面向专业/职业Linux程序员与发行版构建者，提供一套中立的 Wayland 底层图形平台；项目核心目标为**可控**、**可审计(没有任何黑盒/后门，你清楚你所使用的Linux OS的每个组件)**、**模块化、可复现构建**，**不以视觉炫酷作为项目目标**。
-- Kan‑Linux 借鉴 Omarchy 的 Quickshell，仅将其作为**可选上层桌面示例**，用于演示底座能够承载现代炫酷的 Wayland 界面。Quickshell 及其依赖的 Qt 不属于底座本体；关闭或移除 Qt + Quickshell，整套系统与图形基础设施依然完整独立可用。
+- Kan‑Linux 借鉴了 [Omarchy 的桌面 Shell](https://github.com/kan-linux/omarchy)，将其集成作为可选的早期默认桌面。我们移植该 Shell 作为上层 UI 示例，用以展示 Kan-Linux 平台能力。未来即使移除或禁用 Omarchy Shell，整套系统与图形基础设施仍可完整独立运行。
 - Omarchy 基于上游 Arch Linux 发行版构建，而 Kan-Linux 完全从零搭建，**不依赖任何上游 Linux 发行版**，工作量与难度更大。
 
 

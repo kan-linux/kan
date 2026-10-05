@@ -33,10 +33,10 @@
 - Priorité à llama.cpp — Moteur d’inférence locale llama.cpp natif intégré pour le déploiement de l’IA locale.
 - Agent-first et pipeline d’audit de sécurité natif à l’IA — Permet aux agents IA de compiler, déployer, installer des composants, exécuter des contrôles système et résoudre des problèmes de manière autonome. Kan-Linux intègre un audit de sécurité au niveau du code source basé sur les grands modèles de langage (GLM-5.3 et autres) comme étape obligatoire avant la compilation. La sécurité passe de « l’analyse post-compilation des binaires » à l’audit préalable du code source.
 
-## Différences avec Omarchy
+## Différences et liens avec Omarchy
 - Omarchy s’adresse aux utilisateurs finaux, fournit un système de bureau complet prêt à l’emploi, et le **soin visuel est l’un de ses objectifs principaux**.
 - **Kan‑Linux s’adresse aux programmeurs Linux professionnels et aux concepteurs de distributions Linux**, et propose une plateforme graphique Wayland neutre. Ses objectifs principaux sont **la maîtrise**, **l’auditabilité** (aucune boîte noire au sein du système d’exploitation), **la modularité** et **la reproductibilité des compilations** ; le soin visuel n’est pas un objectif du projet.
-- Kan‑Linux s’inspire de Quickshell d’Omarchy et l’utilise uniquement comme **exemple de bureau optionnel de couche supérieure**, pour démontrer que la plateforme de base peut héberger des interfaces Wayland modernes et visuellement soignées. Quickshell et sa dépendance Qt ne font pas partie de la plateforme de base elle-même. Si Qt + Quickshell sont désactivés ou supprimés, l’ensemble du système et l’infrastructure graphique restent pleinement fonctionnels et indépendants.
+- Kan‑Linux s'inspire du [shell de bureau d'Omarchy](https://github.com/kan-linux/omarchy) et l'intègre comme notre bureau par défaut optionnel pour cette phase initiale. Nous portons ce shell comme exemple d'interface utilisateur de couche supérieure afin de présenter les capacités de la plateforme Kan-Linux. Même si nous supprimons ou désactivons le shell Omarchy à l'avenir, l'ensemble du système et de l'infrastructure graphique peut continuer à fonctionner de manière complète et indépendante.
 - Omarchy repose sur la distribution en amont Arch Linux, tandis que Kan-Linux est construit entièrement à partir de rien et **ne dépend d’aucune distribution Linux en amont**.
 
 ## Feuille de route
@@ -53,10 +53,6 @@
 ```bash
 git clone --recurse-submodules https://github.com/kan-linux/kan.git
 ```
-
-Vous pouvez utiliser le **système de fichiers racine précompilé** disponible sur [https://github.com/kan-linux/iso](https://github.com/kan-linux/iso) pour la personnalisation, puis générer votre propre distribution de bureau Wayland comparable à Omarchy.
-
-Vous pouvez aussi utiliser ce dépôt comme base, avec l’aide d’outils IA performants, pour reproduire le flux de travail vérifié et résoudre les défis déjà surmontés — « *mets-toi au travail et ne sois pas paresseux* » [source](https://www.linuxcompatible.org/story/kdes-dont-be-lazy-ai-draft-sparks-ban-call/), et construire une distribution Linux de style Omarchy à partir du code source.
 
 ## Utilisation et captures d’écran
 Veuillez consulter https://github.com/kan-linux/iso. Ce dépôt héberge les systèmes de fichiers racine précompilés, les images ISO, les captures d’écran et les guides utilisateur ; ce dépôt principal ne contient que le code source.

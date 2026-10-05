@@ -35,10 +35,10 @@
 - Agent-First & AI-native security audit pipeline — Supports AI agents to autonomously compile, deploy, install components, run system checks and resolve issues. Kan-Linux embeds LLM-based source-level security audit (GLM-5.3 and others) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to source pre-admission auditing.
 
 
-## Differences from Omarchy
+## Differences and Connections with Omarchy
 - Omarchy targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**.
 - **Kan‑Linux targets Linux professional programmers and Linux distribution builders**, providing a neutral Wayland underlying graphics platform. Its core goals are **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
-- Kan‑Linux draws inspiration from Omarchy’s Quickshell, using it only as an **optional upper-layer desktop example** to demonstrate that the base platform can host modern, visually striking Wayland interfaces. Quickshell and its dependency Qt are not part of the base platform itself. If Qt + Quickshell are disabled or removed, the entire system and graphics infrastructure remains fully functional and independent.
+- Kan‑Linux draws inspiration from [Omarchy’s desktop shell](https://github.com/kan-linux/omarchy), and integrates it as our optional early default desktop. We port this shell as an upper-layer UI example to show the capabilities of the Kan-Linux platform. Even if we remove or disable the Omarchy shell in the future, the whole system and graphics infrastructure can still run fully and independently.
 - Omarchy is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
 
 ## Roadmap
@@ -60,12 +60,9 @@ git clone --recurse-submodules https://github.com/kan-linux/kan.git
 
 ```
 
-You may use **the prebuilt rootfs** available at [https://github.com/kan-linux/iso](https://github.com/kan-linux/iso) for customization, then generate your own Wayland desktop distribution comparable to Omarchy.
-
-You may also use this repository as the foundation, with the help of powerful AI tools, to retrace verified workflow and work through the solved challenges ------ "[get hands dirty and don't be lazy](https://www.linuxcompatible.org/story/kdes-dont-be-lazy-ai-draft-sparks-ban-call/)", and build an Omarchy-style Linux distro from source code.
 
 ## How to use and Screenshots
-Please refer to https://github.com/kan-linux/iso. That repository hosts prebuilt rootfs and ISO images, screenshots and user guides, while this main repository contains only source code.
+Please refer to https://github.com/kan-linux/iso. That repository hosts prebuilt LiveISO images, screenshots and user guides, while this main repository contains only source code.
 
 
 ## Security track
