@@ -39,3 +39,6 @@
 	url = https://github.com/kan-linux/qtwayland
 	shallow = true
 
+[submodule "external/qt/quickshell"]
+	path = external/qt/quickshell
+	url = https://github.com/kan-linux/quickshell
