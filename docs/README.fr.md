@@ -54,8 +54,9 @@
 git clone --recurse-submodules https://github.com/kan-linux/kan.git
 ```
 
-## Utilisation et captures d’écran
-Veuillez consulter https://github.com/kan-linux/iso. Ce dépôt héberge les systèmes de fichiers racine précompilés, les images ISO, les captures d’écran et les guides utilisateur ; ce dépôt principal ne contient que le code source.
+## Screenshots and LiveISO
+
+Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.6
 
 ## Suivi de sécurité
 https://www.debian.org/security/

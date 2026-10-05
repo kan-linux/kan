@@ -67,21 +67,10 @@ git clone --recurse-submodules https://github.com/kan-linux/kan.git
 
 ```
 
-## 截图与使用说明
+## 截图与LiveISO
 
 
-详见：[https://github.com/kan-linux/iso](https://github.com/kan-linux/iso)
-
-该仓库存放预编译 rootfs、ISO 镜像、截图以及用户使用指南；本主仓库仅包含源代码。
-
-
-## 提示
-
-你可以使用 [https://github.com/kan-linux/iso](https://github.com/kan-linux/iso) 提供的预编译 rootfs 进行二次定制，生成属于你自己、和 Omarchy 风格相近的 Wayland 桌面发行版。
-
-你同样可以以本仓库为基础，借助强大的 AI 工具，复现已经验证过的开发流程、解决同类问题，从源码构建一套 Omarchy 风格的 Linux 桌面发行版。
-
-现在，我们已经基本**彻底弄清楚**了Omarchy Linux的原理，已经可以独立从我们自己挑选/适配/调试过的源代码(Omarchy在Github上的众多开源项目中最有价值的是开源了[一个shell桌面](https://github.com/omacom/omarchy)的源代码，对于构建Linux发行版而言最重要的组件基本都没有开源）构建出一个简化版的Omarchy（剔除了很多不适合中国国情/中国市场的组件）。Omarchy官网上有一篇文章，说[阿里云向Omarchy基金会赞助**300万美元**](https://omarchy.org/news/2026/09/alibaba-cloud-joins-as-founding-corporate-patron/)，Kan-Linux项目充分说明基于强大的Linux社区与强大的AI从源代码从零构建一个Agent-First Linux发行版并非很困难。当然，将Linux桌面做的很炫酷很稳定很完善**非常不容易**，这也是Linux desktop几十年以来最大的坑; 同时，构建一个真正Agent-First的Linux发行版，必须要有AI专家的参与，这是我们调研了很多 computer-use agent 项目后的感受。如果有中国公司(华为，小米，联想，海光，...)/美国公司(Intel, AMD, Dell, System76...)对此项目感兴趣，愿意提供支持/赞助(比如额度充足的Code Plan，......当前最需要的是一台性能非常非常强大的x86-64 Linux物理机器用于构建kan-linux，会大大提高开发效率)，请用中文/英文给项目维护人发邮件(zhouwg2000@gmail.com)，谢谢！
+详见：https://github.com/kan-linux/kan/releases/tag/v0.2.6
 
 
 ## 致谢

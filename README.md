@@ -61,8 +61,9 @@ git clone --recurse-submodules https://github.com/kan-linux/kan.git
 ```
 
 
-## How to use and Screenshots
-Please refer to https://github.com/kan-linux/iso. That repository hosts prebuilt LiveISO images, screenshots and user guides, while this main repository contains only source code.
+## Screenshots and LiveISO
+
+Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.6
 
 
 ## Security track
