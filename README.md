@@ -52,7 +52,9 @@
 - AArch64 laptops (stage-3)
 
 
-## How to fetch codes
+## Documentation
+
+#### How to fetch codes
 
 ```bash
 
@@ -60,40 +62,34 @@ git clone --recurse-submodules https://github.com/kan-linux/kan.git
 
 ```
 
-
-## Screenshots and LiveISO
+#### Screenshots and LiveISO
 
 Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.6
 
 
-## Security track
+#### Security track
 
 https://www.debian.org/security/
 
 https://security-tracker.debian.org/tracker/source-package/linux
 
+#### Development
+
+- [How to build(TBD)](/docs/build.md)
+
+
+## Contributing
+
+- Contributors can open PRs
+- Collaborators will be invited based on contributions
+- Maintainers can push to branches in the `kan` repo and merge PRs into the `master` branch
+- Any help with managing issues, PRs and projects is very appreciated!
+- Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
+
+  
 ## Acknowledgements
 - Inspired by [Omarchy Linux](https://github.com/omacom/omarchy)
 - Thanks to [LFS (Linux From Scratch)](https://www.linuxfromscratch.org/)
 - Thanks to [llama.cpp](https://github.com/ggml-org/llama.cpp)
 - Thanks to the entire Linux community(various tech orgs, such as Redhat(RHEL/Fedora/QEMU), SPI(Debian), Linux Foundation, Linaro, Canonical(Ubuntu), System76(Pop!_OS)... and tech stacks)
 - Special thanks to the AI assistant for extensive technical discussions, architectural advice, and writing assistance throughout the development of Kan-Linux
-
-## License
-
-This code repository is released under the [MIT License](LICENSE).
-
-## Citation
-
-If you use kan-linux in your work, please cite:
-
-```bibtex
-@misc{kan-linux2026,
-  title     = {Kan-Linux: an Agent-First modern Linux distro built from scratch},
-  author    = { kan-linux authors },
-  year      = {2026},
-  publisher = {GitHub},
-  url       = {https://github.com/kan-linux/kan}
-}
-```
-
