@@ -1,20 +1,18 @@
 [submodule "kernel"]
 	path = kernel
 	url = https://github.com/kan-linux/kernel
-	branch = master
+	branch = kan
 	ignore = untracked
-	shallow = true
 [submodule "external/llama.cpp"]
 	path = external/llama.cpp
 	url = https://github.com/kan-linux/ggml-hexagon
-	branch = master
+	branch = self-build-jz
 	ignore = untracked
 [submodule "external/ff/ffmpeg"]
 	path = external/ff/ffmpeg
 	url = https://github.com/kan-linux/ffmpeg
 	branch = master
 	ignore = untracked
-	shallow = true
 [submodule "external/ff/ffmpeg_deps/x264"]
 	path = external/ff/ffmpeg_deps/x264
 	url = https://github.com/kan-linux/x264
@@ -38,7 +36,8 @@
 	path = external/qt/qtwayland
 	url = https://github.com/kan-linux/qtwayland
 	shallow = true
-
 [submodule "external/qt/quickshell"]
 	path = external/qt/quickshell
 	url = https://github.com/kan-linux/quickshell
+	branch = kan
+	ignore = untracked
