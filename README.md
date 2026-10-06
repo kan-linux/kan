@@ -56,18 +56,9 @@ The main goal of Kan-Linux is to enable programmers and AI researchers to build 
 
 ## Documentation
 
-#### How to fetch codes
-
-```bash
-
-git clone --recurse-submodules https://github.com/kan-linux/kan.git
-
-```
-
 #### Screenshots and LiveISO
 
 Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.6
-
 
 #### Development
 
