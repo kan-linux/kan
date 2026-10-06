@@ -67,12 +67,6 @@ git clone --recurse-submodules https://github.com/kan-linux/kan.git
 Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.6
 
 
-#### Security track
-
-https://www.debian.org/security/
-
-https://security-tracker.debian.org/tracker/source-package/linux
-
 #### Development
 
 - [How to build(TBD)](/docs/build.md)
