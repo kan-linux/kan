@@ -17,18 +17,13 @@
 </p>
 
 <div align="center">
+<b>a Simplicity, Source-built, Agent-First Linux distro</b>
+</div>
 
-<h1 align="center">see through the delusions and return to simplicity</h1>
-<b>a Simplicity, Source-built, Agent-First Linux dstro</b>
-
-</div
-
-
-<p>
+<br>
 
 **Kan-Linux**(or KanLinux) is a **Simplicity**, **Source‑Built**, **Agent‑First** Linux distribution\. The name **Kan(勘)** derives from *Instructions for Practical Living* by [Wang Yangming](https://en.wikipedia.org/wiki/Wang_Yangming), representing the philosophy of breaking through technical obscurations and returning to the system’s original simplicity\. The name **Kan(勘)** also stands for "*see through the delusions and return to simplicity*".
 
-</p>
 
 ## Design Principles
 - Simplicity — Eliminate overly complex wrapper layers and overengineering, following the core philosophy of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). Not dependent on any existing Linux distribution.
