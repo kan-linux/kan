@@ -75,7 +75,7 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.6
 
   
 ## Acknowledgements
-- Inspired by [Omarchy Linux](https://github.com/omacom/omarchy)
+- Inspired by Omarchy and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
 - Thanks to [LFS (Linux From Scratch)](https://www.linuxfromscratch.org/)
 - Thanks to [llama.cpp](https://github.com/ggml-org/llama.cpp)
 - Thanks to the entire Linux community(various tech orgs, such as Redhat(RHEL/Fedora/QEMU), SPI(Debian), Linux Foundation, Linaro, Canonical(Ubuntu), System76(Pop!_OS)... and tech stacks)
