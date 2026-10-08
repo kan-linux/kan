@@ -18,4 +18,4 @@ make
 
 If everything succeeds, you will get the LiveISO.
 
-We will release the full build guidelines before 2027/01/01.
+We will release the full build guidelines and the refined build system before 2027/01/01.
