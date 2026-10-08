@@ -46,7 +46,7 @@ The main goal of Kan-Linux is to enable programmers and AI researchers to build 
 ## Roadmap
 
 - PoC via QEMU virtual machine (stage-1, done)
-- Add greeter and full desktop environment in QEMU virtual machine (stage-2.1)
+- Add greeter and full desktop environment in QEMU virtual machine (stage-2.1, WIP)
 - Enable Kan-Linux to run on physical x86-64 desktop PCs (stage-2.2)
 - Enable Kan-Linux to run on physical x86-64 laptops (stage-2.3)
 - Add AI-Agent within the desktop environment in QEMU virtual machine (stage-2.4)
