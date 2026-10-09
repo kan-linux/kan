@@ -1573,7 +1573,8 @@ void IHyprRenderer::initMissingAssetTexture() {
 void IHyprRenderer::initAssets() {
     initMissingAssetTexture();
 
-    m_screencopyDeniedTexture = renderText("Permission denied to share screen", Colors::WHITE, 20);
+    //using lazy initialize due to performance issue
+    //m_screencopyDeniedTexture = renderText("Permission denied to share screen", Colors::WHITE, 20);
 }
 
 SP<ITexture> IHyprRenderer::renderText(const std::string& text, CHyprColor col, int pt, bool italic, const std::string& fontFamily, int maxWidth, int weight) {
