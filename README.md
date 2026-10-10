@@ -44,14 +44,16 @@ The main goal of Kan-Linux is to enable programmers and AI researchers to build 
 
 
 ## Roadmap
-
-- PoC via QEMU virtual machine (stage-1, done)
-- Add greeter and full desktop environment in QEMU virtual machine (stage-2.1, WIP)
-- Enable Kan-Linux to run on physical x86-64 desktop PCs (stage-2.2)
-- Enable Kan-Linux to run on physical x86-64 laptops (stage-2.3)
-- Add AI-Agent within the desktop environment in QEMU virtual machine (stage-2.4)
-- Enable/test/verify AI-Agent within the desktop environment in physical x86-64 PCs/laptops (stage-2.5)
-- AArch64 laptops (stage-3)
+- [x] Stage 1: Complete [PoC validation](https://github.com/kan-linux/kan/releases/tag/v0.2.6) of Kan-Linux via QEMU virtual machine
+- [x] Stage 2.1: Integrate a preliminary, feature-limited, [customized Omarchy desktop shell](https://github.com/kan-linux/omarchy/tree/kan) and login greeter for QEMU virtual machine environments
+- [ ] Stage 2.2: Enable and validate Kan-Linux boot and runtime support for physical x86_64 desktop PCs
+- [ ] Stage 2.3: Enable and validate Kan-Linux boot and runtime support for physical x86_64 laptops
+- [ ] Milestone: Kan-Linux LiveISO supports bare-metal installation. Kan-Linux achieves full self-hosting.
+      All subsequent development, building and iteration of Kan-Linux will happen **inside Kan-Linux itself**.
+- [ ] Stage 2.4: Integrate desktop-native AI Agent in Kan-Linux on physical x86_64 hardware
+- [ ] Stage 2.5: Enable, test and fully verify desktop-native AI Agent functionality on physical x86_64 desktop and laptop hardware
+- [ ] Stage 2.6: Refine and stabilize the Omarchy desktop shell for physical x86_64 desktops and laptops
+- [ ] Stage 3: Port and validate Kan-Linux for AArch64 laptop devices
 
 
 ## Documentation
@@ -73,7 +75,7 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.6
 - Any help with managing issues, PRs and projects is very appreciated!
 - Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
 
-  
+
 ## Acknowledgements
 - Inspired by Omarchy and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
 - Thanks to [LFS (Linux From Scratch)](https://www.linuxfromscratch.org/)
