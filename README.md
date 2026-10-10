@@ -82,3 +82,7 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.7
 - Thanks to [llama.cpp](https://github.com/ggml-org/llama.cpp)
 - Thanks to the entire Linux community(various tech orgs, such as Redhat(RHEL/Fedora/QEMU), SPI(Debian), Linux Foundation, Linaro, Canonical(Ubuntu), System76(Pop!_OS)... and tech stacks)
 - Special thanks to the AI assistant for extensive technical discussions, architectural advice, and writing assistance throughout the development of Kan-Linux
+
+## Trademarks
+
+This project may include trademarks or logos belonging to third parties. Use of any third-party trademarks is governed by their respective policies.
