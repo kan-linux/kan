@@ -60,7 +60,7 @@ The main goal of Kan-Linux is to enable programmers and AI researchers to build 
 
 #### Screenshots and LiveISO
 
-Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.6
+Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.7
 
 #### Development
 
