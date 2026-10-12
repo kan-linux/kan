@@ -56,16 +56,9 @@ The main goal of Kan-Linux is to enable programmers and AI researchers to build 
 - [ ] Stage 3: Port and validate Kan-Linux for AArch64 laptop devices
 
 
-## Documentation
-
-#### Screenshots and LiveISO
+## Screenshots and LiveISO
 
 Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.7
-
-#### Development
-
-- [How to build](/docs/build.md)
-
 
 ## Contributing
 
@@ -77,10 +70,9 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.7
 
 
 ## Acknowledgements
-- Inspired by Omarchy and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
-- Thanks to [LFS (Linux From Scratch)](https://www.linuxfromscratch.org/)
+- Inspired by Omarchy("Convention over Configuration") and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
 - Thanks to [llama.cpp](https://github.com/ggml-org/llama.cpp)
-- Thanks to the entire Linux community(various tech orgs, such as Redhat(RHEL/Fedora/QEMU), SPI(Debian), Linux Foundation, Linaro, Canonical(Ubuntu), System76(Pop!_OS)... and tech stacks)
+- Thanks to the entire Linux community(various tech orgs, such as Redhat(RHEL/Fedora/QEMU), SPI(Debian), Linux Foundation, Linaro, Canonical(Ubuntu), System76(Pop!_OS), UnionTech(Deepin/UOS)... and tech stacks)
 - Special thanks to the AI assistant for extensive technical discussions, architectural advice, and writing assistance throughout the development of Kan-Linux
 
 ## Trademarks
