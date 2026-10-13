@@ -75,9 +75,12 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.7
 - Thanks to the entire Linux community(various tech orgs, such as Redhat(RHEL/Fedora/QEMU), SPI(Debian), Linux Foundation, Linaro, Canonical(Ubuntu), System76(Pop!_OS), UnionTech(Deepin/UOS)... and tech stacks)
 - Special thanks to the AI assistant for extensive technical discussions, architectural advice, and writing assistance throughout the development of Kan-Linux
 
-## Language Policy
+## Language Policy and AI Policy
 
-English and Chinese are both fine for issues and discussions.
+- To facilitate clear and effective communication, all discussions, comments, documentation, and PRs in this project should be conducted in English, this ensures that all contributors can participate and collaborate effectively.
+- English and Chinese are both fine for issues and discussions.
+- Discussions, issues and PRs should include **human-written content**. **AI-assisted polish is accepted and welcomed**(many of us are non-native English speakers). What matters is not who typed the content but whether a human understands it.
+- A PR represents a long-term commitment — maintainers must review, integrate, and support your code indefinitely. What matters is not who wrote the code but whether a human understands it: either fully, or at the 80–90% level, and is able to explain every change to reviewers, even with AI assistance.
 
 ## Trademarks
 
