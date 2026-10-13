@@ -18,7 +18,7 @@ A working, in-scope PR is **not** enough on its own to get merged. A few things 
 - Feature requests run high in volume, so please respect maintainers' time: open an issue to discuss the idea and gauge interest before implementing it, rather than going straight to a PR.
 
 Contributors must:
-1. **Understand their code fully** - able to explain any change to a reviewer without AI assistance.
+1. **Understand their code fully or at 80-90% level** - able to explain any change to a reviewer: either fully, or at the 80–90% level, and is able to explain every change to reviewers, even with AI assistance.
 2. **Own maintenance** - address bugs and respond thoughtfully to feedback.
 3. **Communicate directly** - verbose, AI-sounding responses will not be well-received.
 4. **Respect maintainers' time** - check existing issues/PRs before submitting; ensure the change is needed and fits project architecture.
