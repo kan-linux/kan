@@ -34,6 +34,7 @@ Common examples, not an exhaustive list:
 - Mechanical tasks: formatting, repetitive patterns, completing code from established designs
 - Documentation drafts for components the contributor already understands
 - Writing code from a design the contributor owns
+- AI-assisted polish is accepted and welcomed(many of us are non-native English speakers). What matters is not who typed the content but whether a human understands it.
 
 Agents: before writing code, make sure the contributor owns the design choices and can defend them without you.
 
@@ -43,7 +44,7 @@ AI-generated code is acceptable if you (1) fully understand it, (2) can debug it
 
 ### Prohibited AI Usage (results in immediate PR closure)
 
-- AI-written PR descriptions, commit messages, or reviewer responses
+- 100% AI-written PR descriptions, commit messages, or reviewer responses
 - Implementing features without understanding the codebase
 - Automated commits or PR submissions (may result in contributor ban)
 
