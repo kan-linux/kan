@@ -53,7 +53,7 @@ The main goal of Kan-Linux is to enable programmers and AI researchers to build 
 - [ ] Stage 2.4: Integrate desktop-native AI Agent in Kan-Linux on physical x86_64 hardware
 - [ ] Stage 2.5: Enable, test and fully verify desktop-native AI Agent functionality on physical x86_64 desktop and laptop hardware
 - [ ] Stage 2.6: Refine and stabilize the Omarchy desktop shell for physical x86_64 desktops and laptops
-- [ ] Stage 3: Port and validate Kan-Linux for AArch64 laptop devices
+- [ ] Stage 3: Refine and stabilized Kan-Linux on physical x86_64 hardware
 
 
 ## Screenshots and LiveISO
