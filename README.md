@@ -46,8 +46,8 @@ The main goal of Kan-Linux is to enable programmers and AI researchers to build 
 ## Roadmap
 - [x] Stage 1: Complete [PoC validation](https://github.com/kan-linux/kan/releases/tag/v0.2.6) of Kan-Linux via QEMU virtual machine
 - [x] Stage 2.1: Integrate a preliminary, feature-limited, [customized Omarchy desktop shell](https://github.com/kan-linux/omarchy/tree/kan) and login greeter for QEMU virtual machine environments
-- [ ] Stage 2.2: Enable and validate Kan-Linux boot and runtime support for physical x86_64 desktop PCs
-- [ ] Stage 2.3: Enable and validate Kan-Linux boot and runtime support for physical x86_64 laptops
+- [ ] Stage 2.2: Enable and validate Kan-Linux installer via QEMU virtual machine
+- [ ] Stage 2.3: Enable and validate the Kan-Linux boot and runtime support for physical x86_64 desktop PCs / laptops
 - [ ] Milestone: Kan-Linux LiveISO supports bare-metal installation. Kan-Linux achieves full self-hosting.
       All subsequent development, building and iteration of Kan-Linux will happen **inside Kan-Linux itself**.
 - [ ] Stage 2.4: Integrate desktop-native AI Agent in Kan-Linux on physical x86_64 hardware
