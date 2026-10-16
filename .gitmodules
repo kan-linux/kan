@@ -41,3 +41,6 @@
 	url = https://github.com/kan-linux/quickshell
 	branch = kan
 	ignore = untracked
+[submodule "system/installer"]
+	path = system/installer
+	url = git@github.com:kan-linux/installer.git
