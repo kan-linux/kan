@@ -1,49 +1,105 @@
-*.diff
-*.patch
-*.orig
-*.rej
+out/
+build/
+build-kan/
+docs/
+external/
+kernel/
+frameworks/
+system/
+vendor/
+prebuilts/
+iso/
+packages/
 
-*~
-.#*
-*#
+.github/
 
-*.flt
-*.gmo
-*.info
-*.la
-*.lo
-*.o
+*.tflite
+*.bdf
+*.iso
+
 *.a
-*.pyc
+*.bat
+*.bin
+*.d
+*.dll
+*.dot
+*.etag
+*.exe
+*.gcda
+*.gcno
+*.gcov
+*.gguf
+*.gguf.json
+*.lastModified
+*.log
+*.metallib
+*.o
+*.so
+*.swp
 *.tmp
+*.DS_Store
+*.bk
+*.qcow2
 
-.deps
-.libs
+# IDE / OS
 
-autom4te.cache
-config.cache
-config.intl
-config.log
-config.status
-libtool
-POTFILES
-*-POTFILES
+/.cache/
+/.ccls-cache/
+/.direnv/
+/.envrc
+/.idea/
+/.swiftpm
+/.vs/
+/.vscode/
+/nppBackup
 
-TAGS
-TAGS.sub
+# Coverage
 
-.local.vimrc
-.lvimrc
+/gcovr-report/
+/lcov-report/
 
-.clang-format
+# Build Artifacts
 
-.gdbinit
-.gdb_history
+/tags
+/.build/
+/tmp/
+/autogen-*.md
+.deps/
 
-core
-!core/
+# CI
 
-lost+found
+!/.github/workflows/*.yml
 
-LAST_UPDATED
-REVISION
+# Models
+
+/models/*
+/models-mnt
+!/models/.editorconfig
+!/models/ggml-vocab-*.gguf*
+!/models/templates
+
+# Zig
+
+/zig-out/
+/zig-cache/
+
+# Python
+
+/.venv
+__pycache__/
+*/poetry.lock
+poetry.toml
+poetry.lock
+uv.lock
+
+flake.lock
+/result
+/.ccache/
+/.ccache*/
+
+# IDE
+
+/*.code-workspace
+/.windsurf/
+# emscripten
+a.out.*
