@@ -55,8 +55,7 @@ The main goal of Kan-Linux is to build a simple, source-built, secure and Agent-
 - [ ] Stage 2.4: Kan-Linux LiveISO supports bare-metal installation on physical x86_64 machine, enable and validate the Kan-Linux boot and runtime support for physical x86_64 desktop PCs / laptops
 - [ ] Milestone: Kan-Linux achieves full self-hosting. All subsequent development, building and iteration of Kan-Linux will happen **inside Kan-Linux itself**.
 - [ ] Stage 2.5: Integrate desktop-native AI Agent in Kan-Linux on physical x86_64 hardware
-- [ ] Stage 2.6: Enable, test and fully verify desktop-native AI Agent functionality on physical x86_64 desktop and laptop hardware
-- [ ] Stage 2.7: Refine and stabilize the Omarchy desktop shell for physical x86_64 desktops / laptops
+- [ ] Stage 2.6: Refine and stabilize for physical x86_64 desktops / laptops
 - [ ] Stage 3: Refine and stabilized Kan-Linux on physical x86_64 hardware
 
 
