@@ -1,0 +1,41 @@
+[submodule "external/apps/screenshot"]
+	path = external/apps/screenshot
+	url = git@github.com:kan-linux/screenshot
+[submodule "frameworks/wayland/Hyprland"]
+	path = frameworks/wayland/Hyprland
+	url = git@github.com:kan-linux/Hyprland
+[submodule "frameworks/wayland/quickshell"]
+	path = frameworks/wayland/quickshell
+	url = git@github.com:kan-linux/Hyprland
+[submodule "external/shell/omarchy"]
+	path = external/shell/omarchy
+	url = git@github.com:kan-linux/omarchy
+	branch = kan
+[submodule "external/shell/noctalia"]
+	path = external/shell/noctalia
+	url = git@github.com:kan-linux/noctalia
+	branch = kan
+[submodule "external/apps/strata"]
+	path = external/apps/strata
+	url = git@github.com:kan-linux/strata
+	branch = kan
+[submodule "external/apps/fcitx5"]
+	path = external/apps/fcitx5
+	url = git@github.com:kan-linux/fcitx5
+	branch = kan
+[submodule "kernel"]
+	path = kernel
+	url = git@github.com:kan-linux/kernel.git
+	branch = kan
+[submodule "system/installer"]
+	path = system/installer
+	url = git@github.com:kan-linux/installer
+[submodule "system/qmail"]
+	path = system/qmail
+	url = git@github.com:kan-linux/qmail
+[submodule "frameworks/ai/llama.cpp"]
+	path = frameworks/ai/llama.cpp
+	url = git@github.com:kan-linux/ggml-hexagon
+[submodule "external/apps/wezterm"]
+	path = external/apps/wezterm
+	url = git@github.com:kan-linux/wezterm
