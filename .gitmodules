@@ -39,3 +39,6 @@
 [submodule "external/apps/wezterm"]
 	path = external/apps/wezterm
 	url = git@github.com:kan-linux/wezterm
+[submodule "external/apps/vlc"]
+	path = external/apps/vlc
+	url = git@github.com:kan-linux/vlc.git
