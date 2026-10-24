@@ -51,8 +51,8 @@ The main goal of Kan-Linux is to build a simple, source-built, secure and Agent-
 - [x] Stage 1: Complete [PoC validation](https://github.com/kan-linux/kan/releases/tag/v0.2.6) of Kan-Linux via QEMU virtual machine
 - [x] Stage 2.1: Integrate a preliminary, feature-limited, [customized Omarchy desktop shell](https://github.com/kan-linux/omarchy/tree/kan) and login greeter for QEMU virtual machine environments
 - [x] Stage 2.2: Enable and validate Kan-Linux installer via QEMU virtual machine
-- [ ] Stage 2.3: Refine and stabilize via QEMU virtual machine
-- [ ] Stage 2.4: Kan-Linux LiveISO supports bare-metal installation on physical x86_64 machine, enable and validate the Kan-Linux boot and runtime support for physical x86_64 desktop PCs / laptops
+- [x] Stage 2.3: Refine and stabilize via QEMU virtual machine
+- [ ] Stage 2.4: Enable and validate the Kan-Linux boot and runtime support for physical x86_64 desktop PCs / laptops
 - [ ] Milestone: Kan-Linux achieves full self-hosting. All subsequent development, building and iteration of Kan-Linux will happen **inside Kan-Linux itself**.
 - [ ] Stage 2.5: Integrate desktop-native AI Agent in Kan-Linux on physical x86_64 hardware
 - [ ] Stage 2.6: Refine and stabilize for physical x86_64 desktops / laptops
@@ -61,7 +61,7 @@ The main goal of Kan-Linux is to build a simple, source-built, secure and Agent-
 
 ## Screenshots and LiveISO
 
-Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.8
+Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
 
 ## Contributing
 
