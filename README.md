@@ -63,6 +63,7 @@ The main goal of Kan-Linux is to build a simple, source-built, secure and Agent-
 
 Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
 
+<!--
 ## Contributing
 
 - Contributors can open PRs
@@ -70,7 +71,10 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
 - Maintainers can push to branches in the `kan` repo and merge PRs into the `master` branch
 - Any help with managing issues, PRs and projects is very appreciated!
 - Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
+-->
 
+## Contributing
+We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO or after installing Kan-Linux on physical hardware.
 
 ## Acknowledgements
 - Inspired by Omarchy("Convention over Configuration") and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
