@@ -158,8 +158,8 @@ We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussion
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
 - Tested and verified on limited x86-64 laptops and PCs
-- Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist.
-- The installer supports only single-OS installation to a specified partition or a standalone disk among multiple disks; LUKS encryption is not yet supported.
+- Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist
+- The installer supports only single-OS installation to a specified partition or a standalone disk among multiple disks; LUKS encryption is not yet supported
 
 
 ## Differences and Connections with Omarchy
