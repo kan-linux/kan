@@ -54,9 +54,9 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
 - Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
 -->
 
-#### How to download and use patch
+#### How to use patch mechanism in your installed Kan-Linux
 
-Go, Rust, Vulkan SDK and MiMo-Code can be installed **on demand** via your preferred AI agent / LLM skills
+Go, Rust, Vulkan SDK, MiMo-Code and firmware can be installed **on demand** via your preferred AI agent / LLM skills
 
 Instruct your preferred agent:
 
@@ -66,8 +66,83 @@ download https://kan-linux.org/patches/install-prebuilts.sh to /opt/skills/insta
 then execute sudo /opt/skills/install-prebuilts.sh to install Go / Rust / Vulkan SDK / MiMo-Code.
 ```
 
+## Open-Source
+
+We have benefited from the open-source community, and we wish to contribute back to it.
+
+```mermaid
+
+graph TD;
+LiveISO --> kan
+LiveISO --> installer
+
+kan --> build
+kan --> toolchain
+kan --> system
+kan --> vendor
+kan --> kernel
+kan --> frameworks
+kan --> external
+
+frameworks --> mesa
+frameworks --> ffmpeg
+frameworks --> llama.cpp
+frameworks --> gtk4
+frameworks --> qt6
+
+mesa --> wayland
+
+wayland   --> Hyprland
+wayland   --> quickshell
+
+ffmpeg  --> ffmpeg_src
+ffmpeg  --> ffmpeg_deps
+
+
+llama.cpp --> agents
+
+external --> shell
+external --> apps
+
+shell --> omarchy_desktop_shell
+shell --> noctalia
+
+
+apps --> strata
+apps --> firefox
+apps --> wireshark
+apps --> gimp
+
+LiveISO[<span style="font-size:20px;">LiveISO</span>];
+kan[<a href="https://github.com/kan-linux/kan"         style="text-decoration:none;">kan</a>     <br><span style="font-size:10px;">Monorepo of Kan-Linux</span>];
+
+installer[<a href="https://github.com/kan-linux/installer"         style="text-decoration:none;">installer</a>     <br><span style="font-size:10px;">Installer of KanLinux</span>];
+
+kernel[<a href="https://github.com/kan-linux/kernel"         style="text-decoration:none;">kernel</a> ];
+
+
+llama.cpp[<a href="https://github.com/kan-linux/ggml-hexagon/discussions/84"         style="text-decoration:none;">llama.cpp</a>     <br><span style="font-size:10px;"> customized llama.cpp for Kan-Linux</span>];
+
+
+Hyprland[<a href="https://github.com/kan-linux/Hyprland"         style="text-decoration:none;">Hyprland</a>    </span>];
+
+omarchy_desktop_shell[<a href="https://github.com/kan-linux/omarchy"         style="text-decoration:none;">Omarchy-desktop-shell</a>    </span>];
+
+noctalia[<a href="https://github.com/kan-linux/noctalia"         style="text-decoration:none;">noctalia</a>    </span>];
+
+strata[<a href="https://github.com/kan-linux/strata"         style="text-decoration:none;">strata</a> <br><span style="font-size:10px;"> File Manager </span>];
+
+
+
+quickshell[<a href="https://github.com/kan-linux/quickshell"         style="text-decoration:none;">quickshell</a>     <br><span style="font-size:10px;"> QuickShell Git mirror</span>];
+
+```
+
+
+
 ## Contributing
 We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO or after installing Kan-Linux on physical hardware.
+
 
 ## Roadmap
 - [x] Stage 1: Complete [PoC validation](https://github.com/kan-linux/kan/releases/tag/v0.2.6) of Kan-Linux via QEMU virtual machine
