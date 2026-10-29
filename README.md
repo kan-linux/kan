@@ -29,7 +29,7 @@
 
 **Kan-Linux**(or KanLinux) is a **Concise**, **Source‑Built**, **Security** and **Agent‑First** Linux distribution\. The name **Kan(勘)** derives from *Instructions for Practical Living* by [Wang Yangming](https://en.wikipedia.org/wiki/Wang_Yangming), representing the philosophy of breaking through technical obscurations and returning to the system’s original simplicity\. The name **Kan(勘)** also stands for "*see through the delusions and return to simplicity*".
 
-The main goal of Kan-Linux is to build a simple, source-built, secure and Agent-first Linux distro at the edge --- locally and in the cloud.
+The main goal of Kan-Linux is to build a concise, source-built, secure and Agent-first Linux distro at the edge --- locally and in the cloud.
 
 #### Design Principles
 - Simplicity — Eliminate overly complex wrapper layers and overengineering, following the **core philosophy** of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Not dependent on any existing Linux distribution**.
