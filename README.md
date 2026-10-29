@@ -32,13 +32,42 @@
 The main goal of Kan-Linux is to build a simple, source-built, secure and Agent-first Linux distro at the edge --- locally and in the cloud.
 
 #### Design Principles
-- Simplicity — Eliminate overly complex wrapper layers and overengineering, following the core philosophy of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Not dependent on any existing Linux distribution**.
-- Monorepo — Drawing lessons from existing Linux distributions and the **highly sophisticated [Yocto](https://www.yoctoproject.org/)** Project, the project uses an AOSP-style single-repository architecture. All source code is stored and hosted in one single code repository to simplify development, build and maintenance work.
-- Source-Built — The entire OS and all components are built from source.
-- llama.cpp-First — Built-in native llama.cpp edge inference engine for local AI deployment.
+- Simplicity — Eliminate overly complex wrapper layers and overengineering, following the **core philosophy** of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Not dependent on any existing Linux distribution**.
+- Monorepo — Drawing lessons from **many** existing Linux distributions and the **highly sophisticated [Yocto](https://www.yoctoproject.org/)** Project, the project uses an AOSP-style single-repository architecture. All source code is stored and hosted in one single code repository to simplify development, build and maintenance work.
+- Source-Built — The entire OS and all components (excluding prebuilt components such as Go, Rust, Firefox, Vulkan SDK, MiMo-Code, and user-installed components) are built from source.
+- llama.cpp-First — Built-in native llama.cpp edge inference engine for **local AI deployment**.
 - Agent-First — **No package manager**. AI agents autonomously compile, deploy, install components, run system checks and resolve issues.
 - AI-native security audit pipeline — Kan-Linux embeds LLM-based source-level security audit (GLM-5.3 and others) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to source pre-admission auditing.
 
+
+## Screenshots and LiveISO
+
+Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
+
+<!--
+## Contributing
+
+- Contributors can open PRs
+- Collaborators will be invited based on contributions
+- Maintainers can push to branches in the `kan` repo and merge PRs into the `master` branch
+- Any help with managing issues, PRs and projects is very appreciated!
+- Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
+-->
+
+## How to download and use patch
+
+Go, Rust, Vulkan SDK and MiMo-Code can be installed **on demand** via your preferred AI agent / LLM skills
+
+Instruct your preferred agent:
+
+```
+download https://kan-linux.org/patches/install-prebuilts.sh to /opt/skills/install-devtoolchain.sh
+
+then execute sudo /opt/skills/install-prebuilts.sh to install Go / Rust / Vulkan SDK / MiMo-Code.
+```
+
+## Contributing
+We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO or after installing Kan-Linux on physical hardware.
 
 #### Differences and Connections with Omarchy
 - Omarchy targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**.
@@ -57,24 +86,6 @@ The main goal of Kan-Linux is to build a simple, source-built, secure and Agent-
 - [ ] Stage 2.5: Integrate desktop-native AI Agent in Kan-Linux on physical x86_64 hardware
 - [ ] Stage 2.6: Refine and stabilize for physical x86_64 desktops / laptops
 - [ ] Stage 3: Refine and stabilized Kan-Linux on physical x86_64 hardware
-
-
-## Screenshots and LiveISO
-
-Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
-
-<!--
-## Contributing
-
-- Contributors can open PRs
-- Collaborators will be invited based on contributions
-- Maintainers can push to branches in the `kan` repo and merge PRs into the `master` branch
-- Any help with managing issues, PRs and projects is very appreciated!
-- Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
--->
-
-## Contributing
-We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO or after installing Kan-Linux on physical hardware.
 
 ## Acknowledgements
 - Inspired by Omarchy("Convention over Configuration") and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
