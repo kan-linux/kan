@@ -156,7 +156,7 @@ We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussion
 - [ ] Stage 3: Refine and stabilized Kan-Linux on physical x86_64 hardware
 
 ## Limitations
-- Currently focused on x86-64 laptops, PCs and hardware
+- Currently focus on x86-64 laptops, PCs and hardware
 - Tested and verified on limited x86-64 laptops and PCs
 - Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist.
 
