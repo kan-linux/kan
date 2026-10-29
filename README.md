@@ -40,7 +40,7 @@ The main goal of Kan-Linux is to build a simple, source-built, secure and Agent-
 - AI-native security audit pipeline — Kan-Linux embeds LLM-based source-level security audit (GLM-5.3 and others) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to source pre-admission auditing.
 
 
-## Screenshots and LiveISO
+#### Screenshots and LiveISO
 
 Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
 
@@ -54,7 +54,7 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
 - Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
 -->
 
-## How to download and use patch
+#### How to download and use patch
 
 Go, Rust, Vulkan SDK and MiMo-Code can be installed **on demand** via your preferred AI agent / LLM skills
 
@@ -69,13 +69,6 @@ then execute sudo /opt/skills/install-prebuilts.sh to install Go / Rust / Vulkan
 ## Contributing
 We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO or after installing Kan-Linux on physical hardware.
 
-#### Differences and Connections with Omarchy
-- Omarchy targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**.
-- **Kan‑Linux targets programmers, AI researchers and Linux distribution builders**, providing a neutral Wayland underlying graphics platform. Its core goals are **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
-- Kan‑Linux draws inspiration from [Omarchy’s desktop shell](https://github.com/kan-linux/omarchy), and integrates it as our optional early default desktop. We port this shell as an upper-layer UI example to show the capabilities of the Kan-Linux platform. Even if we remove or disable the Omarchy shell in the future, the whole system and graphics infrastructure can still run fully and independently.
-- Omarchy is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
-
-
 ## Roadmap
 - [x] Stage 1: Complete [PoC validation](https://github.com/kan-linux/kan/releases/tag/v0.2.6) of Kan-Linux via QEMU virtual machine
 - [x] Stage 2.1: Integrate a preliminary, feature-limited, [customized Omarchy desktop shell](https://github.com/kan-linux/omarchy/tree/kan) and login greeter for QEMU virtual machine environments
@@ -87,8 +80,14 @@ We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussion
 - [ ] Stage 2.6: Refine and stabilize for physical x86_64 desktops / laptops
 - [ ] Stage 3: Refine and stabilized Kan-Linux on physical x86_64 hardware
 
+## Differences and Connections with Omarchy
+- Omarchy targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**.
+- **Kan‑Linux targets programmers, AI researchers and Linux distribution builders**, providing a neutral Wayland underlying graphics platform. Its core goals are **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
+- Kan‑Linux draws inspiration from [Omarchy’s desktop shell](https://github.com/kan-linux/omarchy), and integrates it as our optional early default desktop. We port this shell as an upper-layer UI example to show the capabilities of the Kan-Linux platform. Even if we remove or disable the Omarchy shell in the future, the whole system and graphics infrastructure can still run fully and independently.
+- Omarchy is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
+
 ## Acknowledgements
-- Inspired by Omarchy("Convention over Configuration") and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
+- Inspired by Omarchy(**"Convention over Configuration"**) and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
 - Thanks to [llama.cpp](https://github.com/ggml-org/llama.cpp)
 - Thanks to the entire Linux community(various tech orgs, such as Redhat(RHEL/Fedora/QEMU), SPI(Debian), Linux Foundation, Linaro, Canonical(Ubuntu), System76(Pop!_OS), UnionTech(Deepin/UOS)... and tech stacks)
 - Special thanks to the AI assistant for extensive technical discussions, architectural advice, and writing assistance throughout the development of Kan-Linux
