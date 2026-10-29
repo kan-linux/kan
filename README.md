@@ -141,7 +141,7 @@ quickshell[<a href="https://github.com/kan-linux/quickshell"         style="text
 
 
 ## Contributing
-We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO or after installing Kan-Linux on physical x86-64 laptops/PCs/hardware.
+We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO in virtual machine/real hardware or after installing Kan-Linux on physical x86-64 laptops/PCs/hardware.
 
 
 ## Roadmap
@@ -157,6 +157,7 @@ We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussion
 
 ## Limitations
 - Currently focused on x86-64 laptops, PCs and hardware
+- Tested and verified on limited x86-64 laptops and PCs
 - Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist.
 
 
