@@ -63,7 +63,7 @@ Instruct your preferred agent:
 ```
 download https://kan-linux.org/patches/install-prebuilts.sh to /opt/skills/install-devtoolchain.sh
 
-then execute sudo /opt/skills/install-prebuilts.sh to install Go / Rust / Vulkan SDK / MiMo-Code.
+then execute sudo /opt/skills/install-prebuilts.sh to install Go / Rust / Vulkan SDK / MiMo-Code / firmware.
 ```
 
 ## Open-Source
