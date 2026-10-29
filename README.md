@@ -141,7 +141,7 @@ quickshell[<a href="https://github.com/kan-linux/quickshell"         style="text
 
 
 ## Contributing
-We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO or after installing Kan-Linux on physical hardware.
+We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO or after installing Kan-Linux on physical x86-64 laptops/PCs/hardware.
 
 
 ## Roadmap
@@ -154,6 +154,11 @@ We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussion
 - [ ] Stage 2.5: Integrate desktop-native AI Agent in Kan-Linux on physical x86_64 hardware
 - [ ] Stage 2.6: Refine and stabilize for physical x86_64 desktops / laptops
 - [ ] Stage 3: Refine and stabilized Kan-Linux on physical x86_64 hardware
+
+## Limitations
+- Currently focused on x86-64 laptops, PCs and hardware
+- Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist.
+
 
 ## Differences and Connections with Omarchy
 - Omarchy targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**.
