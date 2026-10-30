@@ -141,7 +141,7 @@ quickshell[<a href="https://github.com/kan-linux/quickshell"         style="text
 
 ```
 
-
+A full list of our contributions to the open-source community can be found in https://github.com/kan-linux/kan/discussions/7
 
 ## Contributing
 We welcome feedback in [discussions](https://github.com/kan-linux/kan/discussions) for any issues you encounter while testing the LiveISO in virtual machine/real hardware or after installing Kan-Linux on physical x86-64 laptops/PCs/hardware.
