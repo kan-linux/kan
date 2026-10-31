@@ -45,106 +45,28 @@ The main goal of Kan-Linux is to build a concise, source-built, secure and Agent
 
 #### Screenshots and LiveISO
 
-Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
+Please refer to https://github.com/kan-linux/kan/releases/tag/v0.3.0
 
-<!--
 ## Contributing
 
-- Contributors can open PRs
+Drawing inspiration from the policy models of Google’s AOSP and Red Hat’s RHEL, Kan-Linux’s core base system will not be publicly open-sourced. That said, community contributions to other open components of Kan-Linux are still welcome.
+
+Our customized Omarchy desktop shell, ggml-hexagon inference backend, customized fcitx, customized Hyprland...... and documentation remain fully open-source. 
+
+We have benefited from the open-source community, and we wish to contribute back to it. A full list of our contributions to the open-source community can be found in https://github.com/kan-linux/kan/discussions/7
+
+#### Contribute to Kan-Linux’s custom desktop shell
+
+We maintain [a customized Omarchy desktop shell](https://github.com/kan-linux/omarchy). It is actively used within Kan-Linux. Your contributions will land in the next Kan-Linux release, or you can [manually update the local desktop shell in installed Kan-Linux](https://github.com/kan-linux/kan/discussions/9) in real time.
+
+- Contributors can [open PRs](https://github.com/kan-linux/omarchy/pulls)
 - Collaborators will be invited based on contributions
 - Maintainers can push to branches in the `kan` repo and merge PRs into the `master` branch
-- Any help with managing issues, PRs and projects is very appreciated!
-- Read the [CONTRIBUTING.md](CONTRIBUTING.md) for more information
--->
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) for more information
 
-#### How to use patch mechanism in your installed Kan-Linux
+#### Your valuable feedback
 
-Go, Rust, Vulkan SDK, MiMo-Code and firmware can be installed **on demand** via your preferred AI agent / LLM skills
-
-Instruct your preferred agent:
-
-```
-download https://kan-linux.org/patches/install-prebuilts.sh to /opt/skills/install-devtoolchain.sh
-
-then execute sudo /opt/skills/install-prebuilts.sh to install Go / Rust / Vulkan SDK / MiMo-Code / firmware.
-```
-
-## Open-Source
-
-We have benefited from the open-source community, and we wish to contribute back to it.
-
-```mermaid
-
-graph TD;
-LiveISO --> kan
-LiveISO --> installer
-
-kan --> build
-kan --> toolchain
-kan --> system
-kan --> vendor
-kan --> kernel
-kan --> frameworks
-kan --> external
-
-frameworks --> mesa
-frameworks --> ffmpeg
-frameworks --> llama.cpp
-frameworks --> gtk4
-frameworks --> qt6
-
-mesa --> wayland
-
-wayland   --> Hyprland
-wayland   --> quickshell
-
-ffmpeg  --> ffmpeg_src
-ffmpeg  --> ffmpeg_deps
-
-
-llama.cpp --> agents
-
-external --> shell
-external --> apps
-
-shell --> omarchy_desktop_shell
-shell --> noctalia
-
-
-apps --> strata
-apps --> firefox
-apps --> wireshark
-apps --> gimp
-
-LiveISO[<span style="font-size:20px;">LiveISO</span>];
-
-
-installer[<a href="https://github.com/kan-linux/installer"         style="text-decoration:none;">installer</a>     <br><span style="font-size:10px;">Installer of KanLinux</span>];
-
-kernel[<a href="https://github.com/kan-linux/kernel"         style="text-decoration:none;">kernel</a> ];
-
-
-llama.cpp[<a href="https://github.com/kan-linux/ggml-hexagon/discussions/84"         style="text-decoration:none;">llama.cpp</a>     <br><span style="font-size:10px;"> customized llama.cpp for Kan-Linux</span>];
-
-
-Hyprland[<a href="https://github.com/kan-linux/Hyprland"         style="text-decoration:none;">Hyprland</a>    </span>];
-
-omarchy_desktop_shell[<a href="https://github.com/kan-linux/omarchy"         style="text-decoration:none;">Omarchy-desktop-shell</a>    </span>];
-
-noctalia[<a href="https://github.com/kan-linux/noctalia"         style="text-decoration:none;">noctalia</a>    </span>];
-
-strata[<a href="https://github.com/kan-linux/strata"         style="text-decoration:none;">strata</a> <br><span style="font-size:10px;"> File Manager </span>];
-
-
-
-quickshell[<a href="https://github.com/kan-linux/quickshell"         style="text-decoration:none;">quickshell</a>     <br><span style="font-size:10px;"> QuickShell Git mirror</span>];
-
-```
-
-A full list of our contributions to the open-source community can be found in https://github.com/kan-linux/kan/discussions/7
-
-## Contributing
-We welcome feedback in [issues](https://github.com/kan-linux/kan/issues) for any issues you encounter while testing the LiveISO in virtual machine/real hardware or after installing Kan-Linux on physical x86-64 laptops/PCs/hardware.
+We welcome feedback via [issues](https://github.com/kan-linux/kan/issues) for any problems you encounter when testing the LiveISO in virtual machines or real hardware, or after installing Kan-Linux on physical x86-64 laptops and PCs.
 
 
 ## Roadmap
