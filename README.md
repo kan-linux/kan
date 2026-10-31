@@ -45,7 +45,7 @@ The main goal of Kan-Linux is to build a concise, source-built, secure and Agent
 
 #### Screenshots and LiveISO
 
-Please refer to https://github.com/kan-linux/kan/releases/tag/v0.2.9
+Please refer to https://github.com/kan-linux/kan/releases/tag/v0.3.0
 
 <!--
 ## Contributing
