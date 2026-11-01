@@ -37,7 +37,7 @@ The main goal of Kan-Linux is to build a concise, source-built, secure and Agent
 - Secure — The goal is not to build an unbreakable Linux distro, but to minimize attack surface and maximize SBOM/supply-chain security.
   - Single-user desktop computing — Optimized for single-user desktop workflows to minimize attack surface.
   - Source-Built — The entire OS and all components (excluding prebuilt components such as Go, Rust, Firefox, Vulkan SDK, MiMo-Code, and user-installed components) are built from source, maximize SBOM and supply-chain security.
-  - AI-native security audit pipeline — Kan-Linux embeds LLM-based source-level security audit (GLM-5.3 and others) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to source pre-admission auditing.
+  - AI-native security audit pipeline — Kan-Linux embeds LLM-based source-level security audit (GLM-5.3 and other top-tier LLM models) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to source pre-admission auditing.
 - llama.cpp-First — Built-in native llama.cpp edge inference engine for **local AI deployment**.
 - Agent-First — **No package manager**. AI agents autonomously compile, deploy, install components, run system checks and resolve issues.
 
@@ -49,7 +49,7 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.3.0
 
 ## Contributing
 
-Drawing inspiration from the policy models of Google’s AOSP and Red Hat’s RHEL, Kan-Linux’s core base system will not be publicly open-sourced. That said, community contributions to other open components of Kan-Linux are still welcome.
+Drawing inspiration from the policy models of Red Hat’s RHEL and [XZ Utils backdoor](https://en.wikipedia.org/wiki/XZ_Utils_backdoor), Kan-Linux’s core base system will not be publicly open-sourced(We will make Kan-Linux as security as possible). That said, community contributions to other open components of Kan-Linux are still welcome.
 
 Our customized Omarchy desktop shell, ggml-hexagon inference backend, customized fcitx, customized Hyprland...... and documentation remain fully open-source. 
 
