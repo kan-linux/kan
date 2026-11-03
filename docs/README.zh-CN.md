@@ -23,7 +23,7 @@
   <strong>简体中文</strong> 
 </p>
 
-**Kan（勘）Linux** 是一款借鉴了llama.cpp与omarchy核心理念而重新打造的简洁、源码构建、AI-Agent优先的Linux发行版。
+**Kan（勘）Linux** 是一款基于过往Linux发行版开发经验，借鉴了llama.cpp与omarchy核心理念，重新打造的简洁、安全、AI-Agent优先的Linux发行版。
 
 名称取自[王阳明](https://zh.wikipedia.org/zh-cn/%E7%8E%8B%E9%99%BD%E6%98%8E)《传习录》：**“此处能勘得破，方是简易透彻功夫”**。
 
