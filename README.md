@@ -33,6 +33,7 @@ The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux d
 
 #### Design Principles
 - Simplicity — Eliminate overly complex wrapper layers and overengineering, following the **core philosophy** of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Not dependent on any existing Linux distribution**.
+- **Do not adopt GNOME or KDE desktop stacks**. Instead, it builds a lean, minimal desktop environment on its own, with pluggable applications and no mandatory global metadata, introspection, or complicated hidden runtime contracts.
 - Monorepo — Drawing lessons from **many** existing Linux distributions and the **highly sophisticated [Yocto](https://www.yoctoproject.org/)** Project, the project uses an AOSP-style single-repository architecture. All source code lives in one repository to simplify development, building and maintenance.
 - Secure — The goal is not to build an unbreakable Linux distro, but to minimize attack surface and maximize SBOM/supply-chain security.
   - Single-user desktop computing — Optimized for single-user desktop workflows to minimize attack surface.
