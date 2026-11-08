@@ -51,27 +51,15 @@
 - Omarchy 基于上游 Arch Linux 发行版构建，而 Kan-Linux 完全从零搭建，**不依赖任何上游 Linux 发行版**。
 
 
-## 路线图
-- 在 QEMU 虚拟机中完成概念验证（stage-1，已完成）
-- 在 QEMU 虚拟机中增加登录管理器与完整桌面环境（stage-2.1，已完成）
-- 支持在虚拟机虚拟磁盘中安装 Kan-Linux，初步达到可使用程度（stage-2.2，已完成）
-- 支持 Kan-Linux 在实体 x86-64 台式机/笔记本运行（stage-2.3）
-- 在 QEMU 虚拟机的桌面环境中内置AI智能代理（stage-2.4）
-- 在实体 x86-64 台式机/笔记本的桌面环境中测试/验证 AI智能代理（stage-2.5）
-- 完善Kan-Linux中定制的Omarchy shell桌面（stage-2.6）
-- 完善Kan-Linux for x86-64(stage-3)
-- AArch64 笔记本（stage-4，最初有计划，后来限于资源有限移除AArch64计划，不一定做，也可能做：因为构建系统已经设计为支持多架构:x86-64, aarch64, 龙芯）
-  
-
 ## 截图与LiveISO
-详见：https://github.com/kan-linux/kan/releases/tag/v0.3.0
+详见：https://github.com/kan-linux/kan/releases/tag/v0.3.1
 
 
 ## 致谢
 - 感谢 [Omarchy Linux](https://github.com/omacom/omarchy) 带来的启发
-- 感谢 [llama.cpp](https://github.com/ggml-org/llama.cpp)
+- 感谢 [llama.cpp](https://github.com/ggml-org/llama.cpp) 带来的启发
 - 感谢全体 Linux 社区（各个专业技术组织与各种复杂的技术栈）
-- 感谢中国AI大模型以及Agent的专业帮助(我们也想体验美国最先进的AI大模型以及Agent，但限于众所周知的原因尤其支付难题，没有机会体验）
+- 感谢中国顶尖AI大模型的帮助
 
 
 ## 许可证
