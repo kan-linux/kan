@@ -55,25 +55,7 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.3.1
 
 ## Contributing
 
-Drawing inspiration from the policy models of Red Hat’s RHEL and [XZ Utils backdoor](https://en.wikipedia.org/wiki/XZ_Utils_backdoor), Kan-Linux’s core base system will not be publicly open-sourced(We will make Kan-Linux as security as possible). That said, community contributions to other open components of Kan-Linux are still welcome.
-
-
-#### Contribute to Kan-Linux’s custom desktop shell
-
-We maintain [a customized Omarchy desktop shell](https://github.com/kan-linux/omarchy). It is actively used within Kan-Linux. Your contributions will land in the next Kan-Linux release, or you can [manually update the local desktop shell in installed Kan-Linux](https://github.com/kan-linux/kan/wiki/How-to-update-desktop%E2%80%90shell-on-your-installed-Kan%E2%80%90Linux) in real time.
-
-- Contributors can [open PRs](https://github.com/kan-linux/omarchy/pulls)
-- Collaborators will be invited based on contributions
-- Maintainers can push to branches in the `kan` repo and merge PRs into the `master` branch
-- Read [CONTRIBUTING.md](CONTRIBUTING.md) for more information
-
-#### Contribution to Kan-Linux's wiki
-
-https://github.com/kan-linux/kan/wiki
-
-#### Your valuable feedback
-
-We welcome feedback via [issues](https://github.com/kan-linux/kan/issues) for any problems you encounter when testing the LiveISO in virtual machines or real hardware, or after installing Kan-Linux on physical x86-64 laptops and PCs.
+Pls refer to [How to contribute to Kan‐Linux](https://github.com/kan-linux/kan/wiki/How-to-contribute-to-Kan%E2%80%90Linux)
 
 ## Wiki
 https://github.com/kan-linux/kan/wiki
