@@ -66,6 +66,10 @@ We maintain [a customized Omarchy desktop shell](https://github.com/kan-linux/om
 - Maintainers can push to branches in the `kan` repo and merge PRs into the `master` branch
 - Read [CONTRIBUTING.md](CONTRIBUTING.md) for more information
 
+#### Contribution to Kan-Linux's wiki
+
+https://github.com/kan-linux/kan/wiki
+
 #### Your valuable feedback
 
 We welcome feedback via [issues](https://github.com/kan-linux/kan/issues) for any problems you encounter when testing the LiveISO in virtual machines or real hardware, or after installing Kan-Linux on physical x86-64 laptops and PCs.
