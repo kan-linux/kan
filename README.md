@@ -57,9 +57,6 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.3.1
 
 Drawing inspiration from the policy models of Red Hat’s RHEL and [XZ Utils backdoor](https://en.wikipedia.org/wiki/XZ_Utils_backdoor), Kan-Linux’s core base system will not be publicly open-sourced(We will make Kan-Linux as security as possible). That said, community contributions to other open components of Kan-Linux are still welcome.
 
-Our customized Omarchy desktop shell, ggml-hexagon inference backend, customized fcitx, customized Hyprland...... and documentation remain fully open-source. 
-
-We have benefited from the open-source community, and we wish to contribute back to it. A full list of our contributions to the open-source community can be found in https://github.com/kan-linux/kan/wiki/Our-contributions-to-the-open%E2%80%90source-community
 
 #### Contribute to Kan-Linux’s custom desktop shell
 
@@ -78,18 +75,15 @@ https://github.com/kan-linux/kan/wiki
 
 We welcome feedback via [issues](https://github.com/kan-linux/kan/issues) for any problems you encounter when testing the LiveISO in virtual machines or real hardware, or after installing Kan-Linux on physical x86-64 laptops and PCs.
 
+## Wiki
+https://github.com/kan-linux/kan/wiki
+
 
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
 - Tested and verified on limited x86-64 laptops and PCs
 - Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist
 - The installer supports only single-OS installation to a specified partition or a standalone disk among multiple disks; LUKS encryption is not yet supported
-
-
-
-
-## Wiki
-https://github.com/kan-linux/kan/wiki
 
 ## Acknowledgements
 - Inspired by Omarchy(**"Convention over Configuration"**) and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
@@ -104,9 +98,6 @@ https://github.com/kan-linux/kan/wiki
 - Discussions, issues and PRs should include **human-written content**. **AI-assisted polish is accepted and welcomed**(many of us are non-native English speakers). What matters is not who typed the content but whether a human understands it.
 - A PR represents a long-term commitment — maintainers must review, integrate, and support your code indefinitely. What matters is not who wrote the code but whether a human understands it: **either fully, or at the 70–90% level, and is able to explain major change to reviewers, even with AI assistance**.
 - Fully AI-generated content and fully automated PRs are not permitted. We value human connection and communication over fully AI-driven interaction.
-
-
-
 
 ## Trademarks
 This project may include trademarks or logos belonging to third parties. Use of any third-party trademarks is governed by their respective policies.
