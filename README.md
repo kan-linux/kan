@@ -76,7 +76,7 @@ https://github.com/kan-linux/kan/wiki
 ## Language Policy and AI Policy
 
 - To facilitate clear and effective communication, all discussions, comments, documentation, and PRs in this project **should be** conducted in English, this ensures that all contributors can participate and collaborate effectively.
-- English and Chinese are **both fine** for issues and discussions.
+- English and Chinese are **both fine** for issues,discussions and wiki.
 - Discussions, issues and PRs should include **human-written content**. **AI-assisted polish is accepted and welcomed**(many of us are non-native English speakers). What matters is not who typed the content but whether a human understands it.
 - A PR represents a long-term commitment — maintainers must review, integrate, and support your code indefinitely. What matters is not who wrote the code but whether a human understands it: **either fully, or at the 70–90% level, and is able to explain major change to reviewers, even with AI assistance**.
 - Fully AI-generated content and fully automated PRs are not permitted. We value human connection and communication over fully AI-driven interaction.
