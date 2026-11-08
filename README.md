@@ -44,10 +44,10 @@ The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux d
 - Agent-First — **No package manager**. AI agents autonomously compile, deploy, install components, run system checks and resolve issues.
 
 #### Differences and Connections with Omarchy
-- Omarchy targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**.
-- **Kan‑Linux targets programmers, AI researchers and Linux distribution builders**, providing a neutral Wayland underlying graphics platform. Its core goals are **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
+- Omarchy-Linux targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**. **Kan‑Linux targets programmers, AI researchers and Linux distribution builders**, providing a neutral Wayland underlying graphics platform. Its core goals are **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
 - Kan‑Linux draws inspiration from [Omarchy’s desktop shell](https://github.com/kan-linux/omarchy), and integrates it as our optional early default desktop shell. We port this tasteful shell as an upper-layer UI example to show the capabilities of the Kan-Linux platform. Even if we remove or disable the Omarchy desktop shell in the future due to unexpected reasons, the whole system and graphics infrastructure can still run fully and independently.
-- Omarchy is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
+- Omarchy-Linux is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
+- Kan-Linux provides Omarchy-comparable desktop UI and keybindings plus powerful development environments for programmers and AI Agents.
 
 #### Screenshots and LiveISO
 
