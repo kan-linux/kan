@@ -66,6 +66,7 @@ https://github.com/kan-linux/kan/wiki
 - Tested and verified on limited x86-64 laptops and PCs
 - Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist
 - The installer supports only single-OS installation to a specified partition or a standalone disk among multiple disks; LUKS encryption is not yet supported
+- Potential undisclosed vulnerabilities in the Linux kernel and featured components
 
 ## Acknowledgements
 - Inspired by Omarchy(**"Convention over Configuration"**) and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
