@@ -35,7 +35,7 @@ The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux d
 - Simplicity — Eliminate overly complex wrapper layers and overengineering, following the **core philosophy** of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Not dependent on any existing Linux distribution**.
 - **Do not adopt GNOME or KDE desktop stacks** even though GTK and Qt are really good. Instead, it builds a lean, minimal desktop environment on its own, with pluggable applications and no mandatory global metadata, introspection, or highly complex hidden runtime contracts.
 - Monorepo — Drawing lessons from **many** existing Linux distributions and the **highly sophisticated [Yocto](https://www.yoctoproject.org/)** Project, the project uses an AOSP-style single-repository architecture. All source code lives in one repository to simplify development, building and maintenance.
-- Secure — The goal is not to build an unbreakable Linux distro, but to minimize attack surface and maximize SBOM/supply-chain security.
+- Secure — The goal is not to build an unbreakable Linux distro, but to minimize TCB/attack surface and maximize SBOM/supply-chain security.
   - Single-user desktop computing — Optimized for single-user desktop workflows to minimize attack surface.
   - Source-Built — The entire OS and all components (excluding prebuilt components such as Go, Rust, Firefox, Vulkan SDK, MiMo-Code, and user-installed components) are built from source, maximize SBOM and supply-chain security.
   - AI-native security audit pipeline — Kan-Linux embeds LLM-based source-level security audit (GLM-5.3 and other top-tier LLM models) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to source pre-admission auditing.
