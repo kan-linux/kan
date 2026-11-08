@@ -55,11 +55,11 @@ Drawing inspiration from the policy models of Red Hat’s RHEL and [XZ Utils bac
 
 Our customized Omarchy desktop shell, ggml-hexagon inference backend, customized fcitx, customized Hyprland...... and documentation remain fully open-source. 
 
-We have benefited from the open-source community, and we wish to contribute back to it. A full list of our contributions to the open-source community can be found in https://github.com/kan-linux/kan/discussions/7
+We have benefited from the open-source community, and we wish to contribute back to it. A full list of our contributions to the open-source community can be found in https://github.com/kan-linux/kan/wiki/Our-contributions-to-the-open%E2%80%90source-community
 
 #### Contribute to Kan-Linux’s custom desktop shell
 
-We maintain [a customized Omarchy desktop shell](https://github.com/kan-linux/omarchy). It is actively used within Kan-Linux. Your contributions will land in the next Kan-Linux release, or you can [manually update the local desktop shell in installed Kan-Linux](https://github.com/kan-linux/kan/discussions/9) in real time.
+We maintain [a customized Omarchy desktop shell](https://github.com/kan-linux/omarchy). It is actively used within Kan-Linux. Your contributions will land in the next Kan-Linux release, or you can [manually update the local desktop shell in installed Kan-Linux](https://github.com/kan-linux/kan/wiki/How-to-update-desktop%E2%80%90shell-on-your-installed-Kan%E2%80%90Linux) in real time.
 
 - Contributors can [open PRs](https://github.com/kan-linux/omarchy/pulls)
 - Collaborators will be invited based on contributions
