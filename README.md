@@ -43,7 +43,11 @@ The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux d
 - llama.cpp-First — Built-in native llama.cpp edge inference engine for **local AI deployment**.
 - Agent-First — **No package manager**. AI agents autonomously compile, deploy, install components, run system checks and resolve issues.
 
-
+#### Differences and Connections with Omarchy
+- Omarchy targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**.
+- **Kan‑Linux targets programmers, AI researchers and Linux distribution builders**, providing a neutral Wayland underlying graphics platform. Its core goals are **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
+- Kan‑Linux draws inspiration from [Omarchy’s desktop shell](https://github.com/kan-linux/omarchy), and integrates it as our optional early default desktop shell. We port this tasteful shell as an upper-layer UI example to show the capabilities of the Kan-Linux platform. Even if we remove or disable the Omarchy desktop shell in the future due to unexpected reasons, the whole system and graphics infrastructure can still run fully and independently.
+- Omarchy is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
 
 #### Screenshots and LiveISO
 
@@ -75,17 +79,6 @@ https://github.com/kan-linux/kan/wiki
 We welcome feedback via [issues](https://github.com/kan-linux/kan/issues) for any problems you encounter when testing the LiveISO in virtual machines or real hardware, or after installing Kan-Linux on physical x86-64 laptops and PCs.
 
 
-## Roadmap
-- [x] Stage 1: Complete [PoC validation](https://github.com/kan-linux/kan/releases/tag/v0.2.6) of Kan-Linux via QEMU virtual machine
-- [x] Stage 2.1: Integrate a preliminary, feature-limited, [customized Omarchy desktop shell](https://github.com/kan-linux/omarchy/tree/kan) and login greeter for QEMU virtual machine environments
-- [x] Stage 2.2: Enable and validate Kan-Linux installer via QEMU virtual machine
-- [x] Stage 2.3: Refine and stabilize via QEMU virtual machine
-- [x] Stage 2.4: Enable and validate the Kan-Linux boot and runtime support for physical x86_64 desktop PCs / laptops
-- [x] Stage 2.5: Integrate desktop-native AI Agent in Kan-Linux on physical x86_64 hardware
-- [ ] Milestone: Kan-Linux achieves full self-hosting. All subsequent development, building and iteration of Kan-Linux will happen **inside Kan-Linux itself**.
-- [ ] Stage 2.6: Refine and stabilize for physical x86_64 desktops / laptops
-- [ ] Stage 3: Refine and stabilized Kan-Linux on physical x86_64 hardware
-
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
 - Tested and verified on limited x86-64 laptops and PCs
@@ -93,11 +86,10 @@ We welcome feedback via [issues](https://github.com/kan-linux/kan/issues) for an
 - The installer supports only single-OS installation to a specified partition or a standalone disk among multiple disks; LUKS encryption is not yet supported
 
 
-## Differences and Connections with Omarchy
-- Omarchy targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**.
-- **Kan‑Linux targets programmers, AI researchers and Linux distribution builders**, providing a neutral Wayland underlying graphics platform. Its core goals are **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
-- Kan‑Linux draws inspiration from [Omarchy’s desktop shell](https://github.com/kan-linux/omarchy), and integrates it as our optional early default desktop shell. We port this tasteful shell as an upper-layer UI example to show the capabilities of the Kan-Linux platform. Even if we remove or disable the Omarchy desktop shell in the future due to unexpected reasons, the whole system and graphics infrastructure can still run fully and independently.
-- Omarchy is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
+
+
+## Wiki
+https://github.com/kan-linux/kan/wiki
 
 ## Acknowledgements
 - Inspired by Omarchy(**"Convention over Configuration"**) and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
@@ -113,5 +105,9 @@ We welcome feedback via [issues](https://github.com/kan-linux/kan/issues) for an
 - A PR represents a long-term commitment — maintainers must review, integrate, and support your code indefinitely. What matters is not who wrote the code but whether a human understands it: **either fully, or at the 70–90% level, and is able to explain major change to reviewers, even with AI assistance**.
 - Fully AI-generated content and fully automated PRs are not permitted. We value human connection and communication over fully AI-driven interaction.
 
+
+
+
 ## Trademarks
 This project may include trademarks or logos belonging to third parties. Use of any third-party trademarks is governed by their respective policies.
+
