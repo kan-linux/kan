@@ -38,6 +38,7 @@ The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux d
 - Secure — The goal is not to build an unbreakable Linux distro, but to minimize TCB/attack surface and maximize SBOM/supply-chain security.
   - Single-user desktop computing — Optimized for single-user desktop workflows to minimize attack surface.
   - Source-Built — The entire OS and all components (excluding prebuilt components such as Go, Rust, Firefox, Vulkan SDK, MiMo-Code, and user-installed components) are built from source, maximize SBOM and supply-chain security.
+  - Do not adopt SELinux due to minimize TCB.
   - AI-native security audit pipeline — Kan-Linux embeds LLM-based source-level security audit (GLM-5.3 and other top-tier LLM models) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to source pre-admission auditing.
 - llama.cpp-First — Built-in native llama.cpp edge inference engine for **local AI deployment**.
 - Agent-First — **No package manager**. AI agents autonomously compile, deploy, install components, run system checks and resolve issues.
