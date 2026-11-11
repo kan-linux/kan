@@ -32,16 +32,25 @@
 The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux distro at the edge --- locally and in the cloud.
 
 #### Design Principles
-- Simplicity — Eliminate overly complex wrapper layers and overengineering, following the **core philosophy** of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Not dependent on any existing Linux distribution**.
-- **Do not adopt GNOME or KDE desktop stacks** even though GTK and Qt are really good. Instead, it builds a lean, minimal desktop environment on its own, with pluggable applications and no mandatory global metadata, introspection, or highly complex hidden runtime contracts.
-- Monorepo — Drawing lessons from **many** existing Linux distributions and the **highly sophisticated [Yocto](https://www.yoctoproject.org/)** Project, the project uses an AOSP-style single-repository architecture. All source code lives in one repository to simplify development, building and maintenance.
-- Secure — The goal is not to build an unbreakable Linux distro, but to minimize TCB/attack surface and maximize SBOM/supply-chain security.
-  - Single-user desktop computing — Optimized for single-user desktop workflows to minimize attack surface.
-  - Source-Built — The entire OS and all components (excluding prebuilt components such as Go, Rust, Firefox, Vulkan SDK, MiMo-Code, and user-installed components) are built from source, **maximize SBOM and supply-chain security**.
-  - **Do not adopt SELinux due to minimize TCB**.
-  - AI-native security audit pipeline — Kan-Linux embeds LLM-based source-level security audit (GLM-5.3 and other top-tier LLM models) as a mandatory gate before compilation. Security is shifted from "binary post-scanning" to source pre-admission auditing.
-- llama.cpp-First — Built-in native llama.cpp edge inference engine for **local AI deployment**.
-- Agent-First — **No package manager**. AI agents autonomously compile, deploy, install components, run system checks and resolve issues.
+- Simplicity --- Eliminate overly complex wrapper layers and overengineering, following the core philosophy of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Kan-Linux is not dependent on any existing Linux distribution.**
+  - Keep the LiveISO compact while supporting a rich set of modern desktop features.
+  - The full self-hosting bootstrapping pipeline covers only the OS base system. Heavy desktop applications are built separately on top of a fully bootstrapped Kan-Linux instance and distributed as optional artifacts (similar to the pinned official Firefox tar.gz/tar.xz releases).
+  - **No GNOME or KDE desktop stacks.** While GTK and Qt are capable toolkits, Kan-Linux builds a lean, minimal desktop environment from scratch. Applications are pluggable, with no mandatory global metadata, introspection subsystems, or complex hidden runtime contracts.
+
+- Monorepo --- Drawing lessons from many existing Linux distributions and the highly complicated [Yocto Project](https://www.yoctoproject.org/), Kan-Linux adopts an AOSP-style single-repository architecture. All source code resides in one repository to simplify development, builds, and maintenance.
+
+- Secure --- Our goal is not an unbreakable system, but to shrink the TCB and attack surface, while maximizing SBOM clarity and supply-chain security.
+  - Optimized for single-user desktop workflows to reduce attack surface.
+  - Source-built --- The base OS and its components are compiled from source, with a small explicit exception list: prebuilt artifacts such as Go, Rust, Firefox, Vulkan SDK, and user-installed software. This maximizes SBOM transparency and supply-chain auditability.
+  - **SELinux is excluded intentionally to keep the TCB minimal.**
+  - AI-native security audit pipeline --- Kan-Linux embeds LLM-powered source-level security auditing (GLM-5.3 and other high-capability models) as a mandatory pre-compilation gate, complementing human review. Security validation shifts from post-hoc binary scanning to source-code admission review.
+  - 100% full self-hosting; 100% reproducible builds.
+
+- Agent-First
+  - **No traditional package manager.** AI agents are a core component of Kan-Linux: they autonomously compile, deploy, install components, run system health checks, and resolve issues.
+  - llama.cpp-First --- A native, integrated llama.cpp edge inference engine is provided for local AI deployment.
+  - Maintain a balance between Agent-first automation and plain human-readable interfaces and workflows.
+
 
 #### Differences and Connections with Omarchy
 - Omarchy-Linux targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**. **Kan‑Linux targets programmers, AI researchers and Linux distribution builders**, providing a neutral Wayland underlying graphics platform. Its core goals are **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
