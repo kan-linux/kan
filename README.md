@@ -34,7 +34,7 @@ The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux d
 #### Design Principles
 - Simplicity --- Eliminate overly complex wrapper layers and overengineering, following the core philosophy of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Kan-Linux is not dependent on any existing Linux distribution.**
   - Keep the LiveISO compact while supporting a rich set of modern desktop features.
-  - The full self-hosting bootstrapping pipeline covers only the OS base system. Heavy desktop applications(chromium,office suite...) are built separately on top of a fully bootstrapped Kan-Linux instance and distributed as optional artifacts (similar to the pinned official Firefox tar.gz/tar.xz releases).
+  - The full self-hosting bootstrapping pipeline covers only the OS base system. Heavy desktop applications(chromium,[office suite](https://www.libreoffice.org/download-other/)...) are built separately on top of a fully bootstrapped Kan-Linux instance and distributed as optional artifacts (similar to the pinned official Firefox tar.gz/tar.xz releases).
   - **No GNOME or KDE desktop stacks.** While GTK and Qt are capable toolkits, Kan-Linux builds a lean, minimal desktop environment from scratch. Applications are pluggable, with no mandatory global metadata, introspection subsystems, or complex hidden runtime contracts.
 
 - Monorepo --- Drawing lessons from many existing Linux distributions and the highly complicated [Yocto Project](https://www.yoctoproject.org/), Kan-Linux adopts an AOSP-style single-repository architecture. All source code resides in one repository to simplify development, builds, and maintenance.
