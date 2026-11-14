@@ -1,8 +1,9 @@
 #!/bin/bash
-# install-prebuilts.sh - download and install the Go, Rust, Firefox,
-# MiMoCode and LunarG Vulkan SDK official-binary prebuilts.
+# Download and install the Go, Rust, Oracle JDK and LunarG Vulkan SDK
 #
-# Runs as root on a kanlinux system (VM or bare metal), either manually by
+# Download and update the Firefox, MiMoCode and LibreOffice official-binary prebuilts.
+#
+# Runs as root on a Kan-Linux system (VM or bare metal), either manually by
 # the user or by the built-in agent. x86_64 Linux only. Toolchains/apps come
 # from the official release tarballs and are installed under /opt so they
 # stay separate from the base system. PATH is a rootfs convention
@@ -11,13 +12,15 @@
 #
 # Conventions (convention over configuration - the script never prompts):
 #   - Must run as root; otherwise it prints an error and exits.
-#   - Default target is all: install all five (firefox first, then go, rust,
-#     mimocode, vulkan). Firefox ships preinstalled and is skipped unless
-#     --force.
+#   - No-arg default installs the three toolchains in one pass: go, jdk, rust
+#     (that order - rust is the slowest download, so go and jdk are ready
+#     first). install adds vulkan to the set (go, jdk, vulkan, rust). update
+#     is the app pass: download and update the three prebuilts (firefox,
+#     mimocode, libreoffice).
 #   - If an install directory already exists it is removed first, then the
 #     tarball is downloaded (frees disk before the download). No confirmation.
-#   - Exception: Firefox ships preinstalled with the OS and is never replaced
-#     unless --force is given.
+#     This includes Firefox: it ships preinstalled with the OS but is replaced
+#     like every other target (setup_firefox_config re-applies its config).
 #   - Free space is checked before any download: about 10G must be free on the
 #     /opt filesystem, otherwise the run refuses up front.
 #   - All deletions go through safe_rm_rf: empty/relative/..// paths and
@@ -26,66 +29,61 @@
 #
 # Official distribution URLs only (go.dev, static.rust-lang.org,
 # download-installer.cdn.mozilla.net, github.com/XiaomiMiMo/MiMo-Code,
-# sdk.lunarg.com). No third-party mirrors.
+# sdk.lunarg.com, download.oracle.com). No third-party mirrors.
 set -euo pipefail
 
-GO_DEFAULT_VERSION=1.27.2
-RUST_DEFAULT_VERSION=1.99.1
-FIREFOX_DEFAULT_VERSION=158.0.1
+GO_DEFAULT_VERSION=1.27.4
+RUST_DEFAULT_VERSION=1.100.0
+FIREFOX_DEFAULT_VERSION=160.0
 MIMOCODE_DEFAULT_VERSION=0.1.16
-VULKAN_DEFAULT_VERSION=1.4.321.0
+#unexpected issue for /opt/vulkan/bin/vulkanCapsViewer with higher version
+VULKAN_DEFAULT_VERSION=1.4.304.1
+JDK_DEFAULT_VERSION=27.0.1.0.3
+LIBREOFFICE_DEFAULT_VERSION=26.8.3.1
+
 GO_ROOT=/opt/go
 RUST_ROOT=/opt/rust
 FIREFOX_ROOT=/opt/firefox
 MIMOCODE_ROOT=/opt/mimocode
 VULKAN_ROOT=/opt/vulkan
-# kan-linux is x86_64-only; keep these in sync with the distro target.
-GO_TARBALL_OS_ARCH=linux-amd64
-RUST_TARBALL_TRIPLE=x86_64-unknown-linux-gnu
-FIREFOX_TARBALL_OS_ARCH=linux-x86_64
-FIREFOX_LOCALE=en-US
-VULKAN_TARBALL_OS_ARCH=linux-x86_64
+JDK_ROOT=/opt/jdk
+# LibreOffice installs under a versioned dir (/opt/libreoffice26.8, ...) —
+# exact name is discovered from the AppImage at install time.
+LIBREOFFICE_ROOT_PREFIX=/opt/libreoffice
 
 log()  { echo "[install-prebuilts] $*"; }
 die()  { echo "[install-prebuilts] ERROR: $*" >&2; exit 1; }
 
 usage() {
     cat <<'EOF'
-Usage: install-prebuilts.sh [go|rust|firefox|mimocode|vulkan|all] [--version <ver>] [--force]
+Usage: install-prebuilts.sh [install|update|go|rust|firefox|mimocode|vulkan|jdk|libreoffice] [--version <ver>]
 
-Download and install the Go and/or Rust toolchains, Firefox, MiMoCode and
-the LunarG Vulkan SDK to /opt. Must run as root. An existing install
-directory is removed first, then the new tarball is downloaded - no
-confirmation is asked. Firefox is the exception: it is preinstalled with
-the OS and is left untouched unless --force is given.
-
-  go       Install the Go toolchain to /opt/go
-  rust     Install the Rust toolchain to /opt/rust
-  firefox  Install Firefox to /opt/firefox
-  mimocode Install MiMoCode to /opt/mimocode
-  vulkan   Install the LunarG Vulkan SDK to /opt/vulkan
-  all      Install all five (firefox first, then go, rust, mimocode, vulkan) (default)
+  (no args)    Download and install the three toolchains: go, jdk and rust
+  install      Download and install the four toolchains:  go, jdk, rust and vulkan
+  update       Download and update the three prebuilts:   firefox, mimocode and libreoffice
+  go           Install the Go toolchain to       /opt/go
+  rust         Install the Rust toolchain to     /opt/rust
+  jdk          Install the Oracle JDK to         /opt/jdk
+  vulkan       Install the LunarG Vulkan SDK to  /opt/vulkan
+  firefox      Update Firefox at                 /opt/firefox
+  mimocode     Update MiMoCode at                /opt/mimocode
+  libreoffice  Update LibreOffice at             /opt/libreoffice<ver>
 
 Options:
-  --version <ver>   Go: release version, e.g. 1.27.2
-                    Rust: release version, e.g. 1.99.1
-                    Firefox: release version, e.g. 158.0.1
-                    MiMoCode: release version, e.g. 0.1.16
-                    Vulkan SDK: release version, e.g. 1.4.321.0
-                    With 'all', applies to the toolchain named just before it;
-                    otherwise use separate invocations.
-  --force           Replace an existing Firefox install (the only target
-                    where an existing directory is not removed by default)
-
-Toolchains are already on PATH (rootfs default).
+  --version <ver>   Pin a release; must follow a specific target (go, rust,
+                    jdk, vulkan, firefox, mimocode, libreoffice)
 
 Examples:
   install-prebuilts.sh
-  install-prebuilts.sh firefox --version 158.0.1
-  install-prebuilts.sh go --version 1.27.2
-  install-prebuilts.sh rust --version 1.99.1
+  install-prebuilts.sh install
+  install-prebuilts.sh update
+  install-prebuilts.sh firefox
+  install-prebuilts.sh firefox --version 160.0
+  install-prebuilts.sh go --version 1.27.4
+  install-prebuilts.sh rust --version 1.100.0
   install-prebuilts.sh mimocode --version 0.1.16
-  install-prebuilts.sh vulkan --version 1.4.321.0
+  install-prebuilts.sh jdk
+  install-prebuilts.sh libreoffice
 EOF
 }
 
@@ -105,7 +103,7 @@ require_root() {
 # filling the disk mid-install. Checked on the /opt filesystem (installs land
 # there; the /tmp scratch tarballs usually share the same fs).
 require_free_space() {
-    local need_kb=$((10 * 1024 * 1024))
+    local need_kb=$((8 * 1024 * 1024))
     local avail_kb
     avail_kb=$(df -Pk /opt 2>/dev/null | awk 'NR == 2 { print $4 }' || true)
     case "${avail_kb}" in
@@ -125,6 +123,8 @@ replace_dir() {
     if path_exists "${dir}"; then
         log "removing existing ${dir}"
         safe_rm_rf "${dir}"
+    else
+        log "no existing ${dir}, fresh install"
     fi
 }
 
@@ -157,7 +157,7 @@ safe_rm_rf() {
     # SCRATCH_ROOT is matched only when it has been initialized, so an empty
     # variable can never turn "${SCRATCH_ROOT}"/* into a bare /* pattern.
     case "${target}" in
-        "${GO_ROOT}"|"${RUST_ROOT}"|"${FIREFOX_ROOT}"|"${MIMOCODE_ROOT}"|"${VULKAN_ROOT}")
+        "${GO_ROOT}"|"${RUST_ROOT}"|"${FIREFOX_ROOT}"|"${MIMOCODE_ROOT}"|"${VULKAN_ROOT}"|"${JDK_ROOT}"|"${LIBREOFFICE_ROOT_PREFIX}"*)
             ;;
         *)
             [ -n "${SCRATCH_ROOT}" ] || die "safe_rm_rf: refusing path outside allowlist: ${target}"
@@ -240,17 +240,6 @@ detect_vm() {
     return 1
 }
 
-fetch() {
-    local url="$1" dest="$2"
-    if have curl; then
-        curl -fL --progress-bar "$url" -o "$dest"
-    elif have wget; then
-        wget -O "$dest" "$url"
-    else
-        die "neither curl nor wget is available"
-    fi
-}
-
 # Go's release tarball unpacks to a "go/" directory. Extract into /opt so the
 # toolchain lands at /opt/go with GOROOT=/opt/go and binaries in /opt/go/bin.
 install_go() {
@@ -263,7 +252,7 @@ install_go() {
 
     replace_dir "${GO_ROOT}"
 
-    tarball="go${version}.${GO_TARBALL_OS_ARCH}.tar.gz"
+    tarball="go${version}.linux-amd64.tar.gz"
     url="https://go.dev/dl/${tarball}"
     tmp="$(scratch_dir go)"
 
@@ -283,7 +272,7 @@ install_go() {
 # assumes. rustup cannot produce this split.
 install_rust() {
     local version="$1"
-    local tmp triple tarball url
+    local tmp tarball url
 
     # Accept "1.99.1" or "rust-1.99.1".
     version="${version#rust-}"
@@ -291,8 +280,7 @@ install_rust() {
 
     replace_dir "${RUST_ROOT}"
 
-    triple="${RUST_TARBALL_TRIPLE}"
-    tarball="rust-${version}-${triple}.tar.xz"
+    tarball="rust-${version}-x86_64-unknown-linux-gnu.tar.xz"
     url="https://static.rust-lang.org/dist/${tarball}"
     tmp="$(scratch_dir rust)"
 
@@ -309,9 +297,9 @@ install_rust() {
     # own sysroot at lib/rustlib/<triple>/lib. Without merging them, rustc
     # fails with E0463 (can't find crate for `std`).
     local std_lib sysroot_triple
-    for std_lib in "${RUST_ROOT}"/rust-std-*/lib/rustlib/${RUST_TARBALL_TRIPLE}/lib; do
+    for std_lib in "${RUST_ROOT}"/rust-std-*/lib/rustlib/x86_64-unknown-linux-gnu/lib; do
         [ -d "${std_lib}" ] || continue
-        sysroot_triple="${RUST_ROOT}/rustc/lib/rustlib/${RUST_TARBALL_TRIPLE}"
+        sysroot_triple="${RUST_ROOT}/rustc/lib/rustlib/x86_64-unknown-linux-gnu"
         mkdir -p "${sysroot_triple}"
         [ -d "${sysroot_triple}/lib" ] || cp -a "${std_lib}" "${sysroot_triple}/lib"
     done
@@ -322,24 +310,9 @@ install_rust() {
     log "Cargo installed: $(${RUST_ROOT}/cargo/bin/cargo --version)"
 }
 
-# Firefox: official Mozilla release tarball unpacks to a "firefox/" directory.
-# Extract into /opt so the app lands at /opt/firefox with the binary at
-# /opt/firefox/firefox. Then apply the same runtime config as rootfs
-# setup_firefox(): ld.so path, Widevine CDM (vendored at /usr/lib/cdm/widevine,
-# installed into rootfs by setup_prebuilts), enterprise policies, default prefs.
-# Runs inside kanlinux (no ${LFS} prefix).
 download_setup_firefox() {
     local version="$1"
     local tmp tarball url
-
-    # Firefox is preinstalled in the OS rootfs. Unlike the dev toolchains
-    # (which are replace-on-run), never delete an existing install silently -
-    # the preinstalled one is part of the base system. Refuse unless --force.
-    if [ -e "${FIREFOX_ROOT}" ] && [ "$FORCE" -eq 0 ]; then
-        log "Firefox is already present at ${FIREFOX_ROOT} (preinstalled with the OS)."
-        log "Not replacing it. Use --force to delete and reinstall."
-        return 0
-    fi
 
     # Accept both "158.0.1" and "firefox-158.0.1".
     version="${version#firefox-}"
@@ -348,7 +321,7 @@ download_setup_firefox() {
     replace_dir "${FIREFOX_ROOT}"
 
     tarball="firefox-${version}.tar.xz"
-    url="https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/${FIREFOX_TARBALL_OS_ARCH}/${FIREFOX_LOCALE}/${tarball}"
+    url="https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/linux-x86_64/en-US/${tarball}"
     tmp="$(scratch_dir firefox)"
 
     log "Downloading Firefox ${version} from ${url}"
@@ -432,9 +405,6 @@ FFEOF
 
 # MiMoCode: official GitHub release tarball unpacks to a single "mimo"
 # binary. Install to /opt/mimocode/bin/mimo and symlink /usr/local/bin/mimo
-# (the layout setup_mimocode expects). On x64 without AVX2 (e.g. QEMU with
-# qemu64 CPU) the non-baseline binary SIGILLs, so fall back to the
-# -baseline artifact — same detection the official installer uses.
 install_mimocode() {
     local version="$1"
     local tmp tarball url target
@@ -473,15 +443,11 @@ install_mimocode() {
     log "launcher symlinked: /usr/local/bin/mimo"
 }
 
-# LunarG Vulkan SDK: official sdk.lunarg.com tarball. Unpacks to
-# <version>/<arch>/ with bin/, include/, lib/, share/ (validation layers
-# in share/vulkan/explicit_layer.d). Installed to /opt/vulkan (the <arch>/
-# level) as developer tooling; the Vulkan runtime is the system's own.
 install_vulkan() {
     local version="$1"
     local tmp tarball url arch_dir
 
-    # Accept "1.4.321.0" or "vulkan-1.4.321.0" or "vulkansdk-1.4.321.0".
+    # Accept "1.4.304.1" or "vulkan-1.4.304.1" or "vulkansdk-1.4.304.1".
     version="${version#vulkan-}"
     version="${version#vulkansdk-}"
     version="${version#v}"
@@ -500,7 +466,7 @@ install_vulkan() {
     # Tarball layout: <version>/x86_64/{bin,include,lib,share}
     mkdir -p "${VULKAN_ROOT}"
     tar -C "${tmp}" -xJf "${tmp}/${tarball}"
-    arch_dir="${tmp}/${version}/${VULKAN_TARBALL_OS_ARCH#linux-}"
+    arch_dir="${tmp}/${version}/x86_64"
     # Fallback: some builds use a "x86_64" dir; also accept the single child dir.
     if [ ! -d "${arch_dir}" ]; then
         arch_dir="$(find "${tmp}" -mindepth 2 -maxdepth 2 -type d \( -name x86_64 -o -name amd64 \) | head -1)"
@@ -517,6 +483,105 @@ install_vulkan() {
     log "vulkaninfo: ${VULKAN_ROOT}/bin/vulkaninfo"
 }
 
+install_jdk() {
+    local version="$1"
+    local tmp tarball url
+
+    # Accept "27.0.1.0.3" or "jdk-27.0.1.0.3".
+    version="${version#jdk-}"
+    [ -n "${version}" ] || die "JDK version must not be empty"
+
+    replace_dir "${JDK_ROOT}"
+
+    tmp="$(scratch_dir jdk)"
+    if [ "${version}" = "latest" ]; then
+        tarball="jdk-27_linux-x64_bin.tar.gz"
+        url="https://download.oracle.com/java/27/latest/${tarball}"
+    else
+        tarball="jdk-${version}_linux-x64_bin.tar.gz"
+        url="https://download.oracle.com/java/27/archive/${tarball}"
+    fi
+
+    log "Downloading JDK ${version} from ${url}"
+    fetch "$url" "${tmp}/${tarball}"
+
+    log "Installing JDK to ${JDK_ROOT}"
+    # --strip-components=1 drops the jdk-<ver>/ wrapper so the tree lands
+    # directly at /opt/jdk (matches rootfs setup_jdk() layout).
+    mkdir -p "${JDK_ROOT}"
+    tar -C "${JDK_ROOT}" --strip-components=1 -xzf "${tmp}/${tarball}"
+
+    [ -x "${JDK_ROOT}/bin/java" ] || die "JDK install failed: ${JDK_ROOT}/bin/java not found"
+
+    # PATH entry (/usr/local/bin is ahead of /usr/bin) + JAVA_HOME —
+    # mirror of rootfs setup_jdk().
+    mkdir -p /usr/local/bin
+    local _tool _name
+    for _tool in "${JDK_ROOT}"/bin/*; do
+        [ -f "${_tool}" ] || continue
+        _name=$(basename "${_tool}")
+        ln -sfn "${JDK_ROOT}/bin/${_name}" "/usr/local/bin/${_name}"
+    done
+
+    mkdir -p /etc/profile.d
+    cat > /etc/profile.d/jdk.sh << 'EOF'
+export JAVA_HOME="${JAVA_HOME:-/opt/jdk}"
+EOF
+
+    log "JDK installed: $(${JDK_ROOT}/bin/java -version 2>&1 | head -1)"
+    log "JAVA_HOME set in /etc/profile.d/jdk.sh; open a new shell to pick it up"
+}
+
+install_libreoffice() {
+    local version="$1"
+    local tmp tarball url lo_dir old
+
+    # Accept "26.8.3.1" or "libreoffice-26.8.3.1".
+    version="${version#libreoffice-}"
+    [ -n "${version}" ] || die "LibreOffice version must not be empty"
+
+    tmp="$(scratch_dir libreoffice)"
+    if [ "${version}" = "latest" ]; then
+        tarball="LibreOffice-latest.standard-x86_64.AppImage"
+    else
+        tarball="LibreOffice-${version}.standard-x86_64.AppImage"
+    fi
+    url="https://appimages.libreitalia.org/${tarball}"
+
+    log "Downloading LibreOffice ${version} from ${url}"
+    fetch "$url" "${tmp}/${tarball}"
+
+    log "Extracting AppImage"
+    chmod +x "${tmp}/${tarball}"
+    ( cd "${tmp}" && "./${tarball}" --appimage-extract >/dev/null )
+
+    lo_dir="$(echo "${tmp}"/squashfs-root/opt/libreoffice*)"
+    [ -d "${lo_dir}" ] || die "LibreOffice tree not found under ${tmp}/squashfs-root/opt"
+
+    # Replace-on-run like every other target; versioned names may differ
+    # across updates (/opt/libreoffice26.8 -> /opt/libreoffice27.x), so clear
+    # any previous install first.
+    for old in "${LIBREOFFICE_ROOT_PREFIX}"*; do
+        path_exists "${old}" && safe_rm_rf "${old}"
+    done
+
+    log "Installing LibreOffice to /opt"
+    cp -a "${lo_dir}" /opt/
+    cp -a "${tmp}"/squashfs-root/usr/. /usr/
+
+    # Draw/Impress fail to start in this build — drop their menu entries.
+    rm -f /usr/share/applications/libreoffice*-draw.desktop \
+          /usr/share/applications/libreoffice*-base.desktop \
+          /usr/share/applications/libreoffice*-startcenter.desktop \
+          /usr/share/applications/libreoffice*-impress.desktop
+
+    have update-desktop-database && update-desktop-database /usr/share/applications 2>/dev/null || true
+    have update-mime-database && update-mime-database /usr/share/mime 2>/dev/null || true
+
+    log "LibreOffice installed: ${lo_dir##*/squashfs-root}"
+    log "launch from the app menu (desktop entries installed) or run ${lo_dir##*/squashfs-root/opt/}"
+}
+
 main() {
     local target=""
     local go_version="$GO_DEFAULT_VERSION"
@@ -524,8 +589,9 @@ main() {
     local firefox_version="$FIREFOX_DEFAULT_VERSION"
     local mimocode_version="$MIMOCODE_DEFAULT_VERSION"
     local vulkan_version="$VULKAN_DEFAULT_VERSION"
+    local jdk_version="$JDK_DEFAULT_VERSION"
+    local libreoffice_version="$LIBREOFFICE_DEFAULT_VERSION"
     local last_target=""
-    FORCE=0
 
     require_root
 
@@ -533,22 +599,22 @@ main() {
 
     while [ $# -gt 0 ]; do
         case "$1" in
-            go|rust|firefox|mimocode|vulkan|all)
+            go|rust|firefox|mimocode|vulkan|jdk|libreoffice|install|update)
                 target="$1"
                 last_target="$1"
-                ;;
-            --force|-f)
-                FORCE=1
                 ;;
             --version)
                 shift
                 [ $# -gt 0 ] || die "--version requires an argument"
-                case "${last_target:-firefox}" in
-                    rust)      rust_version="${1#rust-}" ;;
-                    firefox)   firefox_version="${1#firefox-}" ;;
-                    mimocode)  mimocode_version="${1#mimocode-}" ;;
-                    vulkan)    vulkan_version="${1#vulkan-}"; vulkan_version="${vulkan_version#v}" ;;
-                    *)         go_version="${1#go}" ;;
+                case "${last_target}" in
+                    go)          go_version="${1#go}" ;;
+                    rust)        rust_version="${1#rust-}" ;;
+                    firefox)     firefox_version="${1#firefox-}" ;;
+                    mimocode)    mimocode_version="${1#mimocode-}" ;;
+                    vulkan)      vulkan_version="${1#vulkan-}"; vulkan_version="${vulkan_version#v}" ;;
+                    jdk)         jdk_version="${1#jdk-}" ;;
+                    libreoffice) libreoffice_version="${1#libreoffice-}" ;;
+                    *)           die "--version must follow a specific target (go|rust|firefox|mimocode|vulkan|jdk|libreoffice); install/update take no --version" ;;
                 esac
                 ;;
             -h|--help)
@@ -562,10 +628,7 @@ main() {
         shift
     done
 
-    # Default: install all. Firefox is skipped when preinstalled (no
-    # --force), so a no-arg run still installs the rest instead of
-    # exiting on the Firefox presence check.
-    [ -n "$target" ] || target="all"
+    [ -n "$target" ] || target="default"
 
     # Preflight before any download/install begins.
     require_free_space
@@ -576,12 +639,23 @@ main() {
         firefox)  download_setup_firefox "$firefox_version" ;;
         mimocode) install_mimocode "$mimocode_version" ;;
         vulkan)   install_vulkan "$vulkan_version" ;;
-        all)
-            download_setup_firefox "$firefox_version"
+        jdk)      install_jdk "$jdk_version" ;;
+        libreoffice) install_libreoffice "$libreoffice_version" ;;
+        default)
             install_go "$go_version"
+            install_jdk "$jdk_version"
             install_rust "$rust_version"
-            install_mimocode "$mimocode_version"
+            ;;
+        install)
+            install_go "$go_version"
+            install_jdk "$jdk_version"
             install_vulkan "$vulkan_version"
+            install_rust "$rust_version"
+            ;;
+        update)
+            download_setup_firefox "$firefox_version"
+            install_mimocode "$mimocode_version"
+            install_libreoffice "$libreoffice_version"
             ;;
     esac
 
