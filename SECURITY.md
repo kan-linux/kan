@@ -31,3 +31,5 @@ Maintainers reserve the right to close the report if these requirements are not 
 https://www.debian.org/security/
 
 https://security-tracker.debian.org/tracker/source-package/linux
+
+https://sourceware.org/pipermail/libc-announce/2026
