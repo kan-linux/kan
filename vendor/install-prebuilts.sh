@@ -1,7 +1,7 @@
 #!/bin/bash
-# Download and install the Go, Rust, Oracle JDK and LunarG Vulkan SDK
+# Download and install the Go, Rust, Node.js, LibreOffice and LunarG Vulkan SDK
 #
-# Download and update the Firefox, MiMoCode and LibreOffice official-binary prebuilts.
+# Download and update the Firefox, MiMoCode and Oracle JDK
 #
 # Runs as root on a Kan-Linux system (VM or bare metal), either manually by
 # the user or by the built-in agent. x86_64 Linux only. Toolchains/apps come
@@ -12,15 +12,14 @@
 #
 # Conventions (convention over configuration - the script never prompts):
 #   - Must run as root; otherwise it prints an error and exits.
-#   - No-arg default installs the three toolchains in one pass: go, jdk, rust
-#     (that order - rust is the slowest download, so go and jdk are ready
-#     first). install adds vulkan to the set (go, jdk, vulkan, rust). update
-#     is the app pass: download and update the three prebuilts (firefox,
-#     mimocode, libreoffice).
+#   - No-arg default installs the three toolchains in one pass: go, nodejs, rust
+#     install adds libreoffice and vulkan to the set (go, nodejs, rust, libreoffice, vulkan).
+#     update is the in-image pass: download and update the three prebuilts (firefox, mimocode, jdk).
 #   - If an install directory already exists it is removed first, then the
 #     tarball is downloaded (frees disk before the download). No confirmation.
-#     This includes Firefox: it ships preinstalled with the OS but is replaced
-#     like every other target (setup_firefox_config re-applies its config).
+#     This includes the in-image targets (firefox, mimocode, jdk): they ship
+#     preinstalled with the OS but are replaced like every other target
+#     (setup_firefox_config re-applies its config).
 #   - Free space is checked before any download: about 10G must be free on the
 #     /opt filesystem, otherwise the run refuses up front.
 #   - All deletions go through safe_rm_rf: empty/relative/..// paths and
@@ -29,7 +28,7 @@
 #
 # Official distribution URLs only (go.dev, static.rust-lang.org,
 # download-installer.cdn.mozilla.net, github.com/XiaomiMiMo/MiMo-Code,
-# sdk.lunarg.com, download.oracle.com). No third-party mirrors.
+# sdk.lunarg.com, download.oracle.com, nodejs.org). No third-party mirrors.
 set -euo pipefail
 
 GO_DEFAULT_VERSION=1.27.4
@@ -39,6 +38,7 @@ MIMOCODE_DEFAULT_VERSION=0.1.16
 #unexpected issue for /opt/vulkan/bin/vulkanCapsViewer with higher version
 VULKAN_DEFAULT_VERSION=1.4.304.1
 JDK_DEFAULT_VERSION=27.0.1.0.3
+NODE_DEFAULT_VERSION=26.13.1
 LIBREOFFICE_DEFAULT_VERSION=26.8.3.1
 
 GO_ROOT=/opt/go
@@ -47,6 +47,7 @@ FIREFOX_ROOT=/opt/firefox
 MIMOCODE_ROOT=/opt/mimocode
 VULKAN_ROOT=/opt/vulkan
 JDK_ROOT=/opt/jdk
+NODE_ROOT=/opt/node
 # LibreOffice installs under a versioned dir (/opt/libreoffice26.8, ...) —
 # exact name is discovered from the AppImage at install time.
 LIBREOFFICE_ROOT_PREFIX=/opt/libreoffice
@@ -56,22 +57,23 @@ die()  { echo "[install-prebuilts] ERROR: $*" >&2; exit 1; }
 
 usage() {
     cat <<'EOF'
-Usage: install-prebuilts.sh [install|update|go|rust|firefox|mimocode|vulkan|jdk|libreoffice] [--version <ver>]
+Usage: install-prebuilts.sh [install|update|go|rust|firefox|mimocode|vulkan|jdk|node|libreoffice] [--version <ver>]
 
-  (no args)    Download and install the three toolchains: go, jdk and rust
-  install      Download and install the four toolchains:  go, jdk, rust and vulkan
-  update       Download and update the three prebuilts:   firefox, mimocode and libreoffice
+  (no args)    Download and install the three toolchains: go, nodejs and rust
+  install      Download and install the five components:  go, nodejs, libreoffice, vulkan and rust
+  update       Download and update the three prebuilts:   firefox, mimocode and jdk
   go           Install the Go toolchain to       /opt/go
-  rust         Install the Rust toolchain to     /opt/rust
-  jdk          Install the Oracle JDK to         /opt/jdk
+  node         Install the Node.js runtime to    /opt/node
+  libreoffice  Install LibreOffice at            /opt/libreoffice<ver>
   vulkan       Install the LunarG Vulkan SDK to  /opt/vulkan
+  rust         Install the Rust toolchain to     /opt/rust
   firefox      Update Firefox at                 /opt/firefox
   mimocode     Update MiMoCode at                /opt/mimocode
-  libreoffice  Update LibreOffice at             /opt/libreoffice<ver>
+  jdk          Update the Oracle JDK at          /opt/jdk
 
 Options:
   --version <ver>   Pin a release; must follow a specific target (go, rust,
-                    jdk, vulkan, firefox, mimocode, libreoffice)
+                    jdk, node, vulkan, firefox, mimocode, libreoffice)
 
 Examples:
   install-prebuilts.sh
@@ -83,6 +85,8 @@ Examples:
   install-prebuilts.sh rust --version 1.100.0
   install-prebuilts.sh mimocode --version 0.1.16
   install-prebuilts.sh jdk
+  install-prebuilts.sh node
+  install-prebuilts.sh node --version 26.13.1
   install-prebuilts.sh libreoffice
 EOF
 }
@@ -103,7 +107,7 @@ require_root() {
 # filling the disk mid-install. Checked on the /opt filesystem (installs land
 # there; the /tmp scratch tarballs usually share the same fs).
 require_free_space() {
-    local need_kb=$((8 * 1024 * 1024))
+    local need_kb=$((10 * 1024 * 1024))
     local avail_kb
     avail_kb=$(df -Pk /opt 2>/dev/null | awk 'NR == 2 { print $4 }' || true)
     case "${avail_kb}" in
@@ -157,7 +161,7 @@ safe_rm_rf() {
     # SCRATCH_ROOT is matched only when it has been initialized, so an empty
     # variable can never turn "${SCRATCH_ROOT}"/* into a bare /* pattern.
     case "${target}" in
-        "${GO_ROOT}"|"${RUST_ROOT}"|"${FIREFOX_ROOT}"|"${MIMOCODE_ROOT}"|"${VULKAN_ROOT}"|"${JDK_ROOT}"|"${LIBREOFFICE_ROOT_PREFIX}"*)
+        "${GO_ROOT}"|"${RUST_ROOT}"|"${FIREFOX_ROOT}"|"${MIMOCODE_ROOT}"|"${VULKAN_ROOT}"|"${JDK_ROOT}"|"${NODE_ROOT}"|"${LIBREOFFICE_ROOT_PREFIX}"*)
             ;;
         *)
             [ -n "${SCRATCH_ROOT}" ] || die "safe_rm_rf: refusing path outside allowlist: ${target}"
@@ -532,6 +536,45 @@ EOF
     log "JAVA_HOME set in /etc/profile.d/jdk.sh; open a new shell to pick it up"
 }
 
+# Node.js official tarball unpacks to node-v<ver>-linux-x64/. Extract with
+# --strip-components=1 into /opt/node. Rootfs PATH has no /opt/node/bin entry,
+# so bin tools are symlinked into /usr/local/bin (same as the JDK layout).
+install_node() {
+    local version="$1"
+    local tmp tarball url
+
+    # Accept "26.13.1", "v26.13.1", "node-26.13.1" or "node-v26.13.1".
+    version="${version#node-}"
+    version="${version#v}"
+    [ -n "${version}" ] || die "Node.js version must not be empty"
+
+    replace_dir "${NODE_ROOT}"
+
+    tarball="node-v${version}-linux-x64.tar.xz"
+    url="https://nodejs.org/dist/v${version}/${tarball}"
+    tmp="$(scratch_dir node)"
+
+    log "Downloading Node.js ${version} from ${url}"
+    fetch "$url" "${tmp}/${tarball}"
+
+    log "Installing Node.js to ${NODE_ROOT}"
+    mkdir -p "${NODE_ROOT}"
+    tar -C "${NODE_ROOT}" --strip-components=1 -xJf "${tmp}/${tarball}"
+
+    [ -x "${NODE_ROOT}/bin/node" ] || die "Node.js install failed: ${NODE_ROOT}/bin/node not found"
+
+    mkdir -p /usr/local/bin
+    local _tool _name
+    for _tool in "${NODE_ROOT}"/bin/*; do
+        [ -f "${_tool}" ] || [ -L "${_tool}" ] || continue
+        _name=$(basename "${_tool}")
+        ln -sfn "${NODE_ROOT}/bin/${_name}" "/usr/local/bin/${_name}"
+    done
+
+    log "Node.js installed: $(${NODE_ROOT}/bin/node --version)"
+    log "binaries symlinked: /usr/local/bin/{node,npm,npx,corepack}"
+}
+
 install_libreoffice() {
     local version="$1"
     local tmp tarball url lo_dir old
@@ -542,9 +585,9 @@ install_libreoffice() {
 
     tmp="$(scratch_dir libreoffice)"
     if [ "${version}" = "latest" ]; then
-        tarball="LibreOffice-latest.standard-x86_64.AppImage"
+        tarball="LibreOffice-latest.basic-x86_64.AppImage"
     else
-        tarball="LibreOffice-${version}.standard-x86_64.AppImage"
+        tarball="LibreOffice-${version}.basic-x86_64.AppImage"
     fi
     url="https://appimages.libreitalia.org/${tarball}"
 
@@ -590,6 +633,7 @@ main() {
     local mimocode_version="$MIMOCODE_DEFAULT_VERSION"
     local vulkan_version="$VULKAN_DEFAULT_VERSION"
     local jdk_version="$JDK_DEFAULT_VERSION"
+    local node_version="$NODE_DEFAULT_VERSION"
     local libreoffice_version="$LIBREOFFICE_DEFAULT_VERSION"
     local last_target=""
 
@@ -599,7 +643,7 @@ main() {
 
     while [ $# -gt 0 ]; do
         case "$1" in
-            go|rust|firefox|mimocode|vulkan|jdk|libreoffice|install|update)
+            go|rust|firefox|mimocode|vulkan|jdk|node|libreoffice|install|update)
                 target="$1"
                 last_target="$1"
                 ;;
@@ -613,8 +657,9 @@ main() {
                     mimocode)    mimocode_version="${1#mimocode-}" ;;
                     vulkan)      vulkan_version="${1#vulkan-}"; vulkan_version="${vulkan_version#v}" ;;
                     jdk)         jdk_version="${1#jdk-}" ;;
+                    node)        node_version="${1#node-}"; node_version="${node_version#v}" ;;
                     libreoffice) libreoffice_version="${1#libreoffice-}" ;;
-                    *)           die "--version must follow a specific target (go|rust|firefox|mimocode|vulkan|jdk|libreoffice); install/update take no --version" ;;
+                    *)           die "--version must follow a specific target (go|rust|firefox|mimocode|vulkan|jdk|node|libreoffice); install/update take no --version" ;;
                 esac
                 ;;
             -h|--help)
@@ -640,22 +685,24 @@ main() {
         mimocode) install_mimocode "$mimocode_version" ;;
         vulkan)   install_vulkan "$vulkan_version" ;;
         jdk)      install_jdk "$jdk_version" ;;
+        node)     install_node "$node_version" ;;
         libreoffice) install_libreoffice "$libreoffice_version" ;;
         default)
             install_go "$go_version"
-            install_jdk "$jdk_version"
+            install_node "$node_version"
             install_rust "$rust_version"
             ;;
         install)
             install_go "$go_version"
-            install_jdk "$jdk_version"
+            install_node "$node_version"
+            install_libreoffice "$libreoffice_version"
             install_vulkan "$vulkan_version"
             install_rust "$rust_version"
             ;;
         update)
             download_setup_firefox "$firefox_version"
             install_mimocode "$mimocode_version"
-            install_libreoffice "$libreoffice_version"
+            install_jdk "$jdk_version"
             ;;
     esac
 
