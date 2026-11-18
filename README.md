@@ -72,9 +72,10 @@ https://github.com/kan-linux/kan/wiki
 
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
+- Only the English version is available at present
 - Tested and verified on limited x86-64 laptops and PCs
 - Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist
-- The installer supports only single-OS installation to a specified partition or a standalone disk among multiple disks; LUKS encryption is not yet supported
+- The installer supports only single-OS installation to a specified partition or a standalone disk among multiple disks(this is a design choice, pls refer to ["why we do not offer dual‑boot or multi‑boot installation modes in Kan‑Linux"](https://github.com/kan-linux/kan/discussions/27)); LUKS encryption is not yet supported
 - Potential undisclosed vulnerabilities in the Linux kernel and featured components
 
 ## Acknowledgements
@@ -89,7 +90,7 @@ https://github.com/kan-linux/kan/wiki
 - English and Chinese are **both fine** for issues, discussions and wiki.
 - Discussions, issues and PRs should include **human-written content**. **AI-assisted polish is accepted and welcomed**(many of us are non-native English speakers). What matters is not who typed the content but whether a human understands it.
 - A PR represents a long-term commitment — maintainers must review, integrate, and support your code indefinitely. What matters is not who wrote the code but whether a human understands it: **either fully, or at the 70–90% level, and is able to explain major change to reviewers, even with AI assistance**.
-- Fully AI-generated content and fully automated PRs are not permitted. We value human connection and communication over fully AI-driven interaction.
+- Fully automated AI-generated content and fully automated PRs are not permitted. We value human connection and communication over fully AI-driven interaction.
 
 ## Trademarks
 This project may include trademarks or logos belonging to third parties. Use of any third-party trademarks is governed by their respective policies.

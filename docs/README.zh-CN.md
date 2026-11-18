@@ -52,7 +52,7 @@
 
 
 ## 截图与LiveISO
-详见：https://github.com/kan-linux/kan/releases/tag/v0.3.1
+详见：https://github.com/kan-linux/kan/releases/tag/v0.3.2
 
 
 ## 致谢
