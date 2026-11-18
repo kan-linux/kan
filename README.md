@@ -64,10 +64,11 @@ Please refer to https://github.com/kan-linux/kan/releases/tag/v0.3.2
 
 ## Contributing
 
-Pls refer to [How to contribute to Kan‐Linux](https://github.com/kan-linux/kan/wiki/How-to-contribute-to-Kan%E2%80%90Linux)
+Pls refer to [How to contribute to Kan‐Linux](https://kan-linux.org/contribute.html)
 
-## Wiki
-https://github.com/kan-linux/kan/wiki
+## Documentation
+
+https://kan-linux.org/docs.html
 
 
 ## Limitations
