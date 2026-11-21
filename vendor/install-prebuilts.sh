@@ -1,7 +1,7 @@
 #!/bin/bash
-# Download and install the Go, Rust, Node.js, LibreOffice and LunarG Vulkan SDK
-#
-# Download and update the Firefox, MiMoCode and Oracle JDK
+# Download and update the in-image components (Firefox, MiMoCode, Oracle JDK,
+# Go, Rust, Node.js) and download/install the optional components (LibreOffice,
+# LunarG Vulkan SDK) that are not shipped with the image.
 #
 # Runs as root on a Kan-Linux system (VM or bare metal), either manually by
 # the user or by the built-in agent. x86_64 Linux only. Toolchains/apps come
@@ -11,15 +11,23 @@
 # environment setup is needed after install.
 #
 # Conventions (convention over configuration - the script never prompts):
-#   - Must run as root; otherwise it prints an error and exits.
-#   - No-arg default installs the three toolchains in one pass: go, nodejs, rust
-#     install adds libreoffice and vulkan to the set (go, nodejs, rust, libreoffice, vulkan).
-#     update is the in-image pass: download and update the three prebuilts (firefox, mimocode, jdk).
+#   - CLI is a strict whitelist; every other argument combination shows help:
+#       (no args) / -h / --help   show help
+#       install all               install the optional components (libreoffice,
+#                                 vulkan) at the built-in versions
+#       update all                update the in-image components (firefox,
+#                                 mimocode, jdk, go, rust, node) at the
+#                                 built-in versions
+#       install <c> [--version v] install one optional component (libreoffice,
+#                                 vulkan)
+#       update <c> [--version v]  update one in-image component (firefox,
+#                                 mimocode, jdk, go, rust, node)
+#   - Must run as root to install/update; showing help needs no root.
 #   - If an install directory already exists it is removed first, then the
 #     tarball is downloaded (frees disk before the download). No confirmation.
-#     This includes the in-image targets (firefox, mimocode, jdk): they ship
-#     preinstalled with the OS but are replaced like every other target
-#     (setup_firefox_config re-applies its config).
+#     This includes the in-image targets (firefox, mimocode, jdk, go, rust,
+#     node): they ship preinstalled with the OS but are replaced like every
+#     other target (setup_*_config re-applies its config).
 #   - Free space is checked before any download: about 10G must be free on the
 #     /opt filesystem, otherwise the run refuses up front.
 #   - All deletions go through safe_rm_rf: empty/relative/..// paths and
@@ -33,8 +41,8 @@ set -euo pipefail
 
 GO_DEFAULT_VERSION=1.27.4
 RUST_DEFAULT_VERSION=1.100.0
-FIREFOX_DEFAULT_VERSION=160.0
-MIMOCODE_DEFAULT_VERSION=0.1.16
+FIREFOX_DEFAULT_VERSION=160.0.1
+MIMOCODE_DEFAULT_VERSION=0.1.17
 #unexpected issue for /opt/vulkan/bin/vulkanCapsViewer with higher version
 VULKAN_DEFAULT_VERSION=1.4.304.1
 JDK_DEFAULT_VERSION=27.0.1.0.3
@@ -57,37 +65,37 @@ die()  { echo "[install-prebuilts] ERROR: $*" >&2; exit 1; }
 
 usage() {
     cat <<'EOF'
-Usage: install-prebuilts.sh [install|update|go|rust|firefox|mimocode|vulkan|jdk|node|libreoffice] [--version <ver>]
+Usage: install-prebuilts.sh [install|update] [all|<component>] [--version <ver>]
 
-  (no args)    Download and install the three toolchains: go, nodejs and rust
-  install      Download and install the five components:  go, nodejs, libreoffice, vulkan and rust
-  update       Download and update the three prebuilts:   firefox, mimocode and jdk
-  go           Install the Go toolchain to       /opt/go
-  node         Install the Node.js runtime to    /opt/node
-  libreoffice  Install LibreOffice at            /opt/libreoffice<ver>
-  vulkan       Install the LunarG Vulkan SDK to  /opt/vulkan
-  rust         Install the Rust toolchain to     /opt/rust
-  firefox      Update Firefox at                 /opt/firefox
-  mimocode     Update MiMoCode at                /opt/mimocode
-  jdk          Update the Oracle JDK at          /opt/jdk
+  install/update must run as root (e.g. sudo install-prebuilts.sh ...);
+  showing help needs no root.
 
-Options:
-  --version <ver>   Pin a release; must follow a specific target (go, rust,
-                    jdk, node, vulkan, firefox, mimocode, libreoffice)
+  (no args), -h, --help   Show this help
+
+  install all             Download and install the optional components at the
+                          built-in versions: libreoffice, vulkan
+  install <component>     Download and install one optional component
+  install <component> --version <ver>
+                          Same, pinned to a specific release
+
+  update all              Download and update the in-image components at the
+                          built-in versions: firefox, mimocode, jdk, go, rust, node
+  update <component>      Download and update one in-image component
+  update <component> --version <ver>
+                          Same, pinned to a specific release
+
+Components:
+  in-image: firefox, mimocode, jdk, go, rust, node
+  optional: libreoffice, vulkan
 
 Examples:
   install-prebuilts.sh
-  install-prebuilts.sh install
-  install-prebuilts.sh update
-  install-prebuilts.sh firefox
-  install-prebuilts.sh firefox --version 160.0
-  install-prebuilts.sh go --version 1.27.4
-  install-prebuilts.sh rust --version 1.100.0
-  install-prebuilts.sh mimocode --version 0.1.16
-  install-prebuilts.sh jdk
-  install-prebuilts.sh node
-  install-prebuilts.sh node --version 26.13.1
-  install-prebuilts.sh libreoffice
+  install-prebuilts.sh install all
+  install-prebuilts.sh update all
+  install-prebuilts.sh install libreoffice
+  install-prebuilts.sh install vulkan --version 1.4.304.1
+  install-prebuilts.sh update node
+  install-prebuilts.sh update mimocode --version 0.1.17
 EOF
 }
 
@@ -626,7 +634,9 @@ install_libreoffice() {
 }
 
 main() {
-    local target=""
+    local mode=""
+    local component=""
+    local pinned_version=""
     local go_version="$GO_DEFAULT_VERSION"
     local rust_version="$RUST_DEFAULT_VERSION"
     local firefox_version="$FIREFOX_DEFAULT_VERSION"
@@ -635,75 +645,80 @@ main() {
     local jdk_version="$JDK_DEFAULT_VERSION"
     local node_version="$NODE_DEFAULT_VERSION"
     local libreoffice_version="$LIBREOFFICE_DEFAULT_VERSION"
-    local last_target=""
+
+    # Help needs no root; the strict grammar is validated before any side
+    # effect. Anything outside the whitelist shows help.
+    if [ $# -eq 0 ]; then
+        usage
+        exit 0
+    fi
+    case "$1" in
+        -h|--help) usage; exit 0 ;;
+        install)   mode="install" ;;
+        update)    mode="update" ;;
+        *)         usage; exit 1 ;;
+    esac
+    shift
+
+    [ $# -gt 0 ] || { usage; exit 1; }
+    component="$1"
+    shift
+
+    case "${mode}:${component}" in
+        install:all|install:libreoffice|install:vulkan) ;;
+        update:all|update:firefox|update:mimocode|update:jdk|update:go|update:rust|update:node) ;;
+        *) usage; exit 1 ;;
+    esac
+
+    # --version pins a single component only; "all" always uses built-in versions.
+    if [ $# -gt 0 ]; then
+        [ "$1" = "--version" ] || { usage; exit 1; }
+        shift
+        [ $# -gt 0 ] || { usage; exit 1; }
+        [ "${component}" != "all" ] || { usage; exit 1; }
+        pinned_version="$1"
+        shift
+        case "${component}" in
+            go)          go_version="${pinned_version#go}" ;;
+            rust)        rust_version="${pinned_version#rust-}" ;;
+            firefox)     firefox_version="${pinned_version#firefox-}" ;;
+            mimocode)    mimocode_version="${pinned_version#mimocode-}" ;;
+            vulkan)      vulkan_version="${pinned_version#vulkan-}"; vulkan_version="${vulkan_version#v}" ;;
+            jdk)         jdk_version="${pinned_version#jdk-}" ;;
+            node)        node_version="${pinned_version#node-}"; node_version="${node_version#v}" ;;
+            libreoffice) libreoffice_version="${pinned_version#libreoffice-}" ;;
+        esac
+    fi
+    [ $# -eq 0 ] || { usage; exit 1; }
 
     require_root
 
     SCRATCH_ROOT="$(mktemp -d /tmp/install-prebuilts.XXXXXX)"
 
-    while [ $# -gt 0 ]; do
-        case "$1" in
-            go|rust|firefox|mimocode|vulkan|jdk|node|libreoffice|install|update)
-                target="$1"
-                last_target="$1"
-                ;;
-            --version)
-                shift
-                [ $# -gt 0 ] || die "--version requires an argument"
-                case "${last_target}" in
-                    go)          go_version="${1#go}" ;;
-                    rust)        rust_version="${1#rust-}" ;;
-                    firefox)     firefox_version="${1#firefox-}" ;;
-                    mimocode)    mimocode_version="${1#mimocode-}" ;;
-                    vulkan)      vulkan_version="${1#vulkan-}"; vulkan_version="${vulkan_version#v}" ;;
-                    jdk)         jdk_version="${1#jdk-}" ;;
-                    node)        node_version="${1#node-}"; node_version="${node_version#v}" ;;
-                    libreoffice) libreoffice_version="${1#libreoffice-}" ;;
-                    *)           die "--version must follow a specific target (go|rust|firefox|mimocode|vulkan|jdk|node|libreoffice); install/update take no --version" ;;
-                esac
-                ;;
-            -h|--help)
-                usage
-                exit 0
-                ;;
-            *)
-                die "unknown argument: $1 (try --help)"
-                ;;
-        esac
-        shift
-    done
-
-    [ -n "$target" ] || target="default"
-
     # Preflight before any download/install begins.
     require_free_space
 
-    case "$target" in
-        go)       install_go "$go_version" ;;
-        rust)     install_rust "$rust_version" ;;
-        firefox)  download_setup_firefox "$firefox_version" ;;
-        mimocode) install_mimocode "$mimocode_version" ;;
-        vulkan)   install_vulkan "$vulkan_version" ;;
-        jdk)      install_jdk "$jdk_version" ;;
-        node)     install_node "$node_version" ;;
-        libreoffice) install_libreoffice "$libreoffice_version" ;;
-        default)
-            install_go "$go_version"
-            install_node "$node_version"
-            install_rust "$rust_version"
-            ;;
-        install)
-            install_go "$go_version"
-            install_node "$node_version"
+    case "${mode}:${component}" in
+        install:all)
             install_libreoffice "$libreoffice_version"
             install_vulkan "$vulkan_version"
-            install_rust "$rust_version"
             ;;
-        update)
+        install:libreoffice) install_libreoffice "$libreoffice_version" ;;
+        install:vulkan)      install_vulkan "$vulkan_version" ;;
+        update:all)
             download_setup_firefox "$firefox_version"
             install_mimocode "$mimocode_version"
             install_jdk "$jdk_version"
+            install_go "$go_version"
+            install_node "$node_version"
+            install_rust "$rust_version"
             ;;
+        update:firefox)  download_setup_firefox "$firefox_version" ;;
+        update:mimocode) install_mimocode "$mimocode_version" ;;
+        update:jdk)      install_jdk "$jdk_version" ;;
+        update:go)       install_go "$go_version" ;;
+        update:rust)     install_rust "$rust_version" ;;
+        update:node)     install_node "$node_version" ;;
     esac
 
     cat <<'EOF'
