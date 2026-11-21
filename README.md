@@ -60,7 +60,7 @@ The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux d
 
 #### Screenshots and LiveISO
 
-Please refer to https://github.com/kan-linux/kan/releases/tag/v0.3.2
+Please refer to https://github.com/kan-linux/kan/releases/latest
 
 ## Contributing
 
