@@ -74,6 +74,7 @@ https://kan-linux.org/docs.html
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
 - Only the English version is available at present
+- [Kan-Agent](https://github.com/kan-linux/kan-agent) is under development
 - Tested and verified on limited x86-64 laptops and PCs
 - Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist
 - The installer supports only single-OS installation to a specified partition or a standalone disk among multiple disks(this is a design choice, pls refer to ["why we do not offer dual‑boot or multi‑boot installation modes in Kan‑Linux"](https://github.com/kan-linux/kan/discussions/27)); LUKS encryption is not yet supported
