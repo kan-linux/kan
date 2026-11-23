@@ -62,18 +62,14 @@ The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux d
 
 Please refer to https://github.com/kan-linux/kan/releases/latest
 
-## Contributing
 
-Pls refer to [How to contribute to Kan‐Linux](https://kan-linux.org/contribute.html)
+## Quick Start
 
-## Documentation
-
-https://kan-linux.org/docs.html
+[Quick Start](https://github.com/kan-linux/kan/discussions/43)
 
 
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
-- Only the English version is available at present
 - [Kan-Agent](https://github.com/kan-linux/kan-agent) is under development
 - Tested and verified on limited x86-64 laptops and PCs
 - Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist
