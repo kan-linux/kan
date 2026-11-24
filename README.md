@@ -90,7 +90,7 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
 9. noctalia(candidate desktop shell, already verified on Kan-Linux v0.3.3):https://github.com/kan-linux/noctalia
 10. fcitx(we maintain our own downstream fork): https://github.com/kan-linux/fcitx5
 
-All of these fully open-source projects can be built and tested on Kan-Linux v0.3.3. **Feel free to join the corresponding projects according to your expertise.**  
+All of these fully open-source projects can be built and tested since Kan-Linux v0.3.4(will be released on Nov 28, 2026) . **Feel free to join the corresponding projects according to your expertise.**  
 
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
