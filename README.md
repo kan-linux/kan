@@ -68,6 +68,30 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
 [Quick Start](https://github.com/kan-linux/kan/discussions/43)
 
 
+## How to contribute
+
+  Drawing inspiration from the policy models of Red Hat's RHEL and the <a href="https://en.wikipedia.org/wiki/XZ_Utils_backdoor" target="_blank" rel="noopener">XZ Utils backdoor</a>,
+  <b>Kan-Linux's core base system will not be publicly open-sourced at the moment</b> (we will make Kan-Linux as secure as possible). That said, community contributions to other fully open components (such as Kan-Agent, desktop-shell) or upstream components (such as
+          <a href="https://github.com/hyprwm/Hyprland" target="_blank" rel="noopener">Hyprland</a>,
+          <a href="https://github.com/quickshell-mirror/quickshell" target="_blank" rel="noopener">Quickshell</a>,
+          <a href="https://github.com/lgse/strata" target="_blank" rel="noopener">Strata</a>)
+  of Kan-Linux are still welcome. Details can be found at [how to contribute](https://kan-linux.org/contribute.html).    
+
+## Fully open-source projects in Project Kan-Linux
+
+1. Kan-Agent(based on pi,  we maintain our own downstream fork):  https://github.com/kan-linux/kan-agent
+2. Hyprland(we maintain our own downstream fork):     https://github.com/kan-linux/Hyprland
+3. strata:          https://github.com/kan-linux/strata
+4. quickshell:   https://github.com/kan-linux/quickshell
+5. omarchy desktop shell(featured/current desktop shell, we maintain our own downstream fork):     https://github.com/kan-linux/omarchy
+6. screenshot(we maintain our own downstream fork because the original author is now a commercial operator and focuses primarily on his business interests): https://github.com/kan-linux/screenshot
+7. ggml-hexagon(based on llama.cpp, we maintain our own downstream fork): https://github.com/kan-linux/ggml-hexagon
+8. kernel: https://github.com/kan-linux/kernel
+9. noctalia(candidate desktop shell, already verified on Kan-Linux v0.3.3):https://github.com/kan-linux/noctalia
+10. fcitx(we maintain our own downstream fork): https://github.com/kan-linux/fcitx5
+
+All of these fully open-source projects can be built and tested on Kan-Linux v0.3.3. **Feel free to join the corresponding projects according to your expertise.**  
+
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
 - [Kan-Agent](https://github.com/kan-linux/kan-agent) is under development
@@ -81,15 +105,6 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
 - Inspired by [llama.cpp](https://github.com/ggml-org/llama.cpp)
 - Thanks to the entire Linux community(various tech orgs, such as Redhat(RHEL/Fedora/QEMU), SPI(Debian), Linux Foundation, Linaro, Canonical(Ubuntu), System76(Pop!_OS), UnionTech(Deepin/UOS)... and tech stacks)
 - Thanks to the entire local AI community
-- Special thanks to the AI assistant for extensive technical discussions, architectural advice, and writing assistance throughout the development of Kan-Linux
-
-## Language Policy and AI Policy
-
-- To facilitate clear and effective communication, all discussions, comments, documentation, and PRs in this project **should be** conducted in English, this ensures that all contributors can participate and collaborate effectively.
-- English and Chinese are **both fine** for issues, discussions and wiki.
-- Discussions, issues and PRs should include **human-written content**. **AI-assisted polish is accepted and welcomed**(many of us are non-native English speakers). What matters is not who typed the content but whether a human understands it.
-- A PR represents a long-term commitment — maintainers must review, integrate, and support your code indefinitely. What matters is not who wrote the code but whether a human understands it: **either fully, or at the 70–90% level, and is able to explain major change to reviewers, even with AI assistance**.
-- Fully automated AI-generated content and fully automated PRs are not permitted. We value human connection and communication over fully AI-driven interaction, in other words: Human-in-the-Loop.
 
 ## Trademarks
 This project may include trademarks or logos belonging to third parties. Use of any third-party trademarks is governed by their respective policies.
