@@ -64,10 +64,10 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
 
 
 ## How to contribute
-
-  Drawing inspiration from the policy models of Red Hat's RHEL and the <a href="https://en.wikipedia.org/wiki/XZ_Utils_backdoor" target="_blank" rel="noopener">XZ Utils backdoor</a>,
-  <b>The real Kan-Linux's core system will not be fully open-sourced at the moment</b>:
+ 
+ <b>The real Kan-Linux's core system will not be fully open-sourced at the moment</b>:
   - Kan-Linux is another HarmonyOS (also known as Hongmeng OS) and the fully HarmonyOS is not open-sourced at the moment(fully open-source HarmonyOS vs OpenHarmony), <b>this repo is Open-KanLinux, not KanLinuxOS</b>.
+  - Project Kan-Linux is not a hobby project.
   - Apparently, Xiaomi will not fully open-source HyperOS, even though it is built on top of Android.
   - We will make Kan-Linux as secure as possible.
   That said, community contributions to other fully open components (such as Kan-Agent, desktop-shell) or upstream components (such as
