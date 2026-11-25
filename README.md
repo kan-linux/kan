@@ -52,14 +52,9 @@ The main goal of Kan-Linux is to build a <b>concise, secure and Agent-First</b> 
   - Maintain a balance between Agent-first automation and plain human-readable interfaces and workflows.
 
 
-#### Differences and Connections with Omarchy
-- Omarchy-Linux targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**. **Kan‑Linux is built for programmers and AI researchers**, providing a neutral, modern pure Wayland-based Linux distribution. Focused on **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
-- Kan‑Linux draws inspiration from [Omarchy’s desktop shell](https://github.com/kan-linux/omarchy), and integrates it as our optional early default desktop shell. We port this tasteful shell as an upper-layer UI example to show the capabilities of the Kan-Linux platform. Even if we remove or disable the Omarchy desktop shell in the future due to unexpected reasons, the whole system and graphics infrastructure can still run fully and independently.
-- Omarchy-Linux is based on the upstream Arch Linux distribution, while **Kan-Linux is built completely from scratch** and **does not rely on any upstream Linux distribution**.
-- Kan-Linux provides Omarchy-comparable desktop UI and keybindings plus powerful development environments for programmers and AI Agents.
-
 ## How to contribute
- 
+
+#### Open Kan-Linux vs KanLinux OS
  <b>The real Kan-Linux's core system will not be fully open-sourced at the moment</b>:
   - Kan-Linux is another HarmonyOS (also known as Hongmeng OS) and the fully HarmonyOS is not open-sourced at the moment(fully open-source HarmonyOS vs OpenHarmony), <b>this repo is Open-KanLinux, not KanLinuxOS</b>.
   - Project Kan-Linux is not a hobby project.
@@ -72,7 +67,7 @@ The main goal of Kan-Linux is to build a <b>concise, secure and Agent-First</b> 
   of Kan-Linux are still welcome, pls refer to [our contributions to Linux community](https://kan-linux.org/about.html#oss).
 
 
-## Fully open-source projects in Project Kan-Linux
+#### Fully open-source projects in Project Kan-Linux
 
 1. Kan-Agent(based on pi,  we maintain our own downstream fork):  https://github.com/kan-linux/kan-agent
 2. Hyprland(we maintain our own downstream fork):     https://github.com/kan-linux/Hyprland
@@ -90,13 +85,15 @@ All of these fully open-source projects can be built and tested since Kan-Linux 
 
 ## Quick Start
 
-[Quick Start](https://github.com/kan-linux/kan/discussions/43)
-
 #### Screenshots and LiveISO
 
 Please refer to https://github.com/kan-linux/kan/releases/latest
 
-## Limitations
+#### Living with Kan-Linux
+
+[Quick start](https://github.com/kan-linux/kan/discussions/43)
+
+#### Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
 - [Kan-Agent](https://github.com/kan-linux/kan-agent) is under development
 - Tested and verified on limited x86-64 laptops and PCs
