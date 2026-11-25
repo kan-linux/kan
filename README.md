@@ -73,7 +73,7 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
           <a href="https://github.com/hyprwm/Hyprland" target="_blank" rel="noopener">Hyprland</a>,
           <a href="https://github.com/quickshell-mirror/quickshell" target="_blank" rel="noopener">Quickshell</a>,
           <a href="https://github.com/lgse/strata" target="_blank" rel="noopener">Strata</a>)
-  of Kan-Linux are still welcome. Details can be found at [how to contribute](https://kan-linux.org/contribute.html).    
+  of Kan-Linux are still welcome, pls see below.   
 
 ## Fully open-source projects in Project Kan-Linux
 
@@ -88,7 +88,7 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
 9. noctalia(candidate desktop shell, already verified on Kan-Linux v0.3.3):https://github.com/kan-linux/noctalia
 10. fcitx(we maintain our own downstream fork): https://github.com/kan-linux/fcitx5
 
-All of these fully open-source projects can be built and tested since Kan-Linux v0.3.4(will be released on Nov 28, 2026) . **Feel free to join the corresponding projects according to your expertise.**  
+All of these fully open-source projects can be built and tested since Kan-Linux v0.3.4(will be released on Nov 28, 2026) . **Feel free to join the corresponding projects according to your expertise.**  Details can be found at [how to contribute](https://kan-linux.org/contribute.html). 
 
 
 ## Quick Start
