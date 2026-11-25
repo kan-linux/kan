@@ -37,7 +37,7 @@
 
 - **源码构建** — 整套系统及所有组件（Go,Rust,Firefox为官方发布的二进制）均支持从源代码编译构建
 
-- **安全**  — 默认不会上传任何数据，没有遥测，您可以用内置的wireshark进行核验,或者用各种工具在您的白盒环境中进行验证
+- **安全**  — 默认不会上传任何数据(包括用户数据)，没有遥测，没有广告。您可以用内置的wireshark进行核验，或者用各种专业工具在您的白盒环境中进行验证
 
 - **llama.cpp 优先** — 内置原生 llama.cpp 端侧推理引擎，原生支持本地 AI 部署与端侧智能计算
 
@@ -84,6 +84,7 @@
 - 内置支持AMD与Intel显卡， 一些Nvidia显卡的支持可能需要得到专业技术人员辅助或使用内置Agent辅助
 - 安装程序不支持双系统安装(这是一个设计决策,请参考["why we do not offer dual‑boot or multi‑boot installation modes in Kan‑Linux"](https://github.com/kan-linux/kan/discussions/27)); 安装程序不支持LUKS加密
 - 还未公开的内核安全漏洞或与操作系统组件有关的安全漏洞
+- UI/UX问题(与UI/UX有关的工作区焦点问题以及其他焦点问题)
 
 
 
