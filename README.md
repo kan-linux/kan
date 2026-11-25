@@ -45,6 +45,7 @@ The main goal of Kan-Linux is to build a <b>concise, secure and Agent-First</b> 
   - **SELinux is excluded intentionally to keep the TCB minimal.**
   - AI-native security audit pipeline --- Kan-Linux embeds LLM-powered source-level security auditing (GLM-5.3 and other high-capability models) as a mandatory pre-compilation gate, complementing human review. Security validation shifts from post-hoc binary scanning to source-code admission review.
   - 100% full self-hosting; 100% reproducible builds.
+  - No telemetry, no phoning home, no ads. 
 
 - Agent-First
   - **Only Flatpak is provided(since v0.3.4), no other traditional package manager.** [AI agents are a core component of Kan-Linux](https://github.com/kan-linux/kan-agent): they autonomously compile, deploy, install components, run system health checks, and resolve issues.
