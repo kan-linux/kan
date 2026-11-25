@@ -73,7 +73,8 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
           <a href="https://github.com/hyprwm/Hyprland" target="_blank" rel="noopener">Hyprland</a>,
           <a href="https://github.com/quickshell-mirror/quickshell" target="_blank" rel="noopener">Quickshell</a>,
           <a href="https://github.com/lgse/strata" target="_blank" rel="noopener">Strata</a>)
-  of Kan-Linux are still welcome, pls see below.   
+  of Kan-Linux are still welcome, pls refer to [our contributions to Linux community](https://kan-linux.org/about.html#oss).
+
 
 ## Fully open-source projects in Project Kan-Linux
 
