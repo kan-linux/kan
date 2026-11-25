@@ -55,7 +55,7 @@ The main goal of Kan-Linux is to build a <b>concise, secure and Agent-First</b> 
 #### Differences and Connections with Omarchy
 - Omarchy-Linux targets end users, delivering an out-of-the-box complete desktop system, with **visual polish as one of its core goals**. **Kan‑Linux is built for programmers and AI researchers**, providing a neutral, modern pure Wayland-based Linux distribution. Focused on **controllability**, **auditability**(no black-box within the OS), **modularity and reproducible builds**, and **visual polish is not a project objective**.
 - Kan‑Linux draws inspiration from [Omarchy’s desktop shell](https://github.com/kan-linux/omarchy), and integrates it as our optional early default desktop shell. We port this tasteful shell as an upper-layer UI example to show the capabilities of the Kan-Linux platform. Even if we remove or disable the Omarchy desktop shell in the future due to unexpected reasons, the whole system and graphics infrastructure can still run fully and independently.
-- Omarchy-Linux is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
+- Omarchy-Linux is based on the upstream Arch Linux distribution, while **Kan-Linux is built completely from scratch** and **does not rely on any upstream Linux distribution**.
 - Kan-Linux provides Omarchy-comparable desktop UI and keybindings plus powerful development environments for programmers and AI Agents.
 
 ## How to contribute
