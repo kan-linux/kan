@@ -48,11 +48,12 @@
 ## 如何贡献
 
 #### Open-KanLinux与KanLinux OS的区别
-本仓库并非完全开源,类似华为鸿蒙OS与开源鸿蒙的区别.
+
+[本仓库](https://github.com/kan-linux/kan)当前并非完全开源，类似华为鸿蒙OS与开源鸿蒙的区别.
 
 #### 如何参与Project Kan-Linux
 
-本项目有如下10个完全开源子项目,您可以根据自己的技术兴趣与技术专长参与.
+本项目有如下10个完全开源子项目，您可以根据自己的技术兴趣与技术专长参与.
 
 1. Kan-Agent(based on pi,  we maintain our own downstream fork):  https://github.com/kan-linux/kan-agent
 2. Hyprland(we maintain our own downstream fork):     https://github.com/kan-linux/Hyprland
@@ -80,7 +81,7 @@
 - 当前只运行在基于x86-64芯片的台式机与笔记本电脑
 - [Kan-Agent](https://github.com/kan-linux/kan-agent) 正在开发中
 - 在有限的台式机与笔记本电脑上做过测试
-- 内置支持AMD与Intel显卡, Nvidia显卡的支持需要得到技术人员支持或使用内置Agent辅助Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist
+- 内置支持AMD与Intel显卡， 一些Nvidia显卡的支持可能需要得到专业技术人员辅助或使用内置Agent辅助
 - 安装程序不支持双系统安装(这是一个设计决策,请参考["why we do not offer dual‑boot or multi‑boot installation modes in Kan‑Linux"](https://github.com/kan-linux/kan/discussions/27)); 安装程序不支持LUKS加密
 - 还未公开的内核安全漏洞或与操作系统组件有关的安全漏洞
 
