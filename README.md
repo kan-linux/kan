@@ -48,7 +48,7 @@ The main goal of Kan-Linux is to build a <b>concise, secure and Agent-First</b> 
   - No telemetry, no phoning home, no ads. 
 
 - Agent-First
-  - **Only Flatpak is provided(since v0.3.4), no other traditional package manager.** [AI agents are a core component of Kan-Linux](https://github.com/kan-linux/kan-agent): they autonomously compile, deploy, install components, run system health checks, and resolve issues.
+  - **No traditional package manager(such as apt, dnf, pac......), only Flatpak is provided(since v0.3.4)**. [AI agents are a core component of Kan-Linux](https://github.com/kan-linux/kan-agent): they autonomously compile, deploy, install components, run system health checks, and resolve issues.
   - llama.cpp-First --- A native, integrated llama.cpp edge inference engine is provided for local AI deployment.
   - Maintain a balance between Agent-first automation and plain human-readable interfaces and workflows.
 
