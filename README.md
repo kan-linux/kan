@@ -29,7 +29,7 @@
 
 **Kan-Linux**(or KanLinux) is a **Concise**, **Security** and **Agent‑First** Linux distribution\. The name **Kan(勘)** derives from *Instructions for Practical Living* by [Wang Yangming](https://en.wikipedia.org/wiki/Wang_Yangming), representing the philosophy of breaking through technical obscurations and returning to the system’s original simplicity\. The name **Kan(勘)** also stands for "*see through the delusions and return to simplicity*".
 
-The main goal of Kan-Linux is to build a <b>concise, secure and Agent-first</b> Linux distro at the edge --- locally and in the cloud.
+The main goal of Kan-Linux is to build a <b>concise, secure and Agent-First</b> Linux distro at the edge --- locally and in the cloud.
 
 #### Design Principles
 - Simplicity --- Eliminate overly complex wrapper layers and overengineering, following the core philosophy of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Kan-Linux is not dependent on any existing Linux distribution.**
@@ -57,11 +57,6 @@ The main goal of Kan-Linux is to build a <b>concise, secure and Agent-first</b> 
 - Kan‑Linux draws inspiration from [Omarchy’s desktop shell](https://github.com/kan-linux/omarchy), and integrates it as our optional early default desktop shell. We port this tasteful shell as an upper-layer UI example to show the capabilities of the Kan-Linux platform. Even if we remove or disable the Omarchy desktop shell in the future due to unexpected reasons, the whole system and graphics infrastructure can still run fully and independently.
 - Omarchy-Linux is based on the upstream Arch Linux distribution, while Kan-Linux is built completely from scratch and **does not rely on any upstream Linux distribution**.
 - Kan-Linux provides Omarchy-comparable desktop UI and keybindings plus powerful development environments for programmers and AI Agents.
-
-#### Screenshots and LiveISO
-
-Please refer to https://github.com/kan-linux/kan/releases/latest
-
 
 ## How to contribute
  
@@ -96,6 +91,10 @@ All of these fully open-source projects can be built and tested since Kan-Linux 
 ## Quick Start
 
 [Quick Start](https://github.com/kan-linux/kan/discussions/43)
+
+#### Screenshots and LiveISO
+
+Please refer to https://github.com/kan-linux/kan/releases/latest
 
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
