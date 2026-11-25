@@ -82,7 +82,7 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
 3. strata:          https://github.com/kan-linux/strata
 4. quickshell:   https://github.com/kan-linux/quickshell
 5. omarchy desktop shell(featured/current desktop shell, we maintain our own downstream fork):     https://github.com/kan-linux/omarchy
-6. screenshot(we maintain our own downstream fork because the original author is now a commercial operator and focuses primarily on his business interests): https://github.com/kan-linux/screenshot
+6. screenshot(we maintain our own downstream fork): https://github.com/kan-linux/screenshot
 7. ggml-hexagon(based on llama.cpp, we maintain our own downstream fork): https://github.com/kan-linux/ggml-hexagon
 8. kernel: https://github.com/kan-linux/kernel
 9. noctalia(candidate desktop shell, already verified on Kan-Linux v0.3.3):https://github.com/kan-linux/noctalia
