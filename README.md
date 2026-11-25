@@ -66,7 +66,10 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
 ## How to contribute
 
   Drawing inspiration from the policy models of Red Hat's RHEL and the <a href="https://en.wikipedia.org/wiki/XZ_Utils_backdoor" target="_blank" rel="noopener">XZ Utils backdoor</a>,
-  <b>The real Kan-Linux's core system will not be fully open-sourced at the moment(fully open-source KanLinux vs Open-KanLinux)</b>(Kan-Linux is another HarmonyOS (also known as Hongmeng OS) and the fully HarmonyOS is not open-sourced at the moment(fully open-source HarmonyOS vs OpenHarmony), we will make Kan-Linux as secure as possible. That said, community contributions to other fully open components (such as Kan-Agent, desktop-shell) or upstream components (such as
+  <b>The real Kan-Linux's core system will not be fully open-sourced at the moment</b>:
+  - Kan-Linux is another HarmonyOS (also known as Hongmeng OS) and the fully HarmonyOS is not open-sourced at the moment(fully open-source HarmonyOS vs OpenHarmony), <b>this repo is Open-KanLinux, not fully open-source KanLinux</b>.
+  - we will make Kan-Linux as secure as possible.
+  That said, community contributions to other fully open components (such as Kan-Agent, desktop-shell) or upstream components (such as
           <a href="https://github.com/hyprwm/Hyprland" target="_blank" rel="noopener">Hyprland</a>,
           <a href="https://github.com/quickshell-mirror/quickshell" target="_blank" rel="noopener">Quickshell</a>,
           <a href="https://github.com/lgse/strata" target="_blank" rel="noopener">Strata</a>)
