@@ -61,7 +61,8 @@ The implementation of Kan-Linux OS is not fully open-sourced for now:
   - This repository hosts **Open‑KanLinux**, which is the open‑source subset of Kan‑Linux OS. This separation is conceptually similar to the relationship between OpenHarmony (open‑source foundation) and HarmonyOS (commercial product built upon OpenHarmony): the open‑source part exposes base components, while the complete commercial product includes additional closed‑source proprietary layers.
 
   - Project Kan-Linux is not a hobby project.
-  - Apparently, Xiaomi will not fully open-source HyperOS, even though it is built on top of Android.
+  - Similarly, it is clear that Xiaomi HyperOS will not be fully open-sourced, although its mobile variant is built upon Android.
+
   - We will make Kan-Linux as secure as possible(verify with the built-in Wireshark or your white-box environment).
   That said, community contributions to other fully open components (such as Kan-Agent, desktop-shell) or upstream components (such as
           <a href="https://github.com/hyprwm/Hyprland" target="_blank" rel="noopener">Hyprland</a>,
