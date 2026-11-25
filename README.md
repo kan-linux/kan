@@ -63,15 +63,10 @@ The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux d
 Please refer to https://github.com/kan-linux/kan/releases/latest
 
 
-## Quick Start
-
-[Quick Start](https://github.com/kan-linux/kan/discussions/43)
-
-
 ## How to contribute
 
   Drawing inspiration from the policy models of Red Hat's RHEL and the <a href="https://en.wikipedia.org/wiki/XZ_Utils_backdoor" target="_blank" rel="noopener">XZ Utils backdoor</a>,
-  <b>The real Kan-Linux's core system will not be fully open-sourced at the moment(real KanLinux vs Open-KanLinux)</b>(Kan-Linux is another HarmonyOS (also known as Hongmeng) and the fully HarmonyOS is not open-sourced at the moment(real HarmonyOS vs OpenHarmony), we will make Kan-Linux as secure as possible. That said, community contributions to other fully open components (such as Kan-Agent, desktop-shell) or upstream components (such as
+  <b>The real Kan-Linux's core system will not be fully open-sourced at the moment(fully open-source KanLinux vs Open-KanLinux)</b>(Kan-Linux is another HarmonyOS (also known as Hongmeng OS) and the fully HarmonyOS is not open-sourced at the moment(fully open-source HarmonyOS vs OpenHarmony), we will make Kan-Linux as secure as possible. That said, community contributions to other fully open components (such as Kan-Agent, desktop-shell) or upstream components (such as
           <a href="https://github.com/hyprwm/Hyprland" target="_blank" rel="noopener">Hyprland</a>,
           <a href="https://github.com/quickshell-mirror/quickshell" target="_blank" rel="noopener">Quickshell</a>,
           <a href="https://github.com/lgse/strata" target="_blank" rel="noopener">Strata</a>)
@@ -91,6 +86,11 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
 10. fcitx(we maintain our own downstream fork): https://github.com/kan-linux/fcitx5
 
 All of these fully open-source projects can be built and tested since Kan-Linux v0.3.4(will be released on Nov 28, 2026) . **Feel free to join the corresponding projects according to your expertise.**  
+
+
+## Quick Start
+
+[Quick Start](https://github.com/kan-linux/kan/discussions/43)
 
 ## Limitations
 - Currently focus on x86-64 laptops, PCs and hardware
