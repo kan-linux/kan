@@ -57,8 +57,9 @@ The main goal of Kan-Linux is to build a <b>concise, secure and Agent-First</b> 
 
 #### Open-KanLinux vs KanLinux OS
 
-The real Kan-Linux's core system will not be fully open-sourced at the moment:
-  - Kan-Linux is another HarmonyOS (also known as Hongmeng OS) and the fully HarmonyOS is not open-sourced at the moment(fully open-source HarmonyOS vs OpenHarmony), <b>this repo is Open-KanLinux, not KanLinuxOS</b>.
+The implementation of Kan-Linux OS is not fully open-sourced for now:
+  - This repository hosts **Open‑KanLinux**, which is the open‑source subset of Kan‑Linux OS. This separation is conceptually similar to the relationship between OpenHarmony (open‑source foundation) and HarmonyOS (commercial product built upon OpenHarmony): the open‑source part exposes base components, while the complete commercial product includes additional closed‑source proprietary layers.
+
   - Project Kan-Linux is not a hobby project.
   - Apparently, Xiaomi will not fully open-source HyperOS, even though it is built on top of Android.
   - We will make Kan-Linux as secure as possible(verify with the built-in Wireshark or your white-box environment).
