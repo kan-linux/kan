@@ -82,7 +82,7 @@
 - [Kan-Agent](https://github.com/kan-linux/kan-agent) 正在开发中
 - 在有限的台式机与笔记本电脑上做过测试
 - 内置支持AMD与Intel显卡， 一些Nvidia显卡的支持可能需要得到专业技术人员辅助或使用内置Agent辅助
-- 安装程序不支持双系统安装(这是一个设计决策,请参考["why we do not offer dual‑boot or multi‑boot installation modes in Kan‑Linux"](https://github.com/kan-linux/kan/discussions/27)); 安装程序不支持LUKS加密
+- 安装程序不支持双系统安装(这是一个设计决策，请参考["why we do not offer dual‑boot or multi‑boot installation modes in Kan‑Linux"](https://github.com/kan-linux/kan/discussions/27)); 安装程序不支持LUKS加密
 - 还未公开的内核安全漏洞或与操作系统组件有关的安全漏洞
 - UI/UX问题(与UI/UX有关的工作区焦点问题以及其他焦点问题)
 
