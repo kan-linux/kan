@@ -54,7 +54,7 @@ The main goal of Kan-Linux is to build a <b>concise, secure and Agent-First</b> 
 
 ## How to contribute
 
-#### Open Kan-Linux vs KanLinux OS
+#### Open-KanLinux vs KanLinux OS
  <b>The real Kan-Linux's core system will not be fully open-sourced at the moment</b>:
   - Kan-Linux is another HarmonyOS (also known as Hongmeng OS) and the fully HarmonyOS is not open-sourced at the moment(fully open-source HarmonyOS vs OpenHarmony), <b>this repo is Open-KanLinux, not KanLinuxOS</b>.
   - Project Kan-Linux is not a hobby project.
