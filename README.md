@@ -110,6 +110,7 @@ All of these fully open-source projects can be built and tested since Kan-Linux 
 - Inspired by [llama.cpp](https://github.com/ggml-org/llama.cpp)
 - Thanks to the entire Linux community(various tech orgs, such as Redhat(RHEL/Fedora/QEMU), SPI(Debian), Linux Foundation, Linaro, Canonical(Ubuntu), System76(Pop!_OS), UnionTech(Deepin/UOS)... and tech stacks)
 - Thanks to the entire local AI community
+- The Kan Linux project wants to recognize and thank the hard work of Linux community & local AI community put in. We are grateful to be part of the Linux community & local AI community and provide this modern Desktop Linux operating system
 
 ## Trademarks
 This project may include trademarks or logos belonging to third parties. Use of any third-party trademarks is governed by their respective policies.
