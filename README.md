@@ -29,7 +29,7 @@
 
 **Kan-Linux**(or KanLinux) is a **Concise**, **Security** and **Agent‑First** Linux distribution\. The name **Kan(勘)** derives from *Instructions for Practical Living* by [Wang Yangming](https://en.wikipedia.org/wiki/Wang_Yangming), representing the philosophy of breaking through technical obscurations and returning to the system’s original simplicity\. The name **Kan(勘)** also stands for "*see through the delusions and return to simplicity*".
 
-The main goal of Kan-Linux is to build a concise, secure and Agent-first Linux distro at the edge --- locally and in the cloud.
+The main goal of Kan-Linux is to build a <b>concise, secure and Agent-first</b> Linux distro at the edge --- locally and in the cloud.
 
 #### Design Principles
 - Simplicity --- Eliminate overly complex wrapper layers and overengineering, following the core philosophy of [ggml/llama.cpp](https://github.com/ggml-org/llama.cpp). **Kan-Linux is not dependent on any existing Linux distribution.**
@@ -69,7 +69,7 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
   - Kan-Linux is another HarmonyOS (also known as Hongmeng OS) and the fully HarmonyOS is not open-sourced at the moment(fully open-source HarmonyOS vs OpenHarmony), <b>this repo is Open-KanLinux, not KanLinuxOS</b>.
   - Project Kan-Linux is not a hobby project.
   - Apparently, Xiaomi will not fully open-source HyperOS, even though it is built on top of Android.
-  - We will make Kan-Linux as secure as possible.
+  - We will make Kan-Linux as secure as possible(verify with the built-in Wireshark or your white-box environment).
   That said, community contributions to other fully open components (such as Kan-Agent, desktop-shell) or upstream components (such as
           <a href="https://github.com/hyprwm/Hyprland" target="_blank" rel="noopener">Hyprland</a>,
           <a href="https://github.com/quickshell-mirror/quickshell" target="_blank" rel="noopener">Quickshell</a>,
