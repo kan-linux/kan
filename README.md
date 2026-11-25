@@ -101,6 +101,7 @@ Please refer to https://github.com/kan-linux/kan/releases/latest
 - Built-in support for AMD and Intel GPUs. Nvidia GPU support requires assistance from the built-in Agent or a domain specialist
 - The installer supports only single-OS installation to a specified partition or a standalone disk among multiple disks(this is a design choice, pls refer to ["why we do not offer dual‑boot or multi‑boot installation modes in Kan‑Linux"](https://github.com/kan-linux/kan/discussions/27)); LUKS encryption is not yet supported
 - Potential undisclosed vulnerabilities in the Linux kernel and featured components
+- UI/UX issues(such as workspace focus issue, other focus issue...)
 
 ## Acknowledgements
 - Inspired by Omarchy(**"Convention over Configuration"**) and [Omarchy's desktop shell](https://github.com/omacom/omarchy)
