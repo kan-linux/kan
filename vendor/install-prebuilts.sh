@@ -1,7 +1,7 @@
 #!/bin/bash
 # Download and update the in-image components (Firefox, MiMoCode, Oracle JDK,
 # Node.js) and download/install the optional components (Go, Rust, LibreOffice,
-# LunarG Vulkan SDK) that are not shipped with the image.
+# LunarG Vulkan SDK, Google Chrome) that are not shipped with the image.
 #
 # Runs as root on a Kan-Linux system (VM or bare metal), either manually by
 # the user or by the built-in agent. x86_64 Linux only. Toolchains/apps come
@@ -14,12 +14,12 @@
 #   - CLI is a strict whitelist; every other argument combination shows help:
 #       (no args) / -h / --help   show help
 #       install all               install the optional components (go, rust, libreoffice,
-#                                 vulkan) at the built-in versions
+#                                 vulkan, chrome) at the built-in versions
 #       update all                update the in-image components (firefox,
 #                                 mimocode, jdk, node) at the
 #                                 built-in versions
 #       install <c> [--version v] install one optional component (go, rust, libreoffice,
-#                                 vulkan)
+#                                 vulkan, chrome)
 #       update <c> [--version v]  update one in-image component (firefox,
 #                                 mimocode, jdk, node)
 #   - Must run as root to install/update; showing help needs no root.
@@ -36,7 +36,8 @@
 #
 # Official distribution URLs only (go.dev, static.rust-lang.org,
 # download-installer.cdn.mozilla.net, github.com/XiaomiMiMo/MiMo-Code,
-# sdk.lunarg.com, download.oracle.com, nodejs.org). No third-party mirrors.
+# sdk.lunarg.com, download.oracle.com, nodejs.org, dl.google.com).
+# No third-party mirrors.
 set -euo pipefail
 
 GO_DEFAULT_VERSION=1.27.4
@@ -59,6 +60,8 @@ NODE_ROOT=/opt/node
 # LibreOffice installs under a versioned dir (/opt/libreoffice26.8, ...) —
 # exact name is discovered from the AppImage at install time.
 LIBREOFFICE_ROOT_PREFIX=/opt/libreoffice
+# Chrome's .deb unpacks to its own layout at /opt/google/chrome.
+CHROME_ROOT=/opt/google/chrome
 
 log()  { echo "[install-prebuilts] $*"; }
 die()  { echo "[install-prebuilts] ERROR: $*" >&2; exit 1; }
@@ -73,7 +76,7 @@ Usage: install-prebuilts.sh [install|update] [all|<component>] [--version <ver>]
   (no args), -h, --help   Show this help
 
   install all             Download and install the optional components at the
-                          built-in versions: go, rust, libreoffice, vulkan
+                          built-in versions: go, rust, libreoffice, vulkan, chrome
   install <component>     Download and install one optional component
   install <component> --version <ver>
                           Same, pinned to a specific release
@@ -86,7 +89,10 @@ Usage: install-prebuilts.sh [install|update] [all|<component>] [--version <ver>]
 
 Components:
   in-image: firefox, mimocode, jdk, node
-  optional: go, rust, libreoffice, vulkan
+  optional: go, rust, libreoffice, vulkan, chrome
+
+  chrome has no --version: the official download link always serves the
+  latest stable.
 
 Examples:
   install-prebuilts.sh
@@ -96,6 +102,7 @@ Examples:
   install-prebuilts.sh install rust
   install-prebuilts.sh install libreoffice
   install-prebuilts.sh install vulkan --version 1.4.304.1
+  install-prebuilts.sh install chrome
   install-prebuilts.sh update node
   install-prebuilts.sh update mimocode --version 0.1.17
 EOF
@@ -171,7 +178,7 @@ safe_rm_rf() {
     # SCRATCH_ROOT is matched only when it has been initialized, so an empty
     # variable can never turn "${SCRATCH_ROOT}"/* into a bare /* pattern.
     case "${target}" in
-        "${GO_ROOT}"|"${RUST_ROOT}"|"${FIREFOX_ROOT}"|"${MIMOCODE_ROOT}"|"${VULKAN_ROOT}"|"${JDK_ROOT}"|"${NODE_ROOT}"|"${LIBREOFFICE_ROOT_PREFIX}"*)
+        "${GO_ROOT}"|"${RUST_ROOT}"|"${FIREFOX_ROOT}"|"${MIMOCODE_ROOT}"|"${VULKAN_ROOT}"|"${JDK_ROOT}"|"${NODE_ROOT}"|"${CHROME_ROOT}"|"${LIBREOFFICE_ROOT_PREFIX}"*)
             ;;
         *)
             [ -n "${SCRATCH_ROOT}" ] || die "safe_rm_rf: refusing path outside allowlist: ${target}"
@@ -635,6 +642,66 @@ install_libreoffice() {
     log "launch from the app menu (desktop entries installed) or run ${lo_dir##*/squashfs-root/opt/}"
 }
 
+# Google Chrome ships as a .deb and kan-linux has no dpkg, so unpack the
+# payload by hand (ar + tar) into the deb's own layout at /opt/google/chrome.
+# The deb's /etc/cron.daily job only maintains the apt repo config and is
+# skipped - there is no apt here.
+install_chrome() {
+    local tmp deb url data_tar member
+
+    replace_dir "${CHROME_ROOT}"
+
+    # The official direct link always serves the latest stable release —
+    # there is no versioned download URL to pin against.
+    deb="google-chrome-stable_current_amd64.deb"
+    url="https://dl.google.com/linux/direct/${deb}"
+    tmp="$(scratch_dir chrome)"
+
+    log "Downloading Google Chrome from ${url}"
+    fetch "$url" "${tmp}/${deb}"
+
+    log "Installing Google Chrome to ${CHROME_ROOT}"
+    have ar || die "ar is required to unpack the .deb"
+    ( cd "${tmp}" && ar x "${tmp}/${deb}" )
+
+    # dpkg allows several data.tar compressions and the rolling "current"
+    # deb may change format across Chrome releases — accept any data.tar.*.
+    data_tar=""
+    for member in "${tmp}"/data.tar.*; do
+        [ -f "${member}" ] || continue
+        data_tar="${member}"
+        break
+    done
+    [ -n "${data_tar}" ] || die "no data.tar.* member in ${deb}"
+    mkdir -p "${tmp}/root"
+    tar -C "${tmp}/root" -xf "${data_tar}"
+    [ -d "${tmp}/root/opt/google/chrome" ] || die "deb layout unexpected: no opt/google/chrome"
+
+    mkdir -p /opt/google
+    cp -a "${tmp}/root/opt/google/chrome" /opt/google/
+    # usr/ carries the launcher symlink (/usr/bin/google-chrome-stable) and
+    # the desktop entries that point at it.
+    cp -a "${tmp}/root/usr/." /usr/
+
+    # The deb ships chrome-sandbox setuid root and Chrome needs that for its
+    # sandbox; set the bit explicitly after extraction.
+    chmod 4755 "${CHROME_ROOT}/chrome-sandbox"
+
+    # kan-linux has no icon theme that resolves Icon=google-chrome: point
+    # Icon= at the shipped logo instead (absolute path, same convention as
+    # the Firefox desktop entry).
+    sed -i "s|^Icon=google-chrome\$|Icon=${CHROME_ROOT}/product_logo_256.png|" \
+        /usr/share/applications/google-chrome.desktop \
+        /usr/share/applications/com.google.Chrome.desktop
+
+    have update-desktop-database && update-desktop-database /usr/share/applications 2>/dev/null || true
+    have update-mime-database && update-mime-database /usr/share/mime 2>/dev/null || true
+
+    [ -x "${CHROME_ROOT}/chrome" ] || die "Chrome install failed: ${CHROME_ROOT}/chrome not found"
+    log "Google Chrome installed: ${CHROME_ROOT}"
+    log "launch from the app menu (desktop entries installed) or run /usr/bin/google-chrome-stable"
+}
+
 main() {
     local mode=""
     local component=""
@@ -667,7 +734,7 @@ main() {
     shift
 
     case "${mode}:${component}" in
-        install:all|install:go|install:rust|install:libreoffice|install:vulkan) ;;
+        install:all|install:go|install:rust|install:libreoffice|install:vulkan|install:chrome) ;;
         update:all|update:firefox|update:mimocode|update:jdk|update:node) ;;
         *) usage; exit 1 ;;
     esac
@@ -689,6 +756,7 @@ main() {
             jdk)         jdk_version="${pinned_version#jdk-}" ;;
             node)        node_version="${pinned_version#node-}"; node_version="${node_version#v}" ;;
             libreoffice) libreoffice_version="${pinned_version#libreoffice-}" ;;
+            chrome)      die "chrome: --version is not supported (the official download link always serves the latest stable)" ;;
         esac
     fi
     [ $# -eq 0 ] || { usage; exit 1; }
@@ -706,11 +774,13 @@ main() {
             install_rust "$rust_version"
             install_libreoffice "$libreoffice_version"
             install_vulkan "$vulkan_version"
+            install_chrome
             ;;
         install:go)          install_go "$go_version" ;;
         install:rust)        install_rust "$rust_version" ;;
         install:libreoffice) install_libreoffice "$libreoffice_version" ;;
         install:vulkan)      install_vulkan "$vulkan_version" ;;
+        install:chrome)      install_chrome ;;
         update:all)
             download_setup_firefox "$firefox_version"
             install_mimocode "$mimocode_version"
