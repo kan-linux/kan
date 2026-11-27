@@ -55,7 +55,7 @@
 
 本项目有如下10个完全开源子项目，您可以根据自己的技术兴趣与技术专长参与.
 
-1. Kan-Agent(based on pi,  we maintain our own downstream fork):  https://github.com/kan-linux/kan-agent
+1. Kan-Agent(based on pi,  we maintain our standalone repo):  https://github.com/kan-linux/kan-agent
 2. Hyprland(we maintain our own downstream fork):     https://github.com/kan-linux/Hyprland
 3. strata:          https://github.com/kan-linux/strata
 4. quickshell:   https://github.com/kan-linux/quickshell
