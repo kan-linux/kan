@@ -74,7 +74,7 @@ The implementation of Kan-Linux OS is not fully open-sourced for now:
 
 #### Fully open-source projects in Project Kan-Linux
 
-1. Kan-Agent(based on pi,  we maintain our own downstream fork):  https://github.com/kan-linux/kan-agent
+1. Kan-Agent(based on pi,  we maintain our standalone repo):  https://github.com/kan-linux/kan-agent
 2. Hyprland(we maintain our own downstream fork):     https://github.com/kan-linux/Hyprland
 3. strata:          https://github.com/kan-linux/strata
 4. quickshell:   https://github.com/kan-linux/quickshell
