@@ -62,7 +62,7 @@ The implementation of Kan-Linux OS is not fully open-sourced for now:
 
   - Similarly, it is clear that Xiaomi HyperOS will not be fully open-sourced, although its mobile variant is built upon Android.
 
-  - Project Kan-Linux is not a hobby project.
+  - We do not seek open-source sponsorship and are self-funded.
 
   - We will make Kan-Linux as secure as possible(verify with the built-in Wireshark or your white-box environment).
   That said, community contributions to other fully open components (such as Kan-Agent, desktop-shell) or upstream components (such as
