@@ -6,7 +6,7 @@
 	url = git@github.com:kan-linux/Hyprland
 [submodule "frameworks/wayland/quickshell"]
 	path = frameworks/wayland/quickshell
-	url = git@github.com:kan-linux/Hyprland
+	url = git@github.com:kan-linux/quickshell
 [submodule "external/shell/omarchy"]
 	path = external/shell/omarchy
 	url = git@github.com:kan-linux/omarchy
